@@ -7,29 +7,31 @@
   todo  Work through the Chicago Statement's nuances before settling on the precise formulation.
   refs  2 Tim 3:16-17; John 10:35
 
-## Canon · T1 · confident · #assumed
+## Canon · T1 · confident
   hold  Sixty-six books. The church recognised the canon; it did not create it.
   vs    The Roman Catholic deuterocanon as Scripture.
   link  roman-catholics-and-orthodox
 
-## Sufficiency of Scripture · T2 · confident · #assumed
+## Sufficiency of Scripture · T2 · confident
   hold  Scripture is sufficient for faith and practice. No new revelation adds to it.
   why   The necessary counterweight to continuationism — this is why prophecy can never bind the conscience.
   refs  2 Tim 3:16-17; Heb 1:1-2; Rev 22:18-19
   link  prophecy
 
-## Clarity of Scripture · T3 · confident · #assumed
-  hold  The main things are the plain things. Scripture's central message is accessible to ordinary readers.
+## Clarity of Scripture · T3 · confident
+  hold  The main things are the plain things. Scripture's central message is accessible to ordinary readers. Use clear teachings to understand unclear teachings
   vs    Teaching that requires an anointed interpreter to unlock the text.
   refs  Ps 119:105; Ps 19:7-8
 
-## Hermeneutic method · T2 · confident · #assumed
-  hold  Grammatical-historical. Authorial intent, genre and context govern meaning; application follows meaning.
-  vs    Allegorical and "rhema" readings that detach a text from its context.
+## Hermeneutic method · T2 · confident · #study
+  hold  Authorial intent, genre and context govern meaning; application follows meaning.
+  vs    Readings that detach a text from its context.
+  todo  Look into different explicit approaches / methods (e.g. Grammatical-historical, allegorical, "rhema")
 
-## Translations · T4 · confident · #assumed
-  hold  Formal and dynamic translations are both serviceable. No version is uniquely authorised.
+## Translations · T4 · confident · #study
+  hold  Formal and dynamic translations are both serviceable. No version is uniquely authorised. Translations should be used considerate of where they sit in word-for-word vs paraphrase (e.g. paraphrase not for deep study)
   vs    KJV-onlyism.
+  todo  Investigate the different streams of translations for ancestry.
 
 
 # God
@@ -40,14 +42,14 @@
   refs  Matt 28:19; John 1:1; 2 Cor 13:13
   link  the-creeds
 
-## Eternal generation of the Son · T1.5 · confident · #assumed
+## Eternal generation of the Son · T1.5 · confident
   hold  The Son is eternally begotten, not made. Nicene language affirmed as written.
   why   Follows directly from holding the creeds at tier one.
   refs  John 1:14; John 1:18
 
 ## EFS / ESS · T2 · open · #study
   hold  Undecided.
-  todo  Grudem and Ware hold that the Son eternally submits to the Father's authority. Critics say this gives the persons distinct wills, which is a Nicene problem — a will belongs to a nature. Decide, because your case for male headship is authority-based and EFS is the usual way that argument is made.
+  todo  Grudem and Ware hold that the Son eternally submits to the Father's authority. Critics say this gives the persons distinct wills, which is a Nicene problem — a will belongs to a nature. Decide, because my case for male headship is authority-based and EFS is the usual way that argument is made.
   refs  1 Cor 11:3; John 5:19
   link  women-in-ministry
 
@@ -79,33 +81,33 @@
   hold  Fully God and fully man. Two natures in one person, without confusion or division (Chalcedon).
   refs  John 1:1,14; Col 2:9
 
-## Virgin birth · T1 · certain · #assumed
+## Virgin birth · T1 · certain
   hold  Affirmed as historical.
   refs  Matt 1:23; Luke 1:34-35
 
-## Bodily resurrection · T1 · certain · #assumed
+## Bodily resurrection · T1 · certain
   hold  Christ rose bodily and in space and time. Without it there is no Christianity (1 Cor 15).
   refs  Luke 24:39; John 20:27
 
 ## Christ's use of divine power · T2 · confident
   hold  Voluntary restraint (krypsis). He retained every divine attribute in full, and freely chose not to exercise them independently of the Father and the Spirit.
   why   A very strong man can choose to use less force in an arm wrestle without ceasing to be strong.
-  vs    Ontological kenosis — that he divested himself of divine attributes in the incarnation. Yours is the historic and safer position; don't let it get labelled kenoticism.
+  vs    Ontological kenosis — that he divested himself of divine attributes in the incarnation. Krypsis is the historic and safer position; don't let it get labelled kenoticism.
   refs  Phil 2:6-7; Mark 13:32
   link  baptism-in-the-holy-spirit
 
-## Impeccability · T3 · confident · #assumed
+## Impeccability · T3 · confident
   hold  Christ could not have sinned, though his temptations were genuine.
   refs  Heb 4:15; James 1:13
 
 ## Atonement · T1.5 · leaning · #study
   hold  Likely penal substitution as the centre, with Christus Victor and ransom as real complementary facets.
-  todo  Test penal substitution against the governmental view — that is the classic Arminian alternative and it sits closer to your soteriology than you might expect.
+  todo  Test penal substitution against the governmental view — that is the classic Arminian alternative.
   refs  Isa 53:5-6; Rom 3:25; Col 2:15
   link  sovereignty-and-free-will
 
-## Extent of the atonement · T2.5 · confident · #assumed
-  hold  Universal provision. Christ died sufficiently for all; the benefit is applied on faith.
+## Extent of the atonement · T2.5 · confident
+  hold  Universal provision. Christ died sufficiently for all; the benefit is applied on faith (Analogy: A girlfriend rejecting a proposal does not mean the love and the offer is not real/present).
   why   Follows from a non-Calvinist soteriology.
   refs  1 John 2:2; 1 Tim 2:6
 
@@ -136,8 +138,8 @@
   refs  1 Cor 14:29; 1 Thess 5:20-21
   link  hearing-god
 
-## Tongues · T2 · confident · #assumed
-  hold  Both a private prayer language and a congregational gift. Congregational use requires interpretation and order (1 Cor 14).
+## Tongues · T2 · confident
+  hold  Both a private prayer language and a congregational gift. Congregational use requires interpretation and order (1 Cor 14). Congregational can  be in the form of other earthly languages or prophesy which reveals situations / inner secrets to bring encouragement/conviction in prophetic edification of the church.
   refs  1 Cor 14:2; 1 Cor 14:27-28
 
 ## Apostles and prophets today · T2 · confident
@@ -152,15 +154,18 @@
   refs  Isa 53:4-5; James 5:14-15; 2 Cor 12:8-9
   link  prosperity-teaching
 
-## Manifestations · T3 · confident · #assumed
-  hold  God may act physically and visibly on people, but no manifestation validates a ministry. Test by fruit and doctrine, never by phenomena.
+## Manifestations · T3 · confident
+  hold  God may act physically and visibly on people, but no manifestation validates a ministry. Test by fruit, character and doctrine, never by phenomena.
   refs  Matt 7:15-20; 1 John 4:1
 
+## Fruit from Bad Ministers · T3 · confident
+  hold  Working of the Holy Spirit never validates a minister but God may minister through people DESPITE their fruit, character and doctrine. 
 
 # Humanity and sin
 
-## Image of God · T1.5 · confident · #assumed
+## Image of God · T1.5 · confident · #study
   hold  All humans bear God's image inherently and equally. It grounds human dignity and is not lost in the fall.
+  todo  The views across time of the nature of the imago dei.
   refs  Gen 1:26-27; Gen 9:6
   link  abortion
 
@@ -170,7 +175,7 @@
   link  genre-of-genesis-1
 
 ## Original sin · T2 · open · #study
-  todo  Inherited corruption only (Wesleyan), or inherited guilt as well (Augustinian)? Your Arminian instincts point toward the former.
+  todo  Inherited corruption only (Wesleyan), or inherited guilt as well (Augustinian)? Arminian instincts point toward the former.
   refs  Ps 51:5; Ezek 18:20
 
 ## Depravity and prevenient grace · T2.5 · open · #study
@@ -179,11 +184,11 @@
   link  sovereignty-and-free-will
 
 ## Dichotomy vs trichotomy · T3 · open · #study
-  todo  RESOLVE TOGETHER WITH DELIVERANCE. Your framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or reframe the deliverance language.
+  todo  RESOLVE TOGETHER WITH DELIVERANCE. Framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or reframe the deliverance language.
   refs  1 Thess 5:23; Heb 4:12
   link  can-a-christian-be-demonised
 
-## Age of accountability · T3 · confident · #assumed
+## Age of accountability · T3 · confident
   hold  Those who die before moral responsibility are saved through Christ's work.
   refs  2 Sam 12:22-23; Deut 1:39
 
@@ -294,7 +299,7 @@
 
 ## Rapture · T4 · open
   hold  Post-tribulation or mid-tribulation. Not pre-tribulation.
-  why   A pre-tribulation rapture depends on dispensational machinery you don't hold.
+  why   A pre-tribulation rapture depends on dispensational machinery not held.
   refs  1 Thess 4:16-17; 2 Thess 2:3
 
 ## Hell · T2 · confident · #study
@@ -392,7 +397,7 @@
   link  image-of-god
 
 ## IVF and embryos · T3 · open · #assumed
-  todo  If personhood begins at conception, then embryo creation, freezing and discard need an answer. Genuinely unresolved for most who hold your position on abortion.
+  todo  If personhood begins at conception, then embryo creation, freezing and discard need an answer.
   link  abortion
 
 ## Euthanasia · T2 · confident · #assumed
@@ -410,10 +415,10 @@
   refs  Eph 5:18; 1 Tim 5:23
 
 ## Church and the public square · T2.5 · open · #study
-  todo  You value prophetic non-partisanship, concern about ideological capture, and robust cultural engagement — all three. In practice they pull against each other. Work out which governs when they conflict.
+  todo  I value prophetic non-partisanship, concern about ideological capture, and robust cultural engagement — all three. In practice they pull against each other. Work out which governs when they conflict.
 
 ## Justice and race · T2.5 · open · #study
-  todo  Biblical justice is commanded and non-negotiable. The live question is which frameworks for pursuing it import an anthropology you would reject.
+  todo  Biblical justice is commanded and non-negotiable. The live question is which frameworks for pursuing it import an anthropology I would reject.
   link  image-of-god
 
 ## War and violence · T3 · confident · #assumed
@@ -469,7 +474,7 @@
 
 ## The unevangelised · T2 · open · #study
   hold  Leaning toward God's middle knowledge of those who would never have chosen him under any circumstances.
-  todo  NOTE — that is the Molinist answer (Craig's transworld damnation), not inclusivism. They are different claims. Decide which one you actually hold.
+  todo  NOTE — that is the Molinist answer (Craig's transworld damnation), not inclusivism. They are different claims. Decide which one is held.
   refs  Matt 11:21-23; Rom 2:14-15
   link  sovereignty-and-free-will
 
@@ -518,7 +523,7 @@
 # Cross-cutting threads
 
 ## A sacramental instinct · #thread
-  hold  You hold baptism as genuinely instrumental and lean toward real presence at the table — both against low-church Pentecostal defaults.
+  hold  Baptism as genuinely instrumental and lean toward real presence at the table — both against low-church Pentecostal defaults.
   todo  These are not two questions but one: what does a means of grace actually do?
   link  baptism
   link  the-lords-supper
@@ -532,21 +537,21 @@
   link  apostles-and-prophets-today
 
 ## The trichotomy dependency · #thread
-  hold  Your deliverance framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit. Yet dichotomy vs trichotomy is unsettled.
+  hold  Deliverance framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit. Yet dichotomy vs trichotomy is unsettled.
   todo  These must be resolved together, or the map holds a quiet contradiction.
   link  dichotomy-vs-trichotomy
   link  can-a-christian-be-demonised
 
 ## Molinism as solvent · #thread
   hold  Middle knowledge is doing quiet work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time.
-  todo  If you adopt Molinism deliberately, several nodes resolve at once. If you reject it, all three reopen.
+  todo  If Molinism adopted deliberately, several nodes resolve at once. If rejected, all three reopen.
   link  sovereignty-and-free-will
   link  the-unevangelised
   link  divine-foreknowledge
 
 ## A high view of the great tradition · #thread
-  hold  Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct. Taken together this is a markedly more catholic instinct than your movement usually carries.
-  todo  Worth owning deliberately rather than holding by accident — it will shape how you read everything else.
+  hold  Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.
+  todo  Look more into the fathers and how to understand / apply / appreciate the spectrum of views.
   link  the-creeds
   link  the-fathers
   link  classical-theism
