@@ -202,25 +202,26 @@
   refs  Phil 2:12-13; Josh 24:15
   link  divine-foreknowledge
 
-## Election · T2.5 · leaning · #assumed
+## Election · T2.5 · leaning · #study
   hold  Not unconditional in the Calvinist sense. God's choosing and the free human response are compatible.
   todo  Decide between classical Arminian conditional election and a fully Molinist account.
   refs  Rom 8:29; Eph 1:4-5
 
 ## Perseverance and apostasy · T2 · open · #study
-  todo  Can a genuine believer be finally lost? Heb 6, Heb 10 and John 15 against 1 John 2:19 and John 10:28.
+  todo  Can a genuine believer be lost? Heb 6, Heb 10 and John 15 against 1 John 2:19 and John 10:28.
   refs  Heb 6:4-6; John 10:28-29
   link  sealing-of-the-spirit
+  link  Assurance
 
 ## Assurance · T2 · open · #study
   todo  Follows from perseverance. Aim for a doctrine that gives real assurance without rendering the warning passages hypothetical.
   refs  1 John 5:13; Rom 8:16
 
-## Lordship salvation · T3 · confident · #assumed
+## Lordship salvation · T3 · confident
   hold  Saving faith necessarily produces fruit. A faith that changes nothing was never faith. Works are evidence, never ground.
   refs  James 2:17; Matt 7:21-23
 
-## Justification · T1 · confident · #assumed
+## Justification · T1 · confident
   hold  By grace through faith, on the ground of Christ's work alone.
   vs    The New Perspective's reduction of justification to covenant membership.
   refs  Eph 2:8-9; Rom 5:1
@@ -236,16 +237,16 @@
 ## Women in ministry · T2.5 · confident
   hold  Soft complementarian. Women may preach, teach, lead ministries and be ordained to most roles; the senior pastor and elder office is male.
   why   A male should carry responsibility for the discipleship of the adult men of the church. It is a difference in authority, not a difference in value.
-  vs    Both egalitarianism and the hard complementarianism that restricts women's teaching generally.
+  vs    Both egalitarianism and the hard complementarianism (that restricts women's teaching generally).
   refs  1 Tim 2:12; Gal 3:28
   link  efs-ess
 
-## Church government · T2 · confident
+## Church government · T2.5 · confident
   hold  Plural eldership with a senior pastor leading.
   vs    A single unaccountable leader; and congregational vote as final authority.
   refs  Acts 14:23; 1 Tim 5:17
 
-## Translocal oversight · T3 · confident · #assumed
+## Translocal oversight · T3 · confident
   hold  Network and apostolic relationships are valuable for accountability and sending, but do not hold governing authority over the local eldership.
   link  apostles-and-prophets-today
 
@@ -258,11 +259,11 @@
 ## The Lord's Supper · T2 · leaning · #study
   hold  Likely spiritual real presence (Calvin) — Christ genuinely communicated to believers by the Spirit.
   vs    Bare memorialism, which is too thin for 1 Cor 10:16; and transubstantiation.
-  todo  Same study as baptism.
+  todo  Same study as baptism. Also study Calvins full definition.
   refs  1 Cor 10:16; 1 Cor 11:23-26
   link  baptism
 
-## Membership and discipline · T3 · confident · #assumed
+## Membership and discipline · T2.5 · confident
   hold  Meaningful membership and Matthew 18 discipline are normal church life, aimed at restoration rather than punishment.
   refs  Matt 18:15-17; 1 Cor 5:4-5
 
@@ -271,24 +272,25 @@
   vs    Teaching the tithe as an obligation on Christians.
   refs  Mal 3:10; 2 Cor 9:7
 
-## Worship · T4 · confident · #assumed
-  hold  Style is a matter of liberty. Content, truthfulness and edification are not.
+## Worship · T3 · confident
+  hold  Style/expression is a matter of liberty. Content, truthfulness and edification are not.
 
 
 # Last things
 
-## Second coming · T1 · certain · #assumed
+## Second coming · T1 · certain
   hold  Christ will return bodily, visibly and personally.
   refs  Acts 1:11; 1 Thess 4:16
 
 ## Millennium · T3 · leaning
   hold  Premillennial.
-  why   Held as a lean, with genuine appreciation for much of the amillennial argument.
+  why   Held as a soft lean, with genuine appreciation for much of the amillennial argument.
   refs  Rev 20:1-6
 
-## Historic vs dispensational premillennialism · T3 · confident
-  hold  Historic premillennialism. Christ returns before the millennium, but without dispensationalism's separate programmes for Israel and the church.
+## Historic vs dispensational premillennialism · T3 · open · #study
+  hold  Historic premillennialism. Christ returns before the millennium, but without dispensationalism's separate activities for Israel and the church.
   why   Follows from progressive covenantalism. Worth stating explicitly, because "premil" in a Pentecostal setting is normally assumed to mean the dispensational version.
+  todo  I want to study further on the relation with Israel.
   link  israel-and-the-church
 
 ## Israel and the church · T3 · leaning · #study
@@ -312,7 +314,7 @@
   why   Guards against the popular error that a disembodied heaven is the final hope.
   refs  2 Cor 5:8; Phil 1:23
 
-## New creation · T2 · confident · #assumed
+## New creation · T2 · confident
   hold  The hope is a renewed, physical heaven and earth — not an escape from matter.
   refs  Rev 21:1-4; Rom 8:19-21
 
@@ -327,20 +329,21 @@
   hold  Old earth — roughly seventy-thirty.
   why   Young-earth arguments are respected as genuinely possible, not dismissed.
 
-## Genre of Genesis 1 · T3 · leaning · #assumed
+## Genre of Genesis 1 · T3 · leaning #study
   hold  True theology told in ancient literary form. Not a scientific chronology, and so not in competition with one.
+  todo  Further study into 'mytho history' genre.
   link  age-of-the-earth
 
 ## Evolution · T3 · open · #study
   todo  Depends on the historical Adam question. Resolve that first, then this.
   link  historical-adam
 
-## The flood · T3 · open · #assumed
+## The flood · T3 · open
   hold  A real judgement event. Global or regional left open.
   refs  Gen 7:11-24; 2 Pet 3:5-6
 
-## Miracles and science · T2 · confident · #assumed
-  hold  God acts in the world he made. Methodological naturalism is a method, not a metaphysics.
+## Miracles and science · T2 · confident
+  hold  God acts in the world he made. 
   refs  John 5:17; Col 1:17
 
 
@@ -364,11 +367,11 @@
   todo  This framing presupposes a distinct human spirit. Resolve alongside dichotomy vs trichotomy.
   link  dichotomy-vs-trichotomy
 
-## Deliverance ministry · T3 · confident · #assumed
+## Deliverance ministry · T2.5 · confident
   hold  Legitimate, and integrated with repentance, discipleship and where needed medical care — never a substitute for them.
   refs  Mark 16:17; Acts 16:18
 
-## Territorial spirits · T3 · open · #assumed
+## Territorial spirits · T3 · open
   hold  Spiritual powers over regions is a plausible biblical category. Strategic-level spiritual warfare methodology is not warranted by it.
   refs  Dan 10:13; Rev 2:13
 
