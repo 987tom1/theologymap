@@ -1,0 +1,174 @@
+# Project 12 — Theology Mind Map
+
+A mind map of Thomas's theological positions, organised by Gavin Ortlund's
+theological triage (*Finding the Right Hills to Die On*).
+
+## The one rule
+
+**`theology-map.md` holds the content and is what you edit.** Everything in
+`build/` is generated — never hand-edit it, it is overwritten on every run.
+`verses.md` is a second source file, but it is mostly machine-filled (below).
+
+```
+python render.py         # build everything
+python fetch_verses.py   # fill any blank verse text (needs network)
+```
+
+`render.py` writes `build/theology-map.html`, `build/theology-map.mm` and
+`build/study-list.md`. Standard library only, no installs. It prints node
+counts, scripture-reference counts, and warns on broken `link` targets — a
+broken link means the slug doesn't match any node title.
+
+## Node syntax
+
+```
+# Domain name
+
+## Node title · T2 · confident · #study
+  hold  The position held.
+  why   One line of rationale.
+  vs    The rival view rejected.
+  todo  What still needs working out.
+  refs  2 Tim 3:16-17; Heb 1:1-2
+  link  slug-of-a-related-node
+```
+
+Every field is optional. Repeat `link` for multiple targets. Continuation lines
+that don't start with a field keyword append to the previous field. Field order
+in the file is conventionally hold → why → vs → todo → refs → link, though the
+parser doesn't require it.
+
+`refs` holds key scripture references, semicolon-separated, rendered as small
+pills under a "Texts" label. Keep to one to four, and prefer the texts actually
+argued over for that doctrine — including the ones the opposing view leans on —
+rather than merely topical verses. Roughly 80 of the 98 nodes carry them;
+method and history nodes (hermeneutics, translations, the creeds, the Fathers,
+Pentecostal heritage) deliberately do not, and neither do the `#thread` nodes.
+
+**Tier** — `T1`, `T1.5`, `T2`, `T2.5`, `T3`, `T4`. Half-steps are deliberate;
+Thomas uses them where a doctrine genuinely sits between two of Ortlund's ranks
+(free will/sovereignty and women in ministry are both T2.5).
+
+**Confidence** — `certain`, `confident`, `leaning`, `open`, `rejected`. An
+ordinal band, not a percentage. Renders as a filled bar. Confidence is
+independent of `#study`: a position can be held confidently and still be under
+active study.
+
+**Flags** — `#study` (needs work), `#assumed` (inferred by Claude from stated
+positions, not yet confirmed by Thomas — renders with a dashed border),
+`#thread` (a cross-cutting theme; pulled out of the domain and tier views into
+its own Threads view).
+
+Slugs are derived from the title: lowercased, apostrophes dropped, everything
+else non-alphanumeric collapsed to hyphens. `The Lord's Supper` →
+`the-lords-supper`.
+
+## verses.md and the scripture popovers
+
+Clicking a reference pill in the HTML opens a popover with the verse text.
+That text lives in `verses.md`, one entry per reference:
+
+```
+## 2 Tim 3:16-17
+Every scripture is inspired by God and useful for teaching, ...
+```
+
+The two scripts divide the work:
+
+- `render.py` **syncs the reference list**. It collects every reference used
+  across the map and appends an empty stub to `verses.md` for any it doesn't
+  already find. It never overwrites or reorders existing text. It reports how
+  many references are in use and how many still lack text, and lists the gaps
+  in `build/study-list.md`.
+- `fetch_verses.py` **fills the text**, querying Biblical Studies Press's free
+  NET Bible endpoint (`labs.bible.org/api/`). By default it only fills blanks,
+  so anything corrected by hand survives; `--all` re-fetches everything.
+
+So the loop after adding references is: `python render.py` then
+`python fetch_verses.py`. All 156 current references have text.
+
+**Never write verse text from memory.** It comes out subtly wrong, which in a
+theology reference is worse than a visible blank. Fetch it or leave it empty.
+
+**A blank after fetching almost always means a bad reference, not a network
+problem** — usually versification. The NET follows the critical text, so some
+references drawn from a KJV-based source are off by one; `2 Cor 13:14` was
+already caught and corrected to `13:13`. Check Psalms, 2 Corinthians and
+Malachi in particular.
+
+Translation choice is confined to `fetch_verses.py`. NET is used under its
+permissive free-use policy; the attribution notice in `verses.md`'s header and
+in the page footer must travel with the text.
+
+## Outputs
+
+| File | Purpose |
+|---|---|
+| `theology-map.html` | Five views — see below. Text filter, three-way study filter, hide-inferred toggle, expand-all / collapse-all. Theme-aware. Print stylesheet lays it out in two columns for A3. |
+| `theology-map.mm` | Freeplane / XMind. Drag-editable — this is the endgame for hand-arranging the map. Field content lands in each node's Note. |
+| `study-list.md` | Auto-generated: the five threads first, then open questions by domain, then everything still marked `#assumed`, then any references still lacking verse text. |
+
+The `.mm` is a one-way export. Rearranging it in Freeplane will not flow back
+into `theology-map.md`, so do that only once the content is settled.
+
+### The five HTML views
+
+- **Map** (default) — a balanced node-link tree. The root sits in the middle
+  with its 14 domains alternating right and left, matching the `.mm` export's
+  convention; each side keeps its own vertical cursor so the two pack
+  independently. Within each domain, leaves are ordered by tier (T1 down to
+  T4, untiered last). Box widths are content-driven, not fixed: CSS sizes
+  each box to its content (`width:max-content`, clamped) and the layout pass
+  measures the result via `offsetWidth`, the same way it already measures
+  heights via `offsetHeight`. Collapsed leaves clamp to roughly 150-320px;
+  an expanded leaf's detail panel clamps to roughly 340-560px (a comfortable
+  reading measure, hard-capped at 560px); domain boxes clamp to roughly
+  140-240px. Every second leaf is staggered outward by half of its own
+  measured width to tighten vertical packing. Click a box to expand it;
+  click a leaf to open its detail in place. Drag or one-finger swipe to pan,
+  wheel or pinch to zoom (cursor-anchored, clamped 0.3–2.5x), "reset view"
+  to recentre on the root. Starts with only the
+  root and the domain boxes showing. Below 860px it falls back to the
+  single-sided left-to-right layout.
+- **Domain** / **Tier** / **Confidence** — grouped card lists. Groups are
+  collapsed by default and toggle on click. An active text filter auto-expands
+  any group holding a match, without disturbing the stored collapse state.
+  Cards within a Domain group are ordered by tier (T1 down to T4, untiered
+  last), matching the Map view; within a tier, file order is preserved.
+- **Threads** — the five `#thread` nodes, which are excluded from every other
+  view.
+
+Expand-all and collapse-all drive both the map and the list groups. Printing
+force-switches to the domain view with everything expanded, then restores
+whatever view was on screen.
+
+### Phone layout
+
+Below 640px the view switcher and search stay on the top row and the secondary
+controls (study filter, hide-inferred, expand/collapse) move behind a "Filters"
+disclosure, collapsed by default; the kicker, subtitle and tier legend hide to
+keep the sticky header short. Card field labels stack above their values below
+560px. Map panning and pinch-zoom use pointer events with a 6px threshold so a
+tap on a box still registers as a tap rather than a drag.
+
+Design language, if you touch the CSS: warm paper-and-ink palette in both
+themes, serif reserved for content and sans for chrome, prose capped at 58ch,
+tier colours a garnet→slate warm-to-cool ramp chosen for WCAG AA contrast with
+white chip text. Don't reintroduce traffic-light tier colours — the earlier
+amber values failed contrast.
+
+## Working notes
+
+- Source conversation: 2026-08-10. Reference points Thomas named — International
+  Network of Churches (his movement), Mike Winger, Gavin Ortlund.
+- Roughly 35 nodes carry positions Thomas stated directly. The 40 marked
+  `#assumed` were inferred from those and need his confirmation.
+- The five `#thread` nodes are the most load-bearing output: a sacramental
+  instinct running against low-church defaults; the semantic-range problem
+  under "prophecy" and "God told me"; a trichotomy dependency hiding under the
+  deliverance framing; Molinism doing quiet work in three places; and a higher
+  view of the great tradition than the movement usually carries.
+- Two corrections worth preserving, because both are easy to re-introduce:
+  Thomas's view of Christ's restrained power is **krypsis** (voluntary non-use),
+  *not* ontological kenosis; and his answer on the unevangelised is the
+  **Molinist** one (Craig's transworld damnation), not inclusivism.
