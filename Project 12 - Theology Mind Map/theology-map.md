@@ -349,7 +349,7 @@
 
 # The unseen realm
 
-## Angels and demons · T2 · confident · #assumed
+## Angels and demons · T2 · confident
   hold  Real, personal, created spiritual beings. Neither mythology nor metaphor.
   refs  Heb 1:14; Eph 6:12
 
@@ -384,9 +384,9 @@
   vs    Affirming readings; and equally the hostility that treats this sin as uniquely disqualifying.
   refs  Gen 2:24; Rom 1:26-27
 
-## Gender identity · T2 · confident
+## Gender identity · T2 · certain
   hold  Embodiment is a given good and identity is not self-created, so transition is not the answer. Gender dysphoria is real suffering rather than rebellion, and deserves compassion.
-  why   Held alongside genuine concern about medicalisation of minors, social contagion and institutional capture.
+  why   Held due to genuine concern about medicalisation of minors, social contagion and institutional capture.
   refs  Gen 1:27; Ps 139:13-14
 
 ## Divorce and remarriage · T3 · leaning · #study
@@ -394,37 +394,37 @@
   todo  Low confidence. Work the Matthean exception and 1 Cor 7 properly.
   refs  Matt 19:9; 1 Cor 7:15
 
-## Abortion · T2 · certain · #assumed
+## Abortion · T2 · certain
   hold  The unborn bear God's image from conception. Abortion takes a human life.
   refs  Ps 139:13-16; Jer 1:5
   link  image-of-god
 
-## IVF and embryos · T3 · open · #assumed
+## IVF and embryos · T3 · open · #study
   todo  If personhood begins at conception, then embryo creation, freezing and discard need an answer.
   link  abortion
 
-## Euthanasia · T2 · confident · #assumed
+## Euthanasia · T3 · confident
   hold  Deliberately ending a life is not care. Suffering is met with palliative care and presence.
   refs  Exod 20:13; Job 14:5
 
-## Prosperity teaching · T2 · certain
+## Prosperity teaching · T1.5 · certain
   hold  Rejected as a serious distortion of the gospel.
   vs    Guaranteed-return giving; health and wealth as covenant right.
   refs  1 Tim 6:5-10
   link  healing
 
-## Alcohol · T4 · confident · #assumed
+## Alcohol · T3 · confident
   hold  Drunkenness is sin. Abstinence is wisdom for some and not a law for all.
   refs  Eph 5:18; 1 Tim 5:23
 
 ## Church and the public square · T2.5 · open · #study
-  todo  I value prophetic non-partisanship, concern about ideological capture, and robust cultural engagement — all three. In practice they pull against each other. Work out which governs when they conflict.
+  todo  I value prophetic non-partisanship, political involvement, and cultural engagement. In practice they pull against each other. Work out which governs when they conflict.
 
 ## Justice and race · T2.5 · open · #study
-  todo  Biblical justice is commanded and non-negotiable. The live question is which frameworks for pursuing it import an anthropology I would reject.
+  todo  Biblical justice is commanded and non-negotiable.
   link  image-of-god
 
-## War and violence · T3 · confident · #assumed
+## War and violence · T3 · confident
   hold  Just war rather than pacifism. Force is a grim last resort under real constraint.
   refs  Rom 13:4; Matt 5:39
 
@@ -448,7 +448,7 @@
   refs  1 John 3:2; Rom 8:30
 
 ## Desert seasons · T3 · confident
-  hold  Growth often occurs in wilderness seasons rather than in spite of them. Israel in the desert is the pattern.
+  hold  Growth often occurs in wilderness seasons rather than in spite of them. Israel in the desert is the pattern. Also note the transitory period of Jonah in the fish and Jesus while buried.
   why   Guards against reading dryness as failure or as God's absence.
   refs  Deut 8:2-3; Hos 2:14-15
 
@@ -459,11 +459,11 @@
   refs  Rom 12:2; John 10:27
   link  prophecy
 
-## Spiritual disciplines · T3 · confident · #assumed
+## Spiritual disciplines · T3 · confident
   hold  Prayer, Scripture, fasting, sabbath and community are ordinary means God actually uses. Effort is not works-righteousness.
   refs  1 Tim 4:7-8; Matt 6:16-18
 
-## Suffering and providence · T2 · confident · #assumed
+## Suffering and providence · T2 · confident
   hold  God is sovereign over suffering and genuinely good within it. He does not need to have caused an evil in order to redeem it.
   refs  Rom 8:28; Gen 50:20
   link  sovereignty-and-free-will
@@ -477,20 +477,21 @@
 
 ## The unevangelised · T2 · open · #study
   hold  Leaning toward God's middle knowledge of those who would never have chosen him under any circumstances.
-  todo  NOTE — that is the Molinist answer (Craig's transworld damnation), not inclusivism. They are different claims. Decide which one is held.
+  todo  NOTE — Molinist answer, not inclusivism. Study further into which one is held.
   refs  Matt 11:21-23; Rom 2:14-15
   link  sovereignty-and-free-will
 
-## World religions · T2 · confident · #assumed
+## World religions · T2 · confident 
   hold  Other religions may contain genuine moral insight and real longing, but they do not save.
   refs  Acts 17:22-23; Rom 1:19-20
 
-## Contextualisation · T3 · confident · #assumed
+## Contextualisation · T3 · confident
   hold  The gospel translates into every culture and judges every culture — including this one.
   refs  1 Cor 9:19-23
 
-## Israel and Judaism · T3 · leaning · #assumed
+## Israel and Judaism · T3 · leaning · #study
   hold  The Jewish people remain objects of God's covenant faithfulness, and need Christ as everyone does.
+  todo  Study further into Israel-Christian interrelationship
   refs  Rom 11:28-29; Rom 1:16
   link  israel-and-the-church
 
@@ -514,11 +515,11 @@
   todo  Less confident regarding priests and ministers within those churches. Work out whether holding office changes the assessment.
   link  justification
 
-## Reformation solas · T1.5 · confident · #assumed
+## Reformation solas · T1.5 · certain
   hold  Affirmed — grace alone, faith alone, Christ alone, to God's glory alone, Scripture first.
   refs  Eph 2:8-9; Rom 3:28
 
-## Pentecostal heritage · T3 · confident · #assumed
+## Pentecostal heritage · T3 · confident
   hold  The movement's recovery of the Spirit's present work is a genuine gift to the church. Its thin systematic theology and short historical memory are real costs to be corrected rather than defended.
   link  the-fathers
 
@@ -527,14 +528,14 @@
 
 ## A sacramental instinct · #thread
   hold  Baptism as genuinely instrumental and lean toward real presence at the table — both against low-church Pentecostal defaults.
-  todo  These are not two questions but one: what does a means of grace actually do?
+  todo  Key: 'What does a means of grace actually do?'
   link  baptism
   link  the-lords-supper
   link  regeneration-and-baptism
 
 ## The vocabulary of hearing God · #thread
-  hold  Twice over, the sticking point was not the doctrine but the word. "Prophecy" and "God told me" are being made to carry several different meanings at once.
-  todo  Do the word study before settling prophecy, guidance, or the prophetic office. Everything downstream depends on it.
+  hold  "Prophecy" and "God told me" are being made to carry several different meanings at once.
+  todo  Do the word study before settling prophecy, guidance, or the prophetic office.
   link  prophecy
   link  hearing-god
   link  apostles-and-prophets-today
