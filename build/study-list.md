@@ -15,14 +15,14 @@ Baptism as genuinely instrumental and lean toward real presence at the table —
 **Do:** Do the word study before settling prophecy, guidance, or the prophetic office.
 
 ### The trichotomy dependency
-Deliverance framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit. Yet dichotomy vs trichotomy is unsettled.
+Resolved. The deliverance framing used to speak of the human spirit partnering with the Holy Spirit or with evil spirits, which quietly presupposed trichotomy while the constitution question sat unsettled. Dichotomy is now held, and the deliverance nodes have been restated in terms of degree of influence rather than parts of a person.
 
-**Do:** These must be resolved together, or the map holds a quiet contradiction.
+**Do:** Watch for the old vocabulary creeping back into any new node on deliverance or spiritual warfare.
 
-### Molinism as solvent
-Middle knowledge is doing quiet work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time.
+### Molinism held lightly
+Middle knowledge was doing quiet load-bearing work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time. It is now held deliberately but only at T3, so those nodes have been re-grounded to stand without it.
 
-**Do:** If Molinism adopted deliberately, several nodes resolve at once. If rejected, all three reopen.
+**Do:** The unevangelised is the one place still leaning on it. That question needs an answer that survives if middle knowledge proves unavailable.
 
 ### A high view of the great tradition
 Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.
@@ -72,13 +72,14 @@ Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacram
   - To do: Inherited corruption only (Wesleyan), or inherited guilt as well (Augustinian)? Arminian instincts point toward the former.
 - **Depravity and prevenient grace** `T2.5`  _open_
   - To do: If grace is resistible and the human response genuinely free, what enables that response? Prevenient grace, or an unaided free will?
-- **Dichotomy vs trichotomy** `T3`  _open_
-  - To do: RESOLVE TOGETHER WITH DELIVERANCE. Framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or shift to be human spirit/soul.
+- **Dichotomy vs trichotomy** `T3`  _leaning_
+  - Currently: Dichotomy. A human being is body and one immaterial self; "spirit" and "soul" name that self from different angles rather than two separable parts.
+  - To do: Work through 1 Thess 5:23 and Heb 4:12 properly rather than resting on the interchangeability argument alone.
 
 ### Salvation
 - **Election** `T2.5`  _leaning_
   - Currently: Not unconditional in the Calvinist sense. God's choosing and the free human response are compatible.
-  - To do: Decide between classical Arminian conditional election and a fully Molinist account.
+  - To do: With Molinism at T3, conditional election stands on classical Arminian grounds and a Molinist account becomes an optional refinement rather than a fork to choose. Confirm that is the settled shape.
 - **Perseverance and apostasy** `T3`  _open_
   - To do: Can a genuine believer be lost? Heb 6, Heb 10 and John 15 against 1 John 2:19 and John 10:28.
 - **Assurance** `T3`  _open_
@@ -134,8 +135,8 @@ Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacram
 
 ### Missions and world religions
 - **The unevangelised** `T2`  _open_
-  - Currently: Leaning toward God's middle knowledge of those who would never have chosen him under any circumstances.
-  - To do: NOTE — Molinist answer, not inclusivism. Study further into which one is held.
+  - Currently: Genuinely open. The Molinist answer — that God knows who would never have chosen him under any circumstances — is the preferred one, but it is a T3 framework carrying a T2 question, so it cannot settle this on its own.
+  - To do: NOTE — the preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3, this reopens: work out what the answer is if middle knowledge turns out to be unavailable.
 - **Israel and Judaism** `T3`  _leaning_
   - Currently: The Jewish people remain objects of God's covenant faithfulness, and need Christ as everyone does.
   - To do: Study further into Israel-Christian interrelationship

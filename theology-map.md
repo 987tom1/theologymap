@@ -65,12 +65,14 @@
 
 ## Open theism · T1.5 · rejected
   hold  Rejected. God's knowledge of the future is exhaustive.
-  why   Middle knowledge already secures genuine creaturely freedom without limiting omniscience.
+  why   God declares the end from the beginning and knows a word before it is on the tongue. The rejection rests on those texts directly, not on any particular account of how exhaustive knowledge coheres with creaturely freedom.
   refs  Isa 46:9-10; Ps 139:4
   link  divine-foreknowledge
 
-## Divine foreknowledge · T2.5 · leaning
+## Divine foreknowledge · T3 · leaning
   hold  Middle knowledge (Molinism) — God knows what free creatures would freely do in any circumstance.
+  why   The best available account of how exhaustive foreknowledge and genuine freedom fit together. Held as an explanation, not as a test of orthodoxy — that God foreknows exhaustively is settled at a far higher tier than how he does.
+  todo  The grounding objection is the real cost: what makes the counterfactuals of creaturely freedom true prior to any divine decree? Worth understanding before leaning harder.
   refs  1 Sam 23:10-13; Matt 11:21-23
   link  sovereignty-and-free-will
 
@@ -183,8 +185,11 @@
   refs  John 6:44; Titus 2:11
   link  sovereignty-and-free-will
 
-## Dichotomy vs trichotomy · T3 · open · #study
-  todo  RESOLVE TOGETHER WITH DELIVERANCE. Framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or shift to be human spirit/soul.
+## Dichotomy vs trichotomy · T3 · leaning · #study
+  hold  Dichotomy. A human being is body and one immaterial self; "spirit" and "soul" name that self from different angles rather than two separable parts.
+  why   Scripture uses the two words interchangeably — the same act is ascribed to soul and to spirit, and death is described as the departure of either. The trichotomist texts read more naturally as emphatic wholeness than as an inventory of parts.
+  vs    Trichotomy — body, soul and spirit as three distinct constituents, with the human spirit as the organ of contact with God.
+  todo  Work through 1 Thess 5:23 and Heb 4:12 properly rather than resting on the interchangeability argument alone.
   refs  1 Thess 5:23; Heb 4:12
   link  can-a-christian-be-demonised
 
@@ -196,15 +201,15 @@
 # Salvation
 
 ## Sovereignty and free will · T2.5 · confident
-  hold  There is no genuine conflict between them. Molinism is the most likely framework for saying so.
-  why   A husband and wife choose each other, and neither choice overrides the other's freedom.
+  hold  There is no genuine conflict between them.
+  why   A husband and wife choose each other, and neither choice overrides the other's freedom. Molinism is the most likely framework for spelling this out, but the compatibility is held on the texts and does not stand or fall with it.
   vs    The Calvinist framing that makes these a dilemma in the first place.
   refs  Phil 2:12-13; Josh 24:15
   link  divine-foreknowledge
 
 ## Election · T2.5 · leaning · #study
   hold  Not unconditional in the Calvinist sense. God's choosing and the free human response are compatible.
-  todo  Decide between classical Arminian conditional election and a fully Molinist account.
+  todo  With Molinism at T3, conditional election stands on classical Arminian grounds and a Molinist account becomes an optional refinement rather than a fork to choose. Confirm that is the settled shape.
   refs  Rom 8:29; Eph 1:4-5
 
 ## Perseverance and apostasy · T3 · open · #study
@@ -363,8 +368,8 @@
   link  divine-council
 
 ## Can a Christian be demonised · T2 · confident
-  hold  "Demonised" is the better word than possessed or oppressed. The human spirit can partner with the Holy Spirit, or with evil spirits.
-  todo  This framing presupposes a distinct human spirit. Resolve alongside dichotomy vs trichotomy.
+  hold  "Demonised" is the better word than possessed or oppressed. A believer can come under real demonic influence in mind, will and body without being owned, because influence admits of degrees in a way ownership does not.
+  why   Deliverance needs a doctrine of degree, not a doctrine of parts. Stating it this way keeps the pastoral practice intact whether a person is dichotomist or trichotomist.
   link  dichotomy-vs-trichotomy
 
 ## Deliverance ministry · T2.5 · confident
@@ -476,8 +481,8 @@
   refs  John 14:6; Acts 4:12
 
 ## The unevangelised · T2 · open · #study
-  hold  Leaning toward God's middle knowledge of those who would never have chosen him under any circumstances.
-  todo  NOTE — Molinist answer, not inclusivism. Study further into which one is held.
+  hold  Genuinely open. The Molinist answer — that God knows who would never have chosen him under any circumstances — is the preferred one, but it is a T3 framework carrying a T2 question, so it cannot settle this on its own.
+  todo  NOTE — the preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3, this reopens: work out what the answer is if middle knowledge turns out to be unavailable.
   refs  Matt 11:21-23; Rom 2:14-15
   link  sovereignty-and-free-will
 
@@ -541,14 +546,16 @@
   link  apostles-and-prophets-today
 
 ## The trichotomy dependency · #thread
-  hold  Deliverance framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit. Yet dichotomy vs trichotomy is unsettled.
-  todo  These must be resolved together, or the map holds a quiet contradiction.
+  hold  Resolved. The deliverance framing used to speak of the human spirit partnering with the Holy Spirit or with evil spirits, which quietly presupposed trichotomy while the constitution question sat unsettled. Dichotomy is now held, and the deliverance nodes have been restated in terms of degree of influence rather than parts of a person.
+  why   Kept as a thread because it explains why those nodes are worded as they are — the neutral wording is deliberate and should not drift back.
+  todo  Watch for the old vocabulary creeping back into any new node on deliverance or spiritual warfare.
   link  dichotomy-vs-trichotomy
   link  can-a-christian-be-demonised
 
-## Molinism as solvent · #thread
-  hold  Middle knowledge is doing quiet work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time.
-  todo  If Molinism adopted deliberately, several nodes resolve at once. If rejected, all three reopen.
+## Molinism held lightly · #thread
+  hold  Middle knowledge was doing quiet load-bearing work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time. It is now held deliberately but only at T3, so those nodes have been re-grounded to stand without it.
+  why   A framework held at T3 cannot carry conclusions held at T1.5 or T2. The rejection of open theism now rests on the foreknowledge texts directly, and the compatibility of sovereignty and freedom rests on its own texts, with Molinism offered as explanation rather than foundation.
+  todo  The unevangelised is the one place still leaning on it. That question needs an answer that survives if middle knowledge proves unavailable.
   link  sovereignty-and-free-will
   link  the-unevangelised
   link  divine-foreknowledge
