@@ -41,7 +41,7 @@ parser doesn't require it.
 `refs` holds key scripture references, semicolon-separated, rendered as small
 pills under a "Texts" label. Keep to one to four, and prefer the texts actually
 argued over for that doctrine — including the ones the opposing view leans on —
-rather than merely topical verses. Roughly 80 of the 98 nodes carry them;
+rather than merely topical verses. Roughly 80 of the 99 nodes carry them;
 method and history nodes (hermeneutics, translations, the creeds, the Fathers,
 Pentecostal heritage) deliberately do not, and neither do the `#thread` nodes.
 
@@ -58,6 +58,10 @@ active study.
 positions, not yet confirmed by Thomas — renders with a dashed border),
 `#thread` (a cross-cutting theme; pulled out of the domain and tier views into
 its own Threads view).
+
+No node currently carries `#assumed` — Thomas worked through all 40 and either
+confirmed, retiered or rewrote them (2026-08-11). The flag and its rendering
+stay supported for the next round of inference.
 
 Slugs are derived from the title: lowercased, apostrophes dropped, everything
 else non-alphanumeric collapsed to hyphens. `The Lord's Supper` →
@@ -161,8 +165,12 @@ amber values failed contrast.
 
 - Source conversation: 2026-08-10. Reference points Thomas named — International
   Network of Churches (his movement), Mike Winger, Gavin Ortlund.
-- Roughly 35 nodes carry positions Thomas stated directly. The 40 marked
-  `#assumed` were inferred from those and need his confirmation.
+- Originally roughly 35 nodes carried positions Thomas stated directly, with 40
+  inferred and marked `#assumed`. He reviewed all of them on 2026-08-11, so
+  every node is now his own stated position. 33 remain flagged `#study`.
+- Write node text in Thomas's own voice — first person or neutral, never
+  second person. The original draft addressed him as "you"/"yours"; he rewrote
+  those, so don't reintroduce them.
 - The five `#thread` nodes are the most load-bearing output: a sacramental
   instinct running against low-church defaults; the semantic-range problem
   under "prophecy" and "God told me"; a trichotomy dependency hiding under the

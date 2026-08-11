@@ -211,7 +211,7 @@
   todo  Can a genuine believer be lost? Heb 6, Heb 10 and John 15 against 1 John 2:19 and John 10:28.
   refs  Heb 6:4-6; John 10:28-29
   link  sealing-of-the-spirit
-  link  Assurance
+  link  assurance
 
 ## Assurance · T3 · open · #study
   todo  Follows from perseverance. Aim for a doctrine that gives real assurance without rendering the warning passages hypothetical.
