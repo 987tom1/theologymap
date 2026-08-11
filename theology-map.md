@@ -84,14 +84,14 @@
   refs  John 1:1,14; Col 2:9
 
 ## Virgin birth · T1 · certain
-  hold  Affirmed as historical.
+  hold  Affirm as historical.
   refs  Matt 1:23; Luke 1:34-35
 
 ## Bodily resurrection · T1 · certain
   hold  Christ rose bodily and in space and time. Without it there is no Christianity (1 Cor 15).
   refs  Luke 24:39; John 20:27
 
-## Christ's use of divine power · T2 · confident
+## Christ's use of divine power · T3 · confident
   hold  Voluntary restraint (krypsis). He retained every divine attribute in full, and freely chose not to exercise them independently of the Father and the Spirit.
   why   A very strong man can choose to use less force in an arm wrestle without ceasing to be strong.
   vs    Ontological kenosis — that he divested himself of divine attributes in the incarnation. Krypsis is the historic and safer position; don't let it get labelled kenoticism.
@@ -176,7 +176,7 @@
   refs  Rom 5:12-19; 1 Cor 15:21-22
   link  genre-of-genesis-1
 
-## Original sin · T2 · open · #study
+## Original sin · T3 · open · #study
   todo  Inherited corruption only (Wesleyan), or inherited guilt as well (Augustinian)? Arminian instincts point toward the former.
   refs  Ps 51:5; Ezek 18:20
 
@@ -261,7 +261,7 @@
   refs  Acts 2:38; 1 Pet 3:21
   link  the-lords-supper
 
-## The Lord's Supper · T2 · leaning · #study
+## The Lord's Supper · T2.5 · leaning · #study
   hold  Likely spiritual real presence (Calvin) — Christ genuinely communicated to believers by the Spirit.
   vs    Bare memorialism, which is too thin for 1 Cor 10:16; and transubstantiation.
   todo  Same study as baptism. Also study Calvins full definition.
@@ -272,7 +272,7 @@
   hold  Meaningful membership and Matthew 18 discipline are normal church life, aimed at restoration rather than punishment.
   refs  Matt 18:15-17; 1 Cor 5:4-5
 
-## Tithing and giving · T3 · confident
+## Tithing and giving · T2.5 · confident
   hold  The tithe is a wise baseline, not binding law. Giving should be generous, cheerful and sacrificial.
   vs    Teaching the tithe as an obligation on Christians.
   refs  Mal 3:10; 2 Cor 9:7
@@ -480,9 +480,9 @@
   hold  Salvation is through Christ alone. There is no other name.
   refs  John 14:6; Acts 4:12
 
-## The unevangelised · T2 · open · #study
-  hold  Genuinely open. The Molinist answer — that God knows who would never have chosen him under any circumstances — is the preferred one, but it is a T3 framework carrying a T2 question, so it cannot settle this on its own.
-  todo  NOTE — the preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3, this reopens: work out what the answer is if middle knowledge turns out to be unavailable.
+## The unevangelised · T3 · open · #study
+  hold  Pretty open, linked to the Molinist answer — that God knows who would never have chosen him under any circumstances...
+  todo  Preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3...
   refs  Matt 11:21-23; Rom 2:14-15
   link  sovereignty-and-free-will
 
@@ -544,21 +544,6 @@
   link  prophecy
   link  hearing-god
   link  apostles-and-prophets-today
-
-## The trichotomy dependency · #thread
-  hold  Resolved. The deliverance framing used to speak of the human spirit partnering with the Holy Spirit or with evil spirits, which quietly presupposed trichotomy while the constitution question sat unsettled. Dichotomy is now held, and the deliverance nodes have been restated in terms of degree of influence rather than parts of a person.
-  why   Kept as a thread because it explains why those nodes are worded as they are — the neutral wording is deliberate and should not drift back.
-  todo  Watch for the old vocabulary creeping back into any new node on deliverance or spiritual warfare.
-  link  dichotomy-vs-trichotomy
-  link  can-a-christian-be-demonised
-
-## Molinism held lightly · #thread
-  hold  Middle knowledge was doing quiet load-bearing work in three places: sovereignty and free will, the fate of the unevangelised, and God's relation to time. It is now held deliberately but only at T3, so those nodes have been re-grounded to stand without it.
-  why   A framework held at T3 cannot carry conclusions held at T1.5 or T2. The rejection of open theism now rests on the foreknowledge texts directly, and the compatibility of sovereignty and freedom rests on its own texts, with Molinism offered as explanation rather than foundation.
-  todo  The unevangelised is the one place still leaning on it. That question needs an answer that survives if middle knowledge proves unavailable.
-  link  sovereignty-and-free-will
-  link  the-unevangelised
-  link  divine-foreknowledge
 
 ## A high view of the great tradition · #thread
   hold  Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.
