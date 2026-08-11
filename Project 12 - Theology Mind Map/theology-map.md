@@ -12,13 +12,13 @@
   vs    The Roman Catholic deuterocanon as Scripture.
   link  roman-catholics-and-orthodox
 
-## Sufficiency of Scripture · T2 · confident
+## Sufficiency of Scripture · T1 · confident
   hold  Scripture is sufficient for faith and practice. No new revelation adds to it.
   why   The necessary counterweight to continuationism — this is why prophecy can never bind the conscience.
   refs  2 Tim 3:16-17; Heb 1:1-2; Rev 22:18-19
   link  prophecy
 
-## Clarity of Scripture · T3 · confident
+## Clarity of Scripture · T2.5 · confident
   hold  The main things are the plain things. Scripture's central message is accessible to ordinary readers. Use clear teachings to understand unclear teachings
   vs    Teaching that requires an anointed interpreter to unlock the text.
   refs  Ps 119:105; Ps 19:7-8
@@ -28,7 +28,7 @@
   vs    Readings that detach a text from its context.
   todo  Look into different explicit approaches / methods (e.g. Grammatical-historical, allegorical, "rhema")
 
-## Translations · T4 · confident · #study
+## Translations · T3 · confident · #study
   hold  Formal and dynamic translations are both serviceable. No version is uniquely authorised. Translations should be used considerate of where they sit in word-for-word vs paraphrase (e.g. paraphrase not for deep study)
   vs    KJV-onlyism.
   todo  Investigate the different streams of translations for ancestry.
@@ -47,7 +47,7 @@
   why   Follows directly from holding the creeds at tier one.
   refs  John 1:14; John 1:18
 
-## EFS / ESS · T2 · open · #study
+## EFS / ESS · T2.5 · open · #study
   hold  Undecided.
   todo  Grudem and Ware hold that the Son eternally submits to the Father's authority. Critics say this gives the persons distinct wills, which is a Nicene problem — a will belongs to a nature. Decide, because my case for male headship is authority-based and EFS is the usual way that argument is made.
   refs  1 Cor 11:3; John 5:19
@@ -114,7 +114,7 @@
 
 # Holy Spirit
 
-## Baptism in the Holy Spirit · T3 · confident
+## Baptism in the Holy Spirit · T2.5 · confident
   hold  A distinct empowering subsequent to conversion. Tongues is usual but not the necessary initial evidence.
   why   There are many subsequent infillings, and the first one will be a clear distinctive.
   vs    The classic Pentecostal initial-physical-evidence doctrine (INC, Assemblies of God).
@@ -169,7 +169,7 @@
   refs  Gen 1:26-27; Gen 9:6
   link  abortion
 
-## Historical Adam · T2 · open · #study
+## Historical Adam · T2.5 · open · #study
   todo  Rom 5 and 1 Cor 15 appear to require a real Adam whose act brought sin and death. Decide whether Genesis 2–3's genre changes that.
   refs  Rom 5:12-19; 1 Cor 15:21-22
   link  genre-of-genesis-1
@@ -184,11 +184,11 @@
   link  sovereignty-and-free-will
 
 ## Dichotomy vs trichotomy · T3 · open · #study
-  todo  RESOLVE TOGETHER WITH DELIVERANCE. Framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or reframe the deliverance language.
+  todo  RESOLVE TOGETHER WITH DELIVERANCE. Framing — the human spirit partnering with the Holy Spirit or with evil spirits — presupposes a distinct human spirit, which is trichotomy. Either defend trichotomy or shift to be human spirit/soul.
   refs  1 Thess 5:23; Heb 4:12
   link  can-a-christian-be-demonised
 
-## Age of accountability · T3 · confident
+## Age of accountability · T2.5 · confident
   hold  Those who die before moral responsibility are saved through Christ's work.
   refs  2 Sam 12:22-23; Deut 1:39
 
@@ -207,13 +207,13 @@
   todo  Decide between classical Arminian conditional election and a fully Molinist account.
   refs  Rom 8:29; Eph 1:4-5
 
-## Perseverance and apostasy · T2 · open · #study
+## Perseverance and apostasy · T3 · open · #study
   todo  Can a genuine believer be lost? Heb 6, Heb 10 and John 15 against 1 John 2:19 and John 10:28.
   refs  Heb 6:4-6; John 10:28-29
   link  sealing-of-the-spirit
   link  Assurance
 
-## Assurance · T2 · open · #study
+## Assurance · T3 · open · #study
   todo  Follows from perseverance. Aim for a doctrine that gives real assurance without rendering the warning passages hypothetical.
   refs  1 John 5:13; Rom 8:16
 
@@ -226,7 +226,7 @@
   vs    The New Perspective's reduction of justification to covenant membership.
   refs  Eph 2:8-9; Rom 5:1
 
-## Regeneration and baptism · T2 · leaning
+## Regeneration and baptism · T2.5 · leaning
   hold  Baptism is genuinely instrumental rather than a bare symbol — but it is not the moment of regeneration.
   refs  Titus 3:5; 1 Pet 3:21
   link  baptism
@@ -304,7 +304,7 @@
   why   A pre-tribulation rapture depends on dispensational machinery not held.
   refs  1 Thess 4:16-17; 2 Thess 2:3
 
-## Hell · T2 · confident · #study
+## Hell · T3 · lean · #study
   hold  Eternal conscious torment.
   todo  Give conditional immortality an honest hearing rather than a dismissal. The exegetical case (Fudge; Stott's hesitation) is serious even if it is finally wrong.
   refs  Matt 25:46; Rev 20:10; Matt 10:28
@@ -371,7 +371,7 @@
   hold  Legitimate, and integrated with repentance, discipleship and where needed medical care — never a substitute for them.
   refs  Mark 16:17; Acts 16:18
 
-## Territorial spirits · T3 · open
+## Territorial spirits · T4 · open
   hold  Spiritual powers over regions is a plausible biblical category. Strategic-level spiritual warfare methodology is not warranted by it.
   refs  Dan 10:13; Rev 2:13
 
@@ -417,14 +417,14 @@
   hold  Drunkenness is sin. Abstinence is wisdom for some and not a law for all.
   refs  Eph 5:18; 1 Tim 5:23
 
-## Church and the public square · T2.5 · open · #study
+## Church and the public square · T3 · open · #study
   todo  I value prophetic non-partisanship, political involvement, and cultural engagement. In practice they pull against each other. Work out which governs when they conflict.
 
 ## Justice and race · T2.5 · open · #study
   todo  Biblical justice is commanded and non-negotiable.
   link  image-of-god
 
-## War and violence · T3 · confident
+## War and violence · T2.5 · confident
   hold  Just war rather than pacifism. Force is a grim last resort under real constraint.
   refs  Rom 13:4; Matt 5:39
 
@@ -460,7 +460,7 @@
   link  prophecy
 
 ## Spiritual disciplines · T3 · confident
-  hold  Prayer, Scripture, fasting, sabbath and community are ordinary means God actually uses. Effort is not works-righteousness.
+  hold  Prayer, Scripture, fasting, sabbath and community are ordinary means God actually uses. Grace is opposed to 'earning', not 'effort'.
   refs  1 Tim 4:7-8; Matt 6:16-18
 
 ## Suffering and providence · T2 · confident
@@ -506,11 +506,11 @@
 ## The creeds · T1 · certain
   hold  Nicaea and Chalcedon are tier one. To depart from them is to have misread Scripture.
 
-## The Fathers · T2 · confident
+## The Fathers · T2.5 · confident
   hold  Weighty and worth heeding — but not "teachers" in an authoritative sense.
   why   This is a markedly higher view of the great tradition than Pentecostal practice usually carries.
 
-## Roman Catholics and Orthodox · T2 · leaning · #study
+## Roman Catholics and Orthodox · T3 · leaning · #study
   hold  Many individuals within them are genuinely saved, despite rather than because of their churches' official teaching on justification and authority.
   todo  Less confident regarding priests and ministers within those churches. Work out whether holding office changes the assessment.
   link  justification
