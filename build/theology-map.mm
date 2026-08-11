@@ -48,12 +48,12 @@
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Fully God and fully man. Two natures in one person, without confusion or division (Chalcedon).</p><p>TEXTS: John 1:1,14; Col 2:9</p></body></html></richcontent>
 </node>
 <node TEXT="Virgin birth  [T1 · certain]" COLOR="#7c2d3b" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Affirmed as historical.</p><p>TEXTS: Matt 1:23; Luke 1:34-35</p></body></html></richcontent>
+<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Affirm as historical.</p><p>TEXTS: Matt 1:23; Luke 1:34-35</p></body></html></richcontent>
 </node>
 <node TEXT="Bodily resurrection  [T1 · certain]" COLOR="#7c2d3b" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Christ rose bodily and in space and time. Without it there is no Christianity (1 Cor 15).</p><p>TEXTS: Luke 24:39; John 20:27</p></body></html></richcontent>
 </node>
-<node TEXT="Christ&#x27;s use of divine power  [T2 · confident]" COLOR="#8c6a1f" STYLE="fork">
+<node TEXT="Christ&#x27;s use of divine power  [T3 · confident]" COLOR="#2f6b63" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Voluntary restraint (krypsis). He retained every divine attribute in full, and freely chose not to exercise them independently of the Father and the Spirit.</p><p>WHY: A very strong man can choose to use less force in an arm wrestle without ceasing to be strong.</p><p>NOT: Ontological kenosis — that he divested himself of divine attributes in the incarnation. Krypsis is the historic and safer position; don&#x27;t let it get labelled kenoticism.</p><p>TEXTS: Phil 2:6-7; Mark 13:32</p></body></html></richcontent>
 </node>
 <node TEXT="Impeccability  [T3 · confident]" COLOR="#2f6b63" STYLE="fork">
@@ -102,7 +102,7 @@
 <node TEXT="Historical Adam  [T2.5 · open · study]" COLOR="#5f6b35" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>STUDY: Rom 5 and 1 Cor 15 appear to require a real Adam whose act brought sin and death. Decide whether Genesis 2–3&#x27;s genre changes that.</p><p>TEXTS: Rom 5:12-19; 1 Cor 15:21-22</p></body></html></richcontent>
 </node>
-<node TEXT="Original sin  [T2 · open · study]" COLOR="#8c6a1f" STYLE="fork">
+<node TEXT="Original sin  [T3 · open · study]" COLOR="#2f6b63" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>STUDY: Inherited corruption only (Wesleyan), or inherited guilt as well (Augustinian)? Arminian instincts point toward the former.</p><p>TEXTS: Ps 51:5; Ezek 18:20</p></body></html></richcontent>
 </node>
 <node TEXT="Depravity and prevenient grace  [T2.5 · open · study]" COLOR="#5f6b35" STYLE="fork">
@@ -151,13 +151,13 @@
 <node TEXT="Baptism  [T2 · leaning · study]" COLOR="#8c6a1f" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Believers only, by immersion, and genuinely instrumental — a means of grace, not merely a public symbol.</p><p>STUDY: What does a &quot;means of grace&quot; actually do? Resolve this alongside the Lord&#x27;s Supper; they are one question.</p><p>TEXTS: Acts 2:38; 1 Pet 3:21</p></body></html></richcontent>
 </node>
-<node TEXT="The Lord&#x27;s Supper  [T2 · leaning · study]" COLOR="#8c6a1f" STYLE="fork">
+<node TEXT="The Lord&#x27;s Supper  [T2.5 · leaning · study]" COLOR="#5f6b35" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Likely spiritual real presence (Calvin) — Christ genuinely communicated to believers by the Spirit.</p><p>NOT: Bare memorialism, which is too thin for 1 Cor 10:16; and transubstantiation.</p><p>STUDY: Same study as baptism. Also study Calvins full definition.</p><p>TEXTS: 1 Cor 10:16; 1 Cor 11:23-26</p></body></html></richcontent>
 </node>
 <node TEXT="Membership and discipline  [T2.5 · confident]" COLOR="#5f6b35" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Meaningful membership and Matthew 18 discipline are normal church life, aimed at restoration rather than punishment.</p><p>TEXTS: Matt 18:15-17; 1 Cor 5:4-5</p></body></html></richcontent>
 </node>
-<node TEXT="Tithing and giving  [T3 · confident]" COLOR="#2f6b63" STYLE="fork">
+<node TEXT="Tithing and giving  [T2.5 · confident]" COLOR="#5f6b35" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: The tithe is a wise baseline, not binding law. Giving should be generous, cheerful and sacrificial.</p><p>NOT: Teaching the tithe as an obligation on Christians.</p><p>TEXTS: Mal 3:10; 2 Cor 9:7</p></body></html></richcontent>
 </node>
 <node TEXT="Worship  [T3 · confident]" COLOR="#2f6b63" STYLE="fork">
@@ -292,8 +292,8 @@
 <node TEXT="Exclusivity of Christ  [T1 · certain]" COLOR="#7c2d3b" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Salvation is through Christ alone. There is no other name.</p><p>TEXTS: John 14:6; Acts 4:12</p></body></html></richcontent>
 </node>
-<node TEXT="The unevangelised  [T2 · open · study]" COLOR="#8c6a1f" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Genuinely open. The Molinist answer — that God knows who would never have chosen him under any circumstances — is the preferred one, but it is a T3 framework carrying a T2 question, so it cannot settle this on its own.</p><p>STUDY: NOTE — the preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3, this reopens: work out what the answer is if middle knowledge turns out to be unavailable.</p><p>TEXTS: Matt 11:21-23; Rom 2:14-15</p></body></html></richcontent>
+<node TEXT="The unevangelised  [T3 · open · study]" COLOR="#2f6b63" STYLE="fork">
+<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Pretty open, linked to the Molinist answer — that God knows who would never have chosen him under any circumstances...</p><p>STUDY: Preferred answer is the Molinist one, not inclusivism. With Molinism held only at T3...</p><p>TEXTS: Matt 11:21-23; Rom 2:14-15</p></body></html></richcontent>
 </node>
 <node TEXT="World religions  [T2 · confident]" COLOR="#8c6a1f" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Other religions may contain genuine moral insight and real longing, but they do not save.</p><p>TEXTS: Acts 17:22-23; Rom 1:19-20</p></body></html></richcontent>
@@ -331,12 +331,6 @@
 </node>
 <node TEXT="The vocabulary of hearing God" COLOR="#57534e" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: &quot;Prophecy&quot; and &quot;God told me&quot; are being made to carry several different meanings at once.</p><p>STUDY: Do the word study before settling prophecy, guidance, or the prophetic office.</p></body></html></richcontent>
-</node>
-<node TEXT="The trichotomy dependency" COLOR="#57534e" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Resolved. The deliverance framing used to speak of the human spirit partnering with the Holy Spirit or with evil spirits, which quietly presupposed trichotomy while the constitution question sat unsettled. Dichotomy is now held, and the deliverance nodes have been restated in terms of degree of influence rather than parts of a person.</p><p>WHY: Kept as a thread because it explains why those nodes are worded as they are — the neutral wording is deliberate and should not drift back.</p><p>STUDY: Watch for the old vocabulary creeping back into any new node on deliverance or spiritual warfare.</p></body></html></richcontent>
-</node>
-<node TEXT="Molinism held lightly" COLOR="#57534e" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Middle knowledge was doing quiet load-bearing work in three places: sovereignty and free will, the fate of the unevangelised, and God&#x27;s relation to time. It is now held deliberately but only at T3, so those nodes have been re-grounded to stand without it.</p><p>WHY: A framework held at T3 cannot carry conclusions held at T1.5 or T2. The rejection of open theism now rests on the foreknowledge texts directly, and the compatibility of sovereignty and freedom rests on its own texts, with Molinism offered as explanation rather than foundation.</p><p>STUDY: The unevangelised is the one place still leaning on it. That question needs an answer that survives if middle knowledge proves unavailable.</p></body></html></richcontent>
 </node>
 <node TEXT="A high view of the great tradition" COLOR="#57534e" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.</p><p>STUDY: Look more into the fathers and how to understand / apply / appreciate the spectrum of views.</p></body></html></richcontent>
