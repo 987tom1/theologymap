@@ -5,19 +5,66 @@ theological triage (*Finding the Right Hills to Die On*).
 
 ## The one rule
 
-**`theology-map.md` holds the content and is what you edit.** Everything in
-`build/` is generated — never hand-edit it, it is overwritten on every run.
-`verses.md` is a second source file, but it is mostly machine-filled (below).
+**`theology-map.md` holds the content and is what you edit.**
+`theology-map.html`, `theology-map.mm` and `study-list.md` are generated —
+never hand-edit them, they are overwritten on every run. `verses.md` is a
+second source file, but it is mostly machine-filled (below).
+
+## Folder layout (flattened 2026-08-12, engine/ split out 2026-08-12)
+
+Root holds only what a non-technical user needs to click or read:
+`theology-map.html` (the map), `start_editor.bat` (launches the editor),
+`README.md`, plus the two content files `theology-map.md` and `verses.md`
+and the two secondary generated outputs `theology-map.mm` / `study-list.md`.
+Everything else — `render.py`, `fetch_verses.py`, `render_server.py`,
+`editor.html`, `editor-core.js` — lives in `engine/` and isn't meant to be
+opened directly. `render.py` and `fetch_verses.py` resolve their own
+`ROOT` as `Path(__file__).parent.parent`, i.e. one level up from `engine/`,
+so both still read/write the content and output files at the project root.
 
 ```
-python render.py         # build everything
-python fetch_verses.py   # fill any blank verse text (needs network)
+python engine/render.py         # build everything
+python engine/fetch_verses.py   # fill any blank verse text (needs network)
 ```
 
-`render.py` writes `build/theology-map.html`, `build/theology-map.mm` and
-`build/study-list.md`. Standard library only, no installs. It prints node
-counts, scripture-reference counts, and warns on broken `link` targets — a
-broken link means the slug doesn't match any node title.
+`render.py` writes `theology-map.html`, `theology-map.mm` and
+`study-list.md` (at the project root). Standard library only, no installs.
+It prints node counts, scripture-reference counts, and warns on broken
+`link` targets — a broken link means the slug doesn't match any node title.
+
+## Editing via the browser form
+
+Double-clicking `start_editor.bat` starts `engine/render_server.py` and
+opens `engine/editor.html` — a small structured-form editor for
+`theology-map.md`: pick a node, edit its fields, save. `theology-map.html`'s
+header also carries a direct "Edit ✎" link to it. It's a separate
+hand-written page, not part of `render.py`'s generated output, so editing it
+doesn't risk the ~1300-line generator.
+
+- `editor-core.js` is the parser/serializer, a JS port of `render.py`'s
+  `parse()`/field logic kept in lockstep with it by hand. Round-trip fidelity
+  (parse → serialize → re-parse gives an identical model) was verified against
+  the live file during development — if you touch either the Python parser or
+  this file, re-verify both stay in sync.
+- **Connect** (Chrome/Edge only, via the File System Access API) grants the
+  page a write handle to `theology-map.md` directly — no server needed to
+  read or save. **Upload a copy** is the fallback for any browser: it loads
+  the file read-only, and you copy the regenerated text out (button in the
+  editor) to paste back in by hand.
+- **Save & render** POSTs to `render_server.py`, which chains
+  `render.py` → `fetch_verses.py` → `render.py` again — rebuild, fetch text
+  for any newly-added scripture refs, then rebuild once more so that text
+  actually lands in the HTML — and reports success or failure back into the
+  page. Without the server running, Save still writes the file — start
+  `start_editor.bat` (or run `python engine/render_server.py` yourself) and
+  click Save & render again, or just run `python engine/render.py` by hand.
+- A page button cannot launch a local process — browser sandboxing forbids
+  it outright, for any site. `start_editor.bat` is the actual launcher;
+  the editor can only detect whether the server is already running and say
+  so.
+- The editor does not support reordering domains/nodes or renaming a domain
+  in place (delete-and-recreate covers renames); it's deliberately just
+  add/edit/delete, per the "very very very simple" brief it was built to.
 
 ## Node syntax
 

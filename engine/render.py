@@ -4,9 +4,9 @@ file, and a generated study list.
 Usage:  python render.py
 
 Reads   theology-map.md
-Writes  build/theology-map.html
-        build/theology-map.mm
-        build/study-list.md
+Writes  theology-map.html
+        theology-map.mm
+        study-list.md
 
 Standard library only.
 """
@@ -19,10 +19,10 @@ import re
 from collections import OrderedDict
 from pathlib import Path
 
-ROOT = Path(__file__).parent
+ROOT = Path(__file__).parent.parent
 SRC = ROOT / "theology-map.md"
 VERSES = ROOT / "verses.md"
-BUILD = ROOT / "build"
+BUILD = ROOT
 
 VERSES_HEADER = """<!--
 verses.md — scripture text for the Theology Map's verse popovers.
@@ -463,7 +463,9 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
 </head>
 <body>
 <header>
-  <p class="kicker">A personal systematic reference</p>
+  <p class="kicker">A personal systematic reference
+    <a href="engine/editor.html" style="float:right;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:600">Edit &#9998;</a>
+  </p>
   <h1>Theology Map</h1>
   <div class="sub">Positions by Ortlund triage tier &middot; dashed border = inferred, not yet confirmed by you</div>
   <div class="bar">
@@ -1339,7 +1341,7 @@ def main() -> None:
                if l not in {x["slug"] for x in nodes}]
     if missing:
         print(f"  WARNING broken links from: {sorted(set(missing))}")
-    print("wrote build/theology-map.html, build/theology-map.mm, build/study-list.md")
+    print("wrote theology-map.html, theology-map.mm, study-list.md")
 
 
 if __name__ == "__main__":

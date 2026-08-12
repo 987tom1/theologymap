@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edit — Theology Map</title>
+<style>
+  :root {
+    --bg: #f6f3ec; --panel: #fffdf8; --ink: #23201a; --muted: #6b6255;
+    --line: #e2dbcb; --accent: #23201a; --chip: #ede6d6;
+    --good: #3d6b3d; --bad: #7c2d3b;
+    --serif: ui-serif, Constantia, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --sans: ui-sans-serif, "Segoe UI", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#15120d; --panel:#201b14; --ink:#ece4d5; --muted:#a89a85;
+            --line:#372f22; --accent:#ece4d5; --chip:#271f16;
+            --good:#7fbf7f; --bad:#d98a99; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font:15px/1.6 var(--serif); text-rendering:optimizeLegibility; }
+  a { color:inherit; }
+
+  header { padding:16px 20px 12px; border-bottom:1px solid var(--line); }
+  .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
+            text-transform:uppercase; color:var(--muted); }
+  h1 { margin:0 0 3px; font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
+  .sub { color:var(--muted); font:12.5px/1.4 var(--sans); }
+  .toplinks { margin-top:8px; display:flex; gap:14px; font:600 12px/1 var(--sans); }
+  .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
+  .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
+
+  .filebar { display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+             padding:10px 20px; border-bottom:1px solid var(--line);
+             background:var(--panel); font:12.5px/1 var(--sans); }
+  .filebar .status { color:var(--muted); }
+  .filebar .status.ok { color:var(--good); }
+  .filebar .status.err { color:var(--bad); }
+  button { font:600 12px/1 var(--sans); border:1px solid var(--line); background:var(--panel);
+           color:var(--ink); padding:7px 12px; border-radius:6px; cursor:pointer; }
+  button:hover { border-color:var(--muted); }
+  button:disabled { opacity:.4; cursor:not-allowed; }
+  button.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+  button.danger { color:var(--bad); border-color:var(--bad); }
+  .spacer { flex:1; }
+
+  .layout { display:flex; min-height:calc(100vh - 128px); }
+  nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
+             padding:14px 10px; overflow-y:auto; max-height:calc(100vh - 128px); }
+  nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
+    color:var(--ink); padding:6px 10px; border-radius:6px; font:13px/1 var(--sans); margin-bottom:10px; }
+  .domain summary { cursor:pointer; font:700 11px/1.6 var(--sans); text-transform:uppercase;
+    letter-spacing:.1em; color:var(--muted); padding:6px 8px; border-radius:5px; list-style:none; }
+  .domain summary::-webkit-details-marker { display:none; }
+  .domain summary:hover { color:var(--ink); background:var(--chip); }
+  .domain[open] summary { color:var(--ink); }
+  .nodebtn { display:block; width:100%; text-align:left; background:none; border:none;
+    font:13.5px/1.4 var(--serif); color:var(--ink); padding:6px 10px 6px 18px; border-radius:5px;
+    cursor:pointer; }
+  .nodebtn:hover { background:var(--chip); }
+  .nodebtn.active { background:var(--ink); color:var(--bg); }
+  .nodebtn .tag { font:600 9.5px/1 var(--sans); color:var(--muted); margin-left:6px; }
+  .nodebtn.active .tag { color:var(--bg); opacity:.7; }
+  .addbtn { display:block; width:100%; text-align:left; background:none; border:none;
+    font:600 12px/1 var(--sans); color:var(--muted); padding:6px 10px 6px 18px; cursor:pointer; }
+  .addbtn:hover { color:var(--ink); }
+  .newdomain { margin:12px 8px 4px; }
+  .newdomain button { width:100%; }
+
+  main.form { flex:1; padding:20px 26px 60px; max-width:720px; overflow-y:auto; }
+  .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:52ch; }
+  .row { margin-bottom:16px; }
+  .row.two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  label { display:block; font:700 10.5px/1.8 var(--sans); letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+  input[type=text], select, textarea { width:100%; border:1px solid var(--line); background:var(--panel);
+    color:var(--ink); padding:8px 10px; border-radius:6px; font:14px/1.5 var(--serif); }
+  input[type=text]:focus, select:focus, textarea:focus { outline:2px solid var(--muted); outline-offset:1px; }
+  textarea { resize:vertical; min-height:56px; font-family:var(--serif); }
+  .hint { font:11.5px/1.4 var(--sans); color:var(--muted); margin-top:4px; }
+  .flagrow { display:flex; gap:16px; font:13px/1 var(--sans); }
+  .flagrow label { display:flex; align-items:center; gap:6px; text-transform:none;
+    letter-spacing:0; font:13px/1 var(--sans); color:var(--ink); margin:0; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+  .tagchip { display:inline-flex; align-items:center; gap:6px; background:var(--chip);
+    border:1px solid var(--line); border-radius:5px; padding:4px 8px; font:12px/1 var(--sans); }
+  .tagchip button { border:none; background:none; padding:0; font:inherit; color:var(--muted); }
+  .tagchip button:hover { color:var(--bad); }
+  .addtag { display:flex; gap:6px; margin-top:6px; }
+  .addtag input { flex:1; }
+  .formfoot { display:flex; gap:10px; align-items:center; margin-top:24px; padding-top:16px;
+    border-top:1px solid var(--line); }
+  .formfoot .status { font:12.5px/1 var(--sans); color:var(--muted); }
+  .formfoot .status.ok { color:var(--good); }
+  .formfoot .status.err { color:var(--bad); }
+
+  dialog { border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink);
+    padding:18px 20px; max-width:520px; font:14px/1.5 var(--serif); }
+  dialog::backdrop { background:rgba(0,0,0,.35); }
+  dialog h2 { margin:0 0 8px; font-size:15px; font-family:var(--sans); }
+  dialog .actions { display:flex; gap:8px; justify-content:flex-end; margin-top:16px; }
+
+  .previewbox textarea { width:100%; height:320px; font:12px/1.5 ui-monospace, Consolas, monospace; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="kicker">Theology Map</p>
+  <h1>Edit theology-map.md</h1>
+  <p class="sub">A form over the plain-text file — nothing here is saved until you say so.</p>
+  <div class="toplinks">
+    <a href="../theology-map.html" target="_blank" rel="noopener">Open the map ↗</a>
+  </div>
+</header>
+
+<div class="filebar">
+  <button id="btnConnect">Connect theology-map.md</button>
+  <button id="btnUpload">Upload a copy instead</button>
+  <input type="file" id="fileInput" accept=".md,text/markdown" style="display:none">
+  <span class="status" id="fileStatus">No file loaded yet.</span>
+  <div class="spacer"></div>
+  <button id="btnPreview">Preview &amp; copy full text</button>
+  <button id="btnSave" class="primary" disabled>Save to file</button>
+  <button id="btnRender" disabled>Save &amp; render</button>
+</div>
+
+<div class="layout">
+  <nav class="tree" id="tree" aria-label="Domains and nodes"></nav>
+  <main class="form" id="form">
+    <p class="empty">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
+      (Chrome/Edge) lets Save write straight back to the file on disk. Uploading works in any browser
+      but Save only copies the text — you'll paste it into the file yourself.</p>
+  </main>
+</div>
+
+<dialog id="dlgConfirm">
+  <h2 id="dlgTitle">Are you sure?</h2>
+  <p id="dlgBody"></p>
+  <div class="actions">
+    <button id="dlgCancel">Cancel</button>
+    <button id="dlgOk" class="danger">Delete</button>
+  </div>
+</dialog>
+
+<dialog id="dlgPreview">
+  <h2>Full file text</h2>
+  <p class="hint">This is exactly what will be written to theology-map.md. Copy it to paste in by hand,
+    or use Save to file if you connected the file directly.</p>
+  <div class="previewbox"><textarea id="previewText" readonly></textarea></div>
+  <div class="actions">
+    <button id="btnCopyPreview" class="primary">Copy to clipboard</button>
+    <button id="dlgPreviewClose">Close</button>
+  </div>
+</dialog>
+
+<script src="editor-core.js"></script>
+<script>
+(function () {
+  const core = EditorCore;
+  let domains = null;        // parsed model, source of truth
+  let fileHandle = null;     // FileSystemFileHandle, when connected
+  let current = null;        // { domainIndex, nodeIndex } | null for a new node not yet placed
+  let dirty = false;
+
+  const $ = (id) => document.getElementById(id);
+  const treeEl = $('tree'), formEl = $('form'), fileStatus = $('fileStatus');
+  const btnConnect = $('btnConnect'), btnUpload = $('btnUpload'), fileInput = $('fileInput');
+  const btnSave = $('btnSave'), btnRender = $('btnRender'), btnPreview = $('btnPreview');
+
+  const canFSAccess = 'showOpenFilePicker' in window;
+  if (!canFSAccess) {
+    btnConnect.disabled = true;
+    btnConnect.title = 'This browser doesn\'t support direct file access — use "Upload a copy instead".';
+  }
+
+  function setStatus(msg, kind) {
+    fileStatus.textContent = msg;
+    fileStatus.className = 'status' + (kind ? ' ' + kind : '');
+  }
+
+  function markLoaded(name, writable) {
+    setStatus((writable ? 'Connected: ' : 'Loaded (read-only): ') + name, 'ok');
+    btnSave.disabled = !writable;
+    btnRender.disabled = !writable;
+  }
+
+  // ---------------------------------------------------------------- loading
+  btnConnect.addEventListener('click', async () => {
+    try {
+      const [handle] = await window.showOpenFilePicker({
+        types: [{ description: 'Markdown', accept: { 'text/markdown': ['.md'] } }],
+        excludeAcceptAllOption: false,
+      });
+      const file = await handle.getFile();
+      const text = await file.text();
+      fileHandle = handle;
+      domains = core.parse(text);
+      current = null; dirty = false;
+      markLoaded(file.name, true);
+      renderTree();
+      renderForm();
+    } catch (err) {
+      if (err.name !== 'AbortError') setStatus('Could not open file: ' + err.message, 'err');
+    }
+  });
+
+  btnUpload.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', async () => {
+    const file = fileInput.files[0];
+    if (!file) return;
+    const text = await file.text();
+    fileHandle = null;
+    domains = core.parse(text);
+    current = null; dirty = false;
+    markLoaded(file.name, false);
+    renderTree();
+    renderForm();
+  });
+
+  // ------------------------------------------------------------- tree/nav
+  function renderTree() {
+    treeEl.innerHTML = '';
+    const search = document.createElement('input');
+    search.type = 'search'; search.placeholder = 'Filter nodes…';
+    search.addEventListener('input', () => renderTreeList(search.value.trim().toLowerCase()));
+    treeEl.appendChild(search);
+    renderTreeList('');
+  }
+
+  function renderTreeList(filter) {
+    const old = treeEl.querySelector('.treelist');
+    if (old) old.remove();
+    const wrap = document.createElement('div');
+    wrap.className = 'treelist';
+
+    domains.forEach((domain, di) => {
+      const matches = domain.nodes.filter(n =>
+        !filter || (n.title + ' ' + (n.hold||'')).toLowerCase().includes(filter));
+      if (filter && matches.length === 0) return;
+
+      const det = document.createElement('details');
+      det.className = 'domain';
+      det.open = !!filter || (current && current.domainIndex === di);
+      const sum = document.createElement('summary');
+      sum.textContent = domain.name + ' (' + domain.nodes.length + ')';
+      det.appendChild(sum);
+
+      matches.forEach((node) => {
+        const ni = domain.nodes.indexOf(node);
+        const b = document.createElement('button');
+        b.className = 'nodebtn' + (current && current.domainIndex === di && current.nodeIndex === ni ? ' active' : '');
+        b.innerHTML = escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
+        b.addEventListener('click', () => { selectNode(di, ni); });
+        det.appendChild(b);
+      });
+
+      const addNode = document.createElement('button');
+      addNode.className = 'addbtn';
+      addNode.textContent = '+ New node in ' + domain.name;
+      addNode.addEventListener('click', () => addNodeToDomain(di));
+      det.appendChild(addNode);
+
+      wrap.appendChild(det);
+    });
+
+    const nd = document.createElement('div');
+    nd.className = 'newdomain';
+    const ndBtn = document.createElement('button');
+    ndBtn.textContent = '+ New domain';
+    ndBtn.addEventListener('click', addDomain);
+    nd.appendChild(ndBtn);
+    wrap.appendChild(nd);
+
+    treeEl.appendChild(wrap);
+  }
+
+  function selectNode(di, ni) {
+    current = { domainIndex: di, nodeIndex: ni };
+    renderTreeList('');
+    renderForm();
+  }
+
+  function addDomain() {
+    const name = prompt('New domain name:');
+    if (!name || !name.trim()) return;
+    domains.push({ name: name.trim(), nodes: [] });
+    dirty = true;
+    renderTree();
+  }
+
+  function addNodeToDomain(di) {
+    const node = core.newNode('Untitled', domains[di].name);
+    domains[di].nodes.push(node);
+    dirty = true;
+    selectNode(di, domains[di].nodes.length - 1);
+  }
+
+  // ------------------------------------------------------------------ form
+  function renderForm() {
+    if (!current) {
+      formEl.innerHTML = '<p class="empty">Pick a node on the left, or add a new one.</p>';
+      return;
+    }
+    const node = domains[current.domainIndex].nodes[current.nodeIndex];
+    formEl.innerHTML = '';
+
+    formEl.appendChild(fieldRow('Title', textInput(node.title, v => { node.title = v; node.slug = core.slugify(v); touch(); })));
+
+    const twoCol = document.createElement('div');
+    twoCol.className = 'row two';
+    twoCol.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS], v => { node.tier = v || null; touch(); }));
+    twoCol.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES], v => { node.confidence = v || null; touch(); }));
+    formEl.appendChild(twoCol);
+
+    const flagRow = document.createElement('div');
+    flagRow.className = 'row';
+    const flagLabel = document.createElement('label');
+    flagLabel.textContent = 'Flags';
+    flagRow.appendChild(flagLabel);
+    const fr = document.createElement('div');
+    fr.className = 'flagrow';
+    [['study', '#study — needs work'], ['thread', '#thread — cross-cutting theme']].forEach(([flag, label]) => {
+      const lab = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = node.flags.includes(flag);
+      cb.addEventListener('change', () => {
+        node.flags = cb.checked
+          ? [...new Set([...node.flags, flag])]
+          : node.flags.filter(f => f !== flag);
+        touch();
+      });
+      lab.appendChild(cb);
+      lab.appendChild(document.createTextNode(label));
+      fr.appendChild(lab);
+    });
+    flagRow.appendChild(fr);
+    formEl.appendChild(flagRow);
+
+    formEl.appendChild(fieldRow('Hold — the position held', textArea(node.hold, v => { node.hold = v; touch(); })));
+    formEl.appendChild(fieldRow('Why — one line of rationale', textArea(node.why, v => { node.why = v; touch(); })));
+    formEl.appendChild(fieldRow('Vs — the rival view rejected', textArea(node.vs, v => { node.vs = v; touch(); })));
+    formEl.appendChild(fieldRow('Todo — what still needs working out', textArea(node.todo, v => { node.todo = v; touch(); })));
+    formEl.appendChild(fieldRow('Refs — scripture, semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
+      textInput(node.refs, v => { node.refs = v; touch(); })));
+
+    formEl.appendChild(linkField(node));
+
+    const foot = document.createElement('div');
+    foot.className = 'formfoot';
+    const del = document.createElement('button');
+    del.className = 'danger';
+    del.textContent = 'Delete this node';
+    del.addEventListener('click', () => confirmDeleteNode());
+    foot.appendChild(del);
+    const status = document.createElement('span');
+    status.className = 'status' + (dirty ? '' : ' ok');
+    status.textContent = dirty ? 'Unsaved changes in the editor.' : 'No unsaved changes.';
+    status.id = 'formStatus';
+    foot.appendChild(status);
+    formEl.appendChild(foot);
+  }
+
+  function fieldRow(labelText, inputEl) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    const label = document.createElement('label');
+    label.textContent = labelText;
+    row.appendChild(label);
+    row.appendChild(inputEl);
+    return row;
+  }
+
+  function textInput(value, onChange) {
+    const el = document.createElement('input');
+    el.type = 'text'; el.value = value || '';
+    el.addEventListener('input', () => onChange(el.value));
+    return el;
+  }
+
+  function textArea(value, onChange) {
+    const el = document.createElement('textarea');
+    el.value = value || '';
+    el.addEventListener('input', () => onChange(el.value));
+    return el;
+  }
+
+  function selectField(labelText, value, options, onChange) {
+    const wrap = document.createElement('div');
+    const label = document.createElement('label');
+    label.textContent = labelText;
+    wrap.appendChild(label);
+    const sel = document.createElement('select');
+    options.forEach(opt => {
+      const o = document.createElement('option');
+      o.value = opt; o.textContent = opt || '—';
+      if (opt === (value || '')) o.selected = true;
+      sel.appendChild(o);
+    });
+    sel.addEventListener('change', () => onChange(sel.value));
+    wrap.appendChild(sel);
+    return wrap;
+  }
+
+  function linkField(node) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    const label = document.createElement('label');
+    label.textContent = 'Link — related node(s)';
+    row.appendChild(label);
+
+    const tags = document.createElement('div');
+    tags.className = 'tags';
+    function redraw() {
+      tags.innerHTML = '';
+      node.link.forEach((slug, i) => {
+        const chip = document.createElement('span');
+        chip.className = 'tagchip';
+        chip.appendChild(document.createTextNode(slug));
+        const rm = document.createElement('button');
+        rm.textContent = '✕';
+        rm.title = 'Remove link';
+        rm.addEventListener('click', () => { node.link.splice(i, 1); touch(); redraw(); });
+        chip.appendChild(rm);
+        tags.appendChild(chip);
+      });
+    }
+    redraw();
+    row.appendChild(tags);
+
+    const addRow = document.createElement('div');
+    addRow.className = 'addtag';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.setAttribute('list', 'slugList');
+    input.placeholder = 'slug-of-a-related-node';
+    const addBtn = document.createElement('button');
+    addBtn.textContent = 'Add link';
+    addBtn.addEventListener('click', () => {
+      const v = core.slugify(input.value);
+      if (!v) return;
+      if (!node.link.includes(v)) { node.link.push(v); touch(); redraw(); }
+      input.value = '';
+    });
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); addBtn.click(); } });
+    addRow.appendChild(input);
+    addRow.appendChild(addBtn);
+    row.appendChild(addRow);
+
+    const hint = document.createElement('p');
+    hint.className = 'hint';
+    hint.textContent = 'Must match another node\'s slug exactly, or render.py will warn about a broken link.';
+    row.appendChild(hint);
+
+    let list = document.getElementById('slugList');
+    if (!list) { list = document.createElement('datalist'); list.id = 'slugList'; document.body.appendChild(list); }
+    list.innerHTML = core.allSlugs(domains).map(s => '<option value="' + escapeHtml(s) + '">').join('');
+
+    return row;
+  }
+
+  function touch() {
+    dirty = true;
+    const status = document.getElementById('formStatus');
+    if (status) { status.textContent = 'Unsaved changes in the editor.'; status.className = 'status'; }
+    renderTreeList('');
+  }
+
+  // -------------------------------------------------------------- deleting
+  const dlgConfirm = $('dlgConfirm');
+  function confirmDeleteNode() {
+    const node = domains[current.domainIndex].nodes[current.nodeIndex];
+    $('dlgTitle').textContent = 'Delete "' + node.title + '"?';
+    $('dlgBody').textContent = 'This removes the node from the editor. It only leaves the file once you save.';
+    dlgConfirm.showModal();
+    $('dlgOk').onclick = () => {
+      domains[current.domainIndex].nodes.splice(current.nodeIndex, 1);
+      current = null; dirty = true;
+      dlgConfirm.close();
+      renderTree(); renderForm();
+    };
+    $('dlgCancel').onclick = () => dlgConfirm.close();
+  }
+
+  // ------------------------------------------------------------ preview/copy
+  const dlgPreview = $('dlgPreview');
+  btnPreview.addEventListener('click', () => {
+    if (!domains) { alert('Load a file first.'); return; }
+    $('previewText').value = core.serialize(domains);
+    dlgPreview.showModal();
+  });
+  $('dlgPreviewClose').addEventListener('click', () => dlgPreview.close());
+  $('btnCopyPreview').addEventListener('click', async () => {
+    const text = $('previewText').value;
+    try {
+      await navigator.clipboard.writeText(text);
+      $('btnCopyPreview').textContent = 'Copied ✓';
+    } catch {
+      $('previewText').select();
+      document.execCommand('copy');
+      $('btnCopyPreview').textContent = 'Copied ✓';
+    }
+    setTimeout(() => { $('btnCopyPreview').textContent = 'Copy to clipboard'; }, 1500);
+  });
+
+  // ------------------------------------------------------------------ save
+  btnSave.addEventListener('click', async () => {
+    if (!fileHandle) return;
+    try {
+      const writable = await fileHandle.createWritable();
+      await writable.write(core.serialize(domains));
+      await writable.close();
+      dirty = false;
+      setStatus('Saved to ' + fileHandle.name + ' at ' + new Date().toLocaleTimeString(), 'ok');
+      const status = document.getElementById('formStatus');
+      if (status) { status.textContent = 'Saved.'; status.className = 'status ok'; }
+    } catch (err) {
+      setStatus('Save failed: ' + err.message, 'err');
+    }
+  });
+
+  btnRender.addEventListener('click', async () => {
+    if (!fileHandle) return;
+    btnRender.disabled = true;
+    const prevLabel = btnRender.textContent;
+    btnRender.textContent = 'Saving…';
+    try {
+      const writable = await fileHandle.createWritable();
+      await writable.write(core.serialize(domains));
+      await writable.close();
+      dirty = false;
+      btnRender.textContent = 'Rendering…';
+      const resp = await fetch('http://localhost:8420/api/render', { method: 'POST' });
+      const data = await resp.json();
+      if (data.ok) {
+        setStatus('Saved and rendered — reopen the map to see it.', 'ok');
+      } else {
+        setStatus('render.py reported a problem — see console.', 'err');
+        console.error(data.output);
+      }
+    } catch (err) {
+      setStatus('Could not reach the render server. Double-click start_editor.bat, or run: python engine/render_server.py', 'err');
+    } finally {
+      btnRender.disabled = false;
+      btnRender.textContent = prevLabel;
+    }
+  });
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
+
+  window.addEventListener('beforeunload', (e) => {
+    if (dirty) { e.preventDefault(); e.returnValue = ''; }
+  });
+})();
+</script>
+</body>
+</html>

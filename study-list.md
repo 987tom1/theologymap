@@ -22,7 +22,7 @@ Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacram
 ## Open questions (33)
 
 ### Scripture
-- **Inerrancy** `T1`  _confident_
+- **Inerrancy** `T1`  _certain_
   - Currently: Scripture is without error in all that it affirms.
   - To do: Work through the Chicago Statement's nuances before settling on the precise formulation.
 - **Hermeneutic method** `T2`  _confident_

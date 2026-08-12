@@ -1,7 +1,7 @@
 <map version="freeplane 1.9.0">
 <node TEXT="My Theology">
 <node TEXT="Scripture" POSITION="right" FOLDED="true">
-<node TEXT="Inerrancy  [T1 · confident · study]" COLOR="#7c2d3b" STYLE="fork">
+<node TEXT="Inerrancy  [T1 · certain · study]" COLOR="#7c2d3b" STYLE="fork">
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Scripture is without error in all that it affirms.</p><p>WHY: Christ&#x27;s own use of the Old Testament, and Scripture&#x27;s self-attestation.</p><p>NOT: Limited infallibility — trustworthy on faith and salvation, errant on history and science.</p><p>STUDY: Work through the Chicago Statement&#x27;s nuances before settling on the precise formulation.</p><p>TEXTS: 2 Tim 3:16-17; John 10:35</p></body></html></richcontent>
 </node>
 <node TEXT="Canon  [T1 · confident]" COLOR="#7c2d3b" STYLE="fork">

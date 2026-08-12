@@ -1,6 +1,6 @@
 # Scripture
 
-## Inerrancy · T1 · confident · #study
+## Inerrancy · T1 · certain · #study
   hold  Scripture is without error in all that it affirms.
   why   Christ's own use of the Old Testament, and Scripture's self-attestation.
   vs    Limited infallibility — trustworthy on faith and salvation, errant on history and science.
@@ -161,7 +161,8 @@
   refs  Matt 7:15-20; 1 John 4:1
 
 ## Fruit from Bad Ministers · T3 · confident
-  hold  Working of the Holy Spirit never validates a minister but God may minister through people DESPITE their fruit, character and doctrine. 
+  hold  Working of the Holy Spirit never validates a minister but God may minister through people DESPITE their fruit, character and doctrine.
+
 
 # Humanity and sin
 
@@ -309,7 +310,7 @@
   why   A pre-tribulation rapture depends on dispensational machinery not held.
   refs  1 Thess 4:16-17; 2 Thess 2:3
 
-## Hell · T3 · lean · #study
+## Hell · T3 · #study
   hold  Eternal conscious torment.
   todo  Give conditional immortality an honest hearing rather than a dismissal. The exegetical case (Fudge; Stott's hesitation) is serious even if it is finally wrong.
   refs  Matt 25:46; Rev 20:10; Matt 10:28
@@ -334,7 +335,7 @@
   hold  Old earth — roughly seventy-thirty.
   why   Young-earth arguments are respected as genuinely possible, not dismissed.
 
-## Genre of Genesis 1 · T3 · leaning #study
+## Genre of Genesis 1 · T3
   hold  True theology told in ancient literary form. Not a scientific chronology, and so not in competition with one.
   todo  Further study into 'mytho history' genre.
   link  age-of-the-earth
@@ -348,7 +349,7 @@
   refs  Gen 7:11-24; 2 Pet 3:5-6
 
 ## Miracles and science · T2 · confident
-  hold  God acts in the world he made. 
+  hold  God acts in the world he made.
   refs  John 5:17; Col 1:17
 
 
@@ -486,7 +487,7 @@
   refs  Matt 11:21-23; Rom 2:14-15
   link  sovereignty-and-free-will
 
-## World religions · T2 · confident 
+## World religions · T2 · confident
   hold  Other religions may contain genuine moral insight and real longing, but they do not save.
   refs  Acts 17:22-23; Rom 1:19-20
 
