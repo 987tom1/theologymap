@@ -6,31 +6,42 @@ theological triage (*Finding the Right Hills to Die On*).
 ## The one rule
 
 **`theology-map.md` holds the content and is what you edit.**
-`theology-map.html`, `theology-map.mm` and `study-list.md` are generated —
-never hand-edit them, they are overwritten on every run. `verses.md` is a
-second source file, but it is mostly machine-filled (below).
+`theology-map.html`, `documentation/theology-map.mm` and
+`documentation/study-list.md` are generated — never hand-edit them, they are
+overwritten on every run. `documentation/verses.md` is a second source file,
+but it is mostly machine-filled (below).
 
-## Folder layout (flattened 2026-08-12, engine/ split out 2026-08-12)
+## Folder layout (flattened 2026-08-12, engine/ and documentation/ split out 2026-08-12)
 
-Root holds only what a non-technical user needs to click or read:
-`theology-map.html` (the map), `start_editor.bat` (launches the editor),
-`README.md`, plus the two content files `theology-map.md` and `verses.md`
-and the two secondary generated outputs `theology-map.mm` / `study-list.md`.
-Everything else — `render.py`, `fetch_verses.py`, `render_server.py`,
-`editor.html`, `editor-core.js` — lives in `engine/` and isn't meant to be
-opened directly. `render.py` and `fetch_verses.py` resolve their own
-`ROOT` as `Path(__file__).parent.parent`, i.e. one level up from `engine/`,
-so both still read/write the content and output files at the project root.
+Root holds only what a non-technical user needs to click: `theology-map.html`
+(the map) and `start_editor.bat` (launches the editor), plus the one file you
+hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
+
+- `documentation/` — `README.md` (usage instructions), `verses.md` (source
+  data, mostly machine-filled), and the two secondary generated outputs
+  `theology-map.mm` / `study-list.md`.
+- `engine/` — `render.py`, `fetch_verses.py`, `render_server.py`,
+  `editor.html`, `editor-core.js`. Not meant to be opened directly.
+
+`render.py` and `fetch_verses.py` resolve `ROOT` as
+`Path(__file__).parent.parent` (one level up from `engine/`) and read/write
+`documentation/verses.md` via a `DOCS = ROOT / "documentation"` constant —
+`theology-map.md` and `theology-map.html` stay at `ROOT` directly since one
+is hand-edited and the other is meant to be double-clicked.
 
 ```
 python engine/render.py         # build everything
 python engine/fetch_verses.py   # fill any blank verse text (needs network)
 ```
 
-`render.py` writes `theology-map.html`, `theology-map.mm` and
-`study-list.md` (at the project root). Standard library only, no installs.
-It prints node counts, scripture-reference counts, and warns on broken
-`link` targets — a broken link means the slug doesn't match any node title.
+`render.py` writes `theology-map.html`, `documentation/theology-map.mm` and
+`documentation/study-list.md`. Standard library only, no installs. It prints
+node counts, scripture-reference counts, and warns on broken `link` targets —
+a broken link means the slug doesn't match any node title.
+
+Because GitHub auto-renders whichever `README.md` sits at the repo root as
+the landing page, moving it into `documentation/` means the GitHub repo page
+no longer shows it automatically — only relevant if that mattered to you.
 
 ## Editing via the browser form
 

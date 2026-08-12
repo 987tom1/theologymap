@@ -2,17 +2,20 @@
 
 A personal mind map of theological positions, organised by tier of importance.
 
-## The three files you'll ever need to click
+## The two files you'll ever need to click
+
+They live in the project's root folder, one level up from this file.
 
 | File | What it does |
 |---|---|
 | **`theology-map.html`** | The map itself. Double-click to view it in your browser. |
 | **`start_editor.bat`** | Double-click to edit. Starts a small local server and opens the editor in your browser. Close the black window when you're done to stop it. |
-| **`README.md`** | This file. |
 
-Everything else in this folder is either content the editor manages for you
-(`theology-map.md`, `verses.md`) or internal machinery you shouldn't need to
-open (`engine/`).
+`theology-map.md`, also at the root, is the one file you hand-edit directly
+if you'd rather skip the editor. Everything in this `documentation/` folder
+(`verses.md`, `theology-map.mm`, `study-list.md`, this README) is either
+machine-managed or reference material. `engine/` holds the scripts and isn't
+meant to be opened directly.
 
 ## Editing
 

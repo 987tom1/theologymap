@@ -3,10 +3,10 @@ file, and a generated study list.
 
 Usage:  python render.py
 
-Reads   theology-map.md
+Reads   theology-map.md, documentation/verses.md
 Writes  theology-map.html
-        theology-map.mm
-        study-list.md
+        documentation/theology-map.mm
+        documentation/study-list.md
 
 Standard library only.
 """
@@ -20,8 +20,9 @@ from collections import OrderedDict
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
+DOCS = ROOT / "documentation"
 SRC = ROOT / "theology-map.md"
-VERSES = ROOT / "verses.md"
+VERSES = DOCS / "verses.md"
 BUILD = ROOT
 
 VERSES_HEADER = """<!--
@@ -1325,9 +1326,10 @@ def main() -> None:
     missing_text = [r for r in used_refs if not verses.get(r, "").strip()]
 
     BUILD.mkdir(exist_ok=True)
+    DOCS.mkdir(exist_ok=True)
     (BUILD / "theology-map.html").write_text(render_html(nodes, verses), encoding="utf-8")
-    (BUILD / "theology-map.mm").write_text(render_mm(nodes), encoding="utf-8")
-    (BUILD / "study-list.md").write_text(render_study(nodes, missing_text), encoding="utf-8")
+    (DOCS / "theology-map.mm").write_text(render_mm(nodes), encoding="utf-8")
+    (DOCS / "study-list.md").write_text(render_study(nodes, missing_text), encoding="utf-8")
 
     doctrine = [n for n in nodes if "thread" not in n["flags"]]
     study = [n for n in doctrine if "study" in n["flags"]]
@@ -1341,7 +1343,7 @@ def main() -> None:
                if l not in {x["slug"] for x in nodes}]
     if missing:
         print(f"  WARNING broken links from: {sorted(set(missing))}")
-    print("wrote theology-map.html, theology-map.mm, study-list.md")
+    print("wrote theology-map.html, documentation/theology-map.mm, documentation/study-list.md")
 
 
 if __name__ == "__main__":

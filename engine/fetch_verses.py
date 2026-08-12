@@ -22,7 +22,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-VERSES = ROOT / "verses.md"
+VERSES = ROOT / "documentation" / "verses.md"
 API = "https://labs.bible.org/api/?passage={}&type=json"
 PAUSE = 0.15  # be polite to a free service
 TIMEOUT = 25
