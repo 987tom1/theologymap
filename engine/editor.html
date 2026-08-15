@@ -72,6 +72,10 @@
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mtitle { display:flex; align-items:center; justify-content:space-between; gap:8px; }
   .mtitle b { font-weight:600; font-size:13.5px; }
+  .mtitle-actions { display:flex; align-items:center; gap:6px; flex:0 0 auto; }
+  .mdomain-edit { border:none; background:none; padding:0; margin:0; font-size:11px;
+    color:var(--muted); cursor:pointer; line-height:1; }
+  .mdomain-edit:hover { color:var(--ink); }
   .mchev { font-size:10px; color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
   .mbox.mopen .mchev { transform:rotate(90deg); }
   .mmeta { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
@@ -91,16 +95,16 @@
     padding:3.5px 6.5px; border-radius:4px; background:var(--chip); color:var(--muted);
     border:1px solid var(--line); }
   .flag-chip { display:inline-flex; align-items:center; gap:4px; font:11px/1 var(--sans); color:var(--muted); }
-  .mfield { margin-top:8px; }
-  .mfield label { display:block; font:700 9.5px/1.6 var(--sans); letter-spacing:.06em;
-    text-transform:uppercase; color:var(--muted); margin-bottom:2px; }
-  .mfield textarea, .mfield input[type=text] { width:100%; border:1px solid var(--line);
+  .mfield { display:flex; align-items:flex-start; gap:8px; margin-top:8px; }
+  .mfield label { flex:0 0 52px; padding-top:7px; font:700 9.5px/1.6 var(--sans); letter-spacing:.06em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:0; }
+  .mfield textarea, .mfield input[type=text] { flex:1; min-width:0; border:1px solid var(--line);
     background:var(--panel); color:var(--ink); padding:6px 8px; border-radius:5px;
     font:13px/1.5 var(--serif); resize:none; overflow:hidden; }
   .mdelete { margin-top:10px; font-size:11.5px; padding:5px 9px; }
-  .mbox-add { border-style:dashed; color:var(--muted); font:600 12px/1 var(--sans);
-    text-align:center; cursor:pointer; }
-  .mbox-add:hover { color:var(--ink); border-color:var(--muted); }
+  .mbox-add { background:var(--ink); color:var(--bg); border-color:var(--ink);
+    font:600 12px/1 var(--sans); text-align:center; cursor:pointer; }
+  .mbox-add:hover { opacity:.85; }
   nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
              padding:14px 10px; overflow-y:auto; max-height:calc(100vh - 128px); }
   nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
@@ -303,8 +307,21 @@
       onDeleteNode: (node) => confirmDeleteNodeFromMap(node),
       onAddNode: (domainName) => addNodeFromMap(domainName),
       onAddDomain: () => addDomainFromMap(),
+      onRenameDomain: (domainName) => renameDomainFromMap(domainName),
     });
     return mapView;
+  }
+
+  function renameDomainFromMap(domainName) {
+    const domain = domains.find(d => d.name === domainName);
+    if (!domain) return;
+    const name = prompt('Rename domain:', domain.name);
+    if (!name || !name.trim() || name.trim() === domain.name) return;
+    domain.name = name.trim();
+    domain.nodes.forEach(n => { n.domain = domain.name; });
+    dirty = true;
+    renderTree();
+    mapView.redraw();
   }
 
   function confirmDeleteNodeFromMap(node) {

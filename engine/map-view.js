@@ -69,6 +69,7 @@
     this.onDeleteNode = opts.onDeleteNode || function () {};
     this.onAddNode = opts.onAddNode || function () { return null; };
     this.onAddDomain = opts.onAddDomain || function () {};
+    this.onRenameDomain = opts.onRenameDomain || function () {};
 
     container.innerHTML =
       '<div class="mapcontrols"><button type="button" class="map-reset">Reset view</button></div>' +
@@ -129,7 +130,7 @@
     if (box.type === 'domain') {
       const openState = box.children.length > 0;
       return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${escapeHtml(box.id)}">
-        <div class="mtitle"><b>${escapeHtml(box.title)}</b>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</div>
+        <div class="mtitle"><b>${escapeHtml(box.title)}</b><span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${escapeHtml(box.title)}" title="Rename domain">&#9998;</button>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</span></div>
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
     }
@@ -139,7 +140,46 @@
     throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
   };
 
-  MapView.prototype._leafHeader = function (n) {
+  // Closed leaves render exactly like the read-only public map view — plain
+  // title + chips — so a domain that's merely expanded still "looks like
+  // the regular map view" until a doctrine itself is dropped down. Only an
+  // open leaf shows editable controls.
+  MapView.prototype._leafHeaderReadonly = function (n) {
+    const wrap = document.createElement('div');
+    wrap.className = 'mtitle';
+    const b = document.createElement('b');
+    b.textContent = n.title;
+    wrap.appendChild(b);
+    const chev = document.createElement('span');
+    chev.className = 'mchev'; chev.innerHTML = '&#9656;';
+    wrap.appendChild(chev);
+    return wrap;
+  };
+
+  MapView.prototype._leafMetaReadonly = function (n) {
+    const wrap = document.createElement('div');
+    wrap.className = 'mmeta';
+    const tier = n.tier ? this.tierMeta[n.tier] : null;
+    const conf = n.confidence ? this.confMeta[n.confidence] : null;
+    if (tier) {
+      const chip = document.createElement('span');
+      chip.className = 'chip tier'; chip.style.background = tier[1]; chip.textContent = n.tier;
+      wrap.appendChild(chip);
+    }
+    if (conf) {
+      const chip = document.createElement('span');
+      chip.className = 'chip'; chip.textContent = n.confidence;
+      wrap.appendChild(chip);
+    }
+    if (n.flags.includes('study')) {
+      const chip = document.createElement('span');
+      chip.className = 'chip'; chip.textContent = 'study';
+      wrap.appendChild(chip);
+    }
+    return wrap;
+  };
+
+  MapView.prototype._leafHeaderEditable = function (n) {
     const core = window.EditorCore;
     const self = this;
     const wrap = document.createElement('div');
@@ -155,7 +195,7 @@
     return wrap;
   };
 
-  MapView.prototype._leafMeta = function (n) {
+  MapView.prototype._leafMetaEditable = function (n) {
     const core = window.EditorCore;
     const self = this;
     const wrap = document.createElement('div');
@@ -235,6 +275,7 @@
     refsRow.appendChild(refsLabel);
     const refsInput = document.createElement('input');
     refsInput.type = 'text'; refsInput.value = n.refs || '';
+    refsInput.placeholder = 'e.g. 2 Tim 3:16-17; Heb 1:1-2';
     refsInput.addEventListener('click', e => e.stopPropagation());
     refsInput.addEventListener('input', () => { n.refs = refsInput.value; self.onFieldChange(n); });
     refsRow.appendChild(refsInput);
@@ -260,10 +301,11 @@
     const el = document.createElement('div');
     el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
     el.dataset.id = box.id;
+    el.dataset.open = open ? '1' : '';
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
-    el.appendChild(this._leafHeader(n));
-    el.appendChild(this._leafMeta(n));
+    el.appendChild(open ? this._leafHeaderEditable(n) : this._leafHeaderReadonly(n));
+    el.appendChild(open ? this._leafMetaEditable(n) : this._leafMetaReadonly(n));
     if (open) el.appendChild(this._leafDetail(n));
     return el;
   };
@@ -271,17 +313,36 @@
   MapView.prototype._updateLeaf = function (el, box) {
     const n = box.node;
     const open = this.mapDetailOpen.has(box.id);
+    const wasOpen = el.dataset.open === '1';
     el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
+    el.dataset.open = open ? '1' : '';
+
+    if (!open) {
+      // Closed tiles have no focusable controls, so it's safe — and keeps
+      // them in sync with edits made elsewhere (e.g. the List tab) — to
+      // simply rebuild them on every redraw.
+      el.innerHTML = '';
+      el.appendChild(this._leafHeaderReadonly(n));
+      el.appendChild(this._leafMetaReadonly(n));
+      return;
+    }
+
+    if (!wasOpen) {
+      el.innerHTML = '';
+      el.appendChild(this._leafHeaderEditable(n));
+      el.appendChild(this._leafMetaEditable(n));
+      el.appendChild(this._leafDetail(n));
+      return;
+    }
+
+    // Already open and staying open — leave header/meta/detail controls
+    // alone so an in-progress keystroke in a focused field is never
+    // clobbered by a redraw triggered from elsewhere (e.g. resizing the
+    // window, or editing a different node).
     const hasDetail = !!el.querySelector('.mdetail');
-    if (open && !hasDetail) el.appendChild(this._leafDetail(n));
-    if (!open && hasDetail) el.querySelector('.mdetail').remove();
-    // title/tier/confidence/flag inputs are left alone here (not rebuilt) so
-    // an in-progress keystroke in a focused field is never clobbered by a
-    // redraw triggered from elsewhere (e.g. resizing the window, or editing
-    // a different node). They already reflect the live node object because
-    // their own input handlers wrote to it directly.
+    if (!hasDetail) el.appendChild(this._leafDetail(n));
   };
 
   MapView.prototype.redraw = function () {
@@ -408,6 +469,8 @@
     const self = this;
     this.boxesEl.addEventListener('click', e => {
       if (e.target.closest('.refchip') || e.target.closest('.versepop')) return;
+      const editBtn = e.target.closest('.mdomain-edit');
+      if (editBtn) { self.onRenameDomain(editBtn.dataset.domain); return; }
       // Task 4 adds interactive form controls (inputs/selects/textareas) inside
       // expanded leaves — clicks on those must not toggle the tile shut.
       if (e.target.closest('input, select, textarea, .tagchip, .addtag, button.danger')) return;

@@ -54,9 +54,16 @@ doesn't risk the ~1300-line generator. Loading a file shows two tabs, both
 editing the same live in-memory model so switching tabs never loses work:
 
 - **Map** (default) — the same node-link pan/zoom layout as
-  `theology-map.html`'s Map view, but leaf tiles are directly editable once
-  expanded (title, tier, confidence, flags, hold/why/vs/todo, refs, links),
-  plus dashed "+ New node"/"+ New domain" tiles and a delete link per leaf.
+  `theology-map.html`'s Map view. Collapsed leaf tiles render exactly like
+  the read-only public Map view (plain title + tier/confidence/`#study`
+  chips) — a domain that's merely expanded still looks like the ordinary
+  map until a doctrine itself is dropped down. Only an open leaf switches to
+  editable controls (title, tier, confidence, flags, hold/why/vs/todo, refs,
+  links); the Texts field shows a placeholder demonstrating the
+  semicolon-separated format. Each domain box has a small edit (✎) button
+  to rename it in place. "+ New node"/"+ New domain" tiles use inverted
+  (ink-on-paper) colouring so they read as clearly distinct actions, and
+  each open leaf has a delete link.
 - **List** — the original structured form: pick a node in the sidebar tree,
   edit its fields, add/delete nodes and domains.
 
@@ -99,9 +106,13 @@ and then deleted before saving nets to zero rather than counting as deleted.
   it outright, for any site. `start_editor.bat` is the actual launcher;
   the editor can only detect whether the server is already running and say
   so.
-- The editor does not support reordering domains or renaming a domain in
-  place (delete-and-recreate covers domain renames); it's deliberately just
-  add/edit/delete, per the "very very very simple" brief it was built to.
+- The editor does not support reordering domains; it's deliberately just
+  add/edit/delete/rename, per the "very very very simple" brief it was built
+  to. Domain rename (List tab: none yet; Map tab: the ✎ button) updates
+  `domain.name` and each of its nodes' in-memory `.domain` field — that
+  field is never serialized (the file format implies domain from section
+  headers), so this is purely a display-consistency nicety, not something
+  `theology-map.md`'s format requires.
 
 ## Node syntax
 
