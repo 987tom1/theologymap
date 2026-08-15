@@ -21,7 +21,8 @@ hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
   data, mostly machine-filled), and the two secondary generated outputs
   `theology-map.mm` / `study-list.md`.
 - `engine/` — `render.py`, `fetch_verses.py`, `render_server.py`,
-  `editor.html`, `editor-core.js`. Not meant to be opened directly.
+  `editor.html`, `editor-core.js`, `map-view.js`, `shared-fields.js`. Not
+  meant to be opened directly.
 
 `render.py` and `fetch_verses.py` resolve `ROOT` as
 `Path(__file__).parent.parent` (one level up from `engine/`) and read/write
@@ -46,17 +47,40 @@ no longer shows it automatically — only relevant if that mattered to you.
 ## Editing via the browser form
 
 Double-clicking `start_editor.bat` starts `engine/render_server.py` and
-opens `engine/editor.html` — a small structured-form editor for
-`theology-map.md`: pick a node, edit its fields, save. `theology-map.html`'s
+opens `engine/editor.html` for `theology-map.md`. `theology-map.html`'s
 header also carries a direct "Edit ✎" link to it. It's a separate
 hand-written page, not part of `render.py`'s generated output, so editing it
-doesn't risk the ~1300-line generator.
+doesn't risk the ~1300-line generator. Loading a file shows two tabs, both
+editing the same live in-memory model so switching tabs never loses work:
+
+- **Map** (default) — the same node-link pan/zoom layout as
+  `theology-map.html`'s Map view, but leaf tiles are directly editable once
+  expanded (title, tier, confidence, flags, hold/why/vs/todo, refs, links),
+  plus dashed "+ New node"/"+ New domain" tiles and a delete link per leaf.
+- **List** — the original structured form: pick a node in the sidebar tree,
+  edit its fields, add/delete nodes and domains.
+
+A toolbar indicator ("N nodes edited, N created, N deleted", any zero terms
+omitted) tracks changes across both tabs and resets on save; a node created
+and then deleted before saving nets to zero rather than counting as deleted.
 
 - `editor-core.js` is the parser/serializer, a JS port of `render.py`'s
   `parse()`/field logic kept in lockstep with it by hand. Round-trip fidelity
   (parse → serialize → re-parse gives an identical model) was verified against
   the live file during development — if you touch either the Python parser or
   this file, re-verify both stay in sync.
+- `map-view.js` is the Map tab's layout/pan/zoom engine, a hand-ported copy
+  of the Map-view JS embedded in `render.py`'s generated HTML (same
+  lockstep-by-hand convention as `editor-core.js`) — if you touch the Map
+  view in `render.py`, re-verify this file matches. Unlike `render.py`'s
+  version it reads the editor's `domains` array directly (already grouped by
+  real domain) and does not pull `#thread` nodes into a synthetic
+  "Cross-cutting threads" box. Leaf tiles are keyed by a stable per-node id
+  (not `n.slug`, which changes the moment a title is edited) so renaming an
+  open tile doesn't collapse it.
+- `shared-fields.js` holds the tag-chip link-editor widget used by both the
+  List form and Map tiles, so there's one implementation to keep in sync
+  rather than two.
 - **Connect** (Chrome/Edge only, via the File System Access API) grants the
   page a write handle to `theology-map.md` directly — no server needed to
   read or save. **Upload a copy** is the fallback for any browser: it loads
@@ -69,12 +93,14 @@ doesn't risk the ~1300-line generator.
   page. Without the server running, Save still writes the file — start
   `start_editor.bat` (or run `python engine/render_server.py` yourself) and
   click Save & render again, or just run `python engine/render.py` by hand.
+  Save always rewrites the whole file regardless of which tab or how many
+  edits were made — there's no per-tile autosave.
 - A page button cannot launch a local process — browser sandboxing forbids
   it outright, for any site. `start_editor.bat` is the actual launcher;
   the editor can only detect whether the server is already running and say
   so.
-- The editor does not support reordering domains/nodes or renaming a domain
-  in place (delete-and-recreate covers renames); it's deliberately just
+- The editor does not support reordering domains or renaming a domain in
+  place (delete-and-recreate covers domain renames); it's deliberately just
   add/edit/delete, per the "very very very simple" brief it was built to.
 
 ## Node syntax
