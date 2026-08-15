@@ -98,6 +98,9 @@
     background:var(--panel); color:var(--ink); padding:6px 8px; border-radius:5px;
     font:13px/1.5 var(--serif); resize:none; overflow:hidden; }
   .mdelete { margin-top:10px; font-size:11.5px; padding:5px 9px; }
+  .mbox-add { border-style:dashed; color:var(--muted); font:600 12px/1 var(--sans);
+    text-align:center; cursor:pointer; }
+  .mbox-add:hover { color:var(--ink); border-color:var(--muted); }
   nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
              padding:14px 10px; overflow-y:auto; max-height:calc(100vh - 128px); }
   nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
@@ -277,13 +280,39 @@
       getAllSlugs: () => core.allSlugs(domains),
       onFieldChange: (node) => touch(),
       onDeleteNode: (node) => confirmDeleteNodeFromMap(node),
+      onAddNode: (domainName) => addNodeFromMap(domainName),
+      onAddDomain: () => addDomainFromMap(),
     });
     return mapView;
   }
 
-  // Temporary stub — Task 5 replaces this with the real shared delete flow.
   function confirmDeleteNodeFromMap(node) {
-    alert('Delete wiring lands in Task 5');
+    const domain = domains.find(d => d.nodes.includes(node));
+    deleteNodeWithConfirm(domain, node, () => {
+      dirty = true;
+      mapView.mapDetailOpen.delete(node.slug);
+      mapView.redraw();
+      renderTreeList('');
+    });
+  }
+
+  function addNodeFromMap(domainName) {
+    const domain = domains.find(d => d.name === domainName);
+    if (!domain) return null;
+    const node = core.newNode('Untitled', domainName);
+    domain.nodes.push(node);
+    dirty = true;
+    renderTreeList('');
+    return node;
+  }
+
+  function addDomainFromMap() {
+    const name = prompt('New domain name:');
+    if (!name || !name.trim()) return;
+    domains.push({ name: name.trim(), nodes: [] });
+    dirty = true;
+    renderTree();
+    mapView.redraw();
   }
 
   const canFSAccess = 'showOpenFilePicker' in window;
@@ -535,18 +564,24 @@
 
   // -------------------------------------------------------------- deleting
   const dlgConfirm = $('dlgConfirm');
-  function confirmDeleteNode() {
-    const node = domains[current.domainIndex].nodes[current.nodeIndex];
+  function deleteNodeWithConfirm(domain, node, afterDelete) {
     $('dlgTitle').textContent = 'Delete "' + node.title + '"?';
     $('dlgBody').textContent = 'This removes the node from the editor. It only leaves the file once you save.';
     dlgConfirm.showModal();
     $('dlgOk').onclick = () => {
-      domains[current.domainIndex].nodes.splice(current.nodeIndex, 1);
-      current = null; dirty = true;
+      domain.nodes.splice(domain.nodes.indexOf(node), 1);
       dlgConfirm.close();
-      renderTree(); renderForm();
+      afterDelete();
     };
     $('dlgCancel').onclick = () => dlgConfirm.close();
+  }
+
+  function confirmDeleteNode() {
+    const node = domains[current.domainIndex].nodes[current.nodeIndex];
+    deleteNodeWithConfirm(domains[current.domainIndex], node, () => {
+      current = null; dirty = true;
+      renderTree(); renderForm();
+    });
   }
 
   // ------------------------------------------------------------ preview/copy

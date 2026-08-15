@@ -55,6 +55,8 @@
     this.getAllSlugs = opts.getAllSlugs || function () { return []; };
     this.onFieldChange = opts.onFieldChange || function () {};
     this.onDeleteNode = opts.onDeleteNode || function () {};
+    this.onAddNode = opts.onAddNode || function () { return null; };
+    this.onAddDomain = opts.onAddDomain || function () {};
 
     container.innerHTML =
       '<div class="mapcontrols"><button type="button" class="map-reset">Reset view</button></div>' +
@@ -88,9 +90,13 @@
       const isOpen = !this.mapManualCollapsed.has(id);
       const side = nextSide();
       const dom = { id, type: 'domain', title: domain.name, depth: 1, side, total: members.length, children: [] };
-      if (isOpen) dom.children = members.map(n => this._leafBox(n, 2, side));
+      if (isOpen) {
+        dom.children = members.map(n => this._leafBox(n, 2, side));
+        dom.children.push({ id: 'addnode:' + domain.name, type: 'addnode', title: '+ New node', depth: 2, side, domainName: domain.name, children: [] });
+      }
       root.children.push(dom);
     });
+    root.children.push({ id: 'adddomain', type: 'adddomain', title: '+ New domain', depth: 1, side: nextSide(), children: [] });
     return root;
   };
 
@@ -114,6 +120,9 @@
         <div class="mtitle"><b>${escapeHtml(box.title)}</b>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</div>
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
+    }
+    if (box.type === 'addnode' || box.type === 'adddomain') {
+      return `<div class="mbox mbox-add" data-id="${escapeHtml(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
     }
     throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
   };
@@ -390,6 +399,12 @@
       if (id === 'root') return;
       if (id.startsWith('domain:')) {
         if (self.mapManualCollapsed.has(id)) self.mapManualCollapsed.delete(id); else self.mapManualCollapsed.add(id);
+      } else if (id.startsWith('addnode:')) {
+        const domainName = id.slice('addnode:'.length);
+        const node = self.onAddNode(domainName);
+        if (node) self.mapDetailOpen.add(node.slug);
+      } else if (id === 'adddomain') {
+        self.onAddDomain();
       } else {
         if (self.mapDetailOpen.has(id)) self.mapDetailOpen.delete(id); else self.mapDetailOpen.add(id);
         self.onLeafToggle(id, self.mapDetailOpen.has(id));
