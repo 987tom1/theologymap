@@ -311,7 +311,7 @@
     const domain = domains.find(d => d.nodes.includes(node));
     deleteNodeWithConfirm(domain, node, () => {
       dirty = true;
-      mapView.mapDetailOpen.delete(node.slug);
+      mapView.forgetNode(node);
       mapView.redraw();
       renderTreeList('');
     });

@@ -40,6 +40,18 @@
     return list.slice().sort((a, b) => tierRank(a) - tierRank(b));
   }
 
+  // Leaf boxes are keyed by a stable per-node id, not by n.slug — slug
+  // changes the moment a title is edited, and using it as the DOM-element
+  // cache key / "which tile is expanded" key meant renaming an open tile
+  // silently collapsed it (and threw away its DOM element) on the very next
+  // redraw. A WeakMap keyed on the node object itself is immune to renames.
+  let _leafIdCounter = 0;
+  const _leafIdMap = new WeakMap();
+  function stableLeafId(n) {
+    if (!_leafIdMap.has(n)) _leafIdMap.set(n, 'leaf' + (++_leafIdCounter));
+    return _leafIdMap.get(n);
+  }
+
   function MapView(container, opts) {
     this.container = container;
     this.getDomains = opts.getDomains;
@@ -101,7 +113,7 @@
   };
 
   MapView.prototype._leafBox = function (n, depth, side) {
-    return { id: n.slug, type: 'leaf', title: n.title, depth, side, node: n, children: [] };
+    return { id: stableLeafId(n), type: 'leaf', title: n.title, depth, side, node: n, children: [] };
   };
 
   function flatten(tree, acc) {
@@ -244,7 +256,7 @@
 
   MapView.prototype._mountLeaf = function (box) {
     const n = box.node;
-    const open = this.mapDetailOpen.has(n.slug);
+    const open = this.mapDetailOpen.has(box.id);
     const el = document.createElement('div');
     el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
     el.dataset.id = box.id;
@@ -258,7 +270,7 @@
 
   MapView.prototype._updateLeaf = function (el, box) {
     const n = box.node;
-    const open = this.mapDetailOpen.has(n.slug);
+    const open = this.mapDetailOpen.has(box.id);
     el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
@@ -382,6 +394,12 @@
     this._applyPanZoom();
   };
 
+  // Called after a node is deleted elsewhere (e.g. from the List tab, or the
+  // shared confirm dialog) so its stale "expanded" state doesn't linger.
+  MapView.prototype.forgetNode = function (node) {
+    this.mapDetailOpen.delete(stableLeafId(node));
+  };
+
   MapView.prototype._applyPanZoom = function () {
     this.panzoomEl.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
   };
@@ -402,7 +420,7 @@
       } else if (id.startsWith('addnode:')) {
         const domainName = id.slice('addnode:'.length);
         const node = self.onAddNode(domainName);
-        if (node) self.mapDetailOpen.add(node.slug);
+        if (node) self.mapDetailOpen.add(stableLeafId(node));
       } else if (id === 'adddomain') {
         self.onAddDomain();
       } else {
