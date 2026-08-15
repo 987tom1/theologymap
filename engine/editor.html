@@ -156,6 +156,7 @@
 </dialog>
 
 <script src="editor-core.js"></script>
+<script src="shared-fields.js"></script>
 <script>
 (function () {
   const core = EditorCore;
@@ -345,7 +346,7 @@
     formEl.appendChild(fieldRow('Refs — scripture, semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
       textInput(node.refs, v => { node.refs = v; touch(); })));
 
-    formEl.appendChild(linkField(node));
+    formEl.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch()));
 
     const foot = document.createElement('div');
     foot.className = 'formfoot';
@@ -401,63 +402,6 @@
     sel.addEventListener('change', () => onChange(sel.value));
     wrap.appendChild(sel);
     return wrap;
-  }
-
-  function linkField(node) {
-    const row = document.createElement('div');
-    row.className = 'row';
-    const label = document.createElement('label');
-    label.textContent = 'Link — related node(s)';
-    row.appendChild(label);
-
-    const tags = document.createElement('div');
-    tags.className = 'tags';
-    function redraw() {
-      tags.innerHTML = '';
-      node.link.forEach((slug, i) => {
-        const chip = document.createElement('span');
-        chip.className = 'tagchip';
-        chip.appendChild(document.createTextNode(slug));
-        const rm = document.createElement('button');
-        rm.textContent = '✕';
-        rm.title = 'Remove link';
-        rm.addEventListener('click', () => { node.link.splice(i, 1); touch(); redraw(); });
-        chip.appendChild(rm);
-        tags.appendChild(chip);
-      });
-    }
-    redraw();
-    row.appendChild(tags);
-
-    const addRow = document.createElement('div');
-    addRow.className = 'addtag';
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.setAttribute('list', 'slugList');
-    input.placeholder = 'slug-of-a-related-node';
-    const addBtn = document.createElement('button');
-    addBtn.textContent = 'Add link';
-    addBtn.addEventListener('click', () => {
-      const v = core.slugify(input.value);
-      if (!v) return;
-      if (!node.link.includes(v)) { node.link.push(v); touch(); redraw(); }
-      input.value = '';
-    });
-    input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); addBtn.click(); } });
-    addRow.appendChild(input);
-    addRow.appendChild(addBtn);
-    row.appendChild(addRow);
-
-    const hint = document.createElement('p');
-    hint.className = 'hint';
-    hint.textContent = 'Must match another node\'s slug exactly, or render.py will warn about a broken link.';
-    row.appendChild(hint);
-
-    let list = document.getElementById('slugList');
-    if (!list) { list = document.createElement('datalist'); list.id = 'slugList'; document.body.appendChild(list); }
-    list.innerHTML = core.allSlugs(domains).map(s => '<option value="' + escapeHtml(s) + '">').join('');
-
-    return row;
   }
 
   function touch() {
