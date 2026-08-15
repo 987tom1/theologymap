@@ -46,6 +46,44 @@
   .spacer { flex:1; }
 
   .layout { display:flex; min-height:calc(100vh - 128px); }
+  .tabs { display:flex; gap:4px; padding:10px 20px 0; }
+  .tabbtn { font:600 12.5px/1 var(--sans); border:1px solid var(--line); background:var(--panel);
+    color:var(--muted); padding:8px 16px; border-radius:6px 6px 0 0; border-bottom:none; cursor:pointer; }
+  .tabbtn.active { color:var(--ink); background:var(--bg); font-weight:700; }
+  .mapwrap { position:relative; width:100%; height:calc(100vh - 170px); overflow:hidden;
+    background:var(--bg); background-image:radial-gradient(var(--line) 1px, transparent 1px);
+    background-size:24px 24px; cursor:grab; touch-action:none; }
+  .mapwrap.dragging { cursor:grabbing; }
+  .map-panzoom { position:absolute; left:0; top:0; transform-origin:0 0; }
+  .map-svg { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }
+  .map-svg path { fill:none; stroke:var(--line); stroke-width:1.4; }
+  .map-svg path.edge-domain { stroke-width:1.6; opacity:.9; }
+  .map-svg path.edge-leaf { stroke-width:1.1; opacity:.75; }
+  .mbox { position:absolute; left:0; top:0; background:var(--panel); border:1px solid var(--line);
+    border-radius:7px; padding:9px 12px; transition:transform .28s ease; cursor:pointer;
+    font:13px/1.4 var(--sans); width:max-content; }
+  .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
+    font-weight:700; font-size:14.5px; text-align:center; cursor:default; border-color:var(--ink); }
+  .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font-weight:700; font-size:12px;
+    letter-spacing:.03em; text-transform:uppercase; border-left:3px solid var(--muted); }
+  .mbox-leaf { min-width:150px; max-width:min(320px, 86vw); border-left:3px solid var(--tier, var(--line)); cursor:default; }
+  .mbox-leaf .mtitle { cursor:pointer; }
+  .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
+  .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
+  .mtitle { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .mtitle b { font-weight:600; font-size:13.5px; }
+  .mchev { font-size:10px; color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
+  .mbox.mopen .mchev { transform:rotate(90deg); }
+  .mmeta { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
+  .mdetail { margin-top:8px; border-top:1px solid var(--line); padding-top:7px; }
+  .mcount { font-weight:400; color:var(--muted); font-size:11px; }
+  .chip { font:600 10px/1 var(--sans); letter-spacing:.05em; text-transform:uppercase;
+    padding:3.5px 6.5px; border-radius:4px; background:var(--chip); color:var(--muted); }
+  .chip.tier { color:#fff; }
+  .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:6px; }
+  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--line);
+    background:var(--panel); color:var(--muted); padding:5px 9px; border-radius:6px; cursor:pointer; }
+  .maphint { position:absolute; left:10px; bottom:8px; font:11px/1 var(--sans); color:var(--muted); z-index:5; }
   nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
              padding:14px 10px; overflow-y:auto; max-height:calc(100vh - 128px); }
   nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
@@ -126,7 +164,16 @@
   <button id="btnRender" disabled>Save &amp; render</button>
 </div>
 
-<div class="layout">
+<div class="tabs" id="tabs" style="display:none">
+  <button type="button" class="tabbtn active" data-tab="map">Map</button>
+  <button type="button" class="tabbtn" data-tab="list">List</button>
+</div>
+
+<div class="layout" id="mapLayout" style="display:none">
+  <div class="mapwrap" id="mapContainer"></div>
+</div>
+
+<div class="layout" id="listLayout" style="display:none">
   <nav class="tree" id="tree" aria-label="Domains and nodes"></nav>
   <main class="form" id="form">
     <p class="empty">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
@@ -157,6 +204,7 @@
 
 <script src="editor-core.js"></script>
 <script src="shared-fields.js"></script>
+<script src="map-view.js"></script>
 <script>
 (function () {
   const core = EditorCore;
@@ -169,6 +217,52 @@
   const treeEl = $('tree'), formEl = $('form'), fileStatus = $('fileStatus');
   const btnConnect = $('btnConnect'), btnUpload = $('btnUpload'), fileInput = $('fileInput');
   const btnSave = $('btnSave'), btnRender = $('btnRender'), btnPreview = $('btnPreview');
+
+  const tabsEl = $('tabs'), mapLayoutEl = $('mapLayout'), listLayoutEl = $('listLayout'), mapContainerEl = $('mapContainer');
+  let activeTab = 'map';
+  let mapView = null;
+
+  // Copied from render.py's TIER_META / CONF_META (colour values must match —
+  // see the plan's Global Constraints on hand-porting).
+  const TIER_META = {
+    'T1': ['Essential to the gospel', '#7c2d3b'],
+    'T1.5': ['Near-essential', '#8a4a24'],
+    'T2': ['Church-defining', '#8c6a1f'],
+    'T2.5': ['Strains partnership', '#5f6b35'],
+    'T3': ['Important, not divisive', '#2f6b63'],
+    'T4': ['Matters of liberty', '#33526e'],
+  };
+  const CONF_META = {
+    'certain': [100, 'Settled. I would teach and defend this.'],
+    'confident': [78, 'Held with good reason, open to sharpening.'],
+    'leaning': [55, 'A working position, not yet settled.'],
+    'open': [25, 'Genuinely undecided.'],
+    'rejected': [0, 'Considered and rejected.'],
+  };
+
+  tabsEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tabbtn');
+    if (!btn) return;
+    setTab(btn.dataset.tab);
+  });
+
+  function setTab(tab) {
+    activeTab = tab;
+    [...tabsEl.querySelectorAll('.tabbtn')].forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    mapLayoutEl.style.display = tab === 'map' ? 'flex' : 'none';
+    listLayoutEl.style.display = tab === 'list' ? 'flex' : 'none';
+    if (tab === 'map' && mapView) mapView.redraw();
+  }
+
+  function ensureMapView() {
+    if (mapView) return mapView;
+    mapView = new MapView(mapContainerEl, {
+      getDomains: () => domains,
+      tierMeta: TIER_META,
+      confMeta: CONF_META,
+    });
+    return mapView;
+  }
 
   const canFSAccess = 'showOpenFilePicker' in window;
   if (!canFSAccess) {
@@ -202,6 +296,9 @@
       markLoaded(file.name, true);
       renderTree();
       renderForm();
+      tabsEl.style.display = 'flex';
+      setTab('map');
+      ensureMapView().redraw();
     } catch (err) {
       if (err.name !== 'AbortError') setStatus('Could not open file: ' + err.message, 'err');
     }
@@ -218,6 +315,9 @@
     markLoaded(file.name, false);
     renderTree();
     renderForm();
+    tabsEl.style.display = 'flex';
+    setTab('map');
+    ensureMapView().redraw();
   });
 
   // ------------------------------------------------------------- tree/nav
