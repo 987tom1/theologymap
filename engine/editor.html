@@ -175,6 +175,7 @@
   <button id="btnUpload">Upload a copy instead</button>
   <input type="file" id="fileInput" accept=".md,text/markdown" style="display:none">
   <span class="status" id="fileStatus">No file loaded yet.</span>
+  <span class="status" id="changeStatus">No changes.</span>
   <div class="spacer"></div>
   <button id="btnPreview">Preview &amp; copy full text</button>
   <button id="btnSave" class="primary" disabled>Save to file</button>
@@ -229,6 +230,26 @@
   let fileHandle = null;     // FileSystemFileHandle, when connected
   let current = null;        // { domainIndex, nodeIndex } | null for a new node not yet placed
   let dirty = false;
+  let editedNodes = new Set();
+  let createdNodes = new Set();
+  let deletedCount = 0;
+
+  function resetChangeTracking() {
+    editedNodes = new Set();
+    createdNodes = new Set();
+    deletedCount = 0;
+    updateChangeIndicator();
+  }
+
+  function updateChangeIndicator() {
+    const el = $('changeStatus');
+    const parts = [];
+    if (editedNodes.size > 0) parts.push(editedNodes.size + ' node' + (editedNodes.size === 1 ? '' : 's') + ' edited');
+    if (createdNodes.size > 0) parts.push(createdNodes.size + ' created');
+    if (deletedCount > 0) parts.push(deletedCount + ' deleted');
+    el.textContent = parts.length ? parts.join(', ') : 'No changes.';
+    el.className = 'status' + (parts.length ? '' : ' ok');
+  }
 
   const $ = (id) => document.getElementById(id);
   const treeEl = $('tree'), formEl = $('form'), fileStatus = $('fileStatus');
@@ -278,7 +299,7 @@
       tierMeta: TIER_META,
       confMeta: CONF_META,
       getAllSlugs: () => core.allSlugs(domains),
-      onFieldChange: (node) => touch(),
+      onFieldChange: (node) => touch(node),
       onDeleteNode: (node) => confirmDeleteNodeFromMap(node),
       onAddNode: (domainName) => addNodeFromMap(domainName),
       onAddDomain: () => addDomainFromMap(),
@@ -302,6 +323,8 @@
     const node = core.newNode('Untitled', domainName);
     domain.nodes.push(node);
     dirty = true;
+    createdNodes.add(node);
+    updateChangeIndicator();
     renderTreeList('');
     return node;
   }
@@ -344,6 +367,7 @@
       fileHandle = handle;
       domains = core.parse(text);
       current = null; dirty = false;
+      resetChangeTracking();
       markLoaded(file.name, true);
       renderTree();
       renderForm();
@@ -363,6 +387,7 @@
     fileHandle = null;
     domains = core.parse(text);
     current = null; dirty = false;
+    resetChangeTracking();
     markLoaded(file.name, false);
     renderTree();
     renderForm();
@@ -446,6 +471,8 @@
     const node = core.newNode('Untitled', domains[di].name);
     domains[di].nodes.push(node);
     dirty = true;
+    createdNodes.add(node);
+    updateChangeIndicator();
     selectNode(di, domains[di].nodes.length - 1);
   }
 
@@ -458,12 +485,12 @@
     const node = domains[current.domainIndex].nodes[current.nodeIndex];
     formEl.innerHTML = '';
 
-    formEl.appendChild(fieldRow('Title', textInput(node.title, v => { node.title = v; node.slug = core.slugify(v); touch(); })));
+    formEl.appendChild(fieldRow('Title', textInput(node.title, v => { node.title = v; node.slug = core.slugify(v); touch(node); })));
 
     const twoCol = document.createElement('div');
     twoCol.className = 'row two';
-    twoCol.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS], v => { node.tier = v || null; touch(); }));
-    twoCol.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES], v => { node.confidence = v || null; touch(); }));
+    twoCol.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS], v => { node.tier = v || null; touch(node); }));
+    twoCol.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES], v => { node.confidence = v || null; touch(node); }));
     formEl.appendChild(twoCol);
 
     const flagRow = document.createElement('div');
@@ -481,7 +508,7 @@
         node.flags = cb.checked
           ? [...new Set([...node.flags, flag])]
           : node.flags.filter(f => f !== flag);
-        touch();
+        touch(node);
       });
       lab.appendChild(cb);
       lab.appendChild(document.createTextNode(label));
@@ -490,14 +517,14 @@
     flagRow.appendChild(fr);
     formEl.appendChild(flagRow);
 
-    formEl.appendChild(fieldRow('Hold — the position held', textArea(node.hold, v => { node.hold = v; touch(); })));
-    formEl.appendChild(fieldRow('Why — one line of rationale', textArea(node.why, v => { node.why = v; touch(); })));
-    formEl.appendChild(fieldRow('Vs — the rival view rejected', textArea(node.vs, v => { node.vs = v; touch(); })));
-    formEl.appendChild(fieldRow('Todo — what still needs working out', textArea(node.todo, v => { node.todo = v; touch(); })));
+    formEl.appendChild(fieldRow('Hold — the position held', textArea(node.hold, v => { node.hold = v; touch(node); })));
+    formEl.appendChild(fieldRow('Why — one line of rationale', textArea(node.why, v => { node.why = v; touch(node); })));
+    formEl.appendChild(fieldRow('Vs — the rival view rejected', textArea(node.vs, v => { node.vs = v; touch(node); })));
+    formEl.appendChild(fieldRow('Todo — what still needs working out', textArea(node.todo, v => { node.todo = v; touch(node); })));
     formEl.appendChild(fieldRow('Refs — scripture, semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
-      textInput(node.refs, v => { node.refs = v; touch(); })));
+      textInput(node.refs, v => { node.refs = v; touch(node); })));
 
-    formEl.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch()));
+    formEl.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch(node)));
 
     const foot = document.createElement('div');
     foot.className = 'formfoot';
@@ -555,11 +582,13 @@
     return wrap;
   }
 
-  function touch() {
+  function touch(node) {
     dirty = true;
+    if (node && !createdNodes.has(node)) editedNodes.add(node);
     const status = document.getElementById('formStatus');
     if (status) { status.textContent = 'Unsaved changes in the editor.'; status.className = 'status'; }
     renderTreeList('');
+    updateChangeIndicator();
   }
 
   // -------------------------------------------------------------- deleting
@@ -570,6 +599,13 @@
     dlgConfirm.showModal();
     $('dlgOk').onclick = () => {
       domain.nodes.splice(domain.nodes.indexOf(node), 1);
+      if (createdNodes.has(node)) {
+        createdNodes.delete(node);
+      } else {
+        editedNodes.delete(node);
+        deletedCount++;
+      }
+      updateChangeIndicator();
       dlgConfirm.close();
       afterDelete();
     };
@@ -613,6 +649,7 @@
       await writable.write(core.serialize(domains));
       await writable.close();
       dirty = false;
+      resetChangeTracking();
       setStatus('Saved to ' + fileHandle.name + ' at ' + new Date().toLocaleTimeString(), 'ok');
       const status = document.getElementById('formStatus');
       if (status) { status.textContent = 'Saved.'; status.className = 'status ok'; }
@@ -631,6 +668,7 @@
       await writable.write(core.serialize(domains));
       await writable.close();
       dirty = false;
+      resetChangeTracking();
       btnRender.textContent = 'Rendering…';
       const resp = await fetch('http://localhost:8420/api/render', { method: 'POST' });
       const data = await resp.json();
