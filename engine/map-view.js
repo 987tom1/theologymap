@@ -31,12 +31,6 @@
     return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
 
-  function refChips(s) {
-    return (s || '').split(';').map(r => r.trim()).filter(Boolean)
-      .map(r => `<button type="button" class="refchip" data-ref="${escapeHtml(r)}" aria-expanded="false">${escapeHtml(r)}</button>`)
-      .join('');
-  }
-
   function tierRank(n) {
     const i = TIER_ORDER.indexOf(n.tier);
     return i === -1 ? TIER_ORDER.length : i;
@@ -58,6 +52,9 @@
     this.mapEls = new Map();
     this.panX = 0; this.panY = 0; this.zoom = 1;
     this.needsCenter = true;
+    this.getAllSlugs = opts.getAllSlugs || function () { return []; };
+    this.onFieldChange = opts.onFieldChange || function () {};
+    this.onDeleteNode = opts.onDeleteNode || function () {};
 
     container.innerHTML =
       '<div class="mapcontrols"><button type="button" class="map-reset">Reset view</button></div>' +
@@ -118,29 +115,152 @@
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
     }
-    // leaf — read-only rendering, same markup as theology-map.html's mboxHTML.
-    // Task 4 replaces this branch with an editable version; layout code above
-    // and pan/zoom code below never need to change for that.
+    throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
+  };
+
+  MapView.prototype._leafHeader = function (n) {
+    const core = window.EditorCore;
+    const self = this;
+    const wrap = document.createElement('div');
+    wrap.className = 'mtitle';
+    const title = document.createElement('input');
+    title.type = 'text'; title.value = n.title; title.className = 'mtitle-input';
+    title.addEventListener('input', () => { n.title = title.value; n.slug = core.slugify(title.value); self.onFieldChange(n); });
+    title.addEventListener('click', e => e.stopPropagation());
+    wrap.appendChild(title);
+    const chev = document.createElement('span');
+    chev.className = 'mchev'; chev.innerHTML = '&#9656;';
+    wrap.appendChild(chev);
+    return wrap;
+  };
+
+  MapView.prototype._leafMeta = function (n) {
+    const core = window.EditorCore;
+    const self = this;
+    const wrap = document.createElement('div');
+    wrap.className = 'mmeta';
+
+    const tierSel = document.createElement('select');
+    tierSel.className = 'chip-select';
+    [''].concat(core.TIERS).forEach(t => {
+      const o = document.createElement('option'); o.value = t; o.textContent = t || 'Tier —';
+      if (t === (n.tier || '')) o.selected = true;
+      tierSel.appendChild(o);
+    });
+    tierSel.addEventListener('click', e => e.stopPropagation());
+    tierSel.addEventListener('change', () => { n.tier = tierSel.value || null; self.onFieldChange(n); self.redraw(); });
+    wrap.appendChild(tierSel);
+
+    const confSel = document.createElement('select');
+    confSel.className = 'chip-select';
+    [''].concat(core.CONFIDENCES).forEach(c => {
+      const o = document.createElement('option'); o.value = c; o.textContent = c || 'Confidence —';
+      if (c === (n.confidence || '')) o.selected = true;
+      confSel.appendChild(o);
+    });
+    confSel.addEventListener('click', e => e.stopPropagation());
+    confSel.addEventListener('change', () => { n.confidence = confSel.value || null; self.onFieldChange(n); });
+    wrap.appendChild(confSel);
+
+    [['study', 'study'], ['thread', 'thread']].forEach(([flag, label]) => {
+      const lab = document.createElement('label');
+      lab.className = 'flag-chip';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = n.flags.includes(flag);
+      cb.addEventListener('click', e => e.stopPropagation());
+      cb.addEventListener('change', () => {
+        n.flags = cb.checked ? [...new Set([...n.flags, flag])] : n.flags.filter(f => f !== flag);
+        self.onFieldChange(n);
+      });
+      lab.appendChild(cb);
+      lab.appendChild(document.createTextNode(label));
+      wrap.appendChild(lab);
+    });
+
+    return wrap;
+  };
+
+  MapView.prototype._leafDetail = function (n) {
+    const self = this;
+    const wrap = document.createElement('div');
+    wrap.className = 'mdetail';
+
+    function field(labelText, value, onInput) {
+      const row = document.createElement('div');
+      row.className = 'mfield';
+      const label = document.createElement('label');
+      label.textContent = labelText;
+      row.appendChild(label);
+      const ta = document.createElement('textarea');
+      ta.value = value || '';
+      ta.rows = 2;
+      ta.addEventListener('click', e => e.stopPropagation());
+      ta.addEventListener('input', () => { onInput(ta.value); self.onFieldChange(n); autosize(ta); });
+      row.appendChild(ta);
+      autosize(ta);
+      return row;
+    }
+    function autosize(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
+
+    wrap.appendChild(field('Hold', n.hold, v => { n.hold = v; }));
+    wrap.appendChild(field('Why', n.why, v => { n.why = v; }));
+    wrap.appendChild(field('Vs', n.vs, v => { n.vs = v; }));
+    wrap.appendChild(field('Study', n.todo, v => { n.todo = v; }));
+
+    const refsRow = document.createElement('div');
+    refsRow.className = 'mfield';
+    const refsLabel = document.createElement('label');
+    refsLabel.textContent = 'Texts';
+    refsRow.appendChild(refsLabel);
+    const refsInput = document.createElement('input');
+    refsInput.type = 'text'; refsInput.value = n.refs || '';
+    refsInput.addEventListener('click', e => e.stopPropagation());
+    refsInput.addEventListener('input', () => { n.refs = refsInput.value; self.onFieldChange(n); });
+    refsRow.appendChild(refsInput);
+    wrap.appendChild(refsRow);
+
+    const linkWrap = document.createElement('div');
+    linkWrap.addEventListener('click', e => e.stopPropagation());
+    linkWrap.appendChild(window.SharedFields.renderLinkField(n, self.getAllSlugs(), () => self.onFieldChange(n)));
+    wrap.appendChild(linkWrap);
+
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 'danger mdelete';
+    del.textContent = 'Delete this node';
+    del.addEventListener('click', e => { e.stopPropagation(); self.onDeleteNode(n); });
+    wrap.appendChild(del);
+
+    return wrap;
+  };
+
+  MapView.prototype._mountLeaf = function (box) {
     const n = box.node;
     const open = this.mapDetailOpen.has(n.slug);
+    const el = document.createElement('div');
+    el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
+    el.dataset.id = box.id;
     const tier = n.tier ? this.tierMeta[n.tier] : null;
-    const conf = n.confidence ? this.confMeta[n.confidence] : null;
-    const rows = [];
-    if (n.hold) rows.push(`<dt>Hold</dt><dd>${escapeHtml(n.hold)}</dd>`);
-    if (n.why) rows.push(`<dt>Why</dt><dd>${escapeHtml(n.why)}</dd>`);
-    if (n.vs) rows.push(`<dt>Not</dt><dd>${escapeHtml(n.vs)}</dd>`);
-    if (n.todo) rows.push(`<dt>Study</dt><dd class="todo">${escapeHtml(n.todo)}</dd>`);
-    if (n.refs) rows.push(`<dt>Texts</dt><dd class="refs">${refChips(n.refs)}</dd>`);
-    return `<div class="mbox mbox-leaf${open ? ' mopen' : ''}"
-        data-id="${escapeHtml(box.id)}" style="--tier:${tier ? tier[1] : 'var(--line)'}">
-      <div class="mtitle"><b>${escapeHtml(n.title)}</b><span class="mchev">&#9656;</span></div>
-      <div class="mmeta">
-        ${tier ? `<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>` : ''}
-        ${conf ? `<span class="chip">${n.confidence}</span>` : ''}
-        ${n.flags.includes('study') ? '<span class="chip">study</span>' : ''}
-      </div>
-      ${open && rows.length ? `<div class="mdetail"><dl>${rows.join('')}</dl></div>` : ''}
-    </div>`;
+    el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
+    el.appendChild(this._leafHeader(n));
+    el.appendChild(this._leafMeta(n));
+    if (open) el.appendChild(this._leafDetail(n));
+    return el;
+  };
+
+  MapView.prototype._updateLeaf = function (el, box) {
+    const n = box.node;
+    const open = this.mapDetailOpen.has(n.slug);
+    el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
+    const tier = n.tier ? this.tierMeta[n.tier] : null;
+    el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
+    const hasDetail = !!el.querySelector('.mdetail');
+    if (open && !hasDetail) el.appendChild(this._leafDetail(n));
+    if (!open && hasDetail) el.querySelector('.mdetail').remove();
+    // title/tier/confidence/flag inputs are left alone here (not rebuilt) so
+    // an in-progress keystroke in a focused field is never clobbered by a
+    // redraw triggered from elsewhere (e.g. resizing the window, or editing
+    // a different node). They already reflect the live node object because
+    // their own input handlers wrote to it directly.
   };
 
   MapView.prototype.redraw = function () {
@@ -153,6 +273,17 @@
     }
     list.forEach(box => {
       let el = this.mapEls.get(box.id);
+      if (box.type === 'leaf') {
+        if (!el) {
+          el = this._mountLeaf(box);
+          this.boxesEl.appendChild(el);
+          this.mapEls.set(box.id, el);
+        } else {
+          this._updateLeaf(el, box);
+        }
+        box.el = el;
+        return;
+      }
       if (!el) {
         const tmp = document.createElement('div');
         tmp.innerHTML = this._mboxHTML(box);
