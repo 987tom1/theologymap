@@ -125,3 +125,21 @@ the shape, with three changes. These override anything above or in the phase bri
     public but opt out of being a comparison target. The audience is one church and
     people will look each other up; the feature must stay descriptive and must never
     rank people against each other.
+
+## Environment facts — verified 2026-08-18, after Thomas's fixes
+
+Both blockers are cleared. Verified by running the commands, not by report:
+
+- **The site is public.** `https://theologymap-thomas-l-s-projects.vercel.app/` returns
+  200 to an unauthenticated request. Vercel Authentication is off. Deploy verification
+  by fetching the production URL now works.
+- **Python 3.11.9 is installed — but only reachable as `py`, not `python`.** Bare
+  `python` still hits the Microsoft Store stub and fails. **Every brief and plan that
+  says `python engine/render.py` should be read as `py engine/render.py`** on this
+  machine. A session that trusts the literal command will conclude Python is missing,
+  as two earlier sessions did.
+- **The renderer is reproducible on 3.11.9.** `py engine/render.py` runs with zero
+  warnings and regenerating produces **no diff** against the committed
+  `theology-map.html`. Phase 1a's byte-identity gate is therefore achievable — the
+  committed output already matches what this interpreter produces.
+- **Post-phase-0.5 baseline:** 99 nodes across 14 domains (was 102 across 15).
