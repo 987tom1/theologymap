@@ -165,3 +165,29 @@ Both blockers are cleared. Verified by running the commands, not by report:
   rather than being absorbed into phase 3 or skipped. Phase 3 still does not touch the
   generated views. Expect the editor to look more considered than the map it surrounds
   until phase 7 runs; that is accepted, not an oversight.
+
+## Amendments — 2026-08-18, after the phase 4 and 6 design review
+
+- **Add INC (International Network of Churches) to `traditions.json`** — twelve
+  traditions, not eleven. It is Thomas's own movement and the one his actual audience
+  belongs to; without it the people he sends the link to cannot find themselves.
+  Vineyard and Churches of Christ are **not** added.
+  Phase 5 note: INC has far less confessional literature than Westminster or the
+  Catechism. The sourcing standard does not relax for it. Where a position cannot be
+  traced to a published INC or affiliated statement, say so in the entry rather than
+  generalising from Pentecostalism at large or from Thomas's own map — and put it on
+  the list of calls awaiting Thomas.
+- **Public means comparable.** No `is_comparable` column. A public map is already
+  readable node by node, so compare only automates what any visitor could do by hand.
+- **Thomas's own map is a comparison target like anyone else's**, including as a
+  default suggestion. It is the largest map on the site and the most useful thing to
+  compare against while the corpus is young.
+- **The file format stays frozen.** A generated node does **not** record which wizard
+  position produced it. Compare recovers the position by exact normalised match on the
+  `hold` sentence and reports `own-wording` honestly when someone has edited it.
+  Readability of `theology-map.md` by a person is the premise of the project.
+- Defaults confirmed, not separately asked: no tier weighting on "closest tradition"
+  (weighting turns a description into an argument); `/learn` is readable signed out;
+  person-to-person compare shows no headline agreement count; a coverage floor gates
+  publishing a thin tradition map under a real communion's name; the validator warns
+  when a suggested tier disagrees with Thomas's own map.
