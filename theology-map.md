@@ -528,27 +528,3 @@
 ## Pentecostal heritage · T3 · confident
   hold  The movement's recovery of the Spirit's present work is a genuine gift to the church. Its thin systematic theology and short historical memory are real costs to be corrected rather than defended.
   link  the-fathers
-
-
-# Cross-cutting threads
-
-## A sacramental instinct · #thread
-  hold  Baptism as genuinely instrumental and lean toward real presence at the table — both against low-church Pentecostal defaults.
-  todo  Key: 'What does a means of grace actually do?'
-  link  baptism
-  link  the-lords-supper
-  link  regeneration-and-baptism
-
-## The vocabulary of hearing God · #thread
-  hold  "Prophecy" and "God told me" are being made to carry several different meanings at once.
-  todo  Do the word study before settling prophecy, guidance, or the prophetic office.
-  link  prophecy
-  link  hearing-god
-  link  apostles-and-prophets-today
-
-## A high view of the great tradition · #thread
-  hold  Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.
-  todo  Look more into the fathers and how to understand / apply / appreciate the spectrum of views.
-  link  the-creeds
-  link  the-fathers
-  link  classical-theism
