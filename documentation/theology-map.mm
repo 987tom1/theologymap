@@ -325,16 +325,5 @@
 <richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: The movement&#x27;s recovery of the Spirit&#x27;s present work is a genuine gift to the church. Its thin systematic theology and short historical memory are real costs to be corrected rather than defended.</p></body></html></richcontent>
 </node>
 </node>
-<node TEXT="Cross-cutting threads" POSITION="right" FOLDED="true">
-<node TEXT="A sacramental instinct" COLOR="#57534e" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Baptism as genuinely instrumental and lean toward real presence at the table — both against low-church Pentecostal defaults.</p><p>STUDY: Key: &#x27;What does a means of grace actually do?&#x27;</p></body></html></richcontent>
-</node>
-<node TEXT="The vocabulary of hearing God" COLOR="#57534e" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: &quot;Prophecy&quot; and &quot;God told me&quot; are being made to carry several different meanings at once.</p><p>STUDY: Do the word study before settling prophecy, guidance, or the prophetic office.</p></body></html></richcontent>
-</node>
-<node TEXT="A high view of the great tradition" COLOR="#57534e" STYLE="fork">
-<richcontent TYPE="NOTE"><html><head></head><body><p>HOLD: Creeds at tier one, the Fathers weighty, sympathy for classical theism, a sacramental instinct.</p><p>STUDY: Look more into the fathers and how to understand / apply / appreciate the spectrum of views.</p></body></html></richcontent>
-</node>
-</node>
 </node>
 </map>

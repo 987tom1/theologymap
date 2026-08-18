@@ -152,12 +152,14 @@ active study.
 positions, not yet confirmed by Thomas — renders with a dashed border).
 
 `#thread` (a cross-cutting-theme flag with its own Threads view) was removed
-as a mechanism in phase 0.5 of the hosting program (2026-08-18) — see
+entirely in phase 0.5 of the hosting program (2026-08-18) — see
 `docs/hosting/phase-0.5-outcome.md`. The parser, renderer, editor and
 `map-view.js` no longer treat it specially; there are four views now, not
-five. Three nodes under a "Cross-cutting threads" domain still carry the
-literal `#thread` token in `theology-map.md` as of this writing — that is a
-now-inert flag pending a content decision, not something the code acts on.
+five. Thomas also confirmed, explicitly and with the tradeoff named to him,
+that the three `#thread`-flagged nodes themselves should be deleted along
+with the mechanism — they and their "Cross-cutting threads" domain heading no
+longer exist in `theology-map.md`. Their text is recoverable from git history;
+see the Working notes section below for the commit.
 
 No node currently carries `#assumed` — Thomas worked through all 40 and either
 confirmed, retiered or rewrote them (2026-08-11). The flag and its rendering
@@ -272,11 +274,19 @@ amber values failed contrast.
 - Before phase 0.5, three nodes (not five, despite an earlier version of this
   note) carried `#thread`: a sacramental instinct running against low-church
   defaults; the semantic range of "prophecy" and "God told me"; and a higher
-  view of the great tradition than the movement usually carries. Their
-  content is still the most load-bearing writing in the map even though the
-  `#thread` mechanism itself is gone — see `docs/hosting/phase-0.5-outcome.md`
-  for what changed and why the two Molinism/trichotomy themes this note used
-  to name were never actually encoded as `#thread` nodes.
+  view of the great tradition than the movement usually carries. This was the
+  most load-bearing writing in the map, and Thomas removed it anyway — told
+  explicitly that it would be lost, he chose deletion over keeping it as inert
+  data. Both the `#thread` mechanism and these three nodes (titles: "A
+  sacramental instinct", "The vocabulary of hearing God", "A high view of the
+  great tradition") were removed from `theology-map.md` in phase 0.5
+  (2026-08-18). **Full text recoverable at commit `e4f7ba2748a06476d5562ddaf0c8778ea56a6fc8`**
+  (`git show e4f7ba2748a06476d5562ddaf0c8778ea56a6fc8:theology-map.md`), the
+  last commit where they still existed — see
+  `docs/hosting/phase-0.5-outcome.md` for the full account, including why the
+  two Molinism/trichotomy themes an earlier version of this note also named
+  were never actually encoded as `#thread` nodes and so have no such recovery
+  point.
 - Two corrections worth preserving, because both are easy to re-introduce:
   Thomas's view of Christ's restrained power is **krypsis** (voluntary non-use),
   *not* ontological kenosis; and his answer on the unevangelised is the
