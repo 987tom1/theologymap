@@ -476,7 +476,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
         <button data-view="domain" aria-pressed="false">Domain</button>
         <button data-view="tier" aria-pressed="false">Tier</button>
         <button data-view="confidence" aria-pressed="false">Confidence</button>
-        <button data-view="thread" aria-pressed="false">Threads</button>
       </div>
       <input type="search" id="q" placeholder="Filter&hellip;">
       <button type="button" id="filtersToggle" class="filtersToggle" aria-expanded="false"
@@ -515,8 +514,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const all = D.nodes;
-const threads = all.filter(n => n.flags.includes('thread'));
-const doctrine = all.filter(n => !n.flags.includes('thread'));
 let view = 'map';
 let studyFilter = 'all'; // all | only | hide
 
@@ -652,8 +649,7 @@ function render() {
   out.style.display = '';
 
   const q = document.getElementById('q').value.trim().toLowerCase();
-  let set = view === 'thread' ? threads : doctrine;
-  set = set.filter(n => passesFilters(n, q));
+  let set = all.filter(n => passesFilters(n, q));
 
   let groups;
   if (view === 'tier') {
@@ -665,8 +661,6 @@ function render() {
     groups = order.map(c => [c, set.filter(n => n.confidence === c)]);
     const none = set.filter(n => !n.confidence);
     if (none.length) groups.push(['unmarked', none]);
-  } else if (view === 'thread') {
-    groups = [['Cross-cutting threads', set]];
   } else {
     const seen = [];
     set.forEach(n => { if (!seen.includes(n.domain)) seen.push(n.domain); });
@@ -713,10 +707,7 @@ function gotoNode(slug) {
   }
   // make sure its group is expanded, then scroll + flash
   requestAnimationFrame(() => {
-    const isThread = target.flags.includes('thread');
-    if (isThread && view !== 'thread') switchView('thread');
-    const groupName = view === 'thread' ? 'Cross-cutting threads'
-      : view === 'domain' ? target.domain
+    const groupName = view === 'domain' ? target.domain
       : view === 'tier' ? (target.tier ? `${target.tier} — ${D.tierMeta[target.tier][0]}` : 'Untiered')
       : (target.confidence || 'unmarked');
     expandedGroups.add(groupKey(groupName));
@@ -804,17 +795,17 @@ const STAGGER_X = 110;
 const MAP_TWO_SIDE_BREAK = 860;
 let panX = 0, panY = 0, zoom = 1;
 let needsCenter = true; // recompute pan on next redraw so the root lands mid-viewport
-let mapManualCollapsed = null; // Set of collapsible ids (domains + threads-domain) that are closed
+let mapManualCollapsed = null; // Set of collapsible domain ids that are closed
 let mapDetailOpen = new Set();  // leaf slugs whose detail panel is open
 let mapEls = new Map(); // id -> DOM element, persisted across redraws for CSS transitions
 
 function domainNames() {
   const seen = [];
-  doctrine.forEach(n => { if (!seen.includes(n.domain)) seen.push(n.domain); });
+  all.forEach(n => { if (!seen.includes(n.domain)) seen.push(n.domain); });
   return seen;
 }
 function domainIds() {
-  return domainNames().map(d => 'domain:' + d).concat(['domain:__threads']);
+  return domainNames().map(d => 'domain:' + d);
 }
 if (!mapManualCollapsed) mapManualCollapsed = new Set(domainIds());
 
@@ -825,7 +816,7 @@ function buildMapTree() {
   let idx = 0;
   const nextSide = () => { const s = (twoSided && idx % 2 === 1) ? -1 : 1; idx++; return s; };
   domainNames().forEach(dname => {
-    const members = sortByTier(doctrine.filter(n => n.domain === dname && passesFilters(n, q)));
+    const members = sortByTier(all.filter(n => n.domain === dname && passesFilters(n, q)));
     const id = 'domain:' + dname;
     const hasMatches = q && members.length > 0;
     const isOpen = !mapManualCollapsed.has(id) || hasMatches;
@@ -836,13 +827,6 @@ function buildMapTree() {
     }
     root.children.push(dom);
   });
-  const tmembers = threads.filter(n => passesFilters(n, q));
-  const tid = 'domain:__threads';
-  const tOpen = !mapManualCollapsed.has(tid) || (q && tmembers.length > 0);
-  const tside = nextSide();
-  const tdom = { id: tid, type:'domain', title: 'Cross-cutting threads', depth: 1, side: tside, total: tmembers.length, children: [] };
-  if (tOpen) tdom.children = tmembers.map(n => leafBox(n, 2, tside));
-  root.children.push(tdom);
   return root;
 }
 
@@ -1257,18 +1241,7 @@ def render_study(nodes: list[dict], missing_refs: list[str]) -> str:
         "",
     ]
 
-    threads = [n for n in nodes if "thread" in n["flags"]]
-    if threads:
-        lines += ["## Work these first — they unlock several nodes at once", ""]
-        for n in threads:
-            lines.append(f"### {n['title']}")
-            if n["hold"]:
-                lines.append(n["hold"])
-            if n["todo"]:
-                lines += ["", f"**Do:** {n['todo']}"]
-            lines.append("")
-
-    study = [n for n in nodes if "study" in n["flags"] and "thread" not in n["flags"]]
+    study = [n for n in nodes if "study" in n["flags"]]
     by_domain: dict[str, list[dict]] = {}
     for n in study:
         by_domain.setdefault(n["domain"], []).append(n)
@@ -1286,11 +1259,7 @@ def render_study(nodes: list[dict], missing_refs: list[str]) -> str:
                 lines.append(f"  - To do: {n['todo']}")
         lines.append("")
 
-    unmarked = [
-        n
-        for n in nodes
-        if "assumed" in n["flags"] and "thread" not in n["flags"]
-    ]
+    unmarked = [n for n in nodes if "assumed" in n["flags"]]
     lines += [
         f"## Inferred, awaiting your confirmation ({len(unmarked)})",
         "",
@@ -1331,13 +1300,11 @@ def main() -> None:
     (DOCS / "theology-map.mm").write_text(render_mm(nodes), encoding="utf-8")
     (DOCS / "study-list.md").write_text(render_study(nodes, missing_text), encoding="utf-8")
 
-    doctrine = [n for n in nodes if "thread" not in n["flags"]]
-    study = [n for n in doctrine if "study" in n["flags"]]
-    assumed = [n for n in doctrine if "assumed" in n["flags"]]
-    domains = {n["domain"] for n in doctrine}
-    print(f"{len(doctrine)} nodes across {len(domains)} domains")
+    study = [n for n in nodes if "study" in n["flags"]]
+    assumed = [n for n in nodes if "assumed" in n["flags"]]
+    domains = {n["domain"] for n in nodes}
+    print(f"{len(nodes)} nodes across {len(domains)} domains")
     print(f"  {len(study)} flagged #study, {len(assumed)} inferred (#assumed)")
-    print(f"  {len(nodes) - len(doctrine)} cross-cutting threads")
     print(f"  {len(used_refs)} scripture references in use, {len(missing_text)} still without text")
     missing = [n["slug"] for n in nodes for l in n["link"]
                if l not in {x["slug"] for x in nodes}]

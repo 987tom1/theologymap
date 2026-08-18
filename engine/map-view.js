@@ -5,12 +5,9 @@
  * mirrors render.py's parse() — if you touch the Map view in render.py,
  * re-verify this file matches.
  *
- * Unlike render.py's version (which reads a flat `doctrine` array grouped
- * by a `.domain` string, plus a separate `threads` array), this version
- * reads the editor's `domains` array directly — already grouped by real
- * domain — and does NOT pull #thread-flagged nodes into a synthetic
- * "Cross-cutting threads" box. See the implementation plan's Global
- * Constraints for why.
+ * Unlike render.py's version (which reads a flat array of all nodes
+ * grouped by a `.domain` string), this version reads the editor's
+ * `domains` array directly — already grouped by real domain.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -223,7 +220,7 @@
     confSel.addEventListener('change', () => { n.confidence = confSel.value || null; self.onFieldChange(n); });
     wrap.appendChild(confSel);
 
-    [['study', 'study'], ['thread', 'thread']].forEach(([flag, label]) => {
+    [['study', 'study']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       lab.className = 'flag-chip';
       const cb = document.createElement('input');
