@@ -143,3 +143,25 @@ Both blockers are cleared. Verified by running the commands, not by report:
   `theology-map.html`. Phase 1a's byte-identity gate is therefore achievable — the
   committed output already matches what this interpreter produces.
 - **Post-phase-0.5 baseline:** 99 nodes across 14 domains (was 102 across 15).
+
+## Amendments — 2026-08-18, after the phase 3 design review
+
+- **Copy provenance is two columns on `users`:** `copied_from uuid`, `copied_at
+  timestamptz`. Thomas chose this over a marker in the markdown specifically to leave
+  the file format untouched — it has the most downstream dependents, and a marker
+  would require `render.py` and `editor-core.js` parser changes in hand-maintained
+  lockstep. **Phase 3 task 8 is unblocked.**
+- **Provenance is visible to others**, worded on the gallery card as "Started from
+  Sarah's map", and stops being shown once the copier has edited the map.
+- **The starter node is `My first belief` in a domain called `Beliefs`.**
+- **The 200-row gallery ceiling stands.** Going past it needs caching, which is a
+  schema change, and is not worth one now.
+- **`/` becomes a proper landing page** — it explains what the tool is and routes to
+  sign-up or the gallery. This is a **scope increase on phase 3** and Thomas chose it
+  knowingly. Constraint: links already shared point at `/`, and he is away and cannot
+  warn anyone, so the landing page must keep his own map reachable at a stable URL and
+  should link to it prominently rather than stranding those visitors.
+- **Redesigning `render.py`'s generated views becomes phase 7**, with its own brief,
+  rather than being absorbed into phase 3 or skipped. Phase 3 still does not touch the
+  generated views. Expect the editor to look more considered than the map it surrounds
+  until phase 7 runs; that is accepted, not an oversight.
