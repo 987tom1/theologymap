@@ -81,8 +81,7 @@ and then deleted before saving nets to zero rather than counting as deleted.
   lockstep-by-hand convention as `editor-core.js`) — if you touch the Map
   view in `render.py`, re-verify this file matches. Unlike `render.py`'s
   version it reads the editor's `domains` array directly (already grouped by
-  real domain) and does not pull `#thread` nodes into a synthetic
-  "Cross-cutting threads" box. Leaf tiles are keyed by a stable per-node id
+  real domain). Leaf tiles are keyed by a stable per-node id
   (not `n.slug`, which changes the moment a title is edited) so renaming an
   open tile doesn't collapse it.
 - `shared-fields.js` holds the tag-chip link-editor widget used by both the
@@ -138,7 +137,7 @@ pills under a "Texts" label. Keep to one to four, and prefer the texts actually
 argued over for that doctrine — including the ones the opposing view leans on —
 rather than merely topical verses. Roughly 80 of the 99 nodes carry them;
 method and history nodes (hermeneutics, translations, the creeds, the Fathers,
-Pentecostal heritage) deliberately do not, and neither do the `#thread` nodes.
+Pentecostal heritage) deliberately do not.
 
 **Tier** — `T1`, `T1.5`, `T2`, `T2.5`, `T3`, `T4`. Half-steps are deliberate;
 Thomas uses them where a doctrine genuinely sits between two of Ortlund's ranks
@@ -150,9 +149,15 @@ independent of `#study`: a position can be held confidently and still be under
 active study.
 
 **Flags** — `#study` (needs work), `#assumed` (inferred by Claude from stated
-positions, not yet confirmed by Thomas — renders with a dashed border),
-`#thread` (a cross-cutting theme; pulled out of the domain and tier views into
-its own Threads view).
+positions, not yet confirmed by Thomas — renders with a dashed border).
+
+`#thread` (a cross-cutting-theme flag with its own Threads view) was removed
+as a mechanism in phase 0.5 of the hosting program (2026-08-18) — see
+`docs/hosting/phase-0.5-outcome.md`. The parser, renderer, editor and
+`map-view.js` no longer treat it specially; there are four views now, not
+five. Three nodes under a "Cross-cutting threads" domain still carry the
+literal `#thread` token in `theology-map.md` as of this writing — that is a
+now-inert flag pending a content decision, not something the code acts on.
 
 No node currently carries `#assumed` — Thomas worked through all 40 and either
 confirmed, retiered or rewrote them (2026-08-11). The flag and its rendering
@@ -203,14 +208,14 @@ in the page footer must travel with the text.
 
 | File | Purpose |
 |---|---|
-| `theology-map.html` | Five views — see below. Text filter, three-way study filter, hide-inferred toggle, expand-all / collapse-all. Theme-aware. Print stylesheet lays it out in two columns for A3. |
+| `theology-map.html` | Four views — see below. Text filter, three-way study filter, hide-inferred toggle, expand-all / collapse-all. Theme-aware. Print stylesheet lays it out in two columns for A3. |
 | `theology-map.mm` | Freeplane / XMind. Drag-editable — this is the endgame for hand-arranging the map. Field content lands in each node's Note. |
-| `study-list.md` | Auto-generated: the five threads first, then open questions by domain, then everything still marked `#assumed`, then any references still lacking verse text. |
+| `study-list.md` | Auto-generated: open questions by domain, then everything still marked `#assumed`, then any references still lacking verse text. |
 
 The `.mm` is a one-way export. Rearranging it in Freeplane will not flow back
 into `theology-map.md`, so do that only once the content is settled.
 
-### The five HTML views
+### The four HTML views
 
 - **Map** (default) — a balanced node-link tree. The root sits in the middle
   with its 14 domains alternating right and left, matching the `.mm` export's
@@ -234,8 +239,6 @@ into `theology-map.md`, so do that only once the content is settled.
   any group holding a match, without disturbing the stored collapse state.
   Cards within a Domain group are ordered by tier (T1 down to T4, untiered
   last), matching the Map view; within a tier, file order is preserved.
-- **Threads** — the five `#thread` nodes, which are excluded from every other
-  view.
 
 Expand-all and collapse-all drive both the map and the list groups. Printing
 force-switches to the domain view with everything expanded, then restores
@@ -266,11 +269,14 @@ amber values failed contrast.
 - Write node text in Thomas's own voice — first person or neutral, never
   second person. The original draft addressed him as "you"/"yours"; he rewrote
   those, so don't reintroduce them.
-- The five `#thread` nodes are the most load-bearing output: a sacramental
-  instinct running against low-church defaults; the semantic-range problem
-  under "prophecy" and "God told me"; a trichotomy dependency hiding under the
-  deliverance framing; Molinism doing quiet work in three places; and a higher
-  view of the great tradition than the movement usually carries.
+- Before phase 0.5, three nodes (not five, despite an earlier version of this
+  note) carried `#thread`: a sacramental instinct running against low-church
+  defaults; the semantic range of "prophecy" and "God told me"; and a higher
+  view of the great tradition than the movement usually carries. Their
+  content is still the most load-bearing writing in the map even though the
+  `#thread` mechanism itself is gone — see `docs/hosting/phase-0.5-outcome.md`
+  for what changed and why the two Molinism/trichotomy themes this note used
+  to name were never actually encoded as `#thread` nodes.
 - Two corrections worth preserving, because both are easy to re-introduce:
   Thomas's view of Christ's restrained power is **krypsis** (voluntary non-use),
   *not* ontological kenosis; and his answer on the unevangelised is the

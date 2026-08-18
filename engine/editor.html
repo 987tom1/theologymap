@@ -517,7 +517,7 @@
     flagRow.appendChild(flagLabel);
     const fr = document.createElement('div');
     fr.className = 'flagrow';
-    [['study', '#study — needs work'], ['thread', '#thread — cross-cutting theme']].forEach(([flag, label]) => {
+    [['study', '#study — needs work']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       const cb = document.createElement('input');
       cb.type = 'checkbox'; cb.checked = node.flags.includes(flag);
