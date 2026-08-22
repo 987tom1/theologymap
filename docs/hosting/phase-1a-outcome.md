@@ -331,3 +331,25 @@ Copied from design §1, as the plan requires:
 Merged on the strength of the gating local checks, with the two blocked database
 checks declared here rather than claimed. Per `decisions.md`: merging beats
 waiting, and claiming an unverified check does not.
+
+---
+
+## Post-merge verification on production
+
+Run after the merge commit deployed, against
+`https://theologymap-thomas-l-s-projects.vercel.app`:
+
+- `POST /api/render` with the full `theology-map.md` returns
+  `96d692a50d31240fbd267062308cd4c330551f846bdf013d3a019145b8d4a2a2` — the
+  LF-normalised baseline hash, exactly. The hosted renderer and the local one agree
+  in production, not only on a preview.
+- `POST /api/render` with `{}` returns `400 {"error": "bad_request", "message":
+  "Send either markdown or user_id."}` — the error path works and `guard()` is wired.
+- `GET /api/envcheck` returns **404**. The throwaway discovery route is not on
+  `main` and is not reachable.
+- `GET /` still returns 200 and still serves `theology-map.html`. Phase 0's rewrite
+  survived, and every link Thomas has already shared still works.
+
+The first request after a deploy 404s while the function cold-builds; the second
+succeeds. Poll the route itself, not `/`, when verifying a fresh deploy — `/` is
+static and returns 200 before the Python functions are ready.
