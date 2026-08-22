@@ -1,10 +1,10 @@
 from http.server import BaseHTTPRequestHandler
 from pathlib import Path
-from urllib.parse import quote, urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import pg, read_json, reply, error, guard, unknown_user  # noqa: E402
+from _lib import pg, q, read_json, reply, error, guard, unknown_user  # noqa: E402
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
@@ -15,7 +15,7 @@ def _get_map(self):
     if not user_id:
         return error(self, 400, "bad_request", "Missing user_id.")
 
-    status, rows, _ = pg("GET", f"/users?id=eq.{user_id}"
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}"
                                  "&select=markdown,updated_at,is_public,name")
     if status != 200 or not rows:
         return unknown_user(self)
@@ -44,7 +44,7 @@ def _save_map(self, body):
     # Look the row up first: need its current markdown for the empty-save
     # guard, and this is also how we tell "no such user" apart from "stale
     # token" before we ever touch the PATCH.
-    status, rows, _ = pg("GET", f"/users?id=eq.{user_id}&select=markdown")
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}&select=markdown")
     if status != 200 or not rows:
         return unknown_user(self)
     current_markdown = rows[0]["markdown"]
@@ -59,7 +59,7 @@ def _save_map(self, body):
 
     status, rows, _ = pg(
         "PATCH",
-        f"/users?id=eq.{user_id}&updated_at=eq.{quote(expected_updated_at)}"
+        f"/users?id=eq.{q(user_id)}&updated_at=eq.{q(expected_updated_at)}"
         "&select=updated_at",
         {"markdown": markdown},
         headers={"Prefer": "return=representation"},

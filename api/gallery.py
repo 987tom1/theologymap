@@ -7,7 +7,11 @@ from _lib import pg, reply, error, guard  # noqa: E402
 
 
 def _list_gallery(self):
-    status, rows, _ = pg("GET", "/users?select=id,name,updated_at"
+    # NOT `id`. The row id is what authorises a save in api/map.py, so publishing
+    # it here let any signed-out visitor overwrite any public map — phase 2, B1.
+    # Names are unique (users_name_lower_key) and already public, so the public
+    # read path is keyed by name instead: /view?name= and POST /api/render {name}.
+    status, rows, _ = pg("GET", "/users?select=name,updated_at"
                                  "&is_public=is.true&order=updated_at.desc")
     if status != 200:
         return error(self, 500, "server_error", "Could not load the gallery.")

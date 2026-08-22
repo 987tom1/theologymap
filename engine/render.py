@@ -255,6 +255,10 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
         },
         ensure_ascii=False,
     )
+    # A hosted map is somebody else's text. json.dumps does not escape `<`, so a
+    # node title containing `</script>` would close the data block below and turn
+    # the rest into live HTML. `<` is the same string after JSON.parse.
+    payload = payload.replace("<", "\\u003c")
 
     return """<!doctype html>
 <html lang="en">
@@ -646,7 +650,7 @@ function card(n) {
     </div>
     ${rows.length?`<dl>${rows.join('')}</dl>`:''}
     ${n.link.length?`<div class="links">${n.link.map(l =>
-        `<a href="#" data-goto="${l}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</div>`:''}
+        `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</div>`:''}
   </article>`;
 }
 

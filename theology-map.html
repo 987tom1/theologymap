@@ -388,7 +388,7 @@ function card(n) {
     </div>
     ${rows.length?`<dl>${rows.join('')}</dl>`:''}
     ${n.link.length?`<div class="links">${n.link.map(l =>
-        `<a href="#" data-goto="${l}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</div>`:''}
+        `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</div>`:''}
   </article>`;
 }
 
