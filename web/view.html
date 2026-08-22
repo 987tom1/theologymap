@@ -6,24 +6,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  body { font: 16px/1.4 sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; color: #222; }
   h1 { font-size: 1.4em; }
-  nav { margin-bottom: 24px; }
-  button { margin-bottom: 16px; padding: 8px 14px; }
-  iframe { width: 100%; height: 75vh; border: 1px solid #ccc; border-radius: 6px; }
+  .tm-main { display: flex; flex-direction: column; gap: 16px; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  iframe { width: 100%; height: 70vh; border: 1px solid var(--field-line); border-radius: 6px; }
+  a.tm-card { text-decoration: none; }
+  @media (pointer: coarse) {
+    a.tm-card { min-height: 44px; }
+  }
 </style>
 </head>
 <body class="tm-page">
 
 <div id="tmChrome"></div>
 
-<p id="not-found" hidden>Map not found.</p>
-<button id="export-btn" hidden>Export HTML</button>
-<!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
-     script smuggled into someone else's map could read our localStorage session
-     (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
-     so it loses nothing. The renderer escaping is the primary fix; this is depth. -->
-<iframe id="map-frame" sandbox="allow-scripts" hidden></iframe>
+<div class="tm-main">
+  <p id="not-found" hidden>Map not found.</p>
+  <div class="actions">
+    <button id="export-btn" hidden>Export HTML</button>
+    <button id="copy-btn" hidden>Copy link</button>
+  </div>
+  <!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
+       script smuggled into someone else's map could read our localStorage session
+       (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
+       so it loses nothing. The renderer escaping is the primary fix; this is depth. -->
+  <iframe id="map-frame" sandbox="allow-scripts" hidden></iframe>
+
+  <a id="make-your-own" class="tm-card tm-card-primary" href="/app" hidden>
+    <h3>Like what you see?</h3>
+    <p>This is one church member's own theological positions, laid out so you can see
+      what they believe and why — and where they're still working things out. Build your
+      own in the same few minutes it takes to read someone else's.</p>
+    <p class="tm-go">Make your own map &rarr;</p>
+  </a>
+</div>
 
 <script type="module">
 import { mount } from '/web/chrome.js';
@@ -44,6 +60,8 @@ mount(name ? name + "'s map" : 'Theology Map');
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
 const exportBtn = document.getElementById('export-btn');
+const copyBtn = document.getElementById('copy-btn');
+const makeYourOwn = document.getElementById('make-your-own');
 
 if (!name) {
   notFoundEl.hidden = false;
@@ -64,6 +82,7 @@ if (!name) {
       frameEl.srcdoc = html;
       frameEl.hidden = false;
       exportBtn.hidden = false;
+      makeYourOwn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });
         const url = URL.createObjectURL(blob);
@@ -72,6 +91,28 @@ if (!name) {
         a.download = `theology-map-${slug}.html`;
         a.click();
         URL.revokeObjectURL(url);
+      });
+
+      // Never ?id= — the row id authorises a save, so a copy-link handing out an
+      // id would hand out write access (phase 2, B1). ?name= is the public key.
+      copyBtn.hidden = false;
+      copyBtn.addEventListener('click', async () => {
+        const url = new URL('/view?name=' + encodeURIComponent(name), location.origin).href;
+        try {
+          await navigator.clipboard.writeText(url);
+          copyBtn.textContent = 'Copied';
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = url;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copyBtn.textContent = 'Copied';
+        }
+        setTimeout(() => { copyBtn.textContent = 'Copy link'; }, 1500);
       });
     }
   } catch {
