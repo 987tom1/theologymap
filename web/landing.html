@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Write down what you believe, and how much weight each belief carries.">
+<link rel="stylesheet" href="/engine/theme.css">
+<style>
+  .tm-main { display: flex; flex-direction: column; gap: 22px; }
+  .tm-prose h2 { margin: 0 0 8px; font: 600 20px/1.3 var(--serif); }
+  .tm-prose li { margin-bottom: 6px; }
+  ul { padding-left: 20px; }
+</style>
+</head>
+<body class="tm-page">
+
+<div id="tmChrome"></div>
+
+<main class="tm-main">
+
+  <div class="tm-prose">
+    <p>A theology map is what one person actually believes, written down and sorted
+      by how much weight each belief carries — from the things they would build a
+      life on to the things they hold loosely and are still working out.</p>
+    <p>It is not a quiz and there is no score. Nothing appears in your map that you
+      did not put there, and nobody sees a draft until you are ready.</p>
+  </div>
+
+  <div class="tm-grid tm-firstrun">
+    <a class="tm-card tm-card-primary" href="/app">
+      <h3>Make your own map</h3>
+      <p>A name and a short PIN is the whole sign-up. Start from a blank page or
+        from someone else's map.</p>
+      <span class="tm-go">Get started &rarr;</span>
+    </a>
+    <a class="tm-card" href="/thomas">
+      <h3>Read Thomas's map</h3>
+      <p>The map this tool was built for: ninety-nine beliefs across fourteen
+        areas, with the reasoning and the texts behind each one.</p>
+      <span class="tm-go">Open the map &rarr;</span>
+    </a>
+  </div>
+
+  <p class="tm-stat">Or <a href="/gallery">browse everyone's maps</a>.</p>
+
+  <p class="tm-note">If you followed a link here expecting Thomas's map, it moved one
+    step along: it is at <a href="/thomas">/thomas</a> and it has not changed.</p>
+
+</main>
+
+<script type="module">
+import { mount } from '/web/chrome.js';
+mount('Theology Map');
+</script>
+
+</body>
+</html>

@@ -15,7 +15,12 @@ budgets its context; it decides nothing.
       merged with two database checks declared unrun, and both were resolved within
       hours.
 - [ ] Commit any pending doc edits, so no session inherits a dirty tree.
-- [ ] **`phase-3-plan.md` Task 8's "GATED. DO NOT START." is stale** — the
+- [x] **`phase-3-plan.md` Task 8's "GATED. DO NOT START." is stale** — and session
+      8 ran it (2026-08-23). Left here as the worked example: a plan is not
+      rewritten in place when a decision supersedes it, so a session reading only
+      its plan section will skip work Thomas has already paid for.
+      *(original note follows)*
+- [x] **`phase-3-plan.md` Task 8's "GATED. DO NOT START." is stale** — the
       provenance question it waits on is answered in `decisions.md` ("Copy
       provenance is two columns on `users`", Option A). Task 8 runs inside phase
       3. Do not spend a separate session on it.
@@ -47,6 +52,15 @@ frozen — it produces content, not code. Everything else is sequential.
 
 ## Progress
 
+- **Session 8 (phase 3, Tasks 5–9) ran 2026-08-23 and is merged.** Gallery cards,
+  first run with three live starting points, sharing, **Task 8 (start from someone
+  else's map — it was unblocked, not gated)**, and `/` as a landing page with
+  Thomas's map moved to `/thomas`. Phase 3 is complete; `phase-3-outcome.md` is
+  finished. **Session 9 (phase 4, Tasks 0–4) is next**, and `map_versions` opens it.
+  Two things for that session to read first: the outcome file's "Where the wizard
+  goes" section (the `WIZARD_ENABLED` gate and the no-new-API contract), and its
+  note that `supabase/migrations/20260823120000_copied_from.sql` must be **verified
+  as applied**, not assumed.
 - **Session 7 (phase 3, Tasks 0–4) ran 2026-08-23 and is merged** (`c5029f9`, plus
   three follow-up commits on `main`). Theme tokens and shared chrome, the node
   editor's promoted/optional split in both editing surfaces, the editor's first
@@ -107,9 +121,13 @@ and cost that session a merge:
   not — verify on production after merging instead, and say so in your outcome file
   rather than claiming a check you could not run.
 
-Only two further migrations exist in the whole program: **phase 3 Task 8**
-(`copied_from uuid`, `copied_at timestamptz` — locked in `decisions.md`) and, only
-if 1b's smoke test demands it, the `save_map` RPC fallback. Phases 4–7 need no DDL;
+Phase 3 Task 8's migration (`copied_from uuid`, `copied_at timestamptz`) was
+written and pushed by session 8 on 2026-08-23 —
+`supabase/migrations/20260823120000_copied_from.sql`. **Committed is not applied:
+the next session verifies it landed before trusting `copy_from` or the gallery's
+`started_from` field.** One further migration remains, **phase 4's `map_versions`**
+(locked in `decisions.md`), plus the `save_map` RPC fallback only if 1b's smoke test
+ever demands it. Phases 4–7 need no DDL;
 phase 6 ships deliberately no-schema.
 
 Also still open, low cost: confirm whether `987tom1.github.io/theologymap` is a dead

@@ -1,10 +1,11 @@
 from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
+import datetime
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import pg, q, read_json, reply, error, guard, unknown_user  # noqa: E402
+from _lib import pg, q, read_json, reply, error, guard, unknown_user, row_by_name  # noqa: E402
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
@@ -44,7 +45,7 @@ def _save_map(self, body):
     # Look the row up first: need its current markdown for the empty-save
     # guard, and this is also how we tell "no such user" apart from "stale
     # token" before we ever touch the PATCH.
-    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}&select=markdown")
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}&select=markdown,copied_from")
     if status != 200 or not rows:
         return unknown_user(self)
     current_markdown = rows[0]["markdown"]
@@ -57,11 +58,19 @@ def _save_map(self, body):
         return error(self, 409, "would_erase",
                      "This would erase the whole map. Confirm to continue.")
 
+    patch = {"markdown": markdown}
+    # Task 8: provenance survives exactly until the copier makes it theirs.
+    # Cleared in the SAME patch as the divergent save, so there is no window
+    # where the gallery says "started from Sarah's map" about edited work.
+    if rows[0].get("copied_from") and markdown != current_markdown:
+        patch["copied_from"] = None
+        patch["copied_at"] = None
+
     status, rows, _ = pg(
         "PATCH",
         f"/users?id=eq.{q(user_id)}&updated_at=eq.{q(expected_updated_at)}"
         "&select=updated_at",
-        {"markdown": markdown},
+        patch,
         headers={"Prefer": "return=representation"},
     )
     if status == 200 and rows:
@@ -69,6 +78,52 @@ def _save_map(self, body):
     if status == 200 and not rows:
         return error(self, 409, "conflict", "This map was changed somewhere else.")
     return error(self, 500, "server_error", "Could not save the map.")
+
+
+def _copy_from(self, body):
+    """Start from someone else's map — phase 3 task 8, design section 5.3.
+
+    Keyed by the source's NAME, not its row id: the id authorises a save
+    (phase 2, B1) and /api/gallery deliberately does not publish it, so the
+    client has nothing but a name to offer here anyway.
+    """
+    user_id = body.get("user_id")
+    source_name = body.get("source_name")
+    if not user_id:
+        return error(self, 400, "bad_request", "Missing user_id.")
+    if not isinstance(source_name, str) or not source_name.strip():
+        return error(self, 400, "bad_request", "Missing source_name.")
+
+    # Look the caller up first, as every route here does, so "no such user" is
+    # told apart from an occupied map before anything is written.
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}&select=id,markdown")
+    if status != 200 or not rows:
+        return unknown_user(self)
+    if rows[0]["markdown"].strip():
+        # Copying is a starting point, not an import. The screen that offers it
+        # only appears on an empty map; this is the server saying the same thing
+        # to anything that calls the route directly.
+        return error(self, 409, "not_empty",
+                     "You already have a map. Copying would replace it.")
+
+    source = row_by_name(source_name, "id,markdown,is_public")
+    if not source:
+        return unknown_user(self)
+    if not source["is_public"]:
+        return error(self, 403, "not_public", "That map is not in the gallery.")
+    if source["id"] == rows[0]["id"]:
+        return error(self, 400, "bad_request", "That is already your own map.")
+
+    status, patched, _ = pg(
+        "PATCH",
+        f"/users?id=eq.{q(user_id)}&select=updated_at",
+        {"markdown": source["markdown"], "copied_from": source["id"],
+         "copied_at": datetime.datetime.now(datetime.timezone.utc).isoformat()},
+        headers={"Prefer": "return=representation"},
+    )
+    if status == 200 and patched:
+        return reply(self, 200, {"updated_at": patched[0]["updated_at"]})
+    return error(self, 500, "server_error", "Could not copy that map.")
 
 
 class handler(BaseHTTPRequestHandler):
@@ -79,6 +134,8 @@ class handler(BaseHTTPRequestHandler):
     @guard
     def do_POST(self):
         body = read_json(self)
+        if body.get("action") == "copy_from":
+            return _copy_from(self, body)
         return _save_map(self, body)
 
     def do_PUT(self):

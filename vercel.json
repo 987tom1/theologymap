@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/theology-map.html" },
+    { "source": "/", "destination": "/web/landing.html" },
+    { "source": "/thomas", "destination": "/theology-map.html" },
     { "source": "/app", "destination": "/web/index.html" },
     { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" },
     { "source": "/gallery", "destination": "/web/gallery.html" },

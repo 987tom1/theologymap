@@ -65,7 +65,10 @@ export function createHostedAdapter() {
     },
 
     async render(text) {
-      const user = requireUser();
+      // requireUser() is still called for its redirect: nobody signed in has no
+      // business on /edit at all. Its return value is unused now that Render no
+      // longer names a download file after the user.
+      requireUser();
 
       const res = await fetch('/api/render', {
         method: 'POST',
@@ -81,15 +84,11 @@ export function createHostedAdapter() {
       const blob = new Blob([html], { type: 'text/html' });
       const url = URL.createObjectURL(blob);
 
+      // Open it, and only open it. This used to also force a download of the
+      // same blob, so one click on Render produced a new tab AND a file in
+      // Downloads -- phase-2-review.md G7. Exporting a file is /view's Export
+      // HTML button, which is a deliberate act rather than a side effect.
       window.open(url, '_blank', 'noopener');
-
-      const slug = (user && window.EditorCore.slugify(user.name)) || 'map';
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'theology-map-' + slug + '.html';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
 
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     },

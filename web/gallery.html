@@ -6,51 +6,183 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  body { font: 16px/1.4 sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #222; }
-  h1 { font-size: 1.4em; }
-  nav { margin-bottom: 24px; }
-  ul { list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; border-radius: 6px; }
-  li { padding: 10px 14px; border-bottom: 1px solid #ccc; }
-  li:last-child { border-bottom: none; }
-  li a { font-weight: bold; }
-  .updated { color: #666; font-size: 0.85em; margin-left: 8px; }
+  /* .tm-grid and the whole-card-is-a-link rules live in engine/theme.css —
+     first run and the copy picker use the same ones. */
+  .tm-tierbar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--line); }
+  .tm-tierbar span { display: block; height: 100%; }
+  /* Phase 2 measured /api/gallery at 0.7-2.1s: it parses every public map on
+     read. A skeleton rather than a spinner on white, per its latency section. */
+  .tm-skel { border-color: var(--line); }
+  .tm-skel span { display: block; height: 11px; border-radius: 3px; background: var(--chip); }
+  .tm-skel span:first-child { height: 17px; width: 45%; }
+  .tm-skel span:nth-child(2) { height: 6px; }
+  .tm-skel span:last-child { width: 60%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tm-skel { animation: tm-pulse 1.4s ease-in-out infinite; }
+    @keyframes tm-pulse { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+  }
 </style>
 </head>
 <body class="tm-page">
 
 <div id="tmChrome"></div>
 
-<ul id="list"></ul>
-<p id="empty" hidden>No maps yet.</p>
+<main class="tm-main">
+  <p id="empty" class="tm-note" hidden>No public maps yet.</p>
+  <div class="tm-grid" id="grid"></div>
+</main>
 
 <script type="module">
-import { apiFetch } from '/web/session.js';
+import { apiFetch, getUser } from '/web/session.js';
 import { mount } from '/web/chrome.js';
 
 mount('Gallery');
 
-const listEl = document.getElementById('list');
+const TIER_ORDER = ['T1', 'T1.5', 'T2', 'T2.5', 'T3', 'T4'];
+const TIER_COLOUR = {
+  'T1': '#7c2d3b', 'T1.5': '#8a4a24', 'T2': '#8c6a1f',
+  'T2.5': '#5f6b35', 'T3': '#2f6b63', 'T4': '#33526e'
+};
+
+// Native RelativeTimeFormat, not a hand-rolled ladder. It doesn't pick a unit
+// for you, so we still walk a table from largest to smallest — but that table
+// is data, not branching logic.
+const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const UNITS = [
+  ['year', 31536000000], ['month', 2592000000], ['week', 604800000],
+  ['day', 86400000], ['hour', 3600000], ['minute', 60000], ['second', 1000]
+];
+function relTime(iso) {
+  const diff = new Date(iso).getTime() - Date.now();
+  for (const [unit, ms] of UNITS) {
+    if (Math.abs(diff) >= ms) return RTF.format(Math.round(diff / ms), unit);
+  }
+  return RTF.format(0, 'second');
+}
+
+function buildTierBar(counts, total) {
+  const bar = document.createElement('div');
+  bar.className = 'tm-tierbar';
+  bar.setAttribute('aria-hidden', 'true');
+  bar.setAttribute('role', 'presentation');
+  for (const t of TIER_ORDER) {
+    if (!counts[t]) continue;
+    const seg = document.createElement('span');
+    seg.style.width = (counts[t] / total * 100) + '%';
+    seg.style.background = TIER_COLOUR[t];
+    bar.appendChild(seg);
+  }
+  if (counts.untiered) {
+    const seg = document.createElement('span');
+    seg.style.width = (counts.untiered / total * 100) + '%';
+    seg.style.background = 'var(--line)';
+    bar.appendChild(seg);
+  }
+  return bar;
+}
+
+function buildStatLine(counts) {
+  const p = document.createElement('p');
+  p.className = 'tm-stat';
+  const parts = TIER_ORDER.filter(t => counts[t] > 0).map(t => counts[t] + ' ' + t);
+  if (counts.untiered) parts.push(counts.untiered + ' untiered');
+  p.textContent = parts.join(' · ');
+  return p;
+}
+
+function buildCard(m) {
+  const a = document.createElement('a');
+  a.className = 'tm-card';
+  a.href = `/view?name=${encodeURIComponent(m.name)}`;  // keyed by name, never the row id — the id is a credential, see phase 2 B1
+  a.setAttribute('aria-label', `${m.name}'s map`);
+
+  const h3 = document.createElement('h3');
+  h3.textContent = m.name;
+  a.appendChild(h3);
+
+  const counts = m.tier_counts || {};
+  const total = m.node_count || 0;
+
+  if (total === 0) {
+    const p = document.createElement('p');
+    p.className = 'tm-stat';
+    p.textContent = 'No beliefs yet';
+    a.appendChild(p);
+  } else {
+    a.appendChild(buildTierBar(counts, total));
+    a.appendChild(buildStatLine(counts));
+    const summary = document.createElement('p');
+    summary.className = 'tm-stat';
+    summary.textContent = `${total} belief${total === 1 ? '' : 's'} · `
+      + `${m.open_count} open question${m.open_count === 1 ? '' : 's'}`;
+    a.appendChild(summary);
+  }
+
+  const updated = document.createElement('p');
+  updated.className = 'tm-stat';
+  updated.textContent = 'Updated ' + relTime(m.updated_at);
+  a.appendChild(updated);
+
+  // Task 8. api/map.py clears copied_from on the first divergent save, so this
+  // only ever appears on an unedited copy. Wording locked in decisions.md.
+  if (m.started_from) {
+    const from = document.createElement('p');
+    from.className = 'tm-stat';
+    from.textContent = `Started from ${m.started_from}'s map`;
+    a.appendChild(from);
+  }
+
+  return a;
+}
+
+function buildPrimaryCard() {
+  const a = document.createElement('a');
+  a.className = 'tm-card tm-card-primary';
+  a.href = '/app';
+  a.setAttribute('aria-label', 'Make your own map — sign up');
+  const h3 = document.createElement('h3');
+  h3.textContent = 'Make your own map';
+  a.appendChild(h3);
+  const p = document.createElement('p');
+  p.textContent = 'Sign up free and start mapping your own beliefs.';
+  a.appendChild(p);
+  const go = document.createElement('span');
+  go.className = 'tm-go';
+  go.textContent = 'Get started →';
+  a.appendChild(go);
+  return a;
+}
+
+const gridEl = document.getElementById('grid');
 const emptyEl = document.getElementById('empty');
 
+for (let i = 0; i < 3; i++) {
+  const s = document.createElement('div');
+  s.className = 'tm-card tm-skel';
+  s.setAttribute('aria-hidden', 'true');
+  s.innerHTML = '<span></span><span></span><span></span><span></span>';
+  gridEl.appendChild(s);
+}
+gridEl.setAttribute('aria-busy', 'true');
+
 try {
-  const maps = await apiFetch('/api/gallery');
-  if (!maps || maps.length === 0) {
-    emptyEl.hidden = false;
-  } else {
-    for (const m of maps) {
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = `/view?name=${encodeURIComponent(m.name)}`;  // not m.id — see phase 2, B1
-      a.textContent = m.name;
-      const updated = document.createElement('span');
-      updated.className = 'updated';
-      updated.textContent = new Date(m.updated_at).toLocaleString();
-      li.appendChild(a);
-      li.appendChild(updated);
-      listEl.appendChild(li);
-    }
-  }
+  const maps = await apiFetch('/api/gallery') || [];
+  gridEl.textContent = '';
+  gridEl.setAttribute('aria-busy', 'false');
+
+  if (maps.length === 0) emptyEl.hidden = false;
+
+  for (const m of maps) gridEl.appendChild(buildCard(m));
+
+  // Show the "make your own" card to signed-out visitors, and to a signed-in
+  // user whose own map is empty or absent from this list (e.g. unlisted).
+  const user = getUser();
+  const mine = user && maps.find(m => m.name.toLowerCase() === user.name.toLowerCase());
+  const showPrimary = !user || !mine || mine.node_count === 0;
+  if (showPrimary) gridEl.appendChild(buildPrimaryCard());
 } catch {
+  gridEl.textContent = '';          // never leave a skeleton pretending to load
+  gridEl.setAttribute('aria-busy', 'false');
   // apiFetch already showed the error banner.
 }
 </script>

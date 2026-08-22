@@ -2,99 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Theology Map — Sign in</title>
+<title>Theology Map — Your map</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  body { font: 16px/1.4 sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #222; }
-  h1 { font-size: 1.4em; }
-  form { margin-bottom: 24px; border: 1px solid #ccc; padding: 16px; border-radius: 6px; }
-  label { display: block; margin-top: 8px; font-size: 0.9em; }
-  input { display: block; width: 100%; box-sizing: border-box; padding: 6px; margin-top: 2px; }
-  button { margin-top: 12px; padding: 8px 14px; }
-  #signed-in { border: 1px solid #ccc; padding: 16px; border-radius: 6px; margin-bottom: 24px; }
-  #signed-in a { margin-right: 12px; }
-  #signed-out { display: flex; gap: 16px; flex-wrap: wrap; }
-  #signed-out form { flex: 1; min-width: 220px; }
+  .tm-main { display: flex; flex-direction: column; gap: 20px; }
+  form { border: 1px solid var(--field-line); border-radius: 9px;
+         padding: 16px 18px; background: var(--panel); }
+  form h2 { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
+  label { display: block; margin-top: 10px; font: 600 12px/1.6 var(--sans); color: var(--muted); }
+  input { display: block; width: 100%; box-sizing: border-box; padding: 8px;
+          margin-top: 3px; font: 15px var(--sans); background: var(--panel);
+          color: var(--ink); border: 1px solid var(--field-line); border-radius: 5px; }
+  button { padding: 9px 15px; margin-top: 14px; font: 600 13px var(--sans);
+           background: var(--ink); color: var(--bg);
+           border: 1px solid var(--ink); border-radius: 5px; cursor: pointer; }
+  #signed-out { display: grid; gap: 14px; max-width: 780px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .actions a { font: 600 13px var(--sans); color: var(--ink); }
+  .quiet { font: 13px var(--sans); color: var(--muted); }
 </style>
 </head>
 <body class="tm-page">
 
 <div id="tmChrome"></div>
 
-<div id="signed-in" hidden>
-  <p>Signed in as <strong id="signed-in-name"></strong></p>
-  <p>
-    <a href="/gallery">Gallery</a>
-    <a href="/edit">Edit</a>
-    <a href="/admin" id="admin-link" hidden>Admin</a>
-  </p>
-  <button id="sign-out-btn">Sign out</button>
-</div>
+<main class="tm-main">
 
-<div id="signed-out" hidden>
-  <form id="login-form">
-    <h2>Sign in</h2>
-    <label>Name
-      <input type="text" name="name" required autocomplete="username">
-    </label>
-    <label>PIN
-      <input type="password" name="pin" required autocomplete="current-password">
-    </label>
-    <button type="submit">Sign in</button>
-  </form>
+  <!-- (1) signed out: what this is, then the two forms. -->
+  <div id="pitch" class="tm-prose" hidden>
+    <p>Write down what you actually believe, and how much weight each belief
+      carries. Your map is yours — you decide what goes in it, and you can change
+      your mind in public or in private.</p>
+    <p class="quiet"><a href="/gallery">Look around the gallery</a> before you sign up.</p>
+  </div>
 
-  <form id="signup-form">
-    <h2>Create an account</h2>
-    <label>Name
-      <input type="text" name="name" required autocomplete="username">
-    </label>
-    <label>PIN
-      <input type="password" name="pin" required autocomplete="new-password">
-    </label>
-    <button type="submit">Create account</button>
-  </form>
-</div>
+  <div id="signed-out" hidden>
+    <form id="login-form">
+      <h2>Sign in</h2>
+      <label>Name
+        <input type="text" name="name" required autocomplete="username">
+      </label>
+      <label>PIN
+        <input type="password" name="pin" required autocomplete="current-password">
+      </label>
+      <button type="submit">Sign in</button>
+    </form>
 
+    <form id="signup-form">
+      <h2>Create an account</h2>
+      <p class="quiet">A name and a short PIN. Nothing else, no email.</p>
+      <label>Name
+        <input type="text" name="name" required autocomplete="username">
+      </label>
+      <label>PIN
+        <input type="password" name="pin" required autocomplete="new-password" minlength="4" maxlength="12">
+      </label>
+      <button type="submit">Create account</button>
+    </form>
+  </div>
+  <!-- (2) signed in, empty map: web/first-run.js mounts here. -->
+  <div id="first-run" hidden></div>
+
+  <!-- (3) signed in, with a map. -->
+  <div id="map-home" hidden>
+    <p class="tm-prose" id="map-summary"></p>
+    <div class="actions">
+      <a href="/edit" class="tm-go">Open the editor &rarr;</a>
+      <a href="#" id="view-link">View and export</a>
+      <button id="copy-btn" type="button">Copy link</button>
+    </div>
+    <p class="quiet" id="wizard-link" hidden>
+      <a href="/wizard">Answer the questions to fill gaps</a>
+    </p>
+    <p class="tm-note" id="unlisted-note" hidden>
+      Your map is unlisted, so it is not in the gallery and the link above will not
+      render it for anyone else.
+    </p>
+  </div>
+
+</main>
+
+<!-- editor-core.js is UMD and predates the module pages; loaded as a classic
+     script so first-run.js can build the starter map with the ONE serializer
+     rather than a second copy of the file format. -->
+<script src="/engine/editor-core.js"></script>
 <script type="module">
-import { getUser, setUser, clearUser, apiFetch } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { getUser, setUser, apiFetch } from '/web/session.js';
+import { mount, copyButton } from '/web/chrome.js';
+import { mountFirstRun, WIZARD_ENABLED } from '/web/first-run.js';
 
 mount('Your map');
 
-const signedInEl = document.getElementById('signed-in');
-const signedOutEl = document.getElementById('signed-out');
+const $ = (id) => document.getElementById(id);
+const panes = ['signed-out', 'pitch', 'first-run', 'map-home'];
+const show = (...ids) => panes.forEach(p => { $(p).hidden = !ids.includes(p); });
 
-function render() {
+async function render() {
   const user = getUser();
-  if (user) {
-    document.getElementById('signed-in-name').textContent = user.name;
-    document.getElementById('admin-link').hidden = !user.is_admin;
-    signedInEl.hidden = false;
-    signedOutEl.hidden = true;
-  } else {
-    signedInEl.hidden = true;
-    signedOutEl.hidden = false;
+  if (!user) { show('pitch', 'signed-out'); return; }
+
+  let map;
+  try {
+    map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+  } catch {
+    return;   // apiFetch showed the banner; an unknown_user already redirected.
   }
+  if (!map) return;
+
+  // The emptiness test, and nothing else (design section 5).
+  if (!map.markdown || !map.markdown.trim()) {
+    show('first-run');
+    mountFirstRun($('first-run'), user, map.updated_at);
+    return;
+  }
+
+  const domains = window.EditorCore.parse(map.markdown);
+  const nodes = domains.reduce((n, d) => n + d.nodes.length, 0);
+  $('map-summary').textContent =
+    `${nodes} belief${nodes === 1 ? '' : 's'} across ${domains.length} `
+    + `area${domains.length === 1 ? '' : 's'}.`;
+  const url = new URL('/view?name=' + encodeURIComponent(map.name), location.origin).href;
+  $('view-link').href = url;
+  $('unlisted-note').hidden = map.is_public !== false;
+  $('wizard-link').hidden = !WIZARD_ENABLED;
+  show('map-home');
 }
 
-document.getElementById('sign-out-btn').addEventListener('click', () => {
-  clearUser();
-  render();
-});
+copyButton($('copy-btn'), () => $('view-link').href);
 
-async function handleAuthForm(form, action) {
+function handleAuthForm(form, action) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const button = form.querySelector('button');
-    const name = form.elements.name.value;
-    const pin = form.elements.pin.value;
     button.disabled = true;
     try {
-      const result = await apiFetch('/api/auth', { method: 'POST', body: { action, name, pin } });
+      const result = await apiFetch('/api/auth', {
+        method: 'POST',
+        body: { action, name: form.elements.name.value, pin: form.elements.pin.value },
+      });
       setUser({ id: result.user_id, name: result.name, is_admin: result.is_admin });
       form.reset();
-      render();
+      // chrome.js's mount() replaces its own host element, so it cannot run a
+      // second time on this page. Reloading re-runs the header, the map fetch
+      // and the pane choice together, which is what signing in has to change.
+      location.reload();
     } catch {
       // apiFetch already showed the error banner.
     } finally {
@@ -103,8 +156,8 @@ async function handleAuthForm(form, action) {
   });
 }
 
-handleAuthForm(document.getElementById('login-form'), 'login');
-handleAuthForm(document.getElementById('signup-form'), 'signup');
+handleAuthForm($('login-form'), 'login');
+handleAuthForm($('signup-form'), 'signup');
 
 render();
 </script>
