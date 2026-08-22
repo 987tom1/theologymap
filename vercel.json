@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/theology-map.html" }
-  ]
+  ],
+  "functions": {
+    "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" }
+  }
 }
