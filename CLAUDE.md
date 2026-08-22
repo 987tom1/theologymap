@@ -91,6 +91,39 @@ and then deleted before saving nets to zero rather than counting as deleted.
 - `shared-fields.js` holds the tag-chip link-editor widget used by both the
   List form and Map tiles, so there's one implementation to keep in sync
   rather than two.
+- **Promoted versus optional fields (phase 3).** Both editing surfaces — the
+  List form and an open Map leaf — show **What I hold**, **Tier** and
+  **Confidence** directly, and put the other five (**Why**, **What I'd
+  reject**, **Still working out**, **Texts**, **Related**) behind a
+  `<details class="optional">` disclosure. The first thing a person does is
+  write what they hold; classifying it comes second, and the rest is optional
+  by design. Note the labels: `todo` is shown as **Still working out**, never
+  "Study" or "Todo", and user-facing copy says **belief** and **area**, never
+  "node" or "domain". The full label table is
+  `docs/hosting/phase-3-design.md` §2.2 and phase 4's wizard reuses it verbatim.
+- **`engine/theme.css` holds the shared tokens and primitives** — the
+  `--field-line` / `--note` tokens, `.tm-card`, `.tm-grid`, `.tm-note`,
+  `.tm-stat`, `details.optional`, and the product chrome. `editor.html` links
+  it **relatively** (`href="theme.css"`), because the editor must load from
+  `file://` with no network; the `web/*.html` pages link `/engine/theme.css`.
+  Its base tokens are declared on `:where(:root)` (specificity 0) so
+  `editor.html`'s own inline `:root` block still owns them there whatever the
+  load order, and the editor degrades to today's styling rather than to
+  unstyled markup if the relative link ever fails.
+- **The `map-view.js` lockstep rule, precisely.** Only three functions —
+  `_leafHeaderEditable`, `_leafMetaEditable` and `_leafDetail` — have no
+  counterpart in `render.py`'s embedded Map view and are therefore the only
+  ones a hosted-UI phase may touch. `_leafHeaderReadonly`, `_leafMetaReadonly`,
+  `_mboxHTML`, `redraw`, `assignX`, `assignY`, `edges`, `_bindPanZoom` and
+  `MAP_TWO_SIDE_BREAK = 860` are lockstep-bearing and must not change. The
+  merge gate is `git diff -U0 main -- engine/map-view.js | grep '^@@'` showing
+  hunks in those three functions and nowhere else. Anything that wants a new
+  public method on `MapView` (phase 3 wanted "open this leaf") should drive it
+  from `editor.html` instead — see `applyOpenParam()` there for the pattern.
+- **`/edit?open=<slug>`** opens the editor on one belief: it expands that area,
+  opens the tile and selects the title. An unresolvable slug is ignored
+  silently, because a stale bookmark must never be an error. First run hands
+  this back after creating a starter belief, and phase 4's wizard reuses it.
 - **Connect** (Chrome/Edge only, via the File System Access API) grants the
   page a write handle to `theology-map.md` directly — no server needed to
   read or save. **Upload a copy** is the fallback for any browser: it loads
@@ -175,8 +208,8 @@ stay off the wire.
 | `_lib.py` | env resolver, `pg()`, `reply`/`error`/`unknown_user`, `read_json`, `verify_credentials`, `require_admin`, `guard`. Not a route (a leading `_` is not routed by Vercel). |
 | `render.py` | `POST` `{markdown}`, `{name}` **or** `{user_id}` → `text/html`. `name` is the public read path; both lookup paths 404 for a non-public map. |
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
-| `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency |
-| `gallery.py` | `GET` → public maps, newest first: `name`, `updated_at`, and the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`). **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
+| `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency, or `{action: "copy_from", source_name}` starts from someone else's public map |
+| `gallery.py` | `GET` → public maps, newest first, `limit=200`: `name`, `updated_at`, the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`), and `started_from` when the map is an unedited copy. **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
 | `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
 
 House rules every route follows, because breaking one is silent:
@@ -236,8 +269,9 @@ the short path. Two consequences that have each caused a real bug:
 
 | URL | Serves |
 |---|---|
-| `/` | `theology-map.html` — Thomas's own map, phase 0's rewrite, unchanged. Links already shared point here. |
-| `/app` | `web/index.html` — sign in / sign up |
+| `/` | `web/landing.html` — the product front door (phase 3). Links already shared point here, so it links Thomas's map prominently and says where it went. |
+| `/thomas` | `theology-map.html` — Thomas's own map, at a stable URL now that `/` is the landing page. |
+| `/app` | `web/index.html` — signed out: pitch + sign in / sign up. Signed in with an empty map: **first run** (`web/first-run.js`). Signed in with a map: the map home — open the editor, view and export, copy link. |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
 | `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id (see above); names are unique on `lower(name)`. |
@@ -299,6 +333,7 @@ it, then verify it landed — committed is not applied.
 | `markdown` | the user's map, ≤512 KB |
 | `is_admin` | default false. **No route anywhere may write this column.** |
 | `is_public` | default **true**. Controls the gallery listing and the name-keyed render — **not** secrecy. Anyone holding the row id still reads the map through `/api/map`, so the admin control says **Unlist**, not Hide. |
+| `copied_from` / `copied_at` | phase 3, `supabase/migrations/20260823120000_copied_from.sql`. Set by `copy_from`, **cleared by `api/map.py`'s save the first time the copier's markdown differs** — so "Started from Sarah's map" only ever describes an unedited copy. Deliberately columns, not a marker line in the markdown: the file format has the most downstream dependents. |
 | `created_at` / `updated_at` | `updated_at` is the concurrency token, advanced by a trigger |
 
 RLS is on with **no policies**, so the anon key can read nothing. That is
