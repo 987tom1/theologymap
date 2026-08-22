@@ -523,10 +523,13 @@
     const totalNodes = domains.reduce((sum, d) => sum + d.nodes.length, 0);
     const drawer = document.createElement('details');
     drawer.className = 'treedrawer';
-    // Re-derived fresh on every render (the tree is rebuilt from scratch on
-    // every touch()), never remembered in a variable — otherwise the drawer
-    // would snap open on every keystroke.
-    drawer.open = !window.matchMedia('(max-width:640px)').matches;
+    // The tree is rebuilt from scratch on every touch() AND on every search
+    // keystroke, so the open state is carried across from the outgoing element
+    // rather than held in a variable or re-derived from the media query. Deriving
+    // it every time would slam the drawer shut under the user mid-search on a
+    // phone; holding it in a variable would drift from the DOM. First build has
+    // no predecessor, so that is where the phone/desktop default applies.
+    drawer.open = old ? old.open : !window.matchMedia('(max-width:640px)').matches;
     const drawerSummary = document.createElement('summary');
     drawerSummary.textContent = 'All beliefs (' + totalNodes + ')';
     drawer.appendChild(drawerSummary);
