@@ -47,6 +47,15 @@ frozen — it produces content, not code. Everything else is sequential.
 
 ## Progress
 
+- **Session 7 (phase 3, Tasks 0–4) ran 2026-08-23 and is merged** (`c5029f9`, plus
+  three follow-up commits on `main`). Theme tokens and shared chrome, the node
+  editor's promoted/optional split in both editing surfaces, the editor's first
+  responsive layout, and server-derived gallery counts. Byte identity holds and the
+  phase-2 baseline hashes did not move. **Session 8 (Tasks 5–9) is next, on the
+  same `phase-3-ui` branch**, and finishes `phase-3-outcome.md`. Read that file's
+  "wrong turn" section before touching `api/gallery.py` — its zero counts on
+  production are correct, not a bug. The design canvas Thomas can review is linked
+  at the top of it.
 - **Sessions 1–6 (1a, 1b, 1c, 1d, 1e, phase 2) are complete and merged.**
   Phase 2 ran 2026-08-23 on `phase-2-harden` (the brief's `phase-2-review` name was
   superseded by this file); it closed an unauthenticated map-overwrite and a stored
