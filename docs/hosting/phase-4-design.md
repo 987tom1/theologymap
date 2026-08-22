@@ -828,6 +828,19 @@ Load-bearing details:
   views its formularies allow" / "a minority stream" / "held historically"), the `note`, and
   the citation. This is the learning affordance inside the wizard, and it uses exactly the
   data phase 6's learn page uses.
+- **"Read more" tooltips — idea from Thomas, 2026-08-19, to be designed in.** Terms and
+  positions in the wizard carry an on-demand explainer with links out for further reading.
+  No new schema: the corpus already requires `sources` (`{label, citation, url?}`) on every
+  doctrine and every position, and already carries `learn_note` / `learn_detail` for
+  exactly this kind of context. The tooltip is those fields surfaced in the wizard instead
+  of being held back for phase 6's learn page — `framing`/`learn_note` on the question,
+  `learn_detail` plus the position's `sources` links on each card. Rules it must keep:
+  external links open in a new tab with `rel="noopener noreferrer"`; a source with no `url`
+  shows as plain citation text, never a dead link; the tooltip is progressive disclosure, so
+  nothing load-bearing lives only inside it; it is dismissible and keyboard-reachable, not
+  hover-only. Open sub-question for the design pass: whether an external link mid-wizard
+  costs more in lost momentum than it gains in understanding — the fallback is to keep the
+  explainer inline and let the links live on phase 6's learn page.
 - **After a position is chosen**, tier and confidence controls appear beneath it, pre-filled,
   each with the in-place explanation phase 3 built, plus the `tier_note`. Changing them is
   one click. They are shown, not hidden behind "advanced".

@@ -563,6 +563,11 @@ git commit -m "phase 4: pure wizard generator with prefix and link-pruning tests
 - Consumes: `WizardGenerate` (Task 4), `EditorCore`, `web/session.js` (`getUser`, `apiFetch`).
 - Produces: the `/wizard` route.
 
+> **Also design in the "Read more" tooltips** — spec §5.3, added 2026-08-19. Surface
+> `learn_note` / `learn_detail` and the `sources` links as an on-demand explainer on the
+> question and on each position card. No schema change; the fields already exist and are
+> already required. Read §5.3 before building the card markup.
+
 - [ ] **Step 1: Add the rewrite**
 
 In `vercel.json`, alongside phase 1's rewrites:
