@@ -9,7 +9,7 @@ ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import render as render_engine          # noqa: E402
-from _lib import pg, read_json, reply_html, error, guard   # noqa: E402
+from _lib import pg, read_json, reply_html, error, guard, unknown_user  # noqa: E402
 
 _VERSES = None
 
@@ -36,8 +36,8 @@ class handler(BaseHTTPRequestHandler):
             status, rows, _ = pg("GET", f"/users?id=eq.{user_id}"
                                         "&select=markdown,is_public,name")
             if status != 200 or not rows:
-                return error(self, 404, "unknown_user", "No such map.")
+                return unknown_user(self)
             if not rows[0]["is_public"]:
-                return error(self, 404, "unknown_user", "No such map.")
+                return unknown_user(self)
             markdown = rows[0]["markdown"]
         reply_html(self, 200, render_engine.render_markdown(markdown, verses()))

@@ -129,10 +129,13 @@ function renderTable(users) {
     });
     actionsCell.appendChild(pinBtn);
 
-    const editLink = document.createElement('a');
-    editLink.href = `/edit?as=${encodeURIComponent(u.id)}`;
-    editLink.textContent = 'Edit map';
-    actionsCell.appendChild(editLink);
+    // No "Edit map" button. Design §9 routes it through /edit?as=<target_id>,
+    // but engine/editor.html never learned to read ?as= (phase-1d-outcome.md),
+    // so the link opened the ADMIN'S OWN map — an admin editing Sarah's row
+    // would have quietly overwritten their own. Deferred to phase 2 with the
+    // rest of the admin surface, which has never been exercised by a real
+    // admin account; api/admin.py's save_map action is implemented and is the
+    // only way in until then. See phase-1e-outcome.md.
 
     const delBtn = document.createElement('button');
     delBtn.textContent = 'Delete';

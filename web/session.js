@@ -21,15 +21,23 @@ export function clearUser() {
   localStorage.removeItem(KEY);
 }
 
-export function requireUser() {
+// Every signed-in-only page funnels through here, so the "why am I suddenly on
+// the sign-in page?" explanation is written once, not per page.
+export function requireUser(why = 'Sign in first — that page needs an account.') {
   const u = getUser();
   if (!u) {
+    stashNotice(why);
     window.location.href = '/app';
     return null;
   }
   return u;
 }
 
+// JSON in, JSON out. It is the right call for every route that replies with
+// JSON and the WRONG one for /api/render, which replies with text/html — a
+// success body there would be silently nulled by the res.json() below. Callers
+// that expect HTML use plain fetch() + res.text() (see web/view.html and
+// engine/storage-hosted.js, both of which say so at the call site).
 export async function apiFetch(path, options = {}) {
   const opts = { ...options, headers: { ...(options.headers || {}) } };
   if (opts.body && typeof opts.body !== 'string') {
@@ -52,9 +60,7 @@ export async function apiFetch(path, options = {}) {
   if (!res.ok) {
     if (res.status === 404 && body && body.error === 'unknown_user') {
       clearUser();
-      // ponytail: sessionStorage hand-off for the one-time notice, simplest thing
-      // that survives a full-page redirect without a query-string round trip.
-      sessionStorage.setItem(NOTICE_KEY, 'That account no longer exists. Please sign in again.');
+      stashNotice('That account no longer exists. Please sign in again.');
       window.location.href = '/app';
       return null;
     }
@@ -63,6 +69,12 @@ export async function apiFetch(path, options = {}) {
   }
 
   return body;
+}
+
+// ponytail: sessionStorage hand-off for a one-time notice, the simplest thing
+// that survives a full-page redirect without a query-string round trip.
+function stashNotice(message) {
+  try { sessionStorage.setItem(NOTICE_KEY, message); } catch { /* private mode */ }
 }
 
 function banner(kind, message) {

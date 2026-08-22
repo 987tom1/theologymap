@@ -36,7 +36,7 @@ export function createHostedAdapter() {
     },
 
     async load() {
-      const user = requireUser(); // redirects to /app if nobody's signed in
+      const user = requireUser('Sign in to edit your map.'); // redirects to /app if nobody is signed in
       if (!user) return { text: '', label: '', token: null }; // page is navigating away
 
       const res = await fetch('/api/map?user_id=' + encodeURIComponent(user.id));

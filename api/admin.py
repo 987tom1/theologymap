@@ -7,6 +7,11 @@ from _lib import pg, read_json, reply, error, guard, unknown_user, require_admin
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
+# PostgREST answers a write with 204 No Content unless the caller asks for
+# `Prefer: return=representation`. None of the writes below need the row back,
+# so every success check here is `not in (200, 204)`, matching _delete_account's.
+# Checking `!= 200` would have turned every successful admin write into a 500.
+
 
 def _lookup(target_id):
     """Return the row (id only) for target_id, or None if it doesn't exist."""
@@ -62,7 +67,7 @@ def _reset_pin(self, body, admin_row):
         return unknown_user(self)
 
     status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"pin": new_pin})
-    if status != 200:
+    if status not in (200, 204):
         return error(self, 500, "server_error", "Could not reset that PIN.")
     return reply(self, 200, {"ok": True})
 
@@ -78,7 +83,7 @@ def _set_visibility(self, body, admin_row):
         return unknown_user(self)
 
     status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"is_public": is_public})
-    if status != 200:
+    if status not in (200, 204):
         return error(self, 500, "server_error", "Could not update visibility.")
     return reply(self, 200, {"ok": True})
 
@@ -109,7 +114,7 @@ def _save_map(self, body, admin_row):
                      "This would erase the whole map. Confirm to continue.")
 
     status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"markdown": markdown})
-    if status != 200:
+    if status not in (200, 204):
         return error(self, 500, "server_error", "Could not save the map.")
     return reply(self, 200, {"ok": True})
 
