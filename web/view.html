@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — View</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 16px/1.4 sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 1.4em; }
+  nav { margin-bottom: 24px; }
+  button { margin-bottom: 16px; padding: 8px 14px; }
+  iframe { width: 100%; height: 75vh; border: 1px solid #ccc; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<nav><a href="/gallery">&larr; Back to gallery</a></nav>
+
+<h1 id="heading">Theology Map</h1>
+
+<p id="not-found" hidden>Map not found.</p>
+<button id="export-btn" hidden>Export HTML</button>
+<iframe id="map-frame" sandbox="allow-scripts allow-same-origin" hidden></iframe>
+
+<script type="module">
+import { apiFetch } from '/web/session.js';
+
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .replace(/'/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+const id = new URLSearchParams(location.search).get('id');
+const notFoundEl = document.getElementById('not-found');
+const frameEl = document.getElementById('map-frame');
+const exportBtn = document.getElementById('export-btn');
+const headingEl = document.getElementById('heading');
+
+if (!id) {
+  notFoundEl.hidden = false;
+} else {
+  let name = null;
+  try {
+    const maps = await apiFetch('/api/gallery');
+    const found = (maps || []).find((m) => m.id === id);
+    if (found) name = found.name;
+  } catch {
+    // Gallery lookup is only for the heading/filename; render still proceeds without it.
+  }
+
+  try {
+    // Plain fetch, not apiFetch: /api/render returns text/html on success, and
+    // apiFetch always calls res.json(), which silently nulls out an HTML body.
+    const res = await fetch('/api/render', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user_id: id }),
+    });
+    if (!res.ok) {
+      notFoundEl.hidden = false;
+    } else {
+      const html = await res.text();
+      const title = name ? `${name}'s Theology Map` : 'Theology Map';
+      const slug = name ? slugify(name) : 'map';
+      headingEl.textContent = title;
+      frameEl.srcdoc = html;
+      frameEl.hidden = false;
+      exportBtn.hidden = false;
+      exportBtn.addEventListener('click', () => {
+        const blob = new Blob([html], { type: 'text/html' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `theology-map-${slug}.html`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    }
+  } catch {
+    notFoundEl.hidden = false;
+  }
+}
+</script>
+
+</body>
+</html>
