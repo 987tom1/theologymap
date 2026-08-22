@@ -31,9 +31,13 @@ hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
 is hand-edited and the other is meant to be double-clicked.
 
 ```
-python engine/render.py         # build everything
-python engine/fetch_verses.py   # fill any blank verse text (needs network)
+py engine/render.py         # build everything
+py engine/fetch_verses.py   # fill any blank verse text (needs network)
 ```
+
+**`py`, not `python`.** On this machine bare `python` hits the Microsoft Store
+stub and fails; Python 3.11.9 is reachable only as `py`. Every brief or doc that
+says `python engine/...` means `py engine/...`.
 
 `render.py` writes `theology-map.html`, `documentation/theology-map.mm` and
 `documentation/study-list.md`. Standard library only, no installs. It prints
@@ -97,8 +101,8 @@ and then deleted before saving nets to zero rather than counting as deleted.
   for any newly-added scripture refs, then rebuild once more so that text
   actually lands in the HTML — and reports success or failure back into the
   page. Without the server running, Save still writes the file — start
-  `start_editor.bat` (or run `python engine/render_server.py` yourself) and
-  click Save & render again, or just run `python engine/render.py` by hand.
+  `start_editor.bat` (or run `py engine/render_server.py` yourself) and
+  click Save & render again, or just run `py engine/render.py` by hand.
   Save always rewrites the whole file regardless of which tab or how many
   edits were made — there's no per-tile autosave.
 - A page button cannot launch a local process — browser sandboxing forbids
@@ -112,6 +116,189 @@ and then deleted before saving nets to zero rather than counting as deleted.
   field is never serialized (the file format implies domain from section
   headers), so this is purely a display-consistency nicety, not something
   `theology-map.md`'s format requires.
+
+## The hosted app (phase 1, 2026-08-22/23)
+
+Everything above still describes the **local** tool and is unchanged by this.
+The hosted app is *additive*: `start_editor.bat` must keep working offline,
+against `theology-map.md` on disk, with no network and no database. If a change
+would make the local tool need either, it is the wrong change.
+
+Live at `https://theologymap-thomas-l-s-projects.vercel.app`. Vercel serves the
+static files and runs the `api/*.py` functions; Supabase Postgres holds one
+table. Standard library only — **`requirements.txt` is empty and stays empty**,
+and there is no bundler, no CDN import and no framework on the browser side.
+
+### One render implementation, two callers
+
+`engine/render.py` is the renderer, for both worlds:
+
+| Entry point | Who calls it |
+|---|---|
+| `render_markdown(markdown_text, verses)` | the **pure** function — markdown in, HTML string out, touches no files |
+| `parse_text(str)` / `parse_verses_text(str)` | pure parsers; `parse(path)` / `parse_verses(path)` are thin file wrappers over them |
+| `main()` | the **file** wrapper — reads `theology-map.md`, writes all three generated files. The local workflow. |
+
+`api/render.py` imports `engine/render.py` and calls `render_markdown`. **Do not
+port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
+and do not copy `render.py` into `api/`.** The gate that protects this is byte
+identity: `render_markdown` on `theology-map.md` must still hash to
+`20d869374343bc41b248f9045a50e48bcafa19909653b860608dfe0a229449ba` when written
+with `Path.write_text` on Windows (`96d692a5…d4a2a2` LF-normalised, which is what
+a Linux-side or hosted-response check compares against). Re-run it after any
+change to `render.py`.
+
+Hosted users get **no verse fetching**: `documentation/verses.md` ships as a
+bundled read-only asset and `fetch_verses.py` stays local-only, because **no
+serverless route may call an external host on a page load**. A hosted user citing
+a reference Thomas has never cited sees "Not yet added to verses.md" rather than
+invented text.
+
+### `api/` — the six serverless functions
+
+**`api/_lib.py` is the only file in the repo that knows Supabase exists.** It
+resolves the environment variables, speaks PostgREST over `urllib`, and owns the
+reply/error shapes. Nothing else imports `os.environ` for a key, and **no
+Supabase key of any kind ever reaches the browser** — every read and write goes
+through these routes with the service-role key, server-side, specifically so PINs
+stay off the wire.
+
+| File | What it does |
+|---|---|
+| `_lib.py` | env resolver, `pg()`, `reply`/`error`/`unknown_user`, `read_json`, `verify_credentials`, `require_admin`, `guard`. Not a route (a leading `_` is not routed by Vercel). |
+| `render.py` | `POST` `{markdown}` **or** `{user_id}` → `text/html`. The `user_id` path 404s for a non-public map. |
+| `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
+| `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency |
+| `gallery.py` | `GET` → public maps, `id`/`name`/`updated_at` only, newest first |
+| `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
+
+House rules every route follows, because breaking one is silent:
+
+- `sys.path.insert(0, str(Path(__file__).resolve().parent))` **before**
+  `from _lib import ...`. Vercel puts `/var/task` on `sys.path` but not
+  `/var/task/api`, so without it the route dies with `ModuleNotFoundError`.
+- Never `select=` the `pin` column on any path that reaches a reply body. **No
+  response, on any route, ever contains a PIN.**
+- Wrap handlers in `@guard`, so a missing environment variable reaches the screen
+  as a 500 naming the variable rather than as a blank page.
+- Look the row up first, then act — that is how "no such user" is told apart from
+  a stale token or an empty-save before any write happens.
+- PostgREST answers a write with **204 No Content** unless you ask for
+  `Prefer: return=representation`. Success checks are `not in (200, 204)`.
+
+`py api/_test_lib.py` is the one runnable check for `_lib.py`'s pure helpers.
+
+### `web/` and the URL map
+
+Vercel **rewrites** (not redirects), so the browser's address bar keeps showing
+the short path. Two consequences that have each caused a real bug:
+
+- **Import `/web/session.js` by absolute path.** A relative `./session.js` on
+  `/app` resolves to `/session.js` and 404s.
+- `engine/editor.html` writes `<base href="/engine/">` when it is reached at
+  `/edit`, so its five relative script tags still resolve.
+
+| URL | Serves |
+|---|---|
+| `/` | `theology-map.html` — Thomas's own map, phase 0's rewrite, unchanged. Links already shared point here. |
+| `/app` | `web/index.html` — sign in / sign up |
+| `/edit` | `engine/editor.html` in hosted mode |
+| `/gallery` | `web/gallery.html` — public maps |
+| `/view?id=` | `web/view.html` — read-only render + Export HTML |
+| `/admin` | `web/admin.html` — admin console |
+
+**`web/session.js` is the only module that touches `localStorage` for the signed-in
+user** (key `theologymap:user`). There is one way to get the current user id:
+`getUser()` / `requireUser(why)`. `apiFetch()` is JSON-in/JSON-out and shows the
+shared error banner itself — it is the wrong tool for `/api/render`, which replies
+with `text/html`; those two call sites use plain `fetch()` + `res.text()` and say
+so in place.
+
+### The editor: one file, two storage adapters
+
+`engine/editor.html` is the same page locally and hosted. `HOSTED` is true for
+any non-`file:`, non-`localhost` origin (or `?mode=hosted` as an escape hatch),
+and `boot()` picks an adapter:
+
+- `engine/storage-local.js` — File System Access API + `http://localhost:8420`.
+  Connect / Upload a copy / Save & render, exactly as before phase 1.
+- `engine/storage-hosted.js` — `/api/map` and `/api/render`, plus autosave.
+
+The adapter interface is `{ mode, supportsAutosave, init(ui), load(), save(text,
+token, force), render(text), beaconFlush(text, token), buttons }`. Add a mode by
+adding an adapter, not by branching inside `editor.html`.
+
+`storage-hosted.js` deliberately does **not** use `apiFetch` for `/api/map`: on a
+404 `unknown_user` `apiFetch` clears the session and redirects, which must never
+happen mid-edit — a vanished account has to leave the draft in `localStorage` and
+say so in place. The file explains this at the top; do not "fix" it back.
+
+### Autosave is hosted-only
+
+1200 ms idle debounce, a 15 s forced-flush ceiling, a flush on
+`visibilitychange → hidden`, and a best-effort `navigator.sendBeacon` on
+`beforeunload`. **The local workflow's explicit Save & render is unchanged and
+has no autosave.**
+
+Concurrency is optimistic on `updated_at` — there is no `rev` column.
+`POST /api/map` sends `expected_updated_at`; the route PATCHes with
+`&updated_at=eq.<token>`, and zero rows back means somebody else saved first
+(409 `conflict`). Four guards stop an empty save erasing real work: no token means
+the scheduler never arms; a client-side shrink check; a server-side 409
+`would_erase` measured against the row's *actual* stored markdown; and a
+`localStorage['theologymap:draft:<name>']` copy written before every network call.
+
+### The schema — one table
+
+`supabase/migrations/20260818120000_users.sql`. Migrations **deploy themselves**:
+Thomas has the Supabase↔GitHub integration, which applies new files in
+`supabase/migrations/` on push to the production branch. Write it, commit it, push
+it, then verify it landed — committed is not applied.
+
+| Column | Notes |
+|---|---|
+| `id` | uuid, primary key |
+| `name` | unique on `lower(name)`; the login identifier |
+| `pin` | plaintext, 4–12 chars. **Never selected into a reply body.** |
+| `markdown` | the user's map, ≤512 KB |
+| `is_admin` | default false. **No route anywhere may write this column.** |
+| `is_public` | default **true** |
+| `created_at` / `updated_at` | `updated_at` is the concurrency token, advanced by a trigger |
+
+RLS is on with **no policies**, so the anon key can read nothing. That is
+deliberate: access control lives in `api/`, not in RLS.
+
+**The one SQL statement a human runs in the whole program** is the admin
+bootstrap, because sign-up is open and any route that could grant admin could
+grant it to anyone:
+
+```sql
+update public.users set is_admin = true where lower(name) = lower('Thomas');
+```
+
+### Security is deliberately minimal, and that is the brief
+
+Plaintext PIN comparison, `localStorage` for the user id, no hashing, no JWT
+library, no rate limiting. **Do not "improve" this into a real auth system.** Keep
+it honest instead by never storing anything a user would mind leaking, and by
+never putting a PIN in a response.
+
+### Environment facts
+
+- The Supabase/Vercel account is **not** the one this machine's Claude MCP tools
+  authenticate to. No session can apply a migration, read an env var, or inspect a
+  table through MCP. `list_projects` returns two unrelated live apps that both
+  have their own `users` tables — never run DDL against either.
+- **Branch previews have no database.** The Supabase env vars are Production-only,
+  so any DB-backed route 500s `misconfigured` on a preview URL. Probe with
+  `POST /api/render {"user_id":"00000000-0000-0000-0000-000000000000"}`: `404
+  unknown_user` means credentials resolved, `500 misconfigured` means they did
+  not. DB checks run on production, after merging.
+- The first request after a deploy 404s while the function cold-builds; the second
+  succeeds. Poll the route, not `/`.
+
+Phase-by-phase history, decisions and outstanding work live in `docs/hosting/` —
+`decisions.md` first, then `run-order.md`.
 
 ## Node syntax
 
@@ -190,8 +377,8 @@ The two scripts divide the work:
   NET Bible endpoint (`labs.bible.org/api/`). By default it only fills blanks,
   so anything corrected by hand survives; `--all` re-fetches everything.
 
-So the loop after adding references is: `python render.py` then
-`python fetch_verses.py`. All 156 current references have text.
+So the loop after adding references is: `py engine/render.py` then
+`py engine/fetch_verses.py`. All 156 current references have text.
 
 **Never write verse text from memory.** It comes out subtly wrong, which in a
 theology reference is worse than a visible blank. Fetch it or leave it empty.

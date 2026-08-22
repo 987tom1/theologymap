@@ -5,4 +5,6 @@ rem Close this window when you're done editing to stop the server.
 
 cd /d "%~dp0"
 start "" cmd /c "timeout /t 2 >nul & start http://localhost:8420/engine/editor.html"
-python engine\render_server.py
+rem `py` (the Windows Python Launcher), not `python`: on this machine bare
+rem `python` hits the Microsoft Store stub and the server never starts.
+py engine\render_server.py

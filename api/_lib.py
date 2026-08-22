@@ -112,6 +112,11 @@ def read_json(handler):
         return {}
 
 
+def _like_literal(text):
+    """Escape LIKE/ILIKE metacharacters so a name matches only itself."""
+    return text.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
+
 def verify_credentials(name, pin):
     """Return the user row for a matching name+pin, else None.
 
@@ -119,10 +124,14 @@ def verify_credentials(name, pin):
     of doing it here rather than in the client is that the pin column never
     goes on the wire. Name matching is case-insensitive, matching the
     users_name_lower_key unique index.
+
+    `ilike` is a pattern match, so `%` and `_` in a name would otherwise be
+    wildcards: signing up as `%` and logging in would match every row and pick
+    an arbitrary one. Names are literals here, so escape the metacharacters.
     """
     status, rows, _ = pg(
         "GET",
-        "/users?select=id,name,pin,is_admin&name=ilike." + quote(name),
+        "/users?select=id,name,pin,is_admin&name=ilike." + quote(_like_literal(name)),
     )
     if status != 200 or not rows:
         return None
