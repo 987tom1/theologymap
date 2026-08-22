@@ -176,7 +176,7 @@ stay off the wire.
 | `render.py` | `POST` `{markdown}`, `{name}` **or** `{user_id}` → `text/html`. `name` is the public read path; both lookup paths 404 for a non-public map. |
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
 | `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency |
-| `gallery.py` | `GET` → public maps, **`name`/`updated_at` only**, newest first. **Never add `id` back** — see below. |
+| `gallery.py` | `GET` → public maps, newest first: `name`, `updated_at`, and the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`). **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
 | `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
 
 House rules every route follows, because breaking one is silent:
@@ -197,6 +197,22 @@ House rules every route follows, because breaking one is silent:
   `ilike` only narrows the query; the exact case-insensitive comparison decides.
   PostgREST rewrites `*` to `%` inside a `like`/`ilike` value, so escaping the
   metacharacters is not enough and never was.
+
+**Two modules are called `render`.** `api/gallery.py` and `api/render.py` both do
+`import render` to reach `engine/render.py`, and `api/render.py` is itself a
+sibling on the same `sys.path`. If a function's `includeFiles` does not bundle
+`engine/render.py`, that import **silently succeeds against the wrong module** and
+every count comes back zero — a gallery that looks perfectly healthy and is wrong.
+So **any route importing `render` needs its own `includeFiles` entry and resolves
+the attribute it needs at import time** (`parse_text = render_engine.parse_text`),
+turning a missing bundle into a 500 on the first request instead.
+
+> Phase 3 spent real time chasing this as a live bug and it was not one: the
+> gallery returned `node_count: 0` for **Thomas**, and the reason is that his
+> hosted row is empty. `theology-map.md` on disk is his personal file and is
+> explicitly **not** user 1's row in the database. Check what is actually stored
+> — `POST /api/render {"name": …}` and count the nodes in the page's `<script
+> id="data">` block — before concluding the counting is broken.
 
 **The rule phase 2 exists to have learned, and the one to check on every new
 route: *what does this route trust, and who else publishes that value?*** The
