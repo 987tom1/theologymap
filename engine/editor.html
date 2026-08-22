@@ -27,7 +27,8 @@
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
-         font:15px/1.6 var(--serif); text-rendering:optimizeLegibility; }
+         font:15px/1.6 var(--serif); text-rendering:optimizeLegibility;
+         display:flex; flex-direction:column; min-height:100dvh; }
   a { color:inherit; }
 
   header { padding:16px 20px 12px; border-bottom:1px solid var(--line); }
@@ -53,12 +54,12 @@
   button.danger { color:var(--bad); border-color:var(--bad); }
   .spacer { flex:1; }
 
-  .layout { display:flex; min-height:calc(100vh - 128px); }
+  .layout { display:flex; flex:1 1 auto; min-height:0; }
   .tabs { display:flex; gap:4px; padding:10px 20px 0; }
   .tabbtn { font:600 12.5px/1 var(--sans); border:1px solid var(--line); background:var(--panel);
     color:var(--muted); padding:8px 16px; border-radius:6px 6px 0 0; border-bottom:none; cursor:pointer; }
   .tabbtn.active { color:var(--ink); background:var(--bg); font-weight:700; }
-  .mapwrap { position:relative; width:100%; height:calc(100vh - 170px); overflow:hidden;
+  .mapwrap { position:relative; width:100%; flex:1 1 auto; min-height:0; height:auto; overflow:hidden;
     background:var(--bg); background-image:radial-gradient(var(--line) 1px, transparent 1px);
     background-size:24px 24px; cursor:grab; touch-action:none; }
   .mapwrap.dragging { cursor:grabbing; }
@@ -114,13 +115,13 @@
     font:600 12px/1 var(--sans); text-align:center; cursor:pointer; }
   .mbox-add:hover { opacity:.85; }
   nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
-             padding:14px 10px; overflow-y:auto; max-height:calc(100vh - 128px); }
+             padding:14px 10px; overflow-y:auto; min-height:0; max-height:none; }
   nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
     color:var(--ink); padding:6px 10px; border-radius:6px; font:13px/1 var(--sans); margin-bottom:10px; }
-  .domain summary { cursor:pointer; font:700 11px/1.6 var(--sans); text-transform:uppercase;
+  .domain summary, .treedrawer > summary { cursor:pointer; font:700 11px/1.6 var(--sans); text-transform:uppercase;
     letter-spacing:.1em; color:var(--muted); padding:6px 8px; border-radius:5px; list-style:none; }
-  .domain summary::-webkit-details-marker { display:none; }
-  .domain summary:hover { color:var(--ink); background:var(--chip); }
+  .domain summary::-webkit-details-marker, .treedrawer > summary::-webkit-details-marker { display:none; }
+  .domain summary:hover, .treedrawer > summary:hover { color:var(--ink); background:var(--chip); }
   .domain[open] summary { color:var(--ink); }
   .nodebtn { display:block; width:100%; text-align:left; background:none; border:none;
     font:13.5px/1.4 var(--serif); color:var(--ink); padding:6px 10px 6px 18px; border-radius:5px;
@@ -135,10 +136,9 @@
   .newdomain { margin:12px 8px 4px; }
   .newdomain button { width:100%; }
 
-  main.form { flex:1; padding:20px 26px 60px; max-width:720px; overflow-y:auto; }
+  main.form { flex:1; padding:20px 26px 60px; max-width:720px; margin-inline:auto; overflow-y:auto; }
   .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:52ch; }
   .row { margin-bottom:16px; }
-  .row.two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   label { display:block; font:700 10.5px/1.8 var(--sans); letter-spacing:.08em;
     text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
   input[type=text], select, textarea { width:100%; border:1px solid var(--line); background:var(--panel);
@@ -169,7 +169,22 @@
   dialog .actions { display:flex; gap:8px; justify-content:flex-end; margin-top:16px; }
 
   .previewbox textarea { width:100%; height:320px; font:12px/1.5 ui-monospace, Consolas, monospace; }
+
+  @media (max-width:900px) and (min-width:641px) { nav.tree { width:240px; } }
+
+  @media (max-width:640px) {
+    header .kicker, header .sub { display:none; }
+    .filebar { padding:8px 12px; }
+    .filebar .status { order:-1; flex-basis:100%; }
+    .tabs { padding:8px 12px 0; }
+    .tabbtn { flex:1; }
+    .layout { flex-direction:column; }
+    nav.tree { width:auto; border-right:none; border-bottom:1px solid var(--line);
+               max-height:45vh; padding:10px 12px; }
+    main.form { padding:16px 14px 48px; }
+  }
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 
@@ -462,7 +477,7 @@
   }
 
   function renderTreeList(filter) {
-    const old = treeEl.querySelector('.treelist');
+    const old = treeEl.querySelector('.treedrawer');
     if (old) old.remove();
     const wrap = document.createElement('div');
     wrap.className = 'treelist';
@@ -505,13 +520,32 @@
     nd.appendChild(ndBtn);
     wrap.appendChild(nd);
 
-    treeEl.appendChild(wrap);
+    const totalNodes = domains.reduce((sum, d) => sum + d.nodes.length, 0);
+    const drawer = document.createElement('details');
+    drawer.className = 'treedrawer';
+    // The tree is rebuilt from scratch on every touch() AND on every search
+    // keystroke, so the open state is carried across from the outgoing element
+    // rather than held in a variable or re-derived from the media query. Deriving
+    // it every time would slam the drawer shut under the user mid-search on a
+    // phone; holding it in a variable would drift from the DOM. First build has
+    // no predecessor, so that is where the phone/desktop default applies.
+    drawer.open = old ? old.open : !window.matchMedia('(max-width:640px)').matches;
+    const drawerSummary = document.createElement('summary');
+    drawerSummary.textContent = 'All beliefs (' + totalNodes + ')';
+    drawer.appendChild(drawerSummary);
+    drawer.appendChild(wrap);
+
+    treeEl.appendChild(drawer);
   }
 
   function selectNode(di, ni) {
     current = { domainIndex: di, nodeIndex: ni };
     renderTreeList('');
     renderForm();
+    if (window.matchMedia('(max-width:640px)').matches) {
+      const drawer = treeEl.querySelector('.treedrawer');
+      if (drawer) drawer.open = false;
+    }
   }
 
   function addDomain() {
@@ -543,11 +577,22 @@
 
     formEl.appendChild(fieldRow('Title', textInput(node.title, v => { node.title = v; node.slug = core.slugify(v); touch(node); })));
 
-    const twoCol = document.createElement('div');
-    twoCol.className = 'row two';
-    twoCol.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS], v => { node.tier = v || null; touch(node); }));
-    twoCol.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES], v => { node.confidence = v || null; touch(node); }));
-    formEl.appendChild(twoCol);
+    // Promoted, in this order: a person knows what they think before they know how
+    // much it weighs or how sure they are. Everything else sits behind the
+    // disclosure at the bottom (design 6.1).
+    formEl.appendChild(fieldRow('What I hold',
+      textArea(node.hold, v => { node.hold = v; touch(node); }, 'The position I hold, in a sentence or two.')));
+
+    const tcNote = document.createElement('p');
+    tcNote.className = 'tm-note';
+    tcNote.textContent = 'Tier is how much weight it carries. Confidence is how sure I am. '
+                       + 'They are two different questions.';
+    formEl.appendChild(tcNote);
+
+    formEl.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS],
+      v => { node.tier = v || null; touch(node); }, TIER_GLOSS, 'Tier \u2014 not set yet'));
+    formEl.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES],
+      v => { node.confidence = v || null; touch(node); }, CONF_GLOSS, 'Confidence \u2014 not set yet'));
 
     const flagRow = document.createElement('div');
     flagRow.className = 'row';
@@ -556,7 +601,7 @@
     flagRow.appendChild(flagLabel);
     const fr = document.createElement('div');
     fr.className = 'flagrow';
-    [['study', '#study — needs work']].forEach(([flag, label]) => {
+    [['study', '#study \u2014 I still need to work this out']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       const cb = document.createElement('input');
       cb.type = 'checkbox'; cb.checked = node.flags.includes(flag);
@@ -573,14 +618,22 @@
     flagRow.appendChild(fr);
     formEl.appendChild(flagRow);
 
-    formEl.appendChild(fieldRow('Hold — the position held', textArea(node.hold, v => { node.hold = v; touch(node); })));
-    formEl.appendChild(fieldRow('Why — one line of rationale', textArea(node.why, v => { node.why = v; touch(node); })));
-    formEl.appendChild(fieldRow('Vs — the rival view rejected', textArea(node.vs, v => { node.vs = v; touch(node); })));
-    formEl.appendChild(fieldRow('Todo — what still needs working out', textArea(node.todo, v => { node.todo = v; touch(node); })));
-    formEl.appendChild(fieldRow('Refs — scripture, semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
-      textInput(node.refs, v => { node.refs = v; touch(node); })));
+    const opt = document.createElement('details');
+    opt.className = 'optional';
+    const optSum = document.createElement('summary');
+    optSum.textContent = "Optional \u2014 why, what I'd reject, texts, related";
+    opt.appendChild(optSum);
 
-    formEl.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch(node)));
+    opt.appendChild(fieldRow('Why', textArea(node.why, v => { node.why = v; touch(node); })));
+    opt.appendChild(fieldRow("What I'd reject", textArea(node.vs, v => { node.vs = v; touch(node); })));
+    opt.appendChild(fieldRow('Still working out', textArea(node.todo, v => { node.todo = v; touch(node); })));
+    opt.appendChild(fieldRow('Texts \u2014 semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
+      textInput(node.refs, v => { node.refs = v; touch(node); })));
+    opt.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch(node)));
+
+    // Existing content is never hidden behind a disclosure someone has to find.
+    opt.open = !!(node.why || node.vs || node.todo || node.refs || (node.link && node.link.length));
+    formEl.appendChild(opt);
 
     const foot = document.createElement('div');
     foot.className = 'formfoot';
@@ -614,22 +667,47 @@
     return el;
   }
 
-  function textArea(value, onChange) {
+  function textArea(value, onChange, placeholder) {
     const el = document.createElement('textarea');
     el.value = value || '';
+    if (placeholder) el.placeholder = placeholder;
     el.addEventListener('input', () => onChange(el.value));
     return el;
   }
 
-  function selectField(labelText, value, options, onChange) {
+  // The same glosses the Map tab uses, and the same strings as render.py's
+  // TIER_META / CONF_META. Tier versus confidence is the one distinction a
+  // stranger reliably collapses, so both controls carry their meaning on every
+  // option rather than in a legend somewhere else.
+  const TIER_GLOSS = {
+    'T1': 'Essential to the gospel',
+    'T1.5': 'Near-essential',
+    'T2': 'Church-defining',
+    'T2.5': 'Strains partnership',
+    'T3': 'Important, not divisive',
+    'T4': 'Matters of liberty',
+  };
+  const CONF_GLOSS = {
+    'certain': 'Settled. I would teach and defend this.',
+    'confident': 'Held with good reason, open to sharpening.',
+    'leaning': 'A working position, not yet settled.',
+    'open': 'Genuinely undecided.',
+    'rejected': 'Considered and rejected.',
+  };
+
+  function selectField(labelText, value, options, onChange, gloss, emptyLabel) {
     const wrap = document.createElement('div');
+    wrap.className = 'row';
     const label = document.createElement('label');
     label.textContent = labelText;
     wrap.appendChild(label);
     const sel = document.createElement('select');
     options.forEach(opt => {
       const o = document.createElement('option');
-      o.value = opt; o.textContent = opt || '—';
+      o.value = opt;
+      o.textContent = opt
+        ? (gloss && gloss[opt] ? opt + ' \u2014 ' + gloss[opt] : opt)
+        : (emptyLabel || '\u2014');
       if (opt === (value || '')) o.selected = true;
       sel.appendChild(o);
     });

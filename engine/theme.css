@@ -1,0 +1,105 @@
+/* engine/theme.css — shared tokens and primitives for the hosted pages and the
+ * editor. Bundled — never fetched from a CDN; the local editor has no network.
+ *
+ * Base tokens are declared on :where(:root) — specificity 0 — so editor.html's
+ * inline :root block remains their owner there and this file cannot override it,
+ * whatever the load order. The web/*.html pages define no tokens of their own,
+ * so they take these. Values are identical to editor.html's; they are stated
+ * once here for the pages that have no inline block, not forked. */
+:where(:root) {
+  --bg: #f6f3ec; --panel: #fffdf8; --ink: #23201a; --muted: #6b6255;
+  --line: #e2dbcb; --accent: #23201a; --chip: #ede6d6;
+  --good: #3d6b3d; --bad: #7c2d3b;
+  --serif: ui-serif, Constantia, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: ui-sans-serif, "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :where(:root) { --bg:#15120d; --panel:#201b14; --ink:#ece4d5; --muted:#a89a85;
+                  --line:#372f22; --accent:#ece4d5; --chip:#271f16;
+                  --good:#7fbf7f; --bad:#d98a99; }
+}
+
+/* The two new tokens the whole phase is allowed. On plain :root so they win
+   everywhere, including inside engine/editor.html. */
+:root {
+  --field-line: #8f8369;   /* 3.68:1 on --panel, 3.37:1 on --bg — WCAG 1.4.11 */
+  --note:       #f0ead9;   /* quiet surface; never used without a rule + label */
+}
+@media (prefers-color-scheme: dark) {
+  :root { --field-line: #7d7059; --note: #2a2318; }
+}
+
+/* Interactive control boundaries take --field-line. Decorative dividers keep
+   --line. Do not merge these two. */
+input[type=text], input[type=search], select, textarea,
+.tm-card, .chip-select, .mfield textarea, .mfield input[type=text] {
+  border-color: var(--field-line);
+}
+
+.tm-note {
+  background: var(--note);
+  border-left: 3px solid var(--muted);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  font: 13px/1.55 var(--serif);
+  max-width: 58ch;
+}
+
+.tm-card {
+  background: var(--panel);
+  border: 1px solid var(--field-line);
+  border-radius: 9px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tm-card h3 { margin: 0; font: 600 17px/1.3 var(--serif); }
+.tm-card p  { margin: 0; font: 13.5px/1.55 var(--serif); color: var(--ink); max-width: 58ch; }
+.tm-card .tm-go { margin-top: auto; font: 600 12.5px/1 var(--sans); color: var(--muted); }
+.tm-card-primary {
+  background: var(--ink); color: var(--bg); border-color: var(--ink);
+}
+.tm-card-primary p, .tm-card-primary .tm-go { color: var(--bg); }
+
+.tm-stat { font: 12px/1.5 var(--sans); color: var(--muted); }
+
+details.optional > summary {
+  cursor: pointer;
+  font: 600 12px/1.6 var(--sans);
+  letter-spacing: .04em;
+  color: var(--muted);
+  padding: 8px 0;
+  list-style: none;
+}
+details.optional > summary::-webkit-details-marker { display: none; }
+details.optional > summary::before { content: '\25B8\00a0'; display: inline-block; transition: transform .15s ease; }
+details.optional[open] > summary::before { transform: rotate(90deg); }
+details.optional > summary:hover { color: var(--ink); }
+
+@media (pointer: coarse) {
+  button, .tabbtn, select, .nodebtn, details.optional > summary { min-height: 44px; }
+  .mdomain-edit, .tagchip button { min-width: 44px; min-height: 44px; }
+}
+
+/* Shared product chrome (web/chrome.js), mirroring engine/editor.html's header
+   rules but scoped under .tm-chrome so it cannot collide with the editor's
+   own header. */
+.tm-chrome { padding:16px 20px 12px; border-bottom:1px solid var(--line); }
+.tm-chrome .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
+                      text-transform:uppercase; color:var(--muted); }
+.tm-chrome h1 { margin:0 0 3px; font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
+.tm-chrome .toplinks { margin-top:8px; display:flex; gap:14px; font:600 12px/1 var(--sans); }
+.tm-chrome .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
+.tm-chrome .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
+
+@media (max-width: 640px) {
+  .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; }
+}
+
+/* No `margin` here on purpose. These four pages still carry their own inline
+   body rule with `margin:40px auto`, and `body.tm-page` outranks it — declaring
+   margin:0 would win and strand a 480px column against the left edge until the
+   later gallery/first-run/sharing tasks give those pages a real layout. */
+body.tm-page { background:var(--bg); color:var(--ink); font:15px/1.6 var(--serif); }
+body.tm-page main, body.tm-page .tm-main { padding:20px; max-width:1200px; margin-inline:auto; }

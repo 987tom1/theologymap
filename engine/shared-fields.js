@@ -22,7 +22,7 @@
     const row = document.createElement('div');
     row.className = 'row';
     const label = document.createElement('label');
-    label.textContent = 'Link — related node(s)';
+    label.textContent = 'Related';
     row.appendChild(label);
 
     const tags = document.createElement('div');
@@ -65,7 +65,7 @@
 
     const hint = document.createElement('p');
     hint.className = 'hint';
-    hint.textContent = 'Must match another node\'s slug exactly, or render.py will warn about a broken link.';
+    hint.textContent = 'Must match another belief\'s slug exactly, or render.py will warn about a broken link.';
     row.appendChild(hint);
 
     let list = document.getElementById('slugList');
