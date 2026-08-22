@@ -117,10 +117,50 @@ than silently, but two of them would have failed *in production only*.
 | `map_stats('')` and `map_stats(None)` | **PASS** — zeroes, no exception |
 | No `markdown`, `pin` or `id` in a built gallery row | **PASS**, asserted locally |
 
-**Not run, and why:** nothing database-backed was exercised against a live
-deployment. Branch previews have no database — the Supabase environment variables
-are Production-scoped — so `/api/gallery`'s real response can only be read after
-this merge deploys. The production probe is recorded below.
+### Production, after the merge
+
+Branch previews have no database, so everything below ran against production once
+the merge deployed.
+
+| Check | Result |
+|---|---|
+| Credentials resolve (`POST /api/render {"user_id":"000…0"}`) | **PASS** — `404 unknown_user`, not `500 misconfigured` |
+| `/api/gallery` returns the four new fields | **PASS** |
+| Gallery body contains no `markdown`, no `pin`, no `id` | **PASS** — zero occurrences of each |
+| `/engine/theme.css`, `/web/chrome.js`, `/web/session.js` all serve | **PASS** — 200, 4708 / 1346 / 3983 bytes |
+| All six pages 200 signed out (`/`, `/app`, `/gallery`, `/admin`, `/view?name=`, `/edit`) | **PASS** |
+| **Byte identity, hosted**: `POST /api/render` with the full 99-node map | **PASS** — `eaedf3e4…1a90`, phase 2's LF baseline exactly. The hashes did not move. |
+| Local `start_editor.bat` chain, run not read | **PASS** — server up on 8420, editor + `theme.css` + all four scripts served, full `POST /api/render` chain ran, `git status` clean afterwards, no network call |
+
+**One thing I could not prove, and it is now guarded instead.** `api/gallery.py`
+imports `engine/render.py` as `render`, and `api/render.py` is a sibling module of
+the same name on the same `sys.path`. If `includeFiles` ever fails to bundle
+`engine/render.py`, that import silently binds the wrong module. There is no map on
+production with a non-empty markdown to read a non-zero count back from, so the
+happy path is unproven by observation. It is proven by construction instead:
+`parse_text` is resolved **at import time**, so the wrong module would fail the
+function outright rather than return zeros, and `/api/gallery` answers 200.
+
+### The wrong turn I took, recorded because the next session will be tempted by it
+
+`/api/gallery` reports `node_count: 0` for **Thomas**. I read that as a bug, spent
+real time on it, and shipped a hardening commit whose message calls it a live
+production failure. **It is not a bug.** Thomas's *hosted row* is an empty map.
+`theology-map.md` on disk is his personal file and — non-negotiable 5 in Project
+13's `CLAUDE.md` — is explicitly **not** user 1's row in the database. Confirmed by
+rendering the stored map through `POST /api/render {"name":"Thomas"}` and counting
+the nodes in the page's `<script id="data">` block: **zero**. The gallery is
+telling the truth.
+
+Two commits carry that mistake: `a6c9060`'s message describes a failure that never
+shipped, and `a67e095` corrects the claim in `CLAUDE.md` without rewriting history.
+The hardening itself is worth keeping — the sibling-module trap is real and
+undefended — but the story attached to it was wrong.
+
+**The general lesson, which is the same one phase 2 wrote down:** *check what the
+system actually holds before concluding the code is wrong about it.* The gallery
+will keep reporting zeroes until somebody saves a real map through `/edit`, and the
+one map with 99 nodes in it lives on a disk the server has never seen.
 
 #### Contrast script output
 
