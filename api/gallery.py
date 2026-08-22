@@ -9,6 +9,17 @@ sys.path.insert(0, str(ROOT / "engine"))
 import render as render_engine   # noqa: E402
 from _lib import pg, reply, error, guard  # noqa: E402
 
+# Bind the one function we need AT IMPORT TIME, deliberately.
+#
+# `api/render.py` is a sibling module also called `render`, so `import render`
+# has two candidates and which one wins depends on whether vercel.json actually
+# bundled `engine/render.py` into THIS function. If it did not, the import
+# silently succeeds against the wrong module and every count below comes out
+# zero -- a gallery that looks fine and is wrong, which is the exact failure the
+# repo's own rule about failing loudly exists to prevent. Resolving the
+# attribute here turns that into a 500 on the first request instead.
+parse_text = render_engine.parse_text
+
 TIER_KEYS = ("T1", "T1.5", "T2", "T2.5", "T3", "T4")
 
 
@@ -19,7 +30,7 @@ def map_stats(markdown):
     total = 0
     open_count = 0
     # parse_text returns a FLAT list of node dicts (engine/render.py:91).
-    for n in render_engine.parse_text(markdown or ""):
+    for n in parse_text(markdown or ""):
         total += 1
         tier = n.get("tier")
         counts[tier if tier in counts else "untiered"] += 1
@@ -47,6 +58,9 @@ def _list_gallery(self):
             item.update(map_stats(row.get("markdown")))
         except Exception:
             # One malformed map must not 500 the whole gallery for everyone else.
+            # Scoped to a parse failure on one row on purpose: anything that would
+            # break every row (a missing bundle, the wrong `render` module) has
+            # already failed loudly at import, above.
             item.update({"node_count": 0, "open_count": 0,
                          "tier_counts": {k: 0 for k in TIER_KEYS} | {"untiered": 0}})
         out.append(item)

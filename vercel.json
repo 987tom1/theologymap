@@ -9,6 +9,6 @@
   ],
   "functions": {
     "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" },
-    "api/gallery.py": { "includeFiles": "engine/render.py" }
+    "api/gallery.py": { "includeFiles": "{engine/render.py}" }
   }
 }
