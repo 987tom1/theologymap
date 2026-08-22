@@ -138,7 +138,6 @@
   main.form { flex:1; padding:20px 26px 60px; max-width:720px; overflow-y:auto; }
   .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:52ch; }
   .row { margin-bottom:16px; }
-  .row.two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   label { display:block; font:700 10.5px/1.8 var(--sans); letter-spacing:.08em;
     text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
   input[type=text], select, textarea { width:100%; border:1px solid var(--line); background:var(--panel);
@@ -544,11 +543,22 @@
 
     formEl.appendChild(fieldRow('Title', textInput(node.title, v => { node.title = v; node.slug = core.slugify(v); touch(node); })));
 
-    const twoCol = document.createElement('div');
-    twoCol.className = 'row two';
-    twoCol.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS], v => { node.tier = v || null; touch(node); }));
-    twoCol.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES], v => { node.confidence = v || null; touch(node); }));
-    formEl.appendChild(twoCol);
+    // Promoted, in this order: a person knows what they think before they know how
+    // much it weighs or how sure they are. Everything else sits behind the
+    // disclosure at the bottom (design 6.1).
+    formEl.appendChild(fieldRow('What I hold',
+      textArea(node.hold, v => { node.hold = v; touch(node); }, 'The position I hold, in a sentence or two.')));
+
+    const tcNote = document.createElement('p');
+    tcNote.className = 'tm-note';
+    tcNote.textContent = 'Tier is how much weight it carries. Confidence is how sure I am. '
+                       + 'They are two different questions.';
+    formEl.appendChild(tcNote);
+
+    formEl.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS],
+      v => { node.tier = v || null; touch(node); }, TIER_GLOSS, 'Tier \u2014 not set yet'));
+    formEl.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES],
+      v => { node.confidence = v || null; touch(node); }, CONF_GLOSS, 'Confidence \u2014 not set yet'));
 
     const flagRow = document.createElement('div');
     flagRow.className = 'row';
@@ -557,7 +567,7 @@
     flagRow.appendChild(flagLabel);
     const fr = document.createElement('div');
     fr.className = 'flagrow';
-    [['study', '#study — needs work']].forEach(([flag, label]) => {
+    [['study', '#study \u2014 I still need to work this out']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       const cb = document.createElement('input');
       cb.type = 'checkbox'; cb.checked = node.flags.includes(flag);
@@ -574,14 +584,22 @@
     flagRow.appendChild(fr);
     formEl.appendChild(flagRow);
 
-    formEl.appendChild(fieldRow('Hold — the position held', textArea(node.hold, v => { node.hold = v; touch(node); })));
-    formEl.appendChild(fieldRow('Why — one line of rationale', textArea(node.why, v => { node.why = v; touch(node); })));
-    formEl.appendChild(fieldRow('Vs — the rival view rejected', textArea(node.vs, v => { node.vs = v; touch(node); })));
-    formEl.appendChild(fieldRow('Todo — what still needs working out', textArea(node.todo, v => { node.todo = v; touch(node); })));
-    formEl.appendChild(fieldRow('Refs — scripture, semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
-      textInput(node.refs, v => { node.refs = v; touch(node); })));
+    const opt = document.createElement('details');
+    opt.className = 'optional';
+    const optSum = document.createElement('summary');
+    optSum.textContent = "Optional \u2014 why, what I'd reject, texts, related";
+    opt.appendChild(optSum);
 
-    formEl.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch(node)));
+    opt.appendChild(fieldRow('Why', textArea(node.why, v => { node.why = v; touch(node); })));
+    opt.appendChild(fieldRow("What I'd reject", textArea(node.vs, v => { node.vs = v; touch(node); })));
+    opt.appendChild(fieldRow('Still working out', textArea(node.todo, v => { node.todo = v; touch(node); })));
+    opt.appendChild(fieldRow('Texts \u2014 semicolon-separated (e.g. 2 Tim 3:16-17; Heb 1:1-2)',
+      textInput(node.refs, v => { node.refs = v; touch(node); })));
+    opt.appendChild(SharedFields.renderLinkField(node, core.allSlugs(domains), () => touch(node)));
+
+    // Existing content is never hidden behind a disclosure someone has to find.
+    opt.open = !!(node.why || node.vs || node.todo || node.refs || (node.link && node.link.length));
+    formEl.appendChild(opt);
 
     const foot = document.createElement('div');
     foot.className = 'formfoot';
@@ -615,22 +633,47 @@
     return el;
   }
 
-  function textArea(value, onChange) {
+  function textArea(value, onChange, placeholder) {
     const el = document.createElement('textarea');
     el.value = value || '';
+    if (placeholder) el.placeholder = placeholder;
     el.addEventListener('input', () => onChange(el.value));
     return el;
   }
 
-  function selectField(labelText, value, options, onChange) {
+  // The same glosses the Map tab uses, and the same strings as render.py's
+  // TIER_META / CONF_META. Tier versus confidence is the one distinction a
+  // stranger reliably collapses, so both controls carry their meaning on every
+  // option rather than in a legend somewhere else.
+  const TIER_GLOSS = {
+    'T1': 'Essential to the gospel',
+    'T1.5': 'Near-essential',
+    'T2': 'Church-defining',
+    'T2.5': 'Strains partnership',
+    'T3': 'Important, not divisive',
+    'T4': 'Matters of liberty',
+  };
+  const CONF_GLOSS = {
+    'certain': 'Settled. I would teach and defend this.',
+    'confident': 'Held with good reason, open to sharpening.',
+    'leaning': 'A working position, not yet settled.',
+    'open': 'Genuinely undecided.',
+    'rejected': 'Considered and rejected.',
+  };
+
+  function selectField(labelText, value, options, onChange, gloss, emptyLabel) {
     const wrap = document.createElement('div');
+    wrap.className = 'row';
     const label = document.createElement('label');
     label.textContent = labelText;
     wrap.appendChild(label);
     const sel = document.createElement('select');
     options.forEach(opt => {
       const o = document.createElement('option');
-      o.value = opt; o.textContent = opt || '—';
+      o.value = opt;
+      o.textContent = opt
+        ? (gloss && gloss[opt] ? opt + ' \u2014 ' + gloss[opt] : opt)
+        : (emptyLabel || '\u2014');
       if (opt === (value || '')) o.selected = true;
       sel.appendChild(o);
     });

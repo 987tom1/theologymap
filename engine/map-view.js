@@ -192,6 +192,25 @@
     return wrap;
   };
 
+  // Copied from render.py's TIER_META / CONF_META. Kept beside the editable-leaf
+  // functions rather than at the top of the factory so this phase's diff stays
+  // inside the three functions render.py has no counterpart for (design 6.2).
+  const TIER_GLOSS = {
+    'T1': 'Essential to the gospel',
+    'T1.5': 'Near-essential',
+    'T2': 'Church-defining',
+    'T2.5': 'Strains partnership',
+    'T3': 'Important, not divisive',
+    'T4': 'Matters of liberty',
+  };
+  const CONF_GLOSS = {
+    'certain': 'Settled. I would teach and defend this.',
+    'confident': 'Held with good reason, open to sharpening.',
+    'leaning': 'A working position, not yet settled.',
+    'open': 'Genuinely undecided.',
+    'rejected': 'Considered and rejected.',
+  };
+
   MapView.prototype._leafMetaEditable = function (n) {
     const core = window.EditorCore;
     const self = this;
@@ -201,10 +220,13 @@
     const tierSel = document.createElement('select');
     tierSel.className = 'chip-select';
     [''].concat(core.TIERS).forEach(t => {
-      const o = document.createElement('option'); o.value = t; o.textContent = t || 'Tier —';
+      const o = document.createElement('option');
+      o.value = t;
+      o.textContent = t ? t + ' — ' + TIER_GLOSS[t] : 'Tier — not set yet';
       if (t === (n.tier || '')) o.selected = true;
       tierSel.appendChild(o);
     });
+    tierSel.title = 'How much weight this carries. T1 is the gospel itself; T4 is a matter of liberty.';
     tierSel.addEventListener('click', e => e.stopPropagation());
     tierSel.addEventListener('change', () => { n.tier = tierSel.value || null; self.onFieldChange(n); self.redraw(); });
     wrap.appendChild(tierSel);
@@ -212,15 +234,18 @@
     const confSel = document.createElement('select');
     confSel.className = 'chip-select';
     [''].concat(core.CONFIDENCES).forEach(c => {
-      const o = document.createElement('option'); o.value = c; o.textContent = c || 'Confidence —';
+      const o = document.createElement('option');
+      o.value = c;
+      o.textContent = c ? c + ' — ' + CONF_GLOSS[c] : 'Confidence — not set yet';
       if (c === (n.confidence || '')) o.selected = true;
       confSel.appendChild(o);
     });
+    confSel.title = 'How sure I am — not how important it is. Those are two different questions.';
     confSel.addEventListener('click', e => e.stopPropagation());
     confSel.addEventListener('change', () => { n.confidence = confSel.value || null; self.onFieldChange(n); });
     wrap.appendChild(confSel);
 
-    [['study', 'study']].forEach(([flag, label]) => {
+    [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       lab.className = 'flag-chip';
       const cb = document.createElement('input');
@@ -260,10 +285,19 @@
     }
     function autosize(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
 
-    wrap.appendChild(field('Hold', n.hold, v => { n.hold = v; }));
-    wrap.appendChild(field('Why', n.why, v => { n.why = v; }));
-    wrap.appendChild(field('Vs', n.vs, v => { n.vs = v; }));
-    wrap.appendChild(field('Study', n.todo, v => { n.todo = v; }));
+    // Promoted: the one field that makes a belief worth having.
+    wrap.appendChild(field('What I hold', n.hold, v => { n.hold = v; }));
+
+    const opt = document.createElement('details');
+    opt.className = 'optional';
+    const sum = document.createElement('summary');
+    sum.textContent = "Optional — why, what I'd reject, texts, related";
+    opt.appendChild(sum);
+    opt.addEventListener('click', e => e.stopPropagation());
+
+    opt.appendChild(field('Why', n.why, v => { n.why = v; }));
+    opt.appendChild(field("What I'd reject", n.vs, v => { n.vs = v; }));
+    opt.appendChild(field('Still working out', n.todo, v => { n.todo = v; }));
 
     const refsRow = document.createElement('div');
     refsRow.className = 'mfield';
@@ -276,12 +310,19 @@
     refsInput.addEventListener('click', e => e.stopPropagation());
     refsInput.addEventListener('input', () => { n.refs = refsInput.value; self.onFieldChange(n); });
     refsRow.appendChild(refsInput);
-    wrap.appendChild(refsRow);
+    opt.appendChild(refsRow);
 
     const linkWrap = document.createElement('div');
     linkWrap.addEventListener('click', e => e.stopPropagation());
     linkWrap.appendChild(window.SharedFields.renderLinkField(n, self.getAllSlugs(), () => self.onFieldChange(n)));
-    wrap.appendChild(linkWrap);
+    opt.appendChild(linkWrap);
+
+    // Existing content is never hidden behind a disclosure someone has to find.
+    opt.open = !!(n.why || n.vs || n.todo || n.refs || (n.link && n.link.length));
+    // A <details> changes its own height after the layout pass measured the tile.
+    // Without this, opening the section makes tiles overlap (design 6.3).
+    opt.addEventListener('toggle', () => { self.redraw(); });
+    wrap.appendChild(opt);
 
     const del = document.createElement('button');
     del.type = 'button'; del.className = 'danger mdelete';
