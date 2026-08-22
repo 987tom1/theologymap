@@ -47,13 +47,25 @@ def _list_gallery(self):
     # it here let any signed-out visitor overwrite any public map — phase 2, B1.
     # Names are unique (users_name_lower_key) and already public, so the public
     # read path is keyed by name instead: /view?name= and POST /api/render {name}.
-    status, rows, _ = pg("GET", "/users?select=name,updated_at,markdown"
+    # `id` and `copied_from` are selected to be USED, never to be published: the
+    # row id authorises a save (phase 2, B1). Every response item below is built
+    # field by field from a literal dict, so neither can leak by accident.
+    status, rows, _ = pg("GET", "/users?select=id,name,updated_at,markdown,copied_from"
                                  "&is_public=is.true&order=updated_at.desc")
     if status != 200:
         return error(self, 500, "server_error", "Could not load the gallery.")
+    rows = rows or []
+    # Phase 3 task 8: "Started from Sarah's map", resolved without a second round
+    # trip or a PostgREST self-join. api/map.py clears copied_from on the first
+    # divergent save, so this only ever describes an unedited copy. A source that
+    # has since been unlisted is not in `rows` and simply goes unnamed.
+    names_by_id = {r["id"]: r["name"] for r in rows}
     out = []
-    for row in rows or []:
+    for row in rows:
         item = {"name": row["name"], "updated_at": row["updated_at"]}
+        started_from = names_by_id.get(row.get("copied_from"))
+        if started_from:
+            item["started_from"] = started_from
         try:
             item.update(map_stats(row.get("markdown")))
         except Exception:
