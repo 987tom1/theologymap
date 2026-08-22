@@ -8,6 +8,7 @@
     { "source": "/admin", "destination": "/web/admin.html" }
   ],
   "functions": {
-    "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" }
+    "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" },
+    "api/gallery.py": { "includeFiles": "engine/render.py" }
   }
 }
