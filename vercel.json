@@ -2,7 +2,10 @@
   "rewrites": [
     { "source": "/", "destination": "/theology-map.html" },
     { "source": "/app", "destination": "/web/index.html" },
-    { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" }
+    { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" },
+    { "source": "/gallery", "destination": "/web/gallery.html" },
+    { "source": "/view", "destination": "/web/view.html" },
+    { "source": "/admin", "destination": "/web/admin.html" }
   ],
   "functions": {
     "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — Gallery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 16px/1.4 sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 1.4em; }
+  nav { margin-bottom: 24px; }
+  ul { list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; border-radius: 6px; }
+  li { padding: 10px 14px; border-bottom: 1px solid #ccc; }
+  li:last-child { border-bottom: none; }
+  li a { font-weight: bold; }
+  .updated { color: #666; font-size: 0.85em; margin-left: 8px; }
+</style>
+</head>
+<body>
+
+<nav><a href="/app">&larr; Back to sign in</a></nav>
+
+<h1>Gallery</h1>
+
+<ul id="list"></ul>
+<p id="empty" hidden>No maps yet.</p>
+
+<script type="module">
+import { apiFetch } from '/web/session.js';
+
+const listEl = document.getElementById('list');
+const emptyEl = document.getElementById('empty');
+
+try {
+  const maps = await apiFetch('/api/gallery');
+  if (!maps || maps.length === 0) {
+    emptyEl.hidden = false;
+  } else {
+    for (const m of maps) {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `/view?id=${encodeURIComponent(m.id)}`;
+      a.textContent = m.name;
+      const updated = document.createElement('span');
+      updated.className = 'updated';
+      updated.textContent = new Date(m.updated_at).toLocaleString();
+      li.appendChild(a);
+      li.appendChild(updated);
+      listEl.appendChild(li);
+    }
+  }
+} catch {
+  // apiFetch already showed the error banner.
+}
+</script>
+
+</body>
+</html>
