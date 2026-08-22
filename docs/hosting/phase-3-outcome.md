@@ -557,7 +557,30 @@ Every command run, output read, nothing inferred.
 
 ### Production, after the merge
 
-*(filled in below by this session, after the merge push deployed)*
+Branch previews have no database, so everything below ran against production once
+the merge deployed. Every row is a command that was run and an output that was read.
+
+| Check | Result |
+|---|---|
+| **The migration applied.** `GET /api/gallery` | **PASS — 200.** This is the proof, not a separate query: `api/gallery.py`'s select now names `copied_from`. If the column did not exist PostgREST would answer 400 and the route would return `500 server_error`. It returned 200 with rows, so the column is there. Committed *and* applied. |
+| Credentials resolve (`POST /api/render {"user_id":"000…0"}`) | **PASS** — `404 unknown_user`, not `500 misconfigured` |
+| `/` is the landing page | **PASS** — 200, 2014 bytes (was 123,870 — Thomas's map) |
+| `/thomas` is Thomas's map | **PASS** — 200, **123,870 bytes, byte-for-byte the same file `/` used to serve**; `/theology-map.html` also still 200 at the same size |
+| All product pages 200 signed out (`/app`, `/gallery`, `/admin`, `/edit`, `/view?name=Thomas`) | **PASS** |
+| New assets serve (`/web/first-run.js`, `/web/landing.html`, `/web/chrome.js`, `/engine/theme.css`) | **PASS** — 200; 6394 / 2014 / 2422 / 6606 bytes |
+| Gallery body carries no `markdown`, no `pin`, no `id`, no `copied_from` | **PASS** — zero occurrences of each |
+| `copy_from` guards, all read-only probes with a bogus user id | **PASS** — no `source_name` → `400 bad_request`; unknown `user_id` → `404 unknown_user`; no `user_id` → `400 bad_request` |
+| The ordinary save path still guarded | **PASS** — `GET` and `POST /api/map` with a bogus user id both `404 unknown_user` |
+| **Byte identity, hosted**: `POST /api/render` with the full 99-node map | **PASS** — `eaedf3e4…1a90`, phase 2's LF baseline exactly. **The hashes did not move.** |
+
+**What production could not tell me, and I am not claiming it did.** There is still
+no map on production with a non-empty `markdown` — both rows (`Test1`, `Thomas`)
+have `node_count: 0`, which session 7 established is correct and not a bug. So the
+*happy paths* of `copy_from`, of provenance clearing, and of `started_from` on a
+gallery card have been proven by their guards and by local reasoning, not by
+observation: there is nothing on the server yet to copy. The first real map saved
+through `/edit` will exercise all three. The guards above are the half that could
+be observed, and they were.
 
 ### Contrast script output
 
