@@ -143,10 +143,17 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`20d869374343bc41b248f9045a50e48bcafa19909653b860608dfe0a229449ba` when written
-with `Path.write_text` on Windows (`96d692a5…d4a2a2` LF-normalised, which is what
-a Linux-side or hosted-response check compares against). Re-run it after any
-change to `render.py`.
+`6b64839d4f60506d55e297b966e6be341998e5a0ec3a0984a7c60942bf74cf76` when written
+with `Path.write_text` on Windows (`eaedf3e4f85bd41accb08e894e1df6be870567c3ee57b63dbc3fb8ab57301a90`
+LF-normalised, which is what a Linux-side or hosted-response check compares
+against). Re-run it after any change to `render.py`.
+
+> These two hashes moved in phase 2, and this is the only thing that may move
+> them: the renderer changed, so the generated files were **regenerated** by
+> `py engine/render.py` (never hand-edited). The phase-1 values were
+> `20d869…449ba` / `96d692…d4a2a2`; phase 2 escaped `<` in the embedded JSON
+> payload and `esc()`'d the `data-goto` attribute, closing a stored XSS
+> (`docs/hosting/phase-2-review.md`, B2).
 
 Hosted users get **no verse fetching**: `documentation/verses.md` ships as a
 bundled read-only asset and `fetch_verses.py` stays local-only, because **no
@@ -166,10 +173,10 @@ stay off the wire.
 | File | What it does |
 |---|---|
 | `_lib.py` | env resolver, `pg()`, `reply`/`error`/`unknown_user`, `read_json`, `verify_credentials`, `require_admin`, `guard`. Not a route (a leading `_` is not routed by Vercel). |
-| `render.py` | `POST` `{markdown}` **or** `{user_id}` → `text/html`. The `user_id` path 404s for a non-public map. |
+| `render.py` | `POST` `{markdown}`, `{name}` **or** `{user_id}` → `text/html`. `name` is the public read path; both lookup paths 404 for a non-public map. |
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
 | `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency |
-| `gallery.py` | `GET` → public maps, `id`/`name`/`updated_at` only, newest first |
+| `gallery.py` | `GET` → public maps, **`name`/`updated_at` only**, newest first. **Never add `id` back** — see below. |
 | `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
 
 House rules every route follows, because breaking one is silent:
@@ -185,6 +192,19 @@ House rules every route follows, because breaking one is silent:
   a stale token or an empty-save before any write happens.
 - PostgREST answers a write with **204 No Content** unless you ask for
   `Prefer: return=representation`. Success checks are `not in (200, 204)`.
+- **Interpolate nothing into a PostgREST path without `_lib.q()`.**
+- **A name is turned into a row in exactly one place: `_lib.row_by_name()`.**
+  `ilike` only narrows the query; the exact case-insensitive comparison decides.
+  PostgREST rewrites `*` to `%` inside a `like`/`ilike` value, so escaping the
+  metacharacters is not enough and never was.
+
+**The rule phase 2 exists to have learned, and the one to check on every new
+route: *what does this route trust, and who else publishes that value?*** The
+row `id` authorises a save in `map.py`; `gallery.py` published it; so for a day
+any stranger could overwrite any public map with two fields of public JSON. Both
+files were correct alone. See `docs/hosting/phase-2-review.md` B1. **The `id` is
+a credential.** It belongs in the owner's `localStorage` and in an admin's
+`list_users` reply, and nowhere else.
 
 `py api/_test_lib.py` is the one runnable check for `_lib.py`'s pure helpers.
 
@@ -204,7 +224,7 @@ the short path. Two consequences that have each caused a real bug:
 | `/app` | `web/index.html` — sign in / sign up |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
-| `/view?id=` | `web/view.html` — read-only render + Export HTML |
+| `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id (see above); names are unique on `lower(name)`. |
 | `/admin` | `web/admin.html` — admin console |
 
 **`web/session.js` is the only module that touches `localStorage` for the signed-in

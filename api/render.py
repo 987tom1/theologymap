@@ -9,7 +9,7 @@ ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import render as render_engine          # noqa: E402
-from _lib import pg, read_json, reply_html, error, guard, unknown_user  # noqa: E402
+from _lib import pg, q, row_by_name, read_json, reply_html, error, guard, unknown_user  # noqa: E402
 
 _VERSES = None
 
@@ -29,15 +29,21 @@ class handler(BaseHTTPRequestHandler):
         body = read_json(self)
         markdown = body.get("markdown")
         if markdown is None:
+            # `name` is the public read path (the gallery no longer publishes
+            # ids — phase 2, B1). `user_id` still works for the owner and the
+            # admin console, who legitimately hold one.
+            name = body.get("name")
             user_id = body.get("user_id")
-            if not user_id:
+            if name:
+                row = row_by_name(name, "markdown,is_public,name")
+            elif user_id:
+                status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}"
+                                            "&select=markdown,is_public,name")
+                row = rows[0] if status == 200 and rows else None
+            else:
                 return error(self, 400, "bad_request",
-                             "Send either markdown or user_id.")
-            status, rows, _ = pg("GET", f"/users?id=eq.{user_id}"
-                                        "&select=markdown,is_public,name")
-            if status != 200 or not rows:
+                             "Send markdown, or a name, or a user_id.")
+            if row is None or not row["is_public"]:
                 return unknown_user(self)
-            if not rows[0]["is_public"]:
-                return unknown_user(self)
-            markdown = rows[0]["markdown"]
+            markdown = row["markdown"]
         reply_html(self, 200, render_engine.render_markdown(markdown, verses()))

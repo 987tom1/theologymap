@@ -38,7 +38,7 @@ try {
     for (const m of maps) {
       const li = document.createElement('li');
       const a = document.createElement('a');
-      a.href = `/view?id=${encodeURIComponent(m.id)}`;
+      a.href = `/view?name=${encodeURIComponent(m.name)}`;  // not m.id — see phase 2, B1
       a.textContent = m.name;
       const updated = document.createElement('span');
       updated.className = 'updated';

@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import pg, read_json, reply, error, guard, unknown_user, require_admin  # noqa: E402
+from _lib import pg, q, read_json, reply, error, guard, unknown_user, require_admin  # noqa: E402
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
@@ -15,7 +15,7 @@ MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check cons
 
 def _lookup(target_id):
     """Return the row (id only) for target_id, or None if it doesn't exist."""
-    status, rows, _ = pg("GET", f"/users?id=eq.{target_id}&select=id")
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(target_id)}&select=id")
     if status != 200 or not rows:
         return None
     return rows[0]
@@ -45,12 +45,16 @@ def _delete_account(self, body, admin_row):
     target_id = body.get("target_id")
     if not target_id:
         return error(self, 400, "bad_request", "Missing target_id.")
-    if not _lookup(target_id):
+    target = _lookup(target_id)
+    if not target:
         return unknown_user(self)
-    if target_id == admin_row["id"]:
+    # Compare the row's own id, not the caller's string: Postgres accepts a uuid
+    # in any case, so an uppercase target_id would slip past a string compare and
+    # delete the admin's own row — unrecoverable, since no route sets is_admin.
+    if target["id"] == admin_row["id"]:
         return error(self, 400, "bad_request", "Cannot delete your own account.")
 
-    status, _, _ = pg("DELETE", f"/users?id=eq.{target_id}")
+    status, _, _ = pg("DELETE", f"/users?id=eq.{q(target_id)}")
     if status not in (200, 204):
         return error(self, 500, "server_error", "Could not delete that account.")
     return reply(self, 200, {"ok": True})
@@ -66,7 +70,7 @@ def _reset_pin(self, body, admin_row):
     if not _lookup(target_id):
         return unknown_user(self)
 
-    status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"pin": new_pin})
+    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}", {"pin": new_pin})
     if status not in (200, 204):
         return error(self, 500, "server_error", "Could not reset that PIN.")
     return reply(self, 200, {"ok": True})
@@ -82,7 +86,7 @@ def _set_visibility(self, body, admin_row):
     if not _lookup(target_id):
         return unknown_user(self)
 
-    status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"is_public": is_public})
+    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}", {"is_public": is_public})
     if status not in (200, 204):
         return error(self, 500, "server_error", "Could not update visibility.")
     return reply(self, 200, {"ok": True})
@@ -100,7 +104,7 @@ def _save_map(self, body, admin_row):
     # Look the row up first: need its current markdown for the empty-save
     # guard, and this is also how we tell "no such user" apart from anything
     # else before we ever touch the PATCH.
-    status, rows, _ = pg("GET", f"/users?id=eq.{target_id}&select=markdown")
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(target_id)}&select=markdown")
     if status != 200 or not rows:
         return unknown_user(self)
     current_markdown = rows[0]["markdown"]
@@ -113,7 +117,7 @@ def _save_map(self, body, admin_row):
         return error(self, 409, "would_erase",
                      "This would erase the whole map. Confirm to continue.")
 
-    status, _, _ = pg("PATCH", f"/users?id=eq.{target_id}", {"markdown": markdown})
+    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}", {"markdown": markdown})
     if status not in (200, 204):
         return error(self, 500, "server_error", "Could not save the map.")
     return reply(self, 200, {"ok": True})

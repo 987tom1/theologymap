@@ -112,9 +112,51 @@ def read_json(handler):
         return {}
 
 
+def q(value):
+    """One URL-path value, safe to interpolate into a PostgREST query string.
+
+    Every route builds its paths with f-strings; without this a value from a
+    request body could add its own filters. Nothing is exploitable today (the
+    only interpolated column is a uuid, so anything odd 400s), but it is one
+    column-type change away from being real. phase 2, B6.
+    """
+    return quote(str(value), safe="")
+
+
 def _like_literal(text):
     """Escape LIKE/ILIKE metacharacters so a name matches only itself."""
     return text.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
+
+def row_by_name(name, select):
+    """The one row whose name equals `name`, case-insensitively. Else None.
+
+    The single place that turns a name into a row — used by login, by every
+    admin action (through verify_credentials) and by the public read path.
+    See verify_credentials for why the ilike pattern only narrows and the
+    exact comparison below decides.
+    """
+    if not isinstance(name, str) or not name:
+        return None
+    status, rows, _ = pg(
+        "GET",
+        f"/users?select={select}&name=ilike." + quote(_like_literal(name)),
+    )
+    if status != 200 or not rows:
+        return None
+    return _pick_exact(rows, name)
+
+
+def _pick_exact(rows, name):
+    """The row whose name IS `name`, case-insensitively. Else None.
+
+    Pure, so api/_test_lib.py can hold it to the cases that bit us.
+    """
+    wanted = name.casefold()
+    for row in rows:
+        if row["name"].casefold() == wanted:
+            return row
+    return None
 
 
 def verify_credentials(name, pin):
@@ -125,17 +167,19 @@ def verify_credentials(name, pin):
     goes on the wire. Name matching is case-insensitive, matching the
     users_name_lower_key unique index.
 
-    `ilike` is a pattern match, so `%` and `_` in a name would otherwise be
-    wildcards: signing up as `%` and logging in would match every row and pick
-    an arbitrary one. Names are literals here, so escape the metacharacters.
+    `ilike` is a pattern match, and escaping its metacharacters is a game we
+    have now lost twice: 1e escaped `%` and `_`, and phase 2 found that
+    PostgREST *additionally* rewrites `*` to `%` before Postgres sees the
+    pattern, so `name=__phase2_victim*` logged in as that user. So the pattern
+    is no longer trusted to be exact: it narrows the query, and the exact
+    case-insensitive name equality below decides. That also removes the
+    dependence on `rows[0]` when a pattern matches more than one row.
     """
-    status, rows, _ = pg(
-        "GET",
-        "/users?select=id,name,pin,is_admin&name=ilike." + quote(_like_literal(name)),
-    )
-    if status != 200 or not rows:
+    if not isinstance(pin, str):
+        return None   # a missing field is a rejection, not a 500 (phase 2, B4)
+    row = row_by_name(name, "id,name,pin,is_admin")
+    if row is None:
         return None
-    row = rows[0]
     return row if row["pin"] == pin else None
 
 

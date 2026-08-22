@@ -20,11 +20,13 @@
 
 <p id="not-found" hidden>Map not found.</p>
 <button id="export-btn" hidden>Export HTML</button>
-<iframe id="map-frame" sandbox="allow-scripts allow-same-origin" hidden></iframe>
+<!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
+     script smuggled into someone else's map could read our localStorage session
+     (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
+     so it loses nothing. The renderer escaping is the primary fix; this is depth. -->
+<iframe id="map-frame" sandbox="allow-scripts" hidden></iframe>
 
 <script type="module">
-import { apiFetch } from '/web/session.js';
-
 function slugify(name) {
   return name
     .toLowerCase()
@@ -33,38 +35,32 @@ function slugify(name) {
     .replace(/^-+|-+$/g, '');
 }
 
-const id = new URLSearchParams(location.search).get('id');
+// Keyed by name, not by row id: the id authorises a save, so it is not public
+// (docs/hosting/phase-2-review.md, B1). Names are unique and already public, and
+// this also drops the gallery round trip the old ?id= form needed for the heading.
+const name = new URLSearchParams(location.search).get('name');
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
 const exportBtn = document.getElementById('export-btn');
 const headingEl = document.getElementById('heading');
 
-if (!id) {
+if (!name) {
   notFoundEl.hidden = false;
 } else {
-  let name = null;
-  try {
-    const maps = await apiFetch('/api/gallery');
-    const found = (maps || []).find((m) => m.id === id);
-    if (found) name = found.name;
-  } catch {
-    // Gallery lookup is only for the heading/filename; render still proceeds without it.
-  }
-
   try {
     // Plain fetch, not apiFetch: /api/render returns text/html on success, and
     // apiFetch always calls res.json(), which silently nulls out an HTML body.
     const res = await fetch('/api/render', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user_id: id }),
+      body: JSON.stringify({ name }),
     });
     if (!res.ok) {
       notFoundEl.hidden = false;
     } else {
       const html = await res.text();
-      const title = name ? `${name}'s Theology Map` : 'Theology Map';
-      const slug = name ? slugify(name) : 'map';
+      const title = `${name}'s Theology Map`;
+      const slug = slugify(name) || 'map';
       headingEl.textContent = title;
       frameEl.srcdoc = html;
       frameEl.hidden = false;
