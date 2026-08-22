@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Theology Map — Sign in</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/engine/theme.css">
 <style>
   body { font: 16px/1.4 sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #222; }
   h1 { font-size: 1.4em; }
@@ -17,9 +18,9 @@
   #signed-out form { flex: 1; min-width: 220px; }
 </style>
 </head>
-<body>
+<body class="tm-page">
 
-<h1>Theology Map</h1>
+<div id="tmChrome"></div>
 
 <div id="signed-in" hidden>
   <p>Signed in as <strong id="signed-in-name"></strong></p>
@@ -57,6 +58,9 @@
 
 <script type="module">
 import { getUser, setUser, clearUser, apiFetch } from '/web/session.js';
+import { mount } from '/web/chrome.js';
+
+mount('Your map');
 
 const signedInEl = document.getElementById('signed-in');
 const signedOutEl = document.getElementById('signed-out');

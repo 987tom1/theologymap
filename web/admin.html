@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Theology Map — Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/engine/theme.css">
 <style>
   body { font: 16px/1.4 sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; color: #222; }
   h1 { font-size: 1.4em; }
@@ -19,11 +20,9 @@
   #pin-reveal { border: 1px solid #88a; background: #eef; padding: 10px 12px; border-radius: 6px; margin-top: 12px; }
 </style>
 </head>
-<body>
+<body class="tm-page">
 
-<nav><a href="/app">← Back to app</a></nav>
-
-<h1>Theology Map — Admin</h1>
+<div id="tmChrome"></div>
 
 <p class="note"><strong>Unlisting is not privacy.</strong> It removes a map from the
 gallery and stops it rendering by name. It does not make it unreadable to someone
@@ -58,6 +57,9 @@ who already has its link from the editor. Delete the account if a map must go.</
 
 <script type="module">
 import { apiFetch } from '/web/session.js';
+import { mount } from '/web/chrome.js';
+
+mount('Admin');
 
 // ponytail: credentials live only in these two module-scope variables for the
 // page's lifetime — never localStorage/sessionStorage/cookies. Re-read into
