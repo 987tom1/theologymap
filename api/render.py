@@ -2,7 +2,11 @@ from http.server import BaseHTTPRequestHandler
 from pathlib import Path
 import sys
 
-ROOT = Path(__file__).resolve().parent.parent
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+# Vercel puts /var/task on sys.path but not /var/task/api, so a sibling module
+# is not importable without this. Verified on the 1a preview deployment.
+sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(ROOT / "engine"))
 import render as render_engine          # noqa: E402
 from _lib import pg, read_json, reply_html, error, guard   # noqa: E402

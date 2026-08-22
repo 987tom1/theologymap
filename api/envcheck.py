@@ -28,6 +28,7 @@ class handler(BaseHTTPRequestHandler):
         info = {
             "env_names": sorted(n for n in os.environ
                                 if re.search(r"SUPABASE|POSTGRES|DATABASE", n)),
+            "all_env_names": sorted(os.environ),
             "root": str(ROOT),
             "cwd": os.getcwd(),
             "root_listing": listing(ROOT),
@@ -41,8 +42,10 @@ class handler(BaseHTTPRequestHandler):
         except Exception:
             info["render_import"] = traceback.format_exc(limit=3)
         try:
+            sys.path.insert(0, str(ROOT / "api"))
             import _lib
             info["lib_import"] = "ok"
+            info["lib_has_pg"] = hasattr(_lib, "pg")
         except Exception:
             info["lib_import"] = traceback.format_exc(limit=3)
         try:
