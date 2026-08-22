@@ -785,7 +785,12 @@ not need Task 4 finished. Hand it spec §7 verbatim.
 
 - [ ] **Step 2: Render one card per map**, exactly per spec §7.1: name (serif,
       17px), the tier-spread bar, the counts line, `N beliefs · N open questions`,
-      and `Updated <relative>`. The whole card links to `/view?id=<id>`.
+      and `Updated <relative>`. The whole card links to `/view?name=<name>`.
+
+      > **Amended 2026-08-23 by phase 2.** Was `/view?id=<id>`. The gallery no
+      > longer returns a row id, because the id is what authorises a save — see
+      > `phase-2-review.md` B1. `/api/gallery` gives you `name` and `updated_at`;
+      > key the link by name.
 
 - [ ] **Step 3: Build the tier-spread bar.** Segments proportional to
       `tier_counts`, coloured with the ramp, untiered in `--line`.
@@ -950,7 +955,9 @@ git commit -m "phase 3: first-run with three starting points, wizard slot gated 
 **Sonnet subagent.**
 
 - [ ] **Step 1: Add a Copy link button** to `/view` and to the signed-in map home.
-      It copies the absolute `/view?id=<id>` URL. Use `navigator.clipboard.writeText`
+      It copies the absolute `/view?name=<name>` URL. **Amended 2026-08-23 by
+      phase 2:** was `?id=`, which would have made "copy link" hand the recipient
+      write access to your map. See `phase-2-review.md` B1. Use `navigator.clipboard.writeText`
       with the same `try/catch` + textarea fallback `editor.html`'s
       `btnCopyPreview` already uses — copy that pattern, do not invent a second one.
       Confirm in place: the button's label becomes `Copied` for 1.5s, then reverts.
