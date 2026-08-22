@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Vercel's /edit rewrite serves this file's content without changing the
+  // browser's address bar, so every relative URL below would otherwise
+  // resolve against /edit instead of /engine/ (the bug 1b hit and fixed for
+  // web/session.js). Only /edit needs the fix — reached directly at its real
+  // path, relative resolution already works, and file:// never sees this.
+  if (location.pathname === '/edit') document.write('<base href="/engine/">');
+</script>
 <title>Edit — Theology Map</title>
 <style>
   :root {
@@ -224,19 +232,39 @@
   </div>
 </dialog>
 
+<dialog id="dlgConflict">
+  <h2>This map was changed somewhere else</h2>
+  <p>(another tab or window). Your unsaved changes are still here.</p>
+  <div class="actions">
+    <button id="conflictReload">Reload</button>
+    <button id="conflictOverwrite" class="primary">Overwrite</button>
+  </div>
+</dialog>
+
 <script src="editor-core.js"></script>
 <script src="shared-fields.js"></script>
 <script src="map-view.js"></script>
+<script src="storage-local.js"></script>
 <script>
-(function () {
+(async function () {
   const core = EditorCore;
   let domains = null;        // parsed model, source of truth
-  let fileHandle = null;     // FileSystemFileHandle, when connected
   let current = null;        // { domainIndex, nodeIndex } | null for a new node not yet placed
   let dirty = false;
   let editedNodes = new Set();
   let createdNodes = new Set();
   let deletedCount = 0;
+
+  // ---- hosted mode / autosave state (design §7-8; storage-local has none of this) ----
+  let adapter = null;
+  let currentLabel = '';       // file name (local) or user name (hosted), for status messages
+  let saveToken = null;        // opaque concurrency token from the last successful load/save
+  let lastSavedText = null;    // for skip-if-unchanged
+  let autosaveTimer = null;    // 1200ms idle debounce
+  let autosaveMaxTimer = null; // 15s forced-flush ceiling
+  let autosaveInFlight = false;
+  let autosavePending = false;
+  let bc = (typeof BroadcastChannel !== 'undefined') ? new BroadcastChannel('theologymap-editor') : null;
 
   function resetChangeTracking() {
     editedNodes = new Set();
@@ -253,6 +281,7 @@
     if (deletedCount > 0) parts.push(deletedCount + ' deleted');
     el.textContent = parts.length ? parts.join(', ') : 'No changes.';
     el.className = 'status' + (parts.length ? '' : ' ok');
+    scheduleAutosave();
   }
 
   const $ = (id) => document.getElementById(id);
@@ -320,6 +349,7 @@
     domain.name = name.trim();
     domain.nodes.forEach(n => { n.domain = domain.name; });
     dirty = true;
+    updateChangeIndicator();
     renderTree();
     mapView.redraw();
   }
@@ -351,14 +381,9 @@
     if (!name || !name.trim()) return;
     domains.push({ name: name.trim(), nodes: [] });
     dirty = true;
+    updateChangeIndicator();
     renderTree();
     mapView.redraw();
-  }
-
-  const canFSAccess = 'showOpenFilePicker' in window;
-  if (!canFSAccess) {
-    btnConnect.disabled = true;
-    btnConnect.title = 'This browser doesn\'t support direct file access — use "Upload a copy instead".';
   }
 
   function setStatus(msg, kind) {
@@ -367,51 +392,64 @@
   }
 
   function markLoaded(name, writable) {
+    currentLabel = name;
     setStatus((writable ? 'Connected: ' : 'Loaded (read-only): ') + name, 'ok');
     btnSave.disabled = !writable;
     btnRender.disabled = !writable;
   }
 
   // ---------------------------------------------------------------- loading
-  btnConnect.addEventListener('click', async () => {
-    try {
-      const [handle] = await window.showOpenFilePicker({
-        types: [{ description: 'Markdown', accept: { 'text/markdown': ['.md'] } }],
-        excludeAcceptAllOption: false,
-      });
-      const file = await handle.getFile();
-      const text = await file.text();
-      fileHandle = handle;
-      domains = core.parse(text);
-      current = null; dirty = false;
-      resetChangeTracking();
-      markLoaded(file.name, true);
-      renderTree();
-      renderForm();
-      tabsEl.style.display = 'flex';
-      setTab('map');
-      ensureMapView().redraw();
-    } catch (err) {
-      if (err.name !== 'AbortError') setStatus('Could not open file: ' + err.message, 'err');
-    }
-  });
-
-  btnUpload.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', async () => {
-    const file = fileInput.files[0];
-    if (!file) return;
-    const text = await file.text();
-    fileHandle = null;
+  // Shared by both adapters: local's Connect/Upload handlers (storage-local.js)
+  // and hosted's autoload (below) both funnel through this once they have text.
+  function onLoaded(text, name, writable) {
     domains = core.parse(text);
     current = null; dirty = false;
     resetChangeTracking();
-    markLoaded(file.name, false);
+    markLoaded(name, writable);
     renderTree();
     renderForm();
     tabsEl.style.display = 'flex';
     setTab('map');
     ensureMapView().redraw();
-  });
+  }
+
+  // ---------------------------------------------------------- adapter / boot
+  const HOSTED =
+    new URLSearchParams(location.search).get('mode') === 'hosted' ||
+    !(location.protocol === 'file:' ||
+      /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname));
+
+  async function boot() {
+    if (HOSTED) {
+      const { createHostedAdapter } = await import('./storage-hosted.js');
+      adapter = createHostedAdapter();
+    } else {
+      adapter = StorageLocal();
+    }
+
+    btnConnect.style.display = adapter.buttons.connect ? '' : 'none';
+    btnUpload.style.display = adapter.buttons.upload ? '' : 'none';
+    btnSave.style.display = adapter.buttons.save ? '' : 'none';
+    btnRender.style.display = adapter.buttons.render ? '' : 'none';
+
+    await adapter.init({
+      elements: { btnConnect, btnUpload, fileInput },
+      onLoaded,
+      setStatus,
+    });
+
+    if (adapter.mode === 'hosted') {
+      try {
+        const { text, label, token } = await adapter.load();
+        saveToken = token;
+        onLoaded(text, label, true);
+        lastSavedText = core.serialize(domains);
+        maybeOfferDraftRestore(text, token);
+      } catch (err) {
+        setStatus('Could not load your map: ' + err.message, 'err');
+      }
+    }
+  }
 
   // ------------------------------------------------------------- tree/nav
   function renderTree() {
@@ -481,6 +519,7 @@
     if (!name || !name.trim()) return;
     domains.push({ name: name.trim(), nodes: [] });
     dirty = true;
+    updateChangeIndicator();
     renderTree();
   }
 
@@ -613,6 +652,7 @@
   function deleteNodeWithConfirm(domain, node, afterDelete) {
     $('dlgTitle').textContent = 'Delete "' + node.title + '"?';
     $('dlgBody').textContent = 'This removes the node from the editor. It only leaves the file once you save.';
+    $('dlgOk').textContent = 'Delete';
     dlgConfirm.showModal();
     $('dlgOk').onclick = () => {
       domain.nodes.splice(domain.nodes.indexOf(node), 1);
@@ -659,15 +699,14 @@
   });
 
   // ------------------------------------------------------------------ save
+  // Local mode only — hosted hides this button (buttons.save === false) and
+  // autosaves instead (see the autosave section below).
   btnSave.addEventListener('click', async () => {
-    if (!fileHandle) return;
     try {
-      const writable = await fileHandle.createWritable();
-      await writable.write(core.serialize(domains));
-      await writable.close();
+      await adapter.save(core.serialize(domains));
       dirty = false;
       resetChangeTracking();
-      setStatus('Saved to ' + fileHandle.name + ' at ' + new Date().toLocaleTimeString(), 'ok');
+      setStatus('Saved to ' + currentLabel + ' at ' + new Date().toLocaleTimeString(), 'ok');
       const status = document.getElementById('formStatus');
       if (status) { status.textContent = 'Saved.'; status.className = 'status ok'; }
     } catch (err) {
@@ -676,27 +715,20 @@
   });
 
   btnRender.addEventListener('click', async () => {
-    if (!fileHandle) return;
     btnRender.disabled = true;
     const prevLabel = btnRender.textContent;
-    btnRender.textContent = 'Saving…';
+    btnRender.textContent = 'Working…';
     try {
-      const writable = await fileHandle.createWritable();
-      await writable.write(core.serialize(domains));
-      await writable.close();
-      dirty = false;
-      resetChangeTracking();
-      btnRender.textContent = 'Rendering…';
-      const resp = await fetch('http://localhost:8420/api/render', { method: 'POST' });
-      const data = await resp.json();
-      if (data.ok) {
+      await adapter.render(core.serialize(domains));
+      if (adapter.mode === 'local') {
+        dirty = false;
+        resetChangeTracking();
         setStatus('Saved and rendered — reopen the map to see it.', 'ok');
       } else {
-        setStatus('render.py reported a problem — see console.', 'err');
-        console.error(data.output);
+        setStatus('Rendered — opened in a new tab and offered as a download.', 'ok');
       }
     } catch (err) {
-      setStatus('Could not reach the render server. Double-click start_editor.bat, or run: python engine/render_server.py', 'err');
+      setStatus(err.message, 'err');
     } finally {
       btnRender.disabled = false;
       btnRender.textContent = prevLabel;
@@ -707,9 +739,150 @@
     return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   }
 
+  // -------------------------------------------------------------- autosave
+  // Hosted only (adapter.supportsAutosave === false for local). design §8.
+  const draftKey = () => 'theologymap:draft:' + currentLabel;
+
+  function scheduleAutosave() {
+    if (!adapter || !adapter.supportsAutosave) return;
+    if (!saveToken) return; // Guard 1 — no token (load hasn't succeeded yet), no save
+    clearTimeout(autosaveTimer);
+    autosaveTimer = setTimeout(() => flushAutosave(), 1200);
+    if (!autosaveMaxTimer) autosaveMaxTimer = setTimeout(() => flushAutosave(), 15000);
+  }
+
+  async function flushAutosave(opts) {
+    opts = opts || {};
+    clearTimeout(autosaveTimer); autosaveTimer = null;
+    clearTimeout(autosaveMaxTimer); autosaveMaxTimer = null;
+    if (!adapter || !adapter.supportsAutosave || !saveToken) return;
+    if (autosaveInFlight) { autosavePending = true; return; }
+
+    const text = core.serialize(domains);
+    if (text === lastSavedText && !opts.force) return; // skip-if-unchanged
+
+    if (!opts.force) {
+      const oldLen = lastSavedText.length;
+      const shrankToEmpty = text.trim() === '' && lastSavedText.trim() !== '';
+      const shrankHalf = oldLen > 500 && text.length < oldLen / 2;
+      if (shrankToEmpty || shrankHalf) {
+        confirmShrink(() => flushAutosave({ force: true }));
+        return;
+      }
+    }
+
+    autosaveInFlight = true;
+    setStatus('Saving…', '');
+    try {
+      localStorage.setItem(draftKey(), JSON.stringify({ text, savedAt: Date.now() }));
+      const result = await adapter.save(text, saveToken, opts.force);
+      saveToken = result.token;
+      lastSavedText = text;
+      localStorage.removeItem(draftKey());
+      setStatus('Saved ' + new Date().toLocaleTimeString(), 'ok');
+      if (bc) bc.postMessage({ type: 'saved', token: saveToken });
+    } catch (err) {
+      if (err.code === 'conflict') {
+        showConflictBanner();
+      } else if (err.code === 'would_erase') {
+        confirmShrink(() => flushAutosave({ force: true }));
+      } else if (err.code === 'unknown_user') {
+        handleVanishedAccount();
+      } else {
+        setStatus('Not saved — ' + err.message, 'err');
+      }
+    } finally {
+      autosaveInFlight = false;
+      if (autosavePending) { autosavePending = false; scheduleAutosave(); }
+    }
+  }
+
+  function confirmShrink(onConfirm) {
+    $('dlgTitle').textContent = 'This would delete most of your map';
+    $('dlgBody').textContent = 'Save anyway?';
+    $('dlgOk').textContent = 'Save anyway';
+    dlgConfirm.showModal();
+    $('dlgOk').onclick = () => { dlgConfirm.close(); onConfirm(); };
+    $('dlgCancel').onclick = () => dlgConfirm.close();
+  }
+
+  function handleVanishedAccount() {
+    saveToken = null; // Guard 1: disarms the scheduler; the draft stays in localStorage.
+    setStatus('Your account is no longer available — copy your map out before leaving this page', 'err');
+  }
+
+  const dlgConflict = $('dlgConflict');
+  dlgConflict.addEventListener('cancel', (e) => e.preventDefault()); // no dismissing via Escape — exactly two paths out
+  function showConflictBanner() {
+    if (dlgConflict.open) return;
+    clearTimeout(autosaveTimer); autosaveTimer = null;
+    clearTimeout(autosaveMaxTimer); autosaveMaxTimer = null;
+    dlgConflict.showModal();
+  }
+  $('conflictReload').addEventListener('click', async () => {
+    dlgConflict.close();
+    try {
+      const { text, label, token } = await adapter.load();
+      saveToken = token;
+      onLoaded(text, label, true);
+      lastSavedText = core.serialize(domains);
+      localStorage.removeItem(draftKey());
+      setStatus('Reloaded.', 'ok');
+    } catch (err) {
+      setStatus('Could not reload: ' + err.message, 'err');
+    }
+  });
+  $('conflictOverwrite').addEventListener('click', async () => {
+    dlgConflict.close();
+    try {
+      const { token } = await adapter.load(); // re-GET for the current token only; keep our own text
+      saveToken = token;
+      await flushAutosave({ force: true });
+    } catch (err) {
+      setStatus('Overwrite failed: ' + err.message, 'err');
+    }
+  });
+
+  function maybeOfferDraftRestore(serverText, token) {
+    let draft;
+    try { draft = JSON.parse(localStorage.getItem(draftKey())); } catch { draft = null; }
+    if (!draft || !draft.text || draft.text === serverText) return;
+    const serverTime = Date.parse(token);
+    if (!(draft.savedAt > serverTime)) return;
+    $('dlgTitle').textContent = 'Restore your local draft?';
+    $('dlgBody').textContent = 'A draft saved in this browser is newer than what’s on the server (maybe a save never reached it). Restore the draft?';
+    $('dlgOk').textContent = 'Restore draft';
+    dlgConfirm.showModal();
+    $('dlgOk').onclick = () => {
+      dlgConfirm.close();
+      onLoaded(draft.text, currentLabel, true);
+      dirty = true;
+      scheduleAutosave();
+    };
+    $('dlgCancel').onclick = () => dlgConfirm.close();
+  }
+
+  if ('BroadcastChannel' in window) {
+    bc.onmessage = (ev) => {
+      if (ev.data && ev.data.type === 'saved' && ev.data.token !== saveToken) {
+        showConflictBanner();
+      }
+    };
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) flushAutosave();
+  });
+
   window.addEventListener('beforeunload', (e) => {
+    if (adapter && adapter.supportsAutosave && dirty && saveToken) {
+      const text = core.serialize(domains);
+      if (text !== lastSavedText && adapter.beaconFlush) adapter.beaconFlush(text, saveToken);
+    }
     if (dirty) { e.preventDefault(); e.returnValue = ''; }
   });
+
+  boot();
 })();
 </script>
 </body>
