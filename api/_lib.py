@@ -12,6 +12,7 @@ import urllib.error
 import urllib.request
 from functools import wraps
 from http.server import BaseHTTPRequestHandler
+from urllib.parse import quote
 
 # design §5. Trimmed to the single confirmed name once discovery succeeds.
 URL_CANDIDATES = (
@@ -111,12 +112,48 @@ def read_json(handler):
         return {}
 
 
+def verify_credentials(name, pin):
+    """Return the user row for a matching name+pin, else None.
+
+    Plaintext comparison, per the brief — security is out of scope. The point
+    of doing it here rather than in the client is that the pin column never
+    goes on the wire. Name matching is case-insensitive, matching the
+    users_name_lower_key unique index.
+    """
+    status, rows, _ = pg(
+        "GET",
+        "/users?select=id,name,pin,is_admin&name=ilike." + quote(name),
+    )
+    if status != 200 or not rows:
+        return None
+    row = rows[0]
+    return row if row["pin"] == pin else None
+
+
+class Forbidden(Exception):
+    pass
+
+
+def require_admin(name, pin):
+    """verify_credentials(), then is_admin. Raises Forbidden otherwise.
+
+    Every admin action calls this. The is_admin flag is NEVER trusted from
+    the client — it is re-read from the database on every single call.
+    """
+    row = verify_credentials(name, pin)
+    if row is None or not row.get("is_admin"):
+        raise Forbidden()
+    return row
+
+
 def guard(fn):
     """A missing env var must reach the screen by name, not as a blank page."""
     @wraps(fn)
     def wrapper(self, *args, **kwargs):
         try:
             return fn(self, *args, **kwargs)
+        except Forbidden:
+            return error(self, 403, "forbidden", "Forbidden.")
         except RuntimeError as exc:
             return error(self, 500, "misconfigured", str(exc))
         except Exception:

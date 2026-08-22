@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — Sign in</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font: 16px/1.4 sans-serif; max-width: 480px; margin: 40px auto; padding: 0 16px; color: #222; }
+  h1 { font-size: 1.4em; }
+  form { margin-bottom: 24px; border: 1px solid #ccc; padding: 16px; border-radius: 6px; }
+  label { display: block; margin-top: 8px; font-size: 0.9em; }
+  input { display: block; width: 100%; box-sizing: border-box; padding: 6px; margin-top: 2px; }
+  button { margin-top: 12px; padding: 8px 14px; }
+  #signed-in { border: 1px solid #ccc; padding: 16px; border-radius: 6px; margin-bottom: 24px; }
+  #signed-in a { margin-right: 12px; }
+  #signed-out { display: flex; gap: 16px; flex-wrap: wrap; }
+  #signed-out form { flex: 1; min-width: 220px; }
+</style>
+</head>
+<body>
+
+<h1>Theology Map</h1>
+
+<div id="signed-in" hidden>
+  <p>Signed in as <strong id="signed-in-name"></strong></p>
+  <p>
+    <a href="/gallery">Gallery</a>
+    <a href="/edit">Edit</a>
+    <a href="/admin" id="admin-link" hidden>Admin</a>
+  </p>
+  <button id="sign-out-btn">Sign out</button>
+</div>
+
+<div id="signed-out" hidden>
+  <form id="login-form">
+    <h2>Sign in</h2>
+    <label>Name
+      <input type="text" name="name" required autocomplete="username">
+    </label>
+    <label>PIN
+      <input type="password" name="pin" required autocomplete="current-password">
+    </label>
+    <button type="submit">Sign in</button>
+  </form>
+
+  <form id="signup-form">
+    <h2>Create an account</h2>
+    <label>Name
+      <input type="text" name="name" required autocomplete="username">
+    </label>
+    <label>PIN
+      <input type="password" name="pin" required autocomplete="new-password">
+    </label>
+    <button type="submit">Create account</button>
+  </form>
+</div>
+
+<script type="module">
+import { getUser, setUser, clearUser, apiFetch } from '/web/session.js';
+
+const signedInEl = document.getElementById('signed-in');
+const signedOutEl = document.getElementById('signed-out');
+
+function render() {
+  const user = getUser();
+  if (user) {
+    document.getElementById('signed-in-name').textContent = user.name;
+    document.getElementById('admin-link').hidden = !user.is_admin;
+    signedInEl.hidden = false;
+    signedOutEl.hidden = true;
+  } else {
+    signedInEl.hidden = true;
+    signedOutEl.hidden = false;
+  }
+}
+
+document.getElementById('sign-out-btn').addEventListener('click', () => {
+  clearUser();
+  render();
+});
+
+async function handleAuthForm(form, action) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button');
+    const name = form.elements.name.value;
+    const pin = form.elements.pin.value;
+    button.disabled = true;
+    try {
+      const result = await apiFetch('/api/auth', { method: 'POST', body: { action, name, pin } });
+      setUser({ id: result.user_id, name: result.name, is_admin: result.is_admin });
+      form.reset();
+      render();
+    } catch {
+      // apiFetch already showed the error banner.
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+
+handleAuthForm(document.getElementById('login-form'), 'login');
+handleAuthForm(document.getElementById('signup-form'), 'signup');
+
+render();
+</script>
+
+</body>
+</html>
