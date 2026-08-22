@@ -9,6 +9,11 @@ budgets its context; it decides nothing.
 
 ## Before session 1
 
+- [x] **Session 1 (1a) ran 2026-08-22 and is merged to `main`.** Byte-identity gate
+      passed exactly; the `users` table exists and is verified. **Session 2 (1b) is
+      next.** Read `phase-1a-outcome.md`'s amendment before its body — the session
+      merged with two database checks declared unrun, and both were resolved within
+      hours.
 - [ ] Commit any pending doc edits, so no session inherits a dirty tree.
 - [ ] **`phase-3-plan.md` Task 8's "GATED. DO NOT START." is stale** — the
       provenance question it waits on is answered in `decisions.md` ("Copy
@@ -42,10 +47,48 @@ frozen — it produces content, not code. Everything else is sequential.
 
 ## Thomas's one action mid-chain
 
-**After session 1 merges:** run the `is_admin` bootstrap SQL in the Supabase editor
-against your own row (`readiness.md` A.4; the exact statement is in
-`phase-1a-outcome.md`). One statement, doable from a phone. Session 4 (1d) needs it
-and everything after inherits it.
+**After you have signed up in the app (session 2, 1b):** run the `is_admin`
+bootstrap SQL in the Supabase editor against your own row (`readiness.md` A.4; the
+exact statement is in `phase-1a-outcome.md`). One statement, doable from a phone.
+Session 4 (1d) needs it and everything after inherits it.
+
+This is **the only SQL a human runs in the whole program.** It cannot be a
+migration and cannot be a route: sign-up is open, so anything that could grant
+admin could grant it to anyone.
+
+## How the database actually gets changed — read before writing any migration
+
+Established 2026-08-22 while running session 1. Three facts that are not obvious
+and cost that session a merge:
+
+- **Migrations deploy themselves.** Thomas has the Supabase↔**GitHub** integration
+  as well as the Supabase↔Vercel one. It watches `supabase/migrations/` and applies
+  new files on push to the production branch. 1a's migration applied itself on the
+  merge push; nobody pasted SQL. **Write the file, commit it, push it — then verify
+  it landed** with `supabase/verify-users-migration.sql`, adapted. Committed is not
+  the same as applied.
+- **The Supabase and Vercel projects live on a different account from the one this
+  machine's Claude MCP tools authenticate to.** Permanent, not a misconfiguration.
+  **No session can apply a migration, read an env var, or inspect a table through
+  MCP.** `list_projects` returns two *unrelated* live applications that both have
+  their own `users` tables — `connection-made-simple` and `my-youth-camp`. **Never
+  run DDL against either.**
+- **Branch previews have no database.** The Supabase env vars are scoped to
+  Production only, so a preview deployment's DB routes return
+  `500 misconfigured`. Probe before you rely on it:
+
+  ```
+  POST <base>/api/render {"user_id":"00000000-0000-0000-0000-000000000000"}
+  ```
+
+  `404 unknown_user` means credentials resolved. `500 misconfigured` means they did
+  not — verify on production after merging instead, and say so in your outcome file
+  rather than claiming a check you could not run.
+
+Only two further migrations exist in the whole program: **phase 3 Task 8**
+(`copied_from uuid`, `copied_at timestamptz` — locked in `decisions.md`) and, only
+if 1b's smoke test demands it, the `save_map` RPC fallback. Phases 4–7 need no DDL;
+phase 6 ships deliberately no-schema.
 
 Also still open, low cost: confirm whether `987tom1.github.io/theologymap` is a dead
 GitHub Pages deploy (`readiness.md` A.3). If it is live, a session can verify against

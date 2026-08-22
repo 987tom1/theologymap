@@ -3,14 +3,79 @@
 **Branch:** `phase-1a-schema` → merged to `main`.
 **Ran:** 2026-08-22. Model: Opus, main thread.
 
-**Verdict: the code half of 1a is complete and verified. The database half is
-blocked on Thomas and cannot be verified from a session.** The byte-identity
-gate — 1a's stated bar — passes exactly, locally and through the deployed
-serverless route. The `users` table has **not** been created, because the
-theologymap Supabase project is not reachable from any tool available here.
+**Verdict: 1a is complete. The byte-identity gate — its stated bar — passes
+exactly, locally and through the deployed serverless route. The `users` table
+exists and the migration is applied. 1b is unblocked.**
 
-**1b cannot start until the two actions in "What Thomas must do" are done.**
-This is the single most important line in this file.
+The two database checks were blocked *during* the session and were merged as
+declared-unrun. Thomas cleared both the same day. **Read the amendment below
+before the body of this file** — the body is the record of what the session
+could see at the time, and parts of it were superseded within hours.
+
+---
+
+## Amendment — 2026-08-22, after Thomas confirmed
+
+Three things resolved, two of them contradicting what the session concluded.
+
+**1. The migration is applied, and it applied itself.** Thomas ran the
+verification query against the theologymap project: all twelve checks pass
+(table, all 8 columns, `is_public` default true, `is_admin` default false, both
+indexes, all three length constraints, `touch_updated_at`, the trigger, RLS on,
+zero policies, `pgcrypto`). `supabase_migrations.schema_migrations` carries
+`20260818120000`.
+
+**He has both the Supabase↔Vercel and the Supabase↔GitHub integrations.** The
+GitHub one watches `supabase/migrations/` and applies new files on push to the
+production branch — so pushing 1a's merge commit applied the migration by
+itself. Nobody ran it by hand.
+
+> **What this means for every later phase: write the migration file, commit it,
+> push it, and it deploys.** Do not ask Thomas to paste SQL. Do verify it landed
+> before building on it — the verification-query pattern is at the end of this
+> file. The only SQL that still needs a human is the `is_admin` bootstrap, which
+> is not a migration and cannot be one.
+
+**2. The Supabase env vars exist — in Production, not Preview.** The session's
+"two readings, and I could not distinguish them" is settled: it is the second
+one. The integration is connected and working; Preview simply is not in scope.
+
+Proved after the merge, without deploying anything, by calling the production
+route's `user_id` path — which forces `_require()` to run:
+
+```
+POST /api/render {"user_id":"00000000-0000-0000-0000-000000000000"}
+-> 404 {"error": "unknown_user", "message": "No such map."}
+```
+
+`unknown_user` is a code path *after* `pg()` returns. A missing variable would
+have produced `500 {"error": "misconfigured", ...}` naming every candidate
+tried. So both variables resolved and a real HTTPS call to Supabase completed.
+**This one-liner is the cheapest way for any later phase to prove its
+credentials work before it builds anything.**
+
+> **The consequence 1b–1d must plan around: a branch preview has no database.**
+> 1a got away with preview verification only because the `{markdown}` render
+> path needs no credentials. Unless Thomas ticks **Preview** on the integration's
+> env vars, any DB-backed route can only be verified **after** merging to `main`.
+> Check first — `curl` the probe above against your branch preview. If it returns
+> `misconfigured`, verify on production post-merge and say so in your outcome
+> file rather than claiming a preview check you could not run.
+
+**3. The Supabase/Vercel account is a different account from the one this
+machine's Claude MCP tools authenticate to.** This is permanent and is not a
+misconfiguration to fix. **No session will ever apply a migration, read an env
+var, or inspect a table through MCP.** The two projects an MCP `list_projects`
+returns (`connection-made-simple`, `my-youth-camp`) belong to other live
+applications with real data in their own `users` tables. **Never run DDL against
+either.** The session's instinct to stop rather than guess was correct and should
+be repeated.
+
+The resolver's candidate tuples in `api/_lib.py` are **still both-wide**, because
+the names were never actually observed — only proved to resolve. Trimming them
+needs a probe that reports names from Production, which is a route on `main`.
+**Leave them as they are unless you have that evidence**; a wrong trim turns a
+working deployment into a 500.
 
 ---
 
@@ -189,7 +254,13 @@ all three of the plan's application routes were unavailable.
 
 ---
 
-## What Thomas must do — 1b is blocked until both are done
+## What Thomas had to do — BOTH DONE 2026-08-22
+
+> Superseded by the amendment at the top. Kept as the record of what the session
+> asked for. Item 1 turned out to be already true (Production-scoped); item 2
+> had already happened by itself via the GitHub integration. The `is_admin`
+> bootstrap in item 2 is **still outstanding** and still cannot be automated —
+> it waits until Thomas has signed up in 1b.
 
 1. **Confirm the Supabase project exists, and connect it to Vercel.** Neither is
    visible to any tool a session has. In the Vercel dashboard, Project
@@ -322,8 +393,8 @@ Copied from design §1, as the plan requires:
 | Local workflow intact, offline | **PASS** — all three generated files written, no diff |
 | Parser lockstep | **PASS** — `once === twice`; JS and Python both 99 nodes |
 | `git diff engine/render.py` | **PASS** — 27+/8−, additive, no unrelated restructuring |
-| Migration applied | **BLOCKED** — theologymap Supabase project unreachable |
-| Concurrency mechanism | **BLOCKED** — needs the table; 1b must run it first |
+| Migration applied | **PASS**, confirmed 2026-08-22 — applied automatically by the Supabase↔GitHub integration on push; all twelve verification checks green |
+| Concurrency mechanism | **STILL UNRUN** — the table now exists, so 1b must run it as its first act |
 | Secrets | **PASS** — no key, no URL, no `.env`; only the candidate *names* appear |
 | `requirements.txt` empty | **PASS** — 0 bytes |
 | Hosted route | **PASS** — HTML returned; identical to the local artefact modulo CRLF, explained above |
