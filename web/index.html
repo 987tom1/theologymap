@@ -90,7 +90,7 @@
 <script src="/engine/editor-core.js"></script>
 <script type="module">
 import { getUser, setUser, apiFetch } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { mount, copyButton } from '/web/chrome.js';
 import { mountFirstRun, WIZARD_ENABLED } from '/web/first-run.js';
 
 mount('Your map');
@@ -130,25 +130,7 @@ async function render() {
   show('map-home');
 }
 
-// Same clipboard pattern as engine/editor.html's btnCopyPreview and web/view.html.
-$('copy-btn').addEventListener('click', async () => {
-  const btn = $('copy-btn');
-  const url = $('view-link').href;
-  try {
-    await navigator.clipboard.writeText(url);
-  } catch {
-    const ta = document.createElement('textarea');
-    ta.value = url;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-  }
-  btn.textContent = 'Copied';
-  setTimeout(() => { btn.textContent = 'Copy link'; }, 1500);
-});
+copyButton($('copy-btn'), () => $('view-link').href);
 
 function handleAuthForm(form, action) {
   form.addEventListener('submit', async (e) => {

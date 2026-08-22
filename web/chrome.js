@@ -37,3 +37,31 @@ export function mount(pageTitle) {
   head.appendChild(links);
   host.replaceWith(head);
 }
+
+/* One clipboard implementation for the hosted pages. /view and /app both offer
+   "Copy link" and phase 3 briefly had a copy of this in each; Task 9's rule is
+   one way to do each thing.
+
+   engine/editor.html keeps its own copy on purpose and that is not drift: the
+   editor must load from file:// with no network, so it cannot import anything
+   under /web. This is the same pattern, not a second design. */
+export function copyButton(btn, getText, label = 'Copy link') {
+  btn.addEventListener('click', async () => {
+    const text = getText();
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Safari and any non-secure context: clipboard API absent or blocked.
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    }
+    btn.textContent = 'Copied';
+    setTimeout(() => { btn.textContent = label; }, 1500);
+  });
+}
