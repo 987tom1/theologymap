@@ -19,6 +19,16 @@ from _lib import pg, reply, guard                            # noqa: E402
 
 class handler(BaseHTTPRequestHandler):
     @guard
+    def do_DELETE(self):
+        """Cleanup for 1b's verification-table test rows. Only ever deletes
+        rows whose name starts with '__' (the test-data convention used
+        throughout this file and phase-1b-outcome.md's verification run) —
+        never accepts an id, so it cannot touch a real user's row."""
+        status, rows, _ = pg("DELETE", "/users?name=like.__*",
+                              headers={"Prefer": "return=representation"})
+        reply(self, 200, {"deleted": len(rows) if rows else 0})
+
+    @guard
     def do_POST(self):
         name = f"__smoketest_{uuid.uuid4().hex[:12]}"
 
