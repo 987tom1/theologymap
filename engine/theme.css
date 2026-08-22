@@ -97,6 +97,9 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; }
 }
 
-body.tm-page { margin:0; background:var(--bg); color:var(--ink);
-               font:15px/1.6 var(--serif); }
+/* No `margin` here on purpose. These four pages still carry their own inline
+   body rule with `margin:40px auto`, and `body.tm-page` outranks it — declaring
+   margin:0 would win and strand a 480px column against the left edge until the
+   later gallery/first-run/sharing tasks give those pages a real layout. */
+body.tm-page { background:var(--bg); color:var(--ink); font:15px/1.6 var(--serif); }
 body.tm-page main, body.tm-page .tm-main { padding:20px; max-width:1200px; margin-inline:auto; }
