@@ -68,7 +68,20 @@ it earns one. `py api/_test_lib.py` → PASS.
 | `storage-hosted.js` opening a tab *and* downloading on Render; `URL.revokeObjectURL` fired immediately after `a.click()` in `view.html`'s export; `#dlgConfirm` relabelled by three call sites | cosmetic | **phase 3** |
 | The `rev` column | closed, not deferred — see below | — |
 
-## The five admin actions are still un-run, and now permanently so without Thomas
+## The five admin actions — **CLOSED 2026-08-23**
+
+> **Thomas walked all five through on production and every one behaved.**
+> `list_users`, `delete_account`, `reset_pin`, `set_visibility` and admin
+> `save_map`, against a real `is_admin = true` account and the real database —
+> including 1e's PostgREST-204 fix and this phase's B5 self-delete-guard fix, both
+> of which had never executed. **The un-run declaration 1d, 1e and phase 2 each had
+> to carry forward is finished. No later outcome file should repeat it.** Recorded
+> in `decisions.md` under "Amendments — 2026-08-23".
+>
+> The section below is the record of what the session could see at the time, and
+> the instructions Thomas followed. Kept, not rewritten.
+
+## The five admin actions were un-run at merge time, and only Thomas could close them
 
 A real account named **`Thomas`** exists (the gallery shows it, and the three
 `__`-prefixed rows 1e reported are gone), so the sign-up half of the bootstrap has
@@ -84,7 +97,7 @@ So `list_users`, `delete_account`, `reset_pin`, `set_visibility` and admin
 the three that carry 1e's PostgREST-204 fix and the one that carries this phase's
 B5 fix. The *reject* path is re-verified live, again, this phase.
 
-### Thomas: this needs five minutes from you, and only you can do it
+### Thomas: this needed five minutes from him — **done 2026-08-23, all five green**
 
 Sign in at `/admin` with your name and PIN, and:
 
@@ -174,14 +187,17 @@ unchanged — the escaping only touches the HTML.
   round-tripping worry never materialised. **Recommendation: drop the question**
   rather than keep carrying it. It is a data-model change so it is still Thomas's
   word, but it is not an open risk and no future outcome file should list it as one.
-- **Should `set_visibility` rotate the row id?** (B7.) Hiding a map does not
-  currently stop anyone who already noted its id from reading it through
-  `/api/map`. Rotating the id on hide is the clean fix and is a data-model
-  behaviour change on the primary key. **Thomas's call.**
-- **`map_versions` (design §1).** Still the only real answer to admin "restore" and
-  to `force: true` walking past all four empty-save guards. New table, so it waits —
-  but **phase 4's session should raise it on day one**, because the wizard is the
-  first feature that can generate or replace a whole map in one action.
+- ~~**Should `set_visibility` rotate the row id?**~~ **Answered 2026-08-23: no.**
+  Rotating the primary key would sign the owner out of their own map and orphan
+  phase 3's `copied_from uuid references public.users(id)`. The call instead is
+  that **unlisting is not privacy** and the UI says so: the control now reads
+  **Unlist / Relist** with a note in place (`web/admin.html`). Locked in
+  `decisions.md`. B7 is closed as a naming problem, not left open as a risk.
+- ~~**`map_versions` (design §1).**~~ **Answered 2026-08-23: yes, at the top of
+  phase 4.** Not phase 3. Throttled to one snapshot per user per hour but always on
+  a `force: true` save, retaining the last 20 per user; `users.markdown` stays the
+  head pointer. Locked in `decisions.md`; `phase-4-plan.md`'s Task 0 now opens with
+  it.
 - **The service-role key everywhere** (design §2). 1e flagged this after its bug 2;
   phase 2 found two more full-table-reach bugs (B3, B5) in the same shared helper.
   The pattern is real: one slip in `api/_lib.py` reaches every row. It is still the

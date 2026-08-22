@@ -95,6 +95,10 @@ Set the reusable commands up once, in Task 0, so every later task is one line.
 | `web/gallery.html` | **modified** — rows → cards | 5 |
 | `web/view.html` | **modified** — shared chrome, Copy link, primary "make your own" call to action | 7 |
 | `web/admin.html` | **modified** — shared chrome only | 1 |
+
+> **Amended 2026-08-23.** Its visibility control now reads **Unlist / Relist**, not
+> Hide / Unhide, and carries a note saying unlisting is not privacy. Locked in
+> `decisions.md`; keep both through the redesign.
 | `api/gallery.py` | **modified** — four derived count fields, markdown never in the body | 4 |
 | `vercel.json` | **modified** — no new route in this phase; `/wizard` is phase 4's | — |
 | `docs/hosting/phase-3-outcome.md` | **new** — the handover | 9 |
@@ -690,8 +694,12 @@ git commit -m "phase 3: give the editor a phone layout"
 **Sonnet subagent, parallel with Task 5.**
 
 - [ ] **Step 1: Select `markdown` in the PostgREST query**, alongside
-      `id,name,updated_at`, keeping `is_public=is.true` and
+      `name,updated_at`, keeping `is_public=is.true` and
       `order=updated_at.desc`.
+
+      > **Amended 2026-08-23 by phase 2.** Was `id,name,updated_at`. **Do not add
+      > `id` back** — it is what authorises a save in `api/map.py`, and publishing
+      > it let any stranger overwrite any public map. `phase-2-review.md` B1.
 
 - [ ] **Step 2: Add the counting function.**
 

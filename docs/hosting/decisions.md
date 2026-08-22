@@ -191,3 +191,43 @@ Both blockers are cleared. Verified by running the commands, not by report:
   person-to-person compare shows no headline agreement count; a coverage floor gates
   publishing a thin tradition map under a real communion's name; the validator warns
   when a suggested tier disagrees with Thomas's own map.
+
+## Amendments — 2026-08-23, after the phase 2 review
+
+Thomas walked through all five admin actions on production and confirmed them
+working, and answered the two data-model questions `phase-2-outcome.md` left open.
+These are locked calls; phases 3–7 implement them and do not re-open them.
+
+- **The admin surface is verified.** `list_users`, `delete_account`, `reset_pin`,
+  `set_visibility` and admin `save_map` were each exercised against a real
+  `is_admin = true` account, on the real database, and all five behaved. This
+  closes the un-run declaration that 1d, 1e and phase 2 each had to carry forward,
+  and with it 1e's PostgREST-204 fix and phase 2's self-delete-guard fix. **No
+  outcome file after this one should list them as unverified.**
+
+- **Unlisting is not privacy, and `is_public` is not rotated.** An admin's
+  "hide a map" power removes it from the gallery and stops it rendering by name.
+  It does **not** make it unreadable to someone who already holds the row id —
+  the id is a bearer credential in this design, and rotating it on hide was
+  considered and **rejected**: it would sign the owner out of their own map, and
+  phase 3's `copied_from uuid references public.users(id)` would be orphaned or
+  corrupted by it. The honest fix is naming: the control reads **Unlist / Relist**
+  and says so in place. Shipped in `web/admin.html` on 2026-08-23. **Phase 3 keeps
+  that wording through the redesign.** If a map must genuinely go, delete the
+  account. See `phase-2-review.md` B7.
+
+- **`map_versions` lands at the top of phase 4, not in phase 3.** The wizard is the
+  first feature that can replace a whole map in one action, and it is the case the
+  four empty-save guards do not cover (`force: true` walks past all of them). The
+  shape is design §1's, plus two rules phase 2's latency and autosave findings
+  make necessary:
+  - `map_versions(id, user_id, markdown, saved_at)`; insert **before** the write in
+    both `api/map.py`'s save and `api/admin.py`'s `save_map`; `users.markdown`
+    stays the head pointer, so the editor, gallery, render route and export are
+    untouched.
+  - **Throttle:** at most one snapshot per user per hour — **but always snapshot a
+    `force: true` save.** A 1200 ms autosave debounce would otherwise fill the
+    table with near-identical rows.
+  - **Retention:** keep the last 20 per user.
+  It is a new table, so it is a migration — write it, commit it, push it, verify it
+  landed (`run-order.md`, "How the database actually gets changed").

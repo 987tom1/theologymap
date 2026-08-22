@@ -282,7 +282,7 @@ it, then verify it landed — committed is not applied.
 | `pin` | plaintext, 4–12 chars. **Never selected into a reply body.** |
 | `markdown` | the user's map, ≤512 KB |
 | `is_admin` | default false. **No route anywhere may write this column.** |
-| `is_public` | default **true** |
+| `is_public` | default **true**. Controls the gallery listing and the name-keyed render — **not** secrecy. Anyone holding the row id still reads the map through `/api/map`, so the admin control says **Unlist**, not Hide. |
 | `created_at` / `updated_at` | `updated_at` is the concurrency token, advanced by a trigger |
 
 RLS is on with **no policies**, so the anon key can read nothing. That is

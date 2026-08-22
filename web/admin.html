@@ -25,6 +25,10 @@
 
 <h1>Theology Map — Admin</h1>
 
+<p class="note"><strong>Unlisting is not privacy.</strong> It removes a map from the
+gallery and stops it rendering by name. It does not make it unreadable to someone
+who already has its link from the editor. Delete the account if a map must go.</p>
+
 <div id="creds">
   <h2>Admin credentials</h2>
   <label>Name
@@ -101,7 +105,11 @@ function renderTable(users) {
     const actionsCell = tr.querySelector('td:last-child');
 
     const visBtn = document.createElement('button');
-    visBtn.textContent = u.is_public ? 'Hide' : 'Unhide';
+    // "Unlist", not "Hide": is_public controls the gallery listing and the
+    // name-keyed public render, not secrecy. Anyone still holding the row id can
+    // read the map through /api/map. Locked 2026-08-23 — see decisions.md,
+    // "Unlisting is not privacy", and phase-2-review.md B7.
+    visBtn.textContent = u.is_public ? 'Unlist' : 'Relist';
     visBtn.addEventListener('click', async () => {
       visBtn.disabled = true;
       try {

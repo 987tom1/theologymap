@@ -92,6 +92,18 @@ Every task's requirements implicitly include all of these.
 
 # Task 0: Branch, preconditions, and the design canvas
 
+> **Added 2026-08-23 by phase 2, and it is the first thing this phase does.**
+> **Write the `map_versions` migration before any wizard code.** The wizard is the
+> first feature that can replace a whole map in one action, and it is the case the
+> four empty-save guards do not cover — `force: true` walks past all of them.
+> Locked shape, from `decisions.md` ("Amendments — 2026-08-23"):
+> `map_versions(id, user_id, markdown, saved_at)`; insert **before** the write in
+> `api/map.py`'s save and `api/admin.py`'s `save_map`; `users.markdown` stays the
+> head pointer so nothing else changes; **throttle to one snapshot per user per
+> hour but always snapshot a `force: true` save**; keep the last 20 per user.
+> Migrations self-apply on push — write it, commit it, push it, then verify it
+> landed.
+
 `decisions.md`: *UI phases open with a published design canvas of the key screens before
 building, so Thomas can review on a phone while away.*
 
