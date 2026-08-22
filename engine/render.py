@@ -88,14 +88,14 @@ def slugify(text: str) -> str:
     return text.strip("-")
 
 
-def parse(path: Path) -> list[dict]:
-    """Parse the outline into a flat list of node dicts."""
+def parse_text(markdown_text: str) -> list[dict]:
+    """Parse the outline text into a flat list of node dicts."""
     nodes: list[dict] = []
     domain = None
     node = None
     last_field = None
 
-    for raw in path.read_text(encoding="utf-8").splitlines():
+    for raw in markdown_text.splitlines():
         line = raw.rstrip()
         if not line.strip():
             last_field = None
@@ -155,6 +155,11 @@ def parse(path: Path) -> list[dict]:
     return nodes
 
 
+def parse(path: Path) -> list[dict]:
+    """Parse theology-map.md from disk. Thin wrapper over parse_text()."""
+    return parse_text(path.read_text(encoding="utf-8"))
+
+
 def collect_refs(nodes: list[dict]) -> list[str]:
     """Every distinct scripture reference used across all nodes, in first-seen order."""
     seen: set[str] = set()
@@ -168,17 +173,15 @@ def collect_refs(nodes: list[dict]) -> list[str]:
     return order
 
 
-def parse_verses(path: Path) -> "OrderedDict[str, str]":
-    """Parse verses.md into an ordered {reference: text} dict.
+def parse_verses_text(text: str) -> "OrderedDict[str, str]":
+    """Parse verses.md *text* into an ordered {reference: text} dict.
 
     HTML comments are stripped first (the header block and stub-section
     markers are both comments), then `## <ref>` starts an entry and every
     line up to the next `## ` is its text.
     """
     verses: "OrderedDict[str, str]" = OrderedDict()
-    if not path.exists():
-        return verses
-    text = re.sub(r"<!--.*?-->", "", path.read_text(encoding="utf-8"), flags=re.S)
+    text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     parts = re.split(r"(?m)^## (.+?)\s*$", text)
     # parts = [preamble, ref1, body1, ref2, body2, ...]
     for i in range(1, len(parts), 2):
@@ -187,6 +190,22 @@ def parse_verses(path: Path) -> "OrderedDict[str, str]":
         body = re.sub(r"\s+", " ", body).strip()
         verses[ref] = body
     return verses
+
+
+def parse_verses(path: Path) -> "OrderedDict[str, str]":
+    """Parse verses.md from disk. Thin wrapper over parse_verses_text()."""
+    if not path.exists():
+        return OrderedDict()
+    return parse_verses_text(path.read_text(encoding="utf-8"))
+
+
+def render_markdown(markdown_text: str, verses: "OrderedDict[str, str]") -> str:
+    """The whole hosted render path: markdown string in, HTML string out.
+
+    Pure. Reads nothing, writes nothing, needs no ROOT. This is the function
+    api/render.py calls.
+    """
+    return render_html(parse_text(markdown_text), verses)
 
 
 def sync_verses(nodes: list[dict]) -> "OrderedDict[str, str]":
