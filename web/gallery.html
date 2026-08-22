@@ -6,17 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  .tm-grid {
-    display: grid;
-    gap: 14px;
-    max-width: 1200px;
-    margin-inline: auto;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  a.tm-card { text-decoration: none; color: var(--ink); }
-  a.tm-card-primary { color: var(--bg); }
-  a.tm-card:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
-  a.tm-card-primary:focus-visible { outline-color: var(--bg); }
+  /* .tm-grid and the whole-card-is-a-link rules live in engine/theme.css —
+     first run and the copy picker use the same ones. */
   .tm-tierbar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--line); }
   .tm-tierbar span { display: block; height: 100%; }
 </style>
@@ -31,9 +22,8 @@
 </main>
 
 <script type="module">
-import { apiFetch } from '/web/session.js';
+import { apiFetch, getUser } from '/web/session.js';
 import { mount } from '/web/chrome.js';
-import { getUser } from '/web/session.js';
 
 mount('Gallery');
 
@@ -121,6 +111,15 @@ function buildCard(m) {
   updated.className = 'tm-stat';
   updated.textContent = 'Updated ' + relTime(m.updated_at);
   a.appendChild(updated);
+
+  // Task 8. api/map.py clears copied_from on the first divergent save, so this
+  // only ever appears on an unedited copy. Wording locked in decisions.md.
+  if (m.started_from) {
+    const from = document.createElement('p');
+    from.className = 'tm-stat';
+    from.textContent = `Started from ${m.started_from}'s map`;
+    a.appendChild(from);
+  }
 
   return a;
 }

@@ -426,6 +426,47 @@
     tabsEl.style.display = 'flex';
     setTab('map');
     ensureMapView().redraw();
+    applyOpenParam();
+  }
+
+  // ------------------------------------------------------- ?open=<slug>
+  // The deep-link contract first run and (later) the wizard hand back:
+  // /edit?open=my-first-belief lands you on that belief with the title
+  // selected, so "Write my first belief" does not hand back a wall of map.
+  //
+  // Deliberately driven from OUTSIDE map-view.js. That file is in hand-
+  // maintained lockstep with render.py's embedded Map view, and phase 3's
+  // merge gate allows hunks in exactly three functions, none of which is a
+  // public "open this leaf" method. Its per-leaf ids are private to the
+  // module, so we reach them the way the user would: expand the area,
+  // redraw, then find the mounted tile by title. One-shot -- consumed on the
+  // first load so a later local Connect does not re-open it.
+  let pendingOpenSlug = new URLSearchParams(location.search).get('open');
+
+  function applyOpenParam() {
+    const slug = pendingOpenSlug;
+    pendingOpenSlug = null;
+    if (!slug || !domains) return;
+    let node = null, domainName = null;
+    for (const d of domains) {
+      for (const n of d.nodes) if (n.slug === slug) { node = n; domainName = d.name; }
+    }
+    if (!node) return;              // stale bookmark: silently ignored, never an error
+    const mv = ensureMapView();
+    mv.redraw();                    // initialises the collapsed-domain set
+    mv.mapManualCollapsed.delete('domain:' + domainName);
+    mv.redraw();                    // the area's tiles are mounted now
+    for (const [id, elem] of mv.mapEls) {
+      if (!id.startsWith('leaf')) continue;
+      const b = elem.querySelector('.mtitle b, .mtitle-input');
+      const label = b && (b.value !== undefined ? b.value : b.textContent);
+      if (label !== node.title) continue;
+      mv.mapDetailOpen.add(id);
+      mv.redraw();
+      const input = mv.mapEls.get(id).querySelector('.mtitle-input');
+      if (input) { input.focus(); input.select(); }
+      return;
+    }
   }
 
   // ---------------------------------------------------------- adapter / boot
