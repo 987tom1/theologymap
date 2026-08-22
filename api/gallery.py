@@ -50,8 +50,12 @@ def _list_gallery(self):
     # `id` and `copied_from` are selected to be USED, never to be published: the
     # row id authorises a save (phase 2, B1). Every response item below is built
     # field by field from a literal dict, so neither can leak by accident.
+    # limit=200 implements decisions.md's gallery ceiling, which phase 2 (G7)
+    # found had never been written down in code. It also caps the cost of the
+    # per-row parse below. Past 200 rows the counts need caching or
+    # denormalising, which is a schema change and a separate decision.
     status, rows, _ = pg("GET", "/users?select=id,name,updated_at,markdown,copied_from"
-                                 "&is_public=is.true&order=updated_at.desc")
+                                 "&is_public=is.true&order=updated_at.desc&limit=200")
     if status != 200:
         return error(self, 500, "server_error", "Could not load the gallery.")
     rows = rows or []

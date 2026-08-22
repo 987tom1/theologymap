@@ -10,6 +10,17 @@
      first run and the copy picker use the same ones. */
   .tm-tierbar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--line); }
   .tm-tierbar span { display: block; height: 100%; }
+  /* Phase 2 measured /api/gallery at 0.7-2.1s: it parses every public map on
+     read. A skeleton rather than a spinner on white, per its latency section. */
+  .tm-skel { border-color: var(--line); }
+  .tm-skel span { display: block; height: 11px; border-radius: 3px; background: var(--chip); }
+  .tm-skel span:first-child { height: 17px; width: 45%; }
+  .tm-skel span:nth-child(2) { height: 6px; }
+  .tm-skel span:last-child { width: 60%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tm-skel { animation: tm-pulse 1.4s ease-in-out infinite; }
+    @keyframes tm-pulse { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+  }
 </style>
 </head>
 <body class="tm-page">
@@ -145,8 +156,19 @@ function buildPrimaryCard() {
 const gridEl = document.getElementById('grid');
 const emptyEl = document.getElementById('empty');
 
+for (let i = 0; i < 3; i++) {
+  const s = document.createElement('div');
+  s.className = 'tm-card tm-skel';
+  s.setAttribute('aria-hidden', 'true');
+  s.innerHTML = '<span></span><span></span><span></span><span></span>';
+  gridEl.appendChild(s);
+}
+gridEl.setAttribute('aria-busy', 'true');
+
 try {
   const maps = await apiFetch('/api/gallery') || [];
+  gridEl.textContent = '';
+  gridEl.setAttribute('aria-busy', 'false');
 
   if (maps.length === 0) emptyEl.hidden = false;
 
@@ -159,6 +181,8 @@ try {
   const showPrimary = !user || !mine || mine.node_count === 0;
   if (showPrimary) gridEl.appendChild(buildPrimaryCard());
 } catch {
+  gridEl.textContent = '';          // never leave a skeleton pretending to load
+  gridEl.setAttribute('aria-busy', 'false');
   // apiFetch already showed the error banner.
 }
 </script>
