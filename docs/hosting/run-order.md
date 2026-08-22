@@ -59,8 +59,7 @@ frozen — it produces content, not code. Everything else is sequential.
 - **Sessions 1–6 (1a, 1b, 1c, 1d, 1e, phase 2) are complete and merged.**
   Phase 2 ran 2026-08-23 on `phase-2-harden` (the brief's `phase-2-review` name was
   superseded by this file); it closed an unauthenticated map-overwrite and a stored
-  XSS, and its review is `phase-2-review.md`. **Session 7 (phase 3, Tasks 0–4) is
-  next.**
+  XSS, and its review is `phase-2-review.md`.
 - **Thomas's one manual action is done.** The `is_admin` bootstrap ran, and on
   2026-08-23 he walked all five admin actions through on production — all green.
   Nothing in the chain is waiting on him.
