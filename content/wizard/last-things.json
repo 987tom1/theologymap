@@ -1,0 +1,760 @@
+{
+  "schema_version": 1,
+  "domain": "last-things",
+  "doctrines": [
+    {
+      "id": "last-things.second-coming",
+      "node_title": "Second coming",
+      "slug": "second-coming",
+      "domain": "last-things",
+      "order": 1,
+      "kind": "settled",
+      "question": "Will Jesus Christ return visibly to judge the living and the dead?",
+      "framing": "The Nicene Creed states the church's common confession plainly: Christ 'will come again in glory to judge the living and the dead, and his kingdom will have no end.' Every tradition in this corpus affirms a personal, bodily, visible return of Christ as judge and king. What is genuinely disputed among Christians is not whether Christ returns but the manner and timing of that return, taken up separately under the millennium and the rapture.",
+      "suggested_tier": "T1",
+      "tier_note": "The second coming stands in the Nicene Creed itself, the first tier of Thomas's own map.",
+      "refs": "Matt 24:30; Acts 1:11; 1 Thess 4:16-17; Rev 1:7",
+      "links": [
+        "millennium",
+        "rapture"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much further precision to state beyond the creedal core, since the manner and timing questions are handled separately.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "last-things.second-coming/personal-return",
+          "label": "Personal return",
+          "hold": "Jesus Christ will return personally, bodily and visibly to judge the living and the dead and to bring his kingdom to its consummation, as the Nicene Creed confesses.",
+          "why": "The New Testament repeatedly promises Christ's own return in the same manner he departed, and the church has confessed exactly this since the fourth century without significant dissent.",
+          "vs": null,
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Acts 1:11; 1 Thess 4:16-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 33.1" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 673-674, 682" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Nicene-Constantinopolitan Creed (381)" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article XVII, 'Of Christ's Return to Judgment'" },
+            { "tradition": "anglican", "stance": "confessional", "note": "Confessed through the Nicene Creed as used in the Book of Common Prayer rather than a separate Article.", "citation": "Book of Common Prayer (1662), the Nicene Creed" },
+            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
+            { "tradition": "anabaptist", "stance": "confessional", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" },
+            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14" },
+            { "tradition": "non-denominational", "stance": "confessional", "note": null, "citation": "Lausanne Covenant (1974), Paragraph 15, 'The Return of Christ'" },
+            { "tradition": "inc", "stance": "confessional", "note": null, "citation": "International Network of Churches, Statement of Faith" }
+          ],
+          "learn_detail": "Traditions differ sharply over the manner and timing of this return, which is why the millennium and the rapture are treated as separate, genuinely disputed questions rather than folded into this one.",
+          "sources": [
+            { "label": "The Nicene-Constantinopolitan Creed", "citation": "381" }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        { "label": "The Nicene-Constantinopolitan Creed", "citation": "381" }
+      ]
+    },
+    {
+      "id": "last-things.millennium",
+      "node_title": "Millennium",
+      "slug": "millennium",
+      "domain": "last-things",
+      "order": 2,
+      "kind": "choice",
+      "question": "What is the thousand-year reign of Christ described in Revelation 20?",
+      "framing": "Revelation 20 describes Satan bound for a thousand years and the saints reigning with Christ, framed between two resurrections. Christians agree Christ reigns and will bring history to consummation; they disagree over whether this thousand years is a future earthly reign beginning at Christ's return, a present reality already underway in the church age, or a golden age preceding Christ's return that the church itself brings about. Amillennialism is the confessional position of the Reformed, Lutheran, Catholic and Orthodox traditions and is not a denial of the millennium but a particular reading of what it is.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes eschatological expectation without dividing on the gospel or the fact of Christ's return itself.",
+      "refs": "Rev 20:1-6; Rev 20:7-10; 2 Pet 3:10; Matt 24:14",
+      "links": [
+        "second-coming",
+        "israel-and-the-church",
+        "rapture"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Revelation 20's numbers are symbolic of the whole present age or a future literal period, and how that reading fits together with Romans 11's expectation for Israel.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "last-things.millennium/historic-premillennial",
+          "label": "Historic premill",
+          "hold": "Christ returns before the thousand years described in Revelation 20 and reigns personally on earth with his resurrected saints, after which comes the final judgment and the new creation.",
+          "why": "Revelation 20 places Christ's reign after his return and links it to a first resurrection distinct from the general resurrection, a reading with roots in the earliest post-apostolic writers.",
+          "vs": "Locating the thousand years before Christ's return, either as the present church age or as a golden age the church itself brings about.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rev 20:4-6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "minority", "note": "Not confessionally bound by the Baptist Faith and Message, which is silent on millennial position.", "citation": "George Eldon Ladd, A Theology of the New Testament (1974)" },
+            { "tradition": "non-denominational", "stance": "minority", "note": "A real strand alongside dispensational premillennialism within non-denominational evangelicalism.", "citation": "George Eldon Ladd, The Presence of the Future (1974)" }
+          ],
+          "learn_detail": "Historic premillennialism is distinguished from dispensational premillennialism by not organising history into a series of distinct dispensations and not requiring a pretribulational rapture.",
+          "sources": [
+            { "label": "A Theology of the New Testament", "citation": "George Eldon Ladd, 1974" }
+          ]
+        },
+        {
+          "id": "last-things.millennium/dispensational-premillennial",
+          "label": "Dispensational premill",
+          "hold": "Christ returns before a future thousand-year earthly reign centred on a restored national Israel, within a framework that distinguishes God's programmes for Israel and the church throughout history.",
+          "why": "Old Testament promises to national Israel, including a land and a throne, are read as intended literally rather than transferred to the church, and Revelation 20 is taken as their fulfilment.",
+          "vs": "Reading the millennium as a present spiritual reality, or as a golden age the church brings about, rather than a future literal reign centred on Israel.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rev 20:1-6; Rom 11:25-27",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15, 'The Millennial Reign of Christ'" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": "Institutionally dominant within the Bible-church movement though not required by any shared confession.", "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII" }
+          ],
+          "learn_detail": "Dispensational premillennialism developed in the nineteenth century through John Nelson Darby and was popularised through the Scofield Reference Bible; it is the framework within which the rapture becomes a genuinely distinct question.",
+          "sources": [
+            { "label": "Assemblies of God Statement of Fundamental Truths", "citation": "Article 15" }
+          ]
+        },
+        {
+          "id": "last-things.millennium/amillennial",
+          "label": "Amillennial",
+          "hold": "The thousand years of Revelation 20 is a symbolic description of the whole present age between Christ's first and second comings, during which the church shares his reign and Satan is restrained from deceiving the nations, ending in one resurrection and judgment at Christ's return.",
+          "why": "Revelation's numbers are consistently symbolic elsewhere in the book, and the New Testament elsewhere describes the kingdom as already inaugurated in Christ's reign rather than confined to a future earthly period.",
+          "vs": "Placing the thousand-year reign in the future, either as an earthly reign beginning at Christ's return or a golden age preceding it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rev 20:1-6; Col 1:13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "majority", "note": "Not required by the Reformed confessions themselves, but the predominant modern Reformed position.", "citation": "Louis Berkhof, Systematic Theology (1938)" },
+            { "tradition": "lutheran", "stance": "confessional", "note": "Stated as a rejection of a future earthly reign preceding the resurrection.", "citation": "Augsburg Confession, Article XVII" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 676" },
+            { "tradition": "orthodox", "stance": "majority", "note": "Orthodox eschatology does not organise around a distinct millennial scheme; life in the Church is already understood as participation in Christ's reign.", "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" }
+          ],
+          "learn_detail": "Amillennialism is sometimes described from outside as 'denying the millennium,' which its holders reject: they affirm Revelation 20 describes a real reign of Christ, just not a future, earthly, thousand-year one.",
+          "sources": [
+            { "label": "Systematic Theology", "citation": "Louis Berkhof, 1938, Eschatology" }
+          ]
+        },
+        {
+          "id": "last-things.millennium/postmillennial",
+          "label": "Postmillennial",
+          "hold": "The gospel will progressively transform nations and cultures through the ordinary preaching of the church, bringing about a long era of peace and righteousness on earth, understood as the millennium, before Christ returns at its close to raise the dead and judge the world.",
+          "why": "The Great Commission's promise and passages describing the gospel's spreading dominion are read as describing a historical trajectory of gradually increasing gospel success prior to Christ's return.",
+          "vs": "Expecting the church age to end without such gospel-driven transformation, whether the millennium is instead future and earthly or already only a present spiritual reality.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Matt 28:18-20; Isa 2:2-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "minority", "note": "A historic Reformed minority stream running through the Puritans and into later writers.", "citation": "Charles Hodge, Systematic Theology, vol. 3 (1873)" }
+          ],
+          "learn_detail": "Postmillennialism was widely held in Reformed and evangelical circles before the twentieth century's wars eroded confidence in cultural progress, and it has seen a modest revival since.",
+          "sources": [
+            { "label": "Systematic Theology, vol. 3", "citation": "Charles Hodge, 1873" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": ["last-things.millennium/amillennial", "last-things.millennium/postmillennial"],
+          "hold": "The Reformed tradition is predominantly amillennial, though a historic minority within it, including Puritan and later postmillennial writers, holds that the gospel will visibly triumph in history before Christ returns.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Reformed confessions do not bind a single millennial position; Berkhof's amillennialism represents the modern majority, while Hodge represents a live minority stream.",
+          "citation": "Louis Berkhof, Systematic Theology (1938); Charles Hodge, Systematic Theology, vol. 3 (1873)"
+        },
+        "non-denominational": {
+          "positions": ["last-things.millennium/historic-premillennial", "last-things.millennium/dispensational-premillennial"],
+          "hold": "Non-denominational evangelical congregations divide between dispensational premillennialism, historically dominant in the Bible-church movement, and a historic premillennialism that keeps the future earthly reign without the dispensational framework, without a shared confession settling between them.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "No confession binds non-denominational evangelicalism on this question, and both readings circulate within it.",
+          "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII; George Eldon Ladd, The Presence of the Future (1974)"
+        }
+      },
+      "learn_note": "'Amillennial' is a label its holders did not coin — it was coined by premillennial and postmillennial writers to name the view by what it denies. Its holders more often describe it as inaugurated, 'already/not yet' eschatology.",
+      "sources": [
+        { "label": "Four Views on the Book of Revelation", "citation": "Marvin Pate, ed., 1998" }
+      ]
+    },
+    {
+      "id": "last-things.israel-and-the-church",
+      "node_title": "Israel and the church",
+      "slug": "israel-and-the-church",
+      "domain": "last-things",
+      "order": 3,
+      "kind": "choice",
+      "question": "How do the Old Testament promises to Israel relate to the church?",
+      "framing": "Scripture applies covenant promises made to Israel to the church, while also anticipating a future for ethnic Israel in Romans 9-11. Traditions differ over whether God maintains two distinct peoples with distinct programmes, whether the church is Israel's promised continuation and heir under the new covenant, or whether both testaments are read through Christ as the true Israel in a way that is neither strictly two peoples nor simple continuation.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it reorganises how the Old Testament promises are read without dividing on the gospel itself.",
+      "refs": "Rom 9-11; Gal 3:29; Eph 2:11-16",
+      "links": [
+        "millennium",
+        "second-coming"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Romans 11's 'all Israel will be saved' requires a distinct future programme for ethnic Israel or is satisfied by the ongoing ingathering of Jewish believers into the one church.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "last-things.israel-and-the-church/dispensational",
+          "label": "Dispensational",
+          "hold": "God maintains distinct programmes for Israel and the church as two peoples with a common salvation in Christ but different callings, so that Old Testament promises to national Israel, including the land, remain to be fulfilled with ethnic Israel rather than transferred to the church.",
+          "why": "Reading Old Testament promises to Israel in their plain sense honours the consistency of God's word to Israel, and Paul's argument that 'all Israel will be saved' presumes Israel remains a distinct people with a future in God's plan.",
+          "vs": "Reading the church as Israel's promised continuation such that the Old Testament promises to Israel now belong to the church without remainder.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 11:25-29",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "pentecostal", "stance": "majority", "note": "Reflects classical Pentecostalism's dispensational premillennial heritage.", "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII" },
+            { "tradition": "baptist", "stance": "minority", "note": "A real strand within Baptist churches shaped by the Scofield Reference Bible, not confessionally required.", "citation": "C. I. Scofield, Scofield Reference Bible (1909)" }
+          ],
+          "learn_detail": "Dispensationalism has developed since its nineteenth-century origins; progressive dispensationalism narrows the gap with covenantal readings while still keeping Israel and the church distinct.",
+          "sources": [
+            { "label": "Dispensationalism", "citation": "Charles Ryrie, 1965/1995" }
+          ]
+        },
+        {
+          "id": "last-things.israel-and-the-church/covenantal-fulfilment",
+          "label": "Covenantal fulfilment",
+          "hold": "The church is the continuation of the one people of God begun in Israel, grafted into the same olive tree and heir of the same covenant promises, now fulfilled in Christ as a single people spanning both testaments.",
+          "why": "Paul describes Gentile believers as grafted into Israel's own olive tree rather than a separate one, and the New Testament repeatedly applies titles and promises given to Israel directly to the church.",
+          "vs": "Treating Israel and the church as two separate peoples with two distinct, unmerged programmes.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 11:17-24; Gal 6:16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 25.2, with the covenant of grace as one covenant differently administered (WCF 7.5-6)" },
+            { "tradition": "baptist", "stance": "minority", "note": "1689 Federalism reads the church as covenantally continuous with Israel; a real Baptist stream alongside dispensationalism.", "citation": "Second London Baptist Confession (1689), Chapter 26" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": "Held alongside the affirmation that the Jewish people's covenant with God has never been revoked.", "citation": "Catechism of the Catholic Church, 839-840; Second Vatican Council, Nostra Aetate, 4 (1965)" }
+          ],
+          "learn_detail": "Holders of this position generally avoid the word 'replacement,' since the claim is continuation and fulfilment rather than God rejecting or substituting one people for another.",
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "25.2; 7.5-6" }
+          ]
+        },
+        {
+          "id": "last-things.israel-and-the-church/progressive-covenantal",
+          "label": "Progressive covenantal",
+          "hold": "Every Old Testament covenant, including the promises to Israel, finds its fulfilment in Christ himself as the true Israel, so that the church is neither a separate programme from Israel nor Israel's straightforward continuation but a new covenant people constituted directly in union with Christ.",
+          "why": "Reading the covenants along their own unfolding storyline shows each earlier covenant pointing forward to and terminating in Christ, rather than being transferred wholesale to a new institution or reserved for ethnic Israel apart from him.",
+          "vs": "Reading Israel and the church as two distinct peoples with parallel programmes, or reading the church simply as Israel continued under a new name.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gal 3:16; 2 Cor 1:20",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "minority", "note": "Associated with New Covenant Theology and progressive covenantalism, a recent third stream alongside dispensationalism and 1689 Federalism.", "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)" }
+          ],
+          "learn_detail": "This position resists a single label; 'progressive covenantalism' and 'new covenant theology' name overlapping but not identical proposals, both distinct from classic dispensationalism and from Reformed covenant theology.",
+          "sources": [
+            { "label": "Kingdom through Covenant", "citation": "Peter Gentry and Stephen Wellum, 2012" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "baptist": {
+          "positions": [
+            "last-things.israel-and-the-church/dispensational",
+            "last-things.israel-and-the-church/covenantal-fulfilment",
+            "last-things.israel-and-the-church/progressive-covenantal"
+          ],
+          "hold": "Baptist churches hold no single confessional answer on how Israel and the church relate: dispensationalism, 1689 Federalism's covenantal reading, and progressive covenantalism all have real followings within the tradition.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The Baptist Faith and Message does not settle this question; the Second London Baptist Confession's covenantal ecclesiology, Scofield-style dispensationalism, and progressive covenantalism all circulate within Baptist life today.",
+          "citation": "Second London Baptist Confession (1689), Chapter 26; C. I. Scofield, Scofield Reference Bible (1909); Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)"
+        },
+        "non-denominational": {
+          "positions": [
+            "last-things.israel-and-the-church/dispensational",
+            "last-things.israel-and-the-church/progressive-covenantal"
+          ],
+          "hold": "Non-denominational evangelical congregations divide between dispensationalism's two-peoples framework, historically dominant in the Bible-church movement, and progressive covenantalism's Christ-centred reading of the covenants, without a shared confession settling between them.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Non-denominational evangelicalism has no binding confession on this question, and both frameworks have significant institutional homes within it.",
+          "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII; Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)"
+        }
+      },
+      "learn_note": "Calling the covenantal-fulfilment position 'replacement theology' is a critic's label its holders reject; they describe the church as Israel's continuation and heir, not its replacement.",
+      "sources": [
+        { "label": "Three Views on Israel and the Church", "citation": "Chad Brand, ed., 2015" }
+      ]
+    },
+    {
+      "id": "last-things.rapture",
+      "node_title": "Rapture",
+      "slug": "rapture",
+      "domain": "last-things",
+      "order": 4,
+      "kind": "choice",
+      "question": "Is the church caught up to meet Christ in the air as a distinct event separate from his visible return, and if so, when does it occur relative to a future tribulation?",
+      "framing": "Within premillennial dispensationalism, 1 Thessalonians 4's catching up of believers to meet the Lord in the air is read as a distinct event from Christ's visible return in glory, and interpreters disagree over when it happens relative to a future seven-year tribulation. Most of the world's Christians, including the amillennial and postmillennial majority, do not treat this as a live question at all, reading 1 Thessalonians 4 as describing the same event as the visible second coming rather than a separate one, which is why this question sits at the outermost tier.",
+      "suggested_tier": "T4",
+      "tier_note": "Only within premillennial dispensationalism does this become a distinct question, and even there it changes almost nothing about the gospel or Christian practice.",
+      "refs": "1 Thess 4:16-17; Rev 3:10; 2 Thess 2:1-8",
+      "links": [
+        "millennium",
+        "second-coming"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether 1 Thessalonians 4's meeting in the air describes a separate prior event or the same event as the visible return described elsewhere, and, if separate, where it falls relative to the tribulation.",
+        "tier": "T4"
+      },
+      "positions": [
+        {
+          "id": "last-things.rapture/pretribulational",
+          "label": "Pretribulational",
+          "hold": "The church is caught up to meet Christ in the air before a future seven-year tribulation begins, sparing the church the outpouring of God's wrath on the earth before Christ returns visibly with the church at the tribulation's end.",
+          "why": "Christ's promise to keep the church from the hour of trial and the pattern of God removing his people before judgment falls, as with Noah and Lot, point to the church's removal before the tribulation begins.",
+          "vs": "Placing the church's gathering to Christ during or after the tribulation rather than before it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rev 3:10; 1 Thess 5:9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14, 'The Blessed Hope'" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Dallas Theological Seminary, Doctrinal Statement, Article XVIII" }
+          ],
+          "learn_detail": "Pretribulationism is the majority position within classical dispensationalism, popularised through the Scofield Reference Bible and, more recently, the Left Behind novels.",
+          "sources": [
+            { "label": "Assemblies of God Statement of Fundamental Truths", "citation": "Article 14" }
+          ]
+        },
+        {
+          "id": "last-things.rapture/midtribulational",
+          "label": "Midtrib / prewrath",
+          "hold": "The church passes through the earlier part of a future tribulation but is removed before God's own wrath is poured out later in that period, placing the rapture partway through rather than strictly before or after it.",
+          "why": "Distinguishing general tribulation, which Scripture says believers should expect, from the specific outpouring of divine wrath later in the period accounts for passages that place the church through some tribulation while still promising it is not appointed to wrath.",
+          "vs": "Removing the church before any part of a future tribulation begins, or leaving it through the entire period including the final outpouring of wrath.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Thess 5:9; Rev 6-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "The prewrath position, associated with Marvin Rosenthal, is a minority refinement within dispensationalism rather than a confessionally held position of any tradition in this corpus.",
+          "sources": [
+            { "label": "The Pre-Wrath Rapture of the Church", "citation": "Marvin Rosenthal, 1990" }
+          ]
+        },
+        {
+          "id": "last-things.rapture/posttribulational",
+          "label": "Posttribulational",
+          "hold": "The church remains on earth through the entire future tribulation and is caught up to meet Christ in the air at his visible return, at the very end of that period, rather than being removed beforehand.",
+          "why": "New Testament tribulation passages address believers directly without promising their prior removal, and 1 Thessalonians 4's meeting in the air fits the ordinary sense of the term used for a delegation going out to escort a returning dignitary.",
+          "vs": "Removing the church from the earth before a future tribulation begins or partway through it.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Matt 24:29-31; 1 Thess 4:17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "non-denominational", "stance": "minority", "note": null, "citation": "George Eldon Ladd, The Blessed Hope (1956)" },
+            { "tradition": "baptist", "stance": "minority", "note": null, "citation": "George Eldon Ladd, The Blessed Hope (1956)" }
+          ],
+          "learn_detail": "Posttribulationism is the position of most historic premillennialists, who reject the pretribulational rapture without rejecting premillennialism itself.",
+          "sources": [
+            { "label": "The Blessed Hope", "citation": "George Eldon Ladd, 1956" }
+          ]
+        },
+        {
+          "id": "last-things.rapture/single-return",
+          "label": "Single return",
+          "hold": "The meeting in the air described in 1 Thessalonians 4 is the same event as Christ's visible second coming, not a separate prior rapture, so that the resurrection and gathering of believers happen at the one, single return of Christ.",
+          "why": "1 Thessalonians 4 and Matthew 24 both use the same picture of gathering the elect at Christ's coming, and the New Testament nowhere clearly presents two separate future comings of Christ rather than one.",
+          "vs": "Distinguishing a rapture of the church from Christ's visible return as two separate future events.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Thess 4:16-17; Matt 24:29-31",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 32-33" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article XVII" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1038" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Nicene-Constantinopolitan Creed (381)" },
+            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Book of Common Prayer (1662), the Nicene Creed" },
+            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
+            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+          ],
+          "learn_detail": "For most of the church's history and across most of the world today, 'rapture' as a distinct future event is simply not a category; the New Testament's language of meeting the Lord in the air is read as one part of a single second coming.",
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "32-33" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": ["last-things.rapture/pretribulational", "last-things.rapture/posttribulational"],
+          "hold": "Non-denominational evangelical congregations divide over the timing of the rapture, with pretribulationism dominant in dispensational Bible-church circles and posttribulationism held as a real minority, without any shared confession settling between them.",
+          "why": null,
+          "vs": null,
+          "tier": "T4",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "No confession binds non-denominational evangelicalism on this question, and both readings circulate within it.",
+          "citation": "Dallas Theological Seminary, Doctrinal Statement, Article XVIII; George Eldon Ladd, The Blessed Hope (1956)"
+        }
+      },
+      "learn_note": "The word 'rapture' comes from the Latin rapturo/rapiemur used to translate 'caught up' in the Vulgate of 1 Thessalonians 4:17; it names the event every position agrees happens, not only the pretribulational timing popularly associated with it.",
+      "sources": [
+        { "label": "Three Views on the Rapture", "citation": "Alan Hultberg, ed., 2010" }
+      ]
+    },
+    {
+      "id": "last-things.hell",
+      "node_title": "Hell",
+      "slug": "hell",
+      "domain": "last-things",
+      "order": 5,
+      "kind": "choice",
+      "question": "What is the final destiny of the unrepentant?",
+      "framing": "Scripture describes final judgment in the strongest terms: eternal punishment, fire that is not quenched, destruction of soul and body. Christians agree that final judgment is real and that unrepentant sin meets it, and disagree over whether that judgment is everlasting conscious suffering, a final ending of existence, or, for a minority stream reaching back into the early church, an ultimately restorative judgment that no one finally escapes.",
+      "suggested_tier": "T3",
+      "tier_note": "Third tier: it shapes how final judgment and God's justice are understood without being a first-order gospel article for most traditions in this dispute.",
+      "refs": "Matt 25:41-46; Rev 20:10-15; 2 Thess 1:9",
+      "links": [
+        "second-coming",
+        "intermediate-state"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the same word rendered 'eternal' for the punishment of the wicked and the life of the righteous in Matthew 25:46 requires the same duration for both, and how the New Testament's language of destruction is meant to be weighed against it.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "last-things.hell/eternal-conscious-torment",
+          "label": "Eternal conscious torment",
+          "hold": "The unrepentant are raised bodily and consciously suffer just punishment for sin forever, a state as everlasting as the life of the redeemed.",
+          "why": "The same Greek word for 'eternal' describes both the punishment of the wicked and the life of the righteous in the same verse, and Revelation describes the suffering of the condemned as continuing day and night forever and ever.",
+          "vs": "Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 25:46; Rev 14:11",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 33.2" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1035" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" },
+            { "tradition": "lutheran", "stance": "confessional", "note": "Stated as a rejection of any teaching that punishment for the condemned will end.", "citation": "Augsburg Confession, Article XVII" },
+            { "tradition": "anglican", "stance": "majority", "note": null, "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662)" },
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
+            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
+            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 16" },
+            { "tradition": "anabaptist", "stance": "confessional", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+          ],
+          "learn_detail": "Eternal conscious torment has been the majority position across nearly the whole of church history and remains so today; the other two positions are minority streams within it, not equally weighted alternatives.",
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "33.2" }
+          ]
+        },
+        {
+          "id": "last-things.hell/annihilationism",
+          "label": "Annihilationism",
+          "hold": "The unrepentant are raised, judged, and finally cease to exist entirely rather than suffering consciously forever, since immortality belongs only to those united to Christ and the judgment texts that speak of destruction mean an actual ending.",
+          "why": "Scripture's ordinary word for the fate of the wicked is destruction or perishing, and immortality is consistently presented as a gift given only in Christ rather than an inherent property of every human soul.",
+          "vs": "Holding that the wicked suffer consciously without end rather than being finally destroyed.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Matt 10:28; 2 Thess 1:9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Annihilationism is a minority position within evangelicalism with serious defenders, including John Stott and Edward Fudge, and is permitted within some evangelical bodies, but the majority of the historic church, across east and west, has held eternal conscious torment and regards annihilationism as a departure from that consensus.",
+          "held_by": [
+            { "tradition": "anglican", "stance": "minority", "note": "Held tentatively by John Stott, who stated it was not a matter he would insist on and did not treat as heresy.", "citation": "John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)" },
+            { "tradition": "non-denominational", "stance": "minority", "note": null, "citation": "Edward Fudge, The Fire That Consumes (1982)" }
+          ],
+          "learn_detail": "Annihilationism is sometimes called conditional immortality, emphasising that immortality is conditional on union with Christ rather than an inherent human property; the two labels describe the same position from different angles.",
+          "sources": [
+            { "label": "The Fire That Consumes", "citation": "Edward Fudge, 1982" }
+          ]
+        },
+        {
+          "id": "last-things.hell/christian-universalism",
+          "label": "Christian universalism",
+          "hold": "Final judgment is real and terrible, but it is ultimately restorative rather than endless, so that every person is eventually reconciled to God and hell does not last forever.",
+          "why": "Passages describing God's desire that all be saved and Christ's reconciliation of all things are read as governing the horizon of final judgment, with the fire of judgment understood as purifying rather than terminal.",
+          "vs": "Holding that final judgment, once rendered, is irreversible, whether that means unending conscious suffering or final destruction.",
+          "tier": null,
+          "confidence_default": "open",
+          "refs": "1 Tim 2:4; Col 1:19-20",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Christian universalism was held by Gregory of Nyssa, a father in good standing recognised by both East and West, and the Fifth Ecumenical Council's 553 condemnation of apokatastasis targeted a specific Origenist package of pre-existent souls and a cyclical fall, not universal restoration as such; it remains a live, sharply contested minority position rather than a settled heresy.",
+          "held_by": [],
+          "learn_detail": "Modern proponents such as Hans Urs von Balthasar have framed the position as a hope rather than a certainty; classical universalists, including Gregory of Nyssa, stated it as a doctrine.",
+          "sources": [
+            { "label": "That All Shall Be Saved", "citation": "David Bentley Hart, 2019" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "anglican": {
+          "positions": ["last-things.hell/eternal-conscious-torment", "last-things.hell/annihilationism"],
+          "hold": "Anglican formularies affirm everlasting punishment for the impenitent, though the Communion has never dogmatically excluded conditional immortality, and a minority within it, including John Stott, has held annihilationism as a permitted reading.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The Thirty-Nine Articles do not directly legislate the duration of hell's punishment; the Athanasian Creed's language of everlasting fire is the received liturgical consensus, but Stott's 1988 case for annihilationism was not treated as heresy within the Communion.",
+          "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662); John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)"
+        }
+      },
+      "learn_note": null,
+      "sources": [
+        { "label": "Four Views on Hell", "citation": "Preston Sprinkle, ed., 2016" }
+      ]
+    },
+    {
+      "id": "last-things.intermediate-state",
+      "node_title": "Intermediate state",
+      "slug": "intermediate-state",
+      "domain": "last-things",
+      "order": 6,
+      "kind": "choice",
+      "question": "What happens to a believer between death and the final resurrection?",
+      "framing": "Scripture describes believers as away from the body and at home with the Lord immediately at death, while also anticipating a future bodily resurrection at Christ's return. Traditions differ over whether the soul is consciously present with Christ immediately, whether the dead are unconscious until the resurrection, or whether some purification or further process attends the interval before the final resurrection.",
+      "suggested_tier": "T3",
+      "tier_note": "Third tier: it shapes pastoral practice around death and prayer for the departed without dividing on the gospel itself.",
+      "refs": "2 Cor 5:6-8; Phil 1:23; Luke 23:43",
+      "links": [
+        "hell",
+        "second-coming"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how Paul's language of being 'at home with the Lord' at death fits with the New Testament's emphasis on the future bodily resurrection as the believer's actual hope.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "last-things.intermediate-state/with-christ",
+          "label": "With Christ",
+          "hold": "At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.",
+          "why": "Paul describes departing the body as being at home with the Lord without any interval of unconsciousness, and Jesus promises the repentant thief that he will be with him in paradise that very day.",
+          "vs": "Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Cor 5:6-8; Luke 23:43",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 32.1" },
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
+            { "tradition": "lutheran", "stance": "majority", "note": null, "citation": "Luther's Small Catechism, on the Third Article, as commonly received" },
+            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Book of Common Prayer (1662), Burial of the Dead" },
+            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "Wesley's Explanatory Notes upon the New Testament (1755), on Philippians 1:23" },
+            { "tradition": "non-denominational", "stance": "majority", "note": null, "citation": "Lausanne Covenant (1974), Paragraph 15" },
+            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14" },
+            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+          ],
+          "learn_detail": "Reformed and Catholic accounts of this position both speak of a 'particular judgment' at death, distinct from the general judgment at the resurrection, which fixes the soul's destiny immediately.",
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "32.1" }
+          ]
+        },
+        {
+          "id": "last-things.intermediate-state/soul-sleep",
+          "label": "Soul sleep",
+          "hold": "Between death and resurrection the dead are unconscious, without experience of time passing, so that their next conscious moment is the resurrection itself, at which point the wait feels instantaneous.",
+          "why": "Scripture repeatedly calls death sleep for believers, and the resurrection, rather than an interim conscious state, is what the New Testament emphasises as the believer's hope.",
+          "vs": "Holding that the soul is consciously present with Christ, or undergoes any further process, in the interval before the resurrection.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Thess 4:13-14; John 11:11",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Soul sleep does not contradict the ecumenical creeds directly, but it stands against the confessional consensus of most traditions in this corpus that the soul is consciously present with Christ immediately after death, so it remains a live minority position rather than a settled one.",
+          "held_by": [
+            { "tradition": "anabaptist", "stance": "minority", "note": "Documented among some sixteenth-century Anabaptist groups; not confessionally bound by the Dordrecht Confession either way.", "citation": "George H. Williams, The Radical Reformation (1962)" }
+          ],
+          "learn_detail": "Christian mortalism has also been argued by individual figures within otherwise non-mortalist traditions, including a period in Martin Luther's own writing, without becoming a confessional position of any major body.",
+          "sources": [
+            { "label": "The Radical Reformation", "citation": "George H. Williams, 1962" }
+          ]
+        },
+        {
+          "id": "last-things.intermediate-state/purgatory",
+          "label": "Purgatory",
+          "hold": "Those who die in God's grace but still imperfectly purified undergo a final purification before entering the joy of heaven, a cleansing of what still needs to be purified in them rather than a second chance at salvation.",
+          "why": "The Church's teaching draws on the ancient practice of praying for the dead and on the principle that nothing unclean can enter heaven, so that those who die already saved but imperfectly sanctified are cleansed before the beatific vision.",
+          "vs": "Holding that the redeemed pass immediately into the fullness of heaven at death without any further process of purification.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 3:13-15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1030-1032; Council of Trent, Session 25, Decree on Purgatory (1563)" }
+          ],
+          "learn_detail": "The Catechism is explicit that purgatory is 'entirely different from the punishment of the damned' and applies only to those already destined for heaven, a distinction easy to miss when the doctrine is summarised second-hand.",
+          "sources": [
+            { "label": "Catechism of the Catholic Church", "citation": "1030-1032" }
+          ]
+        },
+        {
+          "id": "last-things.intermediate-state/toll-houses",
+          "label": "Prayer for the departed",
+          "hold": "The soul's journey after death, prayed for and remembered by the Church, still awaits the final judgment and resurrection; the Church continues to pray and offer the Divine Liturgy for the departed, trusting that such prayer benefits them, without defining that interval as a formal process of expiatory punishment.",
+          "why": "The Church's ancient and continuous practice of praying and offering the Liturgy for the departed presumes the prayers of the living genuinely aid the dead, while the Church has never dogmatically defined the toll-house imagery found in some ascetical writings as binding doctrine.",
+          "vs": "Defining the interval after death as a formal, dogmatically specified process of purification, as in the Catholic doctrine of purgatory.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "2 Macc 12:44-45",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "orthodox", "stance": "majority", "note": "The Confession of Dositheus affirms that prayer, almsgiving and the Liturgy benefit the departed; it is a seventeenth-century document, not treated by all Orthodox as binding in its details.", "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 18" }
+          ],
+          "learn_detail": "Toll-house imagery, drawn from certain ascetical and hagiographic writings, is not dogmatically defined in Orthodoxy and some Orthodox theologians reject it outright; the confessionally stable core across Orthodox tradition is the practice of prayer and the Liturgy for the departed, not a specific description of the soul's post-mortem journey. This is deliberately not purgatory: it carries no defined process of expiatory suffering.",
+          "sources": [
+            { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 18" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "anabaptist": {
+          "positions": ["last-things.intermediate-state/with-christ", "last-things.intermediate-state/soul-sleep"],
+          "hold": "Anabaptist congregations generally affirm the soul's conscious presence with Christ after death, though a historic minority stream within the sixteenth-century movement held that the dead sleep unconsciously until the resurrection.",
+          "why": null,
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The Dordrecht Confession does not settle the question directly; mortalism was a real minority position among some early Anabaptist groups without becoming the tradition's confessional norm.",
+          "citation": "Dordrecht Confession of Faith (1632); George H. Williams, The Radical Reformation (1962)"
+        }
+      },
+      "learn_note": "The Orthodox position is easy to mistake for a variant of purgatory because both traditions pray for the dead and speak of purification; the difference is that Orthodoxy has never dogmatically defined a specific expiatory process the way the Catholic doctrine does.",
+      "sources": [
+        { "label": "The Orthodox Church", "citation": "Kallistos Ware, 1963/1993, on the departed" }
+      ]
+    },
+    {
+      "id": "last-things.new-creation",
+      "node_title": "New creation",
+      "slug": "new-creation",
+      "domain": "last-things",
+      "order": 7,
+      "kind": "choice",
+      "question": "Will the present creation be renewed or replaced at Christ's return?",
+      "framing": "The New Testament promises both that creation itself will be set free from its bondage to decay and that the earth and everything done in it will be laid bare in a coming fire. Christians agree the outcome is a new heaven and a new earth in which righteousness dwells; they differ over whether this is the present creation transformed and renewed in continuity with what exists now, or the present creation's judgment and replacement by an entirely new one.",
+      "suggested_tier": "T2",
+      "tier_note": "Second tier: it shapes the hope Christians hold for the material world and their own embodied life within it.",
+      "refs": "Rom 8:19-21; 2 Pet 3:10-13; Rev 21:1-5",
+      "links": [
+        "second-coming",
+        "hell"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether 2 Peter 3's language of the present heavens and earth being destroyed and dissolved describes an ending or a purifying transformation, in light of Romans 8's promise that creation itself will be set free rather than discarded.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "last-things.new-creation/renewed",
+          "label": "Renewed creation",
+          "hold": "The present creation itself will be liberated, purified and transformed into the new heavens and new earth, in continuity with the world that exists now rather than its replacement by an unrelated new one.",
+          "why": "Creation is described as groaning in anticipation of being set free rather than annihilated, and the resurrection of the body, itself a transformation of what already exists rather than a wholly new creation from nothing, is the pattern for creation's own renewal.",
+          "vs": "Reading the present creation as destroyed and replaced rather than purified and transformed.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 8:19-21; 1 Cor 15:42-44",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1042-1047" },
+            { "tradition": "orthodox", "stance": "majority", "note": "Reflects the Orthodox emphasis on the cosmic scope of Christ's transfiguring work.", "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" },
+            { "tradition": "reformed", "stance": "majority", "note": "Not confessionally required, but the dominant modern Reformed reading.", "citation": "Herman Bavinck, Reformed Dogmatics, vol. 4 (1918/2008)" }
+          ],
+          "learn_detail": "This position has gained ground in recent decades partly through renewed attention to Romans 8 and to the bodily nature of the resurrection as the pattern for creation's own future.",
+          "sources": [
+            { "label": "Reformed Dogmatics, vol. 4", "citation": "Herman Bavinck, 1918/2008" }
+          ]
+        },
+        {
+          "id": "last-things.new-creation/replaced",
+          "label": "Replaced creation",
+          "hold": "The present heavens and earth will be dissolved and destroyed by fire at Christ's return, making way for an entirely new heaven and new earth rather than a transformation of what currently exists.",
+          "why": "Peter describes the present heavens and earth as reserved for fire, destroyed and dissolved, language read as describing an ending rather than a renovation of the created order as it now stands.",
+          "vs": "Reading creation's future as continuous transformation and purification of what presently exists rather than its dissolution and replacement.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "2 Pet 3:10-12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "minority", "note": "Represented by an older dispensational reading of 2 Peter 3 as describing the present creation's literal destruction.", "citation": "C. I. Scofield, Scofield Reference Bible (1909), note on 2 Peter 3:10" }
+          ],
+          "learn_detail": "Both positions agree the outcome is a genuinely new heaven and new earth; the dispute is specifically over whether the present material creation is the raw material of that future or is set aside for it.",
+          "sources": [
+            { "label": "Scofield Reference Bible", "citation": "1909, note on 2 Peter 3:10" }
+          ]
+        }
+      ],
+      "tradition_overrides": {},
+      "learn_note": null,
+      "sources": [
+        { "label": "Surprised by Hope", "citation": "N. T. Wright, 2008" }
+      ]
+    }
+  ]
+}

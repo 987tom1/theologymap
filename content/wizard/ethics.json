@@ -1,0 +1,1445 @@
+{
+  "schema_version": 1,
+  "domain": "ethics",
+  "doctrines": [
+    {
+      "id": "ethics.marriage-and-sexuality",
+      "node_title": "Marriage and sexuality",
+      "slug": "marriage-and-sexuality",
+      "domain": "ethics",
+      "order": 1,
+      "kind": "choice",
+      "question": "What is the pattern Scripture sets for marriage and sexual union?",
+      "framing": "Every tradition in the registry agrees marriage is a covenant calling for lifelong fidelity. The disagreement, sharp and genuinely live inside several of these traditions rather than only between them, is whether that covenant is defined by the union of a man and a woman, following the creation pattern Jesus himself reaffirms, or whether the covenant's defining mark is fidelity and permanence themselves, in which case some confessing bodies now extend it to same-sex couples.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it governs pastoral practice, ordination and church fellowship without dividing on the gospel itself.",
+      "refs": "Gen 2:24; Matt 19:4-6; Rom 1:26-27; 1 Cor 6:9-11",
+      "links": [
+        "divorce-and-remarriage",
+        "women-in-ministry"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how to weigh the church's near-universal historic reading of the creation pattern against the exegetical and pastoral case affirming confessing bodies make, and decide where that leaves marriage and sexual ethics.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "ethics.marriage-and-sexuality/male-female-covenant",
+          "label": "Male-female covenant",
+          "hold": "Marriage is a covenant between one man and one woman, instituted by God in creation and reaffirmed by Christ, and sexual intimacy belongs within that covenant alone.",
+          "why": "Scripture presents marriage as the one-flesh union of a man and a woman from creation onward, a pattern Christ himself reaffirms as the standard rather than one option among others, and channels sexual desire toward covenant fidelity within it.",
+          "vs": "Extending marriage, and the blessing of sexual union within it, to same-sex couples, on the ground that Scripture's creation pattern does not itself settle that question.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 2:24; Matt 19:4-6; 1 Cor 7:2",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 2357-2360"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret of Moscow; canonical tradition of the seven councils"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 24.1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article XVIII"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, position paper, Marriage"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 5, applied to marriage in affiliated statements"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common settled practice of Churches of Christ congregations"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 19"
+            }
+          ],
+          "learn_detail": "This is the position stated in Lambeth Resolution I.10 (1998), still the Anglican Communion's formal resolution, and in most Anglican provinces' canons, though the Episcopal Church has since amended its own canons; see the tradition note for how the Communion is divided.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "2357-2360"
+            },
+            {
+              "label": "Lambeth Conference Resolution I.10",
+              "citation": "1998"
+            }
+          ]
+        },
+        {
+          "id": "ethics.marriage-and-sexuality/covenantal-same-sex-union",
+          "label": "Covenantal same-sex union",
+          "hold": "Marriage can also be the lifelong covenant union of two people of the same sex, blessed by the church on the same terms of fidelity and permanence asked of any Christian marriage.",
+          "why": "The bodies holding this position read Scripture's controlling norm for marriage as covenant fidelity rather than the sex of the spouses, and hold that the handful of texts addressing same-sex acts do not settle the question of a lifelong, monogamous covenanted union.",
+          "vs": "Treating the sex of the spouses, rather than the covenant of fidelity and permanence itself, as the defining boundary of Christian marriage.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 2:24; Ruth 1:16-17",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "The historic and near-universal Christian reading has held marriage to a man and a woman; this position is a development within a small number of Western church bodies since 2009, regarded by most other confessing bodies, including many within the same traditions, as a departure from Scripture's teaching on sexuality rather than a live option within it.",
+          "held_by": [
+            {
+              "tradition": "anglican",
+              "stance": "minority",
+              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
+              "citation": "The Episcopal Church, amendments to Canon I.18 (2015)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "minority",
+              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
+              "citation": "ELCA, Human Sexuality: Gift and Trust (2009)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "minority",
+              "note": "The United Methodist Church specifically, following its 2024 General Conference; see the tradition note.",
+              "citation": "United Methodist Church, General Conference 2024 legislation removing restrictions on same-sex marriage"
+            }
+          ],
+          "learn_detail": "ELCA's 2009 statement frames this as a matter on which conscience-bound Christians who share the same core convictions disagree, and it permits but does not require congregations and pastors to bless same-sex marriages.",
+          "sources": [
+            {
+              "label": "Human Sexuality: Gift and Trust",
+              "citation": "ELCA, 2009"
+            },
+            {
+              "label": "The Episcopal Church, Canon I.18",
+              "citation": "as amended 2015"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Both positions here are held by bodies within registered traditions rather than by a tradition unanimously; the tradition notes on the male-female-covenant position and the covenantal-same-sex-union position describe how the Anglican, Lutheran and Methodist worlds are each divided by province or denomination rather than doctrinally settled.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "2357-2360"
+        },
+        {
+          "label": "Lambeth Conference Resolution I.10",
+          "citation": "1998"
+        },
+        {
+          "label": "Human Sexuality: Gift and Trust",
+          "citation": "ELCA, 2009"
+        }
+      ],
+      "tradition_overrides": {
+        "anglican": {
+          "positions": [
+            "ethics.marriage-and-sexuality/male-female-covenant",
+            "ethics.marriage-and-sexuality/covenantal-same-sex-union"
+          ],
+          "hold": "The Anglican Communion is not of one mind: most provinces hold marriage to be the covenant union of a man and a woman under Lambeth Resolution 1.10, while the Episcopal Church has permitted the marriage of same-sex couples in church since amending its canons in 2015.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "This is a live, unresolved division within the Communion itself rather than a settled Anglican position either way.",
+          "citation": "Lambeth Conference Resolution I.10 (1998); The Episcopal Church, Canon I.18 (as amended 2015)"
+        },
+        "methodist": {
+          "positions": [
+            "ethics.marriage-and-sexuality/male-female-covenant",
+            "ethics.marriage-and-sexuality/covenantal-same-sex-union"
+          ],
+          "hold": "Methodism divided formally in 2024: the United Methodist Church's General Conference removed its restrictions on same-sex marriage, while the Global Methodist Church, formed by conservative congregations leaving the UMC, and much of the wider Wesleyan world retain the traditional definition.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "The 2024 General Conference marks a genuine, recent split in the Wesleyan family rather than a single Methodist position.",
+          "citation": "United Methodist Church, General Conference 2024 legislation; Global Methodist Church, Book of Doctrines and Discipline (2022)"
+        },
+        "lutheran": {
+          "positions": [
+            "ethics.marriage-and-sexuality/male-female-covenant",
+            "ethics.marriage-and-sexuality/covenantal-same-sex-union"
+          ],
+          "hold": "Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.",
+          "citation": "ELCA, Human Sexuality: Gift and Trust (2009); Lutheran Church-Missouri Synod, Commission on Theology and Church Relations statements on marriage"
+        }
+      }
+    },
+    {
+      "id": "ethics.divorce-and-remarriage",
+      "node_title": "Divorce and remarriage",
+      "slug": "divorce-and-remarriage",
+      "domain": "ethics",
+      "order": 2,
+      "kind": "choice",
+      "question": "On what grounds, if any, may a divorced Christian remarry?",
+      "framing": "Every tradition treats the marriage bond as more than a private contract, and every tradition takes seriously both Christ's teaching against divorce and the hard pastoral cases that follow a marriage's breakdown. The traditions differ over whether the bond can be found never to have existed, whether it can be dissolved by pastoral economy after its effective death, whether Scripture names specific exceptions permitting remarriage, or whether remarriage is closed altogether while a spouse lives.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it bears heavily on pastoral care and church discipline without dividing communions from one another on the gospel.",
+      "refs": "Matt 19:3-9; 1 Cor 7:10-15; Rom 7:2-3",
+      "links": [
+        "marriage-and-sexuality"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how far the exception clauses in Matthew and 1 Corinthians extend to permitting remarriage, not only separation, and whether Paul's language that a spouse is bound only while the other lives closes that door in every other case.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "ethics.divorce-and-remarriage/indissoluble-bond",
+          "label": "Indissoluble bond",
+          "hold": "A valid sacramental marriage cannot be dissolved by any human power; the church may declare through its tribunals that no valid marriage bond was ever formed, but this is a finding of nullity, not a form of divorce.",
+          "why": "Christ's own teaching that what God has joined together no one may separate binds every valid sacramental marriage for life, so the church's annulment process investigates whether the conditions for a valid bond were present from the start rather than dissolving a bond that was.",
+          "vs": "Treating annulment as a Catholic mechanism for obtaining what other traditions call a divorce, when it is instead a finding that a marriage, which requires specific conditions to exist at all, never validly formed.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 19:6; Mark 10:11-12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1614, 1629-1632"
+            }
+          ],
+          "learn_detail": "A declaration of nullity requires specific grounds, such as a defect of consent or an impediment present at the time of the wedding; it is a canonical finding about the past, never a permission to dissolve a marriage that did validly form.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1614, 1629-1632"
+            }
+          ]
+        },
+        {
+          "id": "ethics.divorce-and-remarriage/oikonomia",
+          "label": "Oikonomia",
+          "hold": "Marriage is ordinarily indissoluble, but the church, exercising pastoral economy for human weakness, may permit a second or third marriage through a penitential rite once a marriage has effectively died through adultery or desertion.",
+          "why": "The church's pastoral tradition, reaching back to the fathers, treats the death of a marriage through adultery as a real rupture Christ's own exception names, and applies economy rather than strict application of the letter of the law to a broken and repentant situation.",
+          "vs": "Treating the church's pastoral economy toward a marriage's death either as a Catholic-style finding that no marriage existed or as an unqualified license to remarry without repentance.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 19:9; Matt 5:32",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "The subsequent marriage is celebrated with a distinct, more penitential rite, marking it as an act of pastoral economy rather than an ordinary sacrament.",
+              "citation": "Rite for a Second Marriage (Evchologion); canonical tradition following St Basil the Great"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Rite for a Second Marriage",
+              "citation": "Evchologion, Orthodox liturgical tradition"
+            }
+          ]
+        },
+        {
+          "id": "ethics.divorce-and-remarriage/exception-clause",
+          "label": "Exception clause",
+          "hold": "Divorce, and the remarriage of the innocent party, is permitted on the ground of a spouse's sexual immorality or desertion by an unbelieving spouse, though reconciliation is always to be preferred.",
+          "why": "Jesus himself names sexual immorality as an exception to his general prohibition of divorce, and Paul releases a believer from the marriage bond when an unbelieving spouse abandons it.",
+          "vs": "Reading Scripture's exceptions as grounds for separation only, never for remarriage while the former spouse lives.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 19:9; 1 Cor 7:15",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Protestants who hold this reading and Protestants who hold that remarriage is closed while a spouse lives disagree sharply over how far Matthew's and Paul's exceptions extend, each regarding the other's reading as pastorally mistaken on a question with real consequences.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 24.5-6"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), 25.4"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 32"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, position paper, Divorce and Remarriage"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Luther's Small Catechism, Table of Duties, applied by later Lutheran pastoral practice"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "The Church of England's Convocations resolved in 2002 that a divorced person may in exceptional circumstances be married in church during the lifetime of a former spouse, a change from the 1938 Convocation position.",
+              "citation": "Church of England, Convocations of Canterbury and York, resolutions of 2002"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "The Book of Discipline, pastoral guidance on remarriage"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common settled practice among Churches of Christ congregations"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "24.5-6"
+            }
+          ]
+        },
+        {
+          "id": "ethics.divorce-and-remarriage/no-remarriage-while-living",
+          "label": "No remarriage while living",
+          "hold": "Divorce may in some circumstances be permitted, but remarriage is not, so long as the former spouse is alive, because the marriage bond itself persists until death.",
+          "why": "Paul teaches that a wife is bound to her husband as long as he lives, and instructs a woman who divorces to remain unmarried or be reconciled, without naming remarriage among the options.",
+          "vs": "Treating Scripture's exceptions for sexual immorality or desertion as grounds for remarriage rather than for separation alone.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 7:2-3; 1 Cor 7:10-11",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This reading and the exception-clause reading disagree sharply over how far Matthew's and Paul's exceptions extend, each regarding the other's reading as pastorally mistaken on a question with real consequences.",
+          "held_by": [
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), article on marriage"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The Orthodox position is often mistaken for the Catholic position with a loophole; it is not. Catholic teaching holds the bond itself indissoluble and works by asking whether a valid bond ever formed, while Orthodox oikonomia treats a valid bond as capable of dying and being pastorally, penitentially addressed.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1614, 1629-1632"
+        },
+        {
+          "label": "Rite for a Second Marriage",
+          "citation": "Evchologion, Orthodox liturgical tradition"
+        },
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "24.5-6"
+        }
+      ]
+    },
+    {
+      "id": "ethics.abortion",
+      "node_title": "Abortion",
+      "slug": "abortion",
+      "domain": "ethics",
+      "order": 3,
+      "kind": "choice",
+      "question": "What moral status does unborn human life have, and what follows for the permissibility of abortion?",
+      "framing": "No tradition in the registry confesses that abortion is simply a matter of choice; the historic and near-universal Christian position is that unborn life carries real moral status from conception and that abortion is a grave wrong. The genuine differences are over hard cases: whether a direct threat to the mother's life permits an exception or only the indirect loss of fetal life through treating the underlying crisis, and whether a handful of mainline bodies' pastoral statements permit abortion in narrowly defined tragic circumstances.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it is a matter of grave moral weight and public consequence, though it does not itself divide communions on the gospel.",
+      "refs": "Ps 139:13-16; Jer 1:5; Exod 21:22-25",
+      "links": [
+        "ivf-and-embryos",
+        "euthanasia"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out where full moral status begins and whether the double-effect distinction between direct and indirect loss of fetal life, rather than a named maternal-life exception, is the more faithful reading of the relevant hard cases.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "ethics.abortion/protected-from-conception",
+          "label": "Protected from conception",
+          "hold": "Unborn human life possesses full moral status from conception, so intentionally taking that life is a grave moral wrong; where a mother's life is genuinely threatened, treating the underlying medical crisis is distinguished from directly ending the pregnancy.",
+          "why": "Scripture describes the unborn as already known and formed by God in the womb, using the same personal language it uses for those already born, giving no warrant for a lesser moral status before birth.",
+          "vs": "Treating fetal life as acquiring full moral status only at some later point in development, or as a matter left to a mother's choice.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 139:13-16; Luke 1:41-44",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 2270-2275, 2322"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Basis of the Social Concept (Russian Orthodox Church, 2000), Section XII"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article XV"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, position paper, The Sanctity of Human Life"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Larger Catechism, Question 136"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, resolutions on the sanctity of human life"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common settled practice among Churches of Christ congregations"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 20"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": "The position of most Anglican provinces; see the tradition note for the Episcopal Church.",
+              "citation": "Lambeth Conference resolutions on the sanctity of life"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": "The position of confessional Lutheran bodies; see the tradition note for the Evangelical Lutheran Church in America.",
+              "citation": "Lutheran Church-Missouri Synod, Commission on Theology and Church Relations statements on abortion"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "2270-2275"
+            }
+          ]
+        },
+        {
+          "id": "ethics.abortion/permitted-in-tragic-cases",
+          "label": "Permitted in tragic cases",
+          "hold": "Ending a pregnancy that resulted from rape or incest, gravely threatens the mother's life or health, or involves a lethal fetal anomaly may be a tragic but morally permissible choice reached in conscience, though abortion itself is never treated as a good.",
+          "why": "The bodies holding this position teach that Christian conscience, formed by Scripture and pastoral counsel rather than by a single rule applied without exception, must weigh these narrow and genuinely tragic circumstances rather than treat every case alike.",
+          "vs": "Holding that no circumstance, including a grave threat to the mother's own life understood apart from indirect medical treatment, justifies an abortion.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Exod 21:22-25",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is a minority pastoral position within specific mainline bodies, held alongside a strong statement that abortion is a tragedy rather than a good; most other confessing bodies, including other parts of the same traditions, regard permitting abortion in these cases as a departure from the church's historic teaching on the unborn.",
+          "held_by": [
+            {
+              "tradition": "lutheran",
+              "stance": "minority",
+              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
+              "citation": "ELCA, A Social Statement on Abortion (1991)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "minority",
+              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
+              "citation": "Episcopal Church, General Convention resolutions on reproductive health and choice"
+            }
+          ],
+          "learn_detail": "ELCA's 1991 statement calls abortion always a matter of grave concern and states a preference for continuing a pregnancy wherever possible, while permitting it in the narrow circumstances named.",
+          "sources": [
+            {
+              "label": "A Social Statement on Abortion",
+              "citation": "ELCA, 1991"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This is not a pro-life-versus-pro-choice divide; no tradition in the registry confesses that abortion is a matter of choice. The live disagreement is narrower: how the historic protection of unborn life applies to a small number of genuinely hard cases.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "2270-2275"
+        },
+        {
+          "label": "A Social Statement on Abortion",
+          "citation": "ELCA, 1991"
+        }
+      ],
+      "tradition_overrides": {
+        "lutheran": {
+          "positions": [
+            "ethics.abortion/protected-from-conception",
+            "ethics.abortion/permitted-in-tragic-cases"
+          ],
+          "hold": "Lutheran bodies differ by church: the Lutheran Church-Missouri Synod holds unborn life protected from conception, while the Evangelical Lutheran Church in America permits abortion in narrowly defined tragic circumstances under its 1991 social statement.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.",
+          "citation": "Lutheran Church-Missouri Synod statements on abortion; ELCA, A Social Statement on Abortion (1991)"
+        },
+        "anglican": {
+          "positions": [
+            "ethics.abortion/protected-from-conception",
+            "ethics.abortion/permitted-in-tragic-cases"
+          ],
+          "hold": "The Anglican Communion is not of one mind: most provinces hold to the sanctity of unborn life with no broad exception, while the Episcopal Church's General Convention has affirmed access to abortion within a framework that also opposes its use as routine birth control.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "This is a live division within the Communion rather than a single settled Anglican position.",
+          "citation": "Lambeth Conference resolutions on the sanctity of life; Episcopal Church, General Convention resolutions on reproductive health and choice"
+        }
+      }
+    },
+    {
+      "id": "ethics.ivf-and-embryos",
+      "node_title": "IVF and embryos",
+      "slug": "ivf-and-embryos",
+      "domain": "ethics",
+      "order": 4,
+      "kind": "choice",
+      "question": "What moral limits, if any, apply to in vitro fertilization and the embryos it creates?",
+      "framing": "Every tradition that addresses the question agrees a human embryo is not a mere piece of tissue to be discarded or indefinitely stored without regard. The disagreement is over whether in vitro fertilization is itself permissible at all, given that standard practice separates conception from the marital act and typically creates more embryos than are implanted, or whether it may be pursued within conditions that protect every embryo created.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes pastoral counsel on a painful and increasingly common situation without dividing communions on the gospel.",
+      "refs": "Ps 139:13-16; Gen 1:28",
+      "links": [
+        "abortion"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether separating conception from the marital act is itself morally significant, or whether the deciding question is only what happens to the embryos a given procedure creates.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "ethics.ivf-and-embryos/full-status-no-ivf",
+          "label": "Full status, no IVF",
+          "hold": "In vitro fertilization is not permissible, because it separates the conception of a child from the marital act and because its standard practice creates embryonic human persons who are then routinely discarded, indefinitely frozen or destroyed in selection.",
+          "why": "Human life begins at fertilization regardless of where it occurs, so any procedure whose ordinary practice results in the loss of embryonic human persons is a grave wrong, and the marital act itself, not a laboratory procedure, is the fitting context for conceiving a child.",
+          "vs": "Treating in vitro fertilization as morally acceptable so long as embryos are not deliberately destroyed, when its ordinary practice still separates conception from the marital act and routinely results in surplus embryos.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 139:13-16",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the embryo loss and separation of procreation from the marital act inherent in standard IVF practice makes the procedure itself wrong, rather than only its abuses, is a live and sharp dispute between traditions that otherwise agree closely on the embryo's moral status.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Congregation for the Doctrine of the Faith, Donum Vitae (1987) and Dignitas Personae (2008)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Basis of the Social Concept (Russian Orthodox Church, 2000), Section XII.4"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Donum Vitae",
+              "citation": "Congregation for the Doctrine of the Faith, 1987"
+            },
+            {
+              "label": "Dignitas Personae",
+              "citation": "Congregation for the Doctrine of the Faith, 2008"
+            }
+          ]
+        },
+        {
+          "id": "ethics.ivf-and-embryos/conditionally-permitted",
+          "label": "Conditionally permitted",
+          "hold": "In vitro fertilization may be pursued by a married couple using their own gametes, provided every embryo created is treated as a full human life to be protected: none deliberately destroyed, selectively reduced, or left indefinitely frozen without intent to preserve or implant.",
+          "why": "Nothing in Scripture forbids medical assistance in conceiving a child within marriage, so the moral weight falls on how the embryos a given procedure creates are treated rather than on the procedure itself.",
+          "vs": "Holding that separating conception from the marital act makes in vitro fertilization impermissible regardless of how carefully the resulting embryos are treated.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 127:3",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the embryo loss and separation of procreation from the marital act inherent in standard IVF practice makes the procedure itself wrong, rather than only its abuses, is a live and sharp dispute between traditions that otherwise agree closely on the embryo's moral status.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Southern Baptist Convention, Resolution on Human Embryo Adoption and Stewardship of Frozen Embryos (2010)"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lutheran Church-Missouri Synod, Commission on Theology and Church Relations, guidance on reproductive technology"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Church of England, Mission and Public Affairs Council, guidance on assisted reproduction"
+            }
+          ],
+          "learn_detail": "Advocates of this position frequently encourage embryo adoption, the implantation of another couple's frozen embryos, as a way of honoring the full moral status of embryos that already exist rather than leaving them frozen indefinitely.",
+          "sources": [
+            {
+              "label": "Resolution on Human Embryo Adoption and Stewardship of Frozen Embryos",
+              "citation": "Southern Baptist Convention, 2010"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Donum Vitae",
+          "citation": "Congregation for the Doctrine of the Faith, 1987"
+        },
+        {
+          "label": "Resolution on Human Embryo Adoption and Stewardship of Frozen Embryos",
+          "citation": "Southern Baptist Convention, 2010"
+        }
+      ]
+    },
+    {
+      "id": "ethics.euthanasia",
+      "node_title": "Euthanasia",
+      "slug": "euthanasia",
+      "domain": "ethics",
+      "order": 5,
+      "kind": "choice",
+      "question": "What may Christians do, and refrain from doing, at the end of a dying person's life?",
+      "framing": "No tradition in the registry confesses that a Christian may intentionally end a patient's life. The disagreement, genuine but narrower, is over whether withholding or withdrawing disproportionate or extraordinary medical treatment, allowing death to occur naturally, is itself morally acceptable, or whether every available means, ordinary or extraordinary, should be pursued to preserve life as long as possible.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes pastoral counsel and end-of-life decisions without dividing communions on the gospel.",
+      "refs": "Job 1:21; Eccl 3:1-2; Matt 25:35-36",
+      "links": [
+        "abortion"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out where the line falls between withdrawing disproportionate treatment, which the historic ordinary-extraordinary distinction permits, and any act or omission that itself intends death.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "ethics.euthanasia/ordinary-means-only",
+          "label": "Ordinary means only",
+          "hold": "Intentionally ending a patient's life is never permitted, but no one is obliged to pursue every possible intervention; disproportionate treatment may be withheld and death allowed to come, and pain relief that indirectly hastens it is distinguished from an act that intends it.",
+          "why": "Preserving life is a duty, not an absolute to be pursued by any means whatever the burden, so the historic distinction between ordinary and extraordinary care lets a dying person be allowed to die without that being treated as an act of killing.",
+          "vs": "Treating every possible means of prolonging life as obligatory regardless of its burden or proportion, so that withdrawing disproportionate treatment is itself judged wrong.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eccl 3:1-2",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 2276-2279"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Basis of the Social Concept (Russian Orthodox Church, 2000), Section XII.6"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Larger Catechism, Question 135, applied by later Reformed bioethics writing"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Southern Baptist Convention, Resolution on End of Life Issues"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lutheran Church-Missouri Synod, Commission on Theology and Church Relations, guidance on end-of-life care"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Church of England, House of Bishops, guidance opposing assisted dying"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "The Book of Discipline, Social Principles, on death and dying"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, resolutions on end-of-life care"
+            }
+          ],
+          "learn_detail": "This is the ordinary-extraordinary distinction associated with Pope Pius XII's 1957 address to anesthesiologists, and it is widely shared well beyond the Catholic tradition that first formalized it.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "2276-2279"
+            }
+          ]
+        },
+        {
+          "id": "ethics.euthanasia/preserve-by-all-means",
+          "label": "Preserve by all means",
+          "hold": "Every ordinary and extraordinary means available should be used to preserve life as long as possible, because withdrawing treatment, even from a dying patient, risks treating a life made in God's image as expendable.",
+          "why": "Human life is sacred in every state, including a dying state, so this position holds that ceasing to pursue available treatment cannot be clearly separated in practice from causing death.",
+          "vs": "Withholding or withdrawing disproportionate treatment on the judgment that it is extraordinary or overly burdensome, when this position holds that judgment risks becoming a pretext for hastening death.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Job 1:21",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "No registered tradition confesses this position formally; it appears as an individual pastoral or ethical stance rather than a body of confessional teaching.",
+          "sources": [
+            {
+              "label": "Historic vitalist bioethics writing on the sanctity of life",
+              "citation": "Representative of a minority strand within broader pro-life Christian ethics"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "2276-2279"
+        }
+      ]
+    },
+    {
+      "id": "ethics.prosperity-teaching",
+      "node_title": "Prosperity teaching",
+      "slug": "prosperity-teaching",
+      "domain": "ethics",
+      "order": 6,
+      "kind": "choice",
+      "question": "Does the covenant God makes with believers guarantee material prosperity and physical health in this life?",
+      "framing": "Some independent charismatic and Word of Faith teachers hold that material prosperity and health are the believer's covenant right, obtainable through faith and positive confession. This is a live and sharp dispute inside Pentecostalism itself, not only between Pentecostalism and other traditions: classical Pentecostal bodies have themselves formally warned that this teaching, taken as a guarantee, distorts faith into a formula and can leave the poor and unhealed blamed for their own suffering.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places this just below the first tier: it reshapes how faith itself is understood and reaches close to, though short of, a first-order matter.",
+      "refs": "3 John 1:2; 2 Cor 12:7-9; James 5:13-15",
+      "links": [
+        "continuationism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how to hold together confidence that God hears prayer for provision and healing with a clear rejection of any teaching that turns faith into a formula guaranteeing wealth or health.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "ethics.prosperity-teaching/covenant-right",
+          "label": "Covenant right",
+          "hold": "Material prosperity and physical health belong to believers as a covenant right, to be received through faith expressed in positive confession, so that poverty and sickness are, in the ordinary case, evidence of insufficient faith rather than God's will.",
+          "why": "Teachers holding this position read the Abrahamic blessing and Christ's atonement as securing material and physical blessing for believers now, in the same way they secure spiritual blessing, to be laid hold of by faith-filled speech.",
+          "vs": "Treating prosperity and healing as gifts God gives at his own discretion rather than as guarantees any believer's faith can secure.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "3 John 1:2",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether covenant faith guarantees material prosperity and healing is a live, sharp dispute even within Pentecostalism itself: the Assemblies of God's 1980 position paper 'The Believer and Positive Confession' and the Lausanne Movement's 2010 Statement on the Prosperity Gospel both warn that this teaching, taken as a guarantee, distorts the doctrine of faith and can leave the poor and unhealed blamed for insufficient faith.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "minority",
+              "note": "Associated with independent Word of Faith teachers within the broader Pentecostal-charismatic movement; the Assemblies of God's own Statement of Fundamental Truths does not teach this, and its 1980 position paper explicitly critiques it.",
+              "citation": "Kenneth Hagin, The Believer's Authority (1984), representative of Word of Faith teaching"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Believer's Authority",
+              "citation": "Kenneth Hagin, 1984"
+            }
+          ]
+        },
+        {
+          "id": "ethics.prosperity-teaching/prosperity-denied",
+          "label": "Not a guarantee",
+          "hold": "Material prosperity and physical health are not guaranteed to believers by covenant right; faith is not a formula that secures wealth or healing, and teaching that treats it as one distorts the doctrine of faith and burdens the poor and unhealed with blame for their own suffering.",
+          "why": "Paul himself was not healed of his thorn in the flesh despite pleading in faith, and Scripture commends contentment and endurance in want as much as it commends faith for provision, giving no warrant for treating prosperity as guaranteed.",
+          "vs": "Teaching that sufficient faith, rightly confessed, guarantees material prosperity or physical healing to any believer who exercises it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Cor 12:7-9; Phil 4:11-12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": "The Assemblies of God's own official position, formally distinguishing biblical faith from positive-confession teaching.",
+              "citation": "Assemblies of God, The Believer and Positive Confession (1980)"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Movement, A Statement on the Prosperity Gospel (2010)"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "majority",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 2090-2094, on the theological virtue of hope"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Believer and Positive Confession",
+              "citation": "Assemblies of God, 1980"
+            },
+            {
+              "label": "A Statement on the Prosperity Gospel",
+              "citation": "Lausanne Movement, 2010"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This doctrine matters especially inside Pentecostalism, because prosperity teaching is often assumed from outside to be simply what Pentecostals believe. The Assemblies of God's own 1980 statement and the 2010 Lausanne statement, itself shaped by evangelical leaders from the Majority World where prosperity teaching has spread fastest, show the critique is an internal one.",
+      "sources": [
+        {
+          "label": "The Believer and Positive Confession",
+          "citation": "Assemblies of God, 1980"
+        },
+        {
+          "label": "A Statement on the Prosperity Gospel",
+          "citation": "Lausanne Movement, 2010"
+        }
+      ],
+      "tradition_overrides": {
+        "pentecostal": {
+          "positions": [
+            "ethics.prosperity-teaching/covenant-right",
+            "ethics.prosperity-teaching/prosperity-denied"
+          ],
+          "hold": "Pentecostal bodies are divided: the classical denominations have formally rejected guaranteed-prosperity teaching, while a large independent charismatic constituency continues to hold it.",
+          "why": "The Assemblies of God addressed the question directly in 1980 and rejected the positive-confession formula, but the movement is only lightly confessional and its independent wing is not bound by that judgement.",
+          "vs": null,
+          "tier": "T1.5",
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The division is real and documented, and reporting either half alone would be false to what a Pentecostal reader meets in practice.",
+          "citation": "Assemblies of God, The Believer and Positive Confession (1980); Lausanne Movement, Statement on the Prosperity Gospel (2010)"
+        }
+      }
+    },
+    {
+      "id": "ethics.alcohol",
+      "node_title": "Alcohol",
+      "slug": "alcohol",
+      "domain": "ethics",
+      "order": 7,
+      "kind": "choice",
+      "question": "Does Scripture permit Christians to drink alcohol, or does faithfulness call for total abstinence?",
+      "framing": "Scripture commends wine as a gift of God in some places and warns against drunkenness in nearly every place it addresses the subject at all. The traditions differ over whether that pattern permits moderate use, with drunkenness alone condemned, or whether pastoral wisdom and, in some traditions, a positive testimony against alcohol's harms calls believers to abstain from it entirely.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes personal conduct and congregational culture without dividing communions on the gospel.",
+      "refs": "Ps 104:14-15; Prov 20:1; Eph 5:18; 1 Tim 5:23",
+      "links": [
+        "membership-and-discipline"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the weaker-brother principle in Romans and 1 Corinthians settles this as a matter of personal liberty and context, or whether the harm alcohol does calls for a positive testimony of total abstinence regardless.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "ethics.alcohol/moderation-permitted",
+          "label": "Moderation permitted",
+          "hold": "Scripture nowhere prohibits alcohol itself and repeatedly commends wine as a gift of God, so consumption in moderation is permitted while drunkenness is condemned as a sin.",
+          "why": "Wine is used in Scripture as an image of blessing and is present at the wedding at Cana and in the Lord's Supper itself, so the consistent target of biblical warning is drunkenness, not moderate use as such.",
+          "vs": "Treating any use of alcohol at all, rather than drunkenness specifically, as the sin Scripture warns against.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 104:14-15; John 2:1-10",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Wine is used in the Eucharist itself.",
+              "citation": "Catechism of the Catholic Church, 1334"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Wine is used in the Eucharist itself.",
+              "citation": "Longer Catechism of St Philaret of Moscow, on the Eucharist"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), Holy Communion rite"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Luther's Large Catechism, on the seventh petition of the Lord's Prayer"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Confession of Faith, ch. 21, on Christian liberty"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common evangelical teaching on Christian liberty, per Rom 14 and 1 Cor 8-10"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1334"
+            }
+          ]
+        },
+        {
+          "id": "ethics.alcohol/total-abstinence",
+          "label": "Total abstinence",
+          "hold": "Believers should abstain from alcohol entirely, both to avoid the harm drunkenness causes and, as a matter of positive testimony and care for the weaker brother, rather than relying on personal moderation to avoid it.",
+          "why": "Given the real and widespread harm alcohol does, this position holds that total abstinence better honors Scripture's repeated warnings against drunkenness and its call to avoid causing another believer to stumble than personal moderation does.",
+          "vs": "Treating moderate use of alcohol as a matter of Christian liberty rather than as something believers should abstain from as a matter of testimony and care for the weaker brother.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Prov 20:1; Rom 14:21",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article XV"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, position paper, Beverage Alcohol"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "historic",
+              "note": "Rooted in Wesley's own counsel and the nineteenth-century temperance movement the Methodist church helped lead; official Methodist bodies now commend rather than confessionally require abstinence.",
+              "citation": "The Book of Discipline, Social Principles, on alcohol and other drugs"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common settled practice among Churches of Christ congregations"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "2000, Article XV"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Baptist Faith and Message",
+          "citation": "2000, Article XV"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1334"
+        }
+      ]
+    },
+    {
+      "id": "ethics.church-and-the-public-square",
+      "node_title": "Church and the public square",
+      "slug": "church-and-the-public-square",
+      "domain": "ethics",
+      "order": 8,
+      "kind": "choice",
+      "question": "How should the church and individual Christians relate to civil government and political life?",
+      "framing": "Every tradition agrees Christ is Lord and that civil government has a real, if limited, place under God. They differ sharply over what follows: whether the church should be a separate people who abstain from wielding civil power, whether Christians serve faithfully within a temporal order distinct from the church's spiritual rule, whether Christ's lordship calls believers to actively engage and reform public life, or whether the church's calling is chiefly moral witness and works of mercy within a political order it does not seek to control.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes how a congregation understands civic engagement without dividing communions on the gospel.",
+      "refs": "Rom 13:1-7; John 18:36; Matt 5:13-16",
+      "links": [
+        "war-and-violence",
+        "church-government"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Christ's lordship over every sphere calls for active engagement and reform of public life or whether faithfulness calls the church to a more separate witness that leaves civil power to others.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "ethics.church-and-the-public-square/anabaptist-separatism",
+          "label": "Anabaptist separatism",
+          "hold": "The church constitutes a people whose citizenship is in heaven, called to abstain from holding civil office, wielding the sword of civil government, or seeking to control the state, and to bear witness instead through a visibly different community.",
+          "why": "Christ's kingdom is not of this world, and the sword, which civil government bears for its own limited purposes, does not belong among the means Christ gave his church, so the church's calling is to be a visible alternative community rather than to seek civil power.",
+          "vs": "Holding that Christians should seek civil office and use civil power to reform society, when this position holds that Christ's own kingdom advances by other means entirely.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 18:36; Matt 5:38-42",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Article VI"
+            },
+            {
+              "tradition": "quaker",
+              "stance": "confessional",
+              "note": "Historically diverse in practice: the Quaker peace testimony has sometimes meant refusing civil office and oaths and sometimes direct civic engagement, as in William Penn's Pennsylvania; the constant across both is refusal of the sword.",
+              "citation": "Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 15"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article VI"
+            }
+          ]
+        },
+        {
+          "id": "ethics.church-and-the-public-square/lutheran-two-kingdoms",
+          "label": "Lutheran two kingdoms",
+          "hold": "God rules through two distinct kingdoms, the spiritual kingdom of the church governed by the gospel and the temporal kingdom of civil government governed by law and the sword, and Christians may serve faithfully in both without collapsing one into the other.",
+          "why": "Scripture gives civil government real, God-ordained authority to restrain evil by the sword, distinct from the church's own spiritual authority to forgive sins and teach the gospel, and Christians serve God by faithfully occupying stations in both kingdoms.",
+          "vs": "Treating civil government's exercise of the sword as beyond a Christian's calling to serve in, when this position holds Scripture gives that temporal kingdom its own real, God-ordained authority.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 13:1-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession (1530), Article XVI"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVI"
+            }
+          ]
+        },
+        {
+          "id": "ethics.church-and-the-public-square/transformationalism",
+          "label": "Transformationalism",
+          "hold": "Christ's lordship extends over every sphere of life, including politics, so Christians are called to engage public life directly and work toward its reform under Christ's kingship, while each sphere, family, church and state among them, retains its own God-given, non-overlapping authority.",
+          "why": "There is not a square inch of the whole domain of human existence over which Christ does not claim sovereignty, so withdrawing from public life leaves a sphere Christ himself claims uncontested to other lordships.",
+          "vs": "Treating political engagement as outside the church's calling, or collapsing the state's authority into the church's, when this position holds each sphere retains its own God-given sovereignty even as Christ reigns over all of them.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Col 1:15-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Abraham Kuyper, Lectures on Calvinism (Stone Lectures, 1898)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Lectures on Calvinism",
+              "citation": "Abraham Kuyper, 1898"
+            }
+          ]
+        },
+        {
+          "id": "ethics.church-and-the-public-square/subsidiarity",
+          "label": "Subsidiarity",
+          "hold": "Political authority exists under natural law to serve the common good, and matters should be handled at the most local competent level, so the church engages the public square chiefly through moral witness, the formation of conscience and works of mercy rather than through seeking direct political control.",
+          "why": "A community of a higher order should not absorb the functions a community of a lower order can perform itself, so the state's role is to support, not replace, the family and the intermediate communities closer to a person's actual life, with the church forming the consciences that make just public life possible.",
+          "vs": "Holding that the church should engage public life chiefly by seeking to hold or directly reform civil power, rather than through the formation of conscience and the principle that higher authorities should not absorb what lower communities can rightly do themselves.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 13:1-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1883-1885, 1897-1904"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1883-1885, 1897-1904"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Lutheran and Anabaptist theology both use the phrase two kingdoms, but the two doctrines are not the same. Luther's two kingdoms describes God's single rule exercised through two distinct means, law and gospel, with Christians serving faithfully in both. Anabaptist two-kingdom language describes two separate peoples, the church and the world, with the church called to abstain from the sword altogether.",
+      "sources": [
+        {
+          "label": "Augsburg Confession",
+          "citation": "1530, Article XVI"
+        },
+        {
+          "label": "Schleitheim Confession",
+          "citation": "1527, Article VI"
+        },
+        {
+          "label": "Lectures on Calvinism",
+          "citation": "Abraham Kuyper, 1898"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1883-1885, 1897-1904"
+        }
+      ]
+    },
+    {
+      "id": "ethics.war-and-violence",
+      "node_title": "War and violence",
+      "slug": "war-and-violence",
+      "domain": "ethics",
+      "order": 9,
+      "kind": "choice",
+      "question": "May a Christian take up the sword in war, and on what terms, if any?",
+      "framing": "Every tradition agrees Christians must not use violence out of hatred or personal vengeance. They differ over whether the state's bearing of the sword extends to Christians serving as soldiers under carefully bounded conditions, whether Christ's own teaching and example instead close that door entirely, and historically, whether war fought at the church's own call carried a sanctity neither of those positions grants it.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: it bears on conscience and vocation without dividing communions on the gospel itself.",
+      "refs": "Matt 5:38-44; Rom 13:1-4; Luke 22:36",
+      "links": [
+        "church-and-the-public-square"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Romans 13's grant of the sword to civil government extends to a Christian's own hand in bearing it, or whether the Sermon on the Mount closes that door for the disciple regardless of what it grants the state.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "ethics.war-and-violence/just-war",
+          "label": "Just war tradition",
+          "hold": "War can be morally justified, and at times obligatory, when it meets criteria such as just cause, legitimate authority, right intention, last resort and proportionality, and Christians may serve as soldiers and bear the sword on the state's behalf.",
+          "why": "Civil government is given the sword by God to restrain evil and protect the innocent, and a Christian who serves within a just cause and legitimate authority exercises rather than abandons love of neighbor.",
+          "vs": "Holding that Christ's teaching closes the use of lethal force to Christians altogether, when this position holds Romans 13's grant of the sword to civil government extends to a Christian's own service within it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 13:1-4; Luke 3:14",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 2307-2317"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": null,
+              "citation": "The Basis of the Social Concept (Russian Orthodox Church, 2000), Section VIII"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 23.2"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession (1530), Article XVI"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion (1571), Article XXXVII"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), 24.2"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "The Articles of Religion (1784), Article XXIII"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, resolutions on just war"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Common settled practice among Churches of Christ congregations"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "The Assemblies of God's early history included a conscientious objection stance; most classical Pentecostal bodies have since moved toward just war reasoning alongside a continued allowance for objectors.",
+              "citation": "Assemblies of God, General Council position on military service"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "2307-2317"
+            }
+          ]
+        },
+        {
+          "id": "ethics.war-and-violence/christian-pacifism",
+          "label": "Christian pacifism",
+          "hold": "Christians are called to renounce the use of lethal violence altogether, including in war and in defense of the state, following Christ's own example and command to love enemies and to put away the sword.",
+          "why": "Christ himself refused the sword even to defend his own life and commanded his disciples to love their enemies rather than resist them by force, a command this position holds binds disciples in every circumstance rather than only in personal disputes.",
+          "vs": "Holding that Christians may serve as soldiers under a just cause and legitimate authority, when this position holds Christ's own command and example close the use of lethal force to his disciples altogether.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 5:38-44; Matt 26:52",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Article VI; Dordrecht Confession of Faith (1632)"
+            },
+            {
+              "tradition": "quaker",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 15; the Peace Testimony (1660)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article VI"
+            },
+            {
+              "label": "The Peace Testimony",
+              "citation": "1660"
+            }
+          ]
+        },
+        {
+          "id": "ethics.war-and-violence/crusade",
+          "label": "Crusade",
+          "hold": "War fought at the church's own call to defend or extend Christendom against its enemies carries its own sanctity, and those who take up arms in it are granted spiritual merit for doing so.",
+          "why": "Medieval crusading theology held that the church could itself authorize holy war as an act of penance and devotion, so that fighting under the church's own call differed in kind from an ordinary just war fought by civil authority alone.",
+          "vs": "Restricting legitimate warfare to what civil authority alone justly wages, when crusade theology held that the church's own call could itself sanctify war.",
+          "tier": null,
+          "confidence_default": "rejected",
+          "refs": "Luke 22:36",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Crusading theology, once taught by the medieval Western church and invoked to grant spiritual merit for holy war, is not confessed by any registered tradition today and is now widely regarded, including within Catholic scholarship, as a departure from both just war and pacifist readings of the New Testament's teaching on the sword.",
+          "held_by": [],
+          "learn_detail": "Pope Urban II's call at the Council of Clermont in 1095 is the classic instance; the position is included here as a historic position the church actually held, not as a live option any registered tradition confesses now.",
+          "sources": [
+            {
+              "label": "Jonathan Riley-Smith, The Crusades: A History",
+              "citation": "2005"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "2307-2317"
+        },
+        {
+          "label": "Schleitheim Confession",
+          "citation": "1527, Article VI"
+        }
+      ]
+    }
+  ]
+}
