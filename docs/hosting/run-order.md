@@ -47,6 +47,7 @@ nothing else unless its own plan section names the file.
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views | `phase-7-views` | Sonnet | `phase-7-brief.md` |
 | 15 | Phase 8 — version history and restore — **done** | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
+| 16 | Phase 9 — corpus sourcing verification | `phase-9-sourcing` | Opus main, Sonnet subagents **with web access** | `phase-9-corpus-sourcing-verification.md` |
 
 **Phase 5 (session 11) may run in parallel** with 7–10 once phase 4's schema is
 frozen — it produces content, not code.
@@ -55,6 +56,14 @@ frozen — it produces content, not code.
 wizard went live the same day, and phase 8 is the undo that insures against it.
 It needs only `map_versions`, live and verified since session 9. Run it as the
 next session on `phase-8-versions`; phases 5–7 keep their order behind it.
+
+**Phase 9 (session 16) is new, added 2026-08-24, and runs last.** Phase 5 built
+the corpus from model knowledge and retrieved no sources; the INC entries were
+checked afterwards against the real document and were wrong in both directions.
+Phase 9 verifies the rest, worst-risk first. It depends on phase 5 only, so it may
+be pulled ahead of 6 or 7 — but running it **after** phase 6 is better, because
+phase 6 is what makes a corpus correction cheap to propagate, and phase 9 is the
+first thing to test that.
 
 **Phase 8 (session 15) is last by convenience, not by dependency.** It needs only
 `map_versions`, which shipped and was verified in session 9, so it can run any
