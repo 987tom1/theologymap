@@ -58,6 +58,16 @@ worry. Everything else is sequential.
 
 ## Progress
 
+- **Thomas answered all six of session 10's questions on 2026-08-23**, and four
+  were actioned the same day (`decisions.md`, *after phase 4 session 10*):
+  outward source links now open in a new tab and save first, `Continuationism`
+  moved from `church.json` to a new `content/wizard/holy-spirit.json` to match
+  where his own map files it, design §4.8's worked example is corrected, and INC
+  stays third in the lens. **The corpus is now three domain files, not two.**
+  One answer binds the next content session: the seed has **no
+  `orthodoxy: "outside"` position**, and **phase 5 must exercise that branch
+  deliberately in its first domain** and say so in its outcome file.
+
 - **Session 10 (phase 4, Tasks 5–8) ran 2026-08-23 and is merged. Phase 4 is
   complete.** The wizard is live at `/wizard` (`web/wizard.html` +
   `web/wizard.js`, no new serverless function), the seed corpus is twelve

@@ -675,6 +675,13 @@ rewrite this phase added is `/wizard`.
 
 ## Questions for Thomas
 
+> **All six were answered on 2026-08-23** — see `decisions.md`,
+> *Amendments — 2026-08-23, after phase 4 session 10*. Four were actioned the same
+> day: outward source links (new tab, saved first), `Continuationism` moved to
+> `holy-spirit.json`, design §4.8 corrected, INC confirmed third. **The one that
+> lands on phase 5: the seed has no `outside` position, and phase 5 must exercise
+> that branch deliberately in its first domain.** The original questions follow.
+
 Session 9's three are still open and are repeated here so they are in one place:
 
 1. **Delete `zz-schema-check` from `/admin`.** The throwaway account session 9

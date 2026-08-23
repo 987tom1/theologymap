@@ -251,3 +251,48 @@ worth a phase of its own. Thomas: **yes — give it a phase.**
   map", under *Accounts and data*). Phase 8 is where "restore" stops being
   aspirational, so it covers the admin case too.
 
+## Amendments — 2026-08-23, after phase 4 session 10
+
+Thomas answered all six of session 10's questions. Locked calls; phases 5–8
+implement them and do not re-open them. Four were actioned in the same session
+and are marked **done**; the other two bind phase 5.
+
+- **The wizard links out to sources mid-wizard.** Design §5.3 left open whether
+  an external link mid-flow costs more momentum than it gains. It does not —
+  **with two conditions Thomas set**: the link opens in a new tab, and any
+  answer already chosen on that screen is **saved before the tab opens**. Both
+  shipped: every `sources` entry carrying a `url` renders as
+  `target="_blank" rel="noopener noreferrer"` and commits the pending answer on
+  click, and the explainer says so in place. A source with no `url` stays plain
+  text, never a dead link. **Done.**
+
+- **`Spiritual gifts today` moves to `# Holy Spirit` and is renamed
+  `Continuationism`.** It shipped in `church.json` because the plan listed it
+  among Church's six, but Thomas's own map files that material under
+  `# Holy Spirit` as `Continuationism · T2`, and compare is per-doctrine — a
+  doctrine only compares if both maps call it the same thing in the same
+  domain. Now `content/wizard/holy-spirit.json`, `id`
+  `holy-spirit.continuationism`, slug `continuationism`, `suggested_tier` T2 to
+  match his map. **Done.** Phase 5 inherits a `holy-spirit.json` with one
+  doctrine in it and fills the rest around it.
+
+- **Design §4.8's worked example is corrected, not just worked around.** As
+  written it put Lutherans under two baptism positions with no
+  `tradition_overrides` entry, so the example the plan tells every session to
+  copy verbatim failed validator rule 15. The Lutheran override is now in the
+  design document, with a note on what it demonstrates that the other two do
+  not: **a tradition can need an override without being divided.** **Done.**
+
+- **INC stays in the lens, third.** Confirmed, not merely accepted. No change.
+
+- **`zz-schema-check` is Thomas's to delete** and he has it in hand. No session
+  should touch it or re-raise it.
+
+- **A seed with no `orthodoxy: "outside"` position is acceptable.** Phase 4's
+  twelve doctrines honestly contain none, and inventing one is worse than
+  shipping the branch unexercised. **This becomes phase 5's job:** the
+  *Outside the historic creeds* treatment — the banner, the `orthodoxy_note`,
+  sorting last regardless of the lens — is built and reviewed but has never
+  rendered real content. **Phase 5 must exercise it deliberately in its first
+  domain and say in its outcome file that it did.** Do not assume it works
+  because it renders.

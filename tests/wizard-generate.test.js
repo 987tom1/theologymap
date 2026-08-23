@@ -124,9 +124,12 @@ const real = WG.loadCorpusSync('content/wizard');
 test('the real corpus loads, and Task 6 seeded it', () => {
   assert.strictEqual(real.manifest.domains.length, 14);
   assert.strictEqual(real.traditions.traditions.length, 14);
-  // Two domain files exist; the other twelve are phase 5's and loadCorpusSync
-  // tolerates their absence.
-  assert.deepStrictEqual(Object.keys(real.domains).sort(), ['church', 'scripture']);
+  // Three domain files exist; the other eleven are phase 5's and loadCorpusSync
+  // tolerates their absence. holy-spirit.json holds one doctrine on its own
+  // because Continuationism was moved out of church.json to sit where Thomas's
+  // map files it — see phase-4-outcome.md, Thomas's answers.
+  assert.deepStrictEqual(Object.keys(real.domains).sort(),
+    ['church', 'holy-spirit', 'scripture']);
   assert.strictEqual(WG.orderedDoctrines(real).length, 12);
   assert.ok(WG.nextDoctrine([], real), 'an empty map has a first question');
 });

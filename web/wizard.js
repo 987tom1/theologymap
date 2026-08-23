@@ -98,8 +98,17 @@ function sourceLine(src) {
   if (src.url) {
     const a = el('a', null, label);
     a.href = src.url;
+    // A new tab, always: reading a confession is a detour, not an exit, and
+    // this page holds an answer that has not been saved yet.
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
+    // Belt as well as braces. The new tab means the wizard is not navigated
+    // away from, so nothing is lost either way — but somebody who reads a
+    // source, closes the laptop and comes back tomorrow should find the answer
+    // they had already chosen sitting in their map. Fire-and-forget: following
+    // the link must never wait on a round trip, and commit() reports its own
+    // failures through the shared banner.
+    a.addEventListener('click', () => { if (chosen) commit(currentAnswer()); });
     p.appendChild(a);
   } else {
     p.textContent = label;
@@ -110,7 +119,13 @@ function sourceLine(src) {
 function explainer(note, sources) {
   const box = el('div', 'wz-answer');
   if (note) box.appendChild(el('p', 'wz-hint', note));
+  const linked = (sources || []).filter(s => s.url).length;
   for (const s of sources || []) box.appendChild(sourceLine(s));
+  if (linked) {
+    box.appendChild(el('p', 'wz-quiet',
+      'Sources open in a new tab, and anything answered on this screen is saved '
+      + 'before the tab opens.'));
+  }
   if (!box.childNodes.length) box.appendChild(el('p', 'wz-hint', 'No further notes on this one yet.'));
   return box;
 }

@@ -625,6 +625,17 @@ the source rather than trusting this example.
           "flags": [],
           "note": "This is genuinely a third position rather than a compromise: credobaptist in subject, regenerative in effect. It is why the two-axis framing in this doctrine matters.",
           "citation": "Acts 2:38 as read in Alexander Campbell, The Christian System (1839)"
+        },
+        "lutheran": {
+          "positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"],
+          "hold": "Baptism is administered to infants and converts alike, and it is the means through which God works forgiveness, delivers from death and gives eternal salvation.",
+          "why": "The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.",
+          "vs": null,
+          "tier": "T2",
+          "confidence": "confident",
+          "flags": [],
+          "note": "Lutherans appear under two positions here only because this doctrine splits who is baptised from what baptism does. Lutheran teaching does not hold them apart, and it is not a divided tradition on this question.",
+          "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"
         }
       },
       "learn_note": "The cleanest way to hold this doctrine in mind is as two questions: who is baptised, and what does baptism do. Most traditions answer both together, and the Restorationist stream is the standing proof that the answers are separable.",
@@ -641,7 +652,8 @@ the source rather than trusting this example.
 - The `framing` teaches the two axes before asking anything, and does not say which axis matters.
 - Every `hold` is a sentence its own holders would sign. None is a summary written by an opponent.
 - Every `vs` states the rival in the rival's own terms — "on the ground of the covenant promise", not "sprinkling babies".
-- Lutherans appear under **both** the covenantal-infant and the regeneration positions with a `note` saying why; Anglicans and Restorationists appear under two positions and therefore **require** an override. The schema forced all three to be handled rather than flattened.
+- Lutherans, Anglicans and Restorationists each appear under **two** positions and therefore each **require** an override — rule 15 fails the build otherwise. The schema forced all three to be handled rather than flattened.
+  - **Corrected 2026-08-23, after phase 4 session 10.** This example previously gave Lutherans a `note` on each position but no override, so the worked example the plan tells every session to copy verbatim **failed the validator it is written against**. The Lutheran override above is the fix. Note what it demonstrates, which the other two do not: a tradition can need an override without being divided. Lutheran teaching does not hold subject and effect apart — this doctrine's taxonomy splits them, and the override is where the tradition gets to say so in one sentence.
 - The `not-required` position is marked `contested`, not `outside`, with the reason stated and its holder named — included, not omitted, not presented as equivalent.
 - Every `held_by` carries a citation naming a document, and every `sources` entry is a document rather than a website in general.
 - `refs` are the texts actually argued over, and they include the ones the *other* side leans on.
