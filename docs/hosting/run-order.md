@@ -46,7 +46,7 @@ nothing else unless its own plan section names the file.
 | 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views | `phase-7-views` | Sonnet | `phase-7-brief.md` |
-| 15 | Phase 8 — version history and restore | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
+| 15 | Phase 8 — version history and restore — **done** | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
 
 **Phase 5 (session 11) may run in parallel** with 7–10 once phase 4's schema is
 frozen — it produces content, not code.
@@ -62,6 +62,19 @@ time after phase 4 — pull it forward if losing work to the wizard is a live
 worry. Everything else is sequential.
 
 ## Progress
+
+- **Session 15 (phase 8) ran 2026-08-23 and is merged.** `map_versions` has a
+  reader: `versions` and `restore` on `api/map.py` (self-service) and
+  `api/admin.py` (the locked admin power), an Earlier versions section on
+  `/app`'s map-home, and a matching per-row control on `/admin`. No schema
+  change, no new function. Verified end to end on production — the versions
+  list carries no `markdown`, a cross-user `restore` is refused, a full
+  save-A/save-B/restore-A round trip left B as a version, and a stale
+  `expected_updated_at` 409s. **Not verified: 20-row retention** — it needs 21
+  saves an hour apart, same gap phase 4 left. **Session 11 (phase 5) is next**,
+  on `phase-5-corpus`. Two throwaway accounts this session made for the
+  production probe, `zz-phase8-check` / `zz-phase8-check-2`, are still in the
+  gallery and need an admin PIN to remove — see `phase-8-outcome.md`.
 
 - **Thomas answered all six of session 10's questions on 2026-08-23**, and four
   were actioned the same day (`decisions.md`, *after phase 4 session 10*):
