@@ -1,0 +1,920 @@
+{
+  "schema_version": 1,
+  "domain": "scripture",
+  "doctrines": [
+    {
+      "id": "scripture.inerrancy",
+      "node_title": "Inerrancy",
+      "slug": "inerrancy",
+      "domain": "scripture",
+      "order": 1,
+      "kind": "choice",
+      "question": "How far does Scripture's truthfulness extend?",
+      "framing": "Everyone in this conversation holds that Scripture is true. The question is the range of that claim — whether it covers history and cosmology as well as faith and salvation, and what counts as an error in a text that speaks phenomenally and in ancient genres.",
+      "suggested_tier": "T1",
+      "tier_note": "Ortlund places the authority of Scripture at the first tier: it is the ground every other doctrine is argued from.",
+      "refs": "2 Tim 3:16-17; John 10:35",
+      "links": [
+        "canon",
+        "hermeneutic-method"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether inerrancy extends to history and science or only to what Scripture teaches for salvation, and what the phenomenal language of the Bible implies either way.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "scripture.inerrancy/full",
+          "label": "Full inerrancy",
+          "hold": "Scripture is without error in all that it affirms, including what it affirms about history and the created order.",
+          "why": "Scripture's self-attestation and Christ's own use of the Old Testament treat it as true in what it asserts, not only in what it teaches for salvation.",
+          "vs": "Limited infallibility — Scripture trustworthy on faith and salvation, errant on history and science.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17; John 10:35",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.4-1.5, 1.8"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article I"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "The Assemblies of God's Statement of Fundamental Truths affirms verbal inspiration and infallibility; 'inerrancy' as a term is more recent than the movement.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 2"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": "Confessed as trustworthy and authoritative rather than in the technical vocabulary of the Chicago Statement.",
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 4"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "Not confessionally bound, but the movement's founding appeal to 'the Bible alone' presumes a text without error in what it asserts.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": "Full inerrancy as codified at Chicago allows for phenomenal language, approximation, and topical rather than chronological arrangement; its defenders regard those as features of ordinary truthful speech rather than concessions.",
+          "sources": [
+            {
+              "label": "Chicago Statement on Biblical Inerrancy",
+              "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII",
+              "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"
+            }
+          ]
+        },
+        {
+          "id": "scripture.inerrancy/limited",
+          "label": "Limited infallibility",
+          "hold": "Scripture is wholly trustworthy and without error in what it teaches for faith and salvation, and speaks of history and the natural world in the terms of its own age without those terms being the point of the claim.",
+          "why": "The purpose for which God gave Scripture sets the range of the truthfulness claim; pressing that claim onto matters Scripture never intended to assert as such makes it answer questions it was not written to answer.",
+          "vs": "Full inerrancy — Scripture without error in all that it affirms, including matters of history and the created order.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "2 Tim 3:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "The Articles commend Scripture's sufficiency for salvation without adjudicating the modern inerrancy debate; the central and liberal-evangelical wings read this as latitude here.",
+              "citation": "Thirty-Nine Articles, VI, XX"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "permitted",
+              "note": "Wesley held Scripture as fully trustworthy for salvation; later Methodist bodies have not bound the tradition to a technical inerrancy formula.",
+              "citation": "Wesley's Explanatory Notes upon the New Testament (1755), Preface"
+            }
+          ],
+          "learn_detail": "This position is sometimes called 'infallibility' to distinguish it from 'inerrancy', though usage of the two terms varies across authors and the line between them is drawn differently by different writers.",
+          "sources": [
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 2 (commentary tradition on the phrase 'without error in all that it affirms')",
+              "url": "https://lausanne.org/covenant"
+            }
+          ]
+        },
+        {
+          "id": "scripture.inerrancy/instrument",
+          "label": "Infallible instrument, not a textbook claim",
+          "hold": "Scripture is God's authoritative and unfailing witness, and the question of inerrancy as framed by modern debates imports a standard of precision the text never claims for itself.",
+          "why": "Applying a post-Enlightenment standard of factual precision to an ancient set of documents risks judging Scripture by a bar its own authors were not writing to, and risks making a modern epistemological argument load-bearing for the doctrine of Scripture.",
+          "vs": "Full inerrancy — treating Scripture's truthfulness as extending, in the modern sense of factual precision, to every historical and scientific statement it contains.",
+          "tier": "T2",
+          "confidence_default": "leaning",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position remains within the creeds' affirmation of Scripture as the word of God, but it rejects the Chicago Statement's framing as the necessary test of fidelity to Scripture, which full-inerrancy holders regard as a serious concession.",
+          "held_by": [],
+          "learn_detail": "Associated with parts of the neo-orthodox and post-conservative evangelical streams; no tradition registered in this corpus confesses it as a formulary position, so it is included without a held_by entry rather than attached to a tradition it cannot be sourced to.",
+          "sources": [
+            {
+              "label": "G. C. Berkouwer, Studies in Dogmatics: Holy Scripture",
+              "citation": "Eerdmans, 1975, ch. 5",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "learn_note": "The Chicago Statement (1978) is the reference point for the full-inerrancy position in the English-speaking world; the Lausanne Covenant's phrase 'without error in all that it affirms' is the most widely shared wording across evangelicalism.",
+      "sources": [
+        {
+          "label": "Chicago Statement on Biblical Inerrancy",
+          "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII",
+          "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"
+        }
+      ]
+    },
+    {
+      "id": "scripture.canon",
+      "node_title": "Canon",
+      "slug": "canon",
+      "domain": "scripture",
+      "order": 2,
+      "kind": "settled",
+      "question": "Which books belong to Scripture, and on what basis?",
+      "framing": "Every historic communion confesses that the church received a fixed canon rather than choosing one, and the core of that canon — the four Gospels, the Pauline and general epistles, and the bulk of the Hebrew scriptures — has never been seriously disputed within the church. The real question that remains open is narrower: whether the deuterocanonical books belong inside the canon proper or are read for edification without being treated as Scripture, and what recognising a canon actually consisted of.",
+      "suggested_tier": "T1",
+      "tier_note": "Ortlund places the extent of the canon at the first tier: which books count is prior to any argument made from them.",
+      "refs": "2 Pet 3:15-16",
+      "links": [
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out what the church was doing when it recognised the canon, and whether the deuterocanonical books belong inside it or beside it.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "scripture.canon/protestant",
+          "label": "Sixty-six books",
+          "hold": "The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.",
+          "why": "Authority belongs to a book because of what it is — the word of God given through its human author — and the church's historic role was to recognise that authority already present, not to grant it.",
+          "vs": "Including the deuterocanonical books received by Rome and the East as part of the canon proper rather than as edifying but non-canonical writing.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 3:15-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.2-1.3"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), 1.2-1.3"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": "The Articles list the deuterocanonical books separately as read for example of life but not applied to establish doctrine.",
+              "citation": "Thirty-Nine Articles, VI"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article V"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            }
+          ],
+          "learn_detail": "The sixty-six-book canon was the settled position of the magisterial and radical Reformation alike; the dispute with Rome and the East is over the deuterocanon, not over any of the sixty-six.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.2-1.3",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            }
+          ]
+        },
+        {
+          "id": "scripture.canon/deuterocanon",
+          "label": "With deuterocanon",
+          "hold": "The canon includes the deuterocanonical books received by the church from the earliest centuries, read as Scripture in Christian worship long before the Reformation, and confirmed as canonical by ecumenical and local council.",
+          "why": "The books the church read as Scripture in its worship and drew doctrine from across the patristic period are the books the church holds as Scripture, and the sixteenth century is late to narrow a canon the church had already received.",
+          "vs": "Restricting the canon to the sixty-six books of the Hebrew canon plus the New Testament, treating the deuterocanonical books as edifying but not Scripture.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 3:15-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session IV (1546)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "The precise list of deuterocanonical books varies between Orthodox jurisdictions more than it does in Roman Catholicism; the Synod of Jerusalem's list is the most commonly cited.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 3"
+            }
+          ],
+          "learn_detail": "Rome closed the question conciliarly at Trent, partly in response to the Reformation; Orthodoxy has never issued a single equivalent conciliar list binding on every jurisdiction, though the Synod of Jerusalem's is widely received.",
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Session IV, Decree on Sacred Books (1546)",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "learn_note": "Framed as `settled` because the creedal core of the canon — the New Testament and the undisputed Hebrew scriptures — has never been a live dispute within the church; the open question is narrower and concerns the deuterocanonical books specifically.",
+      "sources": [
+        {
+          "label": "Council of Trent",
+          "citation": "Session IV (1546)",
+          "url": null
+        }
+      ]
+    },
+    {
+      "id": "scripture.sufficiency",
+      "node_title": "Sufficiency of Scripture",
+      "slug": "sufficiency-of-scripture",
+      "domain": "scripture",
+      "order": 3,
+      "kind": "choice",
+      "question": "Does Scripture alone contain everything necessary for faith and practice, or does it require another authoritative source alongside it?",
+      "framing": "Every tradition treats Scripture as authoritative. The disagreement is whether Scripture is sufficient on its own for faith and practice, or whether it operates alongside another authoritative source — sacred tradition, an ongoing teaching office, or continuing revelation through the Spirit — without which Scripture cannot be rightly read or is not itself complete.",
+      "suggested_tier": "T1",
+      "tier_note": "Ortlund places sufficiency at the first tier: it decides whether any claimed authority outside the text can bind the conscience alongside Scripture.",
+      "refs": "2 Tim 3:16-17; Heb 1:1-2; Rev 22:18-19",
+      "links": [
+        "clarity-of-scripture",
+        "the-lords-supper"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the case for sola scriptura holds against the claim that the canon itself presupposes an authoritative church to recognise it, and whether continuing revelation through prophecy can ever supplement rather than merely apply Scripture.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "scripture.sufficiency/sola-scriptura",
+          "label": "Scripture alone",
+          "hold": "Scripture is sufficient for faith and practice, and no tradition, teaching office or further revelation may be added to it as binding on the conscience.",
+          "why": "Scripture claims to equip the man of God for every good work, and a rule that requires an external supplement to be complete is not, by its own account, a sufficient rule.",
+          "vs": "Scripture read within and normed by sacred tradition, which holds that Scripture was never meant to be read or interpreted apart from the church that produced and transmitted it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17; Rev 22:18-19",
+          "equivalence_group": "sola-scriptura",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.6"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), 1.6"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, VI"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 2"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Held as the movement's founding plea — 'no creed but the Bible' — rather than as a proposition argued from a confession.",
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": "Wesley added the 'quadrilateral' of tradition, reason and experience as means of rightly reading Scripture, not as sources of binding doctrine alongside it.",
+              "citation": "Articles of Religion (1784), Article V"
+            }
+          ],
+          "learn_detail": "Sola scriptura is a claim about final authority, not a claim that tradition and reason are worthless as aids to reading; most of its confessional holders make extensive use of creeds and confessions as summaries of what Scripture teaches, while denying them independent binding authority.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.6, 1.10",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            }
+          ]
+        },
+        {
+          "id": "scripture.sufficiency/tradition",
+          "label": "Scripture within sacred tradition",
+          "hold": "Scripture is the highest written authority, and is transmitted, canonised and rightly interpreted within the living tradition and teaching authority of the church, which does not add to Scripture but safeguards its right reading.",
+          "why": "The canon itself was recognised by the church, and a text that could only be recognised by a prior authoritative body cannot coherently be read as sufficient apart from that body's ongoing role in interpreting it.",
+          "vs": "Scripture alone as the sole binding authority, which treats the church's role in recognising and transmitting the canon as merely historical rather than as an authority that continues.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Thess 2:15; John 21:25",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 80-82"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Orthodoxy resists framing Scripture and tradition as two separate sources, holding instead that Scripture is itself the highest expression of a single tradition.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+            }
+          ],
+          "learn_detail": "Rome and the East differ on how tradition develops and on the scope of a teaching office's authority to define doctrine, but agree that Scripture is not rightly read outside the church's tradition.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 80-83",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            }
+          ]
+        },
+        {
+          "id": "scripture.sufficiency/continuing-revelation",
+          "label": "Sufficient, with continuing revelation subordinate to it",
+          "hold": "Scripture is sufficient and closed as the final written rule of faith, and the Spirit's continuing gifts of prophecy and revelation operate under Scripture's authority to apply and illuminate it, never to add new doctrine to it.",
+          "why": "Scripture nowhere teaches that the gifts described in the New Testament ceased, and holding both a closed canon and continuing prophetic gifts requires only that the gifts be subordinate to, not additions to, the completed canon.",
+          "vs": "Restricting the Spirit's ongoing work to illumination of a text already given, which some continuationists read as narrower than the New Testament's own portrait of prophecy in the church.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 14:29; 1 Thess 5:19-21",
+          "equivalence_group": "sola-scriptura",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1, 7"
+            },
+            {
+              "tradition": "inc",
+              "stance": "majority",
+              "note": "Practice rather than confession; the INC Statement of Faith affirms the gifts of the Spirit without a developed statement on their relation to the closed canon.",
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": "This position is functionally sola scriptura with a continuationist account of the gifts; it is marked as a distinct position because holders of the cessationist form of sola scriptura frequently read it as compromising sufficiency, which its own adherents deny.",
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "1916, revised, Article 7 (Baptism in the Holy Spirit)",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Sufficiency and clarity are closely related but distinct: sufficiency asks whether Scripture needs another authoritative source alongside it; clarity asks whether Scripture, once granted sufficient, can be understood by the ordinary reader without a specially authorised interpreter.",
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 1.6",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
+        }
+      ]
+    },
+    {
+      "id": "scripture.clarity",
+      "node_title": "Clarity of Scripture",
+      "slug": "clarity-of-scripture",
+      "domain": "scripture",
+      "order": 4,
+      "kind": "choice",
+      "question": "Can Scripture's central message be understood by an ordinary reader, or does rightly understanding it require a specially authorised interpreter?",
+      "framing": "Nobody disputes that some passages of Scripture are hard. The disagreement is whether the things necessary for salvation are set down plainly enough, in some part of Scripture or another, that an ordinary reader using ordinary means can understand them without an authorised teaching office or an anointed interpreter standing between the reader and the text.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Ortlund tiers clarity below the first-order doctrines: it concerns how Scripture is read rather than what Scripture teaches, but it shapes whether lay reading of Scripture is treated as reliable.",
+      "refs": "Ps 119:105; Ps 19:7-8",
+      "links": [
+        "hermeneutic-method"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how the clarity of the gospel's central claims squares with the genuine difficulty of many individual passages, and what role trained teaching plays without becoming a requirement for basic understanding.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "scripture.clarity/perspicuity",
+          "label": "Clarity of Scripture",
+          "hold": "The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.",
+          "why": "A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.",
+          "vs": "Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 119:105; 2 Tim 3:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.7"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), 1.7"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, VI"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Preface"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Central to the movement's plea that ordinary readers, without creed or clergy, can read the New Testament and see the pattern of the early church plainly.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wesley's Standard Sermons, Preface"
+            }
+          ],
+          "learn_detail": "Perspicuity is a claim about the things necessary for salvation, not a claim that every passage is equally plain; the Westminster Confession itself notes that some passages are not alike plain to all.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.7",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            }
+          ]
+        },
+        {
+          "id": "scripture.clarity/magisterium",
+          "label": "Authoritative interpretation required",
+          "hold": "Scripture's meaning is safeguarded and authoritatively set forth through the church's teaching office, so that private reading is a genuine good but not a sufficient guarantee of rightly understanding what Scripture teaches.",
+          "why": "Scripture itself records serious disagreement among readers acting in good faith, and a text important enough to define salvation is one whose interpretation the church cannot leave to private judgment alone.",
+          "vs": "Treating personal or private reading as sufficient on its own to establish doctrine, without reference to the church's authoritative interpretation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 1:20; 2 Pet 3:16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 85-87"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Orthodoxy grounds right reading in the mind of the church as expressed through the councils and the received tradition of interpretation, rather than in a single defined teaching office.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+            }
+          ],
+          "learn_detail": "Rome locates this authority in the magisterium as a distinct office; Orthodoxy locates it more diffusely in the conciliar and patristic consensus, which its own theologians describe as a difference of structure rather than of principle.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 85-87",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 1.7",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
+        }
+      ]
+    },
+    {
+      "id": "scripture.hermeneutic-method",
+      "node_title": "Hermeneutic method",
+      "slug": "hermeneutic-method",
+      "domain": "scripture",
+      "order": 5,
+      "kind": "choice",
+      "question": "What governs how a passage of Scripture is read for its meaning?",
+      "framing": "Every reader of Scripture uses some method, whether named or not. The live disagreement is over what governs meaning: the author's intent as expressed through the grammar, genre and historical context of the passage, or a reading that treats the text as bearing a further sense — allegorical, typological or spiritual — beyond or alongside the literal sense the author intended.",
+      "suggested_tier": "T2",
+      "tier_note": "Ortlund tiers hermeneutic method at the second tier: it does not itself settle a doctrine, but it governs how every other doctrine is argued from the text.",
+      "refs": null,
+      "links": [
+        "women-in-ministry"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Look into different explicit hermeneutic approaches — grammatical-historical, allegorical, typological, and charismatic or 'rhema' reading — and work out where each is a legitimate tool and where each becomes a licence to detach a text from its context.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "scripture.hermeneutic-method/grammatical-historical",
+          "label": "Grammatical-historical",
+          "hold": "Authorial intent, grammar, genre and historical context govern a passage's meaning, and application follows from that meaning rather than substituting for it.",
+          "why": "God communicated through human authors writing in real languages to real audiences, and honouring that communication means reading a text the way its author meant it, rather than importing a later sense onto it.",
+          "vs": "Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": "grammatical-historical",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.9"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article I"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 4"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Central to the movement's method, which sought to read the New Testament as a plain historical pattern rather than through inherited creedal categories.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": "Grammatical-historical method does not itself forbid recognising typology where the New Testament authors explicitly identify it; the dispute is over reading types and allegories into a text the New Testament does not identify as such.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.9",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            }
+          ]
+        },
+        {
+          "id": "scripture.hermeneutic-method/theological-tradition",
+          "label": "Reading within the church's tradition",
+          "hold": "Scripture is read in continuity with the church's received tradition of interpretation, including a legitimate use of typological and allegorical reading where the historic church has consistently used it, alongside attention to the literal sense.",
+          "why": "The literal sense is foundational, but the church fathers and the liturgical tradition read many texts typologically in ways later ages have found spiritually fruitful and doctrinally sound, and abandoning that reading in favour of a purely literal method discards a genuine mode of scriptural meaning.",
+          "vs": "Restricting legitimate meaning to what grammatical-historical method alone can establish, setting aside a use of typology and allegory the historic church regarded as a real, secondary sense of the text.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 115-119"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Longer Catechism of St Philaret of Moscow (1830)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "The Homilies commend plain reading while the liturgical tradition retains typological reading of the Old Testament in the lectionary; both wings of the tradition draw on this.",
+              "citation": "The Books of Homilies (1547, 1571)"
+            }
+          ],
+          "learn_detail": "The Catechism's 'four senses' framework — literal, allegorical, moral and anagogical — treats the literal sense as the foundation of the other three rather than as a rival to them.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 115-119",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            }
+          ]
+        },
+        {
+          "id": "scripture.hermeneutic-method/spirit-led",
+          "label": "Spirit-illumined reading",
+          "hold": "Grammatical-historical method establishes a passage's meaning, and the Holy Spirit illumines the reader to grasp and apply that meaning with immediacy and personal conviction, particularly in prayerful and corporate reading.",
+          "why": "Scripture teaches that the natural mind cannot receive the things of the Spirit, so understanding Scripture rightly requires the Spirit's illumination alongside sound method, not method as a self-sufficient substitute for it.",
+          "vs": "Treating grammatical-historical method as sufficient on its own without reference to the Spirit's role in illuminating a reader's grasp of the text.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 2:14",
+          "equivalence_group": "grammatical-historical",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
+            },
+            {
+              "tradition": "inc",
+              "stance": "majority",
+              "note": "Practice rather than confession; no published INC statement develops a distinct hermeneutic beyond a general affirmation of Scripture's authority.",
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": "This position is grouped with grammatical-historical method as substantively the same account of meaning, adding a doctrine of illumination that most grammatical-historical holders would also affirm rather than dispute; some charismatic teaching pushes further toward reading a text's application as itself a fresh 'rhema' word, which is a distinct and more contested claim.",
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "1916, revised, Article 1",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The wording 'rhema' is used by some charismatic teachers for a word from Scripture applied with immediate personal force; where that usage shades into treating the application itself as a fresh revelation additional to the text, it moves from this doctrine into the sufficiency-of-Scripture question above.",
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 1.9",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
+        }
+      ]
+    },
+    {
+      "id": "scripture.translations",
+      "node_title": "Translations",
+      "slug": "translations",
+      "domain": "scripture",
+      "order": 6,
+      "kind": "choice",
+      "question": "Is any single translation of Scripture uniquely authoritative, or are multiple translations legitimate?",
+      "framing": "Scripture was given in Hebrew, Aramaic and Greek, and every reader outside those languages depends on translation. The disagreement is narrow but sharp: whether a particular translation holds unique authority such that others are illegitimate, or whether formal and dynamic translations alike are legitimate tools, each suited to different uses, so long as they are made from the original languages.",
+      "suggested_tier": "T3",
+      "tier_note": "Ortlund tiers translation choice at the third tier: it affects daily practice and can divide a congregation, but it is a question about the vehicle of the text, not about a doctrine the text teaches.",
+      "refs": null,
+      "links": [
+        "canon"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Investigate the manuscript traditions and textual bases behind the major translation families to understand what is actually at stake in choosing between them.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "scripture.translations/multiple-legitimate",
+          "label": "Multiple legitimate translations",
+          "hold": "Formal and dynamic translations made from the original languages are both legitimate, no version is uniquely authorised, and a translation's suitability depends on its purpose, from close study to public reading to paraphrase.",
+          "why": "Inspiration attaches to the original-language texts, not to any one translation of them, so faithfulness in translating from those texts is what makes a version legitimate, not adherence to a particular English rendering.",
+          "vs": "Holding one translation as uniquely authoritative such that other faithful translations from the original languages are treated as illegitimate.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.8"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article I"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thirty-Nine Articles, XXIV"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article V"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "majority",
+              "note": "The Catholic Church commends approved translations made from the original languages for liturgical and study use, without holding any one uniquely authoritative in the way some fundamentalist Protestants hold the King James Version.",
+              "citation": "Catechism of the Catholic Church, 131-133"
+            }
+          ],
+          "learn_detail": "The Westminster Confession's own provision that Scripture is to be translated into the vulgar language of every nation presupposes a plurality of legitimate translations rather than a single authorised one.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.8",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            }
+          ]
+        },
+        {
+          "id": "scripture.translations/kjv-only",
+          "label": "King James Version only",
+          "hold": "The King James Version is the uniquely authoritative English translation of Scripture, and other English translations, particularly those made from a different underlying Greek text, are not to be treated as equally trustworthy.",
+          "why": "The King James Version rests on a textual tradition its defenders regard as the providentially preserved text of the church, in contrast to a modern critical Greek text they regard as unreliably reconstructed.",
+          "vs": "Treating multiple translations made from the original languages as equally legitimate, including those based on a different critical Greek text than the King James Version's underlying text.",
+          "tier": "T2",
+          "confidence_default": "leaning",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position remains within the creeds and disputes no article of the historic faith directly, but its claim that one seventeenth-century English translation is uniquely authoritative is a minority position within Baptist and Anglican churches, held by some of their number and rejected by most.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "A self-identified minority stream within independent and fundamentalist Baptist churches, distinct from the Baptist Faith and Message's own general commendation of faithful translation.",
+              "citation": "Peter Ruckman, The Christian's Handbook of Manuscript Evidence (1970)"
+            }
+          ],
+          "learn_detail": "King-James-onlyism is distinct from a preference for the King James Version's language or from confidence in the Byzantine or Majority Text tradition it largely follows; it is specifically the claim that the 1611/1769 English translation itself is uniquely authoritative.",
+          "sources": [
+            {
+              "label": "Peter Ruckman, The Christian's Handbook of Manuscript Evidence",
+              "citation": "Bible Baptist Bookstore, 1970",
+              "url": null
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "baptist": {
+          "positions": [
+            "scripture.translations/multiple-legitimate",
+            "scripture.translations/kjv-only"
+          ],
+          "hold": "Formal and dynamic translations made from the original languages are legitimate, and a self-identified King-James-only minority holds the King James Version as uniquely authoritative instead.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Baptist churches are confessional but not creedally bound on translation choice; the Baptist Faith and Message commends faithful translation generally, and King-James-onlyism survives as a real, self-identified minority stream within independent and fundamentalist Baptist churches rather than as a party-wide position.",
+          "citation": "Baptist Faith and Message (2000), Article I; Peter Ruckman, The Christian's Handbook of Manuscript Evidence (1970)"
+        }
+      },
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 1.8",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
+        }
+      ]
+    }
+  ]
+}
