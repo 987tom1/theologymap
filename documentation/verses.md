@@ -486,6 +486,145 @@ These Jews were more open-minded than those in Thessalonica, for they eagerly re
 ## Rom 3:28
 For we consider that a person is declared righteous by faith apart from the works of the law.
 
+## 2 Tim 3:15
+and how from infancy you have known the holy writings, which are able to give you wisdom for salvation through faith in Christ Jesus.
+
+## 2 Pet 3:15-16
+15 And regard the patience of our Lord as salvation, just as also our dear brother Paul wrote to you, according to the wisdom given to him, 16 speaking of these things in all his letters. Some things in these letters are hard to understand, things the ignorant and unstable twist to their own destruction, as they also do to the rest of the scriptures.
+
+## 2 Thess 2:15
+Therefore, brothers and sisters, stand firm and hold on to the traditions that we taught you, whether by speech or by letter.
+
+## John 21:25
+There are many other things that Jesus did. If every one of them were written down, I suppose the whole world would not have room for the books that would be written.
+
+## 1 Thess 5:19-21
+19 Do not extinguish the Spirit. 20 Do not treat prophecies with contempt. 21 But examine all things; hold fast to what is good.
+
+## 2 Pet 1:20
+Above all, you do well if you recognize this: No prophecy of scripture ever comes about by the prophet’s own imagination,
+
+## 2 Pet 3:16
+speaking of these things in all his letters. Some things in these letters are hard to understand, things the ignorant and unstable twist to their own destruction, as they also do to the rest of the scriptures.
+
+## 1 Cor 2:14
+The unbeliever does not receive the things of the Spirit of God, for they are foolishness to him. And he cannot understand them, because they are spiritually discerned.
+
+## 1 Tim 2:11-14
+11 A woman must learn quietly with all submissiveness. 12 But I do not allow a woman to teach or exercise authority over a man. She must remain quiet. 13 For Adam was formed first and then Eve. 14 And Adam was not deceived, but the woman, because she was fully deceived, fell into transgression.
+
+## 1 Cor 14:33-35
+33 for God is not characterized by disorder but by peace.As in all the churches of the saints, 34 the women should be silent in the churches, for they are not permitted to speak. Rather, let them be in submission, as in fact the law says. 35 If they want to find out about something, they should ask their husbands at home, because it is disgraceful for a woman to speak in church.
+
+## Rom 16:1-7
+1 Now I commend to you our sister Phoebe, who is a servant of the church in Cenchrea, 2 so that you may welcome her in the Lord in a way worthy of the saints and provide her with whatever help she may need from you, for she has been a great help to many, including me. 3 Greet Prisca and Aquila, my fellow workers in Christ Jesus, 4 who risked their own necks for my life. Not only I, but all the churches of the Gentiles are grateful to them. 5 Also greet the church in their house. Greet my dear friend Epenetus, who was the first convert to Christ in the province of Asia. 6 Greet Mary, who has worked very hard for you. 7 Greet Andronicus and Junia, my compatriots and my fellow prisoners. They are well known to the apostles, and they were in Christ before me.
+
+## 1 Tim 3:1-7
+1 This saying is trustworthy: “If someone aspires to the office of overseer, he desires a good work.” 2 The overseer then must be above reproach, the husband of one wife, temperate, self-controlled, respectable, hospitable, an able teacher, 3 not a drunkard, not violent, but gentle, not contentious, free from the love of money. 4 He must manage his own household well and keep his children in control without losing his dignity. 5 But if someone does not know how to manage his own household, how will he care for the church of God? 6 He must not be a recent convert, or he may become arrogant and fall into the punishment that the devil will exact. 7 And he must be well thought of by those outside the faith, so that he may not fall into disgrace and be caught by the devil’s trap.
+
+## Titus 1:5-9
+5 The reason I left you in Crete was to set in order the remaining matters and to appoint elders in every town, as I directed you. 6 An elder must be blameless, the husband of one wife, with faithful children who cannot be charged with dissipation or rebellion. 7 For the overseer must be blameless as one entrusted with God’s work, not arrogant, not prone to anger, not a drunkard, not violent, not greedy for gain. 8 Instead he must be hospitable, devoted to what is good, sensible, upright, devout, and self-controlled. 9 He must hold firmly to the faithful message as it has been taught, so that he will be able to give exhortation in such healthy teaching and correct those who speak against it.
+
+## Acts 2:17-18
+17 ‘And in the last days it will be,’ God says,‘that I will pour out my Spirit on all people, and your sons and your daughters will prophesy,and your young men will see visions,and your old men will dream dreams. 18 Even on my servants, both men and women,I will pour out my Spirit in those days, and they will prophesy.
+
+## Acts 15:1-29
+1 Now some men came down from Judea and began to teach the brothers, “Unless you are circumcised according to the custom of Moses, you cannot be saved.” 2 When Paul and Barnabas had a major argument and debate with them, the church appointed Paul and Barnabas and some others from among them to go up to meet with the apostles and elders in Jerusalem about this point of disagreement. 3 So they were sent on their way by the church, and as they passed through both Phoenicia and Samaria, they were relating at length the conversion of the Gentiles and bringing great joy to all the brothers. 4 When they arrived in Jerusalem, they were received by the church and the apostles and the elders, and they reported all the things God had done with them. 5 But some from the religious party of the Pharisees who had believed stood up and said, “It is necessary to circumcise the Gentiles and to order them to observe the law of Moses.” 6 Both the apostles and the elders met together to deliberate about this matter. 7 After there had been much debate, Peter stood up and said to them, “Brothers, you know that some time ago God chose me to preach to the Gentiles so they would hear the message of the gospel and believe. 8 And God, who knows the heart, has testified to them by giving them the Holy Spirit just as he did to us, 9 and he made no distinction between them and us, cleansing their hearts by faith. 10 So now why are you putting God to the test by placing on the neck of the disciples a yoke that neither our ancestors nor we have been able to bear? 11 On the contrary, we believe that we are saved through the grace of the Lord Jesus, in the same way as they are.” 12 The whole group kept quiet and listened to Barnabas and Paul while they explained all the miraculous signs and wonders God had done among the Gentiles through them. 13 After they stopped speaking, James replied, “Brothers, listen to me. 14 Simeon has explained how God first concerned himself to select from among the Gentiles a people for his name. 15 The words of the prophets agree with this, as it is written, 16 ‘After this I will return,and I will rebuild the fallen tent of David;I will rebuild its ruins and restore it, 17 so that the rest of humanity may seek the Lord,namely, all the Gentiles I have called to be my own,’ says the Lord, who makes these things 18 known from long ago. 19 “Therefore I conclude that we should not cause extra difficulty for those among the Gentiles who are turning to God, 20 but that we should write them a letter telling them to abstain from things defiled by idols and from sexual immorality and from what has been strangled and from blood. 21 For Moses has had those who proclaim him in every town from ancient times, because he is read aloud in the synagogues every Sabbath.” 22 Then the apostles and elders, with the whole church, decided to send men chosen from among them, Judas called Barsabbas and Silas, leaders among the brothers, to Antioch with Paul and Barnabas. 23 They sent this letter with them: From the apostles and elders, your brothers, to the Gentile brothers and sisters in Antioch, Syria, and Cilicia, greetings! 24 Since we have heard that some have gone out from among us with no orders from us and have confused you, upsetting your minds by what they said, 25 we have unanimously decided to choose men to send to you along with our dear friends Barnabas and Paul, 26 who have risked their lives for the name of our Lord Jesus Christ. 27 Therefore we are sending Judas and Silas who will tell you these things themselves in person. 28 For it seemed best to the Holy Spirit and to us not to place any greater burden on you than these necessary rules: 29 that you abstain from meat that has been sacrificed to idols and from blood and from what has been strangled and from sexual immorality. If you keep yourselves from doing these things, you will do well. Farewell.
+
+## Acts 20:17-28
+17 From Miletus he sent a message to Ephesus, telling the elders of the church to come to him. 18 When they arrived, he said to them, “You yourselves know how I lived the whole time I was with you, from the first day I set foot in the province of Asia, 19 serving the Lord with all humility and with tears, and with the trials that happened to me because of the plots of the Jews. 20 You know that I did not hold back from proclaiming to you anything that would be helpful, and from teaching you publicly and from house to house, 21 testifying to both Jews and Greeks about repentance toward God and faith in our Lord Jesus. 22 And now, compelled by the Spirit, I am going to Jerusalem without knowing what will happen to me there, 23 except that the Holy Spirit warns me in town after town that imprisonment and persecutions are waiting for me. 24 But I do not consider my life worth anything to myself, so that I may finish my task and the ministry that I received from the Lord Jesus, to testify to the good news of God’s grace. 25 “And now I know that none of you among whom I went around proclaiming the kingdom will see me again. 26 Therefore I declare to you today that I am innocent of the blood of you all. 27 For I did not hold back from announcing to you the whole purpose of God. 28 Watch out for yourselves and for all the flock of which the Holy Spirit has made you overseers, to shepherd the church of God that he obtained with the blood of his own Son.
+
+## Titus 1:5
+The reason I left you in Crete was to set in order the remaining matters and to appoint elders in every town, as I directed you.
+
+## 1 Tim 5:22
+Do not lay hands on anyone hastily and so identify with the sins of others. Keep yourself pure.
+
+## Acts 20:17
+From Miletus he sent a message to Ephesus, telling the elders of the church to come to him.
+
+## 1 Tim 4:14
+Do not neglect the spiritual gift you have, given to you and confirmed by prophetic words when the elders laid hands on you.
+
+## 1 Cor 5:1-5
+1 It is actually reported that sexual immorality exists among you, the kind of immorality that is not permitted even among the Gentiles, so that someone is cohabiting with his father’s wife. 2 And you are proud! Shouldn’t you have been deeply sorrowful instead and removed the one who did this from among you? 3 For even though I am absent physically, I am present in spirit. And I have already judged the one who did this, just as though I were present. 4 When you gather together in the name of our Lord Jesus, and I am with you in spirit, along with the power of our Lord Jesus, 5 hand this man over to Satan for the destruction of the flesh, so that his spirit may be saved in the day of the Lord.
+
+## 1 Pet 5:1-4
+1 So as your fellow elder and a witness of Christ’s sufferings and as one who shares in the glory that will be revealed, I urge the elders among you: 2 Give a shepherd’s care to God’s flock among you, exercising oversight not merely as a duty but willingly under God’s direction, not for shameful profit but eagerly. 3 And do not lord it over those entrusted to you, but be examples to the flock. 4 Then when the Chief Shepherd appears, you will receive the crown of glory that never fades away.
+
+## Acts 2:38-39
+38 Peter said to them, “Repent, and each one of you be baptized in the name of Jesus Christ for the forgiveness of your sins, and you will receive the gift of the Holy Spirit. 39 For the promise is for you and your children, and for all who are far away, as many as the Lord our God will call to himself.”
+
+## Col 2:11-12
+11 In him you also were circumcised—not, however, with a circumcision performed by human hands, but by the removal of the fleshly body, that is, through the circumcision done by Christ. 12 Having been buried with him in baptism, you also have been raised with him through your faith in the power of God who raised him from the dead.
+
+## Acts 8:36-38
+36 Now as they were going along the road, they came to some water, and the eunuch said, “Look, there is water! What is to stop me from being baptized?” 38 So he ordered the chariot to stop, and both Philip and the eunuch went down into the water, and Philip baptized him.
+
+## Rom 6:3-4
+3 Or do you not know that as many as were baptized into Christ Jesus were baptized into his death? 4 Therefore we have been buried with him through baptism into death, in order that just as Christ was raised from the dead through the glory of the Father, so we too may live a new life.
+
+## Gen 17:7
+I will confirm my covenant as a perpetual covenant between me and you. It will extend to your descendants after you throughout their generations. I will be your God and the God of your descendants after you.
+
+## John 3:5
+Jesus answered, “I tell you the solemn truth, unless a person is born of water and spirit, he cannot enter the kingdom of God.
+
+## Acts 22:16
+And now what are you waiting for? Get up, be baptized, and have your sins washed away, calling on his name.’
+
+## Eph 4:5
+one Lord, one faith, one baptism,
+
+## 1 Cor 12:13
+For in one Spirit we were all baptized into one body. Whether Jews or Greeks or slaves or free, we were all made to drink of the one Spirit.
+
+## John 6:53-58
+53 Jesus said to them, “I tell you the solemn truth, unless you eat the flesh of the Son of Man and drink his blood, you have no life in yourselves. 54 The one who eats my flesh and drinks my blood has eternal life, and I will raise him up on the last day. 55 For my flesh is true food, and my blood is true drink. 56 The one who eats my flesh and drinks my blood resides in me, and I in him. 57 Just as the living Father sent me, and I live because of the Father, so the one who consumes me will live because of me. 58 This is the bread that came down from heaven; it is not like the bread your ancestors ate, but then later died. The one who eats this bread will live forever.”
+
+## Luke 22:19-20
+19 Then he took bread, and after giving thanks he broke it and gave it to them, saying, “This is my body which is given for you. Do this in remembrance of me.” 20 And in the same way he took the cup after they had eaten, saying, “This cup that is poured out for you is the new covenant in my blood.
+
+## 1 Cor 11:27-29
+27 For this reason, whoever eats the bread or drinks the cup of the Lord in an unworthy manner will be guilty of the body and blood of the Lord. 28 A person should examine himself first, and in this way let him eat the bread and drink of the cup. 29 For the one who eats and drinks without careful regard for the body eats and drinks judgment against himself.
+
+## Matt 26:26-28
+26 While they were eating, Jesus took bread, and after giving thanks he broke it, gave it to his disciples, and said, “Take, eat, this is my body.” 27 And after taking the cup and giving thanks, he gave it to them, saying, “Drink from it, all of you, 28 for this is my blood, the blood of the covenant, that is poured out for many for the forgiveness of sins.
+
+## John 6:63
+The Spirit is the one who gives life; human nature is of no help! The words that I have spoken to you are spirit and are life.
+
+## Luke 22:19
+Then he took bread, and after giving thanks he broke it and gave it to them, saying, “This is my body which is given for you. Do this in remembrance of me.”
+
+## 1 Cor 5:1-13
+1 It is actually reported that sexual immorality exists among you, the kind of immorality that is not permitted even among the Gentiles, so that someone is cohabiting with his father’s wife. 2 And you are proud! Shouldn’t you have been deeply sorrowful instead and removed the one who did this from among you? 3 For even though I am absent physically, I am present in spirit. And I have already judged the one who did this, just as though I were present. 4 When you gather together in the name of our Lord Jesus, and I am with you in spirit, along with the power of our Lord Jesus, 5 hand this man over to Satan for the destruction of the flesh, so that his spirit may be saved in the day of the Lord. 6 Your boasting is not good. Don’t you know that a little yeast affects the whole batch of dough? 7 Clean out the old yeast so that you may be a new batch of dough—you are, in fact, without yeast. For Christ, our Passover lamb, has been sacrificed. 8 So then, let us celebrate the festival, not with the old yeast, the yeast of vice and evil, but with the bread without yeast, the bread of sincerity and truth. 9 I wrote you in my letter not to associate with sexually immoral people. 10 In no way did I mean the immoral people of this world, or the greedy and swindlers and idolaters, since you would then have to go out of the world. 11 But now I am writing to you not to associate with anyone who calls himself a Christian who is sexually immoral, or greedy, or an idolater, or verbally abusive, or a drunkard, or a swindler. Do not even eat with such a person. 12 For what do I have to do with judging those outside? Are you not to judge those inside? 13 But God will judge those outside. Remove the evil person from among you.
+
+## Acts 2:41-42
+41 So those who accepted his message were baptized, and that day about 3,000 people were added. 42 They were devoting themselves to the apostles’ teaching and to fellowship, to the breaking of bread and to prayer.
+
+## 1 Cor 13:8-10
+8 Love never ends. But if there are prophecies, they will be set aside; if there are tongues, they will cease; if there is knowledge, it will be set aside. 9 For we know in part, and we prophesy in part, 10 but when what is perfect comes, the partial will be set aside.
+
+## Acts 2:1-4
+1 Now when the day of Pentecost had come, they were all together in one place. 2 Suddenly a sound like a violent wind blowing came from heaven and filled the entire house where they were sitting. 3 And tongues spreading out like a fire appeared to them and came to rest on each one of them. 4 All of them were filled with the Holy Spirit, and they began to speak in other languages as the Spirit enabled them.
+
+## Heb 2:3-4
+3 how will we escape if we neglect such a great salvation? It was first communicated through the Lord and was confirmed to us by those who heard him, 4 while God confirmed their witness with signs and wonders and various miracles and gifts of the Holy Spirit distributed according to his will.
+
+## Eph 2:20
+because you have been built on the foundation of the apostles and prophets, with Christ Jesus himself as the cornerstone.
+
+## 1 Cor 14:1
+Pursue love and be eager for the spiritual gifts, especially that you may prophesy.
+
+<!-- ======================================================================
+     New references — auto-added by render.py as empty stubs below.
+     Fill in the NET wording above the marker (or leave a stub blank);
+     nothing under this comment is ever reordered or overwritten by a
+     future run once you've given it text.
+     ====================================================================== -->
+
 <!-- ======================================================================
      New references — auto-added by render.py as empty stubs below.
      Fill in the NET wording above the marker (or leave a stub blank);
