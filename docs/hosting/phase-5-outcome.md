@@ -340,3 +340,74 @@ pass against. Clear `tests/out/` before trusting the two together.
 - **The two throwaway accounts from phase 8** (`zz-phase8-check`,
   `zz-phase8-check-2`) and phase 9's `zz-schema-check` are still in the gallery and
   still need an admin PIN to remove. Nothing in this phase could clear them.
+
+---
+
+## Amendment — 2026-08-24: the INC entries were not sourced, and are now
+
+Thomas asked whether the INC positions came from
+<https://www.inc.org.au/about/statement-of-faith>. **They did not.** No session in
+this phase fetched that page, or any page. The evidence is in the corpus itself:
+all thirteen INC citations were the same bare string, and **the twelve domains
+phase 5 wrote contain zero `url` fields**, against twenty-five in the two domains
+phase 4 wrote. The research subagents worked from model knowledge, which is
+precisely what this brief forbids and what `decisions.md` singled INC out to
+prevent.
+
+The page has now been read. **The entries were wrong in both directions.**
+
+**Removed — the statement does not address these at all:**
+
+| Doctrine | Was attributed to INC as |
+|---|---|
+| `church.church-government` | Congregational / autonomous local church, **confessional** |
+| `church.membership` | Congregational covenant membership |
+| `scripture.hermeneutic-method` | Spirit-illumined reading |
+
+The first is the serious one. The *Church: God's People* section says nothing about
+government, elders, autonomy or oversight — and INC is a **network** whose own name
+says so, with Thomas's map carrying a `Translocal oversight` node, so
+"accountable to no higher ecclesiastical court" may well have been positively
+false about his own movement, asserted as confessional.
+
+**Added — the statement is explicit and the corpus had missed it:**
+
+| Doctrine | Now attributed, quoting the statement |
+|---|---|
+| `scripture.inerrancy` → Full inerrancy | "penned without error in their original language" |
+| `scripture.canon` → Sixty-six books | "The sixty-six books of the Old and New Testaments comprise the totality of the Inspired Scripture" |
+| `church.baptism` → Believer's baptism | "we baptise confessing believers who have willingly trusted themselves to Christ" |
+
+Every surviving INC entry now cites the document by its real name (**Declaration of
+Faith, February 2022** — not merely "Statement of Faith"), names the section it
+rests on, and carries the quoted sentence in its `note`. `traditions.json` carries
+the URL. Coverage is still thirteen doctrines and still 15%, but the thirteen are
+now checkable in a browser in about a minute, which is what the citation field is
+for.
+
+**One further candidate, not actioned:** the statement calls scripture "our highest
+written authority in this world", which is a *prima scriptura* formulation — it
+leaves room for subordinate authority rather than excluding it. That is arguably a
+position on `church-history-and-authority.authority`, where INC is currently
+absent. Left for Thomas because the inference is one step longer than the others.
+
+### What this implies for the rest of the corpus, honestly
+
+INC was the worst case and the most likely to be caught: a short, recently revised
+document from a small movement, with little secondary literature. The large
+confessions the rest of the corpus leans on — Westminster, Trent, the Book of
+Concord, the Catechism, Dordt, the Thirty-Nine Articles — are stable, heavily
+quoted, and much more reliably recalled, and the three tradition spot-checks that
+gated the merge (Roman Catholic, Pentecostal, Lutheran) read correctly against
+them.
+
+**But "more reliable" is not "verified", and nothing in this phase retrieved a
+source.** The entries most likely to share INC's defect are the ones resting on
+small, modern or web-only documents rather than historic confessions: Answers in
+Genesis, BioLogos, the Creation Research Society, the ELCA's 1991 and 2009 social
+statements, the Episcopal Church's 2015 canons, the Lausanne prosperity statement,
+the Assemblies of God's 1980 positive-confession paper, and the 2015 *Gifts and
+Calling* document. **A verification pass over those, fetching each source and
+quoting it into the `note` the way the INC entries now do, is the single highest-
+value follow-up to this phase** — higher than adding the two missing Ethics
+doctrines. It is a mechanical, fan-out-shaped job.
