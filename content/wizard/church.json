@@ -1,0 +1,1103 @@
+{
+  "schema_version": 1,
+  "domain": "church",
+  "doctrines": [
+    {
+      "id": "church.women-in-ministry",
+      "node_title": "Women in ministry",
+      "slug": "women-in-ministry",
+      "domain": "church",
+      "order": 1,
+      "kind": "choice",
+      "question": "May women hold the teaching or governing eldership of a local church?",
+      "framing": "Every tradition agrees that women prophesied, taught and led in the New Testament, and every tradition reads the same handful of Pauline texts on elders and on speaking in church. The disagreement is over whether Paul's restrictions in 1 Timothy 2 and 1 Corinthians 14 name a creation-order pattern binding on the office of elder in every culture, or address a local disorder without settling the office question for good.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Ortlund's own scheme does not place this doctrine directly, but it sits between the second and third tiers: it governs who may hold an office, without dividing on the gospel itself.",
+      "refs": "1 Tim 2:11-14; 1 Cor 14:33-35; Gal 3:28; Rom 16:1-7",
+      "links": [
+        "church-government",
+        "hermeneutic-method"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Paul's appeal to creation order in 1 Timothy 2 sets a pattern for every culture or addresses a specific situation at Ephesus, and weigh that against Junia, Phoebe and the daughters of Philip who prophesied.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "church.women-in-ministry/complementarian",
+          "label": "Complementarian",
+          "hold": "The teaching and governing eldership of the local church is reserved for qualified men, while women teach, prophesy and lead in every other capacity the New Testament describes.",
+          "why": "Paul grounds his restriction in the order of creation rather than in a local custom, and ties it to the office of elder rather than to speech in general.",
+          "vs": "Ordaining women to the teaching and governing eldership on the ground that Paul addresses a local disorder rather than a permanent creation pattern.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Tim 2:11-14; 1 Tim 3:1-7; Titus 1:5-9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Both complementarian and egalitarian readings are held within historic, creedally orthodox churches; the dispute is over the application of apostolic instruction, not over any conciliar definition.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 25.3 (as read with 1 Tim 2-3 in Reformed church-order practice); Presbyterian Church in America Book of Church Order, 8-9"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article VI"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Practice varies by congregation; most independent evangelical churches in the Baptistic stream reserve the eldership for men without a developed confessional statement.",
+              "citation": "Council on Biblical Manhood and Womanhood, Danvers Statement (1987)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 15"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "Common practice among Churches of Christ rather than a creedal position, consistent with the movement's non-creedal character.",
+              "citation": "Thomas Campbell, Declaration and Address (1809), as applied in settled Churches of Christ practice"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Provinces and dioceses that do not ordain women are provided for by name within the Church of England's own settlement, rather than tolerated outside it.",
+              "citation": "Church of England, House of Bishops' Declaration on the Ministry of Bishops and Priests (2014), the Five Guiding Principles"
+            }
+          ],
+          "learn_detail": "Complementarians distinguish office from gift: a woman may teach, prophesy and lead a ministry without holding the office of elder, which is where they locate Paul's restriction.",
+          "sources": [
+            {
+              "label": "Danvers Statement",
+              "citation": "Council on Biblical Manhood and Womanhood, 1987"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article VI"
+            }
+          ]
+        },
+        {
+          "id": "church.women-in-ministry/egalitarian",
+          "label": "Egalitarian",
+          "hold": "Women may hold the teaching and governing eldership of the local church on the same terms as men, gifting and calling being the qualification the New Testament actually names.",
+          "why": "Junia is named among the apostles, Phoebe is called a deacon, and the New Testament nowhere restricts the exercise of a spiritual gift by sex once Christ has abolished the old distinctions.",
+          "vs": "Reserving the teaching and governing eldership for men on the ground of a permanent creation-order pattern in 1 Timothy 2.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gal 3:28; Rom 16:1-7; Acts 2:17-18",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Both egalitarian and complementarian readings are held within historic, creedally orthodox churches; the dispute is over the application of apostolic instruction, not over any conciliar definition.",
+          "held_by": [
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Priests (Ordination of Women) Measure 1993; Bishops and Priests (Consecration and Ordination of Women) Measure 2014"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": "Wesley licensed women to preach, and the mainline Wesleyan bodies ordain women to the same orders as men; a few smaller holiness bodies in the same line do not.",
+              "citation": "The Book of Discipline of the United Methodist Church, para. 304"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "Classical Pentecostalism has ordained women since its founding on the ground of Acts 2's outpouring on sons and daughters alike; practice varies by fellowship.",
+              "citation": "Assemblies of God, Position Paper: The Role of Women in Ministry (2010)"
+            },
+            {
+              "tradition": "quaker",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Robert Barclay, Apology for the True Christian Divinity (1678), Proposition XII"
+            }
+          ],
+          "learn_detail": "Egalitarians read 1 Timothy 2 as Paul correcting a specific abuse at Ephesus, connected to Artemis-cult customs and to a particular false teaching, rather than legislating for every church.",
+          "sources": [
+            {
+              "label": "Assemblies of God Position Paper on the Role of Women in Ministry",
+              "citation": "2010"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "anglican": {
+          "positions": [
+            "church.women-in-ministry/complementarian",
+            "church.women-in-ministry/egalitarian"
+          ],
+          "hold": "Whether women may be ordained to the priesthood or episcopate is left to each province of the Communion to determine, and both convictions are held with integrity within it.",
+          "why": "The Thirty-Nine Articles do not speak to the sex of the ordained, and the Communion's 1998 Lambeth Conference recognised that provinces would reach different conclusions in good conscience.",
+          "vs": null,
+          "tier": "T2.5",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Anglican polity is provincial rather than universal on this question: some provinces ordain women as priests and bishops, others do not, and the Communion has formally declined to settle it centrally.",
+          "citation": "Lambeth Conference 1998, Resolution III.2"
+        },
+        "methodist": {
+          "positions": [
+            "church.women-in-ministry/complementarian",
+            "church.women-in-ministry/egalitarian"
+          ],
+          "hold": "Women are ordained to the same orders of ministry as men in the great majority of Methodist bodies, though holiness and Wesleyan-Arminian bodies outside the mainline sometimes retain a male eldership.",
+          "why": "Wesley's own practice licensed women to preach, and the American Methodist Episcopal tradition ordained women from the 19th century onward on the ground of gifting rather than sex.",
+          "vs": null,
+          "tier": "T2.5",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The United Methodist Church and most mainline Wesleyan bodies ordain women fully; some smaller holiness-Methodist and Free Methodist-adjacent bodies retain complementarian practice, so the tradition as a whole is genuinely divided rather than uniform.",
+          "citation": "The Book of Discipline of the United Methodist Church, para. 304"
+        }
+      },
+      "learn_note": "The debate is often mislabelled as a debate about whether women can minister at all; every tradition represented here affirms that they do. The actual line is the teaching and governing eldership specifically.",
+      "sources": [
+        {
+          "label": "Danvers Statement",
+          "citation": "Council on Biblical Manhood and Womanhood, 1987"
+        },
+        {
+          "label": "Christians for Biblical Equality, Statement of Faith",
+          "citation": "Christians for Biblical Equality"
+        }
+      ]
+    },
+    {
+      "id": "church.church-government",
+      "node_title": "Church government",
+      "slug": "church-government",
+      "domain": "church",
+      "order": 2,
+      "kind": "choice",
+      "question": "How is authority structured between a local church and the wider body of churches?",
+      "framing": "The New Testament shows elders leading local congregations and also shows a council at Jerusalem settling a question for churches beyond its own walls. Traditions differ on how much authority sits above the local congregation and how it is transmitted: through a personally continuous line of bishops, through assemblies of elders, or through the autonomous local church alone.",
+      "suggested_tier": "T3",
+      "tier_note": "Ortlund places matters of church polity at the third tier: important for how a congregation actually functions, but not divisive of Christian fellowship across traditions.",
+      "refs": "Acts 15:1-29; 1 Tim 3:1-7; Titus 1:5-9; Acts 20:17-28",
+      "links": [
+        "membership-and-discipline"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much weight the Jerusalem council in Acts 15 puts on translocal authority, and decide whether the New Testament pattern of a plurality of elders per city implies presbyterian oversight or simply describes early congregational practice.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.church-government/episcopal",
+          "label": "Episcopal",
+          "hold": "Authority is exercised through bishops standing in historic succession, who ordain clergy and oversee multiple congregations within a diocese.",
+          "why": "The New Testament pattern of apostolic oversight passed to Timothy and Titus as individuals charged with appointing elders, and the earliest post-apostolic churches were governed by a single bishop in each city.",
+          "vs": "Government by a plurality of elders with no single office standing over the local eldership.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Tim 3:1-7; Titus 1:5; 1 Tim 5:22",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 880-887; Code of Canon Law (1983), can. 375"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus (1672), Decree 10"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, XXXVI; Ordinal (1662), Preface"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "permitted",
+              "note": "Some Lutheran bodies, especially in Scandinavia, retain historic episcopal succession; others hold the pastoral office without it.",
+              "citation": "Augsburg Confession, XIV, XXVIII"
+            }
+          ],
+          "learn_detail": "Rome and the East both hold episcopal government but disagree sharply on whether one bishop, Rome's, holds universal jurisdiction over the others.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 880-887"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article XXXVI"
+            }
+          ]
+        },
+        {
+          "id": "church.church-government/presbyterian",
+          "label": "Presbyterian / connectional",
+          "hold": "Authority is exercised by elders, and local sessions of elders are accountable to regional and national assemblies of elders drawn from multiple congregations.",
+          "why": "The New Testament consistently shows a plurality of elders per city rather than a single bishop, and Acts 15's Jerusalem council shows a matter settled for churches beyond the one it met in.",
+          "vs": "Government by a single bishop standing over the local eldership in historic succession.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 15:1-29; Acts 20:17; 1 Tim 4:14",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 31.1-31.3; Presbyterian Church in America Book of Church Order, Preliminary Principles"
+            }
+          ],
+          "learn_detail": "The presbyterian system's distinctive claim is that no individual, whether elder or bishop, may exercise authority alone; every level of government is a plural court.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 31"
+            }
+          ]
+        },
+        {
+          "id": "church.church-government/congregational",
+          "label": "Congregational / autonomous local church",
+          "hold": "Each local congregation, governed by its own elders and members, is complete in itself under Christ and accountable to no higher ecclesiastical court.",
+          "why": "The New Testament epistles are addressed to individual churches which act on their own authority, including the discipline case in 1 Corinthians 5, without appeal to a body above them.",
+          "vs": "Subordinating the local congregation's decisions to a regional or national assembly of elders or to a bishop.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 5:1-5; Matt 18:15-17; 1 Pet 5:1-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article VI; Second London Baptist Confession (1689), ch. 26"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 6"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 9"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Held on principle, since the movement's founding aim was to restore the New Testament church without any structure above the local congregation.",
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "Individual congregations are typically autonomous, though most affiliate with a fellowship or denominational body for credentialing and cooperation.",
+              "citation": "Assemblies of God, Constitution and Bylaws, Article IX"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": "Congregationalists still cooperate translocally, through associations, fellowships or networks, but distinguish voluntary cooperation from ecclesiastical authority binding the local church.",
+          "sources": [
+            {
+              "label": "Second London Baptist Confession",
+              "citation": "1689, ch. 26"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article VI"
+            }
+          ]
+        },
+        {
+          "id": "church.church-government/connexional-episcopal",
+          "label": "Connexional episcopal",
+          "hold": "Authority is exercised by bishops or superintendents who oversee a connexion of congregations, appointing clergy and coordinating mission across the whole body.",
+          "why": "Wesley's own societies were organised as a connexion under superintending oversight so that itinerant preaching and discipline could be coordinated beyond any one congregation.",
+          "vs": "Leaving each congregation fully autonomous with no superintending office above its own elders.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 15:1-29; 1 Tim 3:1-7",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Book of Discipline of the United Methodist Church, para. 401-403"
+            }
+          ],
+          "learn_detail": "Connexionalism sits between episcopal and presbyterian government: it retains an episcopal office but ties it to appointment and itinerancy across a connected body of congregations rather than to a diocese in historic succession.",
+          "sources": [
+            {
+              "label": "The Book of Discipline of the United Methodist Church",
+              "citation": "para. 401-403"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The three classical categories, episcopal, presbyterian and congregational, describe where final decision-making authority sits; several traditions combine elements of more than one.",
+      "sources": [
+        {
+          "label": "The Book of Church Order",
+          "citation": "Presbyterian Church in America, Preliminary Principles"
+        }
+      ]
+    },
+    {
+      "id": "church.baptism",
+      "node_title": "Baptism",
+      "slug": "baptism",
+      "domain": "church",
+      "order": 3,
+      "kind": "choice",
+      "question": "Who is baptism for, and what does it do?",
+      "framing": "Every tradition baptises, and every tradition reads the same commission in Matthew 28. The disagreement runs along two axes at once: whether the infant children of believers are proper subjects, and whether baptism conveys what it signifies or signifies what has already been conveyed. The two axes are not independent — a view of what baptism does usually settles who it is for.",
+      "suggested_tier": "T3",
+      "tier_note": "Ortlund puts baptism at the third tier: it shapes which congregation a person can serve in, but it does not divide the gospel. Traditions that hold baptism to be regenerative reasonably tier it higher.",
+      "refs": "Matt 28:19; Acts 2:38-39; Col 2:11-12; 1 Pet 3:21",
+      "links": [
+        "the-lords-supper",
+        "membership-and-discipline"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the household baptisms in Acts and the covenant argument from circumcision in Colossians 2 carry the weight the paedobaptist case puts on them, and decide what baptism actually effects before deciding who receives it.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.baptism/believer",
+          "label": "Believer's baptism",
+          "hold": "Baptism is for those who have professed faith, by immersion, as the public sign of a repentance already given.",
+          "why": "Every baptism narrated in Acts follows a profession of faith, and the sign belongs to those the thing signified is true of.",
+          "vs": "The baptism of infants on the ground of the covenant promise made to believers and their children.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:38-39; Acts 8:36-38; Rom 6:3-4",
+          "equivalence_group": "credobaptism",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689), 29.2"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Practice rather than confession; most independent evangelical congregations baptise on profession without holding a developed covenantal argument against the alternative.",
+              "citation": "Lausanne Covenant (1974), Article 6"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Article 1"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Held together with baptismal regeneration, which most other credobaptists reject — see the regeneration position.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": "Credobaptists divide over whether baptism is a bare sign, a means of grace to faith already present, or the appointed moment of remission. The subject of baptism is agreed among them; its effect is not.",
+          "sources": [
+            {
+              "label": "Second London Baptist Confession",
+              "citation": "1689, ch. 29",
+              "url": "https://www.the1689confession.com/"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article VII",
+              "url": "https://bfm.sbc.net/bfm2000/"
+            }
+          ]
+        },
+        {
+          "id": "church.baptism/infant-covenant",
+          "label": "Covenantal infant baptism",
+          "hold": "Baptism is administered to the infant children of believers as the sign and seal of the covenant of grace, and to those who come to faith as adults.",
+          "why": "The covenant sign was given to believers and their children under Abraham, and the New Testament nowhere withdraws that inclusion.",
+          "vs": "Restricting baptism to those who have professed faith, which narrows a covenant sign the New Testament never narrows.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 17:7; Acts 2:38-39; Col 2:11-12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 28.4; Heidelberg Catechism Q.74"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": "Held with a stronger accent on prevenient grace than the Reformed covenantal argument carries.",
+              "citation": "Articles of Religion of the Methodist Church, XVII"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": "Lutherans affirm infant baptism but ground it in baptismal regeneration rather than covenant succession — see the regeneration position.",
+              "citation": "Augsburg Confession, IX"
+            }
+          ],
+          "learn_detail": "The covenantal argument is an argument from continuity: it places the burden on the credobaptist to show where the New Testament excludes the children who were included before.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 28.4",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Heidelberg Catechism",
+              "citation": "1563, Q&A 74",
+              "url": "https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism"
+            }
+          ]
+        },
+        {
+          "id": "church.baptism/regeneration",
+          "label": "Baptismal regeneration",
+          "hold": "Baptism is the instrument by which God gives new birth, forgiveness and union with Christ, and is therefore administered to infants and converts alike.",
+          "why": "The New Testament attaches the gift itself to the washing — new birth of water and Spirit, baptism that now saves — rather than to a sign of it.",
+          "vs": "Treating baptism as a sign of a grace given elsewhere, which detaches the promise from the act the New Testament attaches it to.",
+          "tier": "T2",
+          "confidence_default": "confident",
+          "refs": "John 3:5; Titus 3:5; 1 Pet 3:21; Acts 22:16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1213-1215, 1250"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Administered with chrismation and communion in a single rite, so the question is less separable than in the West.",
+              "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus (1672), Decree 16"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, IX; Small Catechism, IV"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "The Articles and the Prayer Book's baptismal office are read in this sense by the Anglo-Catholic and much of the central tradition; the evangelical wing reads the same texts as covenantal sign.",
+              "citation": "Thirty-Nine Articles, XXVII; Book of Common Prayer (1662), Publick Baptism of Infants"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Held with believer's baptism only, which distinguishes it sharply from the paedobaptist forms.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": "Baptismal regeneration is not one position but a family: Rome and the East hold it with infant baptism, the Restorationist stream holds it with believer's baptism only. Grouping them by effect and splitting them by subject is the clearest way to read this doctrine.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 1213-1215, 1250",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article IX",
+              "url": "https://bookofconcord.org/augsburg-confession/"
+            }
+          ]
+        },
+        {
+          "id": "church.baptism/not-required",
+          "label": "No water baptism",
+          "hold": "Water baptism belonged to an earlier stage of God's dealings and is not the practice of the church now; the baptism that matters is the Spirit's.",
+          "why": "Ephesians speaks of one baptism, and the Spirit's baptism into the body is the one the New Testament makes constitutive of belonging to Christ.",
+          "vs": "Continuing the water rite as a standing command of Christ to the church.",
+          "tier": "T2",
+          "confidence_default": "leaning",
+          "refs": "Eph 4:5; 1 Cor 12:13",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Held by the Quaker tradition and by hyper-dispensationalist groups. It contradicts no creedal article directly, but it sets aside a practice every historic communion has treated as commanded, and the Nicene Creed's confession of 'one baptism for the remission of sins' is read by most traditions as the water rite.",
+          "held_by": [
+            {
+              "tradition": "quaker",
+              "stance": "confessional",
+              "note": "Held on the ground that the outward sign is fulfilled in the inward reality, not that the sign is trivial.",
+              "citation": "Robert Barclay, Apology for the True Christian Divinity (1678), Proposition XII"
+            }
+          ],
+          "learn_detail": "Quakers do not argue that baptism is unimportant but that the inward baptism is the thing itself, and that maintaining the outward sign risks mistaking the shadow for the substance.",
+          "sources": [
+            {
+              "label": "Barclay's Apology",
+              "citation": "1678, Proposition XII",
+              "url": "https://quakerheritagepress.com/qhpbooks/apology.htm"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "anglican": {
+          "positions": [
+            "church.baptism/infant-covenant",
+            "church.baptism/regeneration"
+          ],
+          "hold": "Infant baptism is the church's normal practice, and the Articles hold it agreeable with the institution of Christ without settling what the water effects.",
+          "why": "The Thirty-Nine Articles commend the baptism of young children and describe baptism as a sign of regeneration and an instrument of ingrafting — wording both wings of the tradition have read in their own sense for four centuries.",
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Anglican formularies are deliberately capacious here. An entry that picked either the evangelical or the Anglo-Catholic reading would be describing a party, not the tradition.",
+          "citation": "Thirty-Nine Articles, XXVII; Book of Common Prayer (1662)"
+        },
+        "restorationist": {
+          "positions": [
+            "church.baptism/believer",
+            "church.baptism/regeneration"
+          ],
+          "hold": "Baptism is by immersion, on profession of faith, for the remission of sins.",
+          "why": "Peter's answer at Pentecost joins repentance, baptism and forgiveness in a single sentence, and the Restorationist plea is to say no more and no less than that sentence says.",
+          "vs": "Separating baptism from the moment of remission so that it becomes a testimony to a forgiveness already received.",
+          "tier": "T2",
+          "confidence": "confident",
+          "flags": [],
+          "note": "This is genuinely a third position rather than a compromise: credobaptist in subject, regenerative in effect. It is why the two-axis framing in this doctrine matters.",
+          "citation": "Acts 2:38 as read in Alexander Campbell, The Christian System (1839)"
+        },
+        "lutheran": {
+          "positions": [
+            "church.baptism/infant-covenant",
+            "church.baptism/regeneration"
+          ],
+          "hold": "Baptism is administered to infants and converts alike, and it is the means through which God works forgiveness, delivers from death and gives eternal salvation.",
+          "why": "The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.",
+          "vs": null,
+          "tier": "T2",
+          "confidence": "confident",
+          "flags": [],
+          "note": "Lutherans appear under two positions here only because this doctrine splits who is baptised from what baptism does. Lutheran teaching does not hold them apart, and it is not a divided tradition on this question.",
+          "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"
+        }
+      },
+      "learn_note": "The cleanest way to hold this doctrine in mind is as two questions: who is baptised, and what does baptism do. Most traditions answer both together, and the Restorationist stream is the standing proof that the answers are separable.",
+      "sources": [
+        {
+          "label": "Nicene-Constantinopolitan Creed",
+          "citation": "381, 'one baptism for the remission of sins'",
+          "url": "https://www.ccel.org/creeds/nicene.creed.html"
+        }
+      ]
+    },
+    {
+      "id": "church.lords-supper",
+      "node_title": "The Lord's Supper",
+      "slug": "the-lords-supper",
+      "domain": "church",
+      "order": 4,
+      "kind": "choice",
+      "question": "In what sense is Christ present in the Lord's Supper?",
+      "framing": "Every tradition keeps the Supper on Christ's own command, and every tradition reads the same words, 'this is my body,' spoken over the bread. The disagreement is over what those words claim: a change in the substance of the elements, a real spiritual feeding by faith without change to the elements, or a memorial in which the elements signify a finished work without conveying anything further.",
+      "suggested_tier": "T3",
+      "tier_note": "Ortlund places sacramental questions at the third tier: they shape communion practice between congregations without dividing the gospel itself.",
+      "refs": "1 Cor 11:23-26; John 6:53-58; Luke 22:19-20",
+      "links": [
+        "baptism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out what 'this is my body' claimed in its own setting against the Passover background, and decide whether the Supper conveys grace, signifies a finished work, or both at once.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.lords-supper/transubstantiation",
+          "label": "Transubstantiation",
+          "hold": "The bread and wine become the body and blood of Christ in substance while retaining the appearance of bread and wine.",
+          "why": "Christ's own words at the institution are taken at their plain force, and the church has confessed a real change in the elements since the earliest centuries.",
+          "vs": "A real spiritual presence received by faith without any change in the substance of the elements.",
+          "tier": "T2",
+          "confidence_default": "confident",
+          "refs": "John 6:53-58; 1 Cor 11:27-29",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1373-1377; Council of Trent, Session XIII"
+            }
+          ],
+          "learn_detail": "Transubstantiation is a claim about substance rather than appearance: the philosophical vocabulary distinguishes what a thing is from how it presents to the senses.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 1373-1377"
+            },
+            {
+              "label": "Council of Trent",
+              "citation": "1551, Session XIII, ch. 4"
+            }
+          ]
+        },
+        {
+          "id": "church.lords-supper/real-presence",
+          "label": "Real presence (non-transubstantive)",
+          "hold": "Christ's body and blood are truly and objectively present in, with and under the bread and wine, given and received by all communicants whether or not they believe.",
+          "why": "The words of institution are taken at face value as a real gift attached to the elements, without adopting the philosophical explanation of substance change.",
+          "vs": "A change in the substance of the elements, or a presence received only by the faith of the believer.",
+          "tier": "T2",
+          "confidence_default": "confident",
+          "refs": "1 Cor 11:27-29; Matt 26:26-28",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, X; Formula of Concord, Solid Declaration VII"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident.",
+              "citation": "Confession of Dositheus (1672), Decree 17"
+            }
+          ],
+          "learn_detail": "Lutherans reject transubstantiation's philosophical apparatus while affirming an objective sacramental union of Christ's body and blood with the bread and wine, sometimes summarised as 'in, with and under.'",
+          "sources": [
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article X"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "1577, Solid Declaration, Article VII"
+            }
+          ]
+        },
+        {
+          "id": "church.lords-supper/spiritual-presence",
+          "label": "Spiritual presence",
+          "hold": "Christ is truly present to faith in the Supper by the working of the Holy Spirit, without any change in the elements themselves and without a bodily presence in the bread and wine.",
+          "why": "The Supper is a means of grace rather than a bare sign, and the ascended Christ is united to the believer by the Spirit rather than brought bodily to the table.",
+          "vs": "A purely memorial Supper in which nothing beyond remembrance is received.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 10:16; John 6:63",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 29.7"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion of the Methodist Church, XVIII"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "The evangelical wing of the tradition reads the Articles in this sense; the Anglo-Catholic wing reads the same formularies closer to real presence.",
+              "citation": "Thirty-Nine Articles, XXVIII"
+            }
+          ],
+          "learn_detail": "The Reformed position is sometimes called 'virtualism' or 'receptionism': the elements remain bread and wine, but the believer receives Christ himself, not merely a reminder of him, by the Spirit's working.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 29.7"
+            }
+          ]
+        },
+        {
+          "id": "church.lords-supper/memorial",
+          "label": "Memorial",
+          "hold": "The Supper is a remembrance of Christ's death, in which the bread and wine signify his body and blood without conveying grace beyond what faith already possesses.",
+          "why": "Christ's command was to do this in remembrance of him, and the elements point back to a finished work rather than convey a fresh gift at the table.",
+          "vs": "A real presence of Christ, bodily or spiritual, given in or through the elements themselves.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Cor 11:23-26; Luke 22:19",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article VII"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 6"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 10"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "inc",
+              "stance": "majority",
+              "note": "Consistent with the movement's general low-church, Baptistic sacramental practice; not traced to a specific published statement beyond the general Statement of Faith.",
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": "Memorialists still regard the Supper as a real means of grace in the broad sense — an occasion for self-examination and communion with Christ by faith — while denying that anything is conveyed through the elements as such.",
+          "sources": [
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article VII"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The four positions differ along two questions at once: whether the elements themselves change, and whether Christ's presence is bodily, spiritual, or a matter of remembrance alone.",
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 29"
+        }
+      ]
+    },
+    {
+      "id": "church.membership",
+      "node_title": "Membership and discipline",
+      "slug": "membership-and-discipline",
+      "domain": "church",
+      "order": 5,
+      "kind": "choice",
+      "question": "How is formal church membership established and enforced?",
+      "framing": "Every tradition recognises some boundary between the baptised at large and those in current, accountable fellowship with a particular congregation. Traditions differ over whether that boundary is drawn by a covenant the local congregation itself administers, by sacramental standing within a parish or diocese, or informally through participation without a defined membership process.",
+      "suggested_tier": "T3",
+      "tier_note": "Ortlund places questions of church practice and polity at the third tier: they shape congregational life without dividing on the gospel.",
+      "refs": "Matt 18:15-17; 1 Cor 5:1-13; Acts 2:41-42",
+      "links": [
+        "baptism",
+        "church-government"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how formal a membership covenant needs to be for Matthew 18's process to have any teeth, and decide whether discipline requires a defined membership roll or only a functioning local congregation.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.membership/covenant",
+          "label": "Congregational covenant membership",
+          "hold": "Membership is entered by a formal covenant with a particular local congregation, which both grants the privileges of belonging and creates the accountability Matthew 18 and 1 Corinthians 5 assume.",
+          "why": "Discipline that removes someone from fellowship presupposes a defined fellowship to be removed from, and the New Testament churches kept lists and knew who belonged to them.",
+          "vs": "Treating baptism and sacramental standing in a parish, rather than a local covenant, as what constitutes belonging.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 18:15-17; 1 Cor 5:1-13; Acts 2:41-42",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689), ch. 26.6; Baptist Faith and Message (2000), Article VI"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 6"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": "Church discipline, including the ban, is a defining mark of the tradition rather than an occasional practice.",
+              "citation": "Schleitheim Confession (1527), Article 2"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 30.1-30.4"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Constitution and Bylaws, Article IX"
+            },
+            {
+              "tradition": "inc",
+              "stance": "majority",
+              "note": "Consistent with the movement's local-church autonomy and its general Statement of Faith; not traced to a published discipline document beyond that statement.",
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": "Congregational traditions differ on how formal the covenant is, from a signed document to simply being received into fellowship by the elders, but agree that a definite act of joining precedes any discipline.",
+          "sources": [
+            {
+              "label": "Second London Baptist Confession",
+              "citation": "1689, ch. 26"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 30"
+            }
+          ]
+        },
+        {
+          "id": "church.membership/parish-sacramental",
+          "label": "Parish / sacramental standing",
+          "hold": "Belonging is constituted by baptism and sacramental standing within a parish or diocese, administered by the clergy under the bishop, rather than by a local covenant the congregation itself enters into.",
+          "why": "The church's boundary has historically been the sacraments themselves — baptism admits, and excommunication from the sacraments, exercised by the clergy, is the discipline the New Testament describes.",
+          "vs": "Requiring a separate congregational covenant beyond baptism and sacramental standing to establish who belongs.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 5:1-13; Matt 18:15-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Code of Canon Law (1983), can. 204, can. 1331"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 10"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), Publick Baptism; Canons of the Church of England"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "permitted",
+              "note": "Practice varies between state-church and free-church Lutheran bodies; both ground standing in baptism and sacramental participation rather than a separate covenant.",
+              "citation": "Augsburg Confession, XIV"
+            }
+          ],
+          "learn_detail": "Discipline in this model is exercised by the clergy, typically as exclusion from the sacraments, rather than by a vote or process of the gathered congregation.",
+          "sources": [
+            {
+              "label": "Code of Canon Law",
+              "citation": "1983, can. 204, can. 1331"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The line between the two positions is not whether discipline happens but who administers it and what act it presupposes: a local covenant among the congregation, or standing before the sacraments administered by the clergy.",
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 30"
+        }
+      ]
+    },
+    {
+      "id": "church.spiritual-gifts",
+      "node_title": "Spiritual gifts today",
+      "slug": "spiritual-gifts-today",
+      "domain": "church",
+      "order": 6,
+      "kind": "choice",
+      "question": "Do the miraculous spiritual gifts described in the New Testament continue in the church today?",
+      "framing": "Every tradition agrees that the New Testament describes tongues, prophecy, healing and other miraculous gifts operating in the apostolic church. The disagreement is over whether those gifts were tied to the foundational apostolic era and its accompanying sign of Scripture-authenticating revelation, or continue as an ordinary part of the Spirit's work in the church until Christ returns.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Ortlund does not tier this doctrine directly; it sits between the second and third tiers, shaping worship practice and expectation without dividing on the gospel itself.",
+      "refs": "1 Cor 12:4-11; 1 Cor 13:8-10; Acts 2:1-4; 1 Cor 14:39",
+      "links": [
+        "sufficiency-of-scripture"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether 'the perfect' in 1 Corinthians 13:10 refers to the completed canon, the return of Christ, or something else, and decide whether Acts' pattern of ongoing tongues and prophecy is descriptive of an apostolic season or a standing norm.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "church.spiritual-gifts/cessationist",
+          "label": "Cessationist",
+          "hold": "The revelatory and sign gifts, including tongues, prophecy and the working of miracles as attesting apostolic ministry, ceased with the apostolic era and the completion of the New Testament canon.",
+          "why": "The sign gifts served to authenticate the apostles' foundational message before Scripture was complete, and the New Testament itself anticipates their passing once what is perfect, understood as the completed revelation, has come.",
+          "vs": "Continuing the full range of New Testament spiritual gifts as an ordinary part of church life today.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 13:8-10; Heb 2:3-4; Eph 2:20",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Not confessionally required by the Westminster Standards themselves, but the predominant position among Reformed and Presbyterian bodies since the modern cessationist-continuationist debate emerged.",
+              "citation": "B. B. Warfield, Counterfeit Miracles (1918)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held; the Baptist Faith and Message does not itself settle the question.",
+              "citation": "John MacArthur, Charismatic Chaos (1992), representative of a major strand of Baptist cessationism"
+            }
+          ],
+          "learn_detail": "Cessationism is a position about the sign and revelatory gifts specifically; cessationists typically still affirm that God heals and answers prayer, distinguishing ordinary providence from the apostolic sign gifts.",
+          "sources": [
+            {
+              "label": "Counterfeit Miracles",
+              "citation": "B. B. Warfield, 1918"
+            }
+          ]
+        },
+        {
+          "id": "church.spiritual-gifts/continuationist",
+          "label": "Continuationist",
+          "hold": "The spiritual gifts described in 1 Corinthians 12, including tongues, prophecy and healing, continue to be given by the Holy Spirit to the church today and are to be earnestly desired.",
+          "why": "Paul commands the Corinthian church to desire spiritual gifts and gives no indication that they would cease before Christ's return, and 'the perfect' of 1 Corinthians 13:10 is most naturally the eschaton rather than the closing of the canon.",
+          "vs": "Restricting the sign and revelatory gifts to the apostolic era before the completion of the New Testament canon.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "1 Cor 12:4-11; 1 Cor 14:1; Acts 2:17-18",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7-8"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": "Practice varies widely; many independent evangelical congregations are charismatic in expectation without a formal confessional statement on the gifts.",
+              "citation": "Lausanne Covenant (1974), Article 14"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "Affirmed through the Catholic Charismatic Renewal, recognised by Rome, alongside a broader church that does not emphasise the gifts.",
+              "citation": "Catechism of the Catholic Church, 2003"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Held within the charismatic wing of the Communion; not a position the Articles themselves address.",
+              "citation": "Church of England, House of Bishops, statements recognising charismatic renewal within the Communion"
+            }
+          ],
+          "learn_detail": "Continuationists divide further on how the gifts are exercised in practice, from classical Pentecostal expectation of tongues as initial evidence of Spirit baptism to a lighter charismatic openness within otherwise traditional worship.",
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 7-8"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The debate is often framed as for-or-against the miraculous as such; both positions affirm that God still heals and answers prayer. The actual dispute is narrower: whether the New Testament sign and revelatory gifts specifically continue.",
+      "sources": [
+        {
+          "label": "Are Miraculous Gifts for Today? Four Views",
+          "citation": "Wayne Grudem, ed., 1996"
+        }
+      ]
+    }
+  ]
+}

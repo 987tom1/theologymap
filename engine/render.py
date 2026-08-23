@@ -244,6 +244,16 @@ def esc(text: str) -> str:
 
 
 def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
+    # Ship only the verses THIS map cites, not everything in verses.md.
+    # Until phase 4 the two sets were identical, so this changes no existing
+    # output byte — verified against phase 2's baseline hash. It stops being a
+    # no-op the moment engine/corpus_refs.py lands the wizard corpus's
+    # references: those belong in verses.md, so a wizard-built map's popovers
+    # have text, but they are not cited by Thomas's map or by anybody else's,
+    # and without this filter every page load and every hosted /api/render
+    # response would carry the whole corpus's scripture text. Phase 5 multiplies
+    # that by fourteen domains.
+    used = {r: verses[r] for r in collect_refs(nodes) if r in verses}
     payload = json.dumps(
         {
             "nodes": nodes,
@@ -251,7 +261,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
             "confMeta": CONF_META,
             "tierOrder": TIER_ORDER,
             "confOrder": list(CONFIDENCES),
-            "verses": verses,
+            "verses": used,
         },
         ensure_ascii=False,
     )

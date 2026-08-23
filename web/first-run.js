@@ -11,8 +11,8 @@
    arrives on window. It is not re-implemented here; there is one serializer. */
 import { apiFetch } from '/web/session.js';
 
-// Phase 4 flips this to true when /wizard exists. Nothing else changes.
-const WIZARD_ENABLED = false;
+// Phase 4 flipped this when /wizard shipped (session 10). Nothing else changed.
+const WIZARD_ENABLED = true;
 
 const STARTER_TITLE = 'My first belief';   // design section 14, Q3 — default taken
 const STARTER_AREA = 'Beliefs';

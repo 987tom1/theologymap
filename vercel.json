@@ -6,7 +6,8 @@
     { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" },
     { "source": "/gallery", "destination": "/web/gallery.html" },
     { "source": "/view", "destination": "/web/view.html" },
-    { "source": "/admin", "destination": "/web/admin.html" }
+    { "source": "/admin", "destination": "/web/admin.html" },
+    { "source": "/wizard", "destination": "/web/wizard.html" }
   ],
   "functions": {
     "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" },

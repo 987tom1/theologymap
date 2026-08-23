@@ -110,15 +110,80 @@ test('answered doctrines are detected from slugs already in the map', () => {
   assert.notStrictEqual(WG.nextDoctrine(domains, corpus).slug, 'inerrancy');
 });
 
-test('the real corpus loads, and carries no doctrines until Task 6', () => {
-  // Not a fixture: this is content/wizard as actually shipped. It proves the
-  // manifest and registry parse and that loadCorpusSync tolerates the twelve
-  // domain files phase 5 has not written yet. Task 6 turns the count positive.
-  const real = WG.loadCorpusSync('content/wizard');
+/* ------------------------------------------------------------ the real corpus
+ *
+ * Everything above runs against tests/fixtures/corpus/, which pins the SCHEMA
+ * and must not move when phase 5 adds content. What follows runs against
+ * content/wizard/ as actually shipped, because the fixture cannot tell anyone
+ * whether the seed itself generates a map render.py will accept. Session 9's
+ * version of the first test asserted zero doctrines; Task 6 is what turned it
+ * positive, and updating it is how this session knew Task 6 had landed. */
+
+const real = WG.loadCorpusSync('content/wizard');
+
+test('the real corpus loads, and Task 6 seeded it', () => {
   assert.strictEqual(real.manifest.domains.length, 14);
   assert.strictEqual(real.traditions.traditions.length, 14);
-  assert.strictEqual(WG.orderedDoctrines(real).length, 0);
-  assert.strictEqual(WG.nextDoctrine([], real), null);
+  // Two domain files exist; the other twelve are phase 5's and loadCorpusSync
+  // tolerates their absence.
+  assert.deepStrictEqual(Object.keys(real.domains).sort(), ['church', 'scripture']);
+  assert.strictEqual(WG.orderedDoctrines(real).length, 12);
+  assert.ok(WG.nextDoctrine([], real), 'an empty map has a first question');
+});
+
+test('the seed sorts T1 first and every doctrine has a distinct slug', () => {
+  const ds = WG.orderedDoctrines(real);
+  const rank = t => WG.TIER_ORDER.indexOf(t);
+  for (let i = 1; i < ds.length; i++) {
+    assert.ok(rank(ds[i - 1].suggested_tier) <= rank(ds[i].suggested_tier),
+      'wizard order is not tier-ascending');
+  }
+  assert.strictEqual(new Set(ds.map(d => d.slug)).size, ds.length);
+  // slug must equal EditorCore's own slugify, or a link silently breaks.
+  for (const d of ds) assert.strictEqual(d.slug, EditorCore.slugify(d.node_title));
+});
+
+test('answering the whole seed corpus gives a map at every prefix', () => {
+  const all = WG.orderedDoctrines(real);
+  let domains = EditorCore.parse('');
+  const out = [];
+  for (const d of all) {
+    // The open answer on every third doctrine, so the prefixes exercise both
+    // branches of applyAnswer against real content rather than only positions.
+    const kind = out.length % 3 === 2 ? 'open' : 'position';
+    domains = WG.applyAnswer(domains, real, {
+      doctrineId: d.id, kind,
+      positionId: kind === 'position' ? d.positions[0].id : undefined });
+    WG.pruneLinks(domains);
+    const text = EditorCore.serialize(domains);
+    assert.deepStrictEqual(EditorCore.parse(text),
+      EditorCore.parse(EditorCore.serialize(EditorCore.parse(text))));
+    assert.ok(!text.includes('_intended'), '_intendedLinks leaked into the markdown');
+    out.push(text);
+  }
+  assert.strictEqual(out.length, 12);
+  // Named prefix-* so tests/check_generated_map.py picks them up with the
+  // fixture ones and runs render.py's parser over both.
+  fs.mkdirSync('tests/out', { recursive: true });
+  out.forEach((t, i) => fs.writeFileSync(`tests/out/prefix-real-${String(i).padStart(2, '0')}.md`, t));
+});
+
+test('the seed never puts a tradition in two positions without an override', () => {
+  // The validator owns this rule (rule 15) over the whole corpus. Asserting it
+  // here too is deliberate: the generator is what would silently pick one of
+  // the two, and this is the test that fails when it does.
+  for (const d of WG.orderedDoctrines(real)) {
+    const seen = {};
+    for (const p of d.positions || []) {
+      for (const h of p.held_by || []) (seen[h.tradition] = seen[h.tradition] || []).push(p.id);
+    }
+    for (const [t, ids] of Object.entries(seen)) {
+      if (ids.length > 1) {
+        assert.ok((d.tradition_overrides || {})[t],
+          `${d.id}: ${t} holds ${ids.length} positions with no tradition_overrides entry`);
+      }
+    }
+  }
 });
 
 console.log(failures ? `\n${failures} FAILED` : '\nall passed');
