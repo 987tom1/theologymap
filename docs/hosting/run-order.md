@@ -72,6 +72,30 @@ worry. Everything else is sequential.
 
 ## Progress
 
+- **Session 12 (phase 6, Tasks 0–2) ran 2026-08-24 and is merged.** Branch
+  `phase-6-compare` (not the plan's `phase-6-learn-compare`). Twelve tradition
+  maps, **698 nodes**, generated from the corpus through `EditorCore.serialize`
+  by `node engine/build_traditions.js`; and `engine/compare-core.js`, the pure
+  UMD comparison engine, 15 tests green. All gates green — validator exit 0,
+  both parsers agree map-for-map on all twelve maps (`check_tradition_maps.py`,
+  0 problems), 0 unresolvable `refs`, byte identity unmoved at `eaedf3e4…1a90`,
+  **zero changed lines in all six lockstep files**, and `tests/out/` cleared
+  before `check_generated_map.py` (90 prefixes, 0 problems).
+  **Session 13 (Tasks 3–7) is next, on the same branch.** Five things for it in
+  `phase-6-outcome.md`: **the build is idempotent and that is gated** — a
+  corpus correction is one command and shows up as exactly the lines it changed
+  (demonstrated live on the one content fix this session made), so do not add a
+  timestamp or any varying value to a generated file; **`superseded_holds` is
+  read but never written**, which is how a phase 9 reword avoids orphaning
+  existing maps; **the deuterocanon problem structurally cannot bite** on this
+  path, because `sources` has no field in the map format; **the thin-tradition
+  coverage floor is Task 3/4's** and `manifest.json` already carries
+  `node_count` and `skipped`; and **the `is_comparable` open question stops and
+  waits** at Task 6. Two mutation findings are worth reading before trusting
+  any gate here: `pruneLinks` bites hard on both, but a fuzzier `normalise`
+  passed the entire compare suite until a direct unit test was added.
+  Design canvas: <https://claude.ai/code/artifact/2f7bf0db-0b6d-450a-b447-3611969c5277>.
+
 - **Session 11 (phase 5) ran 2026-08-23/24 and is merged.** The corpus is
   complete: **14 of 14 domains, 86 doctrines, 250 positions, 51
   `tradition_overrides`**, up from phase 4's 2 domains and 12 doctrines. All

@@ -378,6 +378,19 @@
           "flags": [],
           "note": "The stream has no binding confession, so this describes majority practice alongside two live minority readings rather than a settled position.",
           "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1, contrasted with William W. Klein, The New Chosen People (1990) and William Lane Craig, The Only Wise God (1987)"
+        },
+        "roman-catholic": {
+          "positions": [
+            "salvation.election/molinist"
+          ],
+          "hold": "God predestines no one to evil and the grace that saves is wholly gratuitous, while the relation between that grace and the free consent it draws out is left formally undefined: the Thomist and the Molinist accounts are both permitted, and neither may condemn the other.",
+          "why": "Trent defined predestination against Pelagius on one side and against the Reformers on the other, but the Congregatio de Auxiliis closed in 1607 without deciding between the schools, and Paul V forbade either party to censure the other.",
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Roman Catholics appear under the Molinist option here because it is the one election position in this corpus a Catholic may hold without qualification. The communion has never settled between Thomism, Molinism and the Augustinian school, so an entry naming one of them would be describing a school rather than the church.",
+          "citation": "Catechism of the Catholic Church 600, 1037; Council of Trent, Session 6, canon 17; Congregatio de Auxiliis (1597-1607), closed by Paul V without a definition"
         }
       },
       "learn_note": "This doctrine asks the basis on which God elects, not the mechanism by which he foreknows a free creature's response; that separate question is addressed at divine-foreknowledge, and the Molinist answer to each question is held by overlapping people for related but distinguishable reasons.",
