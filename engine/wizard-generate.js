@@ -116,12 +116,24 @@
     return orderedDoctrines(corpus).find(d => !answered.has(d.slug)) || null;
   }
 
-  function findOrCreateDomain(domains, name) {
+  /* A new section goes in its manifest.order position relative to the sections
+   * already there, so a map built in tier order still reads in domain order
+   * (design 5.5). A section the person made up themselves has no manifest
+   * order and keeps its place. */
+  function findOrCreateDomain(domains, corpus, name) {
     let domain = domains.find(d => d.name === name);
-    if (!domain) {
-      domain = { name: name, nodes: [] };
-      domains.push(domain);
-    }
+    if (domain) return domain;
+
+    domain = { name: name, nodes: [] };
+    const entries = (corpus.manifest || {}).domains || [];
+    const orderOf = n => {
+      const e = entries.find(x => x.name === n);
+      return e ? e.order : Infinity;
+    };
+    const mine = orderOf(name);
+    let i = 0;
+    while (i < domains.length && orderOf(domains[i].name) <= mine) i++;
+    domains.splice(i, 0, domain);
     return domain;
   }
 
@@ -195,7 +207,7 @@
       }
     }
 
-    insertInTierOrder(findOrCreateDomain(domains, name), node);
+    insertInTierOrder(findOrCreateDomain(domains, corpus, name), node);
     return domains;
   }
 
