@@ -61,7 +61,14 @@ def _save_map(self, body):
 
     # Snapshot the stored map before replacing it (decisions.md, 2026-08-23).
     # Best-effort and throttled server-side; it never blocks the save.
-    snapshot_map(user_id, force)
+    #
+    # The result is reported back because snapshot_map swallows every failure,
+    # which would otherwise leave the migration unverifiable from outside: no
+    # route reads map_versions, so a missing table looks exactly like a healthy
+    # throttled save. False is the ordinary answer (nothing stored yet, or
+    # within the hour); it is only diagnostic against a save that should have
+    # snapshotted. Not a credential and not a new route.
+    snapshotted = snapshot_map(user_id, force)
 
     patch = {"markdown": markdown}
     # Task 8: provenance survives exactly until the copier makes it theirs.
@@ -79,7 +86,8 @@ def _save_map(self, body):
         headers={"Prefer": "return=representation"},
     )
     if status == 200 and rows:
-        return reply(self, 200, {"updated_at": rows[0]["updated_at"]})
+        return reply(self, 200, {"updated_at": rows[0]["updated_at"],
+                                 "snapshotted": snapshotted})
     if status == 200 and not rows:
         return error(self, 409, "conflict", "This map was changed somewhere else.")
     return error(self, 500, "server_error", "Could not save the map.")
