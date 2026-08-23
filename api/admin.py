@@ -3,7 +3,8 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import pg, q, read_json, reply, error, guard, unknown_user, require_admin  # noqa: E402
+from _lib import (pg, q, read_json, reply, error, guard, unknown_user,  # noqa: E402
+                  require_admin, snapshot_map)
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
@@ -116,6 +117,10 @@ def _save_map(self, body, admin_row):
     if not markdown.strip() and current_markdown.strip() and not force:
         return error(self, 409, "would_erase",
                      "This would erase the whole map. Confirm to continue.")
+
+    # Snapshot the stored map before replacing it (decisions.md, 2026-08-23).
+    # An admin edit is exactly the kind of whole-map replacement this exists for.
+    snapshot_map(target_id, force)
 
     status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}", {"markdown": markdown})
     if status not in (200, 204):

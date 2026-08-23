@@ -5,7 +5,8 @@ import datetime
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import pg, q, read_json, reply, error, guard, unknown_user, row_by_name  # noqa: E402
+from _lib import (pg, q, read_json, reply, error, guard, unknown_user,  # noqa: E402
+                  row_by_name, snapshot_map)
 
 MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
 
@@ -57,6 +58,10 @@ def _save_map(self, body):
     if not markdown.strip() and current_markdown.strip() and not force:
         return error(self, 409, "would_erase",
                      "This would erase the whole map. Confirm to continue.")
+
+    # Snapshot the stored map before replacing it (decisions.md, 2026-08-23).
+    # Best-effort and throttled server-side; it never blocks the save.
+    snapshot_map(user_id, force)
 
     patch = {"markdown": markdown}
     # Task 8: provenance survives exactly until the copier makes it theirs.
