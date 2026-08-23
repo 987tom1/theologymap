@@ -660,6 +660,19 @@ Every command run, every output read, nothing inferred.
   The first person to open `/wizard` on a phone is doing a real check that no
   gate here replaces.
 
+### Verified on production, after the merge
+
+| Check | Result |
+|---|---|
+| `GET /wizard` | **PASS** — `200 OK` |
+| `GET /content/wizard/manifest.json` | **PASS** — 200, JSON body |
+| `GET /content/wizard/church.json` | **PASS** — 200 |
+| `GET /web/wizard.js` | **PASS** — 200 |
+
+Vercel serves `content/` statically with no `vercel.json` entry and no
+`.vercelignore` in the way, so **phase 6 can fetch the same paths.** The only
+rewrite this phase added is `/wizard`.
+
 ## Questions for Thomas
 
 Session 9's three are still open and are repeated here so they are in one place:
