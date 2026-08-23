@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — Build a map</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/engine/theme.css">
+<style>
+  /* Tier ramp — engine/render.py's ramp exactly. Designed to hold white chip
+     text in both themes, so it is the one deliberate exception to reusing
+     theme.css tokens for colour. */
+  :root {
+    --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
+  }
+
+  body.wz main { padding: 0; max-width: none; }
+
+  /* ---- persistent header ---- */
+  #wz-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  #wz-brand .kicker { margin: 0 0 3px; font: 600 10px/1 var(--sans); letter-spacing: .16em;
+                       text-transform: uppercase; color: var(--muted); }
+  #wz-brand h1 { margin: 0; font: 400 22px/1.2 var(--serif); letter-spacing: -0.01em; }
+  #wz-crumb { margin: 0; font: 600 12px/1 var(--sans); color: var(--muted); letter-spacing: .03em; }
+  #wz-headright { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  #wz-lens-btn, #wz-finish {
+    font: 600 12.5px/1 var(--sans); color: var(--muted); background: transparent;
+    border: 1px solid var(--field-line); border-radius: 7px; padding: 10px 14px;
+    cursor: pointer;
+  }
+  #wz-lens-btn:hover, #wz-finish:hover { color: var(--ink); }
+
+  /* ---- shared layout ---- */
+  .wz-screen-body { max-width: 760px; margin: 0 auto; padding: 36px 20px 40px;
+                     display: flex; flex-direction: column; gap: 20px; }
+  .wz-wide  .wz-screen-body { max-width: 860px; }
+  .wz-narrow .wz-screen-body { max-width: 640px; padding-top: 48px; gap: 26px; }
+
+  #screen-intro h2, #screen-lens h2, #screen-question h2, #screen-finish h2 {
+    margin: 0; font: 400 28px/1.25 var(--serif); letter-spacing: -0.01em; max-width: 24ch;
+  }
+  #screen-intro h2 { font-size: 34px; max-width: 16ch; }
+  #screen-finish h2 { max-width: 22ch; }
+
+  .wz-lead { max-width: 58ch; display: flex; flex-direction: column; gap: 12px; }
+  .wz-lead p { margin: 0; }
+
+  .wz-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+  .wz-pill { font: 600 12px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
+             background: var(--chip); padding: 9px 12px; border-radius: 99px; }
+
+  .wz-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+  .wz-quiet { font: 12.5px/1.5 var(--sans); color: var(--muted); margin: 0; }
+
+  .wz-primary {
+    background: var(--ink); color: var(--bg); border: 1px solid var(--ink);
+    text-decoration: none; font: 600 14px/1 var(--sans); padding: 15px 26px;
+    border-radius: 8px; cursor: pointer; display: inline-block;
+  }
+  .wz-link {
+    font: 600 12.5px/1 var(--sans); color: var(--muted); text-decoration: none;
+    background: none; border: none; border-bottom: 1px solid var(--line);
+    padding: 0 0 2px; cursor: pointer; display: inline-block;
+  }
+  .wz-link:hover { color: var(--ink); }
+
+  /* ---- lens screen ---- */
+  #lens-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .lens {
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 5px;
+    text-align: left; cursor: pointer; width: 100%; font: inherit; color: inherit;
+  }
+  .lens strong { font: 600 15px/1.3 var(--serif); }
+  .lens span { font: 12.5px/1.5 var(--serif); color: var(--muted); }
+  .lens.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+  .lens-none { grid-column: 1 / -1; background: var(--bg); }
+
+  /* ---- question screen ---- */
+  .wz-qhead { display: flex; flex-direction: column; gap: 10px; }
+  #q-framing { margin: 0; max-width: 58ch; color: var(--ink); }
+
+  #positions { display: flex; flex-direction: column; gap: 12px; }
+
+  .wz-card {
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 9px;
+  }
+  .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+  .wz-card-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .wz-card-h strong { font: 600 16px/1.3 var(--serif); }
+  .hold { margin: 0; font: 15px/1.6 var(--serif); max-width: 58ch; }
+  .wz-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tchip { font: 600 11px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
+           background: var(--chip); padding: 6px 9px; border-radius: 99px; }
+  .tchip-lens { background: var(--ink); color: var(--bg); }
+  .wz-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+  .wz-outside { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
+                text-transform: uppercase; color: var(--muted); }
+  .wz-outside-note { margin: 4px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
+
+  #open-answer {
+    background: var(--ink); color: var(--bg); border-radius: 9px; padding: 18px;
+    display: flex; flex-direction: column; gap: 6px; cursor: pointer;
+  }
+  #open-answer strong { font: 600 16px/1.3 var(--serif); }
+  #open-answer p { margin: 0; font: 13.5px/1.55 var(--serif); max-width: 58ch; opacity: .88; }
+
+  /* controls the wizard controller appends inside a chosen .wz-card (or a
+     chosen #open-answer) — not present in static markup, styled anyway. */
+  .wz-answer { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+  .lab { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
+         text-transform: uppercase; color: var(--muted); }
+  .wz-holdfield { border: 1px solid var(--field-line); border-radius: 8px;
+                  background: var(--bg); color: var(--ink); padding: 12px 14px; }
+  .wz-holdfield textarea {
+    display: block; width: 100%; box-sizing: border-box; border: none; background: none;
+    color: inherit; resize: vertical; font: 15px/1.6 var(--serif); padding: 0;
+  }
+  .wz-holdfield textarea:focus { outline: none; }
+  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
+
+  .wz-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .wz-controls { grid-template-columns: 1fr; } }
+  .wz-controls > div { display: flex; flex-direction: column; gap: 6px; }
+  .wz-controls p.wz-hint { margin: 0; }
+
+  .tierchip { display: inline-block; color: #fff; font: 600 12px/1 var(--sans);
+              padding: 8px 11px; border-radius: 6px; }
+
+  .wz-check { display: flex; gap: 9px; align-items: flex-start; font: 13.5px/1.5 var(--serif);
+              color: var(--ink); margin-top: 2px; cursor: pointer; }
+  .wz-check input { margin: 2px 0 0; flex: none; width: 16px; height: 16px; }
+
+  /* ---- who believes what ---- */
+  #who-body { padding-top: 10px; display: flex; flex-direction: column; gap: 14px; }
+  .who { margin: 0; display: grid; grid-template-columns: 150px 1fr; gap: 8px 18px; align-items: baseline; }
+  .who dt { font: 600 13.5px/1.5 var(--serif); }
+  .who dd { margin: 0; font: 13px/1.55 var(--serif); color: var(--muted); }
+  .stance { color: var(--ink); }
+  @media (max-width: 480px) { .who { grid-template-columns: 1fr; } }
+
+  /* ---- nav row ---- */
+  .wz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+
+  /* ---- finish screen ---- */
+  .wz-stat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
+             background: var(--panel); border: 1px solid var(--field-line);
+             border-radius: 9px; padding: 18px 20px; }
+  @media (max-width: 480px) { .wz-stat { grid-template-columns: 1fr 1fr; } }
+  .wz-stat > div { display: flex; flex-direction: column; gap: 4px; }
+  .wz-stat .num { font: 400 30px/1 var(--serif); }
+  .wz-stat .lab { margin: 0; }
+
+  .wz-tier { display: flex; flex-direction: column; gap: 8px; }
+  #fin-tierbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+  .wz-seg { display: block; height: 100%; }
+
+  #fin-tiercounts { margin: 0; }
+
+  .wz-finishcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 480px) { .wz-finishcards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body class="tm-page wz">
+
+<header id="wz-header">
+  <div id="wz-brand">
+    <p class="kicker">Theology map</p>
+    <h1>Build me a map</h1>
+  </div>
+  <p id="wz-crumb" hidden></p>
+  <div id="wz-headright" hidden>
+    <button id="wz-lens-btn" type="button">Shown first: —</button>
+    <button id="wz-finish" type="button">Finish here</button>
+  </div>
+</header>
+
+<main>
+<section id="screen-intro" class="wz-narrow">
+  <div class="wz-screen-body">
+    <h2>Answer questions, get a map of what I believe.</h2>
+    <div class="wz-lead">
+      <p><span id="intro-count">99</span> questions, one at a time, starting with the ones everything else rests on. Each one shows what different churches actually hold, in their own words, and the answer is whichever one is closest to mine.</p>
+      <p>Most people take twenty minutes and answer a dozen. That is a real map — it can be left at any point and picked up later, and nothing here is locked once it is written.</p>
+    </div>
+    <div class="wz-pills">
+      <span class="wz-pill"><span id="intro-count-chip">99</span> questions</span>
+      <span class="wz-pill">Leave at any point</span>
+      <span class="wz-pill">Everything editable after</span>
+    </div>
+    <div class="wz-actions">
+      <button id="intro-start" type="button" class="wz-primary">Start with the first question</button>
+      <a id="intro-byhand" href="/edit" class="wz-link">Write a belief by hand instead</a>
+    </div>
+    <div class="tm-note" style="margin-top: 14px">
+      Choosing a church tradition on the next screen changes the <em>order</em>
+      answers are shown in and labels who holds what. It never fills anything
+      in. Every belief in this map is one I chose.
+    </div>
+  </div>
+</section>
+
+<section id="screen-lens" class="wz-wide" hidden>
+  <div class="wz-screen-body">
+    <h2>Is there a tradition whose answers should be shown first?</h2>
+    <div class="tm-note">
+      This changes the order positions are shown in, and labels who holds
+      what. It never fills anything in — every answer below is mine.
+    </div>
+    <div id="lens-list"></div>
+    <div class="wz-actions">
+      <button id="lens-next" type="button" class="wz-primary">First question</button>
+      <span class="wz-quiet">Changeable at any point from the question screen.</span>
+    </div>
+  </div>
+</section>
+
+<section id="screen-question" hidden>
+  <div class="wz-screen-body">
+    <div class="wz-qhead">
+      <h2 id="q-title"></h2>
+      <p id="q-framing"></p>
+      <details id="q-readmore" class="optional">
+        <summary>Read more about this question</summary>
+        <div id="q-readmore-body"></div>
+      </details>
+    </div>
+
+    <div id="positions"></div>
+
+    <div id="open-answer">
+      <strong>I haven't worked this out yet</strong>
+      <p>This becomes a real entry: confidence 'open', flagged for study, with a note of what is left to settle.</p>
+    </div>
+
+    <details id="who" class="optional">
+      <summary>Who believes what?</summary>
+      <div id="who-body">
+        <p class="wz-quiet">Chips and stances describe who holds what. They are not a ranking, and they are not a recommendation.</p>
+      </div>
+    </details>
+
+    <div class="wz-nav">
+      <button id="q-back" type="button" class="wz-link">Back</button>
+      <button id="q-next" type="button" class="wz-primary">Next</button>
+    </div>
+  </div>
+</section>
+
+<section id="screen-finish" hidden>
+  <div class="wz-screen-body">
+    <h2>I have a map.</h2>
+
+    <div class="wz-stat">
+      <div><span id="fin-beliefs" class="num"></span><span class="lab">beliefs written</span></div>
+      <div><span id="fin-areas" class="num"></span><span class="lab">areas covered</span></div>
+      <div><span id="fin-open" class="num"></span><span class="lab">still open, flagged #study</span></div>
+      <div><span id="fin-remaining" class="num"></span><span class="lab">questions not yet asked</span></div>
+    </div>
+
+    <div class="wz-tier">
+      <p class="lab">Tier spread</p>
+      <div id="fin-tierbar"></div>
+      <p id="fin-tiercounts" class="wz-quiet"></p>
+    </div>
+
+    <div class="tm-note">
+      Every entry here is mine to edit, and editing is expected. The wording
+      came from a starting point; the map is the thing I keep working on.
+    </div>
+
+    <div class="tm-grid wz-finishcards">
+      <a id="fin-carry" href="#" class="tm-card tm-card-primary">
+        <h3>Carry on</h3>
+        <p id="fin-carry-note"></p>
+        <span class="tm-go">Continue →</span>
+      </a>
+      <a id="fin-edit" href="/edit" class="tm-card">
+        <h3>Open the editor</h3>
+        <p>Rewrite anything in my own words, add texts, add beliefs the questions did not cover.</p>
+        <span class="tm-go">Edit →</span>
+      </a>
+      <a id="fin-view" href="/app" class="tm-card">
+        <h3>See the map</h3>
+        <p>The four views, the way anyone I share the link with will see it.</p>
+        <span class="tm-go">View →</span>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="/engine/editor-core.js"></script>
+<script src="/engine/wizard-generate.js"></script>
+<script type="module" src="/web/wizard.js"></script>
+</body>
+</html>
