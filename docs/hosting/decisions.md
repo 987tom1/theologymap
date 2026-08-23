@@ -288,6 +288,12 @@ and are marked **done**; the other two bind phase 5.
 - **`zz-schema-check` is Thomas's to delete** and he has it in hand. No session
   should touch it or re-raise it.
 
+- **Phase 8 runs next, ahead of phase 5.** Confirmed 2026-08-23, after the wizard
+  shipped. `map_versions` has preserved every save since session 9 and nothing can
+  read one back; the wizard is precisely the feature that makes losing work
+  possible, so the undo goes in before more content does. No schema change, no
+  dependency on phases 5–7.
+
 - **A seed with no `orthodoxy: "outside"` position is acceptable.** Phase 4's
   twelve doctrines honestly contain none, and inventing one is worse than
   shipping the branch unexercised. **This becomes phase 5's job:** the

@@ -51,6 +51,11 @@ nothing else unless its own plan section names the file.
 **Phase 5 (session 11) may run in parallel** with 7–10 once phase 4's schema is
 frozen — it produces content, not code.
 
+**Phase 8 now runs next, ahead of phase 5 — Thomas's call, 2026-08-23.** The
+wizard went live the same day, and phase 8 is the undo that insures against it.
+It needs only `map_versions`, live and verified since session 9. Run it as the
+next session on `phase-8-versions`; phases 5–7 keep their order behind it.
+
 **Phase 8 (session 15) is last by convenience, not by dependency.** It needs only
 `map_versions`, which shipped and was verified in session 9, so it can run any
 time after phase 4 — pull it forward if losing work to the wizard is a live
