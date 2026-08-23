@@ -41,7 +41,7 @@ nothing else unless its own plan section names the file.
 | 7 | Phase 3 Tasks 0–4 — theme, node editor, layout | `phase-3-ui` | Opus + Sonnet fan-out | `phase-3-plan.md` L1–764 |
 | 8 | Phase 3 Tasks 5–9 — cards, first run, sharing, merge | `phase-3-ui` (same branch) | Opus + Sonnet fan-out | `phase-3-plan.md` L1–125 + L765–end |
 | 9 | Phase 4 Tasks 0–4 — schema, validator, generator | `phase-4-wizard` | Opus | `phase-4-plan.md` L1–555 |
-| 10 | Phase 4 Tasks 5–8 — wizard UI, seed content, merge | `phase-4-wizard` (same branch) | Opus | `phase-4-plan.md` L1–92 + L556–end |
+| 10 | Phase 4 Tasks 5–8 — wizard UI, seed content, merge — **done** | `phase-4-wizard` (same branch) | Opus | `phase-4-plan.md` L1–92 + L556–end |
 | 11 | Phase 5 — denominational research corpus | `phase-5-corpus` | Opus main, Sonnet research subagents | `phase-5-brief.md` |
 | 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
@@ -57,6 +57,25 @@ time after phase 4 — pull it forward if losing work to the wizard is a live
 worry. Everything else is sequential.
 
 ## Progress
+
+- **Session 10 (phase 4, Tasks 5–8) ran 2026-08-23 and is merged. Phase 4 is
+  complete.** The wizard is live at `/wizard` (`web/wizard.html` +
+  `web/wizard.js`, no new serverless function), the seed corpus is twelve
+  doctrines across Scripture and Church, `engine/corpus_refs.py` put its 44 new
+  references into `verses.md` and all of them fetched, and `WIZARD_ENABLED` is
+  `true`. **Session 11 (phase 5) is next** — or session 15 (phase 8), which is
+  now the better call: the wizard is the feature that makes losing work
+  possible, and phase 8 is the undo. Three things for the next session in
+  `phase-4-outcome.md`: **design §4.8's worked example fails validator rule 15**
+  as written (its Lutheran baptism entry needs a `tradition_overrides` entry,
+  and every phase 5 session will copy that example); the seed contains **no
+  `orthodoxy: "outside"` position**, so that whole UI branch ships unexercised;
+  and `render.py` now ships only the verses a map actually cites — without that,
+  every domain phase 5 adds would inflate `theology-map.html` and every hosted
+  render. **Two of the four Sonnet subagents were killed mid-run by an
+  account-level spend limit**; phase 5 is the most fan-out-heavy phase left, so
+  brief each agent narrowly enough that the main thread can finish its file
+  rather than restart it.
 
 - **Session 9 (phase 4, Tasks 0–4) ran 2026-08-23 and is merged.** `map_versions`
   (written first, by the locked decision, and **verified applied on production** —

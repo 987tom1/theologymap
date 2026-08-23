@@ -21,8 +21,18 @@ hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
   data, mostly machine-filled), and the two secondary generated outputs
   `theology-map.mm` / `study-list.md`.
 - `engine/` — `render.py`, `fetch_verses.py`, `render_server.py`,
-  `editor.html`, `editor-core.js`, `map-view.js`, `shared-fields.js`. Not
-  meant to be opened directly.
+  `editor.html`, `editor-core.js`, `map-view.js`, `shared-fields.js`,
+  and phase 4's `wizard-generate.js`, `validate_content.py`, `corpus_refs.py`.
+  Not meant to be opened directly.
+- `content/wizard/` — the **wizard corpus** (phase 4): `manifest.json` (the
+  fourteen domains, in map order), `traditions.json` (the fourteen-tradition
+  registry, twelve of them selectable in the UI), and one file per domain
+  holding its doctrines and positions. Phase 5 fills the remaining domain
+  files; a manifest entry whose file is not on disk yet is the normal state,
+  not an error. **Validate every change with `py engine/validate_content.py`**
+  — twenty error rules, four warnings and a coverage matrix; exit 0 is the
+  gate. `content/traditions/` (phase 6) will be **generated** from this corpus
+  and must never be hand-edited.
 
 `render.py` and `fetch_verses.py` resolve `ROOT` as
 `Path(__file__).parent.parent` (one level up from `engine/`) and read/write
@@ -91,6 +101,16 @@ and then deleted before saving nets to zero rather than counting as deleted.
 - `shared-fields.js` holds the tag-chip link-editor widget used by both the
   List form and Map tiles, so there's one implementation to keep in sync
   rather than two.
+- `wizard-generate.js` is the **third UMD module in this family** (phase 4):
+  `window.WizardGenerate` in the browser, `module.exports` under Node. It is
+  pure — no DOM, no fetch — and it **never produces markdown**. It builds a
+  node model and the caller calls `EditorCore.serialize`, which is what keeps
+  the whole content-to-markdown path runnable from the command line in a
+  program that has banned browser verification. It is not a parser and carries
+  no lockstep obligation to `render.py`; its one hard rule is that
+  `pruneLinks(domains)` runs immediately before **every** `serialize`, because
+  a wizard map is partial by definition and `render.py` warns on a `link`
+  whose target does not exist.
 - **Promoted versus optional fields (phase 3).** Both editing surfaces — the
   List form and an open Map leaf — show **What I hold**, **Tier** and
   **Confidence** directly, and put the other five (**Why**, **What I'd
@@ -276,6 +296,7 @@ the short path. Two consequences that have each caused a real bug:
 | `/gallery` | `web/gallery.html` — public maps |
 | `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id (see above); names are unique on `lower(name)`. |
 | `/admin` | `web/admin.html` — admin console |
+| `/wizard` | `web/wizard.html` — the map wizard (phase 4). Signed-out visitors are sent to `/app`. |
 
 **`web/session.js` is the only module that touches `localStorage` for the signed-in
 user** (key `theologymap:user`). There is one way to get the current user id:
