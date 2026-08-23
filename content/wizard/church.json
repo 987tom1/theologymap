@@ -316,12 +316,6 @@
               "stance": "majority",
               "note": "Individual congregations are typically autonomous, though most affiliate with a fellowship or denominational body for credentialing and cooperation.",
               "citation": "Assemblies of God, Constitution and Bylaws, Article IX"
-            },
-            {
-              "tradition": "inc",
-              "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
             }
           ],
           "learn_detail": "Congregationalists still cooperate translocally, through associations, fellowships or networks, but distinguish voluntary cooperation from ecclesiastical authority binding the local church.",
@@ -437,6 +431,12 @@
               "stance": "confessional",
               "note": "Held together with baptismal regeneration, which most other credobaptists reject — see the regeneration position.",
               "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": "The statement says: “we baptise confessing believers who have willingly trusted themselves to Christ”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), “The Ordinances: Baptism and Holy Communion”"
             }
           ],
           "learn_detail": "Credobaptists divide over whether baptism is a bare sign, a means of grace to faith already present, or the appointed moment of remission. The subject of baptism is agreed among them; its effect is not.",
@@ -817,8 +817,8 @@
             {
               "tradition": "inc",
               "stance": "majority",
-              "note": "Consistent with the movement's general low-church, Baptistic sacramental practice; not traced to a specific published statement beyond the general Statement of Faith.",
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says the bread “represent[s] Christ's body” and the cup “represents His blood”, and calls Communion “a reminder”.",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), “The Ordinances: Baptism and Holy Communion”"
             }
           ],
           "learn_detail": "Memorialists still regard the Supper as a real means of grace in the broad sense — an occasion for self-examination and communion with Christ by faith — while denying that anything is conveyed through the elements as such.",
@@ -908,12 +908,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Assemblies of God, Constitution and Bylaws, Article IX"
-            },
-            {
-              "tradition": "inc",
-              "stance": "majority",
-              "note": "Consistent with the movement's local-church autonomy and its general Statement of Faith; not traced to a published discipline document beyond that statement.",
-              "citation": "International Network of Churches, Statement of Faith"
             }
           ],
           "learn_detail": "Congregational traditions differ on how formal the covenant is, from a signed document to simply being received into fellowship by the elders, but agree that a definite act of joining precedes any discipline.",

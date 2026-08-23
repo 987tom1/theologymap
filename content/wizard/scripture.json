@@ -72,6 +72,12 @@
               "stance": "majority",
               "note": "Not confessionally bound, but the movement's founding appeal to 'the Bible alone' presumes a text without error in what it asserts.",
               "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": "The statement says: “penned without error in their original language by human authors, under the supernatural guidance of the Holy Spirit”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), “The Bible: How We Know God”"
             }
           ],
           "learn_detail": "Full inerrancy as codified at Chicago allows for phenomenal language, approximation, and topical rather than chronological arrangement; its defenders regard those as features of ordinary truthful speech rather than concessions.",
@@ -237,6 +243,12 @@
               "stance": "majority",
               "note": null,
               "citation": "Thomas Campbell, Declaration and Address (1809)"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": "The statement says: “The sixty-six books of the Old and New Testaments comprise the totality of the Inspired Scripture”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), “The Bible: How We Know God”"
             }
           ],
           "learn_detail": "The sixty-six-book canon was the settled position of the magisterial and radical Reformation alike; the dispute with Rome and the East is over the deuterocanon, not over any of the sixty-six.",
@@ -443,8 +455,8 @@
             {
               "tradition": "inc",
               "stance": "majority",
-              "note": "Practice rather than confession; the INC Statement of Faith affirms the gifts of the Spirit without a developed statement on their relation to the closed canon.",
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement calls scripture “our highest written authority in this world”, a formulation that leaves room for subordinate authority rather than excluding it.",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), “The Bible: How We Know God”"
             }
           ],
           "learn_detail": "This position is functionally sola scriptura with a continuationist account of the gifts; it is marked as a distinct position because holders of the cessationist form of sola scriptura frequently read it as compromising sufficiency, which its own adherents deny.",
@@ -748,12 +760,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
-            },
-            {
-              "tradition": "inc",
-              "stance": "majority",
-              "note": "Practice rather than confession; no published INC statement develops a distinct hermeneutic beyond a general affirmation of Scripture's authority.",
-              "citation": "International Network of Churches, Statement of Faith"
             }
           ],
           "learn_detail": "This position is grouped with grammatical-historical method as substantively the same account of meaning, adding a doctrine of illumination that most grammatical-historical holders would also affirm rather than dispute; some charismatic teaching pushes further toward reading a text's application as itself a fresh 'rhema' word, which is a distinct and more contested claim.",
