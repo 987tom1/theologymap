@@ -27,9 +27,11 @@ hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
 - `content/wizard/` — the **wizard corpus** (phase 4): `manifest.json` (the
   fourteen domains, in map order), `traditions.json` (the fourteen-tradition
   registry, twelve of them selectable in the UI), and one file per domain
-  holding its doctrines and positions. Phase 5 fills the remaining domain
-  files; a manifest entry whose file is not on disk yet is the normal state,
-  not an error. **Validate every change with `py engine/validate_content.py`**
+  holding its doctrines and positions. **Phase 5 filled all fourteen: 86
+  doctrines, 250 positions, 51 `tradition_overrides`.** `loadCorpusSync` still
+  tolerates a missing domain file, so a manifest entry with no file on disk is
+  a warning and not an error, but there are none today.
+  **Validate every change with `py engine/validate_content.py`**
   — twenty error rules, four warnings and a coverage matrix; exit 0 is the
   gate. `content/traditions/` (phase 6) will be **generated** from this corpus
   and must never be hand-edited.
