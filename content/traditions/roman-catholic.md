@@ -238,10 +238,9 @@
   link  divine-foreknowledge
 
 ## Election · T2.5 · leaning
-  hold  God elects those he knows, through middle knowledge of what every possible person would freely do under any circumstance, will respond to grace in the circumstances he chooses to actualise for them.
-  why   Middle knowledge lets God's electing choice rest on a real, prevolitional knowledge of a person's free response, without either determining that response or treating foreknowledge as a bare, causally inert fact.
-  vs    Treating foreseen faith as a bare future fact God simply observes, which this position holds cannot explain why God foreknows one person's faith and not another's without some further ground.
-  refs  1 Sam 23:11-13; Rom 8:29
+  hold  God predestines no one to evil and the grace that saves is wholly gratuitous, while the relation between that grace and the free consent it draws out is left formally undefined: the Thomist and the Molinist accounts are both permitted, and neither may condemn the other.
+  why   Trent defined predestination against Pelagius on one side and against the Reformers on the other, but the Congregatio de Auxiliis closed in 1607 without deciding between the schools, and Paul V forbade either party to censure the other.
+  refs  Eph 1:4-5; Rom 9:10-13; Rom 8:29-30
   link  divine-foreknowledge
   link  sovereignty-and-free-will
   link  perseverance-and-apostasy
