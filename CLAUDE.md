@@ -318,7 +318,7 @@ the scheduler never arms; a client-side shrink check; a server-side 409
 `would_erase` measured against the row's *actual* stored markdown; and a
 `localStorage['theologymap:draft:<name>']` copy written before every network call.
 
-### The schema — one table
+### The schema — two tables
 
 `supabase/migrations/20260818120000_users.sql`. Migrations **deploy themselves**:
 Thomas has the Supabase↔GitHub integration, which applies new files in
@@ -338,6 +338,25 @@ it, then verify it landed — committed is not applied.
 
 RLS is on with **no policies**, so the anon key can read nothing. That is
 deliberate: access control lives in `api/`, not in RLS.
+
+`map_versions` is the second table, added by phase 4
+(`supabase/migrations/20260823170000_map_versions.sql`) because the wizard is
+the first feature that can replace a whole map in one action and `force: true`
+walks past all four empty-save guards. `map_versions(id, user_id, markdown,
+saved_at)`; `users.markdown` stays the head pointer, so the editor, gallery,
+render route and export are untouched and nothing reads this table yet.
+
+**Every write path to `users.markdown` calls `_lib.snapshot_map(user_id, force)`
+first** — `api/map.py`'s save and `api/admin.py`'s `save_map`. It is one
+PostgREST RPC to `public.snapshot_map`, and the two rules live in that SQL
+function rather than in `api/`, so the call sites cannot drift and autosave pays
+one round trip: **at most one snapshot per user per hour, but always one on a
+`force: true` save**, and **the last 20 per user** are kept. The helper is
+best-effort and swallows every failure — losing a snapshot must never cost
+somebody their save — which also means **it cannot tell you whether the
+migration landed**. Probe the RPC for that: `POST /rest/v1/rpc/snapshot_map`
+answers `404 PGRST202` when the function does not exist. See
+`supabase/verify-map-versions-migration.sql`.
 
 **The one SQL statement a human runs in the whole program** is the admin
 bootstrap, because sign-up is open and any route that could grant admin could
