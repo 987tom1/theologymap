@@ -93,6 +93,72 @@ def _set_visibility(self, body, admin_row):
     return reply(self, 200, {"ok": True})
 
 
+def _versions(self, body, admin_row):
+    """{action: "versions", target_id} -> that user's version list, newest first.
+
+    Same shape as api/map.py's own-account version, minus node_count: this is
+    the smaller admin half of the phase and a parse import here would need its
+    own vercel.json includeFiles entry for one nicety already marked optional
+    (see phase-8-brief.md §1). Never returns markdown.
+    """
+    target_id = body.get("target_id")
+    if not target_id:
+        return error(self, 400, "bad_request", "Missing target_id.")
+    if not _lookup(target_id):
+        return unknown_user(self)
+
+    status, versions, _ = pg(
+        "GET",
+        f"/map_versions?user_id=eq.{q(target_id)}&select=id,saved_at,markdown"
+        "&order=saved_at.desc",
+    )
+    if status != 200:
+        return error(self, 500, "server_error", "Could not load versions.")
+
+    out = [
+        {"id": v["id"], "saved_at": v["saved_at"],
+         "bytes": len((v.get("markdown") or "").encode("utf-8"))}
+        for v in (versions or [])
+    ]
+    return reply(self, 200, out)
+
+
+def _restore(self, body, admin_row):
+    """{action: "restore", target_id, version_id} -> replace that user's map
+    with that version. The locked "edit/restore any map" admin power.
+
+    No expected_updated_at: admin writes here already bypass optimistic
+    concurrency, same as _save_map above.
+    """
+    target_id = body.get("target_id")
+    if not target_id:
+        return error(self, 400, "bad_request", "Missing target_id.")
+    version_id = body.get("version_id")
+    if not version_id:
+        return error(self, 400, "bad_request", "Missing version_id.")
+    if not _lookup(target_id):
+        return unknown_user(self)
+
+    # The version must belong to the target — filtered on user_id AND id.
+    status, versions, _ = pg(
+        "GET",
+        f"/map_versions?id=eq.{q(version_id)}&user_id=eq.{q(target_id)}&select=markdown",
+    )
+    if status != 200 or not versions:
+        return error(self, 404, "unknown_version", "No such version.")
+    restored_markdown = versions[0]["markdown"]
+
+    # Snapshot the current map first, force=True: the person must be able to
+    # undo the undo, same as the self-service restore.
+    snapshot_map(target_id, True)
+
+    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}",
+                      {"markdown": restored_markdown})
+    if status not in (200, 204):
+        return error(self, 500, "server_error", "Could not restore that version.")
+    return reply(self, 200, {"ok": True})
+
+
 def _save_map(self, body, admin_row):
     target_id = body.get("target_id")
     if not target_id:
@@ -134,6 +200,8 @@ ACTIONS = {
     "reset_pin": _reset_pin,
     "set_visibility": _set_visibility,
     "save_map": _save_map,
+    "versions": _versions,
+    "restore": _restore,
 }
 
 
