@@ -130,9 +130,9 @@ the next session verifies it landed before trusting `copy_from` or the gallery's
 ever demands it. Phases 4–7 need no DDL;
 phase 6 ships deliberately no-schema.
 
-Also still open, low cost: confirm whether `987tom1.github.io/theologymap` is a dead
-GitHub Pages deploy (`readiness.md` A.3). If it is live, a session can verify against
-a stale build and report a false green.
+~~Also still open: confirm whether `987tom1.github.io/theologymap` is a dead GitHub
+Pages deploy.~~ **Closed 2026-08-23 by session 8: it 404s.** There is one live
+deployment, the Vercel one, and no stale build to report a false green against.
 
 ## Why 1b–1d are not fanned out in parallel from session 1
 

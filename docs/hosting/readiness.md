@@ -22,9 +22,11 @@ Status key: **[T]** only Thomas can do it · **[C]** a Claude session can do it 
    byte-identical render diff, so an unreliable interpreter means 1a cannot honestly
    merge, and everything after 1a is blocked behind it.
 
-3. **[T] Confirm the GitHub Pages deploy is dead or intended.** `987tom1.github.io/theologymap`
-   is serving a second copy of the site. A session that verifies against the wrong URL
-   will report success on a stale build.
+3. ~~**[T] Confirm the GitHub Pages deploy is dead or intended.**~~ **CLOSED
+   2026-08-23, session 8.** `https://987tom1.github.io/theologymap` 301s to
+   `.../theologymap/`, which answers **404** with GitHub's own not-found page. There
+   is no second copy of the site and no stale build to verify against by mistake.
+   The only live deployment is the Vercel one.
 
 4. **[T, after 1a] Bootstrap the admin flag.** No route writes `is_admin` — with open
    sign-up, one that did would let anyone promote themselves. Setting it is one SQL
