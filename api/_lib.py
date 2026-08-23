@@ -128,19 +128,37 @@ def _like_literal(text):
     return text.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
+def _with_name(select):
+    """`select` plus the `name` column, which _pick_exact cannot work without.
+
+    Pure, so api/_test_lib.py can hold it to the case that bit us. The exact
+    comparison in _pick_exact reads row["name"], so a caller that selects
+    everything EXCEPT name gets a KeyError -> @guard -> a 500 with no useful
+    message. Phase 3's copy_from did exactly that, and it only showed up on the
+    one code path that reached it, because every guard ahead of it returns
+    first. Adding the column here means no future caller can get it wrong;
+    fixing the one call site would have left the trap armed.
+    """
+    cols = [c.strip() for c in select.split(",") if c.strip()]
+    if "name" not in cols:
+        cols.append("name")
+    return ",".join(cols)
+
+
 def row_by_name(name, select):
     """The one row whose name equals `name`, case-insensitively. Else None.
 
     The single place that turns a name into a row — used by login, by every
     admin action (through verify_credentials) and by the public read path.
     See verify_credentials for why the ilike pattern only narrows and the
-    exact comparison below decides.
+    exact comparison below decides. `select` need not include `name`; it is
+    added for you, because the comparison below cannot run without it.
     """
     if not isinstance(name, str) or not name:
         return None
     status, rows, _ = pg(
         "GET",
-        f"/users?select={select}&name=ilike." + quote(_like_literal(name)),
+        f"/users?select={_with_name(select)}&name=ilike." + quote(_like_literal(name)),
     )
     if status != 200 or not rows:
         return None

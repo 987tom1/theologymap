@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _lib import _like_literal, _pick_exact, q  # noqa: E402
+from _lib import _with_name, _like_literal, _pick_exact, q  # noqa: E402
 
 
 def test_like_literal():
@@ -36,6 +36,17 @@ def test_pick_exact():
     assert _pick_exact(rows, "nobody") is None
 
 
+def test_with_name():
+    # _pick_exact reads row["name"], so row_by_name must always fetch it — a
+    # select that omits it used to 500 (phase 3's copy_from).
+    assert _with_name("id,markdown,is_public") == "id,markdown,is_public,name"
+    # Already present: not duplicated, and order is left alone.
+    assert _with_name("markdown,is_public,name") == "markdown,is_public,name"
+    assert _with_name("id,name,pin,is_admin") == "id,name,pin,is_admin"
+    # Whitespace and empty segments do not create a phantom column.
+    assert _with_name(" id , markdown ") == "id,markdown,name"
+
+
 def test_q():
     # A value can never add its own filter to a PostgREST path — phase 2, B6.
     assert q("a&select=pin") == "a%26select%3Dpin"
@@ -45,5 +56,6 @@ def test_q():
 if __name__ == "__main__":
     test_like_literal()
     test_pick_exact()
+    test_with_name()
     test_q()
     print("api/_test_lib.py: PASS")
