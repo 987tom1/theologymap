@@ -42,7 +42,7 @@ nothing else unless its own plan section names the file.
 | 8 | Phase 3 Tasks 5–9 — cards, first run, sharing, merge | `phase-3-ui` (same branch) | Opus + Sonnet fan-out | `phase-3-plan.md` L1–125 + L765–end |
 | 9 | Phase 4 Tasks 0–4 — schema, validator, generator | `phase-4-wizard` | Opus | `phase-4-plan.md` L1–555 |
 | 10 | Phase 4 Tasks 5–8 — wizard UI, seed content, merge — **done** | `phase-4-wizard` (same branch) | Opus | `phase-4-plan.md` L1–92 + L556–end |
-| 11 | Phase 5 — denominational research corpus | `phase-5-corpus` | Opus main, Sonnet research subagents | `phase-5-brief.md` |
+| 11 | Phase 5 — denominational research corpus — **done** | `phase-5-corpus` | Opus main, Sonnet research subagents | `phase-5-brief.md` |
 | 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views | `phase-7-views` | Sonnet | `phase-7-brief.md` |
@@ -62,6 +62,29 @@ time after phase 4 — pull it forward if losing work to the wizard is a live
 worry. Everything else is sequential.
 
 ## Progress
+
+- **Session 11 (phase 5) ran 2026-08-23/24 and is merged.** The corpus is
+  complete: **14 of 14 domains, 86 doctrines, 250 positions, 51
+  `tradition_overrides`**, up from phase 4's 2 domains and 12 doctrines. All
+  gates green — validator exit 0, 90 prefix maps parsed by `render.py`'s own
+  parser, 415 verse references with **zero blanks**, byte identity unmoved at
+  `eaedf3e4…1a90`, and **zero changed lines in all six lockstep-bearing engine
+  files**. `theology-map.html` is byte-identical at 123,870 bytes after
+  `verses.md` grew 156 → 415, so phase 4's ship-only-cited-verses fix holds.
+  **The `orthodoxy: "outside"` branch is exercised** — `god.trinity/oneness`,
+  held by a real registered tradition — as `decisions.md` required.
+  **Session 12 (phase 6) is next.** Four things for it in
+  `phase-5-outcome.md`: `contested` is over-applied (80 of 250) and should not
+  be leaned on; **deuterocanonical references cannot enter `refs`** because the
+  NET API serves the Protestant canon only, which phase 6 meets head-on when it
+  builds the Catholic and Orthodox tradition maps; INC covers only **15%** of
+  doctrines, so its scorecard column will be mostly blank and the thin-tradition
+  coverage floor bites there first; and `check_generated_map.py` reads whatever
+  is in `tests/out/`, so clear it before trusting that gate alongside the JS one.
+  **Five of six subagents in the second wave were killed by the monthly spend
+  limit** — three had saved complete files and survived, which is what the
+  incremental-save rule bought. `docs/hosting/phase-5-agent-brief.md` is the
+  compressed contract that made the fan-out affordable; reuse it.
 
 - **Session 15 (phase 8) ran 2026-08-23 and is merged.** `map_versions` has a
   reader: `versions` and `restore` on `api/map.py` (self-service) and

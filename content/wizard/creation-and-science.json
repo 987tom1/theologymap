@@ -1,0 +1,1015 @@
+{
+  "schema_version": 1,
+  "domain": "creation-and-science",
+  "doctrines": [
+    {
+      "id": "creation-and-science.creation-ex-nihilo-and-design",
+      "node_title": "Creation ex nihilo and design",
+      "slug": "creation-ex-nihilo-and-design",
+      "domain": "creation-and-science",
+      "order": 1,
+      "kind": "settled",
+      "question": "Did God create the universe out of nothing by a free act, or does the created order emerge from pre-existing matter?",
+      "framing": "Every historic confession that addresses origins agrees that God made the universe out of nothing, by a free act of his will, not by shaping matter that already existed or by any necessity in his own nature. This is affirmed alike by the Fourth Lateran Council, the Nicene Creed's confession of God as maker of heaven and earth, and Westminster's opening chapter on creation; no branch of the historic church has ever taught that matter is eternal or that the universe flows of necessity from the divine essence. The genuinely open question in this domain is not whether God made the world but how the order and apparent design within it are best discerned, a question the doctrines below take up.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places creation ex nihilo at T1.5, just below the first tier: it is confessed everywhere but does not itself divide on the gospel the way T1 doctrines do.",
+      "refs": "Gen 1:1; John 1:3; Col 1:16; Heb 11:3",
+      "links": [
+        "classical-theism",
+        "genre-of-genesis-1"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how to speak carefully about design in creation without overclaiming what an argument can establish, since creation out of nothing itself is not actually in question.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.creation-ex-nihilo-and-design/ex-nihilo",
+          "label": "Creation ex nihilo",
+          "hold": "God created the universe out of nothing, by a free act of his will, not from pre-existing matter and not by any necessity in his own nature.",
+          "why": "Scripture presents God speaking the universe into being and calling into existence the things that do not exist, and the historic creeds confess him as maker of all things visible and invisible.",
+          "vs": "Treating matter as eternal and uncreated, or treating the universe as an emanation flowing of necessity from the divine nature rather than as a free act of will.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Gen 1:1; John 1:3; Col 1:16; Heb 11:3",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Fourth Lateran Council (1215); Catechism of the Catholic Church, 296"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Nicene-Constantinopolitan Creed (381), 'maker of heaven and earth, of all things visible and invisible'"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 4.1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession 4.1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Luther's Small Catechism, explanation of the First Article of the Apostles' Creed"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article 1"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article 1"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "confessional",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith, Article 2"
+            }
+          ],
+          "learn_detail": "Affirming that God created the universe out of nothing says nothing by itself about how his design within that creation is discerned; positions on that question, from classical teleological argument to the modern intelligent design movement, vary widely without touching this doctrine's substance.",
+          "sources": [
+            {
+              "label": "Fourth Lateran Council",
+              "citation": "1215, ch. 1"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "4.1"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The design question sometimes attached to this doctrine, whether the order of creation is scientifically detectable, is a separate and much newer dispute; it does not bear on whether God made the world out of nothing, which the whole historic church confesses.",
+      "sources": [
+        {
+          "label": "Nicene-Constantinopolitan Creed",
+          "citation": "381"
+        },
+        {
+          "label": "Fourth Lateran Council",
+          "citation": "1215, ch. 1"
+        }
+      ]
+    },
+    {
+      "id": "creation-and-science.genre-of-genesis-1",
+      "node_title": "Genre of Genesis 1",
+      "slug": "genre-of-genesis-1",
+      "domain": "creation-and-science",
+      "order": 2,
+      "kind": "choice",
+      "question": "What kind of literature is Genesis 1, and what follows from reading it that way?",
+      "framing": "Genesis 1 can be read as straightforward historical narrative describing six ordinary days, as a literary framework organizing creation topically rather than chronologically, as an analogy in which each day pictures a longer period, as an account of God assigning functions within a cosmic temple, or as a text that uses and subverts the creation language of surrounding ancient Near Eastern cultures. These are judgments about the kind of text Genesis 1 is, not conclusions about modern science, and the reading taken here does not by itself settle the age of the earth or the mechanism behind the diversity of life, which are treated as separate questions below.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places the genre question at the third tier: it governs how the rest of this domain is read without itself dividing on the gospel.",
+      "refs": "Gen 1:1-2:3; Gen 2:4-25",
+      "links": [
+        "age-of-the-earth",
+        "evolution",
+        "the-flood",
+        "hermeneutic-method",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out which genre judgment for Genesis 1 is exegetically strongest, since that reading shapes how the age-of-the-earth and evolution questions below are approached.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.genre-of-genesis-1/historical-narrative",
+          "label": "Historical narrative",
+          "hold": "Genesis 1 is straightforward historical narrative, describing God's creation of the universe and all it contains across six ordinary, sequential days.",
+          "why": "The chapter uses ordinary Hebrew narrative verb forms and numbers each day with the formula evening and morning, the same construction Exodus later treats as the pattern for the ordinary work week.",
+          "vs": "Reading the days of Genesis 1 as a topical framework, a long-age analogy, or a temple-inauguration account rather than as an ordinary sequence of days.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:1-31; Exod 20:11",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "A young-earth reading is common within the tradition's more conservative wing, though the Baptist Faith and Message does not itself specify.",
+              "citation": "Answers in Genesis, Statement of Faith"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below for how this position relates to the cosmic-temple reading within the same stream.",
+              "citation": "Creation Research Society, Statement of Belief"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "historic",
+              "note": "Patristic exegesis is not uniform; Basil read the days as ordinary, while Origen and others read them non-literally.",
+              "citation": "Basil of Caesarea, Hexaemeron (4th century)"
+            }
+          ],
+          "learn_detail": "Held across several evangelical traditions less through confessional requirement than through parachurch statements of faith such as Answers in Genesis and the Creation Research Society, which individual members subscribe to personally.",
+          "sources": [
+            {
+              "label": "Answers in Genesis, Statement of Faith",
+              "citation": "Answers in Genesis, Statement of Faith, section D"
+            },
+            {
+              "label": "Creation Research Society, Statement of Belief",
+              "citation": "Creation Research Society, Statement of Belief, articles 1-4"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.genre-of-genesis-1/framework",
+          "label": "Framework view",
+          "hold": "Genesis 1 is arranged as a literary framework of two matching triads of days, organizing creation topically by forming and filling rather than narrating a strict chronological sequence.",
+          "why": "The days pair by theme, days one through three forming realms and days four through six filling them, a structure that signals topical arrangement rather than a bare chronological report.",
+          "vs": "Reading the six days as a strict chronological sequence rather than as a topical, two-triad literary structure.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 1:1-31",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "permitted",
+              "note": "See the tradition override below for how this relates to the analogical day-age reading within the same tradition.",
+              "citation": "Meredith G. Kline, 'Space and Time in the Genesis Cosmogony,' Perspectives on Science and Christian Faith 48 (1996)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Space and Time in the Genesis Cosmogony",
+              "citation": "Meredith G. Kline, 1996"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.genre-of-genesis-1/analogical-day-age",
+          "label": "Analogical / day-age",
+          "hold": "Each day of Genesis 1 corresponds analogically to God's own day of work, a pattern given for the human week, without fixing how long each corresponding period of creation itself actually took.",
+          "why": "The Hebrew word for day already carries a range of senses elsewhere in Scripture, and Genesis 1 presents God's work week as a pattern for the human week rather than as a strict claim about elapsed time.",
+          "vs": "Treating the length of each creation day as a settled, literal twenty-four hours rather than as a question the text itself leaves analogical.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 1:1-31; Ps 90:4; 2 Pet 3:8",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "permitted",
+              "note": "The OPC's report on the days of creation concluded that several readings, including this one, fall within the bounds of the Westminster Standards.",
+              "citation": "OPC General Assembly, Report of the Committee to Study the Views of Creation Days (2000)"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "Rome does not require a literal six-day reading.",
+              "citation": "Catechism of the Catholic Church, 283; Pius XII, Providentissimus Deus and Divino Afflante Spiritu on non-literal exegetical method"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Genesis 1-4: A Linguistic, Literary, and Theological Commentary",
+              "citation": "C. John Collins, 2006"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.genre-of-genesis-1/cosmic-temple",
+          "label": "Cosmic temple",
+          "hold": "Genesis 1 describes God assigning functions and taking up rest and rule within a cosmic temple, using the ancient world's temple-inauguration pattern rather than describing the material manufacture of the universe.",
+          "why": "The seven-day structure and God's rest on the seventh day match ancient Near Eastern temple-dedication accounts, in which a deity takes up rest and rule within a completed sanctuary.",
+          "vs": "Reading Genesis 1 as an account of the material origin of matter itself rather than as an account of functional order and divine rule within an already-existing cosmos.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 1:1-2:3",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below for how this relates to the historical-narrative reading within the same stream.",
+              "citation": "John H. Walton, The Lost World of Genesis One (2009)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Lost World of Genesis One",
+              "citation": "John H. Walton, 2009"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.genre-of-genesis-1/ane-polemic",
+          "label": "Ancient polemic",
+          "hold": "Genesis 1 is written to confront the creation accounts of surrounding ancient Near Eastern cultures, presenting the God of Israel alone as sovereign over a cosmos other nations attributed to rival gods.",
+          "why": "Genesis 1's ordering of sun, moon, sea and sea creatures directly counters deities Israel's neighbors worshipped under those same names, framing the chapter as polemic against surrounding religion.",
+          "vs": "Reading Genesis 1 as written primarily to answer a modern scientific question about material origins rather than as a polemic against the religious claims of Israel's neighbors.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 1:1-31",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "This reading is usually combined with one of the other four rather than standing alone as a complete account of the chapter's genre; no registered tradition confesses it by itself as a formal position.",
+          "sources": [
+            {
+              "label": "The Evolution of Adam",
+              "citation": "Peter Enns, 2012"
+            }
+          ]
+        }
+      ],
+      "learn_note": "These five readings are not always mutually exclusive in practice; the cosmic-temple and ancient-polemic readings in particular are frequently combined with each other or with the framework view.",
+      "sources": [
+        {
+          "label": "The Lost World of Genesis One",
+          "citation": "John H. Walton, 2009"
+        },
+        {
+          "label": "Seven Days That Divide the World",
+          "citation": "John Lennox, 2011"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "creation-and-science.genre-of-genesis-1/historical-narrative",
+            "creation-and-science.genre-of-genesis-1/cosmic-temple"
+          ],
+          "hold": "Genesis 1's genre is not settled within non-denominational evangelicalism: some congregations read it as straightforward historical narrative describing six ordinary days, while others, following the cosmic-temple reading, read it as an account of functional order tied to temple-inauguration language.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Independent congregations vary widely and hold no binding confession on the question; position typically follows a congregation's teachers rather than a denominational standard.",
+          "citation": "Creation Research Society, Statement of Belief, contrasted with John H. Walton, The Lost World of Genesis One (2009)"
+        },
+        "reformed": {
+          "positions": [
+            "creation-and-science.genre-of-genesis-1/framework",
+            "creation-and-science.genre-of-genesis-1/analogical-day-age"
+          ],
+          "hold": "Confessionally Reformed churches permit more than one reading of Genesis 1's genre: some hold the framework view associated with Meredith Kline, others the analogical day-age reading, and Reformed assemblies have generally declined to bind the conscience beyond affirming God's work of creation itself.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The Orthodox Presbyterian Church's 2000 study committee concluded that several views, including these two, fall within the bounds of the Westminster Standards.",
+          "citation": "OPC General Assembly, Report of the Committee to Study the Views of Creation Days (2000)"
+        }
+      }
+    },
+    {
+      "id": "creation-and-science.age-of-the-earth",
+      "node_title": "Age of the earth",
+      "slug": "age-of-the-earth",
+      "domain": "creation-and-science",
+      "order": 3,
+      "kind": "choice",
+      "question": "How old are the earth and the universe?",
+      "framing": "Geology, cosmology and the biblical genealogies have each been read to yield very different ages for the earth and the universe, from thousands of years to roughly fourteen billion. No historic confession specifies an age for the earth, so the dispute among traditions holding a high view of biblical authority is exegetical and scientific rather than creedal, though it is argued with real intensity on every side. This doctrine is closely linked to how Genesis 1's genre is read and to how the flood is understood, since a young earth and a global, geology-shaping flood are usually argued together.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places the age of the earth at the third tier: it is argued intensely but does not itself divide on the gospel.",
+      "refs": "Gen 1:1-31; Gen 5; Gen 11:10-32; Ps 90:4",
+      "links": [
+        "genre-of-genesis-1",
+        "evolution",
+        "the-flood",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the biblical genealogies and the genre of Genesis 1 require a young earth, or whether an old-earth or evolutionary-creationist reading is exegetically sound, and how far that judgment should be shaped by the scientific evidence either way.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.age-of-the-earth/young-earth",
+          "label": "Young-earth creationism",
+          "hold": "The earth and universe are young, on the order of thousands rather than billions of years old, consistent with a straightforward reading of the biblical genealogies and the six ordinary days of Genesis 1.",
+          "why": "Genesis 1 read as ordinary days, joined to the genealogies from Adam to Abraham, yields a young chronology, and evidence such as rapid geological processes and soft tissue recovered from dinosaur fossils is read as consistent with a recent creation and a global flood that reshaped the earth's surface.",
+          "vs": "Treating the standard geological and cosmological timescales of billions of years as more authoritative than a straightforward reading of Genesis's days and genealogies.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:1-31; Gen 5; Gen 11:10-32",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the earth is young is a live and sharp dispute among traditions holding a high view of biblical authority; no ecumenical creed specifies an age for the earth, so the dispute is exegetical and scientific rather than creedal.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Widely held within the tradition's more conservative wing; the Baptist Faith and Message does not itself specify an age.",
+              "citation": "Answers in Genesis, Statement of Faith"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "Creation Research Society, Statement of Belief"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "minority",
+              "note": "Confessionally held within the Lutheran Church-Missouri Synod; other Lutheran bodies do not require a young-earth reading.",
+              "citation": "Lutheran Church-Missouri Synod, A Statement of Scriptural and Confessional Principles (1973)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Answers in Genesis, Statement of Faith",
+              "citation": "Answers in Genesis, Statement of Faith, section D"
+            },
+            {
+              "label": "Creation Research Society, Statement of Belief",
+              "citation": "Creation Research Society, Statement of Belief, articles 1-4"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.age-of-the-earth/old-earth",
+          "label": "Old-earth creationism",
+          "hold": "The earth and universe are billions of years old, as indicated by geological and astronomical evidence, while Genesis 1 is read in a way that does not require a young chronology, and God creates directly and specially, including a historical Adam, without evolutionary common descent.",
+          "why": "The days of Genesis 1 need not be ordinary twenty-four-hour periods, and reading them in one of the text's other defensible genres removes any need to reconcile a young chronology with the converging evidence of radiometric dating, starlight travel time and the geological column.",
+          "vs": "Requiring a young chronology of thousands of years as the only reading faithful to Genesis 1, or extending old-earth findings into evolutionary common descent for living things.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:1-31; Ps 90:4; 2 Pet 3:8",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Old-earth creationism sits between young-earth creationism and evolutionary creationism and is regarded by critics on each side as either compromising the text or resisting the evidence; no ecumenical creed specifies an age for the earth.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "permitted",
+              "note": null,
+              "citation": "OPC General Assembly, Report of the Committee to Study the Views of Creation Days (2000)"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "See the tradition override below.",
+              "citation": "Catechism of the Catholic Church, 283"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "Hugh Ross, A Matter of Days (2004)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "A Matter of Days",
+              "citation": "Hugh Ross, 2004"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.age-of-the-earth/evolutionary-creationism",
+          "label": "Evolutionary creationism",
+          "hold": "The earth and universe are billions of years old and God brought about the diversity of life, including the human body, through the ordinary means of an evolutionary process he sovereignly directs and sustains, rather than by successive acts of special creation.",
+          "why": "The converging evidence of genetics, paleontology and geology for an old earth and common descent is read as a true account of how God exercised his ordinary providence, in the same way Scripture attributes the ordinary growth of an embryo to God's own hand.",
+          "vs": "Treating an evolutionary mechanism as incompatible with God's sovereign, purposeful creating, or requiring successive acts of special creation for each form of life.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 1:1-31; Ps 139:13-16; Job 10:8-12",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Evolutionary creationism is disputed sharply within evangelicalism over how far common descent, including for the human body, can be affirmed without compromising the historicity of Adam and the fall Scripture presupposes; the position itself intends no denial of a historical Adam or the fall, though critics dispute whether the two are compatible in practice.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "BioLogos, What We Believe"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "See the tradition override below for the specific terms Rome permits.",
+              "citation": "Pius XII, Humani Generis (1950); John Paul II, Address to the Pontifical Academy of Sciences (22 October 1996)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "BioLogos, What We Believe",
+              "citation": "BioLogos, What We Believe, articles 1-12"
+            }
+          ]
+        }
+      ],
+      "learn_note": "No historic confession specifies an age for the earth, a fact both young-earth and old-earth holders can accept even as they continue to dispute which exegesis is correct.",
+      "sources": [
+        {
+          "label": "Three Views on Creation and Evolution",
+          "citation": "J. P. Moreland and John Mark Reynolds, eds., 1999"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "creation-and-science.age-of-the-earth/young-earth",
+            "creation-and-science.age-of-the-earth/old-earth",
+            "creation-and-science.age-of-the-earth/evolutionary-creationism"
+          ],
+          "hold": "Independent evangelical congregations hold no single position on the age of the earth: young-earth, old-earth and evolutionary-creationist views are each represented, carried by parachurch bodies rather than by any binding statement of faith.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The stream's lack of a binding confession on origins is itself the point; a congregation's position typically follows its pastor or its preferred parachurch ministry.",
+          "citation": "Answers in Genesis, Statement of Faith; Reasons to Believe, Statement of Faith; BioLogos, What We Believe"
+        },
+        "roman-catholic": {
+          "positions": [
+            "creation-and-science.age-of-the-earth/old-earth",
+            "creation-and-science.age-of-the-earth/evolutionary-creationism"
+          ],
+          "hold": "Rome takes no confessional position on the age of the earth, leaving members free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The Catechism and Humani Generis leave both questions open in a way the other confessional traditions' own formularies generally do not address at all.",
+          "citation": "Catechism of the Catholic Church, 283; Pius XII, Humani Generis (1950)"
+        }
+      }
+    },
+    {
+      "id": "creation-and-science.evolution",
+      "node_title": "Evolution",
+      "slug": "evolution",
+      "domain": "creation-and-science",
+      "order": 4,
+      "kind": "choice",
+      "question": "Did the diversity of life, including the human body, come about through a process of evolutionary common descent, or through direct acts of special creation?",
+      "framing": "Genesis describes God making each kind of living thing and forming the first man from the dust of the ground, while biology describes converging genetic and fossil evidence for common descent across living things, including humans. The disagreement is over whether that biological evidence describes the actual means God used, including for the human body, or whether it should be set aside in favor of a straightforward reading of Genesis's kinds and the forming of Adam. This mechanism question is distinct from, though closely tied to, the age-of-the-earth question above.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places evolution at the third tier: it is argued with real intensity but does not itself divide on the gospel.",
+      "refs": "Gen 1:24-25; Gen 2:7; Gen 2:21-23",
+      "links": [
+        "age-of-the-earth",
+        "genre-of-genesis-1",
+        "classical-theism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the evidence for common descent, including for the human body, is strong enough to accept alongside a historical Adam and a real fall, or whether special creation of each kind is the more faithful reading.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.evolution/special-creation",
+          "label": "Special creation",
+          "hold": "God created each kind of living thing, including the human body, by a direct, discrete act rather than through evolutionary common descent from earlier life forms.",
+          "why": "Genesis repeatedly describes God making each kind of plant and animal according to its kind, and the man's body is formed directly from the dust of the ground rather than being described as the modified descendant of an earlier species.",
+          "vs": "Holding that the human body, along with other forms of life, descended by an evolutionary process from earlier, non-human ancestors.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:24-25; Gen 2:7",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the human body specifically must be specially created, rather than descended by an evolutionary process God directed, is a live and sharp dispute among traditions holding a high view of biblical authority; no ecumenical creed addresses the biological mechanism of creation.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Widely held within the tradition's more conservative wing.",
+              "citation": "Answers in Genesis, Statement of Faith"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "minority",
+              "note": "Confessionally held within the Lutheran Church-Missouri Synod.",
+              "citation": "Lutheran Church-Missouri Synod, A Statement of Scriptural and Confessional Principles (1973)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "Answers in Genesis, Statement of Faith"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Answers in Genesis, Statement of Faith",
+              "citation": "Answers in Genesis, Statement of Faith, section D"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.evolution/evolutionary-creationism",
+          "label": "Evolutionary creationism",
+          "hold": "God brought about the diversity of life, including the human body, through the ordinary means of a directed evolutionary process of common descent, while specially creating each human person's soul and standing before him.",
+          "why": "The genetic, fossil and comparative-anatomical evidence for common descent is read as a true account of the ordinary means God used, in keeping with a God who works through, rather than only apart from, the processes he sustains.",
+          "vs": "Requiring a direct, discrete act of special creation for the human body rather than an evolutionary process God directs and sustains.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 2:7; Ps 139:13-16",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position is disputed by traditions and individuals who hold that special creation of the human body is required by Genesis 2 and by the theological weight the fall places on a historical Adam; it is held here as compatible with, not a denial of, a historical Adam and a real fall.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "BioLogos, What We Believe"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "See the tradition override below for the specific terms Rome permits.",
+              "citation": "Pius XII, Humani Generis (1950); John Paul II, Address to the Pontifical Academy of Sciences (22 October 1996)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Not addressed by the Thirty-Nine Articles.",
+              "citation": "Church of England Doctrine Commission, We Believe in God (1987)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "BioLogos, What We Believe",
+              "citation": "BioLogos, What We Believe, articles 1-12"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The Roman Catholic position is often mischaracterized as either endorsing or rejecting evolution outright; Humani Generis does neither, permitting the study of the body's evolutionary origin while requiring the immediate creation of each soul.",
+      "sources": [
+        {
+          "label": "Four Views on Creation, Evolution, and Intelligent Design",
+          "citation": "Stanley N. Gundry, ed., 2017"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "creation-and-science.evolution/special-creation",
+            "creation-and-science.evolution/evolutionary-creationism"
+          ],
+          "hold": "Independent evangelical congregations hold no single position on evolution: some affirm the special creation of each kind against common descent, others a directed evolutionary process, and neither carries denominational weight.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Position generally follows a congregation's pastor or preferred parachurch ministry rather than any binding statement.",
+          "citation": "Answers in Genesis, Statement of Faith; BioLogos, What We Believe"
+        },
+        "roman-catholic": {
+          "positions": [
+            "creation-and-science.evolution/evolutionary-creationism"
+          ],
+          "hold": "The evolutionary origin of the human body is permitted as a legitimate subject of investigation, provided the immediate creation of each human soul by God is held; John Paul II described the evidence as significant without withdrawing that requirement.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Rome neither flatly endorses nor flatly rejects evolution: Humani Generis permits its study for the body while insisting on the immediate creation of the soul and on a single first human pair; the 1996 address did not withdraw that requirement.",
+          "citation": "Pius XII, Humani Generis (1950), 36-37; John Paul II, Address to the Pontifical Academy of Sciences (22 October 1996)"
+        }
+      }
+    },
+    {
+      "id": "creation-and-science.the-flood",
+      "node_title": "The flood",
+      "slug": "the-flood",
+      "domain": "creation-and-science",
+      "order": 5,
+      "kind": "choice",
+      "question": "Was the flood of Noah's day a literal global catastrophe, a real but regional catastrophe, or an account whose purpose is primarily theological?",
+      "framing": "Genesis 6-9 narrates a flood sent as judgment on human sin, from which Noah's family and the animals aboard the ark were preserved. The disagreement is over the catastrophe's geographic scale, whether it covered the entire globe or was a real but regional event described in the universal idiom of its ancient audience, and over how much weight the narrative's theological purpose, judgment and covenant, should carry relative to a claim about the catastrophe's physical scale. This doctrine is usually argued together with the age of the earth, since a global flood is the primary mechanism young-earth creationism uses to account for the geological column.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places the flood at the third tier, alongside the age of the earth it is usually argued with.",
+      "refs": "Gen 6:9-22; Gen 7:17-24; Gen 8:1-19; 2 Pet 3:5-6",
+      "links": [
+        "age-of-the-earth",
+        "genre-of-genesis-1",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Genesis 6-9's universal language requires a geographically global flood or is describing a regional catastrophe in the idiom of its ancient audience, and how that judgment relates to the reading taken on the age of the earth.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.the-flood/global-catastrophist",
+          "label": "Global flood",
+          "hold": "The flood of Noah's day was a literal, historical, worldwide catastrophe that covered the entire globe, including the highest mountains, reshaping the earth's geology and destroying all air-breathing land life outside the ark.",
+          "why": "Genesis repeatedly uses universal language, describing all the high mountains under the whole heaven as covered, and the flood narrative's scope and stated duration match a global rather than local catastrophe.",
+          "vs": "Reading the flood's universal language as describing a geographically local or regional event rather than a worldwide catastrophe.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 6:17; Gen 7:19-20; 2 Pet 3:5-6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the flood covered the entire globe is a live and sharp dispute closely tied to the age-of-the-earth dispute above; no ecumenical creed specifies the flood's geographic extent.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Widely held within the tradition's more conservative wing.",
+              "citation": "Answers in Genesis, Statement of Faith"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "Creation Research Society, Statement of Belief"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "minority",
+              "note": "Confessionally held within the Lutheran Church-Missouri Synod.",
+              "citation": "Lutheran Church-Missouri Synod, A Statement of Scriptural and Confessional Principles (1973)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Answers in Genesis, Statement of Faith",
+              "citation": "Answers in Genesis, Statement of Faith, section D"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.the-flood/regional-catastrophist",
+          "label": "Regional flood",
+          "hold": "The flood of Noah's day was a real, historical, catastrophic flood confined to the region of Noah's world, described in Genesis using the universal language ancient narrators used for a locally total catastrophe.",
+          "why": "The Hebrew word for earth or land in the flood narrative can denote the known regional world rather than the entire globe, and reading it that way matches how flood accounts elsewhere in the ancient Near East describe a locally total catastrophe in universal terms.",
+          "vs": "Requiring the flood to have covered the entire globe rather than the whole of the world as Noah and his contemporaries knew it.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 6:17; Gen 7:19-20",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the flood was regional rather than global is disputed by traditions holding that the text's universal language requires a worldwide event; no ecumenical creed specifies the flood's geographic extent.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "John H. Walton and Tremper Longman III, The Lost World of the Flood (2018)"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "Rome does not require a geographically global flood.",
+              "citation": "Pius XII, Divino Afflante Spiritu (1943), on non-literal exegetical method applied across Old Testament narrative"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Lost World of the Flood",
+              "citation": "John H. Walton and Tremper Longman III, 2018"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.the-flood/theological-narrative",
+          "label": "Theological narrative",
+          "hold": "The flood account's primary purpose is theological rather than a claim about the catastrophe's scale: it recounts God's judgment on sin and his gracious preservation of a remnant, using ancient flood-narrative conventions Genesis reworks around its own theology.",
+          "why": "Genesis 6-9 shares structural parallels with Mesopotamian flood accounts such as Gilgamesh's, and its distinctive emphases, one righteous God, judgment for moral sin, an unconditional covenant, are what the narrative is actually written to establish.",
+          "vs": "Treating the flood narrative's primary purpose as settling a scientific or geographic question about the catastrophe's scale rather than as a theological account of judgment and covenant.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 9:8-17",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Read in a form that treats the narrative's historical referent as secondary or absent, this position is disputed by traditions holding that the flood, like the rest of Genesis, describes an event that actually happened; held here in a form that affirms a real historical event while locating the text's main purpose in its theology.",
+          "held_by": [],
+          "learn_detail": "Held by scholars across several traditions rather than as a confessional position of any registered tradition; usually combined with either the global or regional reading rather than replacing a judgment about historicity altogether.",
+          "sources": [
+            {
+              "label": "The Evolution of Adam",
+              "citation": "Peter Enns, 2012"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This doctrine is nearly always argued alongside the age of the earth: a global, geology-shaping flood is the primary mechanism young-earth creationism appeals to for reconciling the geological record with a young chronology.",
+      "sources": [
+        {
+          "label": "The Lost World of the Flood",
+          "citation": "John H. Walton and Tremper Longman III, 2018"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "creation-and-science.the-flood/global-catastrophist",
+            "creation-and-science.the-flood/regional-catastrophist"
+          ],
+          "hold": "Independent evangelical congregations hold no single position on the flood's extent: some affirm a literal global flood, others a real but regional catastrophe, and neither carries denominational weight.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Position generally follows a congregation's preferred teachers or parachurch ministry rather than any binding statement.",
+          "citation": "Creation Research Society, Statement of Belief; John H. Walton and Tremper Longman III, The Lost World of the Flood (2018)"
+        }
+      }
+    },
+    {
+      "id": "creation-and-science.miracles-and-science",
+      "node_title": "Miracles and science",
+      "slug": "miracles-and-science",
+      "domain": "creation-and-science",
+      "order": 6,
+      "kind": "choice",
+      "question": "How should the miracles reported in Scripture be understood in relation to scientific inquiry into nature?",
+      "framing": "Scripture reports miracles, particular divine acts within nature, from the plagues of Egypt to the resurrection of Christ. Nearly every tradition affirms these as real events; the live questions are how such an account relates to a scientific method built to describe nature's ordinary regularities, and whether every miracle account in Scripture should be read as reporting an event that happened as narrated. The bodily resurrection of Christ is treated as settled elsewhere in this map; the question here concerns miracle claims and scientific method more generally.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places miracles and science at the second tier: it shapes how Scripture and science are held together without itself dividing on the gospel.",
+      "refs": "John 2:11; Acts 2:22; 1 Cor 15:3-8",
+      "links": [
+        "inerrancy",
+        "classical-theism",
+        "trinity"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how far a scientific account of nature's regularities should shape confidence in a particular miracle claim, and whether any miracle account other than the resurrection is better read as theological shaping than as straightforward historical report.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "creation-and-science.miracles-and-science/real-divine-acts",
+          "label": "Real divine acts",
+          "hold": "Miracles are real, particular acts of God within his ordinarily ordered creation, neither violations of a self-sufficient nature nor beyond the reach of a God who freely sustains the natural order he made.",
+          "why": "Scripture presents God's miracles, culminating in the bodily resurrection of Christ, as real events within history and nature, consistent with a God who freely governs the order he continually sustains rather than a deity bound by it.",
+          "vs": "Treating the miraculous as either scientifically impossible in principle or as merely a symbolic idiom for events that did not actually occur.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 2:11; Acts 2:22; 1 Cor 15:14-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "First Vatican Council, Dei Filius, ch. 3 (1870)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Nicene-Constantinopolitan Creed (381)"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 5.3"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession 5.3"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Book of Concord, general confession of Christ's miracles including the resurrection"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 4"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article 3"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article 2"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "confessional",
+              "note": "See the tradition override below.",
+              "citation": "National Association of Evangelicals, Statement of Faith"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Miracles",
+              "citation": "C. S. Lewis, 1947"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.miracles-and-science/methodological-naturalism",
+          "label": "Methodological naturalism",
+          "hold": "The scientific method, by its own nature, investigates only natural causes and mechanisms and is therefore neither equipped to confirm nor to rule out a genuine miracle, which lies outside its proper competence rather than being disproved by it.",
+          "why": "Science proceeds by describing repeatable natural regularities, and a genuinely singular act of God is by definition not a repeatable natural regularity, so its absence from a scientific account says nothing about whether it occurred.",
+          "vs": "Treating the silence or limits of scientific method on a particular event as evidence against a miracle claim, when the method is not equipped to adjudicate the question either way.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 2:11; 1 Cor 15:14-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "See the tradition override below.",
+              "citation": "BioLogos, What We Believe"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "See the tradition override below.",
+              "citation": "Pontifical Academy of Sciences, statements distinguishing methodological from philosophical naturalism"
+            }
+          ],
+          "learn_detail": "This position is usually held together with, rather than as a rival to, the affirmation that miracles are real divine acts; it addresses what science as a method can and cannot adjudicate, not whether miracles occur.",
+          "sources": [
+            {
+              "label": "BioLogos, What We Believe",
+              "citation": "BioLogos, What We Believe, articles 1-12"
+            }
+          ]
+        },
+        {
+          "id": "creation-and-science.miracles-and-science/theological-not-historical",
+          "label": "Theological, not historical",
+          "hold": "Scripture's miracle accounts are best read as conveying theological truth about God's power and presence rather than as reports of events that occurred exactly as narrated, with the account's meaning carried by its theological claim rather than by the event's historicity.",
+          "why": "Ancient religious narrative regularly conveys truth through symbol and theological shaping rather than through modern historical reportage, and reading miracle accounts this way removes any need to reconcile them with a scientific account of nature's regularities.",
+          "vs": "Requiring that a miracle account be read as reporting an event that occurred exactly as narrated in order for the account to be true and authoritative.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "John 2:11; Acts 2:22",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Applied to miracles generally this is a live methodological dispute; applied to the bodily resurrection of Christ specifically it moves outside what the Nicene Creed confesses, since the creed confesses a bodily, historical resurrection, a question treated as settled elsewhere in this map rather than reopened here.",
+          "held_by": [],
+          "learn_detail": "Some who hold this position intend it only for miracle accounts other than the resurrection, which they treat as a special, historically anchored case; others apply it consistently, including to the resurrection, which is where the position becomes contested rather than merely a matter of genre.",
+          "sources": [
+            {
+              "label": "The Evolution of Adam",
+              "citation": "Peter Enns, 2012"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The affirmation that miracles are real divine acts and the recognition that scientific method cannot adjudicate them are compatible and usually held together; they are presented as separate positions here because they answer separate halves of the question this doctrine asks.",
+      "sources": [
+        {
+          "label": "Miracles",
+          "citation": "C. S. Lewis, 1947"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "creation-and-science.miracles-and-science/real-divine-acts",
+            "creation-and-science.miracles-and-science/methodological-naturalism"
+          ],
+          "hold": "Non-denominational evangelicals broadly affirm both that miracles are real, particular acts of God and that the scientific method, properly understood, is not equipped to rule them out; both convictions are usually held together rather than as competing options.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "The two positions are compatible rather than rival for most in this stream; they are presented separately here because they answer different halves of the question the doctrine asks.",
+          "citation": "National Association of Evangelicals, Statement of Faith; BioLogos, What We Believe"
+        },
+        "roman-catholic": {
+          "positions": [
+            "creation-and-science.miracles-and-science/real-divine-acts",
+            "creation-and-science.miracles-and-science/methodological-naturalism"
+          ],
+          "hold": "Rome affirms miracles as real divine acts and treats them as motives of credibility for revelation, while also holding, through its long engagement with the natural sciences, that the scientific method properly investigates only natural causes and cannot itself adjudicate a miracle claim.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "Both convictions are held together rather than as competing options; the Pontifical Academy of Sciences has repeatedly distinguished methodological naturalism in scientific practice from a philosophical claim that nature is all there is.",
+          "citation": "First Vatican Council, Dei Filius, ch. 3 (1870); Pontifical Academy of Sciences, statements distinguishing methodological from philosophical naturalism"
+        }
+      }
+    }
+  ]
+}

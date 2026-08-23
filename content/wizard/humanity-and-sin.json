@@ -1,0 +1,638 @@
+{
+  "schema_version": 1,
+  "domain": "humanity-and-sin",
+  "doctrines": [
+    {
+      "id": "humanity-and-sin.image-of-god",
+      "node_title": "Image of God",
+      "slug": "image-of-god",
+      "domain": "humanity-and-sin",
+      "order": 1,
+      "kind": "choice",
+      "question": "What does it mean that humanity is made in the image of God?",
+      "framing": "Genesis 1:26-27 states that God made humanity, male and female, in his own image and likeness, and every tradition treats this as the ground of human dignity, moral status and the wrongness of murder in Genesis 9:6. Historic Christian teaching also holds, near-universally, that the fall defaced this image through sin without erasing it, so the disagreement below is not over whether the image survives the fall but over what the image most fundamentally consists in.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Foundational to human dignity and ethics, but the specific construal of the image is not itself gospel-dividing, so it sits just below Thomas's first tier.",
+      "refs": "Gen 1:26-27; Gen 9:6; Col 3:10",
+      "links": [
+        "historical-adam"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out which construal, or combination of construals, of the image most shapes how the image of God informs human dignity and worth, and whether one primary construal should be held or several together as complementary.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.image-of-god/structural",
+          "label": "Structural image",
+          "hold": "The image of God consists chiefly in capacities that set humanity apart from the rest of creation, especially reason, moral agency and an immortal soul, which the fall wounded but did not destroy.",
+          "why": "Genesis places the image language alongside humanity's unique capacity for God-given dominion and moral address, and the New Testament describes the image being renewed in knowledge, righteousness and holiness, qualities of the soul rather than of a role alone.",
+          "vs": "Locating the image entirely in humanity's task of ruling creation, apart from any distinct capacity that makes the task possible.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:26-27; Col 3:10; Eph 4:24",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1704-1705" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man" },
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Larger Catechism, Q&A 17" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Formula of Concord, Solid Declaration, Article I" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Catechism of the Catholic Church", "citation": "1704-1705" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.image-of-god/functional",
+          "label": "Functional image",
+          "hold": "The image of God consists in humanity's vocation to represent God's rule within creation, exercising the dominion and stewardship God gave in the creation mandate.",
+          "why": "Ancient Near Eastern usage applied 'image' to a king representing a god's rule over a territory, and Genesis 1:26-28 pairs 'let them have dominion' directly with the making of humanity in God's image.",
+          "vs": "Locating the image solely in an inner capacity possessed independently of humanity's task of ruling and keeping creation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:26-28; Ps 8:5-8",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "majority", "note": "Not confessionally defined in these terms, but the predominant reading within contemporary Reformed biblical theology of creation.", "citation": "Meredith G. Kline, Images of the Spirit, 1980" },
+            { "tradition": "baptist", "stance": "majority", "note": "Reflects the stewardship language of the modern confession rather than the earlier confessions' briefer treatment.", "citation": "Baptist Faith and Message, 2000, Article III" },
+            { "tradition": "non-denominational", "stance": "majority", "note": "Widely shared within contemporary evangelical biblical-theology teaching on creation and vocation.", "citation": "G. K. Beale, The Temple and the Church's Mission, 2004" },
+            { "tradition": "anglican", "stance": "permitted", "note": "Not addressed directly by the Articles; held within Anglican creation theology alongside the structural reading.", "citation": "Chicago-Lambeth Quadrilateral, 1888, framing of creation stewardship" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "The Temple and the Church's Mission", "citation": "G. K. Beale, 2004" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.image-of-god/relational",
+          "label": "Relational image",
+          "hold": "The image of God consists most fundamentally in humanity's capacity for relationship and communion, mirroring the relations of love within God and grounding love of God and neighbour.",
+          "why": "God made humanity male and female in the same verse that names the image, suggesting relationship is built into what the image is, and the greatest commandments Jesus names, love of God and neighbour, are themselves relational.",
+          "vs": "Reducing the image to an individual capacity or task considered apart from the relationships the person is made for.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 1:27; Matt 22:37-39",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1702" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Longer Catechism of St Philaret of Moscow, on likeness through communion with God" },
+            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Confession of Faith in a Mennonite Perspective, 1995, Article 6" },
+            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 1:26-27" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Catechism of the Catholic Church", "citation": "1702" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "roman-catholic": {
+          "positions": [
+            "humanity-and-sin.image-of-god/structural",
+            "humanity-and-sin.image-of-god/relational"
+          ],
+          "hold": "The image of God includes both the rational soul that makes a person capable of knowing and loving, and the relational capacity for communion with God and others; these are held together as one reality, not chosen between.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "The Catechism treats the substantive and relational readings as complementary aspects of the same doctrine rather than competing accounts.",
+          "citation": "Catechism of the Catholic Church 1701-1706"
+        },
+        "orthodox": {
+          "positions": [
+            "humanity-and-sin.image-of-god/structural",
+            "humanity-and-sin.image-of-god/relational"
+          ],
+          "hold": "The image of God includes the rational and free soul and the capacity for communion with God, understood together as the ground of humanity's calling toward likeness with God.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "Orthodox anthropology distinguishes image, given at creation, from likeness, the relational growth toward God the image makes possible, without separating a structural reading from a relational one.",
+          "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man"
+        },
+        "reformed": {
+          "positions": [
+            "humanity-and-sin.image-of-god/structural",
+            "humanity-and-sin.image-of-god/functional"
+          ],
+          "hold": "Reformed theology holds that the image of God includes both the rational and moral capacities given to humanity and the vocation to exercise dominion under God as his covenant representative, as one unified endowment rather than rival accounts.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "The Larger Catechism's structural language and the wider Reformed creation-mandate tradition are read as complementary, not as alternatives.",
+          "citation": "Westminster Larger Catechism, Q&A 17"
+        }
+      },
+      "learn_note": "Most traditions hold two or more of these readings together, and the three-way split functions here as a teaching typology rather than a live schism. The near-universal agreement that the fall defaced but did not erase the image belongs to the framing shared by every position, not to any one of them.",
+      "sources": [
+        { "label": "Catechism of the Catholic Church", "citation": "1701-1707" },
+        { "label": "Westminster Larger Catechism", "citation": "Q&A 17" }
+      ]
+    },
+    {
+      "id": "humanity-and-sin.historical-adam",
+      "node_title": "Historical Adam",
+      "slug": "historical-adam",
+      "domain": "humanity-and-sin",
+      "order": 2,
+      "kind": "choice",
+      "question": "Was Adam a specific historical individual, and if so, was he the sole biological ancestor of the entire human race?",
+      "framing": "Genesis 2-3 narrates the forming of a man named Adam and a woman named Eve and their fall in the garden, and Paul builds an argument in Romans 5 and 1 Corinthians 15 that treats Adam as a real counterpart to Christ, whose one act brought sin and death to the many. Traditions differ over how tightly that argument requires Adam to be the sole biological progenitor of every human being, as opposed to a real historical head whose headship did not depend on that, or a literary representative of humanity as such.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Bears on how Romans 5's Adam-Christ typology and original sin are read, without itself settling the gospel, so it sits at the boundary between the second and third tiers.",
+      "refs": "Gen 2:7; Gen 3:20; Rom 5:12-19; 1 Cor 15:21-22",
+      "links": [
+        "original-sin",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Romans 5's Adam-Christ argument requires Adam to be the sole biological ancestor of the human race, or whether a real historical Adam with covenantal headship over a wider population satisfies what Paul's argument needs, and how much weight the population-genetics evidence should carry either way.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.historical-adam/sole-progenitor",
+          "label": "Sole progenitor",
+          "hold": "Adam and Eve were real historical individuals, specially created by God, and every other human being descends from them, so that Adam's fall is transmitted to the whole race by ordinary generation.",
+          "why": "Genesis narrates Adam's formation and Eve's formation from his side as events rather than literary devices, and Paul treats Adam as a single individual through whom sin and death entered the world for all.",
+          "vs": "Treating Adam as a real historical figure whose headship over the race did not require being every living human's only biological ancestor.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 2:7; Gen 3:20; Rom 5:12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith VI.3" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article II" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Pius XII, Humani Generis, 1950, §37" },
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Second London Baptist Confession, VI.3" },
+            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Thirty-Nine Articles, Article IX" },
+            { "tradition": "orthodox", "stance": "historic", "note": "Reflects the patristic consensus rather than a single conciliar definition of Adam's biological exclusivity.", "citation": "St Athanasius, Against the Heathen, on Adam as forefather of the race" },
+            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 3" },
+            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith, Article II" },
+            { "tradition": "non-denominational", "stance": "majority", "note": null, "citation": "National Association of Evangelicals, Statement of Faith, 1943" },
+            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, The Christian System, 1839" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Humani Generis", "citation": "Pius XII, 1950, §37" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.historical-adam/genealogical",
+          "label": "Genealogical Adam",
+          "hold": "Adam and Eve were real historical individuals whom God chose as federal head and helper of the race, but they need not have been the sole biological ancestors of every human being alive at the time or since.",
+          "why": "Genealogical descent from one couple can spread through an entire population within a few thousand years without every living person being read out of the human race, so a covenantal headship reading of Adam does not require him to be the last common biological ancestor of every gene in every living person.",
+          "vs": "Requiring that no human being descend from anyone but Adam and Eve for Romans 5's argument to hold.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 5:12-19; Gen 2:7",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Inside the historic creeds, which say nothing about Adam's biological exclusivity, but a live dispute among evangelicals who read Romans 5 and Genesis as requiring strict descent from one couple alone.",
+          "held_by": [
+            { "tradition": "non-denominational", "stance": "minority", "note": "A minority position among non-denominational evangelicals engaging contemporary population genetics, not adopted by any denominational body.", "citation": "S. Joshua Swamidass, The Genealogical Adam and Eve, 2019" }
+          ],
+          "learn_detail": "Some Catholic theologians have also proposed genealogical-Adam-style readings as a way to satisfy Humani Generis's requirement of a single origin while accommodating population genetics, but this remains an unsettled question within Catholic scholarship rather than a taught position.",
+          "sources": [
+            { "label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.historical-adam/literary",
+          "label": "Literary Adam",
+          "hold": "Adam functions as a literary and theological representative of humanity rather than as a specific historical individual, so that Genesis 2-3 teaches about universal human sin and mortality without narrating one person's history.",
+          "why": "The Hebrew name Adam means humankind, and the narrative's stylised features are read by many interpreters as a theological account of the human condition conveyed through story, comparable to how other ancient origins accounts convey truth.",
+          "vs": "Requiring a single historical individual for Paul's Adam-Christ argument in Romans 5 to carry theological weight.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 2:7; Rom 5:12-19",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Does not contradict any ecumenical creed, which is silent on Adam's historicity, but sits against the reading nearly every tradition in this corpus has historically given Romans 5 and Genesis.",
+          "held_by": [],
+          "learn_detail": "No tradition registered in this corpus confessionally or as a majority position holds this reading; it appears in wider biblical scholarship and is included here because it is a live option in the broader evangelical and academic conversation this domain sits within.",
+          "sources": [
+            { "label": "The Lost World of Adam and Eve", "citation": "John H. Walton, 2015, representative of a non-historical-Adam reading in evangelical scholarship" }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "humanity-and-sin.historical-adam/sole-progenitor",
+            "humanity-and-sin.historical-adam/genealogical"
+          ],
+          "hold": "Adam is affirmed as a real historical head of the human race; the majority view within non-denominational evangelicalism holds him as sole biological ancestor, while a minority engaging contemporary population genetics holds his headship compatible with a wider founding population.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "Non-denominational evangelicalism has no binding confession settling this question, so the genealogical reading circulates as a live minority position rather than a rejected one.",
+          "citation": "National Association of Evangelicals, Statement of Faith, 1943, silent on the mechanics of Adam's descent"
+        }
+      },
+      "learn_note": "The dispute is often reported as being about evolution as such, but the sharper edge among interpreters who already accept an old earth and common descent is whether Adam's headship requires exclusive biological descent. Humani Generis (1950) remains formally in force for Catholics and requires a single origin for the race, which is why the genealogical reading is a live question inside Catholic scholarship rather than a settled alternative.",
+      "sources": [
+        { "label": "Humani Generis", "citation": "Pius XII, 1950, §37" },
+        { "label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019" }
+      ]
+    },
+    {
+      "id": "humanity-and-sin.original-sin",
+      "node_title": "Original sin",
+      "slug": "original-sin",
+      "domain": "humanity-and-sin",
+      "order": 3,
+      "kind": "choice",
+      "question": "What does humanity inherit from Adam's fall, and does that include guilt?",
+      "framing": "Every tradition in this corpus agrees that sin, death and a corrupted moral condition are universal and are tied to Adam's fall in Genesis 3 and Paul's argument in Romans 5. The traditions genuinely divide over whether what is inherited includes guilt, a liability to condemnation prior to any personal act, or whether what is inherited is corruption and mortality without inherited guilt.",
+      "suggested_tier": "T3",
+      "tier_note": "Shapes the doctrine of salvation and the theology of infant baptism without itself dividing the gospel of Christ crucified and risen, so Thomas places it at the third tier.",
+      "refs": "Rom 5:12-19; Gen 3; Ps 51:5; 1 Cor 15:21-22",
+      "links": [
+        "historical-adam",
+        "age-of-accountability",
+        "baptism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Adam's own guilt, and not only a corrupted and mortal condition, is imputed prior to personal sin, and trace how that bears on the view held about infant baptism and the age of accountability.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.original-sin/inherited-guilt",
+          "label": "Inherited guilt",
+          "hold": "Through Adam's one act of disobedience, both a corrupted nature and the guilt of that first sin are transmitted to the whole human race by ordinary generation, so every person is born already liable to God's just condemnation apart from any personal act.",
+          "why": "Paul states in Romans 5:12-19 that condemnation came to all through the one man's trespass and that the many were made sinners by his disobedience, language read as imputing Adam's guilt itself and not only its consequences.",
+          "vs": "Holding that a corrupted, sin-prone nature is inherited from Adam while guilt itself is not incurred until a person's own will and action.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 5:12-19; Ps 51:5",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith VI.3" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article II" },
+            { "tradition": "roman-catholic", "stance": "confessional", "note": "Catholic teaching distinguishes original sin itself from the concupiscence that remains after baptism, which is an inclination toward sin rather than sin properly so called.", "citation": "Catechism of the Catholic Church 402-405" },
+            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Thirty-Nine Articles, Article IX" },
+            { "tradition": "baptist", "stance": "majority", "note": "The Second London Confession states the doctrine in Augustinian terms; the modern Baptist Faith and Message states it more cautiously, tying guilt to the point of moral capacity.", "citation": "Second London Baptist Confession, VI.3" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Catechism of the Catholic Church", "citation": "402-405" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.original-sin/ancestral-sin",
+          "label": "Ancestral sin",
+          "hold": "Through Adam's fall, mortality and a corrupted, sin-prone condition entered the human race and are inherited by every person, but Adam's personal guilt for his own transgression is not inherited or imputed to his descendants.",
+          "why": "Eastern theology reads Romans 5:12's phrase 'because all sinned' as each person's own actual sinning within a shared corrupted and mortal condition, and holds that guilt, a property of a personal act, cannot be transmitted the way mortality and corruption are.",
+          "vs": "Holding that Adam's own guilt, and not only the corrupted and mortal condition his sin produced, is imputed to every descendant at birth.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Rom 5:12; Ezek 18:20",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Confession of Dositheus, Synod of Jerusalem, 1672, Decree 6" }
+          ],
+          "learn_detail": "This is not a denial of original sin; it is a different account of what is inherited. Orthodox theology affirms as strongly as any Western tradition that every person is born into a fallen, mortal, sin-prone condition that only Christ can heal, and that infant baptism addresses a real need. What it declines to affirm is the specifically Augustinian claim that Adam's own guilt is imputed to each descendant prior to their own sin.",
+          "sources": [
+            { "label": "The Longer Catechism of St Philaret of Moscow", "citation": "On the Consequences of the Fall" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.original-sin/wesleyan",
+          "label": "Wesleyan reading",
+          "hold": "Every person inherits from Adam a corrupted and guilty nature deserving condemnation, but God's prevenient grace is given to all people prior to and apart from their own choice, so no one is finally condemned for original sin alone without also resisting the grace already extended to them.",
+          "why": "Wesley affirmed original sin in essentially Augustinian terms, including inherited guilt, but held that Christ's atonement immediately and universally counteracts that guilt through prevenient grace unless and until it is knowingly resisted.",
+          "vs": "Holding that inherited guilt is either absent altogether or remains in force without any universal prior grace counteracting it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 5:18; Titus 2:11",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "The Articles of Religion, 1784, Article VII, Of Original or Birth Sin" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "The Doctrine of Original Sin", "citation": "John Wesley, 1757" }
+          ]
+        }
+      ],
+      "tradition_overrides": {},
+      "learn_note": "The three positions agree far more than popular summaries suggest: all affirm universal sinfulness, all affirm the need for God's grace in Christ, and none teaches that human beings are born neutral. The genuine divide is the narrower question of whether guilt itself, and not only a corrupted and mortal condition, is transmitted prior to a person's own will and action.",
+      "sources": [
+        { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 6" },
+        { "label": "The Doctrine of Original Sin", "citation": "John Wesley, 1757" }
+      ]
+    },
+    {
+      "id": "humanity-and-sin.depravity-and-prevenient-grace",
+      "node_title": "Depravity and prevenient grace",
+      "slug": "depravity-and-prevenient-grace",
+      "domain": "humanity-and-sin",
+      "order": 4,
+      "kind": "choice",
+      "question": "Can a fallen person respond to God's call to faith without a prior, distinct work of grace enabling that response?",
+      "framing": "Traditions across this corpus agree that sin has so affected the human will that no one seeks God on their own initiative and that grace is necessary for anyone to believe. The disagreement is over the shape of that necessity: whether saving grace itself effectually produces the response in those God has chosen, whether a universally given prevenient grace first restores the capacity to respond, or whether grace and human freedom cooperate together from the start of the process of coming to faith.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Shapes the ordo salutis and how conversion is preached without dividing on the gospel's content, so Thomas places it at the boundary of the second and third tiers.",
+      "refs": "Eph 2:1-5; John 6:44; Titus 2:11; Phil 2:12-13",
+      "links": [
+        "original-sin"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether grace enables a genuinely free response through a universal prevenient work, or whether the will is unable to respond at all until effectually and monergistically regenerated, and trace how that choice interacts with the view held on election.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.depravity-and-prevenient-grace/monergistic",
+          "label": "Monergistic grace",
+          "hold": "Fallen human beings cannot of themselves respond to the gospel or cooperate toward faith, so faith itself is produced in the elect by God's effectual, regenerating call rather than by grace merely restoring an ability the person then exercises unaided.",
+          "why": "Scripture describes the natural person as dead in trespasses and unable to submit to God, so regeneration must precede rather than merely enable faith, and God's effectual call is described as certainly producing the response it intends in those he has chosen.",
+          "vs": "Holding that grace is given to all people alike to restore the capacity for a free response, leaving the outcome genuinely undetermined until the person chooses.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eph 2:1-5; John 6:44",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Canons of Dordt, III/IV, Articles 1-17" },
+            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Formula of Concord, Solid Declaration, Article II" },
+            { "tradition": "baptist", "stance": "majority", "note": "Reflected in the Second London Confession; modern Baptist bodies are divided in practice.", "citation": "Second London Baptist Confession, IX-X" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Canons of Dordt", "citation": "III/IV" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.depravity-and-prevenient-grace/prevenient",
+          "label": "Prevenient grace",
+          "hold": "Total depravity leaves no one able to respond to God unaided, but God extends a prevenient grace to every person prior to their own choosing, restoring enough freedom of will that a person can, without yet being regenerate, respond to or resist the further grace that leads to saving faith.",
+          "why": "Wesley held that Scripture everywhere assumes people are genuinely able to respond to the gospel's call, an ability he located not in unfallen human nature but in a grace Christ's atonement secures for everyone.",
+          "vs": "Holding that the ability to respond to grace is given only to those God has unconditionally chosen, rather than to everyone.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Titus 2:11; John 12:32",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "The Articles of Religion, Article VIII, Of Free Will" },
+            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983" },
+            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, The Christian System, 1839" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": "Widely but not universally held within Arminian-leaning evangelicalism.", "citation": "Lausanne Covenant, 1974, Article 3" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "On Working Out Our Own Salvation", "citation": "John Wesley, sermon" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.depravity-and-prevenient-grace/synergistic",
+          "label": "Synergism",
+          "hold": "Grace initiates and accompanies the whole process of coming to faith, since no one can turn to God without it, but the person's own free cooperation with that grace, rather than a separate prior act of grace restoring ability, is part of what faith itself consists in.",
+          "why": "Catholic and Orthodox theology reject both an unaided human turning to God and an account in which the will contributes nothing to the assent of faith, holding that grace and freedom act together as a single, non-competing cause of a person's coming to believe.",
+          "vs": "Treating grace and human freedom as though enabling one required subtracting from the other, so either grace alone or the will alone must be given the whole credit for faith.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Phil 2:12-13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Council of Trent, Session VI, Chapter 5; Catechism of the Catholic Church 1993" },
+            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Confession of Dositheus, Decree 3" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Decrees of the Council of Trent", "citation": "Session VI, 1547" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.depravity-and-prevenient-grace/pelagian",
+          "label": "Pelagian",
+          "hold": "A person is able to turn to God and choose the good by the exercise of their own natural will, without needing any prior work of grace to make that choice possible.",
+          "why": "Pelagius argued that commanding a thing implies the ability to do it, so Scripture's commands to repent and believe would be unjust unless human beings retained, after the fall, an unimpaired natural capacity to obey them.",
+          "vs": "Holding that some prior work of grace, whether effectual, prevenient or cooperating, is necessary before a fallen person can respond to God at all.",
+          "tier": null,
+          "confidence_default": "rejected",
+          "refs": "Rom 3:10-12",
+          "equivalence_group": null,
+          "orthodoxy": "outside",
+          "orthodoxy_note": "Condemned by name at the Council of Carthage (418) and again by the Third Ecumenical Council at Ephesus (431), which anathematized the teaching that grace is not necessary for the will's ability to do good.",
+          "held_by": [],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Canons of the Council of Carthage", "citation": "418" }
+          ]
+        }
+      ],
+      "tradition_overrides": {},
+      "learn_note": "No tradition registered in this corpus holds the Pelagian position; it is included because every other position defines itself against it. Semi-Pelagianism, the claim that an unaided first step toward God is possible before grace responds to it, is sometimes wrongly equated with the Catholic and Orthodox synergistic position above. Trent and the Orthodox doctrine of synergeia both insist grace comes first; what they add to the monergistic and prevenient-grace positions is that the will's own cooperation is part of what faith is, not a separate later stage.",
+      "sources": [
+        { "label": "Canons of the Council of Carthage", "citation": "418" },
+        { "label": "Decrees of the Council of Trent", "citation": "Session VI, 1547" }
+      ]
+    },
+    {
+      "id": "humanity-and-sin.dichotomy-vs-trichotomy",
+      "node_title": "Dichotomy vs trichotomy",
+      "slug": "dichotomy-vs-trichotomy",
+      "domain": "humanity-and-sin",
+      "order": 5,
+      "kind": "choice",
+      "question": "Does human nature consist of two constitutive parts, body and soul, or three, body, soul and spirit?",
+      "framing": "Scripture uses both twofold language, body and soul or body and spirit, and occasional threefold language, as in Paul's prayer that spirit, soul and body be kept blameless. Traditions differ over whether soul and spirit name two distinct constitutive parts of a person or are two words for the same immaterial aspect of a human being viewed from different angles.",
+      "suggested_tier": "T3",
+      "tier_note": "A question of theological anthropology with implications for pastoral and spiritual-formation teaching, but it does not touch the gospel or a creedal article, so Thomas places it at the third tier.",
+      "refs": "1 Thess 5:23; Heb 4:12; Gen 2:7",
+      "links": [],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether soul and spirit name two separate constitutive parts of a person or one immaterial aspect described by two words, and whether anything in how spiritual experience is understood actually depends on the answer.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.dichotomy-vs-trichotomy/dichotomy",
+          "label": "Dichotomy",
+          "hold": "Human nature consists of two constitutive parts, a material body and a single immaterial aspect that Scripture calls, interchangeably, the soul or the spirit.",
+          "why": "Scripture regularly uses soul and spirit as parallel or interchangeable terms for the same immaterial reality, as when Jesus commits his spirit to the Father at death while other texts speak of the soul departing.",
+          "vs": "Treating soul and spirit as two separate constitutive parts of a person rather than two names for one immaterial aspect.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Luke 23:46; Eccl 12:7",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Council of Vienne, 1312; Catechism of the Catholic Church 362-368" },
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, XXXII.1" },
+            { "tradition": "lutheran", "stance": "majority", "note": null, "citation": "Standard Lutheran anthropology following the Augsburg Confession's body-and-soul language" },
+            { "tradition": "anglican", "stance": "majority", "note": null, "citation": "Thirty-Nine Articles, twofold anthropology" },
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Second London Baptist Confession, XXXI.1" },
+            { "tradition": "orthodox", "stance": "majority", "note": "The mainstream modern reading; some early Fathers used threefold language.", "citation": "The Longer Catechism of St Philaret of Moscow" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76, on the unity of the soul" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.dichotomy-vs-trichotomy/trichotomy",
+          "label": "Trichotomy",
+          "hold": "Human nature consists of three distinct constitutive parts: a material body, a soul that is the seat of the mind, will and emotions, and a spirit that is the part of a person capable of direct communion with God.",
+          "why": "Paul prays that spirit, soul and body be kept blameless as three distinguishable things, and Hebrews describes the word of God as able to divide soul from spirit, language read as implying they are genuinely separable.",
+          "vs": "Collapsing soul and spirit into a single immaterial aspect described by two interchangeable words.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Thess 5:23; Heb 4:12",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983" }
+          ]
+        }
+      ],
+      "tradition_overrides": {},
+      "learn_note": "Both readings appeal to the same handful of texts, chiefly 1 Thessalonians 5:23 and Hebrews 4:12, and the dispute is more about how much theological weight those texts can bear than about separate bodies of exegetical evidence. Trichotomy became especially associated with Pentecostal and holiness teaching on the workings of the human spirit in worship, without becoming a matter any tradition here treats as confessionally binding the way it treats justification or the Trinity.",
+      "sources": [
+        { "label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983" },
+        { "label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76" }
+      ]
+    },
+    {
+      "id": "humanity-and-sin.age-of-accountability",
+      "node_title": "Age of accountability",
+      "slug": "age-of-accountability",
+      "domain": "humanity-and-sin",
+      "order": 6,
+      "kind": "choice",
+      "question": "What becomes of those who die before they are capable of understanding and responding to the gospel?",
+      "framing": "Infants, young children and those who never develop the capacity for moral and spiritual understanding raise the same pastoral question in every tradition, and no tradition here teaches that such a person is judged for a conscious rejection of Christ they were never capable of making. Traditions answer through genuinely different frameworks rather than different points on one shared scale, and this entry keeps those frameworks distinct rather than forcing them onto a single axis.",
+      "suggested_tier": "T2.5",
+      "tier_note": "A pastorally weighty question that shapes how the death of a child or a cognitively unreached person is addressed, without dividing the gospel itself, so Thomas places it at the boundary of the second and third tiers.",
+      "refs": "2 Sam 12:22-23; Deut 1:39; Rom 9:11",
+      "links": [
+        "baptism",
+        "original-sin"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out which of the three frameworks, an accountability threshold, election, or baptismal incorporation, actually gets reached for when asked about the fate of a child who dies, and whether it is held because of a settled conviction or because it is the framework the rest of what is believed naturally produces.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "humanity-and-sin.age-of-accountability/accountability-age",
+          "label": "Age of accountability",
+          "hold": "A person is not held morally guilty for sin until reaching a point of moral and cognitive capacity sufficient to knowingly understand and reject God's call, so anyone who dies before that point is received by God's grace through Christ's atonement.",
+          "why": "Scripture describes children as not yet knowing good from evil and speaks of a standard of transgression that presupposes moral capacity, read as implying a real, if unspecified, threshold before which culpability does not attach.",
+          "vs": "Addressing the standing of those who die too young or too impaired to believe entirely through the covenant status of their parents or through the sacrament of baptism, rather than through a threshold of culpability.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Deut 1:39; 2 Sam 12:22-23",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "confessional", "note": "Reads the confession's language about becoming a transgressor upon capacity for moral action as implying no condemnation before that point.", "citation": "Baptist Faith and Message, 2000, Article III" },
+            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "Wesleyan doctrine of prevenient grace applied to those incapable of a personal response" },
+            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Assemblies of God, position paper, The Salvation of Infants and the Mentally Impaired" },
+            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, writings on the innocence of childhood" },
+            { "tradition": "non-denominational", "stance": "permitted", "note": "Widely assumed within broadly Arminian evangelical teaching without a single confessional source.", "citation": "National Association of Evangelicals, Statement of Faith, 1943" },
+            { "tradition": "anabaptist", "stance": "majority", "note": "Believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.", "citation": "Dordrecht Confession of Faith, Article VII" }
+          ],
+          "learn_detail": "There is no single confessional label for this position across the traditions that hold some version of it, and they differ among themselves on why the threshold exists, whether by prevenient grace, by non-imputation of guilt prior to moral agency, or by pastoral conviction without a developed doctrine. None of them fixes a specific age.",
+          "sources": [
+            { "label": "Baptist Faith and Message", "citation": "2000, Article III" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.age-of-accountability/covenant-election",
+          "label": "Covenant and election",
+          "hold": "Reformed theology does not use the language of an age of accountability, addressing instead the salvation of infants who die through the doctrine of election, affirming that elect infants dying in infancy are regenerated and saved by Christ, without extending that assurance to every infant as such.",
+          "why": "The Westminster Confession grounds every person's salvation in election rather than in a stage of moral development, and applies that same ground, rather than a threshold of accountability, to infants who die before they can believe.",
+          "vs": "Addressing the standing of those who die before believing through a general threshold of moral capacity that applies without reference to election.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 9:11",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, X.3" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "X.3" }
+          ]
+        },
+        {
+          "id": "humanity-and-sin.age-of-accountability/baptismal",
+          "label": "Baptismal incorporation",
+          "hold": "The standing of infants and others incapable of personal faith is addressed through incorporation into the Church by baptism rather than through a threshold of moral accountability, and the fate of those who die unbaptized is entrusted to God's mercy without a settled dogmatic answer.",
+          "why": "Both traditions treat baptism, not a developmental stage, as the ordinary means by which a person, including an infant, is united to Christ and the Church, so the pastoral question is framed around the sacrament rather than around when culpability might begin.",
+          "vs": "Answering the same pastoral question through a threshold of moral or cognitive capacity rather than through incorporation by baptism.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:38-39",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1261" },
+            { "tradition": "orthodox", "stance": "majority", "note": "Standard pastoral practice of infant baptism and chrismation without a defined dogmatic statement about the unbaptized.", "citation": "Standard Orthodox pastoral and liturgical practice" }
+          ],
+          "learn_detail": null,
+          "sources": [
+            { "label": "Catechism of the Catholic Church", "citation": "1261" }
+          ]
+        }
+      ],
+      "tradition_overrides": {},
+      "learn_note": "Because these three frameworks are not different answers to the same question but different questions each tradition treats as the pastorally decisive one, this entry deliberately does not rank them or treat one as a more developed version of another.",
+      "sources": [
+        { "label": "Baptist Faith and Message", "citation": "2000, Article III" },
+        { "label": "Westminster Confession of Faith", "citation": "X.3" },
+        { "label": "Catechism of the Catholic Church", "citation": "1261" }
+      ]
+    }
+  ]
+}

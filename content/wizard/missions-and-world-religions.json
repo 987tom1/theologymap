@@ -1,0 +1,759 @@
+{
+  "schema_version": 1,
+  "domain": "missions-and-world-religions",
+  "doctrines": [
+    {
+      "id": "missions-and-world-religions.exclusivity-of-christ",
+      "node_title": "Exclusivity of Christ",
+      "slug": "exclusivity-of-christ",
+      "domain": "missions-and-world-religions",
+      "order": 1,
+      "kind": "settled",
+      "question": "Is salvation found only through Jesus Christ?",
+      "framing": "Every tradition in the registry confesses that salvation is through Christ alone: there is no other name given among people by which anyone must be saved, and no other mediator between God and humanity. This is not a live dispute within the church; the genuinely contested questions are what becomes of those who never hear that name, addressed next, and how the other religions are to be assessed, addressed after that.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places this at the first tier: a denial of it abandons the gospel itself.",
+      "refs": "Acts 4:12; John 14:6; 1 Tim 2:5",
+      "links": [
+        "the-unevangelised",
+        "world-religions",
+        "trinity"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Confirm there is no daylight between this settled claim and the pluralist alternative sometimes proposed alongside it.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "missions-and-world-religions.exclusivity-of-christ/particularism",
+          "label": "Salvation in Christ alone",
+          "hold": "Salvation is found only in Jesus Christ, who alone is the one mediator between God and humanity and the name by which anyone must be saved.",
+          "why": "Peter tells the Sanhedrin there is salvation in no one else, and Paul names one mediator between God and humanity, the man Christ Jesus, without qualification or exception.",
+          "vs": "Treating the world's religions as equally valid paths to God alongside faith in Christ.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Acts 4:12; 1 Tim 2:5; John 14:6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 3"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article XVIII"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 10.4"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 846-848; Lumen Gentium 14"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article III-IV"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article II"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article II"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839), ch. 1"
+            }
+          ],
+          "learn_detail": "This is the one claim in the domain every registered tradition confesses without exception; the disputes that follow it are about the unevangelised and about how to assess the other religions, never about this.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "846-848"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 3"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.exclusivity-of-christ/pluralism",
+          "label": "Pluralism",
+          "hold": "The major world religions are independently valid human responses to the same divine reality, so that faith in Christ is one legitimate path among several rather than the sole way of salvation.",
+          "why": "The great religious traditions each produce transformed lives and call their adherents from self-centredness toward the divine, which is read as evidence that they are alternative, equally adequate responses to one ultimate reality.",
+          "vs": "Confining salvation to explicit faith in Jesus Christ as the one mediator between God and humanity.",
+          "tier": "T1",
+          "confidence_default": "rejected",
+          "refs": "Acts 4:12; John 14:6",
+          "equivalence_group": null,
+          "orthodoxy": "outside",
+          "orthodoxy_note": "Pluralism as John Hick argued it does not merely widen the scope of salvation; it denies that Jesus Christ is God incarnate, which is what places it outside rather than inside the dispute. That denial contradicts the Nicene-Constantinopolitan Creed of 381 and the Chalcedonian definition of 451, both of which confess one Christ, truly God and truly man. It is included because it is genuinely argued and genuinely held, and a person who holds it should get a map that says so.",
+          "held_by": [],
+          "learn_detail": "Pluralism is most associated with the philosopher John Hick and finds an institutional home in some liberal Protestant currents outside this registry's twelve traditions; it is not the confessional position of any tradition listed here, so held_by is left empty rather than assigned to a body that has not adopted it.",
+          "sources": [
+            {
+              "label": "John Hick, An Interpretation of Religion",
+              "citation": "John Hick, 1989"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The doctrine is stated as settled because the disagreement that actually divides Christians in this domain is not over whether Christ alone saves, which every tradition confesses, but over what that claim implies for those who die never having heard of him.",
+      "sources": [
+        {
+          "label": "Lausanne Covenant",
+          "citation": "1974, Article 3"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "846-848"
+        }
+      ]
+    },
+    {
+      "id": "missions-and-world-religions.the-unevangelised",
+      "node_title": "The unevangelised",
+      "slug": "the-unevangelised",
+      "domain": "missions-and-world-religions",
+      "order": 2,
+      "kind": "choice",
+      "question": "What becomes of those who die never having heard the gospel?",
+      "framing": "Every tradition here confesses that salvation is through Christ alone; the dispute is what that means for someone who never hears his name. Some hold that explicit faith in Christ is necessary and so the unevangelised are lost; others hold Christ's saving work can be applied to those who respond in faith to the light of God's revelation they do have, without ever hearing the gospel by name; others hold that death itself is not the last opportunity to hear; and a further position holds that God has so ordered history, by his knowledge of what every person would freely do in any circumstance, that no one who would have believed the gospel if they heard it ever in fact fails to hear it.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it is a matter theologians within the same tradition may disagree over without dividing fellowship, but it is not peripheral to how missions itself is understood.",
+      "refs": "Rom 2:14-16; Rom 10:13-15; John 14:6",
+      "links": [
+        "exclusivity-of-christ",
+        "world-religions",
+        "election",
+        "divine-foreknowledge"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how Romans 2's language of those who do not have the law but do what the law requires relates to Romans 10's insistence that faith comes by hearing, and settle whether the Molinist account of God's providential ordering of who hears the gospel is the better resolution of that tension than inclusivism.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "missions-and-world-religions.the-unevangelised/restrictivism",
+          "label": "Restrictivism",
+          "hold": "Explicit, conscious faith in Jesus Christ is necessary for salvation, so that those who die without ever hearing and believing the gospel are lost.",
+          "why": "Paul asks how anyone can call on the one they have not believed in, and how they can believe without hearing, and how they can hear without a preacher being sent, making explicit hearing and believing the ordinary means God has appointed.",
+          "vs": "Holding that saving faith can be exercised toward Christ by someone who has never heard of him, on the basis of the general revelation available to them.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 10:13-15; John 14:6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely held, though the Baptist Faith and Message does not itself adjudicate the question directly.",
+              "citation": "Baptist Faith and Message (2000), Article X"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "The predominant historic Reformed reading, though not the only one contemporary Reformed theologians hold.",
+              "citation": "Westminster Confession of Faith 10.4"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 3"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "10.4"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.the-unevangelised/inclusivism",
+          "label": "Inclusivism",
+          "hold": "Christ is the only saviour, but his atoning work can be applied to those who, without ever hearing the gospel, respond in sincere faith and love to God as he has made himself known to them through creation and conscience.",
+          "why": "Those who through no fault of their own do not know the gospel of Christ but sincerely seek God, and try to do his will as they know it through the dictates of conscience, can achieve eternal salvation, since it is Christ who enlightens all who are willing to arrive at the truth.",
+          "vs": "Requiring explicit, conscious faith in the name of Jesus Christ as a condition of the salvation his death secured.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 2:14-16; John 1:9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Restrictivist critics regard inclusivism as underselling the necessity of hearing that Romans 10 insists on; its Catholic and Orthodox holders regard it as the church's own settled reading of God's mercy toward the invincibly ignorant, not as a concession to religious pluralism.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Stated of those who, through no fault of their own, do not know the gospel but sincerely seek God.",
+              "citation": "Lumen Gentium 16 (1964); Catechism of the Catholic Church, 847"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "Read from the wider Orthodox emphasis on God's mercy toward the invincibly ignorant rather than from a single conciliar statement.",
+              "citation": "Longer Catechism of St Philaret of Moscow"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Held by a strand within the Communion rather than required by the Articles.",
+              "citation": "John Stott and David Edwards, Essentials (1988)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "minority",
+              "note": "Consistent with Wesley's own doctrine of prevenient grace at work in all people, though Wesley did not draw this precise conclusion himself.",
+              "citation": "Clark Pinnock, A Wideness in God's Mercy (1992)"
+            }
+          ],
+          "learn_detail": "Catholic and Orthodox holders state this as the settled reading of texts like Romans 2, not as a departure from exclusivity of Christ: it is Christ's own saving work, not the sincerity of the seeker, that saves. It should not be described in the terms of a liberal compromise between exclusivism and pluralism.",
+          "sources": [
+            {
+              "label": "Lumen Gentium",
+              "citation": "Second Vatican Council, 1964, §16"
+            },
+            {
+              "label": "Nostra Aetate",
+              "citation": "Second Vatican Council, 1965"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.the-unevangelised/postmortem-opportunity",
+          "label": "Postmortem opportunity",
+          "hold": "Those who die without having had a genuine opportunity to hear and respond to the gospel are given that opportunity after death, so that no one is finally condemned for rejecting a message they never encountered.",
+          "why": "Christ himself is described as proclaiming to spirits in prison, taken as evidence that God provides some who lacked opportunity in this life with a genuine encounter with the gospel beyond it.",
+          "vs": "Treating death as the fixed and final boundary of opportunity to respond to the gospel for every person without exception.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Pet 3:18-20; 1 Pet 4:6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "A minority position defended by some evangelical theologians; most traditions in this registry hold that a person's response to God is fixed at death, and regard this reading of 1 Peter as resting on a disputed exegesis of an unusually obscure text.",
+          "held_by": [],
+          "learn_detail": "Associated with theologians such as Gabriel Fackre and, in a more cautious form, with the wider question of what 1 Peter 3-4's proclamation to the spirits in prison actually describes; no tradition registered here confesses it, so held_by is left empty.",
+          "sources": [
+            {
+              "label": "Gabriel Fackre, in What About Those Who Have Never Heard?",
+              "citation": "Gabriel Fackre, 1995"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.the-unevangelised/molinist",
+          "label": "Molinist",
+          "hold": "Explicit faith in Christ is necessary for salvation, and God, by his knowledge of what every person would freely do under any circumstance, has so ordered the world that everyone who would respond in saving faith if they heard the gospel is in fact brought to hear it.",
+          "why": "God's knowledge extends to what any free creature would do in any possible circumstance, so God can actualise a world in which the elect are exactly those who hear and no one who would have freely believed the gospel is left to perish for lack of hearing it.",
+          "vs": "Locating the answer in the content of the salvation offered to the unevangelised, whether through the light of nature or a further postmortem chance, rather than in God's providential ordering of who is brought to hear the gospel in the first place.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 10:13-15; Acts 17:26-27",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Molinism's account of divine middle knowledge is itself disputed among evangelicals, particularly by Reformed critics who reject libertarian free will as its precondition; this is a distinct proposal from inclusivism, since it keeps explicit faith necessary and instead answers the question of who gets to hear.",
+          "held_by": [],
+          "learn_detail": "Associated chiefly with William Lane Craig's argument from transworld damnation: rather than asking what happens to someone who never hears, it asks why God would ever leave someone in circumstances where they would have believed had they heard, and answers that in fact he does not. No tradition registered here confesses Molinism as such; it is held by individual theologians working within several of the traditions above.",
+          "sources": [
+            {
+              "label": "William Lane Craig, 'No Other Name'",
+              "citation": "Faith and Philosophy 6, no. 2 (1989)"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This is the heart of the domain. Inclusivism should be stated in Vatican II's own terms, from Lumen Gentium 16 and Nostra Aetate, and not folded into a generic liberal middle ground. The Molinist position is a distinct answer from inclusivism: it keeps explicit faith in Christ necessary and instead proposes that God's providence ensures no one who would believe is left without the chance to hear, an argument developed by William Lane Craig as the resolution of transworld damnation.",
+      "sources": [
+        {
+          "label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized",
+          "citation": "John Sanders, ed., 1995"
+        },
+        {
+          "label": "Lumen Gentium",
+          "citation": "Second Vatican Council, 1964"
+        }
+      ]
+    },
+    {
+      "id": "missions-and-world-religions.world-religions",
+      "node_title": "World religions",
+      "slug": "world-religions",
+      "domain": "missions-and-world-religions",
+      "order": 3,
+      "kind": "choice",
+      "question": "How should the teaching and practice of the non-Christian religions be assessed?",
+      "framing": "Every tradition confesses Christ as the unique saviour; the disagreement is over how to regard what the other religions actually teach. Some hold the religions are wholly false, spiritually empty, or actively demonic counterfeits; others hold the religions contain real, if partial and finally insufficient, truth and goodness, the product of God's general revelation and common grace at work among all peoples; and others hold the religions are best read as incomplete anticipations that find their fulfilment in Christ. Judaism, given its unique place in God's revelation, is addressed separately.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes the posture and tone of engagement with other religions without dividing on the gospel itself.",
+      "refs": "Acts 17:22-28; Rom 1:19-20; 1 Cor 10:20",
+      "links": [
+        "exclusivity-of-christ",
+        "the-unevangelised",
+        "israel-and-judaism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Paul's appeal to the Athenians' own poets in Acts 17 is a model for finding genuine common ground with other religions, or simply a rhetorical bridge to a message that otherwise owes those religions nothing.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "missions-and-world-religions.world-religions/false-and-demonic",
+          "label": "False and demonic",
+          "hold": "The teaching and worship of the non-Christian religions are false and, where they involve the worship of other gods, are in fact offered to demons rather than to God.",
+          "why": "Paul tells the Corinthians that what pagans sacrifice, they sacrifice to demons and not to God, refusing to treat pagan worship as a lesser but still valid approach to the divine.",
+          "vs": "Treating the teaching of the non-Christian religions as containing real truth and goodness that Christian proclamation can build upon.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 10:20; Deut 32:17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held.",
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "1 Corinthians",
+              "citation": "10:20"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.world-religions/general-revelation",
+          "label": "Rays of truth",
+          "hold": "The non-Christian religions contain elements of genuine truth and goodness, reflecting the general revelation of God available to all people, but nothing in them is sufficient for salvation apart from Christ.",
+          "why": "God has not left himself without witness, and what can be known about God is plain to all people because God has shown it to them in creation, so the religions built by those same people can be expected to preserve some genuine, if incomplete, apprehension of that revelation.",
+          "vs": "Treating the teaching of every non-Christian religion as wholly false with no residue of genuine truth or goodness in it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 1:19-20; Acts 14:16-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "The church rejects nothing that is true and holy in these religions, while proclaiming, and bound to proclaim without fail, Christ as the way, the truth and the life.",
+              "citation": "Nostra Aetate 2 (1965)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Lambeth Conference 1988, Resolution 21"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Read through the Reformed doctrine of general revelation and common grace.",
+              "citation": "Westminster Confession of Faith 1.1; Belgic Confession, Article 2"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 3"
+            }
+          ],
+          "learn_detail": "The Catholic form of this position is Nostra Aetate's language of rays of that truth which enlightens all people; the Reformed and evangelical form is drawn independently from general revelation and common grace rather than from the council. Both converge on the same claim: real truth, insufficient for salvation.",
+          "sources": [
+            {
+              "label": "Nostra Aetate",
+              "citation": "Second Vatican Council, 1965, §2"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.world-religions/fulfilment",
+          "label": "Fulfilment",
+          "hold": "The non-Christian religions represent genuine but incomplete human searching after God, which the gospel of Christ fulfils rather than simply contradicts or replaces.",
+          "why": "Paul, addressing the Athenians about the god they worshipped without knowing, proclaims that same god to them rather than dismissing their religious searching outright, treating it as something the gospel completes.",
+          "vs": "Treating the non-Christian religions as having no positive relationship at all to the truth Christ brings, so that the gospel simply displaces rather than fulfils what came before it.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Acts 17:22-28; Matt 5:17",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Fulfilment theology, associated historically with some late-nineteenth and twentieth-century missiologists, is criticised by holders of the general-revelation position as risking an overly positive reading of other religions as stages on a single path to Christ, rather than as simply false or as scattered fragments of general revelation.",
+          "held_by": [],
+          "learn_detail": "Associated with missiologists such as J. N. Farquhar's account of Christ as the fulfilment of Hinduism; no tradition registered here confesses this as a formal position, so held_by is left empty.",
+          "sources": [
+            {
+              "label": "J. N. Farquhar, The Crown of Hinduism",
+              "citation": "J. N. Farquhar, 1913"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Judaism is treated separately from the other world religions throughout this domain and the corpus, given its unique place as the people to whom the covenants and the promises belong; see the doctrine on Israel and Judaism.",
+      "sources": [
+        {
+          "label": "Nostra Aetate",
+          "citation": "Second Vatican Council, 1965"
+        },
+        {
+          "label": "Perspectives on the World Christian Movement",
+          "citation": "Ralph D. Winter and Steven C. Hawthorne, eds., 1981"
+        }
+      ]
+    },
+    {
+      "id": "missions-and-world-religions.contextualisation",
+      "node_title": "Contextualisation",
+      "slug": "contextualisation",
+      "domain": "missions-and-world-religions",
+      "order": 4,
+      "kind": "choice",
+      "question": "How far should the gospel's presentation adapt to a culture's existing religious forms and vocabulary?",
+      "framing": "Paul became all things to all people to win some, adapting his approach to Jews and Gentiles alike without changing the gospel itself. Missiologists describe the resulting spectrum of adaptation using the C1 to C6 scale, running from forms entirely foreign to the local culture through to believers who retain a full religious and cultural identity within their birth community. The disagreement is over how far forms can be adapted or reused before the content of the gospel itself is compromised, and in particular whether believers can remain formally within a non-Christian religious community and identity.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it is a live methodological dispute among otherwise cooperating evangelicals rather than a first-order gospel question.",
+      "refs": "1 Cor 9:19-23; Acts 17:22-23",
+      "links": [
+        "world-religions",
+        "the-unevangelised"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out where along the C1-C6 spectrum a form becomes so bound up with the theology of another religion that reusing it teaches something false, rather than merely reusing a neutral cultural vessel.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "missions-and-world-religions.contextualisation/full-contextualisation",
+          "label": "Full contextualisation",
+          "hold": "Cultural and religious forms, including language, dress, music, and social structures, may be freely adapted or reused to carry the gospel, provided the content of the gospel taught through them remains unchanged.",
+          "why": "Paul became like a Jew to the Jews and like one outside the law to those outside the law, adapting his own conduct and approach to each audience while never altering the gospel he preached to any of them.",
+          "vs": "Treating a culture's existing forms as so fixed to their prior religious meaning that reusing any of them to carry the gospel is itself a compromise, regardless of what content is actually taught through them.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 9:19-23; Acts 17:22-23",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 10"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Stated as inculturation rather than contextualisation, but the same principle of adapting form while preserving content.",
+              "citation": "Ad Gentes 22 (1965)"
+            }
+          ],
+          "learn_detail": "This position corresponds to the C3-C4 range on the C1-C6 missiological spectrum: significant use of locally meaningful forms and vocabulary, without retaining a formal identity within a non-Christian religious community.",
+          "sources": [
+            {
+              "label": "Ad Gentes",
+              "citation": "Second Vatican Council, 1965, §22"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.contextualisation/conservative-forms",
+          "label": "Conservative on forms",
+          "hold": "Some cultural and religious forms are so bound up with the theology of a non-Christian religion that they carry inseparable religious meaning and cannot be safely reused to express the Christian gospel.",
+          "why": "A form developed to express and reinforce a rival religion's own theology can teach that theology by its very use, whatever content a missionary intends to attach to it, so the safer course is a clean break with such forms rather than an attempt to repurpose them.",
+          "vs": "Treating any cultural or religious form as a neutral vessel that can be filled with Christian content regardless of the prior theological freight it carries.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 10:20-21; 2 Cor 6:14-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "A real, self-identified stream within Baptist and independent evangelical missions rather than a confessional position of the Baptist Faith and Message.",
+              "citation": "Phil Parshall, criticised in Beyond the Great Divide (2016 debate literature)"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": null,
+              "citation": "Georges Houssney, Engaging Islam (2010)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Chrislam or Christ?",
+              "citation": "Georges Houssney, Engaging Islam, 2010"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.contextualisation/insider-movements",
+          "label": "Insider movements",
+          "hold": "Believers from a Muslim or Hindu background may remain formally within their birth religious community and identity, retaining its outward practices and self-identification, while inwardly following Jesus as Lord and Saviour.",
+          "why": "Retaining a birth community's social and religious identity removes unnecessary social barriers to faith in Christ and allows a movement to Christ to spread within a family and community network rather than requiring every believer to exit it.",
+          "vs": "Requiring a convert to a wholly separate visible identity and community, breaking with the religious community and identity into which they were born, before their faith in Christ is recognised as complete.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Cor 7:17-20; Acts 21:20-24",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is a genuinely contested position within evangelical missiology itself, not simply a mainline departure from an evangelical consensus. Critics, citing the same C1-C6 spectrum, argue that remaining within the C5 category of formal insider identity confuses conversion with syncretism and obscures the confession that Jesus is Lord before the watching community; practitioners hold that it is a Spirit-led application of Paul's own principle that each should remain in the state in which they were called.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real, self-identified stream within evangelical missions to Muslim-majority contexts, sharply disputed by other evangelical missiologists.",
+              "citation": "John Travis, 'The C1 to C6 Spectrum', Evangelical Missions Quarterly (1998)"
+            }
+          ],
+          "learn_detail": "This corresponds to the C5 category on the C1-C6 spectrum, where believers retain a Muslim or Hindu socio-religious identity; C6, secret believers with no corporate identity at all, is a related but distinct category not itself in dispute in the same way. The critique is stated here in the terms critics themselves use, and the position in the terms its practitioners use, because neither side accepts the other's framing.",
+          "sources": [
+            {
+              "label": "The C1 to C6 Spectrum",
+              "citation": "John Travis, Evangelical Missions Quarterly 34, no. 4 (1998)"
+            },
+            {
+              "label": "Chrislam or Christ?",
+              "citation": "Georges Houssney, in Beyond the Great Divide, 2016"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The C1-C6 spectrum, developed by John Travis, is the standard vocabulary in missiology for describing how far a contextualised expression of Christian faith retains or sheds the forms of its surrounding culture and religion, running from C1 forms wholly foreign to the culture through to C6 secret believers with no corporate identity; the insider-movement position corresponds to C5 on that scale.",
+      "sources": [
+        {
+          "label": "The C1 to C6 Spectrum",
+          "citation": "John Travis, Evangelical Missions Quarterly 34, no. 4 (1998)"
+        },
+        {
+          "label": "Ad Gentes",
+          "citation": "Second Vatican Council, 1965"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "missions-and-world-religions.contextualisation/full-contextualisation",
+            "missions-and-world-religions.contextualisation/insider-movements"
+          ],
+          "hold": "Most non-denominational evangelical missions favour full contextualisation of forms while keeping the gospel's content unchanged; a minority stream working in Muslim-majority contexts practises insider-movement methods, which other evangelicals in the same stream sharply dispute.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "This is a live methodological dispute within the stream itself, not a settled position: insider-movement practitioners and their evangelical critics both identify as non-denominational evangelicals.",
+          "citation": "Lausanne Covenant (1974), Article 10, contrasted with John Travis, 'The C1 to C6 Spectrum', Evangelical Missions Quarterly (1998)"
+        }
+      }
+    },
+    {
+      "id": "missions-and-world-religions.israel-and-judaism",
+      "node_title": "Israel and Judaism",
+      "slug": "israel-and-judaism",
+      "domain": "missions-and-world-religions",
+      "order": 5,
+      "kind": "choice",
+      "question": "Should the church direct evangelistic effort toward Jewish people, and on what understanding of Israel's covenant with God?",
+      "framing": "This doctrine asks a missiological question distinct from how Israel and the church relate in the unfolding of covenant history: whether, and how, the church should evangelise Jewish people specifically. The disagreement is over whether Jewish people are included in the Great Commission without distinction from any other people, whether their standing in God's covenant with Israel means explicit faith in Christ is not required of them as it is of others, or whether the church, while never denying that salvation is from Christ, should neither conduct nor support an institutional mission targeted at Jews specifically. This history includes real and grave persecution of Jewish people carried out in the church's name, and the entries below describe positions rather than adjudicate between them.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: a matter of real and careful disagreement among traditions that otherwise share the same gospel, not a first-order test of orthodoxy.",
+      "refs": "Rom 1:16; Rom 11:28-29; Matt 28:19",
+      "links": [
+        "israel-and-the-church",
+        "exclusivity-of-christ",
+        "the-unevangelised"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how Romans 11:29's statement that God's gifts and calling are irrevocable bears on whether Jewish people need to hear and believe the gospel as anyone else does, and decide whether the Catholic position after Nostra Aetate on institutional mission is the right balance or an unstable one.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "missions-and-world-religions.israel-and-judaism/great-commission-includes-all",
+          "label": "No distinction",
+          "hold": "The Great Commission includes Jewish people without any distinction from other peoples, so the church is to proclaim the gospel to Jewish people just as it does to everyone else, in fulfilment rather than betrayal of God's covenant with Israel.",
+          "why": "The gospel is the power of God for salvation to everyone who believes, to the Jew first and also to the Greek, naming Jewish people as the first, not the excluded, recipients of that same gospel.",
+          "vs": "Treating Jewish people as a people for whom explicit faith in Christ is not required, or as a people the church should decline to evangelise as it evangelises others.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 1:16; Rom 10:1; Matt 28:19-20",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article XI"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 9"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Confession of Faith 10.4"
+            }
+          ],
+          "learn_detail": "Paul's own stated longing for the salvation of his fellow Israelites, and his description of the gospel as for the Jew first, are read here as ruling out any exemption of Jewish people from ordinary gospel proclamation.",
+          "sources": [
+            {
+              "label": "Romans",
+              "citation": "1:16; 10:1"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.israel-and-judaism/dual-covenant",
+          "label": "Dual covenant",
+          "hold": "Jewish people stand in God's covenant with Israel, which God has not revoked, and remain in a right relationship with God through that covenant without requiring explicit faith in Jesus Christ.",
+          "why": "God's gifts and his call to Israel are irrevocable, so the covenant God made with Israel is read as still standing on its own terms and sufficient for that people's relationship with God, apart from faith in Christ.",
+          "vs": "Holding that explicit faith in Jesus Christ is necessary for salvation without exception, including for Jewish people despite their covenant with God.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 11:28-29",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "No ecumenical creed or conciliar definition addresses whether the church should evangelise Jewish people, and those who hold this position confess the creeds without qualification, so it is a dispute inside historic orthodoxy rather than a departure from it. It is a sharp one: the traditions that reject it regard it as denying the universal necessity of Christ, and those who hold it regard the alternative as denying that God has not revoked his covenant with Israel.",
+          "held_by": [],
+          "learn_detail": "Argued chiefly from Romans 11:29 and adopted as an official or semi-official position by some mainline Protestant denominational statements on relations with Judaism; no tradition registered in this corpus holds it, so held_by is left empty rather than assigned by inference.",
+          "sources": [
+            {
+              "label": "Romans",
+              "citation": "11:28-29"
+            }
+          ]
+        },
+        {
+          "id": "missions-and-world-religions.israel-and-judaism/no-institutional-mission",
+          "label": "No institutional mission",
+          "hold": "The church neither conducts nor supports any institutional mission specifically directed at Jews, while continuing to bear witness to faith in Jesus Christ and never denying that salvation flows from Christ alone.",
+          "why": "God's gifts and call to Israel are irrevocable, and the church's own reflection on its unique bond with the Jewish people leads it to reject a programme of institutional mission aimed specifically at Jews, without this meaning it ceases to believe or proclaim that salvation is from Christ.",
+          "vs": "Directing an institutional missionary programme specifically at Jewish people in the same way the church directs mission toward other, non-covenanted peoples.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 11:28-29",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position affirms that salvation is from Christ while declining institutional mission aimed at Jews specifically, a combination some evangelical critics regard as practically inconsistent with the universal call to proclaim the gospel; its Catholic holders regard it as a considered theological judgment about this one people's unique standing, not a denial of Christ's necessity for salvation.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "The church neither conducts nor supports any specific institutional mission work directed towards Jews, while it is committed to bear witness to its faith in the presence of Jews, doing so with humility and sensitivity.",
+              "citation": "Commission for Religious Relations with the Jews, The Gifts and the Calling of God are Irrevocable (2015), §40; Nostra Aetate 4 (1965)"
+            }
+          ],
+          "learn_detail": "This position must be stated with precision: it is a specific judgment about institutional missionary programmes aimed at Jews, made explicit in the 2015 document The Gifts and the Calling of God are Irrevocable from the Vatican's Commission for Religious Relations with the Jews, and it explicitly does not deny that Jesus Christ is the way, the truth and the life, nor that salvation comes through him.",
+          "sources": [
+            {
+              "label": "The Gifts and the Calling of God are Irrevocable",
+              "citation": "Commission for Religious Relations with the Jews, 2015, §40"
+            },
+            {
+              "label": "Nostra Aetate",
+              "citation": "Second Vatican Council, 1965, §4"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This is the doctrine in the whole corpus where a careless sentence does the most harm: its history includes real persecution of Jewish people carried out in the church's name, and centuries of forced conversion and violence stand behind every position stated here. The doctrine describes what traditions hold rather than adjudicating between them. It asks a distinct, missiological question from last-things' doctrine on Israel and the church, which addresses the eschatological and covenantal relationship between Israel and the church rather than the question of targeted evangelism.",
+      "sources": [
+        {
+          "label": "The Gifts and the Calling of God are Irrevocable",
+          "citation": "Commission for Religious Relations with the Jews, 2015"
+        },
+        {
+          "label": "Nostra Aetate",
+          "citation": "Second Vatican Council, 1965"
+        }
+      ]
+    }
+  ]
+}

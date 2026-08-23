@@ -1,0 +1,1205 @@
+{
+  "schema_version": 1,
+  "domain": "salvation",
+  "doctrines": [
+    {
+      "id": "salvation.sovereignty-and-free-will",
+      "node_title": "Sovereignty and free will",
+      "slug": "sovereignty-and-free-will",
+      "domain": "salvation",
+      "order": 1,
+      "kind": "choice",
+      "question": "What is the relationship between God's sovereignty and human free will in salvation?",
+      "framing": "Every tradition affirms that God is sovereign and that human choices are real, but they divide over how the two fit together. The Reformed tradition, following Dordt and Westminster, holds that God's eternal decree renders every event certain, including the world's response to grace, while human choosing remains free in the compatibilist sense of acting according to one's own desires. The Arminian tradition, following the Remonstrance and Wesley, holds that grace enables but does not determine a will that remains libertarianly free to resist. Rome's own internal Thomist-Molinist debate and Orthodoxy's synergistic reading of theosis approach the question by different routes still, neither fitting neatly onto the Calvinist-Arminian axis.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: it reorders much of Reformed and Arminian debate without by itself dividing the gospel.",
+      "refs": "Rom 9:14-23; Phil 2:12-13; John 6:44",
+      "links": [
+        "election",
+        "perseverance-and-apostasy",
+        "depravity-and-prevenient-grace",
+        "divine-foreknowledge"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how divine sovereignty and human freedom relate without collapsing either, and decide whether the compatibilist or libertarian account of will is the more biblically faithful one.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "salvation.sovereignty-and-free-will/compatibilist-sovereignty",
+          "label": "Compatibilist sovereignty",
+          "hold": "God's eternal decree renders certain everything that comes to pass, including every free human choice, without removing the will's own compatibilist freedom to choose according to its own desires.",
+          "why": "Scripture ascribes to God's sovereign purpose even the free acts by which people sin, so the decree and genuine willing are not in competition.",
+          "vs": "Grounding the certainty of the future in a creaturely freedom God does not determine, which this position holds makes God's purposes contingent on creatures.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 4:27-28; Eph 1:11; Prov 16:9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether the will is compatibilist or libertarian is the central Calvinist-Arminian dispute; each side regards the other's reading as compromising either grace or human responsibility.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 3.1; Canons of Dordt, Third and Fourth Heads of Doctrine, Article 1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Held within the Reformed Baptist stream; the Baptist Faith and Message does not settle the question.",
+              "citation": "Second London Baptist Confession (1689) 3.1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": "Lutherans affirm monergism in conversion while declining to extend the decree symmetrically to reprobation.",
+              "citation": "Formula of Concord, Solid Declaration, Article 11"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Canons of Dordt",
+              "citation": "1619, Third and Fourth Heads of Doctrine"
+            }
+          ]
+        },
+        {
+          "id": "salvation.sovereignty-and-free-will/libertarian-free-will",
+          "label": "Libertarian free will",
+          "hold": "God's grace genuinely enables a sinner to respond to the gospel, but the will remains libertarianly free to accept or resist that grace, so that a person's response is truly their own and not determined by God's decree.",
+          "why": "The Remonstrance and Wesley hold that grace is resistible and that a will unable to do otherwise could not be meaningfully commanded, warned, or held responsible in the way Scripture everywhere holds it.",
+          "vs": "Grounding the certainty of a person's response in an eternal decree that determines it, which this position holds turns commands and warnings addressed to a genuinely free will into a performance for an audience already decided.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Deut 30:19; Josh 24:15; Rev 3:20",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics hold that grounding certainty in an undetermined creaturely choice makes God's purposes contingent and his knowledge of the future unaccounted for.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "John Wesley, 'Predestination Calmly Considered' (1752); Articles of Religion (1784), Article 8"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Remonstrance",
+              "citation": "1610, Article 4"
+            },
+            {
+              "label": "Predestination Calmly Considered",
+              "citation": "John Wesley, 1752"
+            }
+          ]
+        },
+        {
+          "id": "salvation.sovereignty-and-free-will/grace-enabled-cooperation",
+          "label": "Grace-enabled cooperation",
+          "hold": "Justifying grace truly moves and transforms the human will, so that the justified freely and really cooperate with grace, neither overridden by it nor left to dispose themselves toward salvation apart from it.",
+          "why": "Trent teaches that free will, weakened but not destroyed by the fall, is roused and helped by grace to cooperate, disposing itself for justification through its own assent to that grace.",
+          "vs": "Either a reading in which the will's cooperation contributes nothing distinguishable to receiving grace, or a reading in which nature can dispose itself toward salvation apart from grace.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Phil 2:12-13; John 15:4-5",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session 6, ch. 5, Canons 4-9"
+            }
+          ],
+          "learn_detail": "Rome's own internal Thomist-Molinist dispute over how grace and free will fit together, addressed at divine-foreknowledge, runs beneath this shared confessional starting point rather than replacing it.",
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Session 6, 1547, ch. 5"
+            }
+          ]
+        },
+        {
+          "id": "salvation.sovereignty-and-free-will/synergistic-mystery",
+          "label": "Synergistic mystery",
+          "hold": "Salvation unfolds through synergy, divine grace and human free will cooperating in the lifelong work of theosis, a framework that does not divide along the West's sovereignty-versus-freedom debate.",
+          "why": "The Eastern fathers describe salvation as cooperation between divine grace and human will from the outset, never posing grace and freedom as competitors that must be balanced against each other.",
+          "vs": "Framing the question as a choice between monergism and libertarian freedom, categories this reading regards as belonging to a specifically Western debate rather than to the church's original vocabulary.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 1:4; Phil 2:12-13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "John Cassian, Conference 13; Confession of Dositheus (1672), Decree 3"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Confession of Dositheus",
+              "citation": "1672, Decree 3"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The first two positions map the historic Calvinist-Arminian axis using Dordt and Westminster against the Remonstrance and Wesley. Rome's own Thomist-Molinist debate runs orthogonal to that axis, and Orthodoxy's synergism does not map onto it at all.",
+      "sources": [
+        {
+          "label": "Canons of Dordt",
+          "citation": "1619"
+        },
+        {
+          "label": "The Remonstrance",
+          "citation": "1610"
+        }
+      ]
+    },
+    {
+      "id": "salvation.election",
+      "node_title": "Election",
+      "slug": "election",
+      "domain": "salvation",
+      "order": 2,
+      "kind": "choice",
+      "question": "On what basis does God choose those who will be saved?",
+      "framing": "Scripture speaks of God electing a people before the foundation of the world, but traditions differ over the ground of that choice: God's own good pleasure alone, foreseen faith in those he chooses, union with Christ as the elect one, or a divine ordering of freely chosen responses under the circumstances God brings about. This question concerns why God elects as he does; how God knows in advance what a free creature would do under any circumstance is a separate question addressed elsewhere.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places election at the second-and-a-half tier alongside sovereignty and free will, since it reorders much doctrine without dividing the gospel itself.",
+      "refs": "Eph 1:4-5; Rom 9:10-13; Rom 8:29-30",
+      "links": [
+        "divine-foreknowledge",
+        "sovereignty-and-free-will",
+        "perseverance-and-apostasy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether election is grounded in God's sovereign choice alone, in foreseen faith, in union with Christ as the elect one, or in a middle-knowledge ordering of circumstances, and decide how that basis relates to the mechanism of foreknowledge already addressed.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "salvation.election/unconditional",
+          "label": "Unconditional election",
+          "hold": "God elects particular sinners to salvation before the foundation of the world by his own sovereign good pleasure alone, not on the basis of anything foreseen in them, including foreseen faith.",
+          "why": "Paul grounds Jacob's election over Esau in God's purpose of election prior to either having done good or evil, excluding any foreseen condition in the persons chosen.",
+          "vs": "Grounding election in a foreseen faith the creature supplies, which this position holds makes the creature's own act, rather than grace, the deciding factor.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 9:10-13; Eph 1:4-5",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether election rests on God's will alone or on foreseen faith is the central Calvinist-Arminian dispute; each side regards the other's reading as compromising either grace's freedom or God's justice.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Canons of Dordt, First Head of Doctrine, Articles 6-9; Westminster Confession of Faith 3.5"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Canons of Dordt",
+              "citation": "1619, First Head of Doctrine"
+            }
+          ]
+        },
+        {
+          "id": "salvation.election/conditional-foreseen-faith",
+          "label": "Conditional election",
+          "hold": "God elects to salvation those whom he foresees will freely believe the gospel and persevere in that faith, so that election responds to, rather than causes, the faith of those chosen.",
+          "why": "The Remonstrance and Wesley read Romans 8 and 1 Peter 1 as grounding election in God's foreknowledge of who will believe, preserving both grace's initiative and human responsibility.",
+          "vs": "Grounding election in God's will alone apart from any foreseen response, which this position holds makes God the author of unbelief in those passed over.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 8:29; 1 Pet 1:1-2",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics regard grounding election in foreseen faith as making grace dependent on a work distinguishable from grace itself.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Remonstrance (1610), Article 1; John Wesley, 'Predestination Calmly Considered' (1752)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Remonstrance",
+              "citation": "1610, Article 1"
+            }
+          ]
+        },
+        {
+          "id": "salvation.election/corporate-in-christ",
+          "label": "Corporate election",
+          "hold": "Election is primarily corporate, God's choice of Christ as the elect one and of the church as elect in him, so that individuals share in election by being joined to Christ through faith rather than by a decree made about them apart from him.",
+          "why": "Ephesians locates election in Christ before naming any individual, addressing a people already united to him rather than singling out named individuals for a decree apart from that union.",
+          "vs": "Treating election as a decree made about named individuals apart from their union with Christ, whether that decree is grounded in God's will alone or in foreseen faith.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Eph 1:4; John 15:1-6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Both classical Calvinists and classical Arminians regard corporate election as failing to answer why some individuals come to be in Christ and others do not, though its proponents consider that question a category error.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": null,
+              "citation": "William W. Klein, The New Chosen People (1990)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The New Chosen People",
+              "citation": "William W. Klein, 1990"
+            }
+          ]
+        },
+        {
+          "id": "salvation.election/molinist",
+          "label": "Molinist election",
+          "hold": "God elects those he knows, through middle knowledge of what every possible person would freely do under any circumstance, will respond to grace in the circumstances he chooses to actualise for them.",
+          "why": "Middle knowledge lets God's electing choice rest on a real, prevolitional knowledge of a person's free response, without either determining that response or treating foreknowledge as a bare, causally inert fact.",
+          "vs": "Treating foreseen faith as a bare future fact God simply observes, which this position holds cannot explain why God foreknows one person's faith and not another's without some further ground.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Sam 23:11-13; Rom 8:29",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Luis de Molina, Concordia (1588); Congregatio de Auxiliis (1597-1607)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": null,
+              "citation": "Kenneth Keathley, Salvation and Sovereignty: A Molinist Approach (2010)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": null,
+              "citation": "William Lane Craig, The Only Wise God (1987)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Concordia",
+              "citation": "Luis de Molina, 1588"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "salvation.election/conditional-foreseen-faith",
+            "salvation.election/corporate-in-christ",
+            "salvation.election/molinist"
+          ],
+          "hold": "Independent evangelical congregations are not confessionally settled on election's basis; most read election as resting on foreseen faith, while some hold corporate or Molinist accounts instead.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The stream has no binding confession, so this describes majority practice alongside two live minority readings rather than a settled position.",
+          "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1, contrasted with William W. Klein, The New Chosen People (1990) and William Lane Craig, The Only Wise God (1987)"
+        }
+      },
+      "learn_note": "This doctrine asks the basis on which God elects, not the mechanism by which he foreknows a free creature's response; that separate question is addressed at divine-foreknowledge, and the Molinist answer to each question is held by overlapping people for related but distinguishable reasons.",
+      "sources": [
+        {
+          "label": "Canons of Dordt",
+          "citation": "1619, First Head of Doctrine"
+        },
+        {
+          "label": "The Remonstrance",
+          "citation": "1610, Article 1"
+        }
+      ]
+    },
+    {
+      "id": "salvation.perseverance-and-apostasy",
+      "node_title": "Perseverance and apostasy",
+      "slug": "perseverance-and-apostasy",
+      "domain": "salvation",
+      "order": 3,
+      "kind": "choice",
+      "question": "Can a genuinely regenerate believer finally and completely fall away from salvation?",
+      "framing": "Scripture contains both strong promises that God will keep his own to the end and sober warnings against falling away, and traditions differ over how to hold the two together. Some read the promises as guaranteeing that a truly regenerate person can never finally be lost, so the warnings function to produce perseverance rather than describe a real possibility. Others read the warnings as describing a real possibility, so a genuinely regenerate believer can, through unbelief or apostasy, finally forfeit salvation. Traditions holding that grave sin can forfeit sanctifying grace altogether locate the loss and its remedy differently again, in the sacramental life of confession and restoration.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it bears heavily on pastoral practice and assurance without by itself dividing the gospel.",
+      "refs": "John 10:28-29; Heb 6:4-6; Rom 8:38-39",
+      "links": [
+        "assurance",
+        "sovereignty-and-free-will",
+        "justification"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Hebrews 6 and 10 describe a real possibility for the truly regenerate or a hypothetical warning that in practice always produces perseverance, and decide how that reading fits the promises in John 10 and Romans 8.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "salvation.perseverance-and-apostasy/unconditional-perseverance",
+          "label": "Perseverance of saints",
+          "hold": "Everyone truly regenerated by the Holy Spirit will be kept by God's power through faith and will certainly persevere to final salvation; a professed believer who finally falls away was never truly regenerate.",
+          "why": "Christ promises that none of his sheep will ever perish or be snatched from his hand, and Paul asks what could ever separate the elect from the love of God in Christ and answers nothing.",
+          "vs": "Treating the promises of preservation as conditional on a continuing faith the believer might finally abandon, which this position holds would make Christ's own promise less than certain.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 10:28-29; Rom 8:38-39; Phil 1:6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether a truly regenerate believer can finally fall away is a sharp dispute between the Calvinist and Arminian streams of the Reformation, each regarding the other's reading of the warning passages as unable to be sustained.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 17.1-17.2; Canons of Dordt, Fifth Head of Doctrine"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article 5; Second London Baptist Confession (1689) 17.1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Canons of Dordt",
+              "citation": "1619, Fifth Head of Doctrine"
+            }
+          ]
+        },
+        {
+          "id": "salvation.perseverance-and-apostasy/conditional-perseverance",
+          "label": "Conditional perseverance",
+          "hold": "A believer who is truly regenerate can, through unbelief and persistent sin, finally forfeit salvation, so the New Testament's warnings against falling away describe a genuine danger rather than a hypothetical one.",
+          "why": "Hebrews warns those who have been enlightened, tasted the heavenly gift and shared in the Holy Spirit against an apostasy from which there is no return, language read as addressed to the genuinely regenerate.",
+          "vs": "Reading every warning against apostasy as addressed only to the merely professing, which this position holds empties the warnings of the force the text gives them.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Heb 6:4-6; Heb 10:26-29; Ezek 18:24",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics hold that it makes final salvation depend on the believer's own continuance rather than on Christ's finished work and promise.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article 12, as amended; John Wesley, 'A Call to Backsliders' (1751)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "The Statement of Fundamental Truths does not use the term apostasy, but classical Pentecostal teaching on backsliding presumes a real possibility of falling away.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 17"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "A Call to Backsliders",
+              "citation": "John Wesley, 1751"
+            }
+          ]
+        },
+        {
+          "id": "salvation.perseverance-and-apostasy/mortal-sin-restoration",
+          "label": "Mortal sin, restoration",
+          "hold": "Grave, deliberate sin against a known command can destroy the sanctifying grace given in justification, but that grace, once lost, can be restored through repentance and confession rather than being finally and irrecoverably forfeited.",
+          "why": "Trent teaches that the justified can lose grace through mortal sin, and that this grace is recovered through the sacrament of penance rather than requiring an entirely new justification.",
+          "vs": "Treating salvation as either unlosable regardless of subsequent sin or as finally forfeited beyond any provision for restoration, both of which this position holds misdescribe how grace, once given, relates to serious sin and repentance.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 John 5:16-17; James 5:19-20; Gal 5:4",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "That sanctifying grace can be lost through mortal sin and restored through confession, rather than salvation being either permanently secure or finally forfeited, is rejected by Reformation traditions as resting on a sacramental system they do not accept, while Rome and the East regard the Reformation's alternatives as unable to account for serious, sustained sin in the justified.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session 6, ch. 15, Canons 23, 27"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Grounded in the sacrament of confession as the ordinary remedy for post-baptismal sin rather than in the same Western canon.",
+              "citation": "Confession of Dositheus (1672), Decree 14"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Session 6, 1547, ch. 15"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The dispute is sharpest between the first two positions, which share the Reformation's forensic categories and disagree only about whether the regenerate can lose what was truly given; the third position works within a different, sacramental account of how grace is held and lost, shared in broad shape by Rome and the East despite their other disagreements.",
+      "sources": [
+        {
+          "label": "Canons of Dordt",
+          "citation": "1619, Fifth Head of Doctrine"
+        },
+        {
+          "label": "Council of Trent",
+          "citation": "Session 6, 1547, ch. 15"
+        }
+      ]
+    },
+    {
+      "id": "salvation.assurance",
+      "node_title": "Assurance",
+      "slug": "assurance",
+      "domain": "salvation",
+      "order": 4,
+      "kind": "choice",
+      "question": "On what basis, and with what certainty, can a believer know that they are in a state of saving grace?",
+      "framing": "Every tradition agrees that Scripture speaks of believers knowing they have eternal life, but they differ over the ground and certainty of that knowledge. Some hold assurance is grounded in Christ's finished work and the Spirit's own testimony, ordinarily attainable as settled and infallible certainty. Others hold assurance is real but remains conditional on continuing in faith and obedience, so certainty of final salvation is not given in advance of that continuance. Still others describe present grace as knowable while treating certainty of final salvation as neither sought nor promised ahead of death.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places assurance at the third tier: it shapes pastoral care and a believer's own peace without by itself dividing the gospel.",
+      "refs": "1 John 5:13; Rom 8:16; 2 Pet 1:10",
+      "links": [
+        "perseverance-and-apostasy",
+        "justification"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether assurance of final salvation is ordinarily available as settled certainty or is properly conditional on continuing faith, and decide what role, if any, self-examination for fruit should play in it.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "salvation.assurance/grounded-and-attainable",
+          "label": "Full assurance",
+          "hold": "Assurance of final salvation is grounded in Christ's finished work, the promises of the gospel, and the Spirit's inward witness, and is ordinarily attainable as a settled certainty to be sought and enjoyed rather than a rare exception.",
+          "why": "The Spirit himself testifies with a believer's spirit that they are children of God, and John writes his letter precisely so that believers may know they have eternal life.",
+          "vs": "Making assurance depend on a continuing obedience the believer must first verify, which this position holds turns confidence in Christ's promise into confidence in the self.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 8:16; 1 John 5:13; Eph 1:13-14",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether assurance is ordinarily attainable as settled certainty or remains properly conditional is disputed between the Reformed and Wesleyan-Arminian streams, each regarding the other's pastoral counsel as either presumptuous or needlessly anxious.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 18.1-18.2"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689) 18.1-18.2"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 18"
+            }
+          ]
+        },
+        {
+          "id": "salvation.assurance/conditional-assurance",
+          "label": "Conditional assurance",
+          "hold": "Assurance of present grace is available through the Spirit's witness and the fruit of a changed life, but certainty of final salvation remains conditional on continuing in faith and obedience rather than settled in advance of that continuance.",
+          "why": "Wesley taught an assurance of present acceptance through the Spirit's direct witness together with the indirect witness of a transformed life, while holding that a believer could still fall from that grace.",
+          "vs": "Treating assurance of final salvation as settled once for all regardless of subsequent unbelief, which this position holds does not match the New Testament's warnings against falling away.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 8:16; 2 Pet 1:10; Heb 6:11",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Wesleyan-Arminian side of the same dispute; Reformed critics hold that conditioning assurance on continuance directs faith's confidence toward the self's perseverance rather than toward Christ.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "John Wesley, 'The Witness of the Spirit' (Sermon 10, 1746)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Witness of the Spirit",
+              "citation": "John Wesley, Sermon 10, 1746"
+            }
+          ]
+        },
+        {
+          "id": "salvation.assurance/present-grace-only",
+          "label": "Present grace only",
+          "hold": "A believer may know present grace and hope in God's mercy, but a settled certainty of final salvation ahead of death is not sought or promised in this life, so as to guard against presumption while sanctifying grace remains at stake.",
+          "why": "Trent warns against the vain confidence of claiming an absolute and infallible certainty of one's own final perseverance apart from special revelation, while still affirming a well-founded hope in God's mercy.",
+          "vs": "Claiming an infallible certainty of final salvation ahead of death apart from special revelation, which this position holds Scripture nowhere promises and which risks presumption.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Phil 2:12; 1 Cor 9:27; 2 Cor 5:10",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Rome and the East regard an infallible advance certainty of final salvation as presumptuous absent special revelation; Reformation traditions regard withholding such certainty as undermining the assurance the gospel promise itself grounds.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session 6, ch. 9, Canon 16"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 9"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Session 6, 1547, ch. 9"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The three positions track the same fault line as perseverance and apostasy: whether preservation is unconditional and therefore knowable in advance, conditional and therefore held alongside genuine warning, or bound up with a sacramental account of grace that withholds advance certainty on principle.",
+      "sources": [
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "1646, ch. 18"
+        },
+        {
+          "label": "Council of Trent",
+          "citation": "Session 6, 1547, ch. 9"
+        }
+      ]
+    },
+    {
+      "id": "salvation.lordship-salvation",
+      "node_title": "Lordship salvation",
+      "slug": "lordship-salvation",
+      "domain": "salvation",
+      "order": 5,
+      "kind": "choice",
+      "question": "Does the faith that saves necessarily include repentance and submission to Christ as Lord, or can saving faith exist without present transformation of life?",
+      "framing": "Both sides agree that faith alone justifies and that true faith in the biblical sense is never sterile. The dispute is over what counts as faith itself: whether saving faith is, by its own nature, a repentant trust that submits to Christ's lordship, such that a professed faith producing no change of life was never saving faith at all, or whether faith is properly defined as trust in the gospel's promise, with discipleship and submission to lordship following as a separate, later response rather than as part of what faith itself is.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it is mostly an intra-evangelical dispute over the definition of faith rather than a division on the gospel's content.",
+      "refs": "James 2:14-19; Luke 9:23-24; Matt 7:21-23",
+      "links": [
+        "justification",
+        "regeneration-and-baptism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether James 2 and Matthew 7 describe what saving faith necessarily is or describe a later, separable discipleship response, and decide whether the free grace reading of 'faith alone' collapses faith into bare intellectual assent.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "salvation.lordship-salvation/lordship-salvation",
+          "label": "Lordship salvation",
+          "hold": "The faith that justifies is itself a repentant, submissive trust in Christ as both Savior and Lord, so that a professed faith producing no repentance or change of life was never the saving faith Scripture describes.",
+          "why": "James insists that a faith without works is dead and cannot save, and Jesus warns that not everyone who calls him Lord will enter the kingdom, only the one who does the Father's will.",
+          "vs": "Defining saving faith as bare intellectual assent to the gospel's truth, with submission to Christ's lordship added afterward as a separate and optional response.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "James 2:14-19; Matt 7:21-23; Luke 9:23-24",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is chiefly an intra-evangelical dispute, sharpened by the 1980s controversy between John MacArthur and the Free Grace movement, over whether repentance and submission belong to the definition of saving faith itself.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "John MacArthur, The Gospel According to Jesus (1988)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article 4"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 4"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Article 1"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Gospel According to Jesus",
+              "citation": "John MacArthur, 1988"
+            }
+          ]
+        },
+        {
+          "id": "salvation.lordship-salvation/free-grace",
+          "label": "Free grace",
+          "hold": "Saving faith is trust in the gospel's promise about Christ's person and work, and that trust alone justifies; discipleship and submission to Christ's lordship are the justified believer's fitting response, not part of what faith itself must include to save.",
+          "why": "Paul defines saving faith as believing the promise and confessing Jesus as Lord in the sense of trusting his person, distinct from making obedience a condition added to faith for justification.",
+          "vs": "Making repentance and a transformed life part of the definition of saving faith, which this position holds adds a condition to grace and unsettles assurance by pointing believers back to their own performance.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 10:9-10; John 3:16; Eph 2:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "The Free Grace movement associated with Zane Hodges and the Grace Evangelical Society holds this distinct from Lordship salvation; critics, including many within the same Baptist and non-denominational stream, regard it as risking a faith that need not produce any observable fruit.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": null,
+              "citation": "Zane Hodges, Absolutely Free! (1989)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": null,
+              "citation": "Charles Ryrie, So Great Salvation (1989)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Absolutely Free!",
+              "citation": "Zane Hodges, 1989"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "salvation.lordship-salvation/lordship-salvation",
+            "salvation.lordship-salvation/free-grace"
+          ],
+          "hold": "Independent evangelical congregations mostly teach that saving faith includes repentance and submission to Christ, though a minority Free Grace stream distinguishes faith itself from a later discipleship response.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The stream has no binding confession; this describes the majority Lordship-leaning consensus alongside a real, self-identified Free Grace minority.",
+          "citation": "Lausanne Covenant (1974), Article 4, contrasted with Zane Hodges, Absolutely Free! (1989)"
+        },
+        "baptist": {
+          "positions": [
+            "salvation.lordship-salvation/lordship-salvation",
+            "salvation.lordship-salvation/free-grace"
+          ],
+          "hold": "Baptists generally hold that repentance and faith are inseparable, but a minority Free Grace strand distinguishes saving faith itself from a later discipleship response.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Baptist Faith and Message language ties repentance and faith together; the Free Grace strand is a minority within Baptist life, not confessionally represented.",
+          "citation": "Baptist Faith and Message (2000), Article 4, contrasted with Charles Ryrie, So Great Salvation (1989)"
+        }
+      },
+      "learn_note": "The controversy is named for John MacArthur's 1988 book and the Free Grace response it provoked from writers such as Zane Hodges and Charles Ryrie; both sides affirm justification by faith alone and dispute only what faith itself necessarily is.",
+      "sources": [
+        {
+          "label": "The Gospel According to Jesus",
+          "citation": "John MacArthur, 1988"
+        },
+        {
+          "label": "Absolutely Free!",
+          "citation": "Zane Hodges, 1989"
+        }
+      ]
+    },
+    {
+      "id": "salvation.justification",
+      "node_title": "Justification",
+      "slug": "justification",
+      "domain": "salvation",
+      "order": 6,
+      "kind": "choice",
+      "question": "What does justification consist in, and how is a sinner justified before God?",
+      "framing": "Justification names God's declaration or making of a sinner righteous, and every tradition affirms it comes through grace on account of Christ. The Protestant Reformation reads justification as a forensic verdict, God declaring the believer righteous by imputing Christ's righteousness through faith alone, distinct from the lifelong process of sanctification that follows it. Rome reads justification as a real, transformative event in which infused grace actually makes the sinner inwardly righteous, uniting declaration and renewal in a single act rather than separating them. The East frames the question through theosis, participation in the life of God, and does not use the forensic category that organizes the Western dispute at all.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places justification at the first tier: how a sinner is made right with God sits close to the center of the gospel itself.",
+      "refs": "Rom 3:21-26; Rom 4:1-8; Gal 2:16",
+      "links": [
+        "original-sin",
+        "depravity-and-prevenient-grace",
+        "regeneration-and-baptism",
+        "assurance"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Paul's forensic language of imputed righteousness or Trent's language of a real, infused righteousness better accounts for the full range of texts, including James 2, and decide whether the Joint Declaration's language of consensus resolves or merely restates the difference.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "salvation.justification/forensic-imputed",
+          "label": "Forensic imputation",
+          "hold": "God justifies the sinner by grace through faith alone, declaring them righteous by imputing Christ's own righteousness to their account, a legal verdict rendered on the ground of Christ's finished work rather than any righteousness yet worked within them.",
+          "why": "Paul contrasts the one who works, whose wages are owed, with the one who does not work but believes, whose faith is credited as righteousness on the pattern of Abraham, so that righteousness is reckoned rather than infused.",
+          "vs": "Making justification consist in an infused righteousness that renders the sinner inwardly righteous, which this position holds confuses the distinct gifts of justification and sanctification.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 4:1-8; Gal 2:16; 2 Cor 5:21",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Reformation side of the central dispute with Rome over justification, treated by both sides as touching the gospel's own content rather than as a peripheral difference.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 11.1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article 3"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession (1689) 11.1"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article 9"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 11"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 6"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 4"
+            }
+          ]
+        },
+        {
+          "id": "salvation.justification/infused-transformative",
+          "label": "Infused righteousness",
+          "hold": "Justification is not merely a declaration but a real event in which grace is infused into the sinner, cleansing and renewing the inward self so that the justified are truly, not merely reckoned, righteous, through no merit of their own but by Christ's grace.",
+          "why": "Trent teaches that justification is not remission of sins alone but sanctification and renewal of the inward self through the voluntary reception of grace, so that the unjust becomes just and a friend rather than an enemy of God.",
+          "vs": "Treating justification as a legal declaration that leaves the sinner's inward condition unchanged, only afterward renewed by a separate work of sanctification, which this position holds divides what Scripture presents as one act of grace.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 5:19; Titus 3:5-7; 1 Cor 6:11",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Trent's canons on justification directly anathematise the Reformation's forensic-alone account, and Reformation confessions in turn regard infused righteousness as undermining assurance grounded in Christ's finished work alone; neither side treats this as a peripheral disagreement.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session 6, chs. 7, 16, Canons 9-11"
+            }
+          ],
+          "learn_detail": "Trent does not teach that a sinner earns justification by unaided works; its own canons anathematise the view that anyone can merit justification by natural powers apart from grace. The dispute with the Reformation is over whether the righteousness that justifies is imputed or really infused, not over whether grace or works save.",
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Session 6, 1547, chs. 7, 16"
+            }
+          ]
+        },
+        {
+          "id": "salvation.justification/theosis",
+          "label": "Theosis",
+          "hold": "Salvation is participation in the life of God, a real union with Christ that transfigures the believer by grace, and the West's forensic categories of imputed or infused righteousness are not the terms in which this participation is chiefly described.",
+          "why": "Peter writes of becoming partakers of the divine nature, and the Eastern fathers describe salvation as theosis, a real deification by grace that neither reduces to a legal verdict nor separates declaration from transformation.",
+          "vs": "Organizing salvation around the forensic question of how righteousness is reckoned, a framework this position holds is a specifically Western development rather than the church's original vocabulary.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 1:4; John 17:20-23",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 13; Athanasius, On the Incarnation, 54"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "On the Incarnation",
+              "citation": "Athanasius, 54"
+            }
+          ]
+        }
+      ],
+      "learn_note": "In 1999 the Lutheran World Federation and the Catholic Church signed the Joint Declaration on the Doctrine of Justification, stating a consensus on basic truths while acknowledging that differences in explanation and emphasis remain; the declaration did not settle the question for Reformed and evangelical traditions outside it, nor for every Catholic and Lutheran theologian within them.",
+      "sources": [
+        {
+          "label": "Council of Trent",
+          "citation": "Session 6, 1547"
+        },
+        {
+          "label": "Joint Declaration on the Doctrine of Justification",
+          "citation": "Lutheran World Federation and Catholic Church, 1999"
+        }
+      ]
+    },
+    {
+      "id": "salvation.regeneration-and-baptism",
+      "node_title": "Regeneration and baptism",
+      "slug": "regeneration-and-baptism",
+      "domain": "salvation",
+      "order": 7,
+      "kind": "choice",
+      "question": "What is regeneration, the new birth, and when does it occur in relation to baptism?",
+      "framing": "Every tradition affirms that a person must be born again to enter the kingdom of God. Traditions differ over whether that new birth is ordinarily given through the act of water baptism itself, is given by the Spirit through faith apart from and prior to water baptism which then testifies to it, or is reached through obedient faith culminating in baptism understood as the completing, not merely symbolic, moment of that faith. This asks what regeneration is and when it happens, a different question from who is a proper subject of the rite.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: traditions holding baptism regenerative reasonably tier it higher, as the baptism doctrine itself notes.",
+      "refs": "John 3:3-5; Titus 3:5; Acts 2:38",
+      "links": [
+        "baptism",
+        "justification",
+        "original-sin"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether John 3's water and Spirit and Titus 3's washing of regeneration name the water rite itself or a Spirit-wrought birth that baptism afterward signifies, and decide how Acts 2:38's sequence of repentance, baptism and the gift of the Spirit bears on the question.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "salvation.regeneration-and-baptism/baptismal-regeneration",
+          "label": "Baptismal regeneration",
+          "hold": "God ordinarily gives the new birth through the washing of water baptism itself, so that baptism is the instrument, not merely the sign, of the regeneration it accompanies.",
+          "why": "Titus speaks of a washing of regeneration, and Peter writes that baptism now saves, language read as attaching new birth to the washing itself rather than to a prior, separate experience.",
+          "vs": "Locating the new birth entirely in an inward experience prior to and apart from water baptism, so the water rite becomes a testimony to a birth already complete rather than its ordinary means.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Titus 3:5; John 3:5; 1 Pet 3:21",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether water baptism is itself the ordinary instrument of the new birth is a central dispute between sacramental and Reformation-symbolic traditions, each regarding the other's reading of John 3 and Titus 3 as seriously mistaken.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1213-1215"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 16"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article 9; Small Catechism, Part 4"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 1213-1215"
+            }
+          ]
+        },
+        {
+          "id": "salvation.regeneration-and-baptism/obedient-faith-baptism",
+          "label": "Obedient faith baptism",
+          "hold": "The new birth is reached at the point of believing, repentant baptism, one integrated act of obedient faith in which the convert's own trust and submission, not a sacrament operating apart from that faith, meets God's promised gift of the Spirit and remission of sins.",
+          "why": "Peter's sermon at Pentecost joins repentance, baptism and the gift of the Holy Spirit in a single command with a single promise, read as one act of obedient faith rather than a sacrament conferring grace apart from the convert's own response.",
+          "vs": "Separating the new birth from baptism as an earlier, purely inward experience that baptism only afterward pictures, which this position holds does not match the single command and promise Peter gives at Pentecost.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:38; Acts 22:16",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This account reaches baptismal regeneration through obedient faith rather than a sacrament working independently of it, a distinct route from the sacramental traditions, and other credobaptist traditions regard tying the new birth to the act of baptism at all as confusing sign and thing signified.",
+          "held_by": [
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System (1839), ch. 19"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 19"
+            }
+          ]
+        },
+        {
+          "id": "salvation.regeneration-and-baptism/reformed-sign-and-seal",
+          "label": "Sign and seal",
+          "hold": "Regeneration is a sovereign work of the Holy Spirit, ordinarily accompanying but not bound to the moment of water baptism, which signs and seals a new birth the Spirit gives when and to whom he wills.",
+          "why": "Scripture attaches the new birth to the Spirit's own sovereign action, blowing where he wills, while baptism is the sign and seal the covenant community attaches to that promise rather than its instrument.",
+          "vs": "Making the water rite itself the instrument of the new birth, which this position holds ties the Spirit's sovereign work too closely to a visible sign he is not bound to.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 3:8; Rom 2:28-29",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the classic Reformed covenantal reading; traditions holding baptism regenerative regard separating the sign this sharply from the Spirit's ordinary work as unsupported by Titus 3 and John 3, and credobaptist traditions in turn read the same texts as unconnected to infant baptism.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 28.1, 28.6"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Read this way chiefly within the evangelical wing of the Communion.",
+              "citation": "Thirty-Nine Articles, Article 27"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 28"
+            }
+          ]
+        },
+        {
+          "id": "salvation.regeneration-and-baptism/symbolic-ordinance",
+          "label": "Symbolic ordinance",
+          "hold": "Regeneration occurs at the moment of Spirit-wrought faith, prior to and apart from water baptism, which is a public ordinance testifying to a new birth already given rather than its means.",
+          "why": "Regeneration is credited to those who believe on Christ's name apart from any rite, and baptism follows as the believer's obedient testimony to a new birth already accomplished by the Spirit through faith.",
+          "vs": "Treating water baptism as the instrument or occasion of the new birth rather than a testimony to a new birth already given through faith alone.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 1:12-13; Eph 2:8-9; Rom 10:9-10",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the Baptist and broader evangelical symbolic reading opposed to every form of baptismal regeneration; sacramental traditions regard separating the sign this sharply from the thing signified as unsupported by the New Testament's own language of washing and new birth.",
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article 7; Second London Baptist Confession (1689) 29.1"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Schleitheim Confession (1527), Article 1"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "2000, Article 7"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This asks what regeneration is and when it occurs, a different question from who is a proper subject of the rite; the obedient-faith position reaches baptismal regeneration by a route distinct from the sacramental traditions, through obedient faith rather than a sacrament held to work independently of it.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1992, 1213-1215"
+        },
+        {
+          "label": "The Christian System",
+          "citation": "Alexander Campbell, 1839, ch. 19"
+        }
+      ]
+    }
+  ]
+}

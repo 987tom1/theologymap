@@ -1,0 +1,801 @@
+{
+  "schema_version": 1,
+  "domain": "formation-and-practice",
+  "doctrines": [
+    {
+      "id": "formation-and-practice.sanctification-progressive",
+      "node_title": "Sanctification — progressive",
+      "slug": "sanctification-progressive",
+      "domain": "formation-and-practice",
+      "order": 1,
+      "kind": "choice",
+      "question": "How does a believer grow in holiness between conversion and death?",
+      "framing": "Every tradition affirms that a Christian is called to grow in holiness after conversion, and that Christ died to secure this alongside forgiveness. The disagreement is over the mechanism and the achievable end: whether growth is a lifelong, never-complete process of the Spirit working through ordinary means; a paradox in which the believer remains simultaneously righteous and sinful even while growing in the fruit of faith; a definite, seekable second work in which the believer is wholly cleansed from the root of sin in this life; a decisive crisis of surrender and abiding that releases a victorious Christian life; sanctification infused and nourished through grace and the sacraments; or a lifelong process of union with God that is not fully at home on this axis at all.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes daily Christian life and expectation sharply without dividing on the gospel itself.",
+      "refs": "Phil 2:12-13; Rom 6:1-14; 1 Thess 5:23; Gal 2:20",
+      "links": [
+        "hearing-god",
+        "spiritual-disciplines",
+        "depravity-and-prevenient-grace",
+        "original-sin"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether entire sanctification is a coherent this-life goal or a category error about remaining sin, and decide how much weight the simul iustus et peccator language should carry against a growth model.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "formation-and-practice.sanctification-progressive/reformed-gradual",
+          "label": "Gradual, incomplete",
+          "hold": "Sanctification is the work of God's Spirit renewing the whole person after the image of God, real and progressive but never perfect in this life, carried on through the ordinary means of grace: the word, prayer and the sacraments.",
+          "why": "Scripture describes sanctification as an ongoing renewal and commands continual mortification of sin, which would be needless instruction if perfection were already attainable in this life.",
+          "vs": "Teaching that a believer can reach a state in this life in which no further mortification of remaining sin is needed.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 6:1-14; Phil 1:6; 2 Cor 3:18",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 13.1-13.3"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article IV.B"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article XV"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article XVI"
+            }
+          ],
+          "learn_detail": "Reformed theology distinguishes definitive sanctification, the decisive break with sin's dominion at conversion, from this progressive, lifelong sense; Thomas's map treats those as settled bookends and this doctrine addresses only the contested middle.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 13"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.sanctification-progressive/simul-iustus",
+          "label": "Simul iustus et peccator",
+          "hold": "The believer is simultaneously fully righteous by imputation and truly a sinner in themselves, so growth in holiness is the daily return to baptism through repentance and faith rather than a diminishing residue of sin being progressively removed.",
+          "why": "Scripture calls the justified believer at once righteous in Christ and still confessing real, ongoing sin, and daily contrition and faith, not a measured moral advance, is what Scripture calls new obedience.",
+          "vs": "Describing sanctification as sin's gradual diminishment toward a lesser and lesser remainder, as though the old self were being incrementally improved rather than daily put to death.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 7:14-25; Gal 2:20",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration, Article III"
+            }
+          ],
+          "learn_detail": "This is not a milder version of the gradual-growth position; it denies that the believer's remaining sin is best pictured as a shrinking quantity, holding instead that the old self is daily drowned and a new self daily arises, a genuinely different account of the Christian life.",
+          "sources": [
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article III, 1577"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.sanctification-progressive/entire-sanctification",
+          "label": "Entire sanctification",
+          "hold": "Beyond justification, God offers a definite second work of grace in which the believer is cleansed from inbred sin and filled with perfect love toward God and others, a love that can be lost and must be maintained by continued faith.",
+          "why": "Scripture commands believers to love the Lord with all the heart and prays that God would sanctify them wholly, commands and prayers that presuppose grace sufficient to be answered in this life.",
+          "vs": "Treating perfect love as an eschatological hope only, so that no definite experience of entire sanctification is ever to be sought or testified to in this life.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Thess 5:23; Matt 22:37-39; 1 John 4:17-18",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Entire sanctification as a this-life attainable second work is disputed even within the wider Wesleyan family, and is rejected outright by traditions holding sanctification as a single, lifelong, never-complete process; it is not a dispute over the ecumenical creeds.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": "Held historically by Wesley and confessionally central to the holiness wing of the Wesleyan family; mainstream contemporary Methodism holds it with varying emphasis.",
+              "citation": "John Wesley, A Plain Account of Christian Perfection (1777)"
+            }
+          ],
+          "learn_detail": "Wesley himself repeatedly repudiated 'sinless perfection' as a caricature of his teaching: he denied that the entirely sanctified are free from mistake, temptation, or infirmity, and insisted the perfection in view is perfect love, not the absence of all fault. Reading this position as a claim to sinlessness misstates it.",
+          "sources": [
+            {
+              "label": "A Plain Account of Christian Perfection",
+              "citation": "John Wesley, 1777"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.sanctification-progressive/keswick",
+          "label": "Keswick higher life",
+          "hold": "Victory over besetting sin is entered by a decisive act of surrender in which the believer yields wholly to Christ and counts on the Spirit's indwelling power moment by moment, rather than struggling toward it by self-effort.",
+          "why": "Paul's language of counting oneself dead to sin and alive to God, and of letting Christ's life be lived out in the believer, describes a crisis of surrender and abiding rather than an incremental self-directed striving.",
+          "vs": "Locating growth in holiness in sustained personal effort and gradual moral improvement rather than in a definite surrender that releases the Spirit's own power.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 6:11-13; Gal 2:20",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "The Keswick account of a decisive, victory-releasing surrender distinct from ordinary progressive growth is disputed by Reformed critics as offering a shortcut that Scripture does not promise; it is an intra-evangelical dispute about method, not a creedal one.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real stream within evangelical devotional writing, associated with the Keswick Convention and figures such as Hannah Whitall Smith and Watchman Nee, rather than a formal confessional body.",
+              "citation": "Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Christian's Secret of a Happy Life",
+              "citation": "Hannah Whitall Smith, 1875"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.sanctification-progressive/infused-grace",
+          "label": "Infused and sacramental",
+          "hold": "Sanctifying grace is infused into the soul, first in baptism and continually through the sacraments, especially the Eucharist and confession, cooperating with the believer's own free response to produce a real, growing interior holiness.",
+          "why": "Grace is not merely God's favourable regard but a real, infused gift that transforms the soul, and Christ instituted the sacraments as the ordinary channels through which that gift is given and renewed.",
+          "vs": "Treating sanctifying grace as God's declared favour alone, without a real, infused transformation of the soul mediated through the sacraments and the believer's cooperation with it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 15:4-5; 2 Pet 1:4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1987-2005"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1987-2005"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.sanctification-progressive/theosis",
+          "label": "Theosis",
+          "hold": "The Christian life is a lifelong, synergistic ascent into ever-deepening participation in God's own uncreated energies, a real sharing in the divine life that the church calls deification, worked out through ascetic struggle, the sacraments and unceasing prayer.",
+          "why": "Peter writes that believers are given what is needed to become partakers of the divine nature, and the church has always read growth in holiness as this real participation in God's own life rather than merely as improved moral conduct.",
+          "vs": "Confining the aim of the Christian life to moral improvement or the resolution of guilt, when Scripture and the fathers describe a real participation in the divine nature itself.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 1:4; 2 Cor 3:18",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret of Moscow; Gregory Palamas, Triads"
+            }
+          ],
+          "learn_detail": "Theosis does not sit on the Western axis running from gradual moral growth through a second definite work to sacramental infusion; it is a different frame entirely, organised around participation in God's energies rather than around the removal or covering of sin, and forcing it onto that axis distorts it.",
+          "sources": [
+            {
+              "label": "The Orthodox Way",
+              "citation": "Kallistos Ware, 1979, ch. 8"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Thomas's own map also carries 'Sanctification — definitive', the decisive break with sin's reign at conversion, and 'Sanctification — final', its completion at glorification; both are settled bookends every tradition here affirms in some form, and this doctrine addresses only the genuinely contested middle between them. The Pentecostal-holiness link between entire sanctification and later Spirit-baptism vocabulary is covered under Holy Spirit, not here.",
+      "sources": [
+        {
+          "label": "Five Views on Sanctification",
+          "citation": "Melvin Dieter et al., 1987"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "formation-and-practice.sanctification-progressive/reformed-gradual",
+            "formation-and-practice.sanctification-progressive/keswick"
+          ],
+          "hold": "Most non-denominational evangelical congregations teach gradual, lifelong growth through ordinary means; a real minority stream draws on Keswick higher-life teaching of decisive surrender.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "No single confession binds this stream, and both accounts circulate within evangelical devotional literature without formal resolution.",
+          "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38, contrasted with Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)"
+        }
+      }
+    },
+    {
+      "id": "formation-and-practice.hearing-god",
+      "node_title": "Hearing God",
+      "slug": "hearing-god",
+      "domain": "formation-and-practice",
+      "order": 2,
+      "kind": "choice",
+      "question": "How does an individual believer discern God's guidance for ordinary personal decisions?",
+      "framing": "Every tradition agrees a believer seeks God's will and that Scripture is the supreme guide. The disagreement is over whether ordinary guidance comes through Scripture, providence and sanctified reason alone; through those means plus a real but non-revelatory inward leading of the Spirit; through genuinely subjective experiences such as impressions, dreams and a felt inward light held to be Christ's own direct address; or through fresh, revelatory words of personal prophetic guidance. This is distinct from the question of whether the gift of prophecy operates in the gathered church.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes daily discipleship and decision-making sharply without dividing on the gospel itself.",
+      "refs": "Prov 3:5-6; John 10:27; Rom 8:14; James 1:5",
+      "links": [
+        "prophecy",
+        "spiritual-disciplines",
+        "sufficiency-of-scripture"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether an inward sense of leading, distinct from Scripture's propositional content, is a real ordinary means of guidance or a category prone to being mistaken for God's voice, and decide how much weight to give the Quaker doctrine of the inward light against a strictly Scripture-bounded account.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "formation-and-practice.hearing-god/scripture-providence-reason",
+          "label": "Scripture, reason, providence",
+          "hold": "God guides believers today through the settled teaching of Scripture, the circumstances of providence and sanctified reason and counsel, without any further inward voice or impression to be sought or expected.",
+          "why": "Scripture is sufficient to equip the believer for every good work, and the ordinary Christian life is one of applying its wisdom to circumstances rather than waiting for a further private word.",
+          "vs": "Seeking an inward impression or subjective leading as a supplementary channel of guidance alongside Scripture, reason and providence.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17; Prov 3:5-6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.6"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held.",
+              "citation": "Baptist Faith and Message (2000), Article I"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Decision Making and the Will of God",
+              "citation": "Garry Friesen, 1980"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.hearing-god/inward-leading",
+          "label": "Inward leading",
+          "hold": "The Spirit ordinarily guides believers not only through Scripture and circumstance but through a real, non-revelatory inward sense of peace or unease that confirms or restrains a course of action already bounded by Scripture.",
+          "why": "Paul describes being led by the Spirit as the mark of God's children and Luke reports the Spirit forbidding and directing missionary movement by inward constraint, a pattern of guidance beyond bare deduction from written commands.",
+          "vs": "Confining the Spirit's ordinary guidance to Scripture, reason and circumstance alone, with no room for an inward sense of leading that is not itself new revelation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 8:14; Acts 16:6-7",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dallas Willard, Hearing God (1984)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Journal, entries on the 'witness of the Spirit'"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "John Stott, Baptism and Fullness (1964)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Hearing God",
+              "citation": "Dallas Willard, 1984"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.hearing-god/subjective-revelation",
+          "label": "Subjective revelation",
+          "hold": "God speaks directly to individuals today through impressions, dreams, visions and an inward light, a genuinely revelatory address distinct from Scripture but held to carry real, personal authority for the one who receives it.",
+          "why": "Scripture itself records God speaking to individuals through dreams, visions and an inward voice throughout redemptive history, and nothing in the text confines that pattern to a closed apostolic era.",
+          "vs": "Treating every claim of God speaking directly to an individual as necessarily either Scripture's own settled content restated, or mere providence misread as a voice.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:17-18; Joel 2:28",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether God grants genuinely revelatory personal guidance beyond Scripture is a live and sharp dispute among evangelicals themselves, not a departure from the creeds.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+            },
+            {
+              "tradition": "quaker",
+              "stance": "confessional",
+              "note": "The inward light is Friends' distinct and confessional doctrine of personal guidance: Christ's own immediate teaching available to every person, tested corporately in the meeting rather than received as private license.",
+              "citation": "Robert Barclay, An Apology for the True Christian Divinity (1678), Propositions 2 and 5"
+            }
+          ],
+          "learn_detail": "Quaker practice tests a given leading corporately in the meeting for clearness rather than treating an individual's sense of the light as automatically authoritative, which distinguishes it from an unweighed private impression even though both fall under this position.",
+          "sources": [
+            {
+              "label": "An Apology for the True Christian Divinity",
+              "citation": "Robert Barclay, 1678"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The vocabulary itself is contested: 'God told me' can mean anything from a settled conviction reached through prayerful reflection on Scripture to a claimed audible or revelatory word, and traditions that would agree on the underlying experience often disagree sharply over whether that phrase is an honest or a misleading way to describe it. This doctrine concerns ordinary personal guidance; whether the congregational gift of prophecy operates today is a related but distinct question.",
+      "sources": [
+        {
+          "label": "Hearing God",
+          "citation": "Dallas Willard, 1984"
+        }
+      ]
+    },
+    {
+      "id": "formation-and-practice.spiritual-disciplines",
+      "node_title": "Spiritual disciplines",
+      "slug": "spiritual-disciplines",
+      "domain": "formation-and-practice",
+      "order": 3,
+      "kind": "choice",
+      "question": "What pattern of spiritual practice forms a believer in Christlikeness?",
+      "framing": "Every tradition commends prayer, Scripture and worship as means of grace. The disagreement is over the shape those practices should ordinarily take: the church's inherited daily office and calendar of fasts and feasts; a personal daily rhythm of Bible reading and prayer; or a deliberate retrieval of a wider range of historic contemplative practices, a retrieval some evangelicals themselves regard as importing techniques from non-Christian traditions under a Christian label.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes personal devotional practice without touching doctrine that divides communions from one another.",
+      "refs": "Ps 119:147-148; Matt 6:5-13; 1 Thess 5:16-18",
+      "links": [
+        "hearing-god",
+        "the-lords-supper"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much weight to give the evangelical critique of contemplative retrieval, and decide whether the church's liturgical calendar or a personal daily-quiet-time pattern better disciplines actual practice.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "formation-and-practice.spiritual-disciplines/liturgical-office",
+          "label": "Liturgical patterning",
+          "hold": "The Christian life is formed by praying the church's daily office at fixed hours and by keeping the church year's cycle of fasts, feasts and seasons, so that the whole community is shaped by a shared, inherited rhythm rather than by private discretion.",
+          "why": "The church has prayed the psalter at fixed hours since the earliest centuries, and a shared calendar disciplines the whole body together rather than leaving formation to each believer's own initiative.",
+          "vs": "Leaving the pattern and timing of devotional practice to each believer's private discretion, with no shared daily office or church calendar to hold the community to a common rhythm.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 119:164; Acts 3:1",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1174-1178"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret of Moscow"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), Order for Daily Morning and Evening Prayer"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Augsburg Confession, Article XV"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Book of Common Prayer",
+              "citation": "1662"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.spiritual-disciplines/daily-quiet-time",
+          "label": "Daily quiet time",
+          "hold": "The believer is formed chiefly through a personal daily practice of reading Scripture and praying, ordinarily alone, sustained by individual discipline rather than by a fixed office or church calendar.",
+          "why": "The psalmist meditates on God's word day and night as a personal practice, and evangelical devotional life has long held individual daily engagement with Scripture and prayer as the primary means of growth.",
+          "vs": "Making a fixed liturgical office or church calendar the ordinary shape of devotional life, rather than trusting the believer's own daily discipline with Scripture and prayer.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Ps 1:2; Ps 119:147-148",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, general practice"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Spiritual Disciplines for the Christian Life",
+              "citation": "Donald Whitney, 1991"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.spiritual-disciplines/contemplative-retrieval",
+          "label": "Contemplative retrieval",
+          "hold": "The believer is formed by deliberately retrieving a wider range of historic contemplative practices, such as silence, solitude and meditative prayer, as disciplines that open the self to God's transforming presence beyond ordinary Bible study and petition.",
+          "why": "Practices such as solitude, silence and meditation on Scripture are attested across the church's history as means by which believers were formed in Christlikeness, and are worth recovering rather than losing to a narrower modern devotional pattern.",
+          "vs": "Restricting formation to daily Bible reading and petitionary prayer alone, treating the wider historic contemplative tradition as outside the bounds of ordinary evangelical devotion.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 46:10; Matt 14:23",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "A real body of evangelical critics, in their own terms, regards some contemplative techniques, particularly wordless or mantra-based meditation drawn from retrieval writers, as importing an emptying-of-the-mind practice foreign to biblical meditation on God's revealed word, and warns it opens the practitioner to non-Christian spiritual influence rather than to Christ.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real and growing stream associated with writers such as Richard Foster and Dallas Willard, alongside a critical stream within the same tradition that rejects the retrieval on the grounds stated above.",
+              "citation": "Richard Foster, Celebration of Discipline (1978)"
+            }
+          ],
+          "learn_detail": "The critique is not a claim that quiet or solitude are wrong; critics such as those in the biblical counseling and discernment-ministry stream distinguish biblical meditation, which fills the mind with the content of Scripture, from contemplative techniques that empty the mind of content altogether, and object specifically to the latter as borrowed from non-Christian mysticism.",
+          "sources": [
+            {
+              "label": "Celebration of Discipline",
+              "citation": "Richard Foster, 1978"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The three patterns are not exclusive in practice; many believers keep a personal daily-quiet-time habit inside a tradition that also prays a liturgical office. The sharpest live dispute is over contemplative retrieval, where critics inside evangelicalism itself, not only outside it, regard some of the recovered practices as a real departure rather than a legitimate ressourcement.",
+      "sources": [
+        {
+          "label": "Celebration of Discipline",
+          "citation": "Richard Foster, 1978"
+        }
+      ],
+      "tradition_overrides": {
+        "non-denominational": {
+          "positions": [
+            "formation-and-practice.spiritual-disciplines/daily-quiet-time",
+            "formation-and-practice.spiritual-disciplines/contemplative-retrieval"
+          ],
+          "hold": "Most non-denominational evangelicals practice a personal daily pattern of Scripture reading and prayer; a real minority stream also draws on contemplative retrieval, contested by critics within the same tradition.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The retrieval stream and its evangelical critics both sit inside this same tradition, without a confession to settle the dispute.",
+          "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991), contrasted with Richard Foster, Celebration of Discipline (1978)"
+        }
+      }
+    },
+    {
+      "id": "formation-and-practice.suffering-and-providence",
+      "node_title": "Suffering and providence",
+      "slug": "suffering-and-providence",
+      "domain": "formation-and-practice",
+      "order": 4,
+      "kind": "choice",
+      "question": "What does suffering mean, and how should a believer hold it?",
+      "framing": "Every tradition agrees God is present to a believer in suffering and can bring good from it. The disagreement is over how directly suffering itself is willed by God, which shapes how a believer is taught to hold it: as meticulously ordained by God for good and wise purposes to be sought and trusted; as permitted by God within his general providence rather than specifically willed; or as the result of creaturely freedom God did not specifically ordain, which he enters into and redeems without having authored it.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes how a believer actually prays and grieves without dividing on the gospel itself.",
+      "refs": "Rom 8:28; Job 1:20-22; 2 Cor 12:7-9; Gen 50:20",
+      "links": [
+        "divine-foreknowledge",
+        "hearing-god"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how directly to attribute a particular instance of suffering to God's own will rather than to his permission, and decide what pastoral difference that attribution should actually make in practice.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "formation-and-practice.suffering-and-providence/meticulous-providence",
+          "label": "Meticulous providence",
+          "hold": "God ordains every event, including suffering, as part of his wise and good plan, so a believer's suffering is never outside his purpose and can be trusted even where its reason is hidden.",
+          "why": "Joseph tells his brothers that what they meant for evil, God meant for good, attributing the very event to God's own intention rather than merely his permission, and Scripture elsewhere teaches that God works all things according to the counsel of his will.",
+          "vs": "Holding that some suffering falls entirely outside God's specific will and is merely permitted or endured by him rather than purposed.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Gen 50:20; Eph 1:11; Rom 8:28",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 5.1-5.4"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 5"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.suffering-and-providence/general-providence-permission",
+          "label": "General providence, permitted",
+          "hold": "God upholds and governs all things in his general providence and can redeem any suffering for good, but particular instances of suffering are permitted within that governance rather than specifically willed by God for their own sake.",
+          "why": "Scripture distinguishes what God does from what he allows, and holding suffering as permitted rather than specifically willed protects the goodness of God's character while still trusting his overarching governance of history.",
+          "vs": "Attributing a particular instance of suffering directly to God's specific intention, as though it were something he purposed for its own sake rather than something his governance permits and can redeem.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Job 1:12; 2 Cor 12:7-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 309-314"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret of Moscow"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article XVII, read alongside the Homilies"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.A"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "309-314"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.suffering-and-providence/free-will-defence",
+          "label": "Free-will defence",
+          "hold": "Much suffering results from the genuinely free choices of creatures, human and angelic, which God did not specifically ordain; God enters into that suffering, works redemptively within it, and will finally set it right, without having authored it himself.",
+          "why": "God gave creatures a freedom real enough to be genuinely resisted and abused, and the consistent biblical picture of God grieving over sin and suffering fits a God who enters in and redeems rather than one who specifically willed the suffering itself.",
+          "vs": "Holding that God specifically ordains each instance of suffering as part of a meticulous plan, which this position holds makes God the author of evils that free creatures alone brought about.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 3:6; Luke 19:41-44",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether God specifically ordains suffering or only permits what free creatures bring about is a live and sharp dispute between Reformed and Arminian-leaning readings of providence; it does not touch the ecumenical creeds.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Sermon 67, 'On Divine Providence'"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 6"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Sermon 67, On Divine Providence",
+              "citation": "John Wesley"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This doctrine concerns what suffering means and how a believer holds it pastorally, not the mechanics of God's sovereignty and human freedom addressed under divine foreknowledge; the two are related but a believer can hold a given account of foreknowledge while landing in any of the three positions here.",
+      "sources": [
+        {
+          "label": "Where Is God When It Hurts?",
+          "citation": "Philip Yancey, 1977"
+        }
+      ]
+    },
+    {
+      "id": "formation-and-practice.desert-seasons",
+      "node_title": "Desert seasons",
+      "slug": "desert-seasons",
+      "domain": "formation-and-practice",
+      "order": 5,
+      "kind": "choice",
+      "question": "What does a sustained sense of God's absence in prayer mean, and how should it be read?",
+      "framing": "Believers across traditions report long seasons in which God feels absent from prayer despite no known unrepented sin. This doctrine is thin confessionally: most traditions carry a devotional and pastoral literature on it rather than a binding confessional position, and an absent tradition here is the ordinary shape of the evidence, not a gap in research. The disagreement, where it is addressed at all, is over whether such dryness is a purifying stage on the path to deeper union with God, a specific divine withdrawal that functions as chastisement for sin, or an ordinary and unremarkable feature of a mature prayer life that needs no special diagnosis.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it shapes how a believer interprets their own experience without touching doctrine that divides communions from one another.",
+      "refs": "Ps 42:1-3; Ps 88; Job 23:8-9",
+      "links": [
+        "spiritual-disciplines",
+        "suffering-and-providence"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether to read a personal season of prayerlessness or dryness as ordinary, as purifying, or as a call to examine unconfessed sin, and decide how much weight the Carmelite and Puritan vocabularies should carry against simply naming it unremarkable.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "formation-and-practice.desert-seasons/dark-night",
+          "label": "The dark night",
+          "hold": "A prolonged sense of God's absence and the loss of felt consolation in prayer can be a purifying dark night, in which God withdraws felt sweetness precisely to detach the soul from its own experience of him and draw it into a deeper, purer union.",
+          "why": "The soul that has grown through beginner's consolations must be weaned from dependence on felt experience so that faith and love, rather than sensible sweetness, become the ground of union with God.",
+          "vs": "Treating every loss of felt consolation in prayer as a sign of sin to be searched out, when it may instead be God's own gracious purifying work.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 42:1-3",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "minority",
+              "note": "A real and specifically Carmelite spiritual-theology tradition, recognised within the wider church but not binding on Catholics generally.",
+              "citation": "John of the Cross, Dark Night of the Soul (1584)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Dark Night of the Soul",
+              "citation": "John of the Cross, 1584"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.desert-seasons/spiritual-desertion",
+          "label": "Spiritual desertion",
+          "hold": "God may specifically withdraw the felt sense of his favour from a believer for a season as a form of fatherly chastisement or trial, an experience to be met with self-examination, renewed diligence in the means of grace, and patient waiting for God's return.",
+          "why": "The psalmist repeatedly cries out under a felt withdrawal of God's face that Scripture treats as real and purposeful rather than illusory, and Puritan pastoral divinity took this experience seriously as something to be diagnosed and addressed rather than merely endured.",
+          "vs": "Treating a sustained sense of God's absence as spiritually neutral or unremarkable, when it may be a specific divine dealing calling for self-examination and renewed diligence.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 88; Ps 30:7",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A Puritan pastoral-theology tradition, not a position confessed in the Westminster Standards themselves.",
+              "citation": "William Bridge, A Lifting Up for the Downcast (1649)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "A Lifting Up for the Downcast",
+              "citation": "William Bridge, 1649"
+            }
+          ]
+        },
+        {
+          "id": "formation-and-practice.desert-seasons/ordinary-dryness",
+          "label": "Ordinary, not diagnostic",
+          "hold": "A sustained absence of felt closeness to God in prayer is an ordinary feature of a maturing prayer life, common to believers in good standing, and does not by itself call for either a special theological diagnosis or alarm.",
+          "why": "Job protests that he cannot find God though he is not aware of unconfessed sin, and Scripture records such seasons in the lives of faithful believers without treating them as evidence of some special condition requiring explanation.",
+          "vs": "Reading a season of prayerlessness or dryness as necessarily a purifying dark night or a specific act of divine chastisement, when it may simply be the ordinary variability of a life of faith.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Job 23:8-9; Ps 13:1-2",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "No registered tradition confesses this position by name; it appears mainly as pastoral counsel in evangelical devotional writing pushing back against both the Carmelite and Puritan vocabularies as over-diagnosing an ordinary experience.",
+          "sources": [
+            {
+              "label": "Dark Clouds, Deep Mercy",
+              "citation": "Mark Vroegop, 2019"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Most traditions have no confessional position on this experience at all; they carry a devotional literature rather than a binding teaching, and several registered traditions are absent from every position here for exactly that reason, which is the expected shape of this doctrine rather than a research gap.",
+      "sources": [
+        {
+          "label": "Dark Night of the Soul",
+          "citation": "John of the Cross, 1584"
+        }
+      ]
+    }
+  ]
+}

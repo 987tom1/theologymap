@@ -1,0 +1,670 @@
+{
+  "schema_version": 1,
+  "domain": "the-unseen-realm",
+  "doctrines": [
+    {
+      "id": "the-unseen-realm.angels-and-demons",
+      "node_title": "Angels and demons",
+      "slug": "angels-and-demons",
+      "domain": "the-unseen-realm",
+      "order": 1,
+      "kind": "choice",
+      "question": "How much attention does the reality of angels and demons warrant, and does the biblical language name personal spiritual beings or the idiom of its age?",
+      "framing": "The existence of angels as created spiritual beings, and of Satan and demons as angels fallen through rebellion against God, is confessed across the Christian tradition, from the Fourth Lateran Council's definition of two orders of creatures to Westminster's treatment of providence over the fallen angels and the Thirty-Nine Articles' wider framework. What divides Christians is not whether such beings exist but how much attention the subject warrants in ordinary devotion, and whether the biblical language names real personal beings or is best read as the idiom of its own age.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: what attention the subject warrants shapes devotional life without dividing on the gospel.",
+      "refs": "Col 1:16; Eph 6:12; Jude 1:6",
+      "links": [
+        "divine-council",
+        "genesis-6-sons-of-god",
+        "can-a-christian-be-demonised",
+        "deliverance-ministry",
+        "the-creeds"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much attention the subject of angels and demons warrants in ordinary devotion, and whether the demythologising reading has any merit or should be rejected outright.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.angels-and-demons/real-but-undramatized",
+          "label": "Real but undramatized",
+          "hold": "Angels and demons are real created spiritual beings, Satan and demons among them fallen through rebellion against God, resisted through ordinary prayer, Scripture, and the sacraments rather than through heightened attention or specialised practice.",
+          "why": "The historic confessions affirm a spiritual realm of angels and fallen angels but locate the Christian's resistance to evil within ordinary practice rather than a specialised discipline.",
+          "vs": "Treating angels and demons as a subject requiring specialised attention, heightened vigilance, or dedicated ministry beyond the ordinary means of grace.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Col 1:16; Jude 1:6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 328-336; Fourth Lateran Council (1215), Canon 1"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Nicene-Constantinopolitan Creed (381), 'maker of heaven and earth, and of all things visible and invisible'"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 5.4"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": "Not addressed in a dedicated article; affirmed within the Articles' wider trinitarian and creedal framework.",
+              "citation": "Thirty-Nine Articles of Religion (1571), Article 1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": "Affirmed through the ecumenical creeds the Book of Concord opens with rather than a dedicated article.",
+              "citation": "Book of Concord (1580), the three chief symbols"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "328-336"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.angels-and-demons/actively-engaged",
+          "label": "Actively engaged",
+          "hold": "Angels and demons are real, and engaging demonic activity directly through prayer, spiritual warfare, and deliverance ministry is a normal and expected part of Christian life.",
+          "why": "Scripture depicts believers directly confronting demonic power in the name of Jesus, and pastoral experience of oppression calls for active engagement rather than mere affirmation of a doctrine.",
+          "vs": "Confining angelology and demonology to a settled doctrine confessed once and then set aside, rather than a live pastoral reality requiring active engagement.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eph 6:12; Luke 10:17-19",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, position paper, 'Ministry to Persons Oppressed by Demons' (1972)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Practice varies widely; common within charismatic-leaning independent congregations.",
+              "citation": "Derek Prince, They Shall Expel Demons (1998)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Assemblies of God position paper on demonic oppression",
+              "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.angels-and-demons/demythologized-reading",
+          "label": "Demythologized reading",
+          "hold": "The biblical language of angels, Satan, and demons is best read as the idiom of its ancient setting for impersonal forces of chaos, evil, and unbelief, not as reference to personal spiritual beings.",
+          "why": "Modern critical scholarship reads apocalyptic and mythic language as culturally conditioned expression of the age that produced it, rather than as literal claims about the existence of personal beings.",
+          "vs": "Treating the biblical language of angels and demons as reference to actual personal spiritual beings rather than as the idiom of its own age.",
+          "tier": null,
+          "confidence_default": "open",
+          "refs": "Col 1:16; Eph 6:12",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This reading is widely regarded by the historic traditions as abandoning what the creeds and Scripture affirm about a real spiritual realm, treating language they hold to name actual beings as ancient myth.",
+          "held_by": [],
+          "learn_detail": "This reading belongs mainly to modern critical biblical scholarship rather than to any tradition's confession; no registered tradition holds it as a confessional or majority position.",
+          "sources": [
+            {
+              "label": "Rudolf Bultmann's demythologising program as a point of reference",
+              "citation": "Rudolf Bultmann, 'New Testament and Mythology' (1941)"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The existence of a spiritual realm inhabited by angels and fallen angels is not itself the contested question; the disagreement runs between how much devotional or pastoral attention it warrants and, at the margins, whether the biblical language names real beings at all.",
+      "sources": [
+        {
+          "label": "Fourth Lateran Council, Canon 1",
+          "citation": "Fourth Lateran Council (1215), Canon 1"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "328-336"
+        }
+      ]
+    },
+    {
+      "id": "the-unseen-realm.divine-council",
+      "node_title": "Divine council",
+      "slug": "divine-council",
+      "domain": "the-unseen-realm",
+      "order": 2,
+      "kind": "choice",
+      "question": "Do Psalm 82 and Deuteronomy 32:8-9 describe a real council of spiritual beings under God, or human judges and rhetorical figures?",
+      "framing": "Psalm 82 pictures God standing in the midst of a council of 'gods' whom he judges, and Deuteronomy 32:8-9 speaks of the nations being allotted according to the number of the 'sons of God'. The disagreement is over whether these texts describe an actual council of created spiritual beings placed under God's authority, an ancient Near Eastern idiom scholars have recently recovered, or whether 'gods' names human judges and 'sons of God' is a rhetorical or textual matter without such a council in view. This is a question of biblical scholarship rather than of any tradition's binding confession, and most traditions have no published position on it.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: a live question in biblical scholarship that does not touch the gospel or govern practice.",
+      "refs": "Ps 82:1-8; Deut 32:8-9; John 10:34-36",
+      "links": [
+        "angels-and-demons",
+        "genesis-6-sons-of-god",
+        "genre-of-genesis-1"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Psalm 82's 'gods' and Deuteronomy 32:8-9's 'sons of God' describe a real council of created spiritual beings under God, or human judges and a rhetorical or textual figure without ontological reality.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.divine-council/real-divine-council",
+          "label": "Real divine council",
+          "hold": "Psalm 82 and Deuteronomy 32:8-9 describe an actual council of created spiritual beings, the sons of God, whom God judges and to whom the nations were allotted, all subordinate to the God of Israel.",
+          "why": "Both texts read most naturally in their ancient Near Eastern setting as describing real spiritual beings under God's rule, a reading recovered by recent scholarship on Israel's cultural context.",
+          "vs": "Reading the same council language as a description of human judges or as a rhetorical figure without any real spiritual beings in view.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 82:1,6; Deut 32:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "This reading is most associated with the biblical scholarship of Michael Heiser and the wider study of Israel's ancient Near Eastern context; it is a scholarly position rather than a confessional one, and no registered tradition has adopted it formally.",
+          "sources": [
+            {
+              "label": "The Unseen Realm",
+              "citation": "Michael S. Heiser, 2015"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.divine-council/human-judges-reading",
+          "label": "Human judges reading",
+          "hold": "The 'gods' of Psalm 82 are human judges or rulers whom God indicts for injustice, and Deuteronomy 32:8-9's 'sons of God' is best read without positing a literal council of spiritual beings governing the nations.",
+          "why": "Jesus himself applies Psalm 82's 'gods' to those to whom the word of God came, reading the term as a title for human officeholders rather than as reference to spiritual beings.",
+          "vs": "Reading the 'gods' judged in the council and the 'sons of God' allotted the nations as real created spiritual beings rather than as human officeholders or a rhetorical figure.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 82:6-7; John 10:34-36",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Calvin, Commentary on the Psalms (1557), on Psalm 82"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Commentary on the Psalms",
+              "citation": "John Calvin, 1557, on Psalm 82"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This is a live question in Old Testament scholarship, not a confessional dividing line; most traditions have simply never addressed it, and an empty held_by list here reflects that rather than an oversight.",
+      "sources": [
+        {
+          "label": "The Unseen Realm",
+          "citation": "Michael S. Heiser, 2015"
+        }
+      ]
+    },
+    {
+      "id": "the-unseen-realm.genesis-6-sons-of-god",
+      "node_title": "Genesis 6 sons of God",
+      "slug": "genesis-6-sons-of-god",
+      "domain": "the-unseen-realm",
+      "order": 3,
+      "kind": "choice",
+      "question": "Who are the 'sons of God' who take human wives in Genesis 6:1-4, and what does the passage describe?",
+      "framing": "Genesis 6:1-4 reports 'sons of God' taking the daughters of men as wives, producing the Nephilim, immediately before God's judgment in the flood. The oldest attested reading identifies the sons of God as angelic beings, the Watchers, who transgressed their created order; this reading stands behind 1 Enoch and is cited as history by 2 Peter and Jude and by most of the ante-Nicene Fathers. Later interpreters proposed that the sons of God are the godly line of Seth intermarrying with Cain's line, or that they are ancient kings and rulers claiming divine status. This is a question of biblical interpretation on which most confessions are silent.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: an interpretive question about a single obscure passage that does not touch the gospel or govern practice.",
+      "refs": "Gen 6:1-4; Jude 1:6; 2 Pet 2:4",
+      "links": [
+        "divine-council",
+        "angels-and-demons",
+        "historical-adam",
+        "genre-of-genesis-1"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Genesis 6's sons of God are angelic Watchers, the godly line of Seth, or ancient kings, and whether the ancient Enochic reading should be given weight simply because it is oldest.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.genesis-6-sons-of-god/sethite-line",
+          "label": "Sethite line",
+          "hold": "The sons of God in Genesis 6 are the godly line of Seth, whose intermarriage with the ungodly line of Cain corrupted the covenant line and provoked the judgment of the flood.",
+          "why": "Genesis has just traced the line of Seth as those who 'call upon the name of the Lord', and 'sons of God' elsewhere in the Old Testament can denote Israel or the covenant people rather than angelic beings.",
+          "vs": "Reading the sons of God as angelic beings who transgressed the created order rather than as the covenant line of Seth intermarrying with the ungodly line of Cain.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 4:26; Gen 6:2",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Calvin, Commentary on Genesis (1554), on Genesis 6:2"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Keil and Delitzsch, Commentary on the Old Testament, on Genesis 6"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Commentary on Genesis",
+              "citation": "John Calvin, 1554, on Genesis 6:2"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.genesis-6-sons-of-god/angelic-watchers",
+          "label": "Angelic Watchers",
+          "hold": "The sons of God in Genesis 6 are angelic beings, Watchers, who abandoned their created order to take human wives, a transgression of cosmic boundaries that provoked the flood.",
+          "why": "This is the reading attested in 1 Enoch and cited as history by 2 Peter and Jude, and it was the dominant reading of most ante-Nicene Fathers before later interpreters proposed the Sethite alternative.",
+          "vs": "Treating the sons of God as merely the human line of Seth, when the term 'sons of God' elsewhere in the Old Testament names heavenly beings and the oldest interpreters read the passage as angelic transgression.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 6:1-4; Jude 1:6; 2 Pet 2:4",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the oldest attested reading, held by most ante-Nicene Fathers and cited by two New Testament epistles, but it is disputed by later and modern interpreters who regard an angel-human union as theologically or exegetically untenable; no ecumenical council has settled the question.",
+          "held_by": [],
+          "learn_detail": "This reading is not a modern novelty: it stands behind 1 Enoch, is treated as history in 2 Peter 2:4 and Jude 1:6, and was held by Justin Martyr, Irenaeus, and Tertullian among others, before Augustine's preference for the Sethite reading became dominant in the West.",
+          "sources": [
+            {
+              "label": "1 Enoch, chapters 6-16",
+              "citation": "1 Enoch 6-16 (Second Temple period)"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.genesis-6-sons-of-god/divine-kings",
+          "label": "Divine kings",
+          "hold": "The sons of God in Genesis 6 are ancient kings or dynastic rulers who claimed divine sonship and exercised despotic power, including the taking of multiple wives, provoking God's judgment on human tyranny.",
+          "why": "Ancient Near Eastern royal ideology regularly styled kings as sons of the gods, and the passage's concern with the seizing of wives fits a critique of royal excess better than either the Sethite or angelic reading.",
+          "vs": "Reading the sons of God as either the covenant line of Seth or as angelic beings, rather than as human rulers claiming divine status.",
+          "tier": null,
+          "confidence_default": "open",
+          "refs": "Gen 6:1-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A minority reading among Reformed scholars, distinct from the tradition's more common Sethite reading.",
+              "citation": "Meredith G. Kline, 'Divine Kingship and Genesis 6:1-4', Westminster Theological Journal 24 (1962)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Divine Kingship and Genesis 6:1-4",
+              "citation": "Meredith G. Kline, Westminster Theological Journal 24 (1962)"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The angelic reading is the oldest attested, not a modern novelty invented by recent scholarship; the Sethite reading became dominant later, chiefly through Augustine's influence, and the divine-king reading is a modern minority proposal within the wider conversation.",
+      "sources": [
+        {
+          "label": "1 Enoch, chapters 6-16",
+          "citation": "1 Enoch 6-16 (Second Temple period)"
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "the-unseen-realm.genesis-6-sons-of-god/sethite-line",
+            "the-unseen-realm.genesis-6-sons-of-god/divine-kings"
+          ],
+          "hold": "Most Reformed interpreters read the sons of God as the godly line of Seth; a minority within the tradition reads them instead as ancient kings claiming divine status.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Kline's divine-kingship reading is a real minority stream within Reformed scholarship, not the tradition's common view.",
+          "citation": "John Calvin, Commentary on Genesis (1554), contrasted with Meredith G. Kline, Westminster Theological Journal 24 (1962)"
+        }
+      }
+    },
+    {
+      "id": "the-unseen-realm.can-a-christian-be-demonised",
+      "node_title": "Can a Christian be demonised",
+      "slug": "can-a-christian-be-demonised",
+      "domain": "the-unseen-realm",
+      "order": 4,
+      "kind": "choice",
+      "question": "Can a believer indwelt by the Holy Spirit be demonised, and what does that term mean for a Christian?",
+      "framing": "The Greek verb daimonizomai, usually translated 'demon-possessed', describes affliction by a demon in the Gospels; the English word 'possessed' is a translation choice that carries much of the modern dispute, since it suggests ownership in a way the Greek does not require. Some hold that a believer indwelt by the Spirit cannot be owned by a demon but can still be oppressed or afflicted from without; those who practise deliverance ministry commonly hold that a believer can be demonised in some degree in areas of life not yet yielded to Christ; and others hold that the category does not meaningfully apply to a believer at all. Some of the disagreement is verbal rather than substantive.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes pastoral care and expectation for believers in real distress without dividing on the gospel itself.",
+      "refs": "Mark 5:1-13; James 4:7; 1 Pet 5:8-9",
+      "links": [
+        "angels-and-demons",
+        "deliverance-ministry",
+        "healing"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether a believer indwelt by the Spirit can be demonised in some degree in unyielded areas, or whether the category is confined to oppression from without, or does not apply at all, and how much of the dispute is merely verbal.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed",
+          "label": "Oppressed, not possessed",
+          "hold": "A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.",
+          "why": "Scripture describes the indwelling Spirit as God's own seal and guarantee, incompatible with a demon owning a believer, while also warning believers to resist an adversary who prowls seeking to devour.",
+          "vs": "Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 John 4:4; 1 Pet 5:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "John Stott, Christ the Controversialist (1970), ch. 8"
+            }
+          ],
+          "learn_detail": "Much of the dispute over whether a believer can be 'demon-possessed' turns on the English word 'possessed', which suggests ownership; the underlying Greek daimonizomai need mean only 'to be under demonic affliction'.",
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, 1994, ch. 20"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/demonised-in-unyielded-areas",
+          "label": "Demonised in part",
+          "hold": "A believer can be demonised in some degree in areas of life not yet yielded to Christ, even while salvation and the Spirit's indwelling remain secure, and deliverance ministry addresses those areas specifically.",
+          "why": "Deliverance ministers report that believers presenting with entrenched bondage in specific, unsurrendered areas of life are set free through the same authority Christ exercised over demons, without this implying the believer's salvation was ever in doubt.",
+          "vs": "Confining every believer's demonic affliction to attack from outside the person, denying that a demon can operate in a degree within any area of a believer's own life.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 5:1-13; Luke 13:11-16",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Critics regard any degree of demonisation within a believer as incompatible with the Spirit's indwelling; practitioners who hold this position distinguish it sharply from ownership or possession and regard it as compatible with assurance of salvation.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "minority",
+              "note": "A practice-based position within deliverance-ministry circles, not addressed by the classical Statement of Fundamental Truths.",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, Pigs in the Parlor: A Practical Guide to Deliverance (1973)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Held within charismatic-leaning independent congregations practising deliverance ministry.",
+              "citation": "Derek Prince, They Shall Expel Demons (1998)"
+            }
+          ],
+          "learn_detail": "Practitioners of this view are careful to distinguish 'a believer can be demonised' from 'a believer can be possessed' in the sense of being owned by a demon; the distinction is central to how they explain the position to critics.",
+          "sources": [
+            {
+              "label": "Pigs in the Parlor",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, 1973"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/category-inapplicable",
+          "label": "Category inapplicable",
+          "hold": "The category translated 'demon-possessed' describes a phenomenon Scripture attributes to those outside a saving relationship with Christ, and does not meaningfully apply to a believer, whose struggles are properly addressed as sin, temptation, or affliction.",
+          "why": "Scripture nowhere narrates a believer being demonised, and collapsing ordinary struggles with sin or affliction into a demonic category risks displacing the church's true task of biblical repentance and counsel.",
+          "vs": "Applying the category of demonisation to a believer's struggles at all, rather than addressing them as sin, temptation, or affliction to be met with repentance and pastoral counsel.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "James 4:7; 1 Cor 10:13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A minority position associated with the biblical counseling movement, distinct from the tradition's more common oppression-not-possession view.",
+              "citation": "Jay E. Adams, Competent to Counsel (1970)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Competent to Counsel",
+              "citation": "Jay E. Adams, 1970"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Some of this disagreement is verbal: the English word 'possessed' suggests ownership, but the underlying Greek daimonizomai need only mean affliction. A practitioner of demonisation-in-part and a critic who insists a believer 'cannot be possessed' may agree on more than the vocabulary suggests.",
+      "sources": [
+        {
+          "label": "Systematic Theology",
+          "citation": "Wayne Grudem, 1994, ch. 20"
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed",
+            "the-unseen-realm.can-a-christian-be-demonised/category-inapplicable"
+          ],
+          "hold": "Most Reformed teaching holds a believer cannot be possessed but can be oppressed from without; a minority within the biblical counseling movement rejects the category of demonisation for believers entirely.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The biblical counseling movement's rejection of the category is a real minority stream, not the tradition's common teaching.",
+          "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20, contrasted with Jay E. Adams, Competent to Counsel (1970)"
+        }
+      }
+    },
+    {
+      "id": "the-unseen-realm.deliverance-ministry",
+      "node_title": "Deliverance ministry",
+      "slug": "deliverance-ministry",
+      "domain": "the-unseen-realm",
+      "order": 5,
+      "kind": "choice",
+      "question": "How should the church respond to a person believed to be under demonic affliction?",
+      "framing": "Jesus and the apostles cast out demons, and the church has always had some response to affliction believed to be demonic. Catholic and Orthodox practice holds this as a formal, sacramental rite of exorcism, regulated by and performed only under the authority of the bishop, never as private or freelance practice. Pentecostal and charismatic practice holds deliverance as a ministry any Spirit-filled believer may exercise in Jesus's name. A third position holds that the church's proper response is the ordinary means of grace, repentance, prayer, and pastoral care, without a specialised rite or ministry.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: it governs real pastoral practice without settling a single confessional question.",
+      "refs": "Mark 16:17; Matt 12:28; James 5:14-16",
+      "links": [
+        "can-a-christian-be-demonised",
+        "angels-and-demons",
+        "healing"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether deliverance from demonic affliction should be sought through the church's formal, bishop-regulated rite, through the ministry any Spirit-filled believer may exercise, or through the ordinary means of grace alone.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.deliverance-ministry/formal-exorcism",
+          "label": "Formal exorcism",
+          "hold": "Deliverance from demonic affliction is exercised through the church's formal rite of exorcism, administered only by a priest specifically authorised by the bishop after careful discernment, never as private or freelance practice.",
+          "why": "The church holds authority over demons as a body, not as scattered individuals, so the rite is reserved to ordained ministers under episcopal oversight to guard against both presumption and error.",
+          "vs": "Treating deliverance as a ministry any believer may exercise informally, without ordination or the bishop's specific authorisation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 16:17; James 5:14-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Governed by canon law and the revised Rite of Exorcism; explicitly not a ministry any believer may undertake privately.",
+              "citation": "Catechism of the Catholic Church, 1673; De Exorcismis et Supplicationibus Quibusdam (revised 1999)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Exorcism prayers are included within the baptismal rite itself and administered by clergy under episcopal oversight beyond that.",
+              "citation": "Euchologion (Great Book of Needs), exorcism prayers of the baptismal rite"
+            }
+          ],
+          "learn_detail": "This is a regulated ministry under the bishop, not freelance practice; a Catholic or Orthodox reader should not recognise their tradition's practice in a description drawn from charismatic deliverance ministry.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1673"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.deliverance-ministry/charismatic-deliverance",
+          "label": "Charismatic deliverance",
+          "hold": "Deliverance from demonic oppression is a ministry any Spirit-filled believer may exercise in the name of Jesus, through prayer, command, and the casting out of demons, often carried out in dedicated deliverance sessions.",
+          "why": "Jesus gave authority over demons to his followers generally, not to an ordained office alone, and pastoral experience of oppression calls for direct ministry rather than referral to a specialised rite.",
+          "vs": "Reserving the ministry of deliverance to an ordained office acting under a bishop's specific authorisation, rather than exercising it as any Spirit-filled believer's calling.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 16:17; Luke 10:17-19",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, position paper, 'Ministry to Persons Oppressed by Demons' (1972)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Practised within charismatic-leaning independent congregations rather than confessionally required.",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, Pigs in the Parlor: A Practical Guide to Deliverance (1973)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Assemblies of God position paper on demonic oppression",
+              "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.deliverance-ministry/ordinary-means-of-grace",
+          "label": "Ordinary means of grace",
+          "hold": "The church's proper response to spiritual affliction is repentance, prayer, Scripture, and pastoral care, without a specialised deliverance ministry or rite set apart for the purpose.",
+          "why": "The New Testament's own instruction for the afflicted is prayer and the elders' pastoral care, and confidence in the ordinary means of grace is sufficient without a dedicated deliverance practice.",
+          "vs": "Setting apart a specialised rite or ministry of deliverance, whether sacramental or charismatic, distinct from the church's ordinary pastoral care and means of grace.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "James 5:14-16; 1 Pet 5:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, 1994, ch. 20"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Thomas's own map also carries a Territorial spirits node at the fourth tier; this file omits it, leaving open for the main thread whether that finer-grained question belongs in a wizard meant for a stranger's first pass rather than a specialist's.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1673"
+        },
+        {
+          "label": "Assemblies of God position paper on demonic oppression",
+          "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+        }
+      ]
+    }
+  ]
+}

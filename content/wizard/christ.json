@@ -1,0 +1,1095 @@
+{
+  "schema_version": 1,
+  "domain": "christ",
+  "doctrines": [
+    {
+      "id": "christ.deity-and-humanity",
+      "node_title": "Deity and humanity",
+      "slug": "deity-and-humanity",
+      "domain": "christ",
+      "order": 1,
+      "kind": "settled",
+      "question": "How are Christ's full deity and full humanity united in one person?",
+      "framing": "The church has confessed since Chalcedon (451) that Jesus Christ is one person in two natures, fully God and fully man, united without confusion, without change, without division and without separation. This is common ground across the historic creeds, and every tradition below affirms it as settled. The narrower, still-debated question is how the properties of each nature relate within the single person, and in particular whether the eternal Son's exercise of divine power was ever bounded by the incarnation itself.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places the person of Christ at the first tier: a denial of either full deity or full humanity falls outside the gospel itself.",
+      "refs": "John 1:1,14; Col 2:9; Phil 2:6-7; Heb 1:3",
+      "links": [
+        "christs-use-of-divine-power",
+        "the-lords-supper"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how far to follow the extra Calvinisticum's insistence that the Word is never wholly contained within the flesh, versus the Lutheran claim that the human nature genuinely receives the properties of the divine.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "christ.deity-and-humanity/chalcedonian",
+          "label": "Chalcedonian",
+          "hold": "Christ is one person subsisting in two complete natures, divine and human, united without confusion, change, division or separation, each nature retaining its own properties.",
+          "why": "This is the church's settled reading of a Christ who is worshipped as God and yet genuinely hungry, weary and tempted as man.",
+          "vs": "Any account that blends the two natures into one, divides Christ into two separate subjects, or diminishes either full deity or full humanity.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "John 1:1,14; Col 2:9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Not formally binding on independent congregations, but the predominant confessional expectation.",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 2"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 8.2"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 464-469"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Chalcedonian Definition (451); Nicene-Constantinopolitan Creed"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article III"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article II"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article 2"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Chalcedonian Definition",
+              "citation": "Council of Chalcedon, 451"
+            }
+          ]
+        },
+        {
+          "id": "christ.deity-and-humanity/extra-calvinisticum",
+          "label": "Extra Calvinisticum",
+          "hold": "Even in the incarnation, the eternal Son remains also beyond and greater than the flesh he assumed, continuing to uphold and fill the universe as the eternal Word even while personally present in Christ's human body.",
+          "why": "Scripture depicts the eternal Word as never ceasing to sustain the universe even while walking on earth as man, so the divine nature is not exhaustively confined to the human nature it assumed.",
+          "vs": "Treating the communication of properties as making the human nature the bearer of literal divine omnipresence, which this view judges to blur the Chalcedonian distinction of natures.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Belgic Confession, Article 19"
+            }
+          ],
+          "learn_detail": "Called the extra Calvinisticum polemically by later Lutheran opponents, though the idea predates Calvin and appears already in patristic and medieval writers.",
+          "sources": [
+            {
+              "label": "Belgic Confession",
+              "citation": "Article 19, 1561"
+            }
+          ]
+        },
+        {
+          "id": "christ.deity-and-humanity/genus-majestaticum",
+          "label": "Genus majestaticum",
+          "hold": "In the incarnation the human nature of Christ genuinely receives the properties of the divine nature, including majesty and, in the exalted state, omnipresence, because the two natures are so intimately united in the one person that what belongs to either belongs to the whole Christ.",
+          "why": "The personal union is real and not merely moral, so the majesty that belongs to the Word by nature is truly communicated to the assumed humanity, grounding Christ's bodily presence wherever the Supper is celebrated.",
+          "vs": "Reserving an extra mode of the Word's existence outside the assumed flesh, which this view judges to loosen the personal union.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration, Article VIII"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article VIII, 1577"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The Chalcedonian definition itself is not in dispute among these traditions; the extra Calvinisticum and genus majestaticum name a narrower disagreement over how the personal union communicates the properties of each nature, inherited from the sixteenth-century debate over Christ's bodily presence in the Lord's Supper.",
+      "sources": [
+        {
+          "label": "Chalcedonian Definition",
+          "citation": "Council of Chalcedon, 451"
+        },
+        {
+          "label": "On the Incarnation",
+          "citation": "Athanasius, c. 318"
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "christ.deity-and-humanity/chalcedonian",
+            "christ.deity-and-humanity/extra-calvinisticum"
+          ],
+          "hold": "Christ is one person in two natures as Chalcedon defines, and the divine nature is not circumscribed by the human, so the Son continues to sustain all things while fully incarnate.",
+          "why": "The Reformed hold the Chalcedonian definition and read it as requiring that the finite humanity not contain the infinite deity, which is the point the extra Calvinisticum makes.",
+          "vs": null,
+          "tier": "T1",
+          "confidence": "certain",
+          "flags": [],
+          "note": "Reformed churches are not divided here. The second position is how the tradition reads the first, so the two belong together in one node rather than as a choice between them.",
+          "citation": "Westminster Confession of Faith 8.2; Heidelberg Catechism, Q. 47-48"
+        },
+        "lutheran": {
+          "positions": [
+            "christ.deity-and-humanity/chalcedonian",
+            "christ.deity-and-humanity/genus-majestaticum"
+          ],
+          "hold": "Christ is one person in two natures as Chalcedon defines, and the divine attributes are genuinely communicated to the human nature in the one person, so the whole Christ is present where he promises to be.",
+          "why": "The Formula of Concord holds that the personal union means a real communication of majesty to the assumed humanity, which is what makes the bodily presence in the Supper intelligible.",
+          "vs": null,
+          "tier": "T1",
+          "confidence": "certain",
+          "flags": [],
+          "note": "Lutheran churches are not divided here either. The genus majestaticum is the Lutheran reading of Chalcedon, and it is the christological ground of the Lutheran doctrine of the Supper.",
+          "citation": "Formula of Concord, Solid Declaration 8; Augsburg Confession, Article 3"
+        }
+      }
+    },
+    {
+      "id": "christ.virgin-birth",
+      "node_title": "Virgin birth",
+      "slug": "virgin-birth",
+      "domain": "christ",
+      "order": 2,
+      "kind": "settled",
+      "question": "How was Christ conceived?",
+      "framing": "The Apostles' and Nicene Creeds confess that the eternal Son was conceived by the Holy Spirit and born of the Virgin Mary, without a human father, so that the incarnation itself began as a supernatural act of God. This is confessed alongside, not against, Christ's full and genuine humanity: he was truly conceived, truly carried and truly born. The traditions below differ only in emphasis, not in whether it happened.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places the virgin birth at the first tier alongside the deity and humanity of Christ, as part of the creedal account of who Christ is.",
+      "refs": "Matt 1:18-23; Luke 1:26-35; Isa 7:14",
+      "links": [
+        "deity-and-humanity",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much theological weight to place on the virginal conception itself, as opposed to treating Christ's sinlessness as secured by the personal union rather than by the manner of his conception.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "christ.virgin-birth/virginal-conception",
+          "label": "Virginal conception",
+          "hold": "Jesus was conceived in Mary's womb by the power of the Holy Spirit, without a human father, so that from the very beginning of his human existence he was both fully God and fully man.",
+          "why": "Matthew and Luke independently report a virginal conception, and the church has confessed it as a mark of the incarnation's supernatural origin since its earliest creeds.",
+          "vs": "Treating the virgin birth as a later legendary addition to an originally ordinary human birth narrative.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Matt 1:18-23; Luke 1:34-35",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 2"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 8.2"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 496-498"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Nicene-Constantinopolitan Creed, 381"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article III"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article II"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article 2"
+            }
+          ],
+          "learn_detail": "Catholic and Orthodox theology additionally confess Mary's perpetual virginity as a related but distinct Marian doctrine, not addressed by this entry.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "CCC 496-498"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Nicene-Constantinopolitan Creed",
+          "citation": "381"
+        }
+      ]
+    },
+    {
+      "id": "christ.bodily-resurrection",
+      "node_title": "Bodily resurrection",
+      "slug": "bodily-resurrection",
+      "domain": "christ",
+      "order": 3,
+      "kind": "settled",
+      "question": "In what sense was Christ raised from the dead?",
+      "framing": "Every historic creed confesses that on the third day Christ rose bodily from the grave: the tomb was empty because the same body that was crucified and buried was raised, transformed and glorified, not merely that his followers experienced his abiding spiritual presence. Paul makes the whole of the Christian hope contingent on this fact. The traditions below agree on the bodily fact and differ only in how they describe the resurrected body's transformed properties.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places the bodily resurrection at the first tier: Paul makes Christian faith itself contingent on it.",
+      "refs": "1 Cor 15:3-8,12-19; Luke 24:36-43; John 20:24-28",
+      "links": [
+        "deity-and-humanity",
+        "inerrancy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how to describe the continuity between the crucified body and the glorified body implied by Luke 24 and John 20, without denying the transformation Paul describes in 1 Corinthians 15 or reducing the resurrection to a merely spiritual event.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "christ.bodily-resurrection/bodily",
+          "label": "Bodily resurrection",
+          "hold": "Christ rose from the dead bodily and physically on the third day, the same body that was crucified now transformed and glorified, leaving the tomb empty and appearing to witnesses who touched him and watched him eat.",
+          "why": "The Gospels report an empty tomb and a body that could be touched and that ate food, and Paul grounds every believer's own future resurrection hope in the fact that Christ's was bodily.",
+          "vs": "Any account that reduces the resurrection to a purely spiritual experience, a vision, or a continuing memory or influence, without an empty tomb and a transformed physical body.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "1 Cor 15:3-8; Luke 24:36-43",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 4"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 8.4"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 638-658"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Nicene-Constantinopolitan Creed, 381"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article III"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article III"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article 2"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "1 Corinthians 15 as the hinge of Christian hope",
+              "citation": "1 Cor 15:12-19"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Nicene-Constantinopolitan Creed",
+          "citation": "381"
+        }
+      ]
+    },
+    {
+      "id": "christ.divine-power",
+      "node_title": "Christ's use of divine power",
+      "slug": "christs-use-of-divine-power",
+      "domain": "christ",
+      "order": 4,
+      "kind": "choice",
+      "question": "Did the incarnate Son continuously exercise every divine attribute, or did the incarnation itself involve a real restraint on their use?",
+      "framing": "All the traditions below affirm that Christ never ceased to be fully God during the earthly ministry, and that his human experience of hunger, growth, weariness and limited knowledge (Mark 13:32) was genuine, not merely apparent. What divides them is how to relate that constant deity to a life that visibly did not always display omniscience or unbounded power: whether the divine attributes were always in full exercise but ordinarily hidden from view, whether the Son voluntarily declined to exercise some of them independently for the duration of the incarnation, or, in the strongest form, whether the incarnation involved the Son laying aside the possession of some divine attributes.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it does not touch the gospel or church fellowship directly, but shapes how the Gospels' account of Christ's growth and limited knowledge is read.",
+      "refs": "Mark 13:32; Phil 2:6-7; Luke 2:52; John 11:33-35",
+      "links": [
+        "deity-and-humanity",
+        "impeccability"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the Gospels' record of Christ's limited knowledge (Mark 13:32) and growth (Luke 2:52) is better explained by a voluntary non-use of divine omniscience or by a constant but ordinarily concealed exercise of it, and settle terminology, since 'kenosis' is used by different writers for both a moderate voluntary-restraint view and a stronger self-emptying-of-attributes view.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "christ.divine-power/kryptic",
+          "label": "Kryptic (concealed use)",
+          "hold": "Throughout the earthly ministry Christ retained the full, continuous exercise of every divine attribute, but ordinarily concealed that exercise behind the veil of his humility, unveiling it openly only at chosen moments such as the miracles and the Transfiguration.",
+          "why": "This preserves the full and constant deity of the Son at every moment of the incarnation, treating the limitations recorded in the Gospels as belonging to the veiling rather than to any real restriction of divine power.",
+          "vs": "Any account in which the Son genuinely refrains from exercising, or actually surrenders, a divine attribute for a time, which this view judges to introduce change into an unchangeable nature.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "Associated with the Tübingen theologians in the seventeenth-century Lutheran krypsis-kenosis controversy, against the Giessen theologians' voluntary-restraint view; the Book of Concord does not itself resolve the dispute, so it is not attributed here to the Lutheran confession as such.",
+          "sources": [
+            {
+              "label": "The krypsis-kenosis controversy",
+              "citation": "Tübingen vs. Giessen theologians, 17th century"
+            }
+          ]
+        },
+        {
+          "id": "christ.divine-power/voluntary-restraint",
+          "label": "Voluntary restraint",
+          "hold": "Christ retained full possession of every divine attribute but voluntarily declined their independent exercise, drawing on divine power only as the Father willed and the Spirit enabled, so that growth, weariness and limited knowledge were genuinely experienced.",
+          "why": "This takes Christ's growth in wisdom, weariness and stated ignorance of the day of his return at face value as real limitations of the incarnate life, while affirming that the Son never ceased to possess full deity.",
+          "vs": "Treating the divine attributes as constantly and fully exercised behind a mere veil, which this view judges to make the Gospels' record of Christ's limitation and growth misleading rather than real.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Representative of a major strand of evangelical Baptist Christology rather than a confessional article.",
+              "citation": "Wayne Grudem, Systematic Theology, ch. 26, 1994"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Widely taught in evangelical systematic theology without a binding confession on the point.",
+              "citation": "Wayne Grudem, Systematic Theology, ch. 26, 1994"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, ch. 26, 1994"
+            }
+          ]
+        },
+        {
+          "id": "christ.divine-power/kenotic-self-emptying",
+          "label": "Kenotic theory",
+          "hold": "In becoming incarnate the Son actually laid aside, not merely the independent use but the possession of, certain divine attributes such as omniscience and omnipotence for the duration of the earthly life, resuming them fully only at the exaltation.",
+          "why": "This takes Philippians 2:7's 'emptied himself' in its strongest sense, as an actual self-limitation of divine attributes rather than merely an addition of a human nature or a veiling of divine glory.",
+          "vs": "Treating 'emptied himself' as describing only the addition of a human nature and a servant's form, without any actual change in what the Son possesses as God.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Phil 2:6-7",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Classical nineteenth-century kenotic Christology (Thomasius, Gess, and later evangelical kenoticists) is affirmed by real orthodox and evangelical theologians, but many others judge that an actual loss of divine attributes, even temporarily, compromises the church's confession that the divine nature is immutable, so the question remains a live and unsettled dispute rather than a settled boundary.",
+          "held_by": [],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Christi Person und Werk",
+              "citation": "Gottfried Thomasius, 1853"
+            },
+            {
+              "label": "The Person and Place of Jesus Christ",
+              "citation": "P. T. Forsyth, 1909"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The word 'kenosis' is used two different ways in this debate: a moderate sense (voluntary non-use of attributes, from Phil 2:7's 'emptied himself' read as taking the form of a servant) and a stronger sense (actual self-limitation of divine attributes). The positions above try to keep those two senses distinct rather than letting the shared word blur them.",
+      "sources": [
+        {
+          "label": "Systematic Theology",
+          "citation": "Wayne Grudem, ch. 26, 1994"
+        },
+        {
+          "label": "Formula of Concord, Solid Declaration",
+          "citation": "Article VIII, 1577"
+        }
+      ]
+    },
+    {
+      "id": "christ.impeccability",
+      "node_title": "Impeccability",
+      "slug": "impeccability",
+      "domain": "christ",
+      "order": 5,
+      "kind": "choice",
+      "question": "Was it possible for Christ to have sinned?",
+      "framing": "Every tradition below confesses that Christ never actually sinned. The disputed question is modal rather than historical: given the union of full deity and full humanity in one person, was it genuinely possible for Christ to have sinned and yet he did not, or was sin an actual impossibility for him because of who he is?",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: both answers affirm Christ's actual sinlessness, and the disagreement concerns the underlying metaphysics rather than the gospel itself.",
+      "refs": "Heb 4:15; James 1:13; Matt 4:1-11",
+      "links": [
+        "christs-use-of-divine-power"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the reality of the wilderness and Gethsemane temptations requires a genuine capacity to sin in the human nature, or whether the personal union of that nature with the divine Son rules out that capacity without making the temptations unreal.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "christ.impeccability/impeccable",
+          "label": "Impeccable",
+          "hold": "Because the human nature never exists or acts except in the person of the eternal Son, it was not possible for Christ to sin; the wilderness and Gethsemane temptations were genuinely felt by the human nature even though yielding to them was never a live possibility for the person.",
+          "why": "Sin belongs to a person and not a nature in the abstract, and the person of Christ is the eternal Son, who cannot sin; a Christ who could actually have sinned would not be a fully reliable Savior.",
+          "vs": "A Christ whose sinlessness was genuinely at risk and had to be achieved, which this view judges to be incompatible with the person acting being God the Son.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "James 1:13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "W. G. T. Shedd, Dogmatic Theology, vol. 2"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thomas Aquinas, Summa Theologiae III, q.15, a.1-2"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": null,
+              "citation": "John of Damascus, Exposition of the Orthodox Faith III.20"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Summa Theologiae III, q.15",
+              "citation": "Thomas Aquinas, c. 1270"
+            }
+          ]
+        },
+        {
+          "id": "christ.impeccability/peccable",
+          "label": "Peccable but sinless",
+          "hold": "Christ's human will retained a genuine creaturely capacity to sin, so that the wilderness and Gethsemane temptations were real possibilities and not merely apparent trials, and his actual sinlessness was maintained by the perfect exercise of that will rather than being metaphysically guaranteed.",
+          "why": "Hebrews insists Christ was tempted in every respect as others are, which this view takes to require a real possibility of sin if the temptation is to be more than a formality.",
+          "vs": "Ruling out any real possibility of sin in advance, which this view judges to reduce the wilderness and Gethsemane accounts to theater rather than genuine trial.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Heb 4:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "A real minority stream, not a confessional article.",
+              "citation": "Millard Erickson, Christian Theology, 3rd ed., ch. 24, 2013"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real minority stream within broad evangelicalism.",
+              "citation": "Millard Erickson, Christian Theology, 3rd ed., ch. 24, 2013"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Christian Theology",
+              "citation": "Millard Erickson, 3rd ed., 2013"
+            }
+          ]
+        }
+      ],
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Summa Theologiae III, q.15",
+          "citation": "Thomas Aquinas, c. 1270"
+        },
+        {
+          "label": "Christian Theology",
+          "citation": "Millard Erickson, 3rd ed., 2013"
+        }
+      ]
+    },
+    {
+      "id": "christ.atonement",
+      "node_title": "Atonement",
+      "slug": "atonement",
+      "domain": "christ",
+      "order": 6,
+      "kind": "choice",
+      "question": "What did Christ's death accomplish, and by what central logic?",
+      "framing": "Scripture describes the cross with more than one image: a penalty borne in the sinner's place, a ransom or victory over hostile powers, a debt of honor or justice satisfied, a demonstration of love that draws a response, and a life of obedience that undoes Adam's disobedience. These are not simply competing theories to choose between; most traditions hold several together, usually with one functioning as the controlling logic and the others as true but subordinate themes.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places the atonement between the first and second tiers: what Christ's death accomplished is close to the center of the gospel, even though genuine, orthodox Christians order these themes differently.",
+      "refs": "Rom 3:24-26; Col 2:14-15; 1 Cor 15:3; Isa 53:4-6",
+      "links": [
+        "extent-of-the-atonement"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out which of these models best accounts for Romans 3:25's language of propitiation, and decide how much weight to give Christus Victor and recapitulation as more than subordinate emphases alongside a substitutionary center.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "christ.atonement/penal-substitution",
+          "label": "Penal substitution",
+          "hold": "On the cross Christ bore, in the place of sinners, the penalty their sin deserved, so that God's righteous judgment against sin was fully executed and exhausted in him, and sinners who trust him are released from that penalty.",
+          "why": "Isaiah 53 and Romans 3 describe an exchange in which the innocent one bears what the guilty deserved, satisfying divine justice rather than merely absorbing its effects.",
+          "vs": "Any account of the cross that does not include a real transfer of penalty from sinners to Christ, which this view judges to leave God's justice against sin unaddressed.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Isa 53:4-6; Rom 3:24-26",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 8.5"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article II.B"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article III"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 31"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 4"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Articles of Religion, Article XX"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "What Did the Cross Achieve? The Logic of Penal Substitution",
+              "citation": "J. I. Packer, Tyndale Bulletin, 1974"
+            }
+          ]
+        },
+        {
+          "id": "christ.atonement/christus-victor",
+          "label": "Christus Victor",
+          "hold": "The cross and resurrection together are Christ's triumph over sin, death and the powers that held humanity captive, breaking their dominion and liberating creation to share in his victory.",
+          "why": "Colossians 2:15 pictures Christ disarming the rulers and authorities and triumphing over them openly, and the New Testament consistently frames the cross as the decisive defeat of a hostile power, not only a private transaction over guilt.",
+          "vs": "Reducing the cross to a legal transaction alone, which this view judges to miss the New Testament's cosmic language of rescue and triumph over hostile powers.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Col 2:14-15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "John of Damascus, Exposition of the Orthodox Faith III.27"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "minority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 7"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A real, subordinate theme within Reformed theology; see the tradition override.",
+              "citation": "Heidelberg Catechism, Q&A 1"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Christus Victor",
+              "citation": "Gustaf Aulén, 1931"
+            }
+          ]
+        },
+        {
+          "id": "christ.atonement/satisfaction",
+          "label": "Satisfaction (Anselmian)",
+          "hold": "By his perfect obedience and death Christ rendered to God the infinite satisfaction that fallen humanity owed but could never pay, restoring the honor sin had taken from God and so making reconciliation possible.",
+          "why": "Anselm argued that sin is an offense against God's honor that only an infinite, sinless substitute could satisfy, since a debt that great could be paid only by one who is both truly human, and so obligated, and truly divine, and so able.",
+          "vs": "Framing the cross primarily as bearing a criminal penalty rather than as restoring an honor or debt owed to God, which this view treats as a related but distinct logic.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 613-616; Council of Trent, Session VI"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Cur Deus Homo",
+              "citation": "Anselm of Canterbury, 1098"
+            }
+          ]
+        },
+        {
+          "id": "christ.atonement/moral-influence",
+          "label": "Moral influence",
+          "hold": "The cross accomplishes its saving effect chiefly by revealing the depth of God's love so vividly that it awakens repentance and answering love in the sinner, transforming the sinner's disposition rather than first changing God's disposition or paying an objective debt.",
+          "why": "The strongest appeals of the cross in Scripture, such as Romans 5:8, present it as a demonstration of love meant to move the hearer, which this view treats as the whole of what the cross does rather than one of its effects.",
+          "vs": "Any account that requires an objective satisfaction, penalty borne or ransom paid in addition to the cross's demonstration of love.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 5:8",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Nearly every tradition affirms the cross as a moral demonstration of love alongside an objective atonement; the dispute is only with a moral-influence account that denies any objective satisfaction, substitution or ransom, a position going back to Peter Abelard's twelfth-century critique of Anselm and revived in nineteenth-century liberal theology, which the traditions above regard as short of what Scripture claims for the cross.",
+          "held_by": [],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Commentary on Romans",
+              "citation": "Peter Abelard, c. 1137"
+            },
+            {
+              "label": "The Idea of Atonement in Christian Theology",
+              "citation": "Hastings Rashdall, 1919"
+            }
+          ]
+        },
+        {
+          "id": "christ.atonement/recapitulation",
+          "label": "Recapitulation",
+          "hold": "As the second Adam, Christ retraced the course of human life with obedience at every stage where Adam offered disobedience, so that humanity's history is healed and renewed in him from within, a healing culminating in his death and resurrection.",
+          "why": "Irenaeus argued that the Son had to become what humanity is, and live through every stage of human life faithfully, in order to undo Adam's disobedience at each corresponding point and sum up a fallen humanity in a new, obedient head.",
+          "vs": "Locating the saving logic of the cross entirely in a single transaction at Calvary rather than in the whole shape of an obedient human life that Calvary completes.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Rom 5:18-19",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Held together with Christus Victor as one integrated account; see the tradition override.",
+              "citation": "Irenaeus, Against Heresies, Book V, c. 180"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Against Heresies, Book V",
+              "citation": "Irenaeus, c. 180"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "christ.atonement/penal-substitution",
+            "christ.atonement/christus-victor"
+          ],
+          "hold": "Christ's death is a penal, substitutionary satisfaction of divine justice, and within that centre the confessions also affirm a real deliverance from the power of the devil.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "Reformed confessions treat penal substitution as the confessionally defining logic of the cross; Christus Victor is a real, biblically grounded theme within Reformed theology but not itself a separate confessional article.",
+          "citation": "Heidelberg Catechism, Q&A 1; Westminster Confession of Faith 8.5"
+        },
+        "orthodox": {
+          "positions": [
+            "christ.atonement/christus-victor",
+            "christ.atonement/recapitulation"
+          ],
+          "hold": "Orthodox theology holds Christus Victor and recapitulation as one integrated account of the cross: Christ, as the new Adam, retraces and reverses humanity's fall and in so doing breaks the dominion of sin and death, rather than treating victory and recapitulation as two separate logics.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "confident",
+          "flags": [],
+          "note": "These two western-labeled theories are not held apart in Orthodox theology, which regards them as a single Irenaean account of salvation; they are separated in this corpus only because it treats them as distinct positions.",
+          "citation": "Irenaeus, Against Heresies, Book V; John of Damascus, Exposition of the Orthodox Faith III.27"
+        }
+      },
+      "learn_note": "The models above are not exclusive alternatives for most traditions; the live question is usually which one governs the others rather than whether the others are true at all.",
+      "sources": [
+        {
+          "label": "Christus Victor",
+          "citation": "Gustaf Aulén, 1931"
+        },
+        {
+          "label": "Cur Deus Homo",
+          "citation": "Anselm of Canterbury, 1098"
+        },
+        {
+          "label": "What Did the Cross Achieve? The Logic of Penal Substitution",
+          "citation": "J. I. Packer, Tyndale Bulletin, 1974"
+        }
+      ]
+    },
+    {
+      "id": "christ.extent-of-the-atonement",
+      "node_title": "Extent of the atonement",
+      "slug": "extent-of-the-atonement",
+      "domain": "christ",
+      "order": 7,
+      "kind": "choice",
+      "question": "For whom did Christ die, and in what sense?",
+      "framing": "All the traditions below agree that Christ's death is sufficient to save any and every sinner who comes to him, and that the gospel is to be offered freely to everyone without exception. The dispute is about design and application: whether the Father's saving intention in sending the Son to die was particular to the elect from the start, or was for all people alike, with the difference between the saved and the lost accounted for entirely by who believes.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tiers: it shapes how the gospel is preached and how assurance is grounded, without itself dividing genuine believers from one another at the level of fellowship.",
+      "refs": "John 3:16; 1 John 2:2; John 10:11,15; 1 Tim 2:4-6",
+      "links": [
+        "atonement"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether John 10's language of Christ laying down his life 'for the sheep' implies a design particular to the elect, or whether it simply describes one true thing about Christ's death without excluding a wider intention, and decide whether the Amyraldian two-stage account of God's decree resolves or merely relocates the tension.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "christ.extent-of-the-atonement/definite-atonement",
+          "label": "Definite atonement",
+          "hold": "Christ's death was intended by God from the start specifically for the elect whom the Father gave him, and it therefore infallibly secures, rather than merely makes possible, the salvation of everyone for whom it was intended.",
+          "why": "If Christ's death actually paid for the sins of every person without exception, then either every person is saved or the payment fails to secure what it purchases; particularity is what makes the atonement's accomplishment, not only its offer, certain.",
+          "vs": "Extending the design of Christ's death to every individual without exception, which this view judges to either universalize salvation or reduce the atonement to a mere possibility.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 10:11,15",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is the classic flashpoint between Reformed and Arminian soteriology; each side regards the other's account as endangering something essential, either the certainty of what the cross accomplishes or the sincerity of God's love and offer to all, without either side falling outside the ecumenical creeds, which do not address the question.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Canons of Dordt, Second Head of Doctrine, Articles 3 and 8"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "The confessional Calvinistic Baptist strand; the wider Baptist movement is not confessionally unified on this point.",
+              "citation": "Second London Baptist Confession (1689), 8.5"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Canons of Dordt, Second Head of Doctrine",
+              "citation": "Synod of Dort, 1618-1619"
+            }
+          ]
+        },
+        {
+          "id": "christ.extent-of-the-atonement/universal-atonement",
+          "label": "Universal atonement",
+          "hold": "Christ's death truly satisfied for the sins of the whole world without exception, so that the extent of its provision is as wide as the extent of the gospel's free offer, and the only thing distinguishing the saved from the lost is whether a person believes.",
+          "why": "Texts describing Christ's death as for the world or for all are taken at face value, and the universal, sincere offer of the gospel is read as grounded in a death that actually provides for everyone it is offered to.",
+          "vs": "Restricting the design of Christ's death to the elect alone before any act of faith, which this view judges to undercut the sincerity of a gospel offer made to every hearer without exception.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 John 2:2; 1 Tim 2:4-6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Nothing in the ecumenical creeds settles the extent of the atonement, and this position is confessional in several communions, so it is not a departure from orthodoxy. It is marked because each side of the Calvinist and Arminian division regards the other as gravely mistaken about what the cross accomplished.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article II; John Wesley, sermon 'Free Grace,' 1739"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "Drawn from the movement's founding writings rather than a creed.",
+              "citation": "Alexander Campbell, The Christian System, 1839"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Free Grace",
+              "citation": "John Wesley, sermon, 1739"
+            }
+          ]
+        },
+        {
+          "id": "christ.extent-of-the-atonement/hypothetical-universalism",
+          "label": "Hypothetical universalism",
+          "hold": "In the order of God's saving purpose, Christ's death is sufficient for and genuinely intended for all people, so that the gospel's offer to everyone is entirely sincere, while the Spirit applies its saving benefit effectually only to those who are given faith.",
+          "why": "This distinguishes the sufficiency and universal intention of the cross from its effectual application, holding together a fully sincere universal offer with a particular, effectual work of the Spirit in those who actually believe.",
+          "vs": "Collapsing the distinction between what Christ's death is sufficient and intended for and what it effectually accomplishes, in either the strictly particularist or the strictly universalist direction.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Tim 2:4-6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position was held by some of the British delegates to the Synod of Dordt itself and by the later Salmurian school, and remains a genuine minority stream within confessionally Reformed theology; the Formula Consensus Helvetica (1675) was written partly to exclude it, a measure later set aside by most Reformed bodies that had adopted it.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "See the tradition override.",
+              "citation": "Moïse Amyraut, Brief Traitté de la Predestination, 1634; John Davenant, A Dissertation on the Death of Christ, 1650"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "A Dissertation on the Death of Christ",
+              "citation": "John Davenant, 1650"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "christ.extent-of-the-atonement/definite-atonement",
+            "christ.extent-of-the-atonement/hypothetical-universalism"
+          ],
+          "hold": "The confessional standard set by the Canons of Dordt is that Christ's death was intended for the elect; a real minority stream, going back to some British delegates at Dordt and to the later Amyraldians, holds it was intended for all with only its application particular.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "Both positions are held by confessionally Reformed church bodies; the Formula Consensus Helvetica (1675) attempted to exclude the minority view but was later dropped by most Reformed churches that had adopted it.",
+          "citation": "Canons of Dordt, Second Head of Doctrine, Articles 3 and 8; Formula Consensus Helvetica, 1675"
+        }
+      },
+      "learn_note": null,
+      "sources": [
+        {
+          "label": "Canons of Dordt, Second Head of Doctrine",
+          "citation": "Synod of Dort, 1618-1619"
+        },
+        {
+          "label": "A Dissertation on the Death of Christ",
+          "citation": "John Davenant, 1650"
+        }
+      ]
+    }
+  ]
+}

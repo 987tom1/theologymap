@@ -121,16 +121,21 @@ test('answered doctrines are detected from slugs already in the map', () => {
 
 const real = WG.loadCorpusSync('content/wizard');
 
-test('the real corpus loads, and Task 6 seeded it', () => {
+test('the real corpus loads, and every domain file on disk is in it', () => {
   assert.strictEqual(real.manifest.domains.length, 14);
   assert.strictEqual(real.traditions.traditions.length, 14);
-  // Three domain files exist; the other eleven are phase 5's and loadCorpusSync
-  // tolerates their absence. holy-spirit.json holds one doctrine on its own
-  // because Continuationism was moved out of church.json to sit where Thomas's
-  // map files it — see phase-4-outcome.md, Thomas's answers.
-  assert.deepStrictEqual(Object.keys(real.domains).sort(),
-    ['church', 'holy-spirit', 'scripture']);
-  assert.strictEqual(WG.orderedDoctrines(real).length, 12);
+  // Phase 4 pinned this to its three seed domains and a doctrine count of 12.
+  // Phase 5's whole job is to grow past that, so the assertion is derived from
+  // the corpus rather than frozen: every manifest domain whose file exists on
+  // disk must load, and no other. loadCorpusSync tolerates a missing file, and
+  // a manifest entry with no file is the normal state until phase 5 finishes.
+  const onDisk = real.manifest.domains
+    .filter(d => fs.existsSync(`content/wizard/${d.file}`))
+    .map(d => d.id).sort();
+  assert.deepStrictEqual(Object.keys(real.domains).sort(), onDisk);
+  const counted = onDisk.reduce((n, id) => n + real.domains[id].doctrines.length, 0);
+  assert.strictEqual(WG.orderedDoctrines(real).length, counted);
+  assert.ok(counted >= 12, 'the corpus never shrinks below phase 4 s seed');
   assert.ok(WG.nextDoctrine([], real), 'an empty map has a first question');
 });
 
@@ -164,7 +169,7 @@ test('answering the whole seed corpus gives a map at every prefix', () => {
     assert.ok(!text.includes('_intended'), '_intendedLinks leaked into the markdown');
     out.push(text);
   }
-  assert.strictEqual(out.length, 12);
+  assert.strictEqual(out.length, WG.orderedDoctrines(real).length);
   // Named prefix-* so tests/check_generated_map.py picks them up with the
   // fixture ones and runs render.py's parser over both.
   fs.mkdirSync('tests/out', { recursive: true });
