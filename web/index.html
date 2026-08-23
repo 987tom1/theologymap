@@ -22,6 +22,16 @@
   .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .actions a { font: 600 13px var(--sans); color: var(--ink); }
   .quiet { font: 13px var(--sans); color: var(--muted); }
+  #versions-section { margin-top: 6px; }
+  #versions-section h2 { font: 600 15px/1.3 var(--serif); margin: 0 0 8px; }
+  #versions-list { list-style: none; margin: 0; padding: 0; display: flex;
+                   flex-direction: column; gap: 6px; }
+  #versions-list li { display: flex; align-items: center; gap: 10px;
+                       justify-content: space-between; padding: 8px 12px;
+                       border: 1px solid var(--field-line); border-radius: 6px;
+                       background: var(--panel); }
+  #versions-list li span { font: 13px var(--sans); color: var(--ink); }
+  #versions-list li button { margin-top: 0; padding: 5px 10px; font-size: 12px; }
 </style>
 </head>
 <body class="tm-page">
@@ -80,6 +90,15 @@
       Your map is unlisted, so it is not in the gallery and the link above will not
       render it for anyone else.
     </p>
+
+    <section id="versions-section" hidden>
+      <h2>Earlier versions</h2>
+      <p class="tm-note" id="versions-empty" hidden>
+        No earlier versions yet — one is kept the first time you change a map
+        you have already saved.
+      </p>
+      <ul id="versions-list"></ul>
+    </section>
   </div>
 
 </main>
@@ -90,7 +109,7 @@
 <script src="/engine/editor-core.js"></script>
 <script type="module">
 import { getUser, setUser, apiFetch } from '/web/session.js';
-import { mount, copyButton } from '/web/chrome.js';
+import { mount, copyButton, relTime } from '/web/chrome.js';
 import { mountFirstRun, WIZARD_ENABLED } from '/web/first-run.js';
 
 mount('Your map');
@@ -128,6 +147,81 @@ async function render() {
   $('unlisted-note').hidden = map.is_public !== false;
   $('wizard-link').hidden = !WIZARD_ENABLED;
   show('map-home');
+  loadVersions(user, map);
+}
+
+function bytesLabel(n) {
+  return n < 1024 ? `${n} B` : `${(n / 1024).toFixed(1)} KB`;
+}
+
+async function loadVersions(user, map) {
+  let versions;
+  try {
+    versions = await apiFetch('/api/map', {
+      method: 'POST',
+      body: { action: 'versions', user_id: user.id },
+    });
+  } catch {
+    return;   // apiFetch already showed the banner
+  }
+  if (!versions) return;
+
+  $('versions-section').hidden = false;
+  const list = $('versions-list');
+  list.textContent = '';
+
+  if (versions.length === 0) {
+    $('versions-empty').hidden = false;
+    return;
+  }
+  $('versions-empty').hidden = true;
+
+  for (const v of versions) {
+    const li = document.createElement('li');
+    const label = document.createElement('span');
+    let text = `${relTime(v.saved_at)} · ${bytesLabel(v.bytes)}`;
+    if (v.node_count != null) {
+      text += ` · ${v.node_count} belief${v.node_count === 1 ? '' : 's'}`;
+    }
+    label.textContent = text;
+    li.appendChild(label);
+
+    const restoreBtn = document.createElement('button');
+    restoreBtn.type = 'button';
+    restoreBtn.textContent = 'Restore';
+    restoreBtn.addEventListener('click', () => restoreVersion(user, map, v, restoreBtn));
+    li.appendChild(restoreBtn);
+
+    list.appendChild(li);
+  }
+}
+
+// The one place in the app where a confirmation earns its place (decisions.md
+// / phase-8-brief.md §2) — everywhere else the house style is not to ask.
+async function restoreVersion(user, map, v, btn) {
+  const when = relTime(v.saved_at);
+  const ok = confirm(
+    `This replaces your map with the version from ${when}. Your current map `
+    + `is saved first, so you can come back.`
+  );
+  if (!ok) return;
+
+  btn.disabled = true;
+  try {
+    await apiFetch('/api/map', {
+      method: 'POST',
+      body: {
+        action: 'restore', user_id: user.id, version_id: v.id,
+        expected_updated_at: map.updated_at,
+      },
+    });
+  } catch {
+    btn.disabled = false;
+    return;   // apiFetch already showed the banner, including the 409 conflict path
+  }
+  // The map, its summary and its version list all changed; simplest to
+  // re-fetch everything the same way the page does on first load.
+  location.reload();
 }
 
 copyButton($('copy-btn'), () => $('view-link').href);

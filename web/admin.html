@@ -57,7 +57,7 @@ who already has its link from the editor. Delete the account if a map must go.</
 
 <script type="module">
 import { apiFetch } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { mount, relTime } from '/web/chrome.js';
 
 mount('Admin');
 
@@ -147,6 +147,18 @@ function renderTable(users) {
     // admin account; api/admin.py's save_map action is implemented and is the
     // only way in until then. See phase-1e-outcome.md.
 
+    const versionsBtn = document.createElement('button');
+    versionsBtn.textContent = 'Versions';
+    versionsBtn.addEventListener('click', async () => {
+      versionsBtn.disabled = true;
+      try {
+        await toggleVersions(u, tr);
+      } finally {
+        versionsBtn.disabled = false;
+      }
+    });
+    actionsCell.appendChild(versionsBtn);
+
     const delBtn = document.createElement('button');
     delBtn.textContent = 'Delete';
     delBtn.addEventListener('click', async () => {
@@ -164,6 +176,55 @@ function renderTable(users) {
 
     tbody.appendChild(tr);
   }
+}
+
+// The locked "edit/restore any map" admin power (decisions.md, Accounts and
+// data). Toggles a plain row under the user's own row, rather than a second
+// page — this table already is the admin surface.
+async function toggleVersions(u, tr) {
+  const existing = tr.nextElementSibling;
+  if (existing && existing.dataset.versionsFor === u.id) {
+    existing.remove();
+    return;
+  }
+  // Close any other open panel first, so there is never more than one.
+  document.querySelectorAll('tr[data-versions-for]').forEach(r => r.remove());
+
+  const versions = await callAdmin('versions', { target_id: u.id });
+  if (!versions) return; // apiFetch already redirected/handled the error
+
+  const row = document.createElement('tr');
+  row.dataset.versionsFor = u.id;
+  const cell = document.createElement('td');
+  cell.colSpan = 6;
+
+  if (versions.length === 0) {
+    cell.textContent = `No earlier versions of ${u.name}'s map yet.`;
+  } else {
+    for (const v of versions) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = `Restore ${relTime(v.saved_at)} (${(v.bytes / 1024).toFixed(1)} KB)`;
+      btn.addEventListener('click', async () => {
+        const ok = confirm(
+          `Replace ${u.name}'s map with the version from ${relTime(v.saved_at)}? `
+          + `Their current map is saved first, so this can be undone.`
+        );
+        if (!ok) return;
+        btn.disabled = true;
+        try {
+          await callAdmin('restore', { target_id: u.id, version_id: v.id });
+          row.remove();
+          await loadUsers();
+        } finally {
+          btn.disabled = false;
+        }
+      });
+      cell.appendChild(btn);
+    }
+  }
+  row.appendChild(cell);
+  tr.after(row);
 }
 
 function escapeHtml(s) {

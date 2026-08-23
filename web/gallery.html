@@ -34,7 +34,7 @@
 
 <script type="module">
 import { apiFetch, getUser } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { mount, relTime } from '/web/chrome.js';
 
 mount('Gallery');
 
@@ -43,22 +43,6 @@ const TIER_COLOUR = {
   'T1': '#7c2d3b', 'T1.5': '#8a4a24', 'T2': '#8c6a1f',
   'T2.5': '#5f6b35', 'T3': '#2f6b63', 'T4': '#33526e'
 };
-
-// Native RelativeTimeFormat, not a hand-rolled ladder. It doesn't pick a unit
-// for you, so we still walk a table from largest to smallest — but that table
-// is data, not branching logic.
-const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
-const UNITS = [
-  ['year', 31536000000], ['month', 2592000000], ['week', 604800000],
-  ['day', 86400000], ['hour', 3600000], ['minute', 60000], ['second', 1000]
-];
-function relTime(iso) {
-  const diff = new Date(iso).getTime() - Date.now();
-  for (const [unit, ms] of UNITS) {
-    if (Math.abs(diff) >= ms) return RTF.format(Math.round(diff / ms), unit);
-  }
-  return RTF.format(0, 'second');
-}
 
 function buildTierBar(counts, total) {
   const bar = document.createElement('div');

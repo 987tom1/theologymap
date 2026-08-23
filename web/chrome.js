@@ -65,3 +65,20 @@ export function copyButton(btn, getText, label = 'Copy link') {
     setTimeout(() => { btn.textContent = label; }, 1500);
   });
 }
+
+/* Native RelativeTimeFormat, not a hand-rolled ladder. It doesn't pick a unit
+   for you, so this still walks a table from largest to smallest — but that
+   table is data, not branching logic. Shared by /gallery and /app (phase 8's
+   version list) so there is one way to say "2 hours ago", not two. */
+const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const REL_UNITS = [
+  ['year', 31536000000], ['month', 2592000000], ['week', 604800000],
+  ['day', 86400000], ['hour', 3600000], ['minute', 60000], ['second', 1000]
+];
+export function relTime(iso) {
+  const diff = new Date(iso).getTime() - Date.now();
+  for (const [unit, ms] of REL_UNITS) {
+    if (Math.abs(diff) >= ms) return RTF.format(Math.round(diff / ms), unit);
+  }
+  return RTF.format(0, 'second');
+}
