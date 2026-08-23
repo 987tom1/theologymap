@@ -37,27 +37,88 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 33.1" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 673-674, 682" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Nicene-Constantinopolitan Creed (381)" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article XVII, 'Of Christ's Return to Judgment'" },
-            { "tradition": "anglican", "stance": "confessional", "note": "Confessed through the Nicene Creed as used in the Book of Common Prayer rather than a separate Article.", "citation": "Book of Common Prayer (1662), the Nicene Creed" },
-            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
-            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
-            { "tradition": "anabaptist", "stance": "confessional", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" },
-            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14" },
-            { "tradition": "non-denominational", "stance": "confessional", "note": null, "citation": "Lausanne Covenant (1974), Paragraph 15, 'The Return of Christ'" },
-            { "tradition": "inc", "stance": "confessional", "note": null, "citation": "International Network of Churches, Statement of Faith" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 33.1"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 673-674, 682"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Nicene-Constantinopolitan Creed (381)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article XVII, 'Of Christ's Return to Judgment'"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": "Confessed through the Nicene Creed as used in the Book of Common Prayer rather than a separate Article.",
+              "citation": "Book of Common Prayer (1662), the Nicene Creed"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "John Wesley, Sermon 15, 'The Great Assize'"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article X"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 18"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Paragraph 15, 'The Return of Christ'"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            }
           ],
           "learn_detail": "Traditions differ sharply over the manner and timing of this return, which is why the millennium and the rapture are treated as separate, genuinely disputed questions rather than folded into this one.",
           "sources": [
-            { "label": "The Nicene-Constantinopolitan Creed", "citation": "381" }
+            {
+              "label": "The Nicene-Constantinopolitan Creed",
+              "citation": "381"
+            }
           ]
         }
       ],
       "learn_note": null,
       "sources": [
-        { "label": "The Nicene-Constantinopolitan Creed", "citation": "381" }
+        {
+          "label": "The Nicene-Constantinopolitan Creed",
+          "citation": "381"
+        }
       ]
     },
     {
@@ -96,12 +157,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "baptist", "stance": "minority", "note": "Not confessionally bound by the Baptist Faith and Message, which is silent on millennial position.", "citation": "George Eldon Ladd, A Theology of the New Testament (1974)" },
-            { "tradition": "non-denominational", "stance": "minority", "note": "A real strand alongside dispensational premillennialism within non-denominational evangelicalism.", "citation": "George Eldon Ladd, The Presence of the Future (1974)" }
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Not confessionally bound by the Baptist Faith and Message, which is silent on millennial position.",
+              "citation": "George Eldon Ladd, A Theology of the New Testament (1974)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real strand alongside dispensational premillennialism within non-denominational evangelicalism.",
+              "citation": "George Eldon Ladd, The Presence of the Future (1974)"
+            }
           ],
           "learn_detail": "Historic premillennialism is distinguished from dispensational premillennialism by not organising history into a series of distinct dispensations and not requiring a pretribulational rapture.",
           "sources": [
-            { "label": "A Theology of the New Testament", "citation": "George Eldon Ladd, 1974" }
+            {
+              "label": "A Theology of the New Testament",
+              "citation": "George Eldon Ladd, 1974"
+            }
           ]
         },
         {
@@ -117,12 +191,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15, 'The Millennial Reign of Christ'" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": "Institutionally dominant within the Bible-church movement though not required by any shared confession.", "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII" }
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15, 'The Millennial Reign of Christ'"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": "Institutionally dominant within the Bible-church movement though not required by any shared confession.",
+              "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII"
+            }
           ],
           "learn_detail": "Dispensational premillennialism developed in the nineteenth century through John Nelson Darby and was popularised through the Scofield Reference Bible; it is the framework within which the rapture becomes a genuinely distinct question.",
           "sources": [
-            { "label": "Assemblies of God Statement of Fundamental Truths", "citation": "Article 15" }
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 15"
+            }
           ]
         },
         {
@@ -138,14 +225,37 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "majority", "note": "Not required by the Reformed confessions themselves, but the predominant modern Reformed position.", "citation": "Louis Berkhof, Systematic Theology (1938)" },
-            { "tradition": "lutheran", "stance": "confessional", "note": "Stated as a rejection of a future earthly reign preceding the resurrection.", "citation": "Augsburg Confession, Article XVII" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 676" },
-            { "tradition": "orthodox", "stance": "majority", "note": "Orthodox eschatology does not organise around a distinct millennial scheme; life in the Church is already understood as participation in Christ's reign.", "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" }
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Not required by the Reformed confessions themselves, but the predominant modern Reformed position.",
+              "citation": "Louis Berkhof, Systematic Theology (1938)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": "Stated as a rejection of a future earthly reign preceding the resurrection.",
+              "citation": "Augsburg Confession, Article XVII"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 676"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "Orthodox eschatology does not organise around a distinct millennial scheme; life in the Church is already understood as participation in Christ's reign.",
+              "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed"
+            }
           ],
           "learn_detail": "Amillennialism is sometimes described from outside as 'denying the millennium,' which its holders reject: they affirm Revelation 20 describes a real reign of Christ, just not a future, earthly, thousand-year one.",
           "sources": [
-            { "label": "Systematic Theology", "citation": "Louis Berkhof, 1938, Eschatology" }
+            {
+              "label": "Systematic Theology",
+              "citation": "Louis Berkhof, 1938, Eschatology"
+            }
           ]
         },
         {
@@ -161,17 +271,28 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "minority", "note": "A historic Reformed minority stream running through the Puritans and into later writers.", "citation": "Charles Hodge, Systematic Theology, vol. 3 (1873)" }
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A historic Reformed minority stream running through the Puritans and into later writers.",
+              "citation": "Charles Hodge, Systematic Theology, vol. 3 (1873)"
+            }
           ],
           "learn_detail": "Postmillennialism was widely held in Reformed and evangelical circles before the twentieth century's wars eroded confidence in cultural progress, and it has seen a modest revival since.",
           "sources": [
-            { "label": "Systematic Theology, vol. 3", "citation": "Charles Hodge, 1873" }
+            {
+              "label": "Systematic Theology, vol. 3",
+              "citation": "Charles Hodge, 1873"
+            }
           ]
         }
       ],
       "tradition_overrides": {
         "reformed": {
-          "positions": ["last-things.millennium/amillennial", "last-things.millennium/postmillennial"],
+          "positions": [
+            "last-things.millennium/amillennial",
+            "last-things.millennium/postmillennial"
+          ],
           "hold": "The Reformed tradition is predominantly amillennial, though a historic minority within it, including Puritan and later postmillennial writers, holds that the gospel will visibly triumph in history before Christ returns.",
           "why": null,
           "vs": null,
@@ -182,7 +303,10 @@
           "citation": "Louis Berkhof, Systematic Theology (1938); Charles Hodge, Systematic Theology, vol. 3 (1873)"
         },
         "non-denominational": {
-          "positions": ["last-things.millennium/historic-premillennial", "last-things.millennium/dispensational-premillennial"],
+          "positions": [
+            "last-things.millennium/historic-premillennial",
+            "last-things.millennium/dispensational-premillennial"
+          ],
           "hold": "Non-denominational evangelical congregations divide between dispensational premillennialism, historically dominant in the Bible-church movement, and a historic premillennialism that keeps the future earthly reign without the dispensational framework, without a shared confession settling between them.",
           "why": null,
           "vs": null,
@@ -195,7 +319,10 @@
       },
       "learn_note": "'Amillennial' is a label its holders did not coin — it was coined by premillennial and postmillennial writers to name the view by what it denies. Its holders more often describe it as inaugurated, 'already/not yet' eschatology.",
       "sources": [
-        { "label": "Four Views on the Book of Revelation", "citation": "Marvin Pate, ed., 1998" }
+        {
+          "label": "Four Views on the Book of Revelation",
+          "citation": "Marvin Pate, ed., 1998"
+        }
       ]
     },
     {
@@ -233,13 +360,31 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "pentecostal", "stance": "majority", "note": "Reflects classical Pentecostalism's dispensational premillennial heritage.", "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII" },
-            { "tradition": "baptist", "stance": "minority", "note": "A real strand within Baptist churches shaped by the Scofield Reference Bible, not confessionally required.", "citation": "C. I. Scofield, Scofield Reference Bible (1909)" }
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "Reflects classical Pentecostalism's dispensational premillennial heritage.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "A real strand within Baptist churches shaped by the Scofield Reference Bible, not confessionally required.",
+              "citation": "C. I. Scofield, Scofield Reference Bible (1909)"
+            }
           ],
           "learn_detail": "Dispensationalism has developed since its nineteenth-century origins; progressive dispensationalism narrows the gap with covenantal readings while still keeping Israel and the church distinct.",
           "sources": [
-            { "label": "Dispensationalism", "citation": "Charles Ryrie, 1965/1995" }
+            {
+              "label": "Dispensationalism",
+              "citation": "Charles Ryrie, 1965/1995"
+            }
           ]
         },
         {
@@ -255,13 +400,31 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 25.2, with the covenant of grace as one covenant differently administered (WCF 7.5-6)" },
-            { "tradition": "baptist", "stance": "minority", "note": "1689 Federalism reads the church as covenantally continuous with Israel; a real Baptist stream alongside dispensationalism.", "citation": "Second London Baptist Confession (1689), Chapter 26" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": "Held alongside the affirmation that the Jewish people's covenant with God has never been revoked.", "citation": "Catechism of the Catholic Church, 839-840; Second Vatican Council, Nostra Aetate, 4 (1965)" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 25.2, with the covenant of grace as one covenant differently administered (WCF 7.5-6)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "1689 Federalism reads the church as covenantally continuous with Israel; a real Baptist stream alongside dispensationalism.",
+              "citation": "Second London Baptist Confession (1689), Chapter 26"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Held alongside the affirmation that the Jewish people's covenant with God has never been revoked.",
+              "citation": "Catechism of the Catholic Church, 839-840; Second Vatican Council, Nostra Aetate, 4 (1965)"
+            }
           ],
           "learn_detail": "Holders of this position generally avoid the word 'replacement,' since the claim is continuation and fulfilment rather than God rejecting or substituting one people for another.",
           "sources": [
-            { "label": "Westminster Confession of Faith", "citation": "25.2; 7.5-6" }
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "25.2; 7.5-6"
+            }
           ]
         },
         {
@@ -277,12 +440,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "baptist", "stance": "minority", "note": "Associated with New Covenant Theology and progressive covenantalism, a recent third stream alongside dispensationalism and 1689 Federalism.", "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)" }
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Associated with New Covenant Theology and progressive covenantalism, a recent third stream alongside dispensationalism and 1689 Federalism.",
+              "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Peter Gentry and Stephen Wellum, Kingdom through Covenant (2012)"
+            }
           ],
           "learn_detail": "This position resists a single label; 'progressive covenantalism' and 'new covenant theology' name overlapping but not identical proposals, both distinct from classic dispensationalism and from Reformed covenant theology.",
           "sources": [
-            { "label": "Kingdom through Covenant", "citation": "Peter Gentry and Stephen Wellum, 2012" }
+            {
+              "label": "Kingdom through Covenant",
+              "citation": "Peter Gentry and Stephen Wellum, 2012"
+            }
           ]
         }
       ],
@@ -319,7 +495,10 @@
       },
       "learn_note": "Calling the covenantal-fulfilment position 'replacement theology' is a critic's label its holders reject; they describe the church as Israel's continuation and heir, not its replacement.",
       "sources": [
-        { "label": "Three Views on Israel and the Church", "citation": "Chad Brand, ed., 2015" }
+        {
+          "label": "Three Views on Israel and the Church",
+          "citation": "Chad Brand, ed., 2015"
+        }
       ]
     },
     {
@@ -357,12 +536,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14, 'The Blessed Hope'" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": null, "citation": "Dallas Theological Seminary, Doctrinal Statement, Article XVIII" }
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14, 'The Blessed Hope'"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Dallas Theological Seminary, Doctrinal Statement, Article XVIII"
+            }
           ],
           "learn_detail": "Pretribulationism is the majority position within classical dispensationalism, popularised through the Scofield Reference Bible and, more recently, the Left Behind novels.",
           "sources": [
-            { "label": "Assemblies of God Statement of Fundamental Truths", "citation": "Article 14" }
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 14"
+            }
           ]
         },
         {
@@ -380,7 +572,10 @@
           "held_by": [],
           "learn_detail": "The prewrath position, associated with Marvin Rosenthal, is a minority refinement within dispensationalism rather than a confessionally held position of any tradition in this corpus.",
           "sources": [
-            { "label": "The Pre-Wrath Rapture of the Church", "citation": "Marvin Rosenthal, 1990" }
+            {
+              "label": "The Pre-Wrath Rapture of the Church",
+              "citation": "Marvin Rosenthal, 1990"
+            }
           ]
         },
         {
@@ -396,12 +591,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "non-denominational", "stance": "minority", "note": null, "citation": "George Eldon Ladd, The Blessed Hope (1956)" },
-            { "tradition": "baptist", "stance": "minority", "note": null, "citation": "George Eldon Ladd, The Blessed Hope (1956)" }
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": null,
+              "citation": "George Eldon Ladd, The Blessed Hope (1956)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": null,
+              "citation": "George Eldon Ladd, The Blessed Hope (1956)"
+            }
           ],
           "learn_detail": "Posttribulationism is the position of most historic premillennialists, who reject the pretribulational rapture without rejecting premillennialism itself.",
           "sources": [
-            { "label": "The Blessed Hope", "citation": "George Eldon Ladd, 1956" }
+            {
+              "label": "The Blessed Hope",
+              "citation": "George Eldon Ladd, 1956"
+            }
           ]
         },
         {
@@ -417,23 +625,64 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 32-33" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article XVII" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1038" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Nicene-Constantinopolitan Creed (381)" },
-            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Book of Common Prayer (1662), the Nicene Creed" },
-            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
-            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 32-33"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article XVII"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1038"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Nicene-Constantinopolitan Creed (381)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), the Nicene Creed"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Sermon 15, 'The Great Assize'"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 18"
+            }
           ],
           "learn_detail": "For most of the church's history and across most of the world today, 'rapture' as a distinct future event is simply not a category; the New Testament's language of meeting the Lord in the air is read as one part of a single second coming.",
           "sources": [
-            { "label": "Westminster Confession of Faith", "citation": "32-33" }
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "32-33"
+            }
           ]
         }
       ],
       "tradition_overrides": {
         "non-denominational": {
-          "positions": ["last-things.rapture/pretribulational", "last-things.rapture/posttribulational"],
+          "positions": [
+            "last-things.rapture/pretribulational",
+            "last-things.rapture/posttribulational"
+          ],
           "hold": "Non-denominational evangelical congregations divide over the timing of the rapture, with pretribulationism dominant in dispensational Bible-church circles and posttribulationism held as a real minority, without any shared confession settling between them.",
           "why": null,
           "vs": null,
@@ -446,7 +695,10 @@
       },
       "learn_note": "The word 'rapture' comes from the Latin rapturo/rapiemur used to translate 'caught up' in the Vulgate of 1 Thessalonians 4:17; it names the event every position agrees happens, not only the pretribulational timing popularly associated with it.",
       "sources": [
-        { "label": "Three Views on the Rapture", "citation": "Alan Hultberg, ed., 2010" }
+        {
+          "label": "Three Views on the Rapture",
+          "citation": "Alan Hultberg, ed., 2010"
+        }
       ]
     },
     {
@@ -484,19 +736,67 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 33.2" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1035" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" },
-            { "tradition": "lutheran", "stance": "confessional", "note": "Stated as a rejection of any teaching that punishment for the condemned will end.", "citation": "Augsburg Confession, Article XVII" },
-            { "tradition": "anglican", "stance": "majority", "note": null, "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662)" },
-            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
-            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Sermon 15, 'The Great Assize'" },
-            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 16" },
-            { "tradition": "anabaptist", "stance": "confessional", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 33.2"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1035"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": "Stated as a rejection of any teaching that punishment for the condemned will end.",
+              "citation": "Augsburg Confession, Article XVII"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article X"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Sermon 15, 'The Great Assize'"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 16"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 18"
+            }
           ],
           "learn_detail": "Eternal conscious torment has been the majority position across nearly the whole of church history and remains so today; the other two positions are minority streams within it, not equally weighted alternatives.",
           "sources": [
-            { "label": "Westminster Confession of Faith", "citation": "33.2" }
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "33.2"
+            }
           ]
         },
         {
@@ -512,12 +812,25 @@
           "orthodoxy": "contested",
           "orthodoxy_note": "Annihilationism is a minority position within evangelicalism with serious defenders, including John Stott and Edward Fudge, and is permitted within some evangelical bodies, but the majority of the historic church, across east and west, has held eternal conscious torment and regards annihilationism as a departure from that consensus.",
           "held_by": [
-            { "tradition": "anglican", "stance": "minority", "note": "Held tentatively by John Stott, who stated it was not a matter he would insist on and did not treat as heresy.", "citation": "John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)" },
-            { "tradition": "non-denominational", "stance": "minority", "note": null, "citation": "Edward Fudge, The Fire That Consumes (1982)" }
+            {
+              "tradition": "anglican",
+              "stance": "minority",
+              "note": "Held tentatively by John Stott, who stated it was not a matter he would insist on and did not treat as heresy.",
+              "citation": "John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": null,
+              "citation": "Edward Fudge, The Fire That Consumes (1982)"
+            }
           ],
           "learn_detail": "Annihilationism is sometimes called conditional immortality, emphasising that immortality is conditional on union with Christ rather than an inherent human property; the two labels describe the same position from different angles.",
           "sources": [
-            { "label": "The Fire That Consumes", "citation": "Edward Fudge, 1982" }
+            {
+              "label": "The Fire That Consumes",
+              "citation": "Edward Fudge, 1982"
+            }
           ]
         },
         {
@@ -535,13 +848,19 @@
           "held_by": [],
           "learn_detail": "Modern proponents such as Hans Urs von Balthasar have framed the position as a hope rather than a certainty; classical universalists, including Gregory of Nyssa, stated it as a doctrine.",
           "sources": [
-            { "label": "That All Shall Be Saved", "citation": "David Bentley Hart, 2019" }
+            {
+              "label": "That All Shall Be Saved",
+              "citation": "David Bentley Hart, 2019"
+            }
           ]
         }
       ],
       "tradition_overrides": {
         "anglican": {
-          "positions": ["last-things.hell/eternal-conscious-torment", "last-things.hell/annihilationism"],
+          "positions": [
+            "last-things.hell/eternal-conscious-torment",
+            "last-things.hell/annihilationism"
+          ],
           "hold": "Anglican formularies affirm everlasting punishment for the impenitent, though the Communion has never dogmatically excluded conditional immortality, and a minority within it, including John Stott, has held annihilationism as a permitted reading.",
           "why": null,
           "vs": null,
@@ -554,7 +873,10 @@
       },
       "learn_note": null,
       "sources": [
-        { "label": "Four Views on Hell", "citation": "Preston Sprinkle, ed., 2016" }
+        {
+          "label": "Four Views on Hell",
+          "citation": "Preston Sprinkle, ed., 2016"
+        }
       ]
     },
     {
@@ -592,18 +914,61 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 32.1" },
-            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Baptist Faith and Message (2000), Article X" },
-            { "tradition": "lutheran", "stance": "majority", "note": null, "citation": "Luther's Small Catechism, on the Third Article, as commonly received" },
-            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Book of Common Prayer (1662), Burial of the Dead" },
-            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "Wesley's Explanatory Notes upon the New Testament (1755), on Philippians 1:23" },
-            { "tradition": "non-denominational", "stance": "majority", "note": null, "citation": "Lausanne Covenant (1974), Paragraph 15" },
-            { "tradition": "pentecostal", "stance": "confessional", "note": null, "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14" },
-            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith (1632), Article 18" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 32.1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article X"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Luther's Small Catechism, on the Third Article, as commonly received"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), Burial of the Dead"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wesley's Explanatory Notes upon the New Testament (1755), on Philippians 1:23"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Paragraph 15"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 18"
+            }
           ],
           "learn_detail": "Reformed and Catholic accounts of this position both speak of a 'particular judgment' at death, distinct from the general judgment at the resurrection, which fixes the soul's destiny immediately.",
           "sources": [
-            { "label": "Westminster Confession of Faith", "citation": "32.1" }
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "32.1"
+            }
           ]
         },
         {
@@ -619,11 +984,19 @@
           "orthodoxy": "contested",
           "orthodoxy_note": "Soul sleep does not contradict the ecumenical creeds directly, but it stands against the confessional consensus of most traditions in this corpus that the soul is consciously present with Christ immediately after death, so it remains a live minority position rather than a settled one.",
           "held_by": [
-            { "tradition": "anabaptist", "stance": "minority", "note": "Documented among some sixteenth-century Anabaptist groups; not confessionally bound by the Dordrecht Confession either way.", "citation": "George H. Williams, The Radical Reformation (1962)" }
+            {
+              "tradition": "anabaptist",
+              "stance": "minority",
+              "note": "Documented among some sixteenth-century Anabaptist groups; not confessionally bound by the Dordrecht Confession either way.",
+              "citation": "George H. Williams, The Radical Reformation (1962)"
+            }
           ],
           "learn_detail": "Christian mortalism has also been argued by individual figures within otherwise non-mortalist traditions, including a period in Martin Luther's own writing, without becoming a confessional position of any major body.",
           "sources": [
-            { "label": "The Radical Reformation", "citation": "George H. Williams, 1962" }
+            {
+              "label": "The Radical Reformation",
+              "citation": "George H. Williams, 1962"
+            }
           ]
         },
         {
@@ -639,11 +1012,19 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1030-1032; Council of Trent, Session 25, Decree on Purgatory (1563)" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1030-1032; Council of Trent, Session 25, Decree on Purgatory (1563)"
+            }
           ],
           "learn_detail": "The Catechism is explicit that purgatory is 'entirely different from the punishment of the damned' and applies only to those already destined for heaven, a distinction easy to miss when the doctrine is summarised second-hand.",
           "sources": [
-            { "label": "Catechism of the Catholic Church", "citation": "1030-1032" }
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1030-1032"
+            }
           ]
         },
         {
@@ -654,22 +1035,37 @@
           "vs": "Defining the interval after death as a formal, dogmatically specified process of purification, as in the Catholic doctrine of purgatory.",
           "tier": null,
           "confidence_default": "leaning",
-          "refs": "2 Macc 12:44-45",
+          "refs": "2 Tim 1:16-18",
           "equivalence_group": null,
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "orthodox", "stance": "majority", "note": "The Confession of Dositheus affirms that prayer, almsgiving and the Liturgy benefit the departed; it is a seventeenth-century document, not treated by all Orthodox as binding in its details.", "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 18" }
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "The Confession of Dositheus affirms that prayer, almsgiving and the Liturgy benefit the departed; it is a seventeenth-century document, not treated by all Orthodox as binding in its details.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 18"
+            }
           ],
           "learn_detail": "Toll-house imagery, drawn from certain ascetical and hagiographic writings, is not dogmatically defined in Orthodoxy and some Orthodox theologians reject it outright; the confessionally stable core across Orthodox tradition is the practice of prayer and the Liturgy for the departed, not a specific description of the soul's post-mortem journey. This is deliberately not purgatory: it carries no defined process of expiatory suffering.",
           "sources": [
-            { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 18" }
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 18"
+            },
+            {
+              "label": "2 Maccabees 12:44-45",
+              "citation": "Received as canonical in the Orthodox and Catholic canons; the classic text for prayer for the departed. Not served by the NET Bible API, which carries the Protestant canon only."
+            }
           ]
         }
       ],
       "tradition_overrides": {
         "anabaptist": {
-          "positions": ["last-things.intermediate-state/with-christ", "last-things.intermediate-state/soul-sleep"],
+          "positions": [
+            "last-things.intermediate-state/with-christ",
+            "last-things.intermediate-state/soul-sleep"
+          ],
           "hold": "Anabaptist congregations generally affirm the soul's conscious presence with Christ after death, though a historic minority stream within the sixteenth-century movement held that the dead sleep unconsciously until the resurrection.",
           "why": null,
           "vs": null,
@@ -682,7 +1078,10 @@
       },
       "learn_note": "The Orthodox position is easy to mistake for a variant of purgatory because both traditions pray for the dead and speak of purification; the difference is that Orthodoxy has never dogmatically defined a specific expiatory process the way the Catholic doctrine does.",
       "sources": [
-        { "label": "The Orthodox Church", "citation": "Kallistos Ware, 1963/1993, on the departed" }
+        {
+          "label": "The Orthodox Church",
+          "citation": "Kallistos Ware, 1963/1993, on the departed"
+        }
       ]
     },
     {
@@ -720,13 +1119,31 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church, 1042-1047" },
-            { "tradition": "orthodox", "stance": "majority", "note": "Reflects the Orthodox emphasis on the cosmic scope of Christ's transfiguring work.", "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed" },
-            { "tradition": "reformed", "stance": "majority", "note": "Not confessionally required, but the dominant modern Reformed reading.", "citation": "Herman Bavinck, Reformed Dogmatics, vol. 4 (1918/2008)" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1042-1047"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "Reflects the Orthodox emphasis on the cosmic scope of Christ's transfiguring work.",
+              "citation": "Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Not confessionally required, but the dominant modern Reformed reading.",
+              "citation": "Herman Bavinck, Reformed Dogmatics, vol. 4 (1918/2008)"
+            }
           ],
           "learn_detail": "This position has gained ground in recent decades partly through renewed attention to Romans 8 and to the bodily nature of the resurrection as the pattern for creation's own future.",
           "sources": [
-            { "label": "Reformed Dogmatics, vol. 4", "citation": "Herman Bavinck, 1918/2008" }
+            {
+              "label": "Reformed Dogmatics, vol. 4",
+              "citation": "Herman Bavinck, 1918/2008"
+            }
           ]
         },
         {
@@ -742,18 +1159,29 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "baptist", "stance": "minority", "note": "Represented by an older dispensational reading of 2 Peter 3 as describing the present creation's literal destruction.", "citation": "C. I. Scofield, Scofield Reference Bible (1909), note on 2 Peter 3:10" }
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Represented by an older dispensational reading of 2 Peter 3 as describing the present creation's literal destruction.",
+              "citation": "C. I. Scofield, Scofield Reference Bible (1909), note on 2 Peter 3:10"
+            }
           ],
           "learn_detail": "Both positions agree the outcome is a genuinely new heaven and new earth; the dispute is specifically over whether the present material creation is the raw material of that future or is set aside for it.",
           "sources": [
-            { "label": "Scofield Reference Bible", "citation": "1909, note on 2 Peter 3:10" }
+            {
+              "label": "Scofield Reference Bible",
+              "citation": "1909, note on 2 Peter 3:10"
+            }
           ]
         }
       ],
       "tradition_overrides": {},
       "learn_note": null,
       "sources": [
-        { "label": "Surprised by Hope", "citation": "N. T. Wright, 2008" }
+        {
+          "label": "Surprised by Hope",
+          "citation": "N. T. Wright, 2008"
+        }
       ]
     }
   ]
