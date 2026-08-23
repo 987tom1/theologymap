@@ -1368,6 +1368,116 @@ The wind blows wherever it will, and you hear the sound it makes, but do not kno
 ## Luke 10:17-19
 17 Then the seventy-two returned with joy, saying, “Lord, even the demons submit to us in your name!” 18 So he said to them, “I saw Satan fall like lightning from heaven. 19 Look, I have given you authority to tread on snakes and scorpions and on the full force of the enemy, and nothing will hurt you.
 
+## Ps 82:1-8
+1 A psalm of Asaph. God stands in the assembly of El; in the midst of the gods he renders judgment. 2 He says, “How long will you make unjust legal decisions and show favoritism to the wicked? (Selah) 3 Defend the cause of the poor and the fatherless. Vindicate the oppressed and suffering. 4 Rescue the poor and needy. Deliver them from the power of the wicked. 5 They neither know nor understand. They stumble around in the dark, while all the foundations of the earth crumble. 6 I thought, ‘You are gods; all of you are sons of the Most High.’ 7 Yet you will die like mortals; you will fall like all the other rulers.” 8 Rise up, O God, and execute judgment on the earth! For you own all the nations.
+
+## John 10:34-36
+34 Jesus answered, “Is it not written in your law, ‘I said, you are gods’? 35 If those people to whom the word of God came were called ‘gods’ (and the scripture cannot be broken), 36 do you say about the one whom the Father set apart and sent into the world, ‘You are blaspheming,’ because I said, ‘I am the Son of God’?
+
+## Ps 82:1,6
+1 A psalm of Asaph. God stands in the assembly of El; in the midst of the gods he renders judgment. 6 I thought, ‘You are gods; all of you are sons of the Most High.’
+
+## Ps 82:6-7
+6 I thought, ‘You are gods; all of you are sons of the Most High.’ 7 Yet you will die like mortals; you will fall like all the other rulers.”
+
+## 2 Pet 2:4
+For if God did not spare the angels who sinned, but threw them into hell and locked them up in chains in utter darkness, to be kept until the judgment,
+
+## Gen 4:26
+And a son was also born to Seth, whom he named Enosh. At that time people began to worship the Lord.
+
+## Gen 6:2
+the sons of God saw that the daughters of humankind were beautiful. Thus they took wives for themselves from any they chose.
+
+## Mark 5:1-13
+1 So they came to the other side of the lake, to the region of the Gerasenes. 2 Just as Jesus was getting out of the boat, a man with an unclean spirit came from the tombs and met him. 3 He lived among the tombs, and no one could bind him anymore, not even with a chain. 4 For his hands and feet had often been bound with chains and shackles, but he had torn the chains apart and broken the shackles in pieces. No one was strong enough to subdue him. 5 Each night and every day among the tombs and in the mountains, he would cry out and cut himself with stones. 6 When he saw Jesus from a distance, he ran and bowed down before him. 7 Then he cried out with a loud voice, “Leave me alone, Jesus, Son of the Most High God! I implore you by God—do not torment me!” 8 (For Jesus had said to him, “Come out of that man, you unclean spirit!”) 9 Jesus asked him, “What is your name?” And he said, “My name is Legion, for we are many.” 10 He begged Jesus repeatedly not to send them out of the region. 11 There on the hillside, a great herd of pigs was feeding. 12 And the demonic spirits begged him, “Send us into the pigs. Let us enter them.” 13 Jesus gave them permission. So the unclean spirits came out and went into the pigs. Then the herd rushed down the steep slope into the lake, and about 2,000 were drowned in the lake.
+
+## James 4:7
+So submit to God. But resist the devil and he will flee from you.
+
+## 1 Pet 5:8-9
+8 Be sober and alert. Your enemy the devil, like a roaring lion, is on the prowl looking for someone to devour. 9 Resist him, strong in your faith, because you know that your brothers and sisters throughout the world are enduring the same kinds of suffering.
+
+## 1 John 4:4
+You are from God, little children, and have conquered them because the one who is in you is greater than the one who is in the world.
+
+## Luke 13:11-16
+11 and a woman was there who had been disabled by a spirit for eighteen years. She was bent over and could not straighten herself up completely. 12 When Jesus saw her, he called her to him and said, “Woman, you are freed from your infirmity.” 13 Then he placed his hands on her, and immediately she straightened up and praised God. 14 But the president of the synagogue, indignant because Jesus had healed on the Sabbath, said to the crowd, “There are six days on which work should be done! So come and be healed on those days, and not on the Sabbath day.” 15 Then the Lord answered him, “You hypocrites! Does not each of you on the Sabbath untie his ox or his donkey from its stall and lead it to water? 16 Then shouldn’t this woman, a daughter of Abraham whom Satan bound for eighteen long years, be released from this imprisonment on the Sabbath day?”
+
+## 1 Cor 10:13
+No trial has overtaken you that is not faced by others. And God is faithful: He will not let you be tried beyond what you are able to bear, but with the trial will also provide a way out so that you may be able to endure it.
+
+## Matt 12:28
+But if I cast out demons by the Spirit of God, then the kingdom of God has already overtaken you.
+
+## 1 Tim 2:5
+For there is one God and one intermediary between God and humanity, Christ Jesus, himself human,
+
+## Rom 2:14-16
+14 For whenever the Gentiles, who do not have the law, do by nature the things required by the law, these who do not have the law are a law to themselves. 15 They show that the work of the law is written in their hearts, as their conscience bears witness and their conflicting thoughts accuse or else defend them, 16 on the day when God will judge the secrets of human hearts, according to my gospel through Christ Jesus.
+
+## Rom 10:13-15
+13 For everyone who calls on the name of the Lord will be saved. 14 How are they to call on one they have not believed in? And how are they to believe in one they have not heard of? And how are they to hear without someone preaching to them? 15 And how are they to preach unless they are sent? As it is written, “How timely is the arrival of those who proclaim the good news.”
+
+## John 1:9
+The true light, who gives light to everyone, was coming into the world.
+
+## 1 Pet 3:18-20
+18 Because Christ also suffered once for sins, the just for the unjust, to bring you to God, by being put to death in the flesh but by being made alive in the spirit. 19 In it he went and preached to the spirits in prison, 20 after they were disobedient long ago when God patiently waited in the days of Noah as an ark was being constructed. In the ark a few, that is eight souls, were delivered through water.
+
+## 1 Pet 4:6
+Now it was for this very purpose that the gospel was preached to those who are now dead, so that though they were judged in the flesh by human standards they may live spiritually by God’s standards.
+
+## Acts 17:26-27
+26 From one man he made every nation of the human race to inhabit the entire earth, determining their set times and the fixed limits of the places where they would live, 27 so that they would search for God and perhaps grope around for him and find him, though he is not far from each one of us.
+
+## Acts 17:22-28
+22 So Paul stood before the Areopagus and said, “Men of Athens, I see that you are very religious in all respects. 23 For as I went around and observed closely your objects of worship, I even found an altar with this inscription: ‘To an unknown god.’ Therefore what you worship without knowing it, this I proclaim to you. 24 The God who made the world and everything in it, who is Lord of heaven and earth, does not live in temples made by human hands, 25 nor is he served by human hands, as if he needed anything, because he himself gives life and breath and everything to everyone. 26 From one man he made every nation of the human race to inhabit the entire earth, determining their set times and the fixed limits of the places where they would live, 27 so that they would search for God and perhaps grope around for him and find him, though he is not far from each one of us. 28 For in him we live and move about and exist, as even some of your own poets have said, ‘For we too are his offspring.’
+
+## 1 Cor 10:20
+No, I mean that what the pagans sacrifice is to demons and not to God. I do not want you to be partners with demons.
+
+## Deut 32:17
+They sacrificed to demons, not God, to gods they had not known; to new gods who had recently come along, gods your ancestors had not known about.
+
+## Acts 14:16-17
+16 In past generations he allowed all the nations to go their own ways, 17 yet he did not leave himself without a witness by doing good, by giving you rain from heaven and fruitful seasons, satisfying you with food and your hearts with joy.”
+
+## Matt 5:17
+“Do not think that I have come to abolish the law or the prophets. I have not come to abolish these things but to fulfill them.
+
+## 1 Cor 10:20-21
+20 No, I mean that what the pagans sacrifice is to demons and not to God. I do not want you to be partners with demons. 21 You cannot drink the cup of the Lord and the cup of demons. You cannot take part in the table of the Lord and the table of demons.
+
+## 2 Cor 6:14-16
+14 Do not become partners with those who do not believe, for what partnership is there between righteousness and lawlessness, or what fellowship does light have with darkness? 15 And what agreement does Christ have with Beliar? Or what does a believer share in common with an unbeliever? 16 And what mutual agreement does the temple of God have with idols? For we are the temple of the living God, just as God said, “I will live in them and will walk among them, and I will be their God, and they will be my people.”
+
+## 1 Cor 7:17-20
+17 Nevertheless, as the Lord has assigned to each one, as God has called each person, so must he live. I give this sort of direction in all the churches. 18 Was anyone called after he had been circumcised? He should not try to undo his circumcision. Was anyone called who is uncircumcised? He should not get circumcised. 19 Circumcision is nothing and uncircumcision is nothing. Instead, keeping God’s commandments is what counts. 20 Let each one remain in that situation in life in which he was called.
+
+## Acts 21:20-24
+20 When they heard this, they praised God. Then they said to him, “You see, brother, how many thousands of Jews there are who have believed, and they are all ardent observers of the law. 21 They have been informed about you—that you teach all the Jews now living among the Gentiles to abandon Moses, telling them not to circumcise their children or live according to our customs. 22 What then should we do? They will no doubt hear that you have come. 23 So do what we tell you: We have four men who have taken a vow; 24 take them and purify yourself along with them and pay their expenses, so that they may have their heads shaved. Then everyone will know there is nothing in what they have been told about you, but that you yourself live in conformity with the law.
+
+## Rom 10:1
+Brothers and sisters, my heart’s desire and prayer to God on behalf of my fellow Israelites is for their salvation.
+
+## Matt 28:19-20
+19 Therefore go and make disciples of all nations, baptizing them in the name of the Father and the Son and the Holy Spirit, 20 teaching them to obey everything I have commanded you. And remember, I am with you always, to the end of the age.”
+
+<!-- ======================================================================
+     New references — auto-added by render.py as empty stubs below.
+     Fill in the NET wording above the marker (or leave a stub blank);
+     nothing under this comment is ever reordered or overwritten by a
+     future run once you've given it text.
+     ====================================================================== -->
+
+<!-- ======================================================================
+     New references — auto-added by render.py as empty stubs below.
+     Fill in the NET wording above the marker (or leave a stub blank);
+     nothing under this comment is ever reordered or overwritten by a
+     future run once you've given it text.
+     ====================================================================== -->
+
 <!-- ======================================================================
      New references — auto-added by render.py as empty stubs below.
      Fill in the NET wording above the marker (or leave a stub blank);

@@ -365,6 +365,306 @@
           "citation": "John Calvin, Commentary on Genesis (1554), contrasted with Meredith G. Kline, Westminster Theological Journal 24 (1962)"
         }
       }
+    },
+    {
+      "id": "the-unseen-realm.can-a-christian-be-demonised",
+      "node_title": "Can a Christian be demonised",
+      "slug": "can-a-christian-be-demonised",
+      "domain": "the-unseen-realm",
+      "order": 4,
+      "kind": "choice",
+      "question": "Can a believer indwelt by the Holy Spirit be demonised, and what does that term mean for a Christian?",
+      "framing": "The Greek verb daimonizomai, usually translated 'demon-possessed', describes affliction by a demon in the Gospels; the English word 'possessed' is a translation choice that carries much of the modern dispute, since it suggests ownership in a way the Greek does not require. Some hold that a believer indwelt by the Spirit cannot be owned by a demon but can still be oppressed or afflicted from without; those who practise deliverance ministry commonly hold that a believer can be demonised in some degree in areas of life not yet yielded to Christ; and others hold that the category does not meaningfully apply to a believer at all. Some of the disagreement is verbal rather than substantive.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it shapes pastoral care and expectation for believers in real distress without dividing on the gospel itself.",
+      "refs": "Mark 5:1-13; James 4:7; 1 Pet 5:8-9",
+      "links": [
+        "angels-and-demons",
+        "deliverance-ministry",
+        "healing"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether a believer indwelt by the Spirit can be demonised in some degree in unyielded areas, or whether the category is confined to oppression from without, or does not apply at all, and how much of the dispute is merely verbal.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed",
+          "label": "Oppressed, not possessed",
+          "hold": "A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.",
+          "why": "Scripture describes the indwelling Spirit as God's own seal and guarantee, incompatible with a demon owning a believer, while also warning believers to resist an adversary who prowls seeking to devour.",
+          "vs": "Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 John 4:4; 1 Pet 5:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "John Stott, Christ the Controversialist (1970), ch. 8"
+            }
+          ],
+          "learn_detail": "Much of the dispute over whether a believer can be 'demon-possessed' turns on the English word 'possessed', which suggests ownership; the underlying Greek daimonizomai need mean only 'to be under demonic affliction'.",
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, 1994, ch. 20"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/demonised-in-unyielded-areas",
+          "label": "Demonised in part",
+          "hold": "A believer can be demonised in some degree in areas of life not yet yielded to Christ, even while salvation and the Spirit's indwelling remain secure, and deliverance ministry addresses those areas specifically.",
+          "why": "Deliverance ministers report that believers presenting with entrenched bondage in specific, unsurrendered areas of life are set free through the same authority Christ exercised over demons, without this implying the believer's salvation was ever in doubt.",
+          "vs": "Confining every believer's demonic affliction to attack from outside the person, denying that a demon can operate in a degree within any area of a believer's own life.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 5:1-13; Luke 13:11-16",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Critics regard any degree of demonisation within a believer as incompatible with the Spirit's indwelling; practitioners who hold this position distinguish it sharply from ownership or possession and regard it as compatible with assurance of salvation.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "minority",
+              "note": "A practice-based position within deliverance-ministry circles, not addressed by the classical Statement of Fundamental Truths.",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, Pigs in the Parlor: A Practical Guide to Deliverance (1973)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Held within charismatic-leaning independent congregations practising deliverance ministry.",
+              "citation": "Derek Prince, They Shall Expel Demons (1998)"
+            }
+          ],
+          "learn_detail": "Practitioners of this view are careful to distinguish 'a believer can be demonised' from 'a believer can be possessed' in the sense of being owned by a demon; the distinction is central to how they explain the position to critics.",
+          "sources": [
+            {
+              "label": "Pigs in the Parlor",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, 1973"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.can-a-christian-be-demonised/category-inapplicable",
+          "label": "Category inapplicable",
+          "hold": "The category translated 'demon-possessed' describes a phenomenon Scripture attributes to those outside a saving relationship with Christ, and does not meaningfully apply to a believer, whose struggles are properly addressed as sin, temptation, or affliction.",
+          "why": "Scripture nowhere narrates a believer being demonised, and collapsing ordinary struggles with sin or affliction into a demonic category risks displacing the church's true task of biblical repentance and counsel.",
+          "vs": "Applying the category of demonisation to a believer's struggles at all, rather than addressing them as sin, temptation, or affliction to be met with repentance and pastoral counsel.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "James 4:7; 1 Cor 10:13",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "minority",
+              "note": "A minority position associated with the biblical counseling movement, distinct from the tradition's more common oppression-not-possession view.",
+              "citation": "Jay E. Adams, Competent to Counsel (1970)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Competent to Counsel",
+              "citation": "Jay E. Adams, 1970"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Some of this disagreement is verbal: the English word 'possessed' suggests ownership, but the underlying Greek daimonizomai need only mean affliction. A practitioner of demonisation-in-part and a critic who insists a believer 'cannot be possessed' may agree on more than the vocabulary suggests.",
+      "sources": [
+        {
+          "label": "Systematic Theology",
+          "citation": "Wayne Grudem, 1994, ch. 20"
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed",
+            "the-unseen-realm.can-a-christian-be-demonised/category-inapplicable"
+          ],
+          "hold": "Most Reformed teaching holds a believer cannot be possessed but can be oppressed from without; a minority within the biblical counseling movement rejects the category of demonisation for believers entirely.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The biblical counseling movement's rejection of the category is a real minority stream, not the tradition's common teaching.",
+          "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20, contrasted with Jay E. Adams, Competent to Counsel (1970)"
+        }
+      }
+    },
+    {
+      "id": "the-unseen-realm.deliverance-ministry",
+      "node_title": "Deliverance ministry",
+      "slug": "deliverance-ministry",
+      "domain": "the-unseen-realm",
+      "order": 5,
+      "kind": "choice",
+      "question": "How should the church respond to a person believed to be under demonic affliction?",
+      "framing": "Jesus and the apostles cast out demons, and the church has always had some response to affliction believed to be demonic. Catholic and Orthodox practice holds this as a formal, sacramental rite of exorcism, regulated by and performed only under the authority of the bishop, never as private or freelance practice. Pentecostal and charismatic practice holds deliverance as a ministry any Spirit-filled believer may exercise in Jesus's name. A third position holds that the church's proper response is the ordinary means of grace, repentance, prayer, and pastoral care, without a specialised rite or ministry.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: it governs real pastoral practice without settling a single confessional question.",
+      "refs": "Mark 16:17; Matt 12:28; James 5:14-16",
+      "links": [
+        "can-a-christian-be-demonised",
+        "angels-and-demons",
+        "healing"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether deliverance from demonic affliction should be sought through the church's formal, bishop-regulated rite, through the ministry any Spirit-filled believer may exercise, or through the ordinary means of grace alone.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "the-unseen-realm.deliverance-ministry/formal-exorcism",
+          "label": "Formal exorcism",
+          "hold": "Deliverance from demonic affliction is exercised through the church's formal rite of exorcism, administered only by a priest specifically authorised by the bishop after careful discernment, never as private or freelance practice.",
+          "why": "The church holds authority over demons as a body, not as scattered individuals, so the rite is reserved to ordained ministers under episcopal oversight to guard against both presumption and error.",
+          "vs": "Treating deliverance as a ministry any believer may exercise informally, without ordination or the bishop's specific authorisation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 16:17; James 5:14-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Governed by canon law and the revised Rite of Exorcism; explicitly not a ministry any believer may undertake privately.",
+              "citation": "Catechism of the Catholic Church, 1673; De Exorcismis et Supplicationibus Quibusdam (revised 1999)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Exorcism prayers are included within the baptismal rite itself and administered by clergy under episcopal oversight beyond that.",
+              "citation": "Euchologion (Great Book of Needs), exorcism prayers of the baptismal rite"
+            }
+          ],
+          "learn_detail": "This is a regulated ministry under the bishop, not freelance practice; a Catholic or Orthodox reader should not recognise their tradition's practice in a description drawn from charismatic deliverance ministry.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1673"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.deliverance-ministry/charismatic-deliverance",
+          "label": "Charismatic deliverance",
+          "hold": "Deliverance from demonic oppression is a ministry any Spirit-filled believer may exercise in the name of Jesus, through prayer, command, and the casting out of demons, often carried out in dedicated deliverance sessions.",
+          "why": "Jesus gave authority over demons to his followers generally, not to an ordained office alone, and pastoral experience of oppression calls for direct ministry rather than referral to a specialised rite.",
+          "vs": "Reserving the ministry of deliverance to an ordained office acting under a bishop's specific authorisation, rather than exercising it as any Spirit-filled believer's calling.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mark 16:17; Luke 10:17-19",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, position paper, 'Ministry to Persons Oppressed by Demons' (1972)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Practised within charismatic-leaning independent congregations rather than confessionally required.",
+              "citation": "Frank D. Hammond and Ida Mae Hammond, Pigs in the Parlor: A Practical Guide to Deliverance (1973)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Assemblies of God position paper on demonic oppression",
+              "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+            }
+          ]
+        },
+        {
+          "id": "the-unseen-realm.deliverance-ministry/ordinary-means-of-grace",
+          "label": "Ordinary means of grace",
+          "hold": "The church's proper response to spiritual affliction is repentance, prayer, Scripture, and pastoral care, without a specialised deliverance ministry or rite set apart for the purpose.",
+          "why": "The New Testament's own instruction for the afflicted is prayer and the elders' pastoral care, and confidence in the ordinary means of grace is sufficient without a dedicated deliverance practice.",
+          "vs": "Setting apart a specialised rite or ministry of deliverance, whether sacramental or charismatic, distinct from the church's ordinary pastoral care and means of grace.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "James 5:14-16; 1 Pet 5:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, 1994, ch. 20"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Thomas's own map also carries a Territorial spirits node at the fourth tier; this file omits it, leaving open for the main thread whether that finer-grained question belongs in a wizard meant for a stranger's first pass rather than a specialist's.",
+      "sources": [
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1673"
+        },
+        {
+          "label": "Assemblies of God position paper on demonic oppression",
+          "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+        }
+      ]
     }
   ]
 }
