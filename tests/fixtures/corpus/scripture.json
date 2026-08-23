@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "domain": "scripture",
+  "doctrines": [
+    {
+      "id": "scripture.inerrancy",
+      "node_title": "Inerrancy",
+      "slug": "inerrancy",
+      "domain": "scripture",
+      "order": 1,
+      "kind": "choice",
+      "question": "How far does Scripture's truthfulness extend?",
+      "framing": "Everyone in this conversation holds that Scripture is true. The question is the range of that claim - whether it covers history and cosmology as well as faith and salvation.",
+      "suggested_tier": "T1",
+      "tier_note": "The authority of Scripture is the ground every other doctrine is argued from.",
+      "refs": "2 Tim 3:16-17; John 10:35",
+      "links": ["canon"],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether inerrancy extends to history and science or only to what Scripture teaches for salvation.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "scripture.inerrancy/full",
+          "label": "Full inerrancy",
+          "hold": "Scripture is without error in all that it affirms, including what it affirms about history and the created order.",
+          "why": "Scripture's self-attestation treats it as true in what it asserts, not only in what it teaches for salvation.",
+          "vs": "Limited infallibility - Scripture trustworthy on faith and salvation, errant on history and science.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17; John 10:35",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 1.4-1.5, 1.8" }
+          ],
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "1646, ch. 1.4-1.5" }
+          ]
+        },
+        {
+          "id": "scripture.inerrancy/limited",
+          "label": "Limited infallibility",
+          "hold": "Scripture is wholly trustworthy in what it teaches for salvation, and speaks of history and the natural world in the terms of its own age.",
+          "why": "The purpose for which Scripture was given sets the range of the claim its truthfulness makes.",
+          "vs": null,
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "2 Tim 3:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "sources": [
+            { "label": "Lausanne Covenant", "citation": "1974, Article 2" }
+          ]
+        }
+      ],
+      "sources": [
+        { "label": "Chicago Statement on Biblical Inerrancy", "citation": "ICBI, 1978, Articles XII-XIII" }
+      ]
+    },
+    {
+      "id": "scripture.canon",
+      "node_title": "Canon",
+      "slug": "canon",
+      "domain": "scripture",
+      "order": 2,
+      "kind": "choice",
+      "question": "Which books belong to Scripture, and on what basis?",
+      "framing": "The question is both which books the church received and what made them receivable - whether the church conferred authority on them or recognised an authority already there.",
+      "suggested_tier": "T1",
+      "tier_note": "Which books count is prior to any argument made from them.",
+      "refs": "2 Pet 3:15-16",
+      "links": ["inerrancy"],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out what the church was doing when it recognised the canon, and whether the deuterocanonical books belong inside it or beside it.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "scripture.canon/protestant",
+          "label": "Sixty-six books",
+          "hold": "The canon is the sixty-six books of the Protestant Bible, recognised by the church rather than conferred by it.",
+          "why": "Authority belongs to the books because of their origin, and the church's role was to receive what was already given.",
+          "vs": null,
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 3:15-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith 1.2-1.3" }
+          ],
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "1646, ch. 1.2-1.3" }
+          ]
+        },
+        {
+          "id": "scripture.canon/deuterocanon",
+          "label": "With deuterocanon",
+          "hold": "The canon includes the deuterocanonical books received by the church from the earliest centuries and confirmed by council.",
+          "why": "The books the church read as Scripture in its worship are the books the church holds as Scripture.",
+          "vs": null,
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Pet 3:15-16",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Council of Trent, Session IV (1546)" }
+          ],
+          "sources": [
+            { "label": "Council of Trent", "citation": "Session IV, Decree on Sacred Books (1546)" }
+          ]
+        }
+      ],
+      "sources": [
+        { "label": "Council of Trent", "citation": "Session IV (1546)" }
+      ]
+    }
+  ]
+}

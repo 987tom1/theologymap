@@ -76,6 +76,34 @@ def pg(method, path, body=None, headers=None):
     return status, parsed, resp_headers
 
 
+def snapshot_map(user_id, force=False):
+    """Preserve the map currently stored for `user_id`, before it is overwritten.
+
+    Locked by docs/hosting/decisions.md (2026-08-23): the wizard is the first
+    feature that can replace a whole map in one action, and `force: True` walks
+    past all four empty-save guards. Every write path to `users.markdown` calls
+    this first.
+
+    The throttle (one per user per hour, always on force) and the retention
+    (last 20) live in the SQL function `public.snapshot_map`, not here, so the
+    two call sites cannot drift and the whole snapshot is one round trip on a
+    path autosave hits constantly.
+
+    Best-effort by design: it never raises and never blocks the save. Losing a
+    snapshot is a far smaller failure than losing the ability to save at all --
+    which also means this function cannot tell you whether the migration landed.
+    Probe the RPC directly for that; see supabase/verify-map-versions-migration.sql.
+
+    Returns True only when a row was actually written.
+    """
+    try:
+        status, parsed, _ = pg("POST", "/rpc/snapshot_map",
+                               {"p_user_id": user_id, "p_force": bool(force)})
+    except Exception:
+        return False
+    return status in (200, 204) and parsed is True
+
+
 def _send(handler, status, content_type, payload):
     handler.send_response(status)
     handler.send_header("Content-Type", content_type)

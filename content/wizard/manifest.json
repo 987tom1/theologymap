@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "domains": [
+    { "id": "scripture",                    "name": "Scripture",                    "order": 1,  "file": "scripture.json" },
+    { "id": "god",                          "name": "God",                          "order": 2,  "file": "god.json" },
+    { "id": "christ",                       "name": "Christ",                       "order": 3,  "file": "christ.json" },
+    { "id": "holy-spirit",                  "name": "Holy Spirit",                  "order": 4,  "file": "holy-spirit.json" },
+    { "id": "humanity-and-sin",             "name": "Humanity and sin",             "order": 5,  "file": "humanity-and-sin.json" },
+    { "id": "salvation",                    "name": "Salvation",                    "order": 6,  "file": "salvation.json" },
+    { "id": "church",                       "name": "Church",                       "order": 7,  "file": "church.json" },
+    { "id": "last-things",                  "name": "Last things",                  "order": 8,  "file": "last-things.json" },
+    { "id": "creation-and-science",         "name": "Creation and science",         "order": 9,  "file": "creation-and-science.json" },
+    { "id": "the-unseen-realm",             "name": "The unseen realm",             "order": 10, "file": "the-unseen-realm.json" },
+    { "id": "ethics",                       "name": "Ethics",                       "order": 11, "file": "ethics.json" },
+    { "id": "formation-and-practice",       "name": "Formation and practice",       "order": 12, "file": "formation-and-practice.json" },
+    { "id": "missions-and-world-religions", "name": "Missions and world religions", "order": 13, "file": "missions-and-world-religions.json" },
+    { "id": "church-history-and-authority", "name": "Church history and authority", "order": 14, "file": "church-history-and-authority.json" }
+  ]
+}

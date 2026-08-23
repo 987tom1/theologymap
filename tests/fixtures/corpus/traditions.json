@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "traditions": [
+    {
+      "id": "non-denominational",
+      "display_name": "Non-denominational evangelical",
+      "short_name": "Non-denom",
+      "kind": "stream",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 1,
+      "blurb": "Independent evangelical congregations without a binding confession, typically low-church and broadly Baptistic on the sacraments.",
+      "confessional_sources": [
+        "Lausanne Covenant (1974)",
+        "National Association of Evangelicals, Statement of Faith (1943)"
+      ],
+      "map": {
+        "title": "Non-denominational evangelical",
+        "intro": "Where this stream has no single confessional answer, the entry says so rather than picking one."
+      }
+    },
+    {
+      "id": "pentecostal",
+      "display_name": "Pentecostal / Charismatic",
+      "short_name": "Pentecostal",
+      "kind": "movement",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 2,
+      "blurb": "Churches holding that the gifts of the Spirit described in the New Testament, including tongues, prophecy and healing, continue in the church today.",
+      "confessional_sources": [
+        "Assemblies of God, Statement of Fundamental Truths (1916, revised)",
+        "Church of God (Cleveland, Tennessee), Declaration of Faith",
+        "Australian Christian Churches, Statement of Faith"
+      ],
+      "map": {
+        "title": "Pentecostal / Charismatic",
+        "intro": "Positions taken from the Assemblies of God Statement of Fundamental Truths and comparable classical Pentecostal statements. The movement is broad and only lightly confessional, so an entry no published statement supports says so."
+      }
+    },
+    {
+      "id": "inc",
+      "display_name": "International Network of Churches",
+      "short_name": "INC",
+      "kind": "movement",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 3,
+      "blurb": "An Australian Pentecostal movement of autonomous churches, known as Christian Outreach Centre until 2013, holding a short statement of faith rather than a historic confession.",
+      "confessional_sources": [
+        "International Network of Churches, Statement of Faith",
+        "Christian Outreach Centre, Statement of Beliefs (the movement's name before 2013)"
+      ],
+      "map": {
+        "title": "International Network of Churches",
+        "intro": "INC has far less confessional literature than the older communions, and the sourcing standard does not relax for it. Where a position cannot be traced to a published INC or affiliated statement, the entry says so rather than generalising from Pentecostalism at large."
+      }
+    },
+    {
+      "id": "baptist",
+      "display_name": "Baptist",
+      "short_name": "Baptist",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 4,
+      "blurb": "Churches practising the baptism of professing believers only, governed congregationally, and holding the local church's independence under Christ.",
+      "confessional_sources": [
+        "Second London Baptist Confession (1689)",
+        "New Hampshire Confession of Faith (1833)",
+        "Baptist Faith and Message (2000)"
+      ],
+      "map": {
+        "title": "Baptist",
+        "intro": "Positions taken from the Second London Confession, the New Hampshire Confession and the Baptist Faith and Message. Baptists are confessional but not creedally bound, so an entry notes where the confessions differ from one another."
+      }
+    },
+    {
+      "id": "anglican",
+      "display_name": "Anglican / Episcopal",
+      "short_name": "Anglican",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 5,
+      "blurb": "Churches of the Anglican Communion, whose formularies are the Thirty-Nine Articles, the Book of Common Prayer and the Ordinal.",
+      "confessional_sources": [
+        "Thirty-Nine Articles of Religion (1571)",
+        "Book of Common Prayer (1662)",
+        "The Books of Homilies (1547, 1571)",
+        "Chicago-Lambeth Quadrilateral (1888)"
+      ],
+      "map": {
+        "title": "Anglican / Episcopal",
+        "intro": "Positions taken from the Thirty-Nine Articles and the 1662 Prayer Book. The formularies are deliberately capacious on several questions, and where they are, the entry describes the breadth rather than picking a party within it."
+      }
+    },
+    {
+      "id": "reformed",
+      "display_name": "Reformed / Presbyterian",
+      "short_name": "Reformed",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 6,
+      "blurb": "Churches confessing the Westminster Standards or the Three Forms of Unity.",
+      "confessional_sources": [
+        "Westminster Confession of Faith (1646)",
+        "Westminster Shorter and Larger Catechisms (1647)",
+        "Belgic Confession (1561)",
+        "Heidelberg Catechism (1563)",
+        "Canons of Dordt (1619)"
+      ],
+      "map": {
+        "title": "Reformed / Presbyterian",
+        "intro": "Positions taken from the Westminster Standards and the Three Forms of Unity."
+      }
+    },
+    {
+      "id": "roman-catholic",
+      "display_name": "Roman Catholic",
+      "short_name": "Catholic",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 7,
+      "blurb": "The church in communion with the Bishop of Rome, teaching through the ecumenical councils, the papal magisterium and the Catechism.",
+      "confessional_sources": [
+        "Catechism of the Catholic Church (1992, revised 1997)",
+        "Council of Trent (1545-1563)",
+        "Documents of the Second Vatican Council (1962-1965)",
+        "Code of Canon Law (1983)"
+      ],
+      "map": {
+        "title": "Roman Catholic",
+        "intro": "Positions taken from the Catechism of the Catholic Church and the conciliar documents it cites."
+      }
+    },
+    {
+      "id": "orthodox",
+      "display_name": "Eastern Orthodox",
+      "short_name": "Orthodox",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 8,
+      "blurb": "The Eastern churches in communion with the ancient patriarchates, holding the faith of the seven ecumenical councils and the liturgical tradition that carries it.",
+      "confessional_sources": [
+        "The Nicene-Constantinopolitan Creed (381)",
+        "The definitions of the seven ecumenical councils (325-787)",
+        "The Confession of Dositheus, Synod of Jerusalem (1672)",
+        "The Longer Catechism of St Philaret of Moscow (1830)"
+      ],
+      "map": {
+        "title": "Eastern Orthodox",
+        "intro": "Positions taken from the conciliar definitions and the received catechetical tradition. Orthodoxy does not confess through a single systematic document, so an entry names the source it rests on."
+      }
+    },
+    {
+      "id": "lutheran",
+      "display_name": "Lutheran",
+      "short_name": "Lutheran",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 9,
+      "blurb": "Churches subscribing to the Book of Concord, holding justification by faith alone as the article by which the church stands or falls.",
+      "confessional_sources": [
+        "Augsburg Confession (1530)",
+        "Luther's Small and Large Catechisms (1529)",
+        "Formula of Concord (1577)",
+        "The Book of Concord (1580)"
+      ],
+      "map": {
+        "title": "Lutheran",
+        "intro": "Positions taken from the Book of Concord. Where confessional subscription differs in practice between Lutheran bodies, the entry says so."
+      }
+    },
+    {
+      "id": "methodist",
+      "display_name": "Methodist / Wesleyan",
+      "short_name": "Methodist",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 10,
+      "blurb": "Churches in the Wesleyan line, holding prevenient grace, the possibility of entire sanctification, and Wesley's abridgement of the Thirty-Nine Articles.",
+      "confessional_sources": [
+        "The Articles of Religion (1784, Wesley's abridgement of the Thirty-Nine Articles)",
+        "Wesley's Standard Sermons",
+        "Wesley's Explanatory Notes upon the New Testament (1755)",
+        "The Book of Discipline (United Methodist Church)"
+      ],
+      "map": {
+        "title": "Methodist / Wesleyan",
+        "intro": "Positions taken from the Articles of Religion and Wesley's standard doctrinal sources."
+      }
+    },
+    {
+      "id": "anabaptist",
+      "display_name": "Anabaptist / Mennonite",
+      "short_name": "Anabaptist",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 11,
+      "blurb": "Churches in the radical reformation line, holding believers' baptism, a disciplined visible church, and the peace witness as part of discipleship.",
+      "confessional_sources": [
+        "Schleitheim Confession (1527)",
+        "Dordrecht Confession of Faith (1632)",
+        "Confession of Faith in a Mennonite Perspective (1995)"
+      ],
+      "map": {
+        "title": "Anabaptist / Mennonite",
+        "intro": "Positions taken from the Schleitheim and Dordrecht Confessions and the later Mennonite confessions that stand in their line."
+      }
+    },
+    {
+      "id": "restorationist",
+      "display_name": "Restorationist / Churches of Christ",
+      "short_name": "Restoration",
+      "kind": "movement",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 12,
+      "blurb": "Churches of the Stone-Campbell movement, which is deliberately non-creedal and seeks to restore the practice of the New Testament church directly from scripture.",
+      "confessional_sources": [
+        "Thomas Campbell, Declaration and Address (1809)",
+        "Alexander Campbell, The Christian System (1839)",
+        "Last Will and Testament of the Springfield Presbytery (1804)"
+      ],
+      "map": {
+        "title": "Restorationist / Churches of Christ",
+        "intro": "The movement rejects creeds on principle, so its positions are drawn from its founding documents and its settled common practice, and an entry says which of the two it rests on."
+      }
+    },
+    {
+      "id": "quaker",
+      "display_name": "Religious Society of Friends (Quakers)",
+      "short_name": "Quaker",
+      "kind": "tradition",
+      "in_ui": false,
+      "in_scorecard": false,
+      "order": 90,
+      "blurb": "Friends meetings, which hold that the inward light of Christ is directly available to every person and which do not practise the outward sacraments.",
+      "confessional_sources": [
+        "Robert Barclay, An Apology for the True Christian Divinity (1678)",
+        "Advices and Queries (Britain Yearly Meeting)"
+      ],
+      "map": null
+    },
+    {
+      "id": "oneness-pentecostal",
+      "display_name": "Oneness Pentecostalism",
+      "short_name": "Oneness",
+      "kind": "movement",
+      "in_ui": false,
+      "in_scorecard": false,
+      "order": 91,
+      "blurb": "Modalist Pentecostal bodies that reject the Trinity of persons and baptise in the name of Jesus alone.",
+      "confessional_sources": [
+        "United Pentecostal Church International, Articles of Faith"
+      ],
+      "map": null
+    }
+  ]
+}
