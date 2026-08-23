@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "domain": "church",
+  "doctrines": [
+    {
+      "id": "church.baptism",
+      "node_title": "Baptism",
+      "slug": "baptism",
+      "domain": "church",
+      "order": 1,
+      "kind": "choice",
+      "question": "Who is baptism for, and what does it effect?",
+      "framing": "Two questions travel together here: who may rightly be baptised, and what the water does. A view of the second usually settles the first.",
+      "suggested_tier": "T3",
+      "tier_note": "Churches in full fellowship with one another differ on this, which places it below the doctrines that define the gospel itself.",
+      "refs": "Matt 28:19; Acts 2:38-39; Col 2:11-12; 1 Pet 3:21",
+      "links": ["the-lords-supper"],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the household baptisms in Acts and the covenant argument from circumcision in Colossians 2 carry the weight the paedobaptist case puts on them, and decide what baptism actually effects before deciding who receives it.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.baptism/believer",
+          "label": "Believers only",
+          "hold": "Baptism is for those who have professed faith, and it signifies the union with Christ they have already entered.",
+          "why": "Every baptism the New Testament narrates follows a profession of faith.",
+          "vs": "Infant baptism as the ordinary entry into the covenant community.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Matt 28:19; Acts 2:38-39",
+          "equivalence_group": "credobaptism",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Second London Baptist Confession (1689), ch. 29" }
+          ],
+          "sources": [
+            { "label": "Second London Baptist Confession", "citation": "1689, ch. 29" }
+          ]
+        },
+        {
+          "id": "church.baptism/infant-covenant",
+          "label": "Infant, covenantal",
+          "hold": "The children of believers are baptised as members of the covenant community, on the same ground as circumcision under the old covenant.",
+          "why": "The covenant sign was given to households, and the New Testament nowhere withdraws it from them.",
+          "vs": "Believers-only baptism as the exclusive New Testament pattern.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Col 2:11-12; Acts 2:38-39",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, ch. 28" }
+          ],
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "1646, ch. 28" }
+          ]
+        }
+      ],
+      "sources": [
+        { "label": "Westminster Confession of Faith", "citation": "1646, ch. 28" }
+      ]
+    },
+    {
+      "id": "church.lords-supper",
+      "node_title": "The Lord's Supper",
+      "slug": "the-lords-supper",
+      "domain": "church",
+      "order": 2,
+      "kind": "choice",
+      "question": "In what sense is Christ present in the Lord's Supper?",
+      "framing": "The disagreement is not over whether the Supper matters but over what happens in it, and the answers range from a change in the elements themselves to a memorial that works on the memory.",
+      "suggested_tier": "T3",
+      "tier_note": "Churches that recognise one another's baptisms have differed on this for five centuries.",
+      "refs": "1 Cor 11:23-26; John 6:53-56",
+      "links": ["baptism"],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out what 'this is my body' claimed in its own setting, and decide whether the Supper conveys anything or only recalls something.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church.lords-supper/spiritual",
+          "label": "Spiritual presence",
+          "hold": "Christ is truly present to faith in the Supper by the Spirit, without any change in the elements themselves.",
+          "why": "The Supper is a means of grace rather than a bare sign, and the Spirit unites the believer to the ascended Christ.",
+          "vs": "A purely memorial Supper in which nothing is received.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 11:23-26",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, ch. 29" }
+          ],
+          "sources": [
+            { "label": "Westminster Confession of Faith", "citation": "1646, ch. 29" }
+          ]
+        },
+        {
+          "id": "church.lords-supper/memorial",
+          "label": "Memorial",
+          "hold": "The Supper is a remembrance of Christ's death, in which the elements signify but do not convey his body and blood.",
+          "why": "Christ's command was to do this in remembrance of him, and the signs point to a finished work rather than repeat it.",
+          "vs": null,
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Cor 11:23-26",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            { "tradition": "baptist", "stance": "majority", "note": null, "citation": "Baptist Faith and Message (2000), Article VII" }
+          ],
+          "sources": [
+            { "label": "Baptist Faith and Message", "citation": "2000, Article VII" }
+          ]
+        }
+      ],
+      "sources": [
+        { "label": "Westminster Confession of Faith", "citation": "1646, ch. 29" }
+      ]
+    }
+  ]
+}

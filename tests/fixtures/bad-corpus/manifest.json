@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "domains": [
+    { "id": "scripture", "name": "Scripture", "order": 1, "file": "scripture.json" }
+  ]
+}

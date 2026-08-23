@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "traditions": [
+    {
+      "id": "reformed",
+      "display_name": "Reformed / Presbyterian",
+      "short_name": "Reformed",
+      "kind": "tradition",
+      "in_ui": true,
+      "in_scorecard": true,
+      "order": 1,
+      "blurb": "Churches confessing the Westminster Standards or the Three Forms of Unity.",
+      "confessional_sources": ["Westminster Confession of Faith (1646)"],
+      "map": { "title": "Reformed / Presbyterian", "intro": "Positions taken from the Westminster Standards." }
+    }
+  ]
+}
