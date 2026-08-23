@@ -573,14 +573,83 @@ the merge deployed. Every row is a command that was run and an output that was r
 | The ordinary save path still guarded | **PASS** — `GET` and `POST /api/map` with a bogus user id both `404 unknown_user` |
 | **Byte identity, hosted**: `POST /api/render` with the full 99-node map | **PASS** — `eaedf3e4…1a90`, phase 2's LF baseline exactly. **The hashes did not move.** |
 
-**What production could not tell me, and I am not claiming it did.** There is still
-no map on production with a non-empty `markdown` — both rows (`Test1`, `Thomas`)
-have `node_count: 0`, which session 7 established is correct and not a bug. So the
-*happy paths* of `copy_from`, of provenance clearing, and of `started_from` on a
-gallery card have been proven by their guards and by local reasoning, not by
-observation: there is nothing on the server yet to copy. The first real map saved
-through `/edit` will exercise all three. The guards above are the half that could
-be observed, and they were.
+**What production could not tell me at merge time.** There was no map on production
+with a non-empty `markdown`, so the *happy paths* of `copy_from`, of provenance
+clearing, and of `started_from` were proven only by their guards and by local
+reasoning. That gap is now closed — see the next section, which also records a
+**500 the guards were hiding**.
+
+---
+
+## Addendum, same day — a seeded map, and the bug it immediately found
+
+Thomas asked for his real map to be seeded into the hosted `Thomas` row so phase 4
+has something to test against. Done through the admin `save_map` route (name + PIN
+verified server-side; no session ever held the row id or wrote it anywhere).
+
+**Before overwriting, I looked at what was there** — the rule this program keeps
+having to relearn. The row was **not** empty: it held 29 bytes,
+`# Beliefs
+
+## My first belief
+`, byte-for-byte what `startByHand()` in
+`web/first-run.js` produces, with an `updated_at` later than the one my own
+pre-merge check had seen. **Somebody clicked "Write my first belief" on the new
+first-run screen and it worked.** A placeholder node with no fields, so overwriting
+it destroyed nothing.
+
+That also settles the thing session 7 could only prove *by construction*: the
+sibling-`render`-module trap is **not** firing. Local `map_stats` on those 29 bytes
+returns `node_count: 1`; production returned `node_count: 1`. Observed, not argued.
+
+### The bug: `copy_from` returned 500 on production, and every guard I had probed returned before reaching it
+
+`_lib.row_by_name(name, select)` ends in `_pick_exact`, which decides the match with
+`row["name"].casefold()`. `api/map.py`'s `_copy_from` called it with
+`select="id,markdown,is_public"` — **no `name` column** — so the lookup raised
+`KeyError`, `@guard` turned it into `500 server_error`, and the message said
+nothing. The repo's other two callers both happen to include `name`, so the trap had
+never been sprung.
+
+**Why the pre-merge verification missed it, stated plainly rather than excused:**
+every `copy_from` probe I ran before merging used a bogus `user_id`, and the caller
+lookup returns `404 unknown_user` *before* `row_by_name` is ever reached. Three
+green guard checks, and not one of them executed the failing line. A route's error
+paths passing is not evidence its success path exists.
+
+**Fixed in the shared helper, not at the call site** (`de09a32`). `row_by_name` now
+puts `name` into the select itself, via a pure `_with_name()` with a regression test
+in `api/_test_lib.py`. Patching `api/map.py` alone would have left the trap armed
+for the next caller; this makes it unfireable. Phase 2's Blue hat asked integration
+passes to consider *"what does each route trust, and who else publishes that
+value?"* — this is the same shape one level down: what does a shared helper
+**require** of its callers, and does anything enforce it?
+
+### Verified on production after the fix, with a real map to copy
+
+| Check | Result |
+|---|---|
+| Seed: `theology-map.md` → the hosted `Thomas` row via admin `save_map` | **PASS** — 26,733 bytes sent; stored markdown **character-identical** to the file on disk |
+| `/api/gallery` for Thomas | **PASS** — **99 beliefs, 36 open questions**, tiers `{T1 11, T1.5 8, T2 22, T2.5 19, T3 37, T4 2, untiered 0}` — matching the local numbers exactly |
+| Gallery reply still leaks nothing | **PASS** — keys are exactly `name`, `updated_at`, `node_count`, `open_count`, `tier_counts` |
+| `POST /api/render {"name":"Thomas"}` — the public read path, now with real content | **PASS** — `eaedf3e4…1a90`, the phase-2 LF baseline. **The hashes did not move.** |
+| `copy_from` **happy path** (Thomas → Test1) | **PASS** — 200; 26,448 chars; byte-identical to the source |
+| `started_from` on the copier's gallery card | **PASS** — `'Thomas'`, alongside `node_count: 99` |
+| Provenance **clears on the first divergent save** | **PASS** — one edit later, `started_from` is `None` and the count moved to 100 |
+| Guard: source not public | **PASS** — `403 not_public` |
+| Guard: caller's map not empty | **PASS** — `409 not_empty` |
+| Guard: source does not exist | **PASS** — `404 unknown_user` |
+| Guard: copying from yourself | **PASS** — `400 bad_request` |
+| `Test1` restored to empty afterwards | **PASS** — 0 bytes; the site is as it was apart from the seed |
+
+**Consequence for the next session:** the hosted `Thomas` row is now a **copy** of
+`theology-map.md`, not a link to it. Nothing syncs them; they diverge the moment
+either side is edited. Project 13's non-negotiable 5 still stands — the file on disk
+is Thomas's personal copy and is *not* user 1's row — and this addendum does not
+change that, it just means the row is no longer empty. `decisions.md` already wanted
+this: *"Thomas's own map is a comparison target like anyone else's."* Phase 6 needs
+it; phase 4 now gets a real gallery card, a real `copy_from` source and real counts
+to test against.
 
 ### Contrast script output
 
