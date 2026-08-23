@@ -52,6 +52,21 @@ frozen — it produces content, not code. Everything else is sequential.
 
 ## Progress
 
+- **Session 9 (phase 4, Tasks 0–4) ran 2026-08-23 and is merged.** `map_versions`
+  (written first, by the locked decision, and **verified applied on production** —
+  the table, the throttle and the force exception all exercised against the real
+  database), the content manifest and the fourteen-tradition registry, the
+  validator with all twenty rules, and the pure generator. **Session 10 (Tasks
+  5–8) is next**, on the same `phase-4-wizard` branch. Three things for it to
+  read in `phase-4-outcome.md` before touching the plan: `traditions.json` has
+  **fourteen** entries not thirteen (`decisions.md` adds INC), the validator's
+  missing-file check is a **warning** not an error, and **Task 4's tests read
+  `tests/fixtures/corpus/`, not `content/wizard/`** — the plan's Task 4 asserts
+  on doctrines Task 6 has not written yet. Task 8's suite must add a run against
+  the real corpus. The design canvas is linked at the top of the outcome file.
+  One thing for Thomas: a throwaway account `zz-schema-check` is in the gallery
+  and can be deleted from `/admin`.
+
 - **Session 8 (phase 3, Tasks 5–9) ran 2026-08-23 and is merged.** Gallery cards,
   first run with three live starting points, sharing, **Task 8 (start from someone
   else's map — it was unblocked, not gated)**, and `/` as a landing page with
@@ -125,10 +140,20 @@ Phase 3 Task 8's migration (`copied_from uuid`, `copied_at timestamptz`) was
 written and pushed by session 8 on 2026-08-23 —
 `supabase/migrations/20260823120000_copied_from.sql`. **Committed is not applied:
 the next session verifies it landed before trusting `copy_from` or the gallery's
-`started_from` field.** One further migration remains, **phase 4's `map_versions`**
-(locked in `decisions.md`), plus the `save_map` RPC fallback only if 1b's smoke test
-ever demands it. Phases 4–7 need no DDL;
-phase 6 ships deliberately no-schema.
+`started_from` field.** ~~One further migration remains, **phase 4's `map_versions`**.~~ **Written,
+pushed and verified applied on 2026-08-23 by session 9** —
+`supabase/migrations/20260823170000_map_versions.sql`, plus the
+`public.snapshot_map` RPC the throttle and retention live in. **The program has
+no remaining migrations**, apart from the `save_map` RPC fallback only if 1b's
+smoke test ever demands it. Phases 5–7 need no DDL; phase 6 ships deliberately
+no-schema.
+
+**Verifying `map_versions` needed a new trick, because the usual one does not
+work.** `api/_lib.py`'s `snapshot_map()` swallows every failure by design (a lost
+snapshot must never cost somebody their save) and no route reads the table, so a
+missing table is indistinguishable from a healthy throttled save. The save reply
+therefore carries `snapshotted: true|false`, and the check is a real save through
+`POST /api/map` — see `phase-4-outcome.md`, "How I made it verifiable".
 
 ~~Also still open: confirm whether `987tom1.github.io/theologymap` is a dead GitHub
 Pages deploy.~~ **Closed 2026-08-23 by session 8: it 404s.** There is one live
