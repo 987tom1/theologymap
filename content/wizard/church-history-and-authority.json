@@ -1,0 +1,922 @@
+{
+  "schema_version": 1,
+  "domain": "church-history-and-authority",
+  "doctrines": [
+    {
+      "id": "church-history-and-authority.authority",
+      "node_title": "Prima scriptura",
+      "slug": "prima-scriptura",
+      "domain": "church-history-and-authority",
+      "order": 1,
+      "kind": "choice",
+      "question": "What role does Scripture play alongside creeds, councils and church tradition in settling what must be believed?",
+      "framing": "Every tradition represented here reads the same Bible and claims continuity with the apostolic church; the disagreement is over how Scripture relates to creeds, councils, the Fathers and an ongoing teaching office. Positions range from Scripture as the church's sole infallible rule, through Scripture as supreme but read within tradition, to Scripture and Tradition together as one deposit authentically interpreted by a living magisterium.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places this just below the first tier: it does not by itself divide over the gospel, but it shapes how every other doctrine on this list gets settled.",
+      "refs": "2 Tim 3:16-17; Acts 17:11; 2 Thess 2:15",
+      "links": [
+        "sufficiency-of-scripture",
+        "clarity-of-scripture",
+        "hermeneutic-method",
+        "the-creeds"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much real, subordinate authority the creeds and confessions carry over the interpretation of Scripture, and where the line falls between honouring the Fathers' consensus and treating Scripture alone as the church's infallible rule.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "church-history-and-authority.authority/sola-scriptura",
+          "label": "Sola scriptura",
+          "hold": "Scripture alone is the church's only infallible rule of faith and practice; creeds, confessions and councils carry real but subordinate authority as faithful, correctable summaries of what Scripture teaches.",
+          "why": "Scripture alone is God-breathed and self-attesting, so no creed, council or teaching office can bind the conscience apart from, or above, what Scripture itself establishes.",
+          "vs": "Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17; Acts 17:11",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.10"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Epitome, Rule and Norm 1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 6"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message 2000, Article I"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": "Held without a parallel doctrine of subordinate creedal authority; Anabaptist confessions themselves function as testimonies rather than binding standards.",
+              "citation": "Dordrecht Confession of Faith (1632), Preface"
+            }
+          ],
+          "learn_detail": "Confessional sola scriptura is often misstated, by critics and by its own less careful holders, as denying any authority to creeds and councils at all. The Reformed and Lutheran confessions themselves say the opposite: they claim binding subordinate authority for their own summaries, precisely because they claim to teach only what Scripture teaches.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1.10 (1646)"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.authority/prima-scriptura",
+          "label": "Prima scriptura",
+          "hold": "Scripture is the primary and supreme norm of doctrine, read and interpreted through the church's tradition, reasoned reflection and the community's experience of the Spirit rather than by Scripture in isolation.",
+          "why": "Scripture was never given to a reader with no history, and reading it through the church's accumulated tradition and reasoned reflection guards against the private misreadings an isolated reader is prone to.",
+          "vs": "Treating Scripture as the church's sole standard with no acknowledged role for tradition, reason or experience in its interpretation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": "Not itself an article of the Methodist Articles of Religion, which affirm scriptural sufficiency in Anglican terms; the Wesleyan Quadrilateral is the standard later account of how Methodists in practice read Scripture as primary but not alone.",
+              "citation": "Albert Outler's synthesis of Wesley's method, commonly called the Wesleyan Quadrilateral"
+            }
+          ],
+          "learn_detail": "The term 'Wesleyan Quadrilateral' was coined by the twentieth-century Methodist scholar Albert Outler to describe John Wesley's actual practice of argument, not a phrase Wesley used himself; Wesley's own formal Articles of Religion affirm scriptural sufficiency in essentially the same terms as the Anglican Article 6 they were abridged from.",
+          "sources": [
+            {
+              "label": "Albert Outler, Wesleyan Quadrilateral in Wesley",
+              "citation": "1985"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.authority/scripture-and-tradition",
+          "label": "Scripture and Tradition",
+          "hold": "Scripture and Tradition together form one sacred deposit of the word of God, entrusted to the church and authentically interpreted by the church's living teaching office.",
+          "why": "Scripture itself arose out of the church's tradition and was never intended to be read apart from the living, apostolic teaching office that safeguards its correct interpretation.",
+          "vs": "Treating Scripture as a self-interpreting standard that stands over, rather than within, the tradition and teaching office that first recognised and has since transmitted it.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Thess 2:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dei Verbum 9-10; Catechism of the Catholic Church 80-82"
+            }
+          ],
+          "learn_detail": "Dei Verbum is explicit that Scripture and Tradition 'flow from the same divine wellspring' and are not two separate sources but one deposit; the magisterium is described as the deposit's servant and authentic interpreter, not a source of new revelation alongside it.",
+          "sources": [
+            {
+              "label": "Dei Verbum",
+              "citation": "Second Vatican Council, 1965, sections 9-10"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.authority/holy-tradition",
+          "label": "Holy Tradition",
+          "hold": "Scripture is read within Holy Tradition, the whole living faith of the church as carried by the seven ecumenical councils, the Fathers and the church's liturgical and sacramental life; Scripture is not read as a source standing apart from that life.",
+          "why": "The Bible itself is one expression of Holy Tradition, given to and preserved by the church, so reading it rightly means reading it as the church has always read it rather than as an isolated text.",
+          "vs": "Isolating Scripture from the church's continuous liturgical, conciliar and patristic life as though it could be rightly read apart from that context.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Thess 2:15",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+            }
+          ],
+          "learn_detail": "Orthodox theology generally resists ranking Scripture and Tradition against one another at all, since it regards Scripture as internal to Tradition rather than a second thing to be weighed against it.",
+          "sources": [
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.authority/restorationist-biblicism",
+          "label": "No creed but Christ",
+          "hold": "Scripture alone is sufficient to restore the New Testament church's faith and practice directly, without reliance on any post-apostolic creed or confession as a standard of fellowship.",
+          "why": "Human creeds and confessions, however well intentioned, have historically divided Christians who could otherwise unite simply on 'the Bible and the Bible alone', and restoring New Testament Christianity means going back past those later formulations.",
+          "vs": "Requiring subscription to a post-apostolic creed or confession, even a subordinate one, as a condition of Christian fellowship.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 1:10",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "This position reaches a practical result close to sola scriptura by a different route, and deliberately rejects the Reformation's confessions along with Rome's magisterium.",
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            }
+          ],
+          "learn_detail": "The Stone-Campbell movement's rejection of creeds is a matter of principle, not merely an absence of theology: the Declaration and Address argues that creeds and confessions, whatever truth they contain, function in practice as tests of fellowship that Scripture itself does not authorise.",
+          "sources": [
+            {
+              "label": "Declaration and Address",
+              "citation": "Thomas Campbell, 1809"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.authority/solo-scriptura",
+          "label": "The Bible alone",
+          "hold": "Scripture is the church's sole standard, and no human creed, confession or council holds any binding authority, even subordinate, alongside it.",
+          "why": "Any claim of authority for a creed or confession, however carefully subordinated to Scripture in theory, risks becoming in practice a human tradition standing over the plain text.",
+          "vs": "Granting a creed or confession real, binding, though subordinate, authority over how Scripture is to be interpreted.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "2 Tim 3:16-17",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Widely held in practice as 'no creed but the Bible' rather than as a formally argued position; independent congregations typically hold no confession binding beyond a brief statement of faith.",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), representative of the genre"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "Held in practice alongside the Assemblies of God's own Statement of Fundamental Truths, which the movement itself does not treat as creedal or binding beyond its stated purpose of doctrinal cohesion.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Preamble"
+            }
+          ],
+          "learn_detail": "This position is sometimes labelled 'solo scriptura' by Reformed critics as a term of contrast with confessional sola scriptura, but its own holders typically describe it simply as taking the Bible alone, without reference to that distinction.",
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Preamble"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The word 'authority' hides at least three different questions in this doctrine: what is infallible, what is binding, and what is merely useful. Traditions that look alike from a distance often turn out to answer these three questions differently rather than disagreeing on any one of them.",
+      "sources": [
+        {
+          "label": "Four Views on the Spectrum of Evangelicalism",
+          "citation": "Andrew David Naselli and Collin Hansen, eds., 2011"
+        }
+      ]
+    },
+    {
+      "id": "church-history-and-authority.creeds",
+      "node_title": "The creeds",
+      "slug": "the-creeds",
+      "domain": "church-history-and-authority",
+      "order": 2,
+      "kind": "settled",
+      "question": "How is the Nicene-Constantinopolitan Creed held?",
+      "framing": "The Nicene-Constantinopolitan Creed and the Chalcedonian Definition are the agreed core of Christian confession, received across every tradition represented here; nothing in this list disputes their content. What remains genuinely open is narrower: whether the Latin filioque clause belongs in the creed's text, and whether a tradition recites or formally subscribes the creed or affirms its content without a practice of formal recitation.",
+      "suggested_tier": "T1",
+      "tier_note": "Thomas's own map places the creeds at the first tier: Nicaea and Chalcedon define the boundary of historic Christian orthodoxy itself.",
+      "refs": null,
+      "links": [
+        "prima-scriptura",
+        "the-fathers"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the filioque clause is a legitimate Western theological development or an unauthorised addition to an ecumenically agreed text, and decide how much weight formal recitation itself should carry beyond affirming the creed's content.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "church-history-and-authority.creeds/recited-with-filioque",
+          "label": "Recited, with filioque",
+          "hold": "The Nicene Creed is recited or confessionally affirmed including the filioque clause, confessing the Holy Spirit as proceeding from the Father and the Son.",
+          "why": "The Spirit's procession from the Son as well as the Father safeguards the full unity of the Trinity's inner life and was received as a legitimate clarification by the Western church.",
+          "vs": "Reciting the creed in its original conciliar form, without the filioque clause, as adopted at Constantinople in 381.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "The filioque is a live, sharp division between East and West over the wording of an ecumenically agreed creed; the underlying Trinitarian faith the creed confesses is not in dispute, but each side regards the other's textual practice as a real departure from what was conciliarly settled.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 246"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 2.3, read alongside the Nicene Creed's traditional Western text"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article 1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 8; Book of Common Prayer, the Nicene Creed"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article 2"
+            }
+          ],
+          "learn_detail": "The filioque entered Western liturgical use gradually from the sixth century in Spain and was formally added at Rome only in 1014; its history as a later addition to a conciliarly fixed text, rather than its Trinitarian content as such, is the core of the Eastern objection.",
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "246"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.creeds/recited-without-filioque",
+          "label": "Recited, without filioque",
+          "hold": "The Nicene Creed is recited in its original conciliar text, confessing the Holy Spirit as proceeding from the Father, without the later Western filioque addition.",
+          "why": "The creed was fixed by ecumenical council, and no local church, including Rome, has the authority to alter its wording unilaterally, whatever the merits of the underlying theological question.",
+          "vs": "Adding the filioque clause to the creed's conciliar text on the authority of a single patriarchate rather than another ecumenical council.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "The filioque is a live, sharp division between East and West over the wording of an ecumenically agreed creed; the underlying Trinitarian faith the creed confesses is not in dispute, but each side regards the other's textual practice as a real departure from what was conciliarly settled.",
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Nicene-Constantinopolitan Creed (381), as received without later addition; Confession of Dositheus, Decree 1"
+            }
+          ],
+          "learn_detail": "Orthodox objection to the filioque is as much about ecclesial authority, whether any one church may alter an ecumenically agreed text, as it is about the underlying question of the Spirit's eternal procession.",
+          "sources": [
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 1"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.creeds/affirmed-not-recited",
+          "label": "Affirmed, not recited",
+          "hold": "The Nicene-Constantinopolitan Creed's content, the full deity and humanity of Christ and the Trinity it confesses, is affirmed as apostolic truth without a congregational practice of formally reciting or subscribing the creed itself.",
+          "why": "What matters is agreement with what the creed teaches, which these congregations hold without reservation; formal liturgical recitation is a matter of church practice rather than of the doctrine's substance.",
+          "vs": "Treating formal recitation or confessional subscription of the creed's text as itself a necessary mark of holding its content.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Baptist confessions affirm the substance of Nicene Trinitarian and Chalcedonian Christology without requiring liturgical recitation of the creed.",
+              "citation": "Baptist Faith and Message 2000, Article II"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 2"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Practice varies, and a growing minority of non-denominational congregations recite the creed liturgically, but formal recitation is not the norm.",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Rejects formal creeds on principle while affirming the substance of Nicene Christology as apostolic teaching.",
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            }
+          ],
+          "learn_detail": "This is a real and stable position, not merely an absence of one: the Stone-Campbell movement in particular affirms Nicene Christology explicitly while declining formal creedal recitation as a matter of principle, and much of the wider non-denominational and Pentecostal stream follows the same pattern without arguing the point as explicitly.",
+          "sources": [
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "2000, Article II"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This entry deliberately carries no scripture references, matching Thomas's own map: the creeds are a question about the church's historic confession of Scripture's teaching, not a doctrine argued from a specific text.",
+      "sources": [
+        {
+          "label": "Nicene-Constantinopolitan Creed",
+          "citation": "First Council of Constantinople, 381"
+        },
+        {
+          "label": "Chalcedonian Definition",
+          "citation": "Council of Chalcedon, 451"
+        }
+      ]
+    },
+    {
+      "id": "church-history-and-authority.fathers",
+      "node_title": "The Fathers",
+      "slug": "the-fathers",
+      "domain": "church-history-and-authority",
+      "order": 3,
+      "kind": "choice",
+      "question": "What authority does the patristic consensus carry over how Scripture is read today?",
+      "framing": "The early church Fathers wrote the first extended commentary on Scripture and shaped the categories every later tradition inherited. The disagreement is over how much weight their consensus carries now: an authentic witness interpreted through a living teaching office, a near-authoritative organ of Holy Tradition, a valuable but correctable guide subordinate to Scripture, or a body of writing this tradition does not treat as a formal interpretive authority at all.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this at the midpoint of the second tier: it shapes how confidently a tradition reads the first several centuries, without itself dividing the gospel.",
+      "refs": null,
+      "links": [
+        "prima-scriptura",
+        "the-creeds",
+        "hermeneutic-method"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much interpretive weight a genuine patristic consensus should carry when it is not itself unanimous, and decide whether unfamiliarity with the Fathers in Thomas's own movement is a gap worth closing or simply a different, scripture-first way of reading.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "church-history-and-authority.fathers/magisterial-witness",
+          "label": "Authentic witnesses",
+          "hold": "The Fathers are authentic witnesses to the apostolic faith whose unanimous consent is a secure guide to Scripture's meaning, received and authoritatively interpreted through the living magisterium.",
+          "why": "Where the Fathers agree, their consensus reflects the faith the apostles handed on, and the church's teaching office exists precisely to identify and safeguard that consensus.",
+          "vs": "Treating each Father's writing as merely a private theologian's opinion carrying no more weight than a modern commentator's.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Fourth Session (1546); Catechism of the Catholic Church 78, 113"
+            }
+          ],
+          "learn_detail": "Trent's Fourth Session bound interpretation to 'the unanimous consent of the Fathers' specifically to rule out private interpretation contrary to that consensus, not to treat every individual Father's opinion as binding.",
+          "sources": [
+            {
+              "label": "Council of Trent",
+              "citation": "Fourth Session, 1546"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.fathers/consensus-patrum",
+          "label": "Consensus patrum",
+          "hold": "The universal consent of the Fathers is the organ through which the church discerns Holy Tradition, carrying an authority close to that of the councils whose faith it expresses.",
+          "why": "The Fathers are not private theologians but the church itself speaking through its saints and teachers, and their consensus is how the church has always recognised the boundaries of orthodox belief.",
+          "vs": "Reading Scripture as an isolated modern interpreter without reference to how the church has continuously understood it since the apostles.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 2; the Longer Catechism of St Philaret of Moscow (1830)"
+            }
+          ],
+          "learn_detail": "Orthodox theology tends to resist ranking the Fathers as a source distinct from and subordinate to Scripture, since it regards their consensus as an expression of the same Holy Tradition Scripture itself belongs to.",
+          "sources": [
+            {
+              "label": "Longer Catechism of St Philaret of Moscow",
+              "citation": "1830"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.fathers/valuable-but-subordinate",
+          "label": "Valuable, not binding",
+          "hold": "The Fathers are read with real respect as faithful, though fallible, witnesses to the apostolic faith, useful for interpretation and for guarding against novelty, but subordinate to and correctable by Scripture.",
+          "why": "The Fathers were themselves servants of the word rather than a second source of revelation, so their writing is weighed against Scripture rather than treated as an independent standard.",
+          "vs": "Treating patristic consensus as carrying binding, near-conciliar authority over the interpretation of Scripture.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 1.10; John Calvin, Institutes, Prefatory Address to Francis I"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 20; The Books of Homilies"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Epitome, Rule and Norm 2"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wesley's Explanatory Notes upon the New Testament, Preface"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Second London Baptist Confession 1.1"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "minority",
+              "note": "Held by Anabaptist writers who engaged patristic sources, though the movement's founding confessions emphasise a direct return to the New Testament text over patristic authority.",
+              "citation": "Balthasar Hubmaier's citation of patristic writers in his baptismal treatises"
+            }
+          ],
+          "learn_detail": "The Magisterial Reformers cited the Fathers extensively and considered themselves in continuity with patristic consensus, particularly on the Trinity and Christology; their disagreement with Rome was over whether that consensus required a living teaching office to authenticate it, not over whether the Fathers mattered.",
+          "sources": [
+            {
+              "label": "Institutes of the Christian Religion",
+              "citation": "John Calvin, Prefatory Address to Francis I, 1536/1559"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.fathers/not-a-formal-authority",
+          "label": "Not a formal authority",
+          "hold": "Patristic writing is read, where it is read at all, as historical testimony rather than as a body carrying formal interpretive authority over Scripture.",
+          "why": "Restoring New Testament Christianity means reading Scripture on its own terms rather than through the accumulated categories of any later century, patristic included.",
+          "vs": "Granting the Fathers' consensus a formal, binding role in settling what Scripture teaches.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "restorationist",
+              "stance": "confessional",
+              "note": "Explicitly minimises reliance on post-apostolic human authorities, patristic included, in favour of a direct return to the New Testament text.",
+              "citation": "Thomas Campbell, Declaration and Address (1809)"
+            }
+          ],
+          "learn_detail": "The wider non-denominational and Pentecostal stream is often unfamiliar with the Fathers in practice, a difference of emphasis and formation rather than an argued position; no confessional statement in that stream addresses patristic authority directly, so no held_by claim is made for it here.",
+          "sources": [
+            {
+              "label": "Declaration and Address",
+              "citation": "Thomas Campbell, 1809"
+            }
+          ]
+        }
+      ],
+      "learn_note": "This entry deliberately carries no scripture references, matching Thomas's own map: the question is about how much weight a body of post-apostolic writing carries, not a doctrine argued from a specific text. Thomas's own map also has a Pentecostal heritage node about his own movement's founders; it is specific to that movement rather than a cross-traditional question and is not carried into this file.",
+      "sources": [
+        {
+          "label": "The Vindication of Tradition",
+          "citation": "Jaroslav Pelikan, 1984"
+        }
+      ]
+    },
+    {
+      "id": "church-history-and-authority.solas",
+      "node_title": "Reformation solas",
+      "slug": "reformation-solas",
+      "domain": "church-history-and-authority",
+      "order": 4,
+      "kind": "choice",
+      "question": "How is the sixteenth-century summary of grace alone, faith alone, Christ alone, Scripture alone and glory to God alone received?",
+      "framing": "The five solas emerged as the Reformation's compressed answer to a specific dispute over justification and authority. Every position here agrees the questions they address matter; they divide over whether the solas are the gospel rightly summarised, a time-bound formula rather than a creed, or a formulation Rome and the East reject as stated while affirming much of what it was defending.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places this just below the first tier: the solas summarise the gospel itself without being one of the ecumenical creeds that settle it.",
+      "refs": "Eph 2:8-9; Rom 3:28; Rom 1:17",
+      "links": [
+        "prima-scriptura",
+        "roman-catholics-and-orthodox"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how much weight to place on the solas as a summary rather than as a creed, and decide how to describe what the Catholic and Orthodox traditions are actually affirming when they reject the solas as formulated.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "church-history-and-authority.solas/summary-of-the-gospel",
+          "label": "A summary of the gospel",
+          "hold": "The five solas are affirmed as a faithful, compressed summary of the gospel: salvation by grace alone, received through faith alone, on the ground of Christ alone, as taught by Scripture alone, for the glory of God alone.",
+          "why": "Each sola answers a real error the Reformers faced directly from Scripture, and together they state plainly what the gospel is and is not.",
+          "vs": "Treating any human work, merit or cooperation as a ground of justification alongside Christ's finished work, received by faith.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 11.1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article 4"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 11"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession 11.1"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article 9"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 3"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+            }
+          ],
+          "learn_detail": "The five solas as a fixed set of five is itself a later systematisation; the Reformers argued each point extensively but did not present them together as a numbered list until the twentieth century.",
+          "sources": [
+            {
+              "label": "Augsburg Confession",
+              "citation": "Article 4, 1530"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.solas/summary-not-a-creed",
+          "label": "A summary, not a creed",
+          "hold": "The substance of grace, faith and Christ as the ground of salvation is affirmed, while the five solas themselves are received as a sixteenth-century polemical summary rather than as a creed carrying the standing of Nicaea or Chalcedon.",
+          "why": "Restoring New Testament Christianity means testing every later formula, Reformation summaries included, against Scripture directly rather than treating any post-apostolic slogan as itself a fixed standard.",
+          "vs": "Treating the five solas as a creedal formula on a level with the ecumenical creeds, binding in their exact sixteenth-century wording.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "Affirms grace through faith in Christ as the ground of salvation while declining to treat any post-apostolic formula, Reformation solas included, as a fixed creedal standard.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            }
+          ],
+          "learn_detail": "This position is not a rejection of what the solas teach; it is a application of the movement's general resistance to post-apostolic formulas, Reformation ones included, as tests of fellowship.",
+          "sources": [
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.solas/catholic-position",
+          "label": "Grace, faith and works",
+          "hold": "Justification is by grace alone, which no human merit can earn, received through a faith that is inseparable from hope and love and that issues in works of charity as its living fruit, not through faith understood as excluding all cooperation with grace.",
+          "why": "Grace precedes, accompanies and enables every human act pleasing to God, so affirming grace alone does not require denying that grace-enabled charity and good works are part of what justifies, sustains and increases the justified life.",
+          "vs": "Formulating faith alone in a way that excludes charity and grace-enabled good works from any part in justification.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is a sharp, live dispute over how justification and good works relate, internal to the historic creeds rather than a departure from them; Trent and the Reformation confessions each regard the other's formulation as a serious, gospel-adjacent error.",
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Decree on Justification (1547); Catechism of the Catholic Church 1987-2029"
+            }
+          ],
+          "learn_detail": "Trent's Decree on Justification affirms grace as wholly unmerited and prior to any human act, and its condemnations target a specific caricature of merit earning salvation independent of grace; it explicitly rejects the idea that anyone can merit the grace of justification itself.",
+          "sources": [
+            {
+              "label": "Council of Trent, Decree on Justification",
+              "citation": "Sixth Session, 1547"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.solas/orthodox-position",
+          "label": "Synergy toward theosis",
+          "hold": "Salvation is a work of grace from beginning to end, worked out through the human person's free, grace-enabled cooperation in a lifelong movement toward union with God, rather than framed through the Western Reformation's own categories of forensic justification.",
+          "why": "The New Testament and the Fathers describe salvation as healing and deification rather than primarily as a legal verdict, so the Reformation's own terms are not the terms in which the question was first asked.",
+          "vs": "Framing salvation primarily as a single forensic verdict received by faith apart from the lifelong, grace-enabled process of transformation the Fathers describe.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is a sharp, live dispute over how salvation itself is best framed, internal to the historic creeds rather than a departure from them; each side regards the other's categories as a serious distortion of the New Testament's own emphasis.",
+          "held_by": [
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus (1672), Decree 13-14"
+            }
+          ],
+          "learn_detail": "Orthodox writers frequently note that the Reformation debate over faith and works was conducted in Western, largely Augustinian and legal categories that the Christian East never fully shared, which makes the dispute harder to translate directly than it first appears.",
+          "sources": [
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decrees 13-14"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The label 'the five solas' as a fixed, numbered list is a modern systematisation of positions the Reformers argued individually and at length; treating it as though it were itself a sixteenth-century creed overstates how the Reformers presented their own case.",
+      "sources": [
+        {
+          "label": "Roman Catholic Theology and Practice",
+          "citation": "Gregg Allison, 2014, on Trent and the Reformation debate over justification"
+        }
+      ]
+    },
+    {
+      "id": "church-history-and-authority.rome-and-orthodoxy",
+      "node_title": "Roman Catholics and Orthodox",
+      "slug": "roman-catholics-and-orthodox",
+      "domain": "church-history-and-authority",
+      "order": 5,
+      "kind": "choice",
+      "question": "How are Roman Catholic and Orthodox Christians regarded relative to the true church?",
+      "framing": "Every tradition here shares the ecumenical creeds with the Roman Catholic and Orthodox churches while differing sharply from them on authority, justification and other doctrines already treated elsewhere in this domain. The live question is what that combination of shared creed and real disagreement means for how Catholics and Orthodox are regarded: as fellow Christians in churches carrying serious error, as members of a true church in imperfect communion, or as standing outside the visible church altogether.",
+      "suggested_tier": "T3",
+      "tier_note": "Thomas's own map places this at the third tier: it is a real and consequential judgment about fellow believers, but it does not itself divide the gospel the way the doctrines ranked above it do.",
+      "refs": "Eph 4:4-6; John 17:20-21",
+      "links": [
+        "reformation-solas",
+        "the-creeds"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out how to weigh Rome and the East's shared creedal confession against their disagreement over justification and authority, and decide whether that combination is best described as fellow Christians in serious error or as churches in imperfect communion.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "church-history-and-authority.rome-and-orthodoxy/fellow-christians-in-error",
+          "label": "Fellow Christians, in error",
+          "hold": "Roman Catholic and Orthodox Christians are regarded as fellow believers whose churches nonetheless hold serious doctrinal error, on justification, the papacy or the invocation of the saints among other matters, that a faithful church should not hold.",
+          "why": "Shared confession of the Nicene faith and the gospel's basic shape marks out fellow believers, even where a church's official teaching adds serious error a faithful church ought to reject.",
+          "vs": "Regarding these churches either as simply outside the true church, or as themselves a true church standing in merely imperfect communion.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "The predominant current Reformed and Presbyterian position, following the revision of the original Westminster Confession's harsher language; see the tradition_overrides entry for the fuller, divided picture.",
+              "citation": "Presbyterian Church in America, Book of Church Order, as revised from the original Westminster 25.6"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article 19"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion, Article 13"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": "The Book of Concord's polemic against the papacy is sharper than this position's framing while still addressing Rome as a church holding corrupted doctrine rather than as no church at all.",
+              "citation": "Augsburg Confession, Article 7-8"
+            }
+          ],
+          "learn_detail": "Anglican Article 19 states plainly that 'as the Church of Jerusalem, Alexandria, and Antioch, have erred; so also the Church of Rome hath erred', treating Rome as a church that has erred rather than as no church.",
+          "sources": [
+            {
+              "label": "Thirty-Nine Articles",
+              "citation": "Article 19"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.rome-and-orthodoxy/imperfect-communion",
+          "label": "True church, imperfect communion",
+          "hold": "Roman Catholic and Orthodox Christians belong to churches that possess the marks of a true church, valid sacraments and apostolic succession among them, standing in imperfect rather than full communion with other such churches.",
+          "why": "Where the essential marks of a true church are present, including valid baptism, apostolic order and a shared confession of Christ, the division between churches is a wound within the one church rather than a division between a true church and a false one.",
+          "vs": "Regarding a church lacking full communion as either not a real church at all, or as no different from any other body sharing the same doctrinal errors.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Rome's own Vatican II teaching describes both Orthodox churches and, in a qualified sense, Protestant communities as standing in real but imperfect communion with the Catholic Church.",
+              "citation": "Lumen Gentium 15; Unitatis Redintegratio 3"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "Represents the more ecumenically minded strand of Orthodox ecclesiology toward Rome specifically; other Orthodox writers and jurisdictions hold a stricter view that only the Orthodox Church is fully the church, so this is a real internal diversity rather than a single settled Orthodox position.",
+              "citation": "Balamand Statement, Joint International Commission for Theological Dialogue, 1993"
+            }
+          ],
+          "learn_detail": "Rome's Lumen Gentium 15 and Unitatis Redintegratio 3 are the same documents that describe Protestant communities more cautiously as related to the Catholic Church by baptism though lacking the fullness of the means of salvation; the 'imperfect communion' language is applied most fully to the Orthodox, whose valid apostolic succession and sacraments Rome recognises explicitly.",
+          "sources": [
+            {
+              "label": "Lumen Gentium",
+              "citation": "Second Vatican Council, 1964, section 15"
+            },
+            {
+              "label": "Balamand Statement",
+              "citation": "Joint International Commission for Theological Dialogue between the Roman Catholic and Orthodox Churches, 1993"
+            }
+          ]
+        },
+        {
+          "id": "church-history-and-authority.rome-and-orthodoxy/outside-the-visible-church",
+          "label": "Outside the church",
+          "hold": "The papacy's claims are regarded as incompatible with headship belonging to Christ alone, placing the Roman church, as officially constituted, outside the visible church rather than merely in error within it.",
+          "why": "A church that binds the conscience to submit to a human head claiming authority proper to Christ alone has, on this view, departed from the marks of a true church rather than merely erred within it.",
+          "vs": "Regarding the Roman church as a true church, whether marked by serious error or standing in imperfect communion, rather than as having departed from the marks of a true church altogether.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": null,
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This is a live, sharply held churchmanship judgment about a fellow creed-confessing communion rather than a departure from the ecumenical creeds themselves; it is confessionally rooted but has been revised by most of the bodies that once held it.",
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "historic",
+              "note": "The original Westminster Confession of Faith 25.6 (1646) identified the pope as 'that Antichrist, that man of sin'; most American Presbyterian bodies revised or removed this clause in the eighteenth and nineteenth centuries, and it is now a minority position within the tradition.",
+              "citation": "Westminster Confession of Faith 25.6 (1646, original text)"
+            }
+          ],
+          "learn_detail": "The Westminster Assembly's identification of the papacy with antichrist reflected the polemical context of the English Civil War era; the Presbyterian Church in the United States revised this language in 1789, and most American Presbyterian bodies have followed suit since, so the confessional text as originally written is now held by a minority within the tradition.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "25.6, 1646 original text"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "reformed": {
+          "positions": [
+            "church-history-and-authority.rome-and-orthodoxy/fellow-christians-in-error",
+            "church-history-and-authority.rome-and-orthodoxy/outside-the-visible-church"
+          ],
+          "hold": "The original Westminster Confession named the papacy as antichrist; most American Presbyterian bodies later revised or removed that clause, and current Reformed and Presbyterian practice overwhelmingly regards Roman Catholics as fellow believers in a church holding serious error rather than as outside the church.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Westminster Confession of Faith 25.6 (1646) originally identified the pope as antichrist; most American Presbyterian bodies revised or removed this clause in the eighteenth and nineteenth centuries, and current Reformed practice overwhelmingly follows the revised, fellow-Christian view, though the original text is still held by a minority.",
+          "citation": "Westminster Confession of Faith 25.6 (1646, original text); Presbyterian Church in the United States revision, 1789"
+        }
+      },
+      "learn_note": "This is the doctrine in the file most likely to read as an attack on someone using the wizard, and it is handled here as a description of real, differently held positions rather than as an argument for any one of them.",
+      "sources": [
+        {
+          "label": "Evangelicals and Catholics Together",
+          "citation": "1994, as a marker of the modern ecumenical conversation this doctrine sits within"
+        }
+      ]
+    }
+  ]
+}

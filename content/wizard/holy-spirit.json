@@ -3,11 +3,301 @@
   "domain": "holy-spirit",
   "doctrines": [
     {
+      "id": "holy-spirit.baptism-in-the-holy-spirit",
+      "node_title": "Baptism in the Holy Spirit",
+      "slug": "baptism-in-the-holy-spirit",
+      "domain": "holy-spirit",
+      "order": 1,
+      "kind": "choice",
+      "question": "What is baptism in the Holy Spirit, and when does it occur?",
+      "framing": "Every tradition agrees that Scripture speaks of believers being baptized in, filled with, or receiving the Holy Spirit. The disagreement is over whether this names a distinct, usually post-conversion experience to be sought, sometimes evidenced by tongues, or is simply Paul's own term for the Spirit's ordinary work of joining every believer to Christ and the church at conversion, a work some traditions locate sacramentally in confirmation or chrismation.",
+      "suggested_tier": "T2.5",
+      "tier_note": "Thomas's own map places this between the second and third tier: it shapes expectation and practice sharply without dividing on the gospel itself.",
+      "refs": "Acts 1:5; Acts 2:1-4; 1 Cor 12:13; Acts 19:1-6",
+      "links": [
+        "continuationism",
+        "baptism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether baptism in the Holy Spirit names a second, post-conversion experience or is simply Paul's term for the Spirit's work of joining a believer to Christ at conversion, and if it is a second experience, whether tongues is its necessary sign.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "holy-spirit.baptism-in-the-holy-spirit/subsequence-evidence",
+          "label": "Subsequent with tongues",
+          "hold": "Baptism in the Holy Spirit is a distinct experience subsequent to conversion, given to empower witness and evidenced initially by speaking in other tongues as the Spirit gives utterance.",
+          "why": "Acts repeatedly narrates believers already converted subsequently receiving the Spirit with power, accompanied by tongues as the consistent, repeated sign of that reception.",
+          "vs": "Treating the reception of the Spirit that empowers witness as identical with, and exhausted by, the Spirit's work of regeneration at conversion.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:1-4; Acts 8:14-17; Acts 19:1-6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether Spirit baptism is a second, post-conversion experience evidenced by tongues is a live dispute among evangelicals; cessationist and Reformed critics regard it as resting on a descriptive-as-normative reading of Acts, not as a case of denying anything the creeds define.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+            }
+          ],
+          "learn_detail": "Classical Pentecostalism distinguishes this experience sharply from conversion: a believer is regenerate and indwelt by the Spirit at conversion, then subsequently baptized in the Spirit for power in witness.",
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 7"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.baptism-in-the-holy-spirit/second-blessing",
+          "label": "Second blessing",
+          "hold": "Baptism in the Holy Spirit is a second, definite work of grace subsequent to conversion, in which the believer is entirely sanctified and filled with perfect love.",
+          "why": "Wesley taught a second work of grace beyond justification in which the believer is cleansed from inbred sin, and the nineteenth-century holiness movement applied the term baptism in the Holy Spirit to that experience.",
+          "vs": "Collapsing sanctification into a single, gradual process beginning and ending with conversion, with no further definite crisis experience to seek.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Thess 5:23; Acts 15:8-9",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Entire sanctification as an instantaneous, this-life attainable second work is disputed even within the wider Wesleyan family, and rejected by traditions holding sanctification as a lifelong, never-complete process.",
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "historic",
+              "note": "A holiness-movement development of Wesley's own doctrine of entire sanctification; the term baptism in the Holy Spirit for this experience postdates Wesley and is held now mainly within the holiness wing of the Wesleyan family rather than mainstream contemporary Methodism.",
+              "citation": "John Wesley, A Plain Account of Christian Perfection (1777)"
+            }
+          ],
+          "learn_detail": "The holiness movement, through figures such as Phoebe Palmer, renamed Wesley's second work of grace as baptism in the Holy Spirit; classical Pentecostalism inherited this vocabulary from the holiness movement before redefining the experience around power for witness rather than entire sanctification.",
+          "sources": [
+            {
+              "label": "A Plain Account of Christian Perfection",
+              "citation": "John Wesley, 1777"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.baptism-in-the-holy-spirit/conversion-initiation",
+          "label": "Conversion-initiation",
+          "hold": "Baptism in the Holy Spirit is Paul's term for the Spirit's work of uniting every believer to Christ and to the church at conversion, not a second or separate experience to be sought afterward.",
+          "why": "Paul writes that all the Corinthian believers, without exception, were baptized by one Spirit into one body, using the same language Acts uses for a converting, initiating work of the Spirit.",
+          "vs": "Treating the same baptism in one Spirit that Paul says every believer already has as a further experience still to be sought after conversion.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 12:13; Rom 8:9; Titus 3:5-6",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Sinclair Ferguson, The Holy Spirit (1996)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 39"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": "Not confessionally addressed by name, but consistent with the Book of Concord's treatment of the Spirit's work as a single, unified act of grace rather than staged experiences.",
+              "citation": "Formula of Concord, Solid Declaration, Article II"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 39"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "John Stott, Baptism and Fullness (1964)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Baptism and Fullness",
+              "citation": "John Stott, 1964"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.baptism-in-the-holy-spirit/sacramental-initiation",
+          "label": "Sacramental initiation",
+          "hold": "The fullness of the Holy Spirit given at conversion is sealed and completed in the sacrament of confirmation, or chrismation, administered through the laying on of hands and anointing with chrism.",
+          "why": "The apostles laid hands on the newly baptized so that they might receive the Holy Spirit, and the church continues this apostolic act as the sacrament that completes Christian initiation begun in baptism.",
+          "vs": "Locating the giving of the Spirit's fullness in an inward experience sought apart from the church's sacramental rite of confirmation or chrismation.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 8:14-17; Acts 19:5-6",
+          "equivalence_group": "holy-spirit.sacramental-completion",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church, 1285-1321"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Administered immediately after baptism, including for infants.",
+              "citation": "Longer Catechism of St Philaret of Moscow"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1285-1321"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Both Pentecostal and holiness readings use the same phrase, baptism in the Holy Spirit, for two historically related but distinct experiences: power for witness in the one case, entire sanctification in the other. The vocabulary's shared root in the nineteenth-century holiness movement explains the overlap.",
+      "sources": [
+        {
+          "label": "Perspectives on Spirit Baptism: Five Views",
+          "citation": "Chad Owen Brand, ed., 2004"
+        }
+      ]
+    },
+    {
+      "id": "holy-spirit.sealing-of-the-spirit",
+      "node_title": "Sealing of the Spirit",
+      "slug": "sealing-of-the-spirit",
+      "domain": "holy-spirit",
+      "order": 2,
+      "kind": "choice",
+      "question": "When and how does the sealing of the Holy Spirit named in Ephesians take place?",
+      "framing": "Paul writes that believers are sealed with the promised Holy Spirit, a guarantee of their inheritance. The disagreement is over whether this seal is simply the Spirit himself, given the moment a person believes the gospel, or is sacramentally sealed and made visible in confirmation or chrismation, the rite the church connects to the apostolic laying on of hands.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places this at the second tier: it bears on assurance and church practice without dividing on the gospel itself.",
+      "refs": "Eph 1:13-14; Eph 4:30; 2 Cor 1:21-22",
+      "links": [
+        "baptism-in-the-holy-spirit",
+        "baptism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether sealing happens at conversion as another name for the Spirit's indwelling, or is completed in a later sacramental act such as chrismation or confirmation.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "holy-spirit.sealing-of-the-spirit/conversion-sealing",
+          "label": "Sealed at conversion",
+          "hold": "The sealing of the Holy Spirit named in Ephesians occurs at the moment of believing, when the Spirit himself is given as God's mark of ownership and down payment guaranteeing the believer's inheritance.",
+          "why": "Paul locates the seal at the moment of hearing and believing the gospel, identifying the seal with the gift of the Spirit himself rather than with any later rite or experience.",
+          "vs": "Locating the completion of the Spirit's seal in a later sacramental act rather than in the Spirit's own gift at the moment of faith.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eph 1:13-14; 2 Cor 1:21-22",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "Sinclair Ferguson, The Holy Spirit (1996)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 39"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 39"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wesley's Explanatory Notes upon the New Testament (1755), on Ephesians 1:13"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "John Stott, Baptism and Fullness (1964)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Holy Spirit",
+              "citation": "Sinclair Ferguson, 1996"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.sealing-of-the-spirit/sacramental-sealing",
+          "label": "Sacramental sealing",
+          "hold": "The Spirit's seal named in Ephesians is sacramentally sealed and made visible in confirmation, or chrismation, when the newly baptized are anointed and receive the gift of the Holy Spirit through the laying on of hands.",
+          "why": "The apostles laid hands on the newly baptized to give the Spirit, and the church's rite of confirmation or chrismation continues that apostolic act as the visible completion of the seal Scripture describes.",
+          "vs": "Treating the Spirit's seal as complete in an inward, unmediated gift at the moment of believing, without the church's sacramental act connected to the laying on of hands.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eph 1:13-14; Acts 8:14-17",
+          "equivalence_group": "holy-spirit.sacramental-completion",
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "The Catechism itself uses the language of seal for this sacrament.",
+              "citation": "Catechism of the Catholic Church, 1295-1296"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "The chrismation rite's own formula names the gift a seal.",
+              "citation": "Orthodox chrismation rite: 'The seal of the gift of the Holy Spirit'"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1295-1296"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The two positions largely mirror the wider disagreement over baptism in the Holy Spirit: whether the Spirit's decisive gift is unmediated and complete at the moment of faith, or completed through a further sacramental act of the church.",
+      "sources": [
+        {
+          "label": "The Holy Spirit",
+          "citation": "Sinclair Ferguson, 1996"
+        }
+      ]
+    },
+    {
       "id": "holy-spirit.continuationism",
       "node_title": "Continuationism",
       "slug": "continuationism",
       "domain": "holy-spirit",
-      "order": 1,
+      "order": 3,
       "kind": "choice",
       "question": "Do the miraculous spiritual gifts described in the New Testament continue in the church today?",
       "framing": "Every tradition agrees that the New Testament describes tongues, prophecy, healing and other miraculous gifts operating in the apostolic church. The disagreement is over whether those gifts were tied to the foundational apostolic era and its accompanying sign of Scripture-authenticating revelation, or continue as an ordinary part of the Spirit's work in the church until Christ returns.",
@@ -111,6 +401,429 @@
         }
       ],
       "learn_note": "The debate is often framed as for-or-against the miraculous as such; both positions affirm that God still heals and answers prayer. The actual dispute is narrower: whether the New Testament sign and revelatory gifts specifically continue.",
+      "sources": [
+        {
+          "label": "Are Miraculous Gifts for Today? Four Views",
+          "citation": "Wayne Grudem, ed., 1996"
+        }
+      ]
+    },
+    {
+      "id": "holy-spirit.prophecy",
+      "node_title": "Prophecy",
+      "slug": "prophecy",
+      "domain": "holy-spirit",
+      "order": 4,
+      "kind": "choice",
+      "question": "Does prophecy, as a Spirit-given gift of speaking God's word, operate in the church today?",
+      "framing": "The New Testament describes prophecy as a gift exercised in the earliest congregations, tested and weighed by the church. The disagreement is over whether prophecy is a single, canon-forming category that necessarily ceased once the New Testament was complete, or whether congregational prophecy today is a genuine but fallible, weighable gift distinct from the Scripture-forming prophecy of the prophets and apostles.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places prophecy at the second tier: it shapes worship and expectation of the Spirit without dividing on the gospel itself.",
+      "refs": "1 Cor 14:29; 1 Cor 14:1; 1 Cor 13:8-10; Eph 2:20",
+      "links": [
+        "continuationism",
+        "sufficiency-of-scripture",
+        "canon",
+        "tongues"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether New Testament congregational prophecy is a lesser, fallible category distinct from Scripture-forming prophecy, or whether prophecy is a single category that necessarily ceased when the canon closed.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "holy-spirit.prophecy/cessationist",
+          "label": "Cessationist",
+          "hold": "The revelatory gift of prophecy, understood as the Spirit speaking fresh words through a human messenger, ceased with the closing of the New Testament canon; the church's ongoing task is the faithful preaching and application of the completed Scriptures.",
+          "why": "Prophecy belonged to the foundation-laying office of apostles and prophets, and once that foundation, the New Testament, was complete, the office that produced it had accomplished its purpose.",
+          "vs": "Continuing to receive a category of Spirit-prompted prophetic speech alongside the completed canon of Scripture.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Eph 2:20; Heb 1:1-2",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "B. B. Warfield, Counterfeit Miracles (1918)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held.",
+              "citation": "John MacArthur, Charismatic Chaos (1992)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Counterfeit Miracles",
+              "citation": "B. B. Warfield, 1918"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.prophecy/fallible-congregational",
+          "label": "Fallible congregational",
+          "hold": "The gift of prophecy in the local congregation today is a Spirit-prompted impression that a believer reports in their own words; it is not equal to Scripture in authority, and the congregation must weigh it, testing all things and holding fast to what is good.",
+          "why": "Paul commands the Corinthian congregation to weigh what is prophesied rather than simply receive it, an instruction that would be needless if congregational prophecy carried Scripture's own unquestionable authority.",
+          "vs": "Treating New Testament congregational prophecy as carrying the same unweighable authority as the prophetic word that produced Scripture, so that it necessarily ceased once the canon closed.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 14:29; 1 Thess 5:20-21",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether prophecy can be a genuine but fallible, weighable gift, distinct from the canon-forming prophetic office, is disputed among continuationists and cessationists alike; some continuationists themselves reject the fallibility distinction as a novel category.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "The Statement of Fundamental Truths does not use the term fallible, but classical Pentecostal practice weighs prophetic utterances against Scripture per 1 Corinthians 14:29.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, The Gift of Prophecy in the New Testament and Today (1988)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Held within the charismatic wing of the Communion.",
+              "citation": "Church of England, House of Bishops, statements recognising charismatic renewal within the Communion"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "The Gift of Prophecy in the New Testament and Today",
+              "citation": "Wayne Grudem, 1988"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.prophecy/canonical-authority",
+          "label": "Canonical authority",
+          "hold": "True prophecy carries the same Spirit-breathed, unweighable authority as Old Testament prophecy; there is no lesser, fallible category of prophetic speech, so the gift that produced authoritative revelation ceased once the canon it was producing was complete.",
+          "why": "Scripture nowhere distinguishes a fallible congregational prophecy from the prophecy that produced its own text, so treating New Testament prophecy as a lesser category reads a modern distinction back into the text.",
+          "vs": "Dividing prophecy into a canon-forming, infallible kind that has ceased and a congregational, fallible kind that continues, when Scripture presents prophecy as a single category.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Deut 18:20-22; 1 Cor 14:37",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [],
+          "learn_detail": "This is a specific argument within cessationism, distinct from the general appeal to the closing of the canon: it denies that a fallible, lesser category of prophecy can be coherently derived from Scripture at all.",
+          "sources": [
+            {
+              "label": "The Final Word: A Biblical Response to the Case for Tongues and Prophecy Today",
+              "citation": "O. Palmer Robertson, 1993"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The cessationist and canonical-authority positions reach the same conclusion, that prophecy has ceased, by different arguments: the first appeals broadly to the closing of the canon, the second specifically denies that a fallible, lesser kind of prophecy is a coherent category at all.",
+      "sources": [
+        {
+          "label": "Are Miraculous Gifts for Today? Four Views",
+          "citation": "Wayne Grudem, ed., 1996"
+        }
+      ]
+    },
+    {
+      "id": "holy-spirit.tongues",
+      "node_title": "Tongues",
+      "slug": "tongues",
+      "domain": "holy-spirit",
+      "order": 5,
+      "kind": "choice",
+      "question": "Does speaking in tongues, as described in Acts and 1 Corinthians, operate in the church today, and what is its significance?",
+      "framing": "Acts and 1 Corinthians both describe believers speaking in tongues under the Spirit's prompting. The disagreement is over whether tongues is the necessary initial evidence of a distinct baptism in the Holy Spirit, one gift among several the Spirit distributes to some believers and not others, or a sign gift tied to the apostolic era that ceased with the completion of the New Testament canon.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places tongues at the second tier: it shapes worship practice and expectation without dividing on the gospel itself.",
+      "refs": "1 Cor 12:10; 1 Cor 12:30; 1 Cor 14:39; Acts 2:4",
+      "links": [
+        "continuationism",
+        "prophecy",
+        "baptism-in-the-holy-spirit"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether speaking in tongues is the necessary evidence of a distinct baptism in the Holy Spirit, one gift among several given to some believers, or a sign gift that ceased with the apostolic era.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "holy-spirit.tongues/initial-evidence",
+          "label": "Initial evidence",
+          "hold": "Speaking in other tongues is the initial physical evidence that a believer has been baptized in the Holy Spirit, the outward sign that regularly accompanied that experience throughout the book of Acts.",
+          "why": "In every full narrative of believers receiving the Spirit's baptism recorded in Acts, tongues is what results, establishing a consistent pattern rather than a coincidence.",
+          "vs": "Treating tongues as one gift among several, distributed to some believers and not others, rather than as the expected sign of an experience available to every Spirit-baptized believer.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:4; Acts 10:44-46; Acts 19:6",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Whether tongues is the necessary evidence of Spirit baptism, rather than one gift among several, is disputed even among continuationists, including within Pentecostal and charismatic streams themselves.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": "Classical Pentecostal denominations; see the tradition override below for the movement's broader charismatic streams.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 7"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.tongues/gift-to-some",
+          "label": "Gift to some",
+          "hold": "Tongues is one spiritual gift among several that the Spirit distributes to believers as he chooses, not a necessary sign given to every believer or evidence of a separate baptism in the Spirit.",
+          "why": "Paul asks rhetorically whether all speak in tongues, expecting the answer no, placing tongues alongside the other gifts the Spirit apportions to each individually as he wills.",
+          "vs": "Requiring tongues as the necessary evidence of Spirit baptism for every believer, rather than treating it as one gift given to some.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 12:11; 1 Cor 12:30",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "minority",
+              "note": "Broader charismatic streams within the Pentecostal-charismatic movement, distinct from classical Pentecostal denominations; see the tradition override below.",
+              "citation": "John Wimber, Power Evangelism (1985)"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "Affirmed through the Catholic Charismatic Renewal.",
+              "citation": "Catechism of the Catholic Church, 2003"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Held within the charismatic wing of the Communion.",
+              "citation": "Church of England, House of Bishops, statements recognising charismatic renewal within the Communion"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 53"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Power Evangelism",
+              "citation": "John Wimber, 1985"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.tongues/cessationist",
+          "label": "Cessationist",
+          "hold": "Tongues, understood as a Spirit-given sign gift authenticating apostolic revelation, ceased with the completion of the New Testament canon and is not to be sought or expected today.",
+          "why": "Tongues functioned in Acts and 1 Corinthians as a sign gift tied to the apostolic, revelation-giving era, and Scripture anticipates its passing once what is perfect, the completed revelation, has come.",
+          "vs": "Continuing to seek or practise tongues as an ordinary part of church life after the apostolic era and the closing of the canon.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 13:8-10; 1 Cor 14:21-22",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "B. B. Warfield, Counterfeit Miracles (1918)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held.",
+              "citation": "John MacArthur, Charismatic Chaos (1992)"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Counterfeit Miracles",
+              "citation": "B. B. Warfield, 1918"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Tongues is where the Pentecostal movement's own internal diversity is sharpest: classical Pentecostal denominations confessionally require tongues as initial evidence, while charismatic streams the movement gave rise to hold tongues as one gift among several.",
+      "sources": [
+        {
+          "label": "Are Miraculous Gifts for Today? Four Views",
+          "citation": "Wayne Grudem, ed., 1996"
+        }
+      ],
+      "tradition_overrides": {
+        "pentecostal": {
+          "positions": [
+            "holy-spirit.tongues/initial-evidence",
+            "holy-spirit.tongues/gift-to-some"
+          ],
+          "hold": "Classical Pentecostal denominations confessionally teach tongues as the necessary initial evidence of Spirit baptism; broader charismatic streams within the Pentecostal-charismatic movement hold tongues as one gift among several, not a required sign.",
+          "why": null,
+          "vs": null,
+          "tier": null,
+          "confidence": "leaning",
+          "flags": [],
+          "note": "The movement is not unanimous: this is the one point where classical Pentecostal confession and the wider charismatic stream it gave rise to genuinely part ways.",
+          "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7, contrasted with charismatic-stream teaching such as John Wimber, Power Evangelism (1985)"
+        }
+      }
+    },
+    {
+      "id": "holy-spirit.healing",
+      "node_title": "Healing",
+      "slug": "healing",
+      "domain": "holy-spirit",
+      "order": 6,
+      "kind": "choice",
+      "question": "Does the Holy Spirit heal the sick today, and if so, on what terms?",
+      "framing": "The New Testament describes both Jesus and the apostles healing the sick, and James instructs the elders to pray over the sick in faith. The disagreement is over whether physical healing is provided for in the atonement as the privilege of every believer to claim, a real gift God grants at his own sovereign discretion rather than as an entitlement, or a sign gift tied to the apostolic era that ceased with the closing of the canon.",
+      "suggested_tier": "T2",
+      "tier_note": "Thomas's own map places healing at the second tier: it shapes expectation and pastoral practice without dividing on the gospel itself.",
+      "refs": "Isa 53:4-5; Matt 8:16-17; James 5:14-16; 1 Cor 12:9",
+      "links": [
+        "continuationism",
+        "prophecy"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether physical healing is guaranteed in this life through the atonement, a real gift given at God's sovereign discretion, or a sign gift that ceased with the apostolic era while God still heals providentially.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "holy-spirit.healing/atonement-guaranteed",
+          "label": "In the atonement",
+          "hold": "Divine healing of the body is provided for in Christ's atonement alongside forgiveness of sins, and is the privilege of every believer to seek in faith as part of the full provision of the gospel.",
+          "why": "Isaiah's suffering servant bears both iniquities and sicknesses, and Matthew applies that same passage to Jesus's healing ministry, joining bodily healing to the atoning work that also secures forgiveness.",
+          "vs": "Separating physical healing entirely from the atonement and treating it as an unrelated act of ordinary providence rather than part of the gospel's full provision.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Isa 53:4-5; Matt 8:16-17",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "What is at issue is not whether Christ's atonement has any relation to bodily healing, which is broadly granted, but whether that provision guarantees healing in this life to sufficient faith. Critics, including within Pentecostal ranks, warn that the strong guarantee form shades into Word of Faith teaching that blames the unhealed for insufficient faith, which the classical Pentecostal statement itself does not teach.",
+          "held_by": [
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 12"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Assemblies of God Statement of Fundamental Truths",
+              "citation": "Article 12"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.healing/real-sovereign-gift",
+          "label": "Real but sovereign gift",
+          "hold": "God really heals the sick today in answer to believing prayer, but does so as a sovereign gift given according to his own will rather than as an entitlement guaranteed to every believer who asks in faith.",
+          "why": "James instructs the elders to pray over the sick and anoint them with oil, promising that the prayer of faith will save the sick, while the rest of the New Testament's healings remain acts of God's free compassion rather than a formula.",
+          "vs": "Guaranteeing physical healing in this life as a provision of the atonement that faith can claim, so that continued sickness is read as a failure of faith.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "James 5:14-16; 2 Cor 12:7-9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "Affirmed through the Catholic Charismatic Renewal, alongside the sacrament of Anointing of the Sick.",
+              "citation": "Catechism of the Catholic Church, 1499-1532"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "permitted",
+              "note": "Through the sacrament of Holy Unction.",
+              "citation": "Longer Catechism of St Philaret of Moscow"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": null,
+              "citation": "Book of Common Prayer (1662), Visitation of the Sick"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "Lausanne Covenant (1974), Article 14"
+            }
+          ],
+          "learn_detail": null,
+          "sources": [
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1499-1532"
+            }
+          ]
+        },
+        {
+          "id": "holy-spirit.healing/cessationist",
+          "label": "Cessationist",
+          "hold": "The charismatic gift of healing, understood as a Spirit-given sign gift authenticating apostolic ministry, ceased with the apostolic era; God still heals in answer to ordinary prayer and providence, but not through a standing gift of healing exercised by particular believers.",
+          "why": "Healing functioned in Acts as a sign accompanying apostolic preaching before the New Testament was complete, and the sign gifts belong to that foundational era rather than to the ongoing life of the church.",
+          "vs": "Treating healing as a standing charismatic gift exercised by particular believers today, rather than as God's ordinary providential response to prayer.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "1 Cor 12:9; Heb 2:3-4",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": null,
+              "citation": "B. B. Warfield, Counterfeit Miracles (1918)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Widely but not universally held.",
+              "citation": "John MacArthur, Charismatic Chaos (1992)"
+            }
+          ],
+          "learn_detail": "Cessationists typically still affirm that God heals providentially through prayer and medicine, distinguishing this from a standing charismatic gift of healing exercised by particular believers.",
+          "sources": [
+            {
+              "label": "Counterfeit Miracles",
+              "citation": "B. B. Warfield, 1918"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The sharpest question is not whether God heals, which nearly every position affirms in some form, but whether healing is a guaranteed provision of the atonement to be claimed by faith.",
       "sources": [
         {
           "label": "Are Miraculous Gifts for Today? Four Views",

@@ -1,0 +1,1102 @@
+{
+  "schema_version": 1,
+  "domain": "god",
+  "doctrines": [
+    {
+      "id": "god.trinity",
+      "node_title": "Trinity",
+      "slug": "trinity",
+      "domain": "god",
+      "order": 1,
+      "kind": "settled",
+      "question": "How is the one God related to Father, Son and Holy Spirit?",
+      "framing": "This is one of the few questions in the map where the historic church speaks with a single voice, and the wizard says so rather than staging a false choice. The Nicene-Constantinopolitan Creed of 381 confesses one God in three eternally distinct persons, of one being, and every communion represented here recites or affirms it. The live questions that remain sit downstream of that confession, not inside it: how the persons are ordered, and how the Spirit's procession is described. A position that dissolves the distinction of persons, or makes the Son a creature, falls outside the creed rather than inside the debate.",
+      "suggested_tier": "T1",
+      "tier_note": "The identity of God is the first-tier question by any reckoning: nothing else in the map can be stated without it.",
+      "refs": "Matt 28:19; John 1:1-3; 2 Cor 13:14; John 15:26",
+      "links": [
+        "eternal-generation-of-the-son",
+        "efs-ess"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Read the Nicene-Constantinopolitan Creed and the Athanasian Creed alongside Matthew 28:19 and John 1, and work out what the creeds are actually claiming before deciding whether to confess them.",
+        "tier": "T1"
+      },
+      "positions": [
+        {
+          "id": "god.trinity/nicene",
+          "label": "Nicene Trinitarianism",
+          "hold": "God is one in being and three in person — Father, Son and Holy Spirit — eternally distinct, equal in nature and glory, and not three gods nor one person under three names.",
+          "why": "Scripture names Father, Son and Spirit together as God while insisting that God is one, and the creeds of 325 and 381 state that pattern in the only terms that keep both halves of it.",
+          "vs": "Accounts that secure the oneness of God by dissolving the distinction of the persons, or that secure the distinction by making the Son and the Spirit less than God.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "Matt 28:19; John 1:1-3; John 10:30; 2 Cor 13:14",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 253-256; Fourth Lateran Council (1215), ch. 1"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Recited without the filioque clause, which is itself the one live intra-creedal dispute here.",
+              "citation": "The Nicene-Constantinopolitan Creed (381), as received by the seven ecumenical councils"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 1 (Of Faith in the Holy Trinity)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession (1530), Article 1 (De Deo)"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 2.3; Belgic Confession, Articles 8-9"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article 1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession 2.3"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": "Article 2 of the Assemblies of God statement was written in 1916 partly to settle this question against the Oneness position within the movement.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2 (The One True God)"
+            },
+            {
+              "tradition": "inc",
+              "stance": "confessional",
+              "note": null,
+              "citation": "International Network of Churches, Statement of Faith"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "confessional",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "The movement rejects creedal subscription on principle while affirming the doctrine from scripture directly, so it is held as settled teaching rather than as a subscribed article.",
+              "citation": "Alexander Campbell, The Christian System (1839), on the Father, Son and Holy Spirit"
+            },
+            {
+              "tradition": "quaker",
+              "stance": "majority",
+              "note": "Friends do not subscribe creeds, and Barclay's Apology affirms the doctrine while declining the scholastic vocabulary used to state it.",
+              "citation": "Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 2"
+            }
+          ],
+          "learn_detail": "The Greek and Latin traditions state the same confession with different starting points — the East from the three persons and the monarchy of the Father, the West from the one divine essence — and the difference of approach is not itself a disagreement. The filioque, whether the Spirit proceeds from the Father alone or from the Father and the Son, is a real and unresolved division between Rome and the East, and it sits inside this shared confession rather than against it.",
+          "sources": [
+            {
+              "label": "The Nicene-Constantinopolitan Creed",
+              "citation": "First Council of Constantinople, 381"
+            },
+            {
+              "label": "The Athanasian Creed (Quicunque vult)",
+              "citation": "Latin West, c. 5th-6th century"
+            }
+          ]
+        },
+        {
+          "id": "god.trinity/oneness",
+          "label": "Oneness",
+          "hold": "God is one person who has revealed himself successively as Father, as Son in the incarnation, and as Holy Spirit, so that the name of God is Jesus and baptism is properly administered in that name alone.",
+          "why": "The unity of God is absolute, Isaiah's monotheism admits no plurality of persons, and the fullness of the Godhead is said to dwell bodily in Christ rather than in one person of three.",
+          "vs": "The confession of three eternally distinct persons in one being, which this position regards as a compromise of the oneness of God.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Deut 6:4; Isa 9:6; Col 2:9; Acts 2:38",
+          "equivalence_group": null,
+          "orthodoxy": "outside",
+          "orthodoxy_note": "This position falls outside the Nicene-Constantinopolitan Creed of 381, which confesses the Son as eternally begotten of the Father and the Spirit as proceeding from the Father — three who are distinct, not three names for one person. Modalism in its earlier form was condemned as Sabellianism in the third century, and the Athanasian Creed's requirement that the persons not be confounded is directed at precisely this account. It is included here because it is genuinely held by organised churches, and a person who holds it should get a map that says so.",
+          "held_by": [
+            {
+              "tradition": "oneness-pentecostal",
+              "stance": "confessional",
+              "note": "The Oneness bodies separated from the wider Pentecostal movement over this question between 1913 and 1916, which is why the Assemblies of God statement addresses it directly.",
+              "citation": "United Pentecostal Church International, Articles of Faith, The One True God"
+            }
+          ],
+          "learn_detail": "Oneness Pentecostalism is not a fringe of one congregation: the United Pentecostal Church International and comparable bodies number in the millions worldwide, and its adherents regard themselves as recovering apostolic practice rather than as departing from it. It is also not identical to ancient Sabellianism at every point, since most Oneness theologians affirm the full deity and the genuine humanity of Christ. The point at which it parts from the creeds is narrow and specific — whether the distinction of Father, Son and Spirit is eternal and personal, or a distinction in how the one person has been revealed.",
+          "sources": [
+            {
+              "label": "United Pentecostal Church International, Articles of Faith",
+              "citation": "The One True God; The Name"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 2, adopted 1916 in response to the Oneness question"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The vocabulary here was hammered out under pressure and each word was chosen to exclude something: 'of one being' against Arius, 'three persons' against Sabellius, 'without confusion' at Chalcedon against a merged nature in Christ. Reading the creeds as abstract metaphysics misses that they are a set of fences around a story the church was already telling.",
+      "sources": [
+        {
+          "label": "The Nicene-Constantinopolitan Creed",
+          "citation": "First Council of Constantinople, 381"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1992, 232-267"
+        }
+      ]
+    },
+    {
+      "id": "god.eternal-generation",
+      "node_title": "Eternal generation of the Son",
+      "slug": "eternal-generation-of-the-son",
+      "domain": "god",
+      "order": 2,
+      "kind": "settled",
+      "question": "In what sense is the Son eternally begotten of the Father?",
+      "framing": "The creed of 381 says the Son is 'begotten of the Father before all ages, God of God, Light of Light, true God of true God, begotten not made'. That confession is the settled position of every historic communion, and the framing here says so. What has become live again, chiefly among English-speaking evangelicals since the 1990s, is whether eternal generation is a genuine biblical teaching or a piece of inherited metaphysics that can be set aside while keeping the Son's full deity.",
+      "suggested_tier": "T1.5",
+      "tier_note": "One tier below the Trinity itself: it is creedal, and denying it strains the creed, but the traditions that debate it all confess the Son's full deity.",
+      "refs": "John 1:14; John 1:18; John 5:26; Heb 1:3",
+      "links": [
+        "trinity",
+        "efs-ess"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the language of the only-begotten in John and the radiance of Hebrews 1 carries the weight the creed puts on it, and decide what is actually lost if eternal generation is set aside.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "god.eternal-generation/affirmed",
+          "label": "Eternal generation",
+          "hold": "The Son is eternally begotten of the Father — receiving the one undivided divine essence from the Father without beginning, without division and without subordination of nature — and the Spirit eternally proceeds.",
+          "why": "It is how the creeds state the distinction of the persons without introducing degrees of deity: what distinguishes the Son from the Father is the manner of having the divine life, not the amount of it.",
+          "vs": "The view that eternal generation is a speculative inheritance from Greek philosophy which the biblical text does not require.",
+          "tier": null,
+          "confidence_default": "certain",
+          "refs": "John 1:14; John 1:18; John 5:26; Heb 1:3",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 240-248; Fourth Lateran Council (1215), ch. 2"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Central to the Eastern account of the monarchy of the Father as the source of the Son's begetting and the Spirit's procession.",
+              "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret, 132-140"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 2"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Epitome 8; Augsburg Confession, Article 3"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 2.3; Belgic Confession, Article 10"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Articles of Religion (1784), Article 2"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": "Confessed in the Second London Confession; the Baptist Faith and Message states the Trinity without using the language of generation, which is why some Baptist writers treated it as optional in the twentieth century.",
+              "citation": "Second London Baptist Confession (1689), 2.3"
+            }
+          ],
+          "learn_detail": "'Begotten' in the creed is not a claim about origin in time — the whole force of 'begotten, not made' is to deny that the Son came into being. The Fathers used the analogy of light and its radiance, which arrives with the source rather than after it, precisely because human begetting misleads at exactly this point.",
+          "sources": [
+            {
+              "label": "The Nicene-Constantinopolitan Creed",
+              "citation": "First Council of Constantinople, 381"
+            },
+            {
+              "label": "Retrieving Eternal Generation",
+              "citation": "Fred Sanders and Scott Swain, eds., 2017"
+            }
+          ]
+        },
+        {
+          "id": "god.eternal-generation/set-aside",
+          "label": "Deity without generation",
+          "hold": "The Son is fully and eternally God, of the same nature as the Father and in no way derived from him, and the creedal language of eternal begetting is a later formulation the biblical text does not itself require.",
+          "why": "The scriptural term rendered only-begotten most plausibly means 'one of a kind' rather than 'generated', and the Son's aseity — his having life in himself — is better secured without a doctrine of derivation.",
+          "vs": "The creedal account of eternal generation as the very thing that distinguishes the persons.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "John 1:18; John 5:26; John 10:30",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "This position affirms the full deity of the Son and so does not deny what Nicaea was chiefly defending, but it sets aside a clause the creed of 381 states explicitly, and most of those who hold it acknowledge that. It is a live dispute among evangelicals rather than a settled departure, and several of its best-known advocates have since withdrawn or qualified it.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A real minority position in independent evangelical seminaries and pulpits from the 1990s, argued from the lexical case on monogenes. Wayne Grudem, who advanced it in the first edition of his Systematic Theology, revised his position in the second edition of 2020.",
+              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 14, and the revised treatment in the second edition (2020)"
+            }
+          ],
+          "learn_detail": "The argument turns almost entirely on one word, monogenes, and on whether John 5:26 describes an eternal giving of life or the Father's grant to the incarnate Son. The retrieval of eternal generation in the 2010s, prompted partly by the eternal subordination debate, moved a good deal of evangelical opinion back toward the creed, so this position is less common now than it was in 1995.",
+          "sources": [
+            {
+              "label": "Systematic Theology",
+              "citation": "Wayne Grudem, 1994, ch. 14; position revised in the 2020 second edition"
+            }
+          ]
+        }
+      ],
+      "learn_note": "Eternal generation and the eternal subordination debate are historically linked: the retrieval of the creedal doctrine in the 2010s was driven in large part by theologians who thought the subordination proposal had only become thinkable once generation had been quietly dropped.",
+      "sources": [
+        {
+          "label": "The Nicene-Constantinopolitan Creed",
+          "citation": "First Council of Constantinople, 381"
+        },
+        {
+          "label": "Retrieving Eternal Generation",
+          "citation": "Fred Sanders and Scott Swain, eds., 2017"
+        }
+      ]
+    },
+    {
+      "id": "god.efs-ess",
+      "node_title": "EFS / ESS",
+      "slug": "efs-ess",
+      "domain": "god",
+      "order": 3,
+      "kind": "choice",
+      "question": "Is the Son eternally submitted to the Father in authority, or only in the incarnation?",
+      "framing": "Everyone in this debate confesses that the Father and the Son are equal in being, and everyone confesses that the incarnate Son obeyed the Father. The question is whether an ordered relation of authority and submission holds between them eternally, or whether the Son's obedience belongs to his mission as the incarnate one. The dispute broke into the open among evangelicals in 2016, and it matters partly because the eternal relation has often been offered as a model for relations between men and women — which is why it is filed near the doctrine of God rather than under ethics.",
+      "suggested_tier": "T2.5",
+      "tier_note": "It sits below the creedal core because both sides confess Nicaea, but above ordinary intramural questions because each side thinks the other's account distorts the doctrine of God.",
+      "refs": "1 Cor 11:3; 1 Cor 15:28; John 5:19; Phil 2:5-8",
+      "links": [
+        "trinity",
+        "eternal-generation-of-the-son"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether 1 Corinthians 11:3 and 15:28 describe an eternal ordering or the Son's incarnate mission, and decide what the classical doctrine of inseparable operations implies for the question either way.",
+        "tier": "T2.5"
+      },
+      "positions": [
+        {
+          "id": "god.efs-ess/eternal-submission",
+          "label": "EFS (ERAS)",
+          "hold": "The Son is eternally equal to the Father in being and eternally submitted to him in role, so that the authority of the Father and the glad submission of the Son are not merely features of the incarnation but of the eternal life of God.",
+          "why": "Scripture presents the Father as sending and the Son as sent in a relation that does not begin at Bethlehem, and 1 Corinthians 15:28 describes a subjection of the Son that continues beyond the completion of his earthly work.",
+          "vs": "The view that all subordination of the Son belongs to the incarnation, which this position holds leaves the eternal distinction of the persons underdetermined.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Cor 11:3; 1 Cor 15:28; John 6:38",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Its advocates affirm the full and equal deity of the Son and reject Arianism explicitly, so it is not a denial of the creed. Its critics hold that an eternal difference of authority implies a difference of will, and therefore of nature, which the councils excluded. Both sides regard the other as gravely mistaken about the doctrine of God, which is what places this position here rather than under no marker at all.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Advanced chiefly by complementarian evangelicals in independent and Baptist settings; not a confessional position of any communion.",
+              "citation": "Bruce Ware, Father, Son and Holy Spirit (2005); Wayne Grudem, Systematic Theology (1994), ch. 14"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Held by a section of Southern Baptist theologians; the Baptist Faith and Message does not address the question.",
+              "citation": "Bruce Ware, Father, Son and Holy Spirit: Relationships, Roles, and Relevance (2005)"
+            }
+          ],
+          "learn_detail": "The labels are a thicket: EFS (eternal functional subordination), ESS (eternal subordination of the Son) and ERAS (eternal relations of authority and submission) are used by different writers with different intentions, and several of the position's advocates reject 'subordination' as a description of what they hold. There is no single agreed label, which is itself worth knowing before reading the literature.",
+          "sources": [
+            {
+              "label": "Father, Son and Holy Spirit: Relationships, Roles, and Relevance",
+              "citation": "Bruce A. Ware, 2005"
+            }
+          ]
+        },
+        {
+          "id": "god.efs-ess/incarnational",
+          "label": "Submission in the mission",
+          "hold": "The Son's obedience to the Father belongs to his incarnate mission and to the economy of salvation, and within the eternal life of God the three persons share one undivided will and one authority.",
+          "why": "The councils held that a distinct will implies a distinct nature, so an eternal relation of command and obedience between Father and Son would divide what Nicaea and Chalcedon confessed to be one.",
+          "vs": "An eternal ordering of authority and submission between Father and Son, which this position holds cannot be had without dividing the one divine will.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "John 5:19; Phil 2:5-8; John 10:30",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Follows from the doctrine of inseparable operations and the single divine will affirmed against monothelitism at Constantinople in 681.",
+              "citation": "Catechism of the Catholic Church 258; Third Council of Constantinople (681)"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Third Council of Constantinople (681), on the two wills of Christ and the one will of God"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration 8"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "The classical Reformed account, restated forcefully in the 2016 exchange by Carl Trueman and Liam Goligher; a minority of Reformed complementarians hold the other position.",
+              "citation": "Westminster Confession of Faith 2.3; Carl Trueman and Liam Goligher, Mortification of Spin exchange (2016)"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Articles 1-2"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Articles of Religion (1784), Articles 1-2"
+            }
+          ],
+          "learn_detail": "This position is not a claim that the Son does not obey — the gospels are unambiguous that he does. It is a claim about where that obedience is located: in the assumed human nature and the sent mission, not in an eternal ordering of the divine persons. Its defenders regard the classical doctrine of inseparable operations, that the three persons act as one in every external work, as the load-bearing point.",
+          "sources": [
+            {
+              "label": "The Rise and Fall of the Complementarian Doctrine of the Trinity",
+              "citation": "Kevin Giles, 2017"
+            },
+            {
+              "label": "Third Council of Constantinople",
+              "citation": "681, on the two wills"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The 2016 debate was unusually public and unusually bad-tempered, and much of it was conducted on blogs rather than in journals. Anyone reading into it should know that several participants have since restated or softened their positions, and that the secondary literature written in that year is not a reliable guide to what its subjects hold now.",
+      "sources": [
+        {
+          "label": "Retrieving Eternal Generation",
+          "citation": "Fred Sanders and Scott Swain, eds., 2017"
+        },
+        {
+          "label": "The Rise and Fall of the Complementarian Doctrine of the Trinity",
+          "citation": "Kevin Giles, 2017"
+        }
+      ]
+    },
+    {
+      "id": "god.classical-theism",
+      "node_title": "Classical theism",
+      "slug": "classical-theism",
+      "domain": "god",
+      "order": 4,
+      "kind": "choice",
+      "question": "Is God simple, immutable and impassible, or does God change and suffer in relation to the world?",
+      "framing": "The classical tradition holds that God is not composed of parts, does not change, and is not acted upon from outside — that God's love and mercy are the fullness of his own life rather than reactions produced in him. The confessions of the Reformation state this in the phrase 'without body, parts, or passions'. Since the mid-twentieth century a substantial body of theologians has argued that this account owes more to Greek metaphysics than to scripture, and that a God who genuinely responds, grieves and rejoices is the God the biblical narrative actually presents. Both sides are reading the same texts about God's grief in Genesis 6 and his unchanging purpose in Malachi 3.",
+      "suggested_tier": "T2",
+      "tier_note": "It shapes how every other statement about God is read — what mercy, wrath and faithfulness mean — without dividing over the gospel itself.",
+      "refs": "Mal 3:6; Jas 1:17; Exod 3:14; Num 23:19",
+      "links": [
+        "gods-relation-to-time",
+        "open-theism"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the biblical language of God relenting and grieving is accommodation to human speech or literal description, and decide what divine simplicity is actually claiming before accepting or rejecting it.",
+        "tier": "T2"
+      },
+      "positions": [
+        {
+          "id": "god.classical-theism/classical",
+          "label": "Classical theism",
+          "hold": "God is simple, immutable, impassible and eternally self-sufficient — not composed of parts, not changing in being or purpose, and not moved from outside himself — so that his love and mercy are the fullness of his own life rather than states produced in him by the world.",
+          "why": "A God who could be added to or diminished would depend on what is not God, and the scriptures that speak of God relenting are read as accommodation to human ways of speaking, as the same books elsewhere say plainly that God does not change.",
+          "vs": "The view that God is genuinely affected and changed by what creatures do, which this position holds makes God one being among others rather than the source of all being.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Mal 3:6; Jas 1:17; Num 23:19; Exod 3:14",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Fourth Lateran Council (1215), ch. 1; First Vatican Council, Dei Filius 1; Catechism of the Catholic Church 212-213"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "Held with the distinction between the divine essence and the divine energies, which the East uses to affirm both God's utter transcendence and his real presence to creatures.",
+              "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret, 89-97"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 2.1; Belgic Confession, Article 1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 1 (without body, parts, or passions)"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession (1530), Article 1"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": "Wesley's abridgement retains the Article's wording on God without body, parts, or passions.",
+              "citation": "Articles of Religion (1784), Article 1"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": "Confessed in the Second London Confession; the Baptist Faith and Message states God's attributes more briefly and does not use the classical vocabulary.",
+              "citation": "Second London Baptist Confession (1689), 2.1"
+            }
+          ],
+          "learn_detail": "Impassibility is not the claim that God is indifferent or unfeeling — the same theologians who taught it also taught that God is love in his very essence. The claim is narrower: that God's love is not a passion aroused in him by something outside, but the eternal act of his own being, and therefore constant rather than fluctuating. Recent retrieval work has spent much of its energy correcting the misreading rather than defending the doctrine.",
+          "sources": [
+            {
+              "label": "Summa Theologiae",
+              "citation": "Thomas Aquinas, Ia, qq. 3-11"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 2.1"
+            }
+          ]
+        },
+        {
+          "id": "god.classical-theism/relational",
+          "label": "Relational theism",
+          "hold": "God is unchanging in character, purpose and faithfulness, and is genuinely responsive to creatures — grieving over sin, rejoicing over repentance and entering into real relation with what he has made — so that immutability is constancy of character rather than absence of all change.",
+          "why": "The biblical narrative presents God as entering into covenant, being grieved and relenting, and reading all of it as figurative empties the story of the very relation it exists to describe.",
+          "vs": "A strict account of simplicity and impassibility which, on this reading, requires so much of the biblical language about God to be non-literal that the God of the narrative disappears behind the account.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 6:6; Hos 11:8; Jer 18:7-10",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "Nothing in the ecumenical creeds defines simplicity or impassibility, so this position does not contradict them, and its holders confess the Trinity and the incarnation without qualification. It does stand against the explicit wording of the Reformation confessions and of the First Vatican Council, and the classical side regards it as a serious error about the nature of God rather than a permissible variation. The dispute is sharp in both directions, which is why it is marked here.",
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "Widespread in practice and in preaching across independent evangelicalism, often without being identified as a departure from the classical account.",
+              "citation": "Nicholas Wolterstorff, 'Suffering Love', in Philosophy and the Christian Faith (1988)"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "minority",
+              "note": "A significant strand of Wesleyan theology treats divine responsiveness as continuous with Wesley's emphasis on prevenient grace, though the Articles of Religion state the classical position.",
+              "citation": "Thomas Jay Oord, The Uncontrolling Love of God (2015)"
+            }
+          ],
+          "learn_detail": "This is a family of positions rather than one, and it has no agreed name — 'relational theism', 'neo-classical theism', 'modified classical theism' and 'theistic personalism' are all used, the last of them usually by critics. Some holders reject only impassibility while keeping simplicity; others reject both. A person selecting this option should be aware that it covers a wide range.",
+          "sources": [
+            {
+              "label": "Suffering Love",
+              "citation": "Nicholas Wolterstorff, in Philosophy and the Christian Faith, 1988"
+            },
+            {
+              "label": "The Crucified God",
+              "citation": "Jürgen Moltmann, 1972"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "methodist": {
+          "positions": [
+            "god.classical-theism/classical",
+            "god.classical-theism/relational"
+          ],
+          "hold": "God is eternal, infinite and without body, parts or passions as the Articles of Religion state, and a substantial strand of Wesleyan theology holds alongside that a genuine divine responsiveness continuous with Wesley's teaching on prevenient grace.",
+          "why": "Wesley retained the Anglican Article on God unaltered, and the later Wesleyan emphasis on a God who woos, waits and responds has developed within that inheritance rather than by repudiating it.",
+          "vs": null,
+          "tier": "T2",
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "Methodism is confessionally classical and, in much of its living theology, relational. Reporting either half alone would describe a party rather than the tradition, and the tension between the Article and the strand is itself part of what a Methodist reader would recognise.",
+          "citation": "Articles of Religion (1784), Article 1; Thomas Jay Oord, The Uncontrolling Love of God (2015)"
+        }
+      },
+      "learn_note": "The two options here are not symmetrical in status: one is the confessional position of every historic communion and the other is a modern proposal that has become common in practice. The wizard lists them side by side because both are genuinely held, but the `held_by` entries carry the difference and should be read.",
+      "sources": [
+        {
+          "label": "All That Is In God",
+          "citation": "James E. Dolezal, 2017"
+        },
+        {
+          "label": "Divine Impassibility and the Mystery of Human Suffering",
+          "citation": "James F. Keating and Thomas Joseph White, eds., 2009"
+        }
+      ]
+    },
+    {
+      "id": "god.time",
+      "node_title": "God's relation to time",
+      "slug": "gods-relation-to-time",
+      "domain": "god",
+      "order": 5,
+      "kind": "choice",
+      "question": "Does God exist outside time, or through it?",
+      "framing": "Every tradition holds that God is eternal and had no beginning. The question is what eternity means: whether God's life is a timeless present in which all moments are equally immediate, or an unending duration in which God genuinely experiences succession alongside creation. This is a question the creeds do not settle, and it is argued mostly among philosophers of religion rather than between churches. It bears on prayer, on prophecy and on what it means for God to act at a particular moment.",
+      "suggested_tier": "T3",
+      "tier_note": "A genuine question with real downstream effects, but no communion divides over it and both answers have been held by orthodox theologians throughout the church's history.",
+      "refs": "Ps 90:2; 2 Pet 3:8; Rev 1:8",
+      "links": [
+        "classical-theism",
+        "divine-foreknowledge"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether the biblical language of God's everlastingness implies duration or timelessness, and decide what either answer means for petitionary prayer and for prophecy.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "god.time/timeless",
+          "label": "Timeless eternity",
+          "hold": "God exists outside the succession of moments altogether, in a single undivided present to which every point in created time is equally immediate, so that God does not wait, anticipate or remember.",
+          "why": "Time is a feature of the created order, and a God who is its maker is not one of its inhabitants; the classical account of eternity as the whole, simultaneous and perfect possession of unending life follows from that.",
+          "vs": "The view that God experiences succession, which this position holds would make God's life measurable by the creation he made.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 90:2; Exod 3:14; 2 Pet 3:8",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "majority",
+              "note": "The dominant scholastic account, following Boethius and Aquinas; the magisterium affirms God's eternity without defining the philosophical account of it.",
+              "citation": "Thomas Aquinas, Summa Theologiae Ia, q. 10; Catechism of the Catholic Church 600"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret, 90"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Follows from the confessional statement that God is infinite in being and without parts; the Confession does not itself name the philosophical account.",
+              "citation": "Westminster Confession of Faith 2.1"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Article 1"
+            }
+          ],
+          "learn_detail": "Boethius's definition — the complete possession, all at once, of unending life — is the reference point for this position, and Aquinas's development of it is the reason it became the default in the West. It is often paired with divine simplicity, and the two are usually accepted or rejected together.",
+          "sources": [
+            {
+              "label": "The Consolation of Philosophy",
+              "citation": "Boethius, c. 524, Book 5, prose 6"
+            },
+            {
+              "label": "Summa Theologiae",
+              "citation": "Thomas Aquinas, Ia, q. 10"
+            }
+          ]
+        },
+        {
+          "id": "god.time/temporal",
+          "label": "Everlasting through time",
+          "hold": "God is without beginning or end and experiences the succession of moments alongside creation, so that eternity is unending duration rather than the absence of time.",
+          "why": "Scripture consistently presents God as acting, speaking and responding at particular moments, and a timeless God cannot straightforwardly be said to do anything at one time rather than another.",
+          "vs": "Strict timelessness, which this position holds makes God's involvement at particular moments in the biblical narrative difficult to state without translation into another idiom.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Ps 90:2; Rev 1:8; Gen 1:1",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": "Common among analytic evangelical philosophers; not a confessional position anywhere, and held alongside full affirmation of God's eternity.",
+              "citation": "Nicholas Wolterstorff, 'God Everlasting' (1975); William Lane Craig, Time and Eternity (2001)"
+            }
+          ],
+          "learn_detail": "William Lane Craig holds a hybrid: God is timeless without creation and temporal since creation, which is meant to keep the strengths of both accounts. That variant is common enough that a person choosing this option may want to note which version is meant.",
+          "sources": [
+            {
+              "label": "God Everlasting",
+              "citation": "Nicholas Wolterstorff, 1975"
+            },
+            {
+              "label": "Time and Eternity: Exploring God's Relationship to Time",
+              "citation": "William Lane Craig, 2001"
+            }
+          ]
+        }
+      ],
+      "learn_note": "No church has ever made this a test of communion, and both positions have been held by theologians in good standing throughout the church's history. It is included because it is genuinely argued and genuinely consequential, not because anything hangs on getting it right for fellowship.",
+      "sources": [
+        {
+          "label": "God and Time: Four Views",
+          "citation": "Gregory E. Ganssle, ed., 2001"
+        }
+      ]
+    },
+    {
+      "id": "god.open-theism",
+      "node_title": "Open theism",
+      "slug": "open-theism",
+      "domain": "god",
+      "order": 6,
+      "kind": "choice",
+      "question": "Is the future exhaustively settled and known to God?",
+      "framing": "The historic position of every communion is that God knows the whole of the future exhaustively and infallibly, including the free choices creatures will make. Open theism, argued chiefly by evangelical philosophers and theologians from the 1990s, holds instead that the future free acts of creatures are not yet there to be known, so that God's omniscience covers everything knowable without covering them. Both sides affirm that God is omniscient; they disagree about what there is to know. The dispute was sharp enough that the Evangelical Theological Society voted on it in 2003 and declined, narrowly, to expel its leading advocates.",
+      "suggested_tier": "T1.5",
+      "tier_note": "Thomas's own map places it high because what God knows bears directly on providence, prayer and the reliability of prophecy — the traditions that reject it regard it as an error about God himself.",
+      "refs": "Isa 46:9-10; Ps 139:4; Jer 18:7-10; Gen 22:12",
+      "links": [
+        "classical-theism",
+        "divine-foreknowledge",
+        "gods-relation-to-time"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether Isaiah 46's claim to declare the end from the beginning settles the question, and decide what the texts where God tests and relents are describing if the outcome was already known.",
+        "tier": "T1.5"
+      },
+      "positions": [
+        {
+          "id": "god.open-theism/settled-future",
+          "label": "Exhaustive foreknowledge",
+          "hold": "God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.",
+          "why": "God declares the end from the beginning as the mark that distinguishes him from every idol, and prophecy of free human acts across centuries requires that those acts be known before they occur.",
+          "vs": "The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Isa 46:9-10; Ps 139:4; Isa 42:9",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 302, 600; First Vatican Council, Dei Filius 1"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Longer Catechism of St Philaret, 90-93"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 2.2, 3.2"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration 11"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles of Religion, Articles 1 and 17"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": "Wesleyan theology holds exhaustive foreknowledge while denying that foreknowledge is causal, which is the classical Arminian shape.",
+              "citation": "Articles of Religion (1784), Article 1; John Wesley, 'On Predestination'"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Baptist Faith and Message (2000), Article 2"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+            }
+          ],
+          "learn_detail": "This position is shared across the Calvinist and Arminian divide: what separates those two is not whether God foreknows the future but whether foreknowledge is grounded in his decree. That is a separate question, and it is asked separately in this map.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 2.2"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1992, 302, 600"
+            }
+          ]
+        },
+        {
+          "id": "god.open-theism/open",
+          "label": "Open theism",
+          "hold": "God knows everything that is there to be known, and the free future choices of creatures are not yet there, so God's knowledge of the future is settled where he has determined it and open where he has granted genuine freedom.",
+          "why": "Scripture repeatedly presents God as testing to find out, relenting, and changing a declared course in response to repentance, and a future genuinely open to creaturely choice is what makes those texts descriptions rather than performances.",
+          "vs": "Exhaustive definite foreknowledge, which this position holds makes creaturely freedom and the biblical language of God relenting difficult to state together.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Gen 22:12; Jer 18:7-10; Jer 3:7; Exod 32:14",
+          "equivalence_group": null,
+          "orthodoxy": "contested",
+          "orthodoxy_note": "No ecumenical creed defines the extent of divine foreknowledge, so this position does not contradict one, and its advocates affirm the Trinity, the incarnation and the full omniscience of God as they define it. It stands against the explicit wording of every major confession, and the traditions that hold exhaustive foreknowledge regard it as a serious error about the being of God. The Evangelical Theological Society debated expelling Clark Pinnock and John Sanders over it in 2003 and voted not to, which is a fair marker of how sharply and how genuinely it is disputed.",
+          "held_by": [],
+          "learn_detail": "Open theism is not process theology, and its advocates are usually careful to say so: it holds that God created from nothing, is omnipotent, and could have determined the future exhaustively had he chosen to. The claim is that he chose not to. It is held by individual theologians and by congregations, but it is not the confessional position of any body in this registry, which is why no tradition is named against it here.",
+          "sources": [
+            {
+              "label": "The Openness of God",
+              "citation": "Clark Pinnock, Richard Rice, John Sanders, William Hasker and David Basinger, 1994"
+            },
+            {
+              "label": "The God Who Risks: A Theology of Providence",
+              "citation": "John Sanders, 1998"
+            }
+          ]
+        }
+      ],
+      "learn_note": "The word 'open' is the advocates' own, not a critic's, and it refers to the future rather than to God. Critics more often call the position 'openness theology' or, less fairly, 'neotheism'. Its opponents include Arminians as well as Calvinists, which is worth knowing: this is not a further step along the Arminian road, and classical Arminians have been among its sharpest critics.",
+      "sources": [
+        {
+          "label": "The Openness of God",
+          "citation": "Clark Pinnock et al., 1994"
+        },
+        {
+          "label": "Divine Foreknowledge: Four Views",
+          "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"
+        }
+      ]
+    },
+    {
+      "id": "god.divine-foreknowledge",
+      "node_title": "Divine foreknowledge",
+      "slug": "divine-foreknowledge",
+      "domain": "god",
+      "order": 7,
+      "kind": "choice",
+      "question": "How does God know what free creatures will freely do?",
+      "framing": "This question assumes the answer given by the historic traditions to the previous one: that God knows the whole future. What it asks is how. The classical Augustinian answer grounds that knowledge in God's own eternal decree — God knows what will happen because he has determined it. Molinism proposes a middle knowledge of what any creature would freely do in any circumstance, logically prior to the decree. Simple foreknowledge holds that God simply knows the future as it will be, without that knowledge being grounded in a decree at all. The three are argued mostly between philosophers, and they cut across the Calvinist and Arminian traditions rather than along them.",
+      "suggested_tier": "T3",
+      "tier_note": "The mechanism matters less than the fact: every position here affirms exhaustive foreknowledge, and no communion divides over which account of it is right.",
+      "refs": "1 Sam 23:11-13; Matt 11:21; Acts 2:23; Rom 8:29",
+      "links": [
+        "open-theism",
+        "classical-theism",
+        "gods-relation-to-time"
+      ],
+      "open": {
+        "hold": "Undecided.",
+        "todo": "Work out whether 1 Samuel 23 and Matthew 11:21 describe knowledge of what would have happened under other circumstances, and decide whether that requires middle knowledge or is accounted for some other way.",
+        "tier": "T3"
+      },
+      "positions": [
+        {
+          "id": "god.divine-foreknowledge/decree",
+          "label": "Grounded in the decree",
+          "hold": "God knows the future because he has eternally decreed it, so his foreknowledge of what creatures will do is knowledge of his own purpose rather than knowledge drawn from the creatures themselves.",
+          "why": "Nothing comes to pass outside God's ordination, and a knowledge of the future that God derived from what creatures will independently do would make his knowledge dependent on the creation.",
+          "vs": "Accounts that ground God's foreknowledge in the creature's independent choice, which this position holds makes God a spectator of a future he did not determine.",
+          "tier": null,
+          "confidence_default": "confident",
+          "refs": "Acts 2:23; Eph 1:11; Isa 46:9-10",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith 3.1-3.2; Canons of Dordt, First Head, Article 6"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": "Lutheran theology affirms the decree in election while declining to extend the same account to reprobation, which the Formula of Concord treats as a mystery rather than a symmetry.",
+              "citation": "Formula of Concord, Solid Declaration 11"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "The Dominican Thomist account; the Congregatio de Auxiliis of 1607 left the Thomist and Molinist schools free to hold their positions and forbade each to condemn the other.",
+              "citation": "Domingo Báñez, Commentary on the Summa; Congregatio de Auxiliis (1597-1607)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Held by the Reformed strand within Baptist life; the Baptist Faith and Message does not settle the question.",
+              "citation": "Second London Baptist Confession (1689), 3.1-3.2"
+            }
+          ],
+          "learn_detail": "The Thomist and the Reformed versions of this position differ on how God's determination and creaturely freedom fit together — the Thomist account works through primary and secondary causality, the Reformed through compatibilist freedom — but both ground foreknowledge in the decree rather than in the creature.",
+          "sources": [
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 3.1-3.2"
+            },
+            {
+              "label": "Canons of Dordt",
+              "citation": "1619, First Head of Doctrine"
+            }
+          ]
+        },
+        {
+          "id": "god.divine-foreknowledge/molinism",
+          "label": "Middle knowledge",
+          "hold": "Prior to his decree God knows what every possible creature would freely choose in every possible circumstance, and by choosing which circumstances to actualise he brings about his purposes without determining any free choice.",
+          "why": "It accounts for the texts where God knows what people would have done under conditions that never came about, and it holds together a sovereignty that governs every outcome with a freedom that is genuinely the creature's own.",
+          "vs": "Grounding foreknowledge wholly in the decree, which this position holds leaves creaturely freedom doing no real work.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "1 Sam 23:11-13; Matt 11:21; Acts 2:23",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "roman-catholic",
+              "stance": "permitted",
+              "note": "The Jesuit account, originating with Luis de Molina in 1588. Explicitly left permissible alongside the Thomist position by the Congregatio de Auxiliis.",
+              "citation": "Luis de Molina, Concordia (1588); Congregatio de Auxiliis (1597-1607)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A live position among evangelical philosophers, most prominently William Lane Craig; not confessional anywhere in the stream.",
+              "citation": "William Lane Craig, The Only Wise God (1987)"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "minority",
+              "note": "Held by a section of Southern Baptist theologians as an alternative to both Calvinist and simple-foreknowledge accounts.",
+              "citation": "Kenneth Keathley, Salvation and Sovereignty: A Molinist Approach (2010)"
+            }
+          ],
+          "learn_detail": "The standard objection is the grounding objection: what makes it true, prior to any decree, that a particular creature would freely do a particular thing in circumstances that never obtain. Molinists have several answers and none of them commands agreement, which is the honest state of the argument.",
+          "sources": [
+            {
+              "label": "Concordia (On Divine Foreknowledge, Part IV)",
+              "citation": "Luis de Molina, 1588"
+            },
+            {
+              "label": "Salvation and Sovereignty: A Molinist Approach",
+              "citation": "Kenneth Keathley, 2010"
+            }
+          ]
+        },
+        {
+          "id": "god.divine-foreknowledge/simple",
+          "label": "Simple foreknowledge",
+          "hold": "God simply knows the whole future as it will actually be, without that knowledge being grounded in a decree that determines it or in a prior knowledge of what creatures would do under other circumstances.",
+          "why": "Foreknowledge is knowledge, not causation, and a God who sees what will be does not thereby make it be; the classical Arminian tradition has held exactly this since the Remonstrance.",
+          "vs": "Accounts that make God's knowledge of the future depend on his having determined it, which this position holds turns foreknowledge into another name for predestination.",
+          "tier": null,
+          "confidence_default": "leaning",
+          "refs": "Rom 8:29; 1 Pet 1:2; Isa 46:9-10",
+          "equivalence_group": null,
+          "orthodoxy": "historic",
+          "orthodoxy_note": null,
+          "held_by": [
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": "The classical Wesleyan-Arminian account: God foreknows without foreordaining, and foreknowledge is not causal.",
+              "citation": "John Wesley, 'On Predestination' (Sermon 58); Articles of Religion (1784), Article 1"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "The East has consistently declined to ground foreknowledge in a decree that determines creaturely choice, holding foreknowledge and freedom together without the Western apparatus.",
+              "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": "Classical Pentecostal bodies are broadly Arminian in this respect, though most statements of faith do not address the mechanism.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "Held as the plain reading of scripture rather than as a confessional article, consistent with the movement's rejection of creedal subscription.",
+              "citation": "Alexander Campbell, The Christian System (1839)"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+            }
+          ],
+          "learn_detail": "The standing objection is that simple foreknowledge is providentially useless: if God learns the future only as it will actually be, that knowledge arrives too late, so to speak, to inform any decision about what to actualise. Its defenders reply that providence does not require the future to be a resource for deliberation, and that the objection assumes a temporal ordering in God's knowing that the position denies.",
+          "sources": [
+            {
+              "label": "On Predestination",
+              "citation": "John Wesley, Sermon 58, 1773"
+            },
+            {
+              "label": "The Arminian Confession of 1621",
+              "citation": "Simon Episcopius, ch. 2"
+            }
+          ]
+        }
+      ],
+      "tradition_overrides": {
+        "roman-catholic": {
+          "positions": [
+            "god.divine-foreknowledge/decree",
+            "god.divine-foreknowledge/molinism"
+          ],
+          "hold": "God knows the whole future infallibly, and the church leaves open how that knowledge relates to his eternal decree — the Thomist and Molinist accounts are both permitted, and neither may condemn the other.",
+          "why": "The Congregatio de Auxiliis examined the dispute for a decade and closed it without a verdict, permitting both schools and forbidding each to declare the other heretical.",
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "Rome is not divided here by accident or by drift. The breadth is a formal decision of the Holy See, and an entry that picked either the Dominican or the Jesuit account would be describing a school rather than the church.",
+          "citation": "Congregatio de Auxiliis (1597-1607); Catechism of the Catholic Church 302, 600"
+        },
+        "baptist": {
+          "positions": [
+            "god.divine-foreknowledge/decree",
+            "god.divine-foreknowledge/molinism"
+          ],
+          "hold": "God knows the whole future infallibly, and Baptists differ among themselves as to whether that knowledge is grounded in his eternal decree, in a middle knowledge of what creatures would freely do, or simply in the future as it will be.",
+          "why": "The Baptist Faith and Message affirms God's perfect knowledge of all things without settling the mechanism, and Baptist life has contained Reformed, Molinist and simple-foreknowledge accounts side by side throughout its history.",
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [
+            "study"
+          ],
+          "note": "Baptists are confessional but not creedally bound, and this is one of the questions their confessions deliberately leave open. Naming a single Baptist answer here would be false.",
+          "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession (1689), 3.1-3.2"
+        },
+        "non-denominational": {
+          "positions": [
+            "god.divine-foreknowledge/molinism",
+            "god.divine-foreknowledge/simple"
+          ],
+          "hold": "God knows the whole future infallibly, and independent evangelical congregations hold no common account of how, with simple foreknowledge the most widely assumed and middle knowledge argued for by a smaller philosophical strand.",
+          "why": "The stream has no binding confession on the question, and its statements of faith affirm God's omniscience without addressing the mechanism at all.",
+          "vs": null,
+          "tier": "T3",
+          "confidence": "leaning",
+          "flags": [],
+          "note": "This is a case where the honest entry is that the stream has no single answer rather than a thin majority reported as one.",
+          "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+        }
+      },
+      "learn_note": "These three answers cut across the Calvinist and Arminian traditions rather than along them: a Molinist may be Catholic or Baptist, and simple foreknowledge is held by Wesleyans and by the Christian East for quite different reasons. That is unusual in this map and worth noticing.",
+      "sources": [
+        {
+          "label": "Divine Foreknowledge: Four Views",
+          "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"
+        },
+        {
+          "label": "Concordia (On Divine Foreknowledge, Part IV)",
+          "citation": "Luis de Molina, 1588"
+        }
+      ]
+    }
+  ]
+}
