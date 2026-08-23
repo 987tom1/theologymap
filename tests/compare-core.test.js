@@ -141,6 +141,21 @@ test('superseded wording still resolves to the position, not to own-wording', ()
   assert.strictEqual(row.mine.kind, 'position');
 });
 
+/* normalise IS the no-fuzzy-matching rule, so it gets a direct test rather
+ * than being covered only through diff(). Found by mutation: replacing the
+ * trailing-full-stop strip with a strip-all-punctuation rule passed every
+ * other test in this file, because no two corpus holds differ by punctuation
+ * alone. The rule has to be pinned where it lives. */
+test('normalise strips exactly four things and nothing else', () => {
+  assert.strictEqual(CC.normalise('  Two   spaces.  '), 'two spaces');
+  assert.strictEqual(CC.normalise('One dot..'), 'one dot.');      // ONE, not all
+  assert.strictEqual(CC.normalise('"quoted"'), 'quoted');
+  // Everything below must survive: stripping any of it is fuzzy matching,
+  // and a near-match must resolve to own-wording, not to a wrong position.
+  for (const s of ['a, b', 'a; b', "God's", 'a — b', 'a: b', 'a-b', '(a) b'])
+    assert.strictEqual(CC.normalise(s), s.toLowerCase(), s);
+});
+
 /* Two traditions whose overrides span the same positions are not disagreeing.
  * Anglican and Lutheran both span infant-covenant and regeneration on baptism;
  * reporting "differ" there would be a difference the corpus never claims. */
