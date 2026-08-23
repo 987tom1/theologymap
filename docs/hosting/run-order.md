@@ -46,9 +46,15 @@ nothing else unless its own plan section names the file.
 | 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views | `phase-7-views` | Sonnet | `phase-7-brief.md` |
+| 15 | Phase 8 — version history and restore | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
 
 **Phase 5 (session 11) may run in parallel** with 7–10 once phase 4's schema is
-frozen — it produces content, not code. Everything else is sequential.
+frozen — it produces content, not code.
+
+**Phase 8 (session 15) is last by convenience, not by dependency.** It needs only
+`map_versions`, which shipped and was verified in session 9, so it can run any
+time after phase 4 — pull it forward if losing work to the wizard is a live
+worry. Everything else is sequential.
 
 ## Progress
 

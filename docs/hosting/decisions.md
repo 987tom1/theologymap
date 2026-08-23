@@ -231,3 +231,23 @@ These are locked calls; phases 3–7 implement them and do not re-open them.
   - **Retention:** keep the last 20 per user.
   It is a new table, so it is a migration — write it, commit it, push it, verify it
   landed (`run-order.md`, "How the database actually gets changed").
+
+## Amendment — 2026-08-23, after phase 4 session 9
+
+Session 9 shipped `map_versions` and asked whether an undo with no button was
+worth a phase of its own. Thomas: **yes — give it a phase.**
+
+- **Phase 8 is version history and restore.** `map_versions` is written on every
+  save today and read by nothing. Phase 8 gives it a reader: a list of a map's
+  own earlier versions, and a restore.
+- **It needs no schema change.** The table, the throttle and the retention are
+  already live and verified. Phase 8 is a route action and a small surface.
+- **It depends only on phase 4's table, so it may run any time after phase 4.**
+  It is numbered last because phases 5–7 were already sequenced, not because it
+  is blocked by them. Pull it forward if the wizard makes anyone nervous about
+  losing work — that is the risk it insures against, and that risk goes live the
+  day the wizard does.
+- **Admin restore is already a locked power** ("Admin can: … edit/restore any
+  map", under *Accounts and data*). Phase 8 is where "restore" stops being
+  aspirational, so it covers the admin case too.
+

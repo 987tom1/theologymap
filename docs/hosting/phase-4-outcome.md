@@ -350,9 +350,13 @@ ending fix.
    flags this as open. The canvas takes §5.3's own fallback — explain inline,
    keep the outward links for phase 6. Session 10 builds what the canvas shows
    unless you say otherwise.
-4. **Nothing reads `map_versions` yet.** It is an undo with no button. Restoring
-   a version is a UI and a route neither phase 4 nor any later phase currently
-   plans. Worth a phase, or leave it as insurance?
+4. ~~**Nothing reads `map_versions` yet.** Worth a phase, or leave it as
+   insurance?~~ **Answered 2026-08-23: give it a phase.** It is **phase 8** —
+   `decisions.md`'s *Amendment — 2026-08-23, after phase 4 session 9*, the brief
+   is `phase-8-version-history.md` in Project 13, and it is session 15 in
+   `run-order.md`. No schema change; it needs only the table this session shipped,
+   so it is numbered last but blocked by nothing after phase 4 and can be pulled
+   forward.
 
 ## Decisions worth revisiting
 
