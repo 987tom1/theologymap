@@ -202,6 +202,7 @@ Every command run, every output read.
 | **Lockstep**: the six engine files vs `main` | **PASS** — **zero changed lines in all six** |
 | Static `content/` serving on production | **PASS** — `/content/wizard/manifest.json` returns **200**, so `/content/traditions/*.md` needs no new function |
 | No secrets in anything added | **PASS** |
+| **Post-merge, on production**: `/content/traditions/reformed.md`, `manifest.json` and `/engine/compare-core.js` | **PASS** — all **200**. The maps and the engine are served statically, with no new function, as design 2.1 predicted |
 
 ---
 
