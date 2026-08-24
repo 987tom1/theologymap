@@ -280,6 +280,12 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   :root {
     --bg: #f6f3ec; --panel: #fffdf8; --ink: #23201a; --muted: #6b6255;
     --line: #e2dbcb; --accent: #23201a; --chip: #ede6d6;
+    /* Phase 7 adopts phase 3's two extra tokens verbatim (engine/theme.css).
+       --field-line is for interactive control boundaries only: --line against
+       --panel is 1.36:1 and fails WCAG 2.1 SC 1.4.11 (3:1). --note is a quiet
+       surface that is NOT perceivable alone (1.08:1 on --bg), so it never
+       appears without a rule and a label beside it. */
+    --field-line: #8f8369; --note: #f0ead9;
     --serif: ui-serif, Constantia, "Iowan Old Style", "Palatino Linotype", Georgia, serif;
     --sans: ui-sans-serif, "Segoe UI", system-ui, sans-serif;
     --mono: ui-monospace, "Cascadia Mono", "Consolas", monospace;
@@ -288,6 +294,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   @media (prefers-color-scheme: dark) {
     :root { --bg:#15120d; --panel:#201b14; --ink:#ece4d5; --muted:#a89a85;
             --line:#372f22; --accent:#ece4d5; --chip:#271f16;
+            --field-line:#7d7059; --note:#2a2318;
             --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 20px -12px rgba(0,0,0,.55); }
   }
   * { box-sizing: border-box; }
@@ -311,15 +318,22 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     padding:5px 10px; border-radius:5px; font:600 12px/1 var(--sans); }
   .seg button[aria-pressed="true"] { background:var(--panel); color:var(--ink);
     box-shadow:var(--shadow); }
-  input[type=search] { border:1px solid var(--line); background:var(--panel); color:var(--ink);
+  input[type=search] { border:1px solid var(--field-line); background:var(--panel); color:var(--ink);
     padding:6px 11px; border-radius:6px; font:13px/1 var(--sans); min-width:190px; }
   input[type=search]::placeholder { color:var(--muted); }
   label.tog { font:12px/1 var(--sans); color:var(--muted); display:flex; gap:5px;
     align-items:center; cursor:pointer; }
+  label.tog input { accent-color:var(--accent); }
   .btnrow { display:flex; gap:6px; }
-  .btnrow button { font:600 11.5px/1 var(--sans); border:1px solid var(--line);
+  .btnrow button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
     background:var(--panel); color:var(--muted); padding:5px 10px; border-radius:6px; cursor:pointer; }
   .btnrow button:hover { color:var(--ink); border-color:var(--muted); }
+  /* One focus treatment for every control on the page, not just .refchip.
+     --muted is 5.41:1 on --bg and 5.90:1 on --panel, so it is visible in both
+     themes on every surface a control sits on. */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  summary:focus-visible, [tabindex]:focus-visible {
+    outline:2px solid var(--muted); outline-offset:2px; border-radius:4px; }
   main { padding:18px 22px 90px; max-width:1080px; }
   main.wide { max-width:none; padding:16px 16px 16px; }
   .group { margin-bottom:16px; }
@@ -333,13 +347,18 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   .group.expanded > h2 .chev { transform:rotate(90deg); }
   .group .cardwrap { display:none; }
   .group.expanded .cardwrap { display:block; }
-  .node { background:var(--panel); border:1px solid var(--line);
-    border-left:3px solid var(--tier, var(--line));
-    border-radius:6px; padding:10px 15px 11px; margin-bottom:7px; break-inside:avoid;
+  /* Geometry and surface taken from theme.css's .tm-card so a card here and a
+     card in the hosted app are the same object: --panel, --field-line, 9px
+     radius, 16px/18px padding, 17px serif heading. The 3px tier rail on the
+     left edge is this view's own addition and stays. */
+  .node { background:var(--panel); border:1px solid var(--field-line);
+    border-left:3px solid var(--tier, var(--field-line));
+    border-radius:9px; padding:14px 18px 15px; margin-bottom:10px; break-inside:avoid;
     scroll-margin-top:96px; }
   .node.assumed { border-style:dashed; }
   .nhead { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
-  .ntitle { font-family:var(--serif); font-weight:600; font-size:16px; letter-spacing:-.003em; }
+  .ntitle { font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.3;
+    letter-spacing:-.003em; }
   .chip { font:600 10px/1 var(--sans); letter-spacing:.05em;
     text-transform:uppercase; padding:3.5px 6.5px; border-radius:4px;
     background:var(--chip); color:var(--muted); }
@@ -347,50 +366,60 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   .dom { font:11.5px/1 var(--sans); color:var(--muted); }
   .meter { display:inline-flex; align-items:center; gap:6px; }
   .meter .track { width:46px; height:5px; border-radius:3px; background:var(--chip);
-    border:1px solid var(--line); overflow:hidden; }
+    border:1px solid var(--field-line); overflow:hidden; }
   .meter .fill { height:100%; border-radius:3px; background:var(--tier, var(--muted));
     display:block; opacity:.9; }
-  dl { margin:8px 0 0; padding-top:8px; border-top:1px solid var(--line);
-    display:grid; grid-template-columns:max-content 1fr; gap:4px 14px; align-items:baseline; }
+  dl { margin:10px 0 0; padding-top:10px; border-top:1px solid var(--line);
+    display:grid; grid-template-columns:max-content 1fr; gap:7px 16px; align-items:baseline; }
   dt { font:700 10px/1.8 var(--sans); letter-spacing:.08em;
-    text-transform:uppercase; color:var(--muted); }
-  dd { margin:0; font:14.5px/1.55 var(--serif); max-width:min(58ch, 100%); }
+    text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+  /* 58ch is the prose cap from phase 3 §3. min() keeps it from overflowing a
+     narrow container (a map tile, a print column) where 58ch is wider than the
+     box. */
+  dd { margin:0; font:14.5px/1.6 var(--serif); max-width:min(58ch, 100%); }
   dd.todo { color:var(--muted); font-style:italic; }
-  dd.refs { max-width:none; display:flex; flex-wrap:wrap; gap:5px; align-items:center; }
+  dd.refs, dd.rel { max-width:none; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
   .refchip { font:500 11px/1.5 var(--mono); letter-spacing:.01em;
-    color:var(--muted); background:transparent; border:1px solid var(--line);
-    padding:1.5px 6px; border-radius:3px; white-space:nowrap;
+    color:var(--muted); background:transparent; border:1px solid var(--field-line);
+    padding:2.5px 7px; border-radius:4px; white-space:nowrap;
     cursor:pointer; appearance:none; }
   .refchip:hover { color:var(--ink); border-color:var(--muted); }
   .refchip[aria-expanded="true"] { color:var(--ink); background:var(--chip); border-color:var(--muted); }
   .refchip:focus-visible { outline:2px solid var(--muted); outline-offset:2px; }
 
   /* ---------- verse popover ---------- */
-  .versepop { position:fixed; z-index:100; max-width:min(40ch, calc(100vw - 28px));
-    background:var(--panel);
-    border:1px solid var(--line); border-radius:8px; box-shadow:var(--shadow);
-    padding:11px 14px 12px; }
+  /* Scripture is the one place on the page that is quoted rather than written,
+     so the popover uses --note (phase 3 §3.3) with the mandatory left rule and
+     labelled head — --note alone is 1.08:1 on --bg and carries nothing. */
+  .versepop { position:fixed; z-index:100; max-width:min(46ch, calc(100vw - 28px));
+    background:var(--note); color:var(--ink);
+    border:1px solid var(--field-line); border-left:3px solid var(--muted);
+    border-radius:0 9px 9px 0; box-shadow:var(--shadow);
+    padding:12px 16px 13px; }
   .versepop-head { font:700 11px/1 var(--sans); letter-spacing:.04em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:7px; padding-bottom:7px; border-bottom:1px solid var(--line); }
-  .versepop-body { font:14.5px/1.55 var(--serif); color:var(--ink); }
+    color:var(--muted); margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  .versepop-body { font:14.5px/1.6 var(--serif); color:var(--ink); }
   .versepop-empty { font:13px/1.5 var(--sans); font-style:italic; color:var(--muted); }
-  .versepop-attr { margin-top:8px; font:11px/1 var(--sans); color:var(--muted); }
+  .versepop-attr { margin-top:9px; font:11px/1.4 var(--sans); color:var(--muted); }
 
   .pagefoot { max-width:1080px; margin:0 auto; padding:18px 22px 40px;
     font:11.5px/1.5 var(--sans); color:var(--muted); }
   .pagefoot a { color:inherit; }
-  .links { margin-top:9px; display:flex; gap:6px; flex-wrap:wrap; }
-  .links a { font:11.5px/1 var(--sans); color:var(--muted); text-decoration:none;
-    border:1px solid var(--line); padding:3px 8px; border-radius:20px;
+  dd.rel a { font:11.5px/1.4 var(--sans); color:var(--muted); text-decoration:none;
+    border:1px solid var(--field-line); padding:3.5px 9px; border-radius:20px;
     cursor:pointer; }
-  .links a:hover { color:var(--ink); border-color:var(--muted); }
+  dd.rel a:hover { color:var(--ink); border-color:var(--muted); }
   .node:target { outline:2px solid var(--muted); outline-offset:3px; }
   .node.flash { animation:flash 1.4s ease; }
   @keyframes flash { 0%{outline:2px solid var(--muted);outline-offset:3px;} 100%{outline:2px solid transparent;} }
   .legend { display:flex; gap:13px; flex-wrap:wrap; margin-top:10px;
     font:11px/1 var(--sans); color:var(--muted); }
-  .legend span { display:flex; align-items:center; gap:5px; }
-  .sw { width:8px; height:8px; border-radius:2px; display:inline-block; }
+  .legend span { display:flex; align-items:center; gap:6px; }
+  /* Tier colour is never the sole channel (phase 3 §3.2, failure B). Each
+     swatch is 1.87:1-3.42:1 on the dark panel on its own, so it carries a
+     --field-line border to be perceivable and always sits beside its label. */
+  .sw { width:10px; height:10px; border-radius:3px; display:inline-block;
+    border:1px solid var(--field-line); flex:0 0 auto; }
   .empty { color:var(--muted); font-style:italic; }
 
   /* ---------- map view ---------- */
@@ -639,15 +668,31 @@ function passesFilters(n, q) {
   return true;
 }
 
+// The field labels are phase 3 design §2.2's table, verbatim, so the public
+// views and the editor say the same words about the same field. In particular
+// `todo` is "Still working out" and never "Study" or "Todo" — the #study flag
+// is a different thing and used to share that word. Presentation only: the
+// stored field keys in theology-map.md are untouched.
+const FIELD_ROWS = [
+  ['hold', 'What I hold', ''],
+  ['why',  'Why', ''],
+  ['vs',   "What I'd reject", ''],
+  ['todo', 'Still working out', ' class="todo"'],
+];
+const detailRows = n => {
+  const rows = FIELD_ROWS
+    .filter(([k]) => n[k])
+    .map(([k, label, cls]) => `<dt>${label}</dt><dd${cls}>${esc(n[k])}</dd>`);
+  if (n.refs) rows.push(`<dt>Texts</dt><dd class="refs">${refChips(n.refs)}</dd>`);
+  return rows;
+};
+
 function card(n) {
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
-  const rows = [];
-  if (n.hold) rows.push(`<dt>Hold</dt><dd>${esc(n.hold)}</dd>`);
-  if (n.why)  rows.push(`<dt>Why</dt><dd>${esc(n.why)}</dd>`);
-  if (n.vs)   rows.push(`<dt>Not</dt><dd>${esc(n.vs)}</dd>`);
-  if (n.todo) rows.push(`<dt>Study</dt><dd class="todo">${esc(n.todo)}</dd>`);
-  if (n.refs) rows.push(`<dt>Texts</dt><dd class="refs">${refChips(n.refs)}</dd>`);
+  const rows = detailRows(n);
+  if (n.link.length) rows.push(`<dt>Related</dt><dd class="rel">${n.link.map(l =>
+    `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</dd>`);
   return `<article class="node${n.flags.includes('assumed')?' assumed':''}" id="${n.slug}"
       style="--tier:${tier?tier[1]:'var(--line)'}">
     <div class="nhead">
@@ -659,8 +704,6 @@ function card(n) {
       ${view!=='domain'&&n.domain?`<span class="dom">${esc(n.domain)}</span>`:''}
     </div>
     ${rows.length?`<dl>${rows.join('')}</dl>`:''}
-    ${n.link.length?`<div class="links">${n.link.map(l =>
-        `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</div>`:''}
   </article>`;
 }
 
@@ -889,12 +932,7 @@ function mboxHTML(box) {
   const open = mapDetailOpen.has(n.slug);
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
-  const rows = [];
-  if (n.hold) rows.push(`<dt>Hold</dt><dd>${esc(n.hold)}</dd>`);
-  if (n.why)  rows.push(`<dt>Why</dt><dd>${esc(n.why)}</dd>`);
-  if (n.vs)   rows.push(`<dt>Not</dt><dd>${esc(n.vs)}</dd>`);
-  if (n.todo) rows.push(`<dt>Study</dt><dd class="todo">${esc(n.todo)}</dd>`);
-  if (n.refs) rows.push(`<dt>Texts</dt><dd class="refs">${refChips(n.refs)}</dd>`);
+  const rows = detailRows(n);
   return `<div class="mbox mbox-leaf${open?' mopen':''}${n.flags.includes('assumed')?' assumed':''}"
       data-id="${esc(box.id)}" style="--tier:${tier?tier[1]:'var(--line)'}">
     <div class="mtitle"><b>${esc(n.title)}</b><span class="mchev">&#9656;</span></div>
