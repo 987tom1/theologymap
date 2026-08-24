@@ -304,9 +304,14 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
            border-bottom:1px solid var(--line); padding:15px 22px 11px; }
   .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
     text-transform:uppercase; color:var(--muted); }
+  /* Was an inline style attribute on the anchor. Same look, but it can now be
+     hidden by the print block and given a focus ring like every other link. */
+  .kicker .editlink { float:right; color:var(--muted); text-transform:none;
+    letter-spacing:0; font-weight:600; text-decoration:none; }
+  .kicker .editlink:hover { color:var(--ink); }
   h1 { margin:0 0 3px; font-family:var(--serif); font-size:23px; letter-spacing:-0.01em;
     font-weight:600; }
-  .sub { color:var(--muted); font:12.5px/1.4 var(--sans); margin-bottom:11px; }
+  .sub { color:var(--muted); font:12.5px/1.5 var(--sans); margin-bottom:11px; max-width:72ch; }
   .bar { display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-family:var(--sans); }
   .views { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:7px; }
   .views button { border:0; background:transparent; color:var(--muted); cursor:pointer;
@@ -336,11 +341,11 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     outline:2px solid var(--muted); outline-offset:2px; border-radius:4px; }
   main { padding:18px 22px 90px; max-width:1080px; }
   main.wide { max-width:none; padding:16px 16px 16px; }
-  .group { margin-bottom:16px; }
-  .group > h2 { font:700 11px/1 var(--sans); text-transform:uppercase; letter-spacing:.12em;
-    color:var(--muted); margin:0 0 9px; cursor:pointer; user-select:none;
-    display:flex; align-items:center; gap:7px;
-    padding-bottom:6px; border-bottom:1px solid var(--line); }
+  .group { margin-bottom:22px; }
+  .group > h2 { font:700 11px/1.3 var(--sans); text-transform:uppercase; letter-spacing:.12em;
+    color:var(--muted); margin:0 0 11px; cursor:pointer; user-select:none;
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    padding-bottom:8px; border-bottom:1px solid var(--line); }
   .group > h2:hover { color:var(--ink); }
   .group > h2 .chev { display:inline-block; transition:transform .15s ease; font-size:9px;
     color:var(--muted); }
@@ -449,6 +454,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
      paragraphs don't read as one long line. Both clamps fall back to a
      viewport-relative max on narrow/phone widths so nothing can overflow. */
   .mbox-leaf { min-width:150px; max-width:min(320px, 86vw); border-left:3px solid var(--tier, var(--line)); }
+  .mbox-leaf.mopen { border-color:var(--field-line); border-left-color:var(--tier, var(--field-line)); }
   .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mbox-leaf.assumed { border-style:dashed; }
@@ -457,17 +463,25 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   .mchev { font-size:10px; color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
   .mbox.mopen .mchev { transform:rotate(90deg); }
   .mmeta { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
-  .mdetail { margin-top:8px; border-top:1px solid var(--line); padding-top:7px; }
-  .mdetail dl { grid-template-columns:max-content 1fr; border-top:0; padding-top:0; margin-top:0; }
-  .mdetail dd { font-size:13px; }
+  .mdetail { margin-top:9px; border-top:1px solid var(--line); padding-top:8px; }
+  /* A map tile is 340-560px wide, and "What I'd reject" as a max-content label
+     column would eat ~100px of that. Labels stack above their values here, the
+     same shape the card views take below 560px. */
+  .mdetail dl { grid-template-columns:1fr; gap:2px 0; border-top:0; padding-top:0; margin-top:0; }
+  .mdetail dt { padding-top:6px; }
+  .mdetail dt:first-child { padding-top:0; }
+  .mdetail dd { font-size:13.5px; }
   .mcount { font-weight:400; color:var(--muted); font-size:11px; }
   .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:6px; }
-  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--line);
+  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
     background:var(--panel); color:var(--muted); padding:5px 9px; border-radius:6px; cursor:pointer;
     box-shadow:var(--shadow); }
   .mapcontrols button:hover { color:var(--ink); }
-  .maphint { position:absolute; left:10px; bottom:8px; font:11px/1 var(--sans);
-    color:var(--muted); z-index:5; }
+  /* Sits over the dotted map ground, so it needs its own surface to stay
+     readable rather than borrowing the page background. */
+  .maphint { position:absolute; left:10px; bottom:8px; font:11px/1.4 var(--sans);
+    color:var(--muted); z-index:5; background:var(--bg); padding:4px 8px;
+    border-radius:6px; max-width:calc(100% - 20px); }
 
   /* ---------- header restructure: secondary filters behind a disclosure ---------- */
   .viewrow { display:flex; gap:16px; align-items:center; flex:1 1 auto; min-width:0; }
@@ -497,40 +511,81 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     .views button { white-space:nowrap; }
     input[type=search] { flex:1 1 auto; min-width:0; width:auto; }
     .filtersToggle { display:inline-flex; align-items:center; gap:5px; font:600 12px/1 var(--sans);
-      border:1px solid var(--line); background:var(--panel); color:var(--muted);
+      border:1px solid var(--field-line); background:var(--panel); color:var(--muted);
       padding:7px 11px; border-radius:6px; cursor:pointer; }
     .filtersToggle[aria-expanded="true"] { color:var(--ink); border-color:var(--muted); }
     .secondary { display:none; width:100%; flex-direction:column; align-items:flex-start; gap:8px; }
     .secondary.open { display:flex; }
     #mapwrap { height:calc(100vh - 108px); }
-    .node { padding:9px 12px 10px; }
-    .ntitle { font-size:15px; }
-    dd { font-size:13.5px; }
+    main { padding:14px 14px 70px; }
+    .node { padding:12px 14px 13px; margin-bottom:8px; }
+    .ntitle { font-size:16px; }
+    dd { font-size:14px; }
+    .group { margin-bottom:18px; }
+    .pagefoot { padding:16px 14px 32px; }
+  }
+
+  /* 360px: four view buttons plus a search box on one row leaves the search
+     input a few characters wide, so it takes its own row below 480px. The
+     view switcher keeps the full width it needs and stops scrolling. */
+  @media (max-width:480px) {
+    .viewrow { flex-wrap:wrap; }
+    .views { flex:1 1 auto; }
+    input[type=search] { flex:1 0 100%; order:3; min-width:0; }
   }
 
   @media (max-width:560px) {
     dl { grid-template-columns:1fr; gap:2px 0; }
-    dt { padding-top:5px; }
+    dt { padding-top:6px; }
+    dt:first-child { padding-top:0; }
   }
 
+  /* A3 two-column, per the brief. Printing force-switches to the domain view
+     with every group expanded, then restores whatever was on screen. */
   @media print {
-    header { position:static; } .views, .seg, input, label.tog, .btnrow, #mapwrap, .mapcontrols { display:none !important; }
-    body { background:#fff; font-size:10.5px; }
-    main { max-width:none; padding:8px; columns:2; column-gap:18px; }
-    .node { break-inside:avoid; padding:8px 11px 9px; margin-bottom:6px; }
-    dl { padding-top:6px; margin-top:6px; }
+    @page { size: A3; margin: 12mm; }
+    header { position:static; border-bottom:1px solid #999; }
+    .views, .seg, input, label.tog, .btnrow, #mapwrap, .mapcontrols,
+    .filtersToggle, .maphint, .kicker .editlink { display:none !important; }
+    body { background:#fff; color:#000; font-size:10.5px; }
+    /* Both are hidden below 640px to keep the sticky header short on a phone;
+       on paper there is no sticky header and the tier legend is the key to
+       every chip, so they come back. */
+    .sub { display:block !important; }
+    .legend { display:flex !important; margin-top:8px; }
+    main { max-width:none; padding:8px 0 0; columns:2; column-gap:20px; }
+    /* Tier chips are white text on a dark fill and the confidence meter is a
+       bare colour bar; browsers drop background colours in print by default,
+       which would render the chip white-on-white and the meter blank. These
+       three are the only places colour carries meaning on paper. */
+    .chip.tier, .meter .fill, .sw {
+      -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .node { break-inside:avoid; padding:9px 12px 10px; margin-bottom:8px;
+      border-color:#bbb; border-left-width:3px; box-shadow:none; }
+    /* A group heading stranded at the foot of a column is the one thing a
+       two-column print gets wrong on its own. */
+    .group { break-inside:auto; margin-bottom:14px; }
+    .group > h2 { break-after:avoid; border-bottom-color:#999; }
+    dl { padding-top:7px; margin-top:7px; border-top-color:#ccc; }
+    .refchip, dd.rel a { border-color:#bbb; cursor:default; }
     .group .cardwrap { display:block !important; }
     .group > h2 .chev { display:none; }
+    .versepop { display:none !important; }
+    /* The NET attribution must travel with the text — it is a licence
+       condition, not decoration. It never gets display:none. */
+    .pagefoot { max-width:none; padding:12px 0 0; font-size:9px;
+      border-top:1px solid #ccc; margin-top:10px; }
   }
 </style>
 </head>
 <body>
 <header>
   <p class="kicker">A personal systematic reference
-    <a href="engine/editor.html" style="float:right;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:600">Edit &#9998;</a>
+    <a class="editlink" href="engine/editor.html">Edit &#9998;</a>
   </p>
   <h1>Theology Map</h1>
-  <div class="sub">Positions by Ortlund triage tier &middot; dashed border = inferred, not yet confirmed by you</div>
+  <div class="sub">Positions by Ortlund triage tier &middot; tier is how much weight it carries,
+    confidence is how settled it is &middot; a dashed border marks a position inferred and not yet confirmed</div>
   <div class="bar">
     <div class="viewrow">
       <div class="views" id="views">
