@@ -230,17 +230,24 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`6b64839d4f60506d55e297b966e6be341998e5a0ec3a0984a7c60942bf74cf76` when written
-with `Path.write_text` on Windows (`eaedf3e4f85bd41accb08e894e1df6be870567c3ee57b63dbc3fb8ab57301a90`
+`ced6cabd632427678b41366cd25da4e49b229145df49aed47fcee8966d13fe10` when written
+with `Path.write_text` on Windows (`380dfefd13abaee0a79362125358d821d0085cf20a0efb08e5504e8d23946598`
 LF-normalised, which is what a Linux-side or hosted-response check compares
 against). Re-run it after any change to `render.py`.
 
-> These two hashes moved in phase 2, and this is the only thing that may move
+> These two hashes have moved twice, and this is the only thing that may move
 > them: the renderer changed, so the generated files were **regenerated** by
 > `py engine/render.py` (never hand-edited). The phase-1 values were
 > `20d869…449ba` / `96d692…d4a2a2`; phase 2 escaped `<` in the embedded JSON
 > payload and `esc()`'d the `data-goto` attribute, closing a stored XSS
-> (`docs/hosting/phase-2-review.md`, B2).
+> (`docs/hosting/phase-2-review.md`, B2), giving `6b6483…4cf76` /
+> `eaedf3…301a90`. **Phase 7 restyled the four views**, which the phase-7 brief
+> licenses explicitly — byte identity does not apply to a phase that changes the
+> output on purpose. What phase 7 proved instead is that only *presentation*
+> moved: `documentation/theology-map.mm` and `documentation/study-list.md` are
+> byte-identical, and the embedded `<script id="data">` payload hashes the same
+> as before. Use those three as the gate for any future restyle
+> (`docs/hosting/phase-7-outcome.md`).
 
 Hosted users get **no verse fetching**: `documentation/verses.md` ships as a
 bundled read-only asset and `fetch_verses.py` stays local-only, because **no
@@ -587,11 +594,35 @@ keep the sticky header short. Card field labels stack above their values below
 560px. Map panning and pinch-zoom use pointer events with a 6px threshold so a
 tap on a box still registers as a tap rather than a drag.
 
+Below 480px the search input drops to its own row — four view buttons plus a
+search box do not fit one 360px row (phase 7).
+
 Design language, if you touch the CSS: warm paper-and-ink palette in both
 themes, serif reserved for content and sans for chrome, prose capped at 58ch,
 tier colours a garnet→slate warm-to-cool ramp chosen for WCAG AA contrast with
 white chip text. Don't reintroduce traffic-light tier colours — the earlier
 amber values failed contrast.
+
+**Phase 7 aligned the generated views with the editor (2026-08-24).** Three
+things it leaves behind that are easy to undo by accident:
+
+- **`render.py`'s embedded `:root` and `engine/theme.css` declare the same
+  tokens with the same values, by hand.** The generated map must stay one
+  self-contained double-clickable file, so it cannot link the stylesheet.
+  Nothing checks that they agree — change a token in one, change it in the
+  other. `--field-line` and `--note` now exist in both.
+- **`--line` and `--field-line` are not interchangeable.** `--field-line` is
+  for interactive control boundaries *only* (WCAG 2.1 SC 1.4.11 needs 3:1;
+  `--line` on `--panel` is 1.36:1). `--line` stays the decorative divider.
+- **Field labels in the generated views are phase 3 design §2.2's table**, the
+  same words the editor and the wizard use — *What I hold, Why, What I'd
+  reject, Still working out, Texts, Related*. `todo` is never shown as "Study";
+  `#study` is a different thing. `card()` and `mboxHTML()` share one
+  `detailRows()` builder so they cannot drift again.
+
+The print stylesheet is genuinely A3 now (`@page { size: A3; margin: 12mm }`)
+and tier chips carry `print-color-adjust:exact`, without which they printed
+white-on-white.
 
 ## Working notes
 

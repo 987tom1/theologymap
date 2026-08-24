@@ -45,7 +45,7 @@ nothing else unless its own plan section names the file.
 | 11 | Phase 5 — denominational research corpus — **done** | `phase-5-corpus` | Opus main, Sonnet research subagents | `phase-5-brief.md` |
 | 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
-| 14 | Phase 7 — redesign the generated views | `phase-7-views` | Sonnet | `phase-7-brief.md` |
+| 14 | Phase 7 — redesign the generated views — **done** | `phase-7-views` | Sonnet | `phase-7-brief.md` |
 | 15 | Phase 8 — version history and restore — **done** | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
 | 16 | Phase 9 — corpus sourcing verification | `phase-9-sourcing` | Opus main, Sonnet subagents **with web access** | `phase-9-corpus-sourcing-verification.md` |
 
@@ -71,6 +71,36 @@ time after phase 4 — pull it forward if losing work to the wizard is a live
 worry. Everything else is sequential.
 
 ## Progress
+
+- **Session 14 (phase 7) ran 2026-08-24 and is merged.** Branch `phase-7-views`
+  (not the brief's `phase-7-render-design` — run-order's table wins, same as
+  phase 2). The four generated views now speak the editor's language: phase 3's
+  `--field-line` / `--note` tokens adopted verbatim from `engine/theme.css`,
+  cards on `.tm-card`'s geometry, and **phase 3 design §2.2's field labels**
+  replacing *Hold / Why / Not / Study* — the renderer was the last place in the
+  product still calling `todo` "Study", which is the `#study` flag's word.
+  All gates green: zero warnings, **99 nodes / 14 domains / 156 refs
+  unchanged**, `editor-core.js` round trip clean, contrast script
+  `ALL PASS G1-3`, and **zero changed lines in `engine/map-view.js`**.
+  **A previous attempt at this phase was killed by the monthly spend limit**
+  having landed nothing; this one committed after every chunk.
+  Four things for a follow-up session in `phase-7-outcome.md`: **byte identity
+  does not apply to a restyle, so the gate is the other three artefacts** —
+  `theology-map.mm` and `study-list.md` stay byte-identical and the embedded
+  `<script id="data">` payload keeps the same sha256, which together prove no
+  node, ordering or view membership moved (`CLAUDE.md`'s two hashes moved for
+  only the second time ever, and were regenerated, never hand-edited);
+  **`render.py`'s embedded `:root` and `engine/theme.css` are two hand-kept
+  copies of one token set** with nothing checking they agree; **`--line` and
+  `--field-line` must not be merged back** (that is the 1.36:1 WCAG 1.4.11
+  failure this phase closed); and **the brief's open question is answered —
+  a person's map versus a communion's is phase 6's content label, not a
+  renderer treatment**, because the renderer takes a markdown string and the
+  file format is frozen. Two real bugs found by reading: **the "A3 print
+  stylesheet" had no `@page` rule at all**, and tier chips printed
+  white-on-white for want of `print-color-adjust:exact`.
+  **Session 13 (phase 6, Tasks 3–7) is next** — phase 7 was pulled ahead of it
+  and neither blocks the other, but 13 now inherits the badge decision above.
 
 - **Session 12 (phase 6, Tasks 0–2) ran 2026-08-24 and is merged.** Branch
   `phase-6-compare` (not the plan's `phase-6-learn-compare`). Twelve tradition
