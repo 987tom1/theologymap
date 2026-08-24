@@ -650,6 +650,20 @@ suggested. Full write-ups in `debug.md` §Q-§S.
   same `if (HOSTED)` branch that already dynamically imports
   `storage-hosted.js`, so the local tool's `file://` path is untouched.
 
+### The wizard's question screen never actually worked — FIXED (2026-08-25)
+
+Reported as a phone-only "the button doesn't show the screen"; it wasn't phone-specific.
+`startQuestions()` (`#lens-next`, and `#intro-start` on a return visit) and `main()`'s
+resume branch both did `order.indexOf(next)`, but `next` comes from `WG.nextDoctrine()`,
+which rebuilds every doctrine as a fresh object on each call (`allDoctrines()` wraps each
+one in `Object.assign`) — so it's never reference-equal to anything in `order`,
+`indexOf` always returned `-1`, and `renderQuestion(-1)` crashed reading `order[-1].slug`
+one line in. This was true on every platform, every time; nobody had hit it because the
+render path had no error handling at all, so a throw there just looked like the button
+did nothing. Fixed by matching on `.slug` instead of identity (`orderIndexOf()` in
+`web/wizard.js`). Full account, including how it was reproduced in plain `node -e` with
+no browser: `debug.md` §T.
+
 ## Working notes
 
 - Source conversation: 2026-08-10. Reference points Thomas named — International

@@ -626,10 +626,19 @@ async function main() {
   if (!order.length) {
     showError('There are no questions published yet.');
   } else if (WG.answeredSlugs(domains).size) {
-    if (next) renderQuestion(order.indexOf(next)); else renderFinish();
+    if (next) renderQuestion(orderIndexOf(next)); else renderFinish();
   } else {
     showScreen('intro');
   }
+}
+
+// WG.nextDoctrine() calls WG.orderedDoctrines() itself, which rebuilds every
+// doctrine object fresh (allDoctrines() wraps each with Object.assign) — so
+// its result is never reference-equal to anything in `order`, and
+// order.indexOf(next) silently returned -1 every time this ran, crashing
+// renderQuestion(-1) downstream. Match on slug instead of identity.
+function orderIndexOf(doctrine) {
+  return order.findIndex(d => d.slug === doctrine.slug);
 }
 
 function startQuestions() {
@@ -642,7 +651,7 @@ function startQuestions() {
       + 'if this keeps happening, it may be a stale cached copy of it.');
     return;
   }
-  if (next) renderQuestion(order.indexOf(next)); else renderFinish();
+  if (next) renderQuestion(orderIndexOf(next)); else renderFinish();
 }
 
 main();

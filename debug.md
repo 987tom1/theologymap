@@ -257,6 +257,43 @@ builds its own header, which would have doubled up with `editor.html`'s existing
 one (different title, different sub-text, the "Open the map ↗" link) rather than
 extending it.
 
+### T. `order.indexOf(next)` always returned -1 — every path into the wizard's question screen was broken — FIXED (post-phase-8)
+
+Reported as "on a phone, the button doesn't show the screen" — it wasn't phone-specific
+at all; `startQuestions()` (fired by `#lens-next` and, on a return visit with a tradition
+already picked, `#intro-start`) and `main()`'s own resume branch both crashed on *every*
+platform, every time. Confirmed in Node with no browser involved:
+
+```
+const order = WG.orderedDoctrines(corpus);
+const next = WG.nextDoctrine([], corpus);
+order.indexOf(next);              // -1
+order[0] === next;                // false — same slug, different object
+```
+
+**`allDoctrines()` wraps every doctrine in a fresh `Object.assign({domain}, doctrine)`
+on every call**, so `WG.nextDoctrine()` — which calls `orderedDoctrines()` internally —
+returns objects that are never reference-equal to anything in `order` (built once in
+`main()`). `order.indexOf(next)` therefore always returned `-1`, `renderQuestion(-1)`
+read `order[-1]` (`undefined`), and `existingNode(undefined doctrine)` threw
+`TypeError: Cannot read properties of undefined (reading 'slug')` — the *first* line
+inside `renderQuestion` to touch the doctrine object, which is why the failure looked
+so total: nothing about the question screen ever started building.
+
+**Why it looked mobile-only:** it wasn't. The reporter happened to test the flow that
+exercises `startQuestions()` on their phone and hadn't hit the identical desktop path
+yet; an incognito tab (which only rules out caching) still failed identically, which is
+what pointed away from every caching/CSS theory and toward a real, deterministic script
+error. **The fix that actually found this was adding error surfacing to a previously
+silent failure path** (`renderQuestion`/`startQuestions` had no try/catch anywhere), not
+a guess about mobile rendering — the stack trace named the exact line on the first try.
+
+**Fix:** match by `.slug` instead of object identity — `order.findIndex(d => d.slug ===
+next.slug)`, extracted as `orderIndexOf()` since both call sites needed it. **Any code
+comparing a `WG.nextDoctrine()`/`WG.orderedDoctrines()` result against a *previously
+computed* doctrine array with `===` or `.indexOf()` has this exact bug** — those
+functions never return the same object twice.
+
 ---
 
 ## Diagnosing a live failure
@@ -281,7 +318,18 @@ extending it.
    `[hidden] { display: none }`, and toggling the attribute does nothing visible —
    see §Q. Check the stylesheet for a same-selector `display` rule before reading
    the JS a second time.
-5. **A bug that looks like it's inside one file's logic and yet the file's own
+6. **A bug that looks like it's inside one file's logic and yet the file's own
    review found nothing wrong is very likely a seam bug.** Ask what environment or
    caller the file assumes, not what the file itself does — every real bug this
    project has produced so far fits that shape (§A–§F, §G).
+7. **A button that "does nothing" on tap is a silent-failure report, not a mobile
+   report, until proven otherwise.** §T looked platform-specific for two rounds of
+   guessing (caching, CSS, touch) before the actual fix was adding a try/catch that
+   surfaced the real exception on the first attempt. Any handler with no error
+   path is a black box — wrap it before theorising about *why* it's failing.
+8. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
+   `node -e`, with no browser, DOM, or login needed** — §T was fully reproduced and
+   fixed this way, using `WG.loadCorpusSync('content/wizard')`. Reach for this
+   before asking a human to reproduce anything that touches the corpus or the
+   node model; a `require()` on the same files the browser loads catches shape
+   bugs (object identity, missing fields) directly.
