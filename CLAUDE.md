@@ -624,6 +624,32 @@ The print stylesheet is genuinely A3 now (`@page { size: A3; margin: 12mm }`)
 and tier chips carry `print-color-adjust:exact`, without which they printed
 white-on-white.
 
+### Post-launch UI fixes (2026-08-24)
+
+Three fixes from a user bug report, none of them where the report's own wording
+suggested. Full write-ups in `debug.md` §Q-§S.
+
+- **The sign-in/create-account boxes on `/app` showed for signed-in users too.**
+  Not a session or logic bug — `#signed-out`'s own `display: grid` rule (an ID
+  selector) outranked the browser's `[hidden] { display: none }` (an attribute
+  selector), so toggling the `hidden` attribute never actually hid it.
+  `#signed-out[hidden] { display: none; }` fixes it. **Any pane hidden by the
+  `hidden` attribute needs its own `[hidden]` override if it also carries an
+  author `display` rule on the same selector.**
+- **The wizard's Finish button and `first-run.js`'s `copy_from` now land on
+  `/app`, not `/edit`.** Both used to drop straight into the raw form editor
+  right after producing a real map — correct for "Write my first belief" (there's
+  nothing to view yet) but wrong for these two, which reuse the existing
+  map-home hub (`View and export` / `Open the editor`) instead of adding a new
+  screen.
+- **`engine/editor.html` gained hosted-only nav links** (`My map` / `Gallery` /
+  `Sign out`, appended into the existing `.toplinks`). It never imported
+  `web/chrome.js` at all — correct given the offline tool must load from
+  `file://` with no network — but that left the *hosted* editor with no way back
+  to the rest of the site short of the browser back button. Gated behind the
+  same `if (HOSTED)` branch that already dynamically imports
+  `storage-hosted.js`, so the local tool's `file://` path is untouched.
+
 ## Working notes
 
 - Source conversation: 2026-08-10. Reference points Thomas named — International

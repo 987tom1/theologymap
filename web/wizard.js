@@ -598,8 +598,11 @@ async function main() {
     if (idx + 1 < order.length) renderQuestion(idx + 1); else renderFinish();
   }));
   // Finish here saves and goes. No confirmation, no warning, no guilt — that
-  // is the whole point of it (design section 5.3).
-  $('wz-finish').addEventListener('click', () => advance(() => { location.href = '/edit'; }));
+  // is the whole point of it (design section 5.3). Lands on the map-home hub,
+  // not straight into the editor: Finish just produced something, and the
+  // hub's own "View and export" / "Open the editor" are the two next-step
+  // options, not a redirect that picks one of them for you.
+  $('wz-finish').addEventListener('click', () => advance(() => { location.href = '/app'; }));
 
   // Resume falls out of the map itself: a doctrine whose slug already has a
   // node counts as answered, so there is no wizard state on the server and

@@ -19,6 +19,11 @@
            border: 1px solid var(--ink); border-radius: 5px; cursor: pointer; }
   #signed-out { display: grid; gap: 14px; max-width: 780px;
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  /* The ID rule above outranks the browser's own [hidden] rule (attribute
+     selector, lower specificity), so JS setting .hidden = true had no visible
+     effect and the sign-in/sign-up boxes rendered for every visitor, signed
+     in or not. This wins the specificity fight back. */
+  #signed-out[hidden] { display: none; }
   .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   .actions a { font: 600 13px var(--sans); color: var(--ink); }
   .quiet { font: 13px var(--sans); color: var(--muted); }

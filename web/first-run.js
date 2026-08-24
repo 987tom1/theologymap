@@ -104,7 +104,10 @@ async function openPicker(user, busy) {
           method: 'POST',
           body: { action: 'copy_from', user_id: user.id, source_name: m.name },
         });
-        location.href = '/edit';
+        // Land on the map-home hub, not straight into the editor — same
+        // reasoning as the wizard's Finish button: this just produced a map,
+        // and the hub's View/Open-editor pair is the next-step choice.
+        location.href = '/app';
       } catch {
         busy(false);
         dlg.close();
