@@ -349,6 +349,21 @@ function select(card, kind, doctrine, position) {
 }
 
 function renderQuestion(i) {
+  try {
+    renderQuestionUnsafe(i);
+  } catch (err) {
+    // Nothing upstream of this call catches, so a throw here used to mean the
+    // tap just did nothing with no explanation — see debug.md. Most likely
+    // cause: a stale cached /content/wizard/*.json out of step with a fresh
+    // one (no cache-busting on those files), so a doctrine or its data shape
+    // doesn't match what the code expects.
+    console.error('renderQuestion failed', err);
+    showError('Could not load that question. Try reloading the page — '
+      + 'if this keeps happening, it may be a stale cached copy of the question set.');
+  }
+}
+
+function renderQuestionUnsafe(i) {
   idx = i;
   chosen = null;
   controls = null;
@@ -618,7 +633,15 @@ async function main() {
 }
 
 function startQuestions() {
-  const next = WG.nextDoctrine(domains, corpus);
+  let next;
+  try {
+    next = WG.nextDoctrine(domains, corpus);
+  } catch (err) {
+    console.error('startQuestions failed', err);
+    showError('Could not load the question set. Try reloading the page — '
+      + 'if this keeps happening, it may be a stale cached copy of it.');
+    return;
+  }
   if (next) renderQuestion(order.indexOf(next)); else renderFinish();
 }
 
