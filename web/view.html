@@ -8,12 +8,10 @@
 <style>
   h1 { font-size: 1.4em; }
   .tm-main { display: flex; flex-direction: column; gap: 16px; }
-  .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
   iframe { width: 100%; height: 70vh; border: 1px solid var(--field-line); border-radius: 6px; }
-  a.tm-card { text-decoration: none; }
-  @media (pointer: coarse) {
-    a.tm-card { min-height: 44px; }
-  }
+  #make-mine { font: 13px var(--sans); color: var(--muted); background: none;
+               border: 1px solid var(--field-line); border-radius: 5px; padding: 6px 10px; }
 </style>
 </head>
 <body class="tm-page">
@@ -25,23 +23,17 @@
   <div class="actions">
     <button id="export-btn" hidden>Export HTML</button>
     <button id="copy-btn" hidden>Copy link</button>
+    <button id="make-mine" hidden>Make my own map</button>
   </div>
   <!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
        script smuggled into someone else's map could read our localStorage session
        (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
        so it loses nothing. The renderer escaping is the primary fix; this is depth. -->
   <iframe id="map-frame" sandbox="allow-scripts" hidden></iframe>
-
-  <a id="make-your-own" class="tm-card tm-card-primary" href="/app" hidden>
-    <h3>Like what you see?</h3>
-    <p>This is one church member's own theological positions, laid out so you can see
-      what they believe and why — and where they're still working things out. Build your
-      own in the same few minutes it takes to read someone else's.</p>
-    <p class="tm-go">Make your own map &rarr;</p>
-  </a>
 </div>
 
 <script type="module">
+import { getUser } from '/web/session.js';
 import { mount, copyButton } from '/web/chrome.js';
 
 function slugify(name) {
@@ -61,7 +53,13 @@ const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
 const exportBtn = document.getElementById('export-btn');
 const copyBtn = document.getElementById('copy-btn');
-const makeYourOwn = document.getElementById('make-your-own');
+const makeMineBtn = document.getElementById('make-mine');
+
+const user = getUser();
+makeMineBtn.hidden = false;
+makeMineBtn.addEventListener('click', () => {
+  location.href = user ? '/wizard' : '/#signin';
+});
 
 if (!name) {
   notFoundEl.hidden = false;
@@ -74,15 +72,30 @@ if (!name) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name }),
     });
-    if (!res.ok) {
+    const html = res.ok ? await res.text() : '';
+    const isOwner = !!user && user.name.toLowerCase() === name.toLowerCase();
+    // The nav's "My map" sends a signed-in user straight here. If it's their own
+    // still-empty map, land on the launchpad instead of a dead "not found" —
+    // a substring check on the rendered HTML is cheap and avoids a second
+    // round trip (mbox-leaf marks a belief box; render.py emits one per node).
+    //
+    // Deliberately gated on res.ok: /api/render 404s a map that is merely
+    // UNLISTED as well as one that does not exist, and the owner can unlist
+    // their own map from the editor. Redirecting on any 404 would bounce them
+    // to the wizard every time they clicked "My map" — an inescapable loop off
+    // their own nav. A 404 for the owner is the unlisted case; say so instead.
+    if (isOwner && res.ok && !html.includes('mbox-leaf')) {
+      location.replace('/wizard');
+    } else if (!res.ok) {
+      notFoundEl.textContent = isOwner
+        ? 'This map is unlisted, so it does not render by name. Relist it from the editor to share this link.'
+        : 'Map not found.';
       notFoundEl.hidden = false;
     } else {
-      const html = await res.text();
       const slug = slugify(name) || 'map';
       frameEl.srcdoc = html;
       frameEl.hidden = false;
       exportBtn.hidden = false;
-      makeYourOwn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });
         const url = URL.createObjectURL(blob);

@@ -126,8 +126,9 @@ a.tm-card-primary:focus-visible { outline-color:var(--bg); }
 .tm-prose p { margin:0 0 12px; }
 .tm-lead { font:600 13px/1.6 var(--sans); letter-spacing:.02em; color:var(--muted); }
 
-/* Set while a first-run card is mid-request. The real double-click guard is a
-   flag in web/first-run.js; this is only the visible half of it. */
+/* Set while a launchpad first-run card is mid-request. The real double-click
+   guard is a flag in web/wizard.js (the offers moved there when web/first-run.js
+   and /app were deleted); this is only the visible half of it. */
 .tm-working { opacity:.6; pointer-events:none; }
 
 .tm-picker { background:var(--panel); color:var(--ink); border:1px solid var(--field-line);

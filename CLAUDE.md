@@ -269,7 +269,7 @@ stay off the wire.
 | `_lib.py` | env resolver, `pg()`, `reply`/`error`/`unknown_user`, `read_json`, `verify_credentials`, `require_admin`, `guard`. Not a route (a leading `_` is not routed by Vercel). |
 | `render.py` | `POST` `{markdown}`, `{name}` **or** `{user_id}` → `text/html`. `name` is the public read path; both lookup paths 404 for a non-public map. |
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
-| `map.py` | `GET ?user_id=` → the map + its `updated_at` token; `POST` saves with optimistic concurrency, or `{action: "copy_from", source_name}` starts from someone else's public map |
+| `map.py` | `GET ?user_id=` → the map + its `updated_at` token and `is_public`; `POST` saves with optimistic concurrency, or `{action: …}` for `copy_from` / `versions` / `restore` / `set_visibility` |
 | `gallery.py` | `GET` → public maps, newest first, `limit=200`: `name`, `updated_at`, the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`), and `started_from` when the map is an unedited copy. **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
 | `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
 
@@ -330,21 +330,40 @@ the short path. Two consequences that have each caused a real bug:
 
 | URL | Serves |
 |---|---|
-| `/` | `web/landing.html` — the product front door (phase 3). Links already shared point here, so it links Thomas's map prominently and says where it went. |
+| `/` | `web/landing.html` — the product front door, **and the only sign-in / create-account screen** since `/app` was deleted. The forms live under `#signin`, hidden for a signed-in visitor; success lands on `/wizard`. |
 | `/thomas` | `theology-map.html` — Thomas's own map, at a stable URL now that `/` is the landing page. |
-| `/app` | `web/index.html` — signed out: pitch + sign in / sign up. Signed in with an empty map: **first run** (`web/first-run.js`). Signed in with a map: the map home — open the editor, view and export, copy link. |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
 | `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id (see above); names are unique on `lower(name)`. |
 | `/admin` | `web/admin.html` — admin console |
-| `/wizard` | `web/wizard.html` — the map wizard (phase 4). Signed-out visitors are sent to `/app`. |
+| `/history` | `web/history.html` — the caller's own earlier versions, and Restore. Nothing else. |
+| `/wizard` | `web/wizard.html` — the wizard **launchpad** and the questions. Signed-out visitors are sent to `/`. |
+
+**`/app` no longer exists (2026-08-27).** `web/index.html` and `web/first-run.js`
+are deleted and the four things that page did have gone to three places: sign-in
+to `/`, the version list to `/history`, and the first-run offers (start the
+questions, start from someone else's map, write one by hand) into the wizard
+launchpad's empty state. Anything still redirecting to `/app` is stale — the
+signed-out redirect is `/`.
+
+The nav is one list in `web/chrome.js`, in this order: **My map** (`/view?name=`
+the signed-in person's own name), **Wizard**, **Edit**, **History**, **Browse**
+(the gallery, renamed), **Admin** (admins only), **Sign out** — or **Sign in**
+(`/#signin`) when signed out. It wraps on a phone. `engine/editor.html` carries a
+hand-written copy of the same list because it cannot import `chrome.js`; that is
+the documented `file://` exception, not drift, and the two are kept in step by
+hand.
 
 **`web/session.js` is the only module that touches `localStorage` for the signed-in
 user** (key `theologymap:user`). There is one way to get the current user id:
 `getUser()` / `requireUser(why)`. `apiFetch()` is JSON-in/JSON-out and shows the
 shared error banner itself — it is the wrong tool for `/api/render`, which replies
 with `text/html`; those two call sites use plain `fetch()` + `res.text()` and say
-so in place.
+so in place. **The Error `apiFetch` throws carries `.code` (the server's
+machine-readable `error` field) and `.status`**, so a caller that must branch on
+*why* a call failed matches on the code, never on the message — the message is
+copy and will change. `web/admin.html` is the one caller that does this today
+(`code === 'forbidden'` distinguishes a wrong PIN from a network hiccup).
 
 ### The editor: one file, two storage adapters
 
@@ -663,6 +682,74 @@ render path had no error handling at all, so a throw there just looked like the 
 did nothing. Fixed by matching on `.slug` instead of identity (`orderIndexOf()` in
 `web/wizard.js`). Full account, including how it was reproduced in plain `node -e` with
 no browser: `debug.md` §T.
+
+### The UI round of 2026-08-27 — `/app` deleted, the wizard rebuilt
+
+Twenty-six items off a single user bug/improvement list. The parts worth knowing
+because they are easy to undo by accident:
+
+- **`/edit` was never broken; its *copy* was.** Reported as "the edit screen says
+  no file uploaded yet and offers Connect theology-map.md". Hosted mode has always
+  hidden Connect/Upload and autoloaded the map from the database — what showed was
+  `engine/editor.html`'s **empty-state paragraph**, local-tool prose naming a file
+  bar that hosted mode does not render and a file a hosted user does not have. The
+  hosted branch of `boot()` now rewrites the title, subtitle, "open the map" link
+  and that empty-state sentence. **Every visible string in `editor.html`'s markup
+  is the `file://` tool's wording; anything hosted-specific belongs in the
+  `if (HOSTED)` branch, not in the HTML.** Full account: `debug.md` §U.
+- **Unlisting is now self-service.** `POST /api/map {action: "set_visibility",
+  user_id, is_public}`, plus a matching `setVisibility` on the hosted storage
+  adapter and an Unlist/Relist link in the editor nav and on the wizard launchpad.
+  `user_id` is the credential exactly as it is for save and restore — no new trust.
+  The wording rule is unchanged and still load-bearing: **Unlist, never Hide.**
+  Unlisting is not privacy.
+- **`/view` must not redirect an owner on a 404.** The nav's "My map" points at
+  `/view?name=`, which redirects an owner whose map is empty to `/wizard`. That
+  test is gated on `res.ok` on purpose: `/api/render` 404s an **unlisted** map as
+  well as a missing one, so redirecting on any 404 would bounce an owner who had
+  just unlisted their own map back to the wizard every single time they clicked
+  "My map". Caught in review, never shipped — `debug.md` §W.
+- **The wizard's finish screen became its launchpad.** `/wizard` now opens on a
+  home screen carrying the stats, the tier bar, the tradition control, the
+  listed/unlisted toggle, the first-run offers when the map is empty, and the
+  fourteen areas with per-area progress and two buttons each: *Next question*, and
+  *List questions* → a per-doctrine list whose rows link to **`/edit?open=<slug>`**.
+  That route already expands the area and opens the tile, which is the whole
+  reason the list does not carry an editing UI of its own. "Finish here" changes
+  screen rather than navigating.
+- **`domainProgress(domains, corpus)` is in `engine/wizard-generate.js`, not
+  `web/wizard.js`.** The rule has not moved: the UI decides what to ask, the pure
+  UMD module does the model work, and that is what keeps the whole path runnable
+  from plain `node`. Two new answer kinds live there too — `custom` (the "write my
+  own view" tile: hold/tier/confidence/#study promoted, the other five behind
+  `details.optional`, phase 3's split verbatim) and `answer.todo` on the `open`
+  branch so "I haven't worked this out yet" is editable rather than fixed.
+- **The question screen lost its glosses on purpose.** `TIER_GLOSS` and
+  `CONF_GLOSS` are gone; both scales are explained once, on the launchpad. Tier and
+  confidence are wrapping radio groups, not `<select>`s. The position's own
+  description **is** the editable `hold` field — there is no second "What I hold"
+  box any more, and no "Word it my way" button.
+- **`web/refs.js` linkifies every citation.** `citationUrl(label, citation)` always
+  returns a usable https URL: a curated table of the ~20 works that actually recur
+  in the corpus (verified live, one at a time), and a Google-search fallback for the
+  long tail. Only 25 of the corpus's 424 `sources` carry a real `url` and none of
+  its 1229 `held_by` citations do, which is why the fallback exists rather than a
+  hand-curated URL per citation. A real `url` in the corpus still wins.
+  `tests/refs.test.js` is the gate. **Schleitheim Confession and the Longer
+  Catechism of St Philaret are deliberately absent from the table** — no live
+  free-text host could be verified, and this project's rule is that a dead link is
+  worse than plain text.
+- **`web/admin.html` may cache the admin PIN in `sessionStorage`**
+  (`theologymap:adminpin`), a deliberate relaxation of the old "never store it
+  anywhere" comment: it dies with the tab, never reaches localStorage, a cookie, a
+  URL or a log, and it is consistent with the stated "security is deliberately
+  minimal and that is the brief" posture. The users table is now responsive stacked
+  tiles built with `createElement`/`textContent`, which removes the escaping
+  obligation rather than restating it — `escapeHtml` is gone from that file.
+- **`web/wizard.html` carries one `[hidden] { display: none !important }`** instead
+  of a dozen per-id overrides. It toggles about twelve panes and several carry
+  their own `display` rules; this is the root-cause fix for the whole class of
+  bug `debug.md` §Q describes on one element.
 
 ## Working notes
 

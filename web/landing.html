@@ -11,6 +11,24 @@
   .tm-prose h2 { margin: 0 0 8px; font: 600 20px/1.3 var(--serif); }
   .tm-prose li { margin-bottom: 6px; }
   ul { padding-left: 20px; }
+  form { border: 1px solid var(--field-line); border-radius: 9px;
+         padding: 16px 18px; background: var(--panel); }
+  form h2 { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
+  label { display: block; margin-top: 10px; font: 600 12px/1.6 var(--sans); color: var(--muted); }
+  input { display: block; width: 100%; box-sizing: border-box; padding: 8px;
+          margin-top: 3px; font: 15px var(--sans); background: var(--panel);
+          color: var(--ink); border: 1px solid var(--field-line); border-radius: 5px; }
+  button { padding: 9px 15px; margin-top: 14px; font: 600 13px var(--sans);
+           background: var(--ink); color: var(--bg);
+           border: 1px solid var(--ink); border-radius: 5px; cursor: pointer; }
+  #signed-out { display: grid; gap: 14px; max-width: 780px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  /* The display:grid rule above outranks the browser's own [hidden] rule
+     (attribute selector, lower specificity), so toggling .hidden alone would
+     do nothing visible — see debug.md §Q, which is exactly this bug. This
+     wins the specificity fight back. Load-bearing; do not remove. */
+  #signed-out[hidden] { display: none; }
+  .quiet { font: 13px var(--sans); color: var(--muted); }
 </style>
 </head>
 <body class="tm-page">
@@ -21,37 +39,102 @@
 
   <div class="tm-prose">
     <p>A theology map is what one person actually believes, written down and sorted
-      by how much weight each belief carries — from the things they would build a
-      life on to the things they hold loosely and are still working out.</p>
-    <p>It is not a quiz and there is no score. Nothing appears in your map that you
-      did not put there, and nobody sees a draft until you are ready.</p>
+      by how much weight each belief carries.</p>
+    <p>Each belief carries a confidence — certain, confident, leaning, open, or
+      rejected — an ordinal band, not a percentage, and separate from whether it
+      is still being studied. Weight is judged separately, by tier, using Gavin
+      Ortlund's theological triage:</p>
+    <ul>
+      <li><strong>T1</strong> — essential to the gospel</li>
+      <li><strong>T2</strong> — church-defining</li>
+      <li><strong>T3</strong> — important, not divisive</li>
+      <li><strong>T4</strong> — a matter of liberty</li>
+    </ul>
+    <p>Half-steps (T1.5, T2.5) exist for beliefs that genuinely sit between two ranks.
+      It is not a quiz and there is no score — nothing appears in a map that its owner
+      did not put there.</p>
   </div>
 
   <div class="tm-grid tm-firstrun">
-    <a class="tm-card tm-card-primary" href="/app">
+    <a class="tm-card tm-card-primary" id="make-own-tile" href="/#signin">
       <h3>Make your own map</h3>
       <p>A name and a short PIN is the whole sign-up. Start from a blank page or
         from someone else's map.</p>
       <span class="tm-go">Get started &rarr;</span>
     </a>
-    <a class="tm-card" href="/thomas">
-      <h3>Read Thomas's map</h3>
-      <p>The map this tool was built for: ninety-nine beliefs across fourteen
-        areas, with the reasoning and the texts behind each one.</p>
-      <span class="tm-go">Open the map &rarr;</span>
+    <a class="tm-card" href="/gallery">
+      <h3>Browse everyone's maps</h3>
+      <p>See how other people have laid out what they believe, tier by tier and
+        belief by belief.</p>
+      <span class="tm-go">Open the gallery &rarr;</span>
     </a>
   </div>
 
-  <p class="tm-stat">Or <a href="/gallery">browse everyone's maps</a>.</p>
+  <div id="signin">
+    <div id="signed-out" hidden>
+      <form id="login-form">
+        <h2>Sign in</h2>
+        <label>Name
+          <input type="text" name="name" required autocomplete="username">
+        </label>
+        <label>PIN
+          <input type="password" name="pin" required autocomplete="current-password">
+        </label>
+        <button type="submit">Sign in</button>
+      </form>
 
-  <p class="tm-note">If you followed a link here expecting Thomas's map, it moved one
-    step along: it is at <a href="/thomas">/thomas</a> and it has not changed.</p>
+      <form id="signup-form">
+        <h2>Create an account</h2>
+        <p class="quiet">A name and a short PIN. Nothing else, no email.</p>
+        <label>Name
+          <input type="text" name="name" required autocomplete="username">
+        </label>
+        <label>PIN
+          <input type="password" name="pin" required autocomplete="new-password" minlength="4" maxlength="12">
+        </label>
+        <button type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
 
 </main>
 
 <script type="module">
+import { getUser, setUser, apiFetch } from '/web/session.js';
 import { mount } from '/web/chrome.js';
+
 mount('Theology Map');
+
+const $ = (id) => document.getElementById(id);
+const user = getUser();
+$('signed-out').hidden = !!user;
+$('make-own-tile').href = user ? '/wizard' : '/#signin';
+
+function handleAuthForm(form, action) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button');
+    button.disabled = true;
+    try {
+      const result = await apiFetch('/api/auth', {
+        method: 'POST',
+        body: { action, name: form.elements.name.value, pin: form.elements.pin.value },
+      });
+      setUser({ id: result.user_id, name: result.name, is_admin: result.is_admin });
+      form.reset();
+      // The launchpad, not a reload — sign-in/sign-up is no longer this page's
+      // home for a signed-in user.
+      location.href = '/wizard';
+    } catch {
+      // apiFetch already showed the error banner.
+    } finally {
+      button.disabled = false;
+    }
+  });
+}
+
+handleAuthForm($('login-form'), 'login');
+handleAuthForm($('signup-form'), 'signup');
 </script>
 
 </body>

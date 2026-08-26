@@ -248,6 +248,38 @@ def _restore(self, body):
     return error(self, 500, "server_error", "Could not restore that version.")
 
 
+def _set_visibility(self, body):
+    """{action: "set_visibility", user_id, is_public} -> the owner listing or
+    unlisting their own map.
+
+    The same control admin.py has, for the owner. `user_id` is the credential
+    here exactly as it is for save and restore (phase 2, B1) - no new trust is
+    introduced. Unlisting is not privacy: it removes the map from the gallery
+    and stops the name-keyed render, nothing more.
+    """
+    user_id = body.get("user_id")
+    if not user_id:
+        return error(self, 400, "bad_request", "Missing user_id.")
+    is_public = body.get("is_public")
+    if not isinstance(is_public, bool):
+        return error(self, 400, "bad_request", "Missing is_public.")
+
+    # Look the row up first, as every route here does.
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}&select=id")
+    if status != 200 or not rows:
+        return unknown_user(self)
+
+    status, patched, _ = pg(
+        "PATCH",
+        f"/users?id=eq.{q(user_id)}&select=is_public",
+        {"is_public": is_public},
+        headers={"Prefer": "return=representation"},
+    )
+    if status == 200 and patched:
+        return reply(self, 200, {"is_public": patched[0]["is_public"]})
+    return error(self, 500, "server_error", "Could not change that setting.")
+
+
 class handler(BaseHTTPRequestHandler):
     @guard
     def do_GET(self):
@@ -263,6 +295,8 @@ class handler(BaseHTTPRequestHandler):
             return _versions(self, body)
         if action == "restore":
             return _restore(self, body)
+        if action == "set_visibility":
+            return _set_visibility(self, body)
         return _save_map(self, body)
 
     def do_PUT(self):

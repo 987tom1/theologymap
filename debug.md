@@ -296,6 +296,72 @@ functions never return the same object twice.
 
 ---
 
+### U. `/edit` "shows no file loaded and offers Connect theology-map.md" — the adapter was fine, the copy was not — FIXED (2026-08-27)
+
+Reported as a broken hosted editor. Two hypotheses were chased and both were wrong:
+that `boot()` threw before `adapter.buttons.*` hid the file bar, and that
+`document.write('<base href="/engine/">')` was not firing so the relative module
+imports 404'd. Neither. Probed the live site directly (`/edit`, `/engine/*.js`,
+`/web/session.js` all 200; `/edit/` 404s but nothing links it) and then read the
+page state with a session in `localStorage`:
+
+```
+connect: "none"   upload: "none"   base: ".../engine/"   nav: "My map Gallery Sign out"
+```
+
+Hosted mode was hiding the buttons and loading the map correctly the whole time.
+What the person actually saw was `engine/editor.html`'s **empty-state paragraph** —
+"Connect or upload `theology-map.md` above to start editing…" — which renders in
+the List pane whenever the parsed map has zero beliefs. It is the `file://` tool's
+copy, it names a file bar hosted mode does not draw, and a brand-new hosted account
+has an empty map by definition, so every new user met it.
+
+**The lesson: a bug report quoting on-screen text is a report about that text.**
+Grep the exact words before theorising about the machinery that would have had to
+fail to produce them. Both wrong hypotheses were about mechanisms; ten seconds of
+`grep "Connect or upload"` was the whole investigation.
+
+**The rule it leaves behind:** every visible string in `engine/editor.html`'s markup
+is the local tool's wording. Anything hosted-specific is rewritten in the
+`if (HOSTED)` branch of `boot()`, never in the HTML — the same convention the
+hosted-only nav links already followed.
+
+### V. One CSS class, two builders — the wizard's answer controls rendered twice — FIXED (2026-08-27)
+
+"When I selected a view, then pressed Read more, the What I hold section and the
+selectors beneath it were listed twice." Both halves of `web/wizard.js` were
+individually correct: `select()` cleared every `.wz-answer` and appended a fresh
+one to the chosen card, and `explainer()` returned a `div.wz-answer` holding the
+Read-more body. They shared the class name, so the Read-more panel *was* an answer
+panel as far as `select()`'s clear/append logic could tell, and the two collided.
+
+The tempting fix is to give the popover a different parent. The real fix is that
+**a class used as a selector for clearing is a namespace, and two builders may not
+write into it.** `explainer()` now returns `.wz-explain`; every selectable tile
+carries a dedicated empty `.wz-slot` that `select()` owns outright. The doctrine-level
+`#q-readmore-body` used `.wz-answer` too — moving the per-card Read more into a
+popover would have left that one broken.
+
+Same shape as the seam bugs above: check every writer of a shared selector, not the
+one the report names.
+
+### W. `/view`'s owner redirect would have trapped anyone who unlisted their own map — CAUGHT IN REVIEW (2026-08-27)
+
+Deleting `/app` moved "My map" onto `/view?name=<own name>`, so `/view` gained a
+redirect: an owner whose map renders empty goes to `/wizard` instead of a dead
+"Map not found." The first version fired on `!res.ok || !html.includes('mbox-leaf')`.
+
+`POST /api/render {name}` 404s for a map that is merely **unlisted** exactly as it
+does for one that does not exist — and self-service unlisting shipped in the same
+round. So an owner who unlisted their map would click "My map", get a 404, and be
+bounced to the wizard, every time, with no way to reach their own map from their
+own nav. Gated on `res.ok` instead, with the 404 telling an owner it is the unlisted
+case.
+
+**Two features written in the same round, each correct alone.** That is this
+project's signature failure and the reason the file opens the way it does: it was
+found by asking "who else produces a 404 here?", not by reading either diff again.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -327,7 +393,14 @@ functions never return the same object twice.
    guessing (caching, CSS, touch) before the actual fix was adding a try/catch that
    surfaced the real exception on the first attempt. Any handler with no error
    path is a black box — wrap it before theorising about *why* it's failing.
-8. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
+8. **A bug report that quotes on-screen text is a report about that text.** Grep
+   the exact words first. §U burned two hypotheses about broken imports and silent
+   throws before `grep "Connect or upload"` found a hard-coded sentence written for
+   a different runtime.
+9. **A class name used to clear elements is a namespace with one owner.** If two
+   builders write the same class, one of them will be cleared or duplicated by the
+   other's logic (§V). Grep every writer of a shared selector before editing either.
+10. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
    `node -e`, with no browser, DOM, or login needed** — §T was fully reproduced and
    fixed this way, using `WG.loadCorpusSync('content/wizard')`. Reach for this
    before asking a human to reproduce anything that touches the corpus or the

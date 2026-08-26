@@ -108,6 +108,38 @@
     return out;
   }
 
+  /* Per-area progress, in corpus manifest order — what the wizard's launchpad
+   * lists and what its per-area question list screen renders. Model logic, so
+   * it lives here and not in web/wizard.js: the UI only paints the rows.
+   *
+   * A doctrine is "answered" when a node with its slug is in the map, "open"
+   * when that node's confidence is `open` (the "I haven't worked this out yet"
+   * answer, which is a real belief and not a gap), and "unasked" otherwise.
+   */
+  function domainProgress(domains, corpus) {
+    const byslug = new Map();
+    for (const domain of domains) for (const node of domain.nodes) byslug.set(node.slug, node);
+    const entries = ((corpus.manifest || {}).domains || []).slice()
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
+    return entries.map(entry => {
+      const file = (corpus.domains || {})[entry.id] || {};
+      const doctrines = (file.doctrines || []).slice()
+        .sort((a, b) => (a.order || 0) - (b.order || 0))
+        .map(d => {
+          const node = byslug.get(d.slug) || null;
+          return {
+            id: d.id, slug: d.slug, node_title: d.node_title,
+            status: !node ? 'unasked' : (node.confidence === 'open' ? 'open' : 'answered'),
+          };
+        });
+      return {
+        id: entry.id, name: entry.name, doctrines: doctrines,
+        total: doctrines.length,
+        answered: doctrines.filter(d => d.status !== 'unasked').length,
+      };
+    });
+  }
+
   /* The next unanswered doctrine in wizard order, or null when the corpus is
    * exhausted. Answered is decided by slugs already in the map, not by an
    * answer log — that is why resume needs no stored state (design 5.4). */
@@ -149,8 +181,13 @@
   /* Apply one answer, mutating and returning `domains`.
    *
    * Answer shape:
-   *   { doctrineId, kind: "position"|"open", positionId?, hold?, why?, vs?,
-   *     tier?, confidence?, study?: bool, revisit?: bool }
+   *   { doctrineId, kind: "position"|"open"|"custom", positionId?, hold?, why?,
+   *     vs?, todo?, refs?, links?: [slug], tier?, confidence?, study?: bool,
+   *     revisit?: bool }
+   *
+   * "custom" is somebody whose view is not among the offered positions: every
+   * field is their own, and the doctrine supplies only the title, the area and
+   * the intended links.
    *
    * An answer for a doctrine already in the map is ignored unless it carries
    * `revisit: true`. That is the rule protecting work the person did by hand:
@@ -171,11 +208,24 @@
       // "I don't know" is a first-class answer, never a skip: a real node with
       // real study value (decisions.md; design 4.9).
       node.hold = open.hold || 'Undecided.';
-      node.todo = open.todo || '';
+      // The wizard prefills the corpus wording into an editable field, so an
+      // explicit todo (even an empty one) is the person's, not a missing value.
+      node.todo = answer.todo !== undefined ? answer.todo : (open.todo || '');
       node.confidence = 'open';
       node.flags = ['study'];
       node.tier = answer.tier || open.tier || doctrine.suggested_tier || null;
       node.refs = doctrine.refs || '';
+    } else if (answer.kind === 'custom') {
+      // No corpus position behind this one. Never #assumed either: a belief
+      // somebody typed themselves is the most chosen kind there is.
+      node.hold = answer.hold || '';
+      node.why = answer.why || '';
+      node.vs = answer.vs || '';
+      node.todo = answer.todo || '';
+      node.refs = answer.refs !== undefined ? answer.refs : (doctrine.refs || '');
+      node.tier = answer.tier || doctrine.suggested_tier || null;
+      node.confidence = answer.confidence || null;
+      if (answer.study) node.flags = ['study'];
     } else {
       const position = findPosition(corpus, answer.positionId);
       if (!position) return domains;
@@ -197,7 +247,7 @@
     // Intended links are held here and resolved by pruneLinks. The underscore
     // matters: serializeNode only reads known fields, so this never reaches
     // the file — the test greps the serialized text to keep it that way.
-    node._intendedLinks = (doctrine.links || []).slice();
+    node._intendedLinks = (doctrine.links || []).slice().concat(answer.links || []);
     node.link = [];
 
     if (answer.revisit && existing.has(doctrine.slug)) {
@@ -234,6 +284,6 @@
     TIER_ORDER, tierRank,
     loadCorpusSync, orderedDoctrines, allDoctrines,
     findDoctrine, findPosition, domainName,
-    applyAnswer, pruneLinks, answeredSlugs, nextDoctrine,
+    applyAnswer, pruneLinks, answeredSlugs, nextDoctrine, domainProgress,
   };
 });

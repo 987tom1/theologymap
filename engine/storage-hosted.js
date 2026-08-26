@@ -8,7 +8,7 @@
 // Deliberate deviation — do NOT "fix" this back to apiFetch:
 // web/session.js's apiFetch() is the normal way to call JSON APIs in this app, but on a 404
 // {"error":"unknown_user"} it unconditionally clearUser()s and redirects the whole page to
-// /app. Inside the editor that's exactly the wrong move (docs/hosting/phase-1-design.md §8,
+// the landing page. Inside the editor that's exactly the wrong move (docs/hosting/phase-1-design.md §8,
 // failure mode 3): if a signed-in user's account vanishes mid-edit, the editor must NOT be
 // yanked out from under them — it needs to keep their draft in localStorage and show a
 // "copy your map out" message in place instead. So /api/map GET/POST go through plain
@@ -36,14 +36,18 @@ export function createHostedAdapter() {
     },
 
     async load() {
-      const user = requireUser('Sign in to edit your map.'); // redirects to /app if nobody is signed in
+      const user = requireUser('Sign in to edit your map.'); // redirects to / if nobody is signed in
       if (!user) return { text: '', label: '', token: null }; // page is navigating away
 
       const res = await fetch('/api/map?user_id=' + encodeURIComponent(user.id));
       const body = await res.json().catch(() => null);
       if (!res.ok) throw mapError(body);
 
-      return { text: (body && body.markdown) || '', label: user.name, token: body && body.updated_at };
+      return {
+        text: (body && body.markdown) || '', label: user.name,
+        token: body && body.updated_at,
+        isPublic: body ? body.is_public !== false : true,
+      };
     },
 
     async save(text, token, force) {
@@ -91,6 +95,24 @@ export function createHostedAdapter() {
       window.open(url, '_blank', 'noopener');
 
       setTimeout(() => URL.revokeObjectURL(url), 60000);
+    },
+
+    // Hosted-only, so it lives on the adapter rather than in editor.html: the
+    // file:// tool has no gallery to be listed in. Unlisting is not privacy --
+    // it removes the map from the gallery and stops the name-keyed render, and
+    // anyone still holding the row id can read it through /api/map. That is why
+    // the label is Unlist, never Hide (decisions.md, phase-2-review.md B7).
+    async setVisibility(isPublic) {
+      const user = requireUser();
+      if (!user) return null;
+      const res = await fetch('/api/map', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'set_visibility', user_id: user.id, is_public: isPublic }),
+      });
+      const body = await res.json().catch(() => null);
+      if (!res.ok) throw mapError(body);
+      return body && body.is_public;
     },
 
     beaconFlush(text, token) {

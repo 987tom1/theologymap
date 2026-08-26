@@ -1,4 +1,4 @@
-/* web/chrome.js — the one shared header for /app, /gallery, /view and /admin.
+/* web/chrome.js — the one shared header for /, /gallery, /view, /history and /admin.
    An ES module, like web/session.js, because that is how every page here loads
    its script and session.js exports no globals. */
 import { getUser, clearUser } from '/web/session.js';
@@ -19,8 +19,17 @@ export function mount(pageTitle) {
   head.appendChild(el('p', 'kicker', 'Theology Map'));
   head.appendChild(el('h1', null, pageTitle));
   const links = el('div', 'toplinks');
-  links.appendChild(link('/app', 'My map'));
-  links.appendChild(link('/gallery', 'Gallery'));
+  // Wraps on a narrow phone. Not in engine/theme.css — that file is owned by
+  // another agent — so the wrap styles are set inline on the element here.
+  links.style.flexWrap = 'wrap';
+  links.style.rowGap = '6px';
+  if (user) {
+    links.appendChild(link('/view?name=' + encodeURIComponent(user.name), 'My map'));
+    links.appendChild(link('/wizard', 'Wizard'));
+    links.appendChild(link('/edit', 'Edit'));
+    links.appendChild(link('/history', 'History'));
+  }
+  links.appendChild(link('/gallery', 'Browse'));
   if (user && user.is_admin) links.appendChild(link('/admin', 'Admin'));
   if (user) {
     const out = el('a', null, 'Sign out');
@@ -28,18 +37,18 @@ export function mount(pageTitle) {
     out.addEventListener('click', (e) => {
       e.preventDefault();
       clearUser();
-      location.href = '/app';
+      location.href = '/';
     });
     links.appendChild(out);
   } else {
-    links.appendChild(link('/app', 'Sign in'));
+    links.appendChild(link('/#signin', 'Sign in'));
   }
   head.appendChild(links);
   host.replaceWith(head);
 }
 
-/* One clipboard implementation for the hosted pages. /view and /app both offer
-   "Copy link" and phase 3 briefly had a copy of this in each; Task 9's rule is
+/* One clipboard implementation for the hosted pages. /view offers "Copy link"
+   and phase 3 briefly had a copy of this logic duplicated; Task 9's rule is
    one way to do each thing.
 
    engine/editor.html keeps its own copy on purpose and that is not drift: the
@@ -68,7 +77,7 @@ export function copyButton(btn, getText, label = 'Copy link') {
 
 /* Native RelativeTimeFormat, not a hand-rolled ladder. It doesn't pick a unit
    for you, so this still walks a table from largest to smallest — but that
-   table is data, not branching logic. Shared by /gallery and /app (phase 8's
+   table is data, not branching logic. Shared by /gallery and /history (phase 8's
    version list) so there is one way to say "2 hours ago", not two. */
 const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
 const REL_UNITS = [

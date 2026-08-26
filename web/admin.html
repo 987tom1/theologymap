@@ -6,31 +6,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  body { font: 16px/1.4 sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; color: #222; }
   h1 { font-size: 1.4em; }
-  nav { margin-bottom: 16px; }
-  form, #creds { margin-bottom: 24px; border: 1px solid #ccc; padding: 16px; border-radius: 6px; }
-  label { display: block; margin-top: 8px; font-size: 0.9em; }
-  input { display: block; width: 100%; max-width: 280px; box-sizing: border-box; padding: 6px; margin-top: 2px; }
-  button { margin-top: 12px; padding: 8px 14px; }
-  table { border-collapse: collapse; width: 100%; margin-top: 8px; }
-  th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; font-size: 0.9em; }
-  th { background: #f5f5f5; }
-  td button, td a { margin-right: 6px; font-size: 0.85em; }
-  #pin-reveal { border: 1px solid #88a; background: #eef; padding: 10px 12px; border-radius: 6px; margin-top: 12px; }
+  #creds { margin-bottom: 24px; max-width: 320px; }
+  #creds h2 { margin: 0 0 8px; font: 600 17px/1.3 var(--serif); }
+  label { display: block; margin-top: 8px; font: 12.5px/1.4 var(--sans); color: var(--muted); }
+  input { display: block; width: 100%; box-sizing: border-box; padding: 6px 8px; margin-top: 2px;
+          background: var(--panel); color: var(--ink); border: 1px solid var(--field-line);
+          border-radius: 5px; font: 14px/1.4 var(--sans); }
+  button { margin-top: 12px; padding: 8px 14px; border: 1px solid var(--field-line);
+           border-radius: 6px; background: var(--panel); color: var(--ink); font: 13px/1 var(--sans);
+           cursor: pointer; }
+  button:hover { border-color: var(--ink); }
+  button:disabled { opacity: .5; cursor: default; }
+
+  #users-list { display: grid; gap: 14px; margin-top: 8px;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+  .user-tile h3 { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
+  .user-meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px;
+               font: 13px/1.5 var(--sans); margin-bottom: 4px; }
+  .meta-label { color: var(--muted); font-weight: 600; }
+  .user-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .user-actions button { margin-top: 0; min-height: 44px; min-width: 44px; }
+
+  .versions-panel { grid-column: 1 / -1; }
+  .versions-panel .user-actions { margin-top: 0; }
+
+  #pin-reveal.tm-note { margin-top: 12px; }
 </style>
 </head>
 <body class="tm-page">
 
 <div id="tmChrome"></div>
 
-<p class="note"><strong>Unlisting is not privacy.</strong> It removes a map from the
+<p class="tm-note"><strong>Unlisting is not privacy.</strong> It removes a map from the
 gallery and stops it rendering by name. It does not make it unreadable to someone
 who already has its link from the editor. Delete the account if a map must go.</p>
 
-<div id="creds">
+<div id="creds" class="tm-card">
   <h2>Admin credentials</h2>
-  <label>Name
+  <p id="creds-note" class="tm-note" hidden></p>
+  <label id="name-field">Name
     <input type="text" id="admin-name" autocomplete="username">
   </label>
   <label>PIN
@@ -39,72 +54,133 @@ who already has its link from the editor. Delete the account if a map must go.</
   <button id="load-btn">Load users</button>
 </div>
 
-<div id="pin-reveal" hidden></div>
+<div id="pin-reveal" class="tm-note" hidden></div>
 
-<table id="users-table" hidden>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Last updated</th>
-      <th>Size</th>
-      <th>Visibility</th>
-      <th>Admin</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+<div id="users-list" hidden></div>
 
 <script type="module">
-import { apiFetch } from '/web/session.js';
+import { apiFetch, getUser } from '/web/session.js';
 import { mount, relTime } from '/web/chrome.js';
 
 mount('Admin');
 
-// ponytail: credentials live only in these two module-scope variables for the
-// page's lifetime — never localStorage/sessionStorage/cookies. Re-read into
-// them only on "Load users"; every admin call below reuses these, fresh.
+// Every admin call re-verifies name+PIN server-side (api/admin.py) — that
+// contract is unchanged. What changed is where the PIN lives on THIS page
+// between calls.
+//
+// ponytail: relaxation, spelled out. An already-signed-in admin (getUser()
+// from web/session.js, is_admin === true) has proven who they are once
+// already; making them retype a name we already know and a PIN they just
+// typed on every page load is friction with no security benefit — the
+// server is the actual gate either way. So the PIN, once entered, is cached
+// in sessionStorage (key below), never localStorage: sessionStorage dies
+// with the tab, localStorage doesn't. That is consistent with this
+// project's stated posture (CLAUDE.md, "Security is deliberately minimal,
+// and that is the brief") — plaintext PINs already travel over the wire on
+// every action; caching one in the one storage that self-destructs on tab
+// close is not a new class of risk. The PIN is never logged, never put in a
+// URL, never rendered back to the page. A visitor who is NOT a signed-in
+// admin still gets the original full name+PIN form every time — nothing
+// changes for them.
 let credName = '';
 let credPin = '';
 
+const ADMIN_PIN_KEY = 'theologymap:adminpin';
+// api/_lib.py's require_admin answers a bad name/PIN with
+// error(self, 403, "forbidden", "Forbidden."). apiFetch attaches the body's
+// machine-readable `error` field to the thrown Error as `.code`, so this
+// branches on the code rather than on the prose — the message is copy and
+// will change, the code is the contract.
+const AUTH_FAIL_CODE = 'forbidden';
+
+const user = getUser();
+const isAdminUser = !!(user && user.is_admin === true);
+
+const creds = document.getElementById('creds');
+const credsNote = document.getElementById('creds-note');
+const nameField = document.getElementById('name-field');
 const nameInput = document.getElementById('admin-name');
 const pinInput = document.getElementById('admin-pin');
 const loadBtn = document.getElementById('load-btn');
-const table = document.getElementById('users-table');
-const tbody = table.querySelector('tbody');
+const list = document.getElementById('users-list');
 const pinReveal = document.getElementById('pin-reveal');
 
+// Hide the box synchronously, before init()'s awaited lookup runs, so a
+// signed-in admin never sees a flash of the full name+PIN form.
+if (isAdminUser) creds.hidden = true;
+
 async function callAdmin(action, extra = {}) {
-  return apiFetch('/api/admin', {
-    method: 'POST',
-    body: { name: credName, pin: credPin, action, ...extra },
-  });
+  try {
+    return await apiFetch('/api/admin', {
+      method: 'POST',
+      body: { name: credName, pin: credPin, action, ...extra },
+    });
+  } catch (err) {
+    if (err instanceof Error && err.code === AUTH_FAIL_CODE) {
+      resetAuth('That PIN was rejected. Enter it again.');
+    }
+    throw err;
+  }
+}
+
+// Drop the cached PIN and put the credentials box back in front of the
+// user, with a reason — never leave a stale bad PIN sitting in
+// sessionStorage.
+function resetAuth(message) {
+  sessionStorage.removeItem(ADMIN_PIN_KEY);
+  credPin = '';
+  pinInput.value = '';
+  list.hidden = true;
+  list.innerHTML = '';
+  credsNote.textContent = message;
+  credsNote.hidden = false;
+  creds.hidden = false;
 }
 
 async function loadUsers() {
   const users = await callAdmin('list_users');
   if (!users) return; // apiFetch already redirected/handled the error
-  renderTable(users);
-  table.hidden = false;
+  if (isAdminUser) {
+    try { sessionStorage.setItem(ADMIN_PIN_KEY, credPin); } catch { /* private mode */ }
+  }
+  renderList(users);
+  list.hidden = false;
 }
 
-function renderTable(users) {
-  tbody.innerHTML = '';
+function metaRow(container, label, value) {
+  const row = document.createElement('div');
+  row.className = 'meta-row';
+  const l = document.createElement('span');
+  l.className = 'meta-label';
+  l.textContent = label;
+  const v = document.createElement('span');
+  v.textContent = value;
+  row.append(l, v);
+  container.appendChild(row);
+}
+
+function renderList(users) {
+  list.innerHTML = '';
   for (const u of users) {
-    const tr = document.createElement('tr');
+    const tile = document.createElement('div');
+    tile.className = 'user-tile tm-card';
+    tile.dataset.userId = u.id;
 
+    const h3 = document.createElement('h3');
+    h3.textContent = u.name;
+    tile.appendChild(h3);
+
+    const meta = document.createElement('div');
+    meta.className = 'user-meta';
     const updated = u.updated_at ? new Date(u.updated_at).toLocaleString() : '';
+    metaRow(meta, 'Last updated', updated);
+    metaRow(meta, 'Size', `${u.markdown_length} chars`);
+    metaRow(meta, 'Visibility', u.is_public ? 'Public' : 'Hidden');
+    metaRow(meta, 'Admin', u.is_admin ? 'Yes' : '');
+    tile.appendChild(meta);
 
-    tr.innerHTML = `
-      <td>${escapeHtml(u.name)}</td>
-      <td>${escapeHtml(updated)}</td>
-      <td>${u.markdown_length} chars</td>
-      <td>${u.is_public ? 'Public' : 'Hidden'}</td>
-      <td>${u.is_admin ? 'Yes' : ''}</td>
-      <td></td>
-    `;
-
-    const actionsCell = tr.querySelector('td:last-child');
+    const actions = document.createElement('div');
+    actions.className = 'user-actions';
 
     const visBtn = document.createElement('button');
     // "Unlist", not "Hide": is_public controls the gallery listing and the
@@ -121,7 +197,7 @@ function renderTable(users) {
         visBtn.disabled = false;
       }
     });
-    actionsCell.appendChild(visBtn);
+    actions.appendChild(visBtn);
 
     const pinBtn = document.createElement('button');
     pinBtn.textContent = 'Reset PIN';
@@ -137,7 +213,7 @@ function renderTable(users) {
         pinBtn.disabled = false;
       }
     });
-    actionsCell.appendChild(pinBtn);
+    actions.appendChild(pinBtn);
 
     // No "Edit map" button. Design §9 routes it through /edit?as=<target_id>,
     // but engine/editor.html never learned to read ?as= (phase-1d-outcome.md),
@@ -152,12 +228,12 @@ function renderTable(users) {
     versionsBtn.addEventListener('click', async () => {
       versionsBtn.disabled = true;
       try {
-        await toggleVersions(u, tr);
+        await toggleVersions(u, tile);
       } finally {
         versionsBtn.disabled = false;
       }
     });
-    actionsCell.appendChild(versionsBtn);
+    actions.appendChild(versionsBtn);
 
     const delBtn = document.createElement('button');
     delBtn.textContent = 'Delete';
@@ -172,35 +248,37 @@ function renderTable(users) {
         delBtn.disabled = false;
       }
     });
-    actionsCell.appendChild(delBtn);
+    actions.appendChild(delBtn);
 
-    tbody.appendChild(tr);
+    tile.appendChild(actions);
+    list.appendChild(tile);
   }
 }
 
 // The locked "edit/restore any map" admin power (decisions.md, Accounts and
-// data). Toggles a plain row under the user's own row, rather than a second
-// page — this table already is the admin surface.
-async function toggleVersions(u, tr) {
-  const existing = tr.nextElementSibling;
+// data). Toggles a plain panel right after the user's tile, rather than a
+// second page — this list already is the admin surface.
+async function toggleVersions(u, tile) {
+  const existing = tile.nextElementSibling;
   if (existing && existing.dataset.versionsFor === u.id) {
     existing.remove();
     return;
   }
   // Close any other open panel first, so there is never more than one.
-  document.querySelectorAll('tr[data-versions-for]').forEach(r => r.remove());
+  document.querySelectorAll('[data-versions-for]').forEach(r => r.remove());
 
   const versions = await callAdmin('versions', { target_id: u.id });
   if (!versions) return; // apiFetch already redirected/handled the error
 
-  const row = document.createElement('tr');
-  row.dataset.versionsFor = u.id;
-  const cell = document.createElement('td');
-  cell.colSpan = 6;
+  const panel = document.createElement('div');
+  panel.className = 'versions-panel tm-card';
+  panel.dataset.versionsFor = u.id;
 
   if (versions.length === 0) {
-    cell.textContent = `No earlier versions of ${u.name}'s map yet.`;
+    panel.textContent = `No earlier versions of ${u.name}'s map yet.`;
   } else {
+    const actions = document.createElement('div');
+    actions.className = 'user-actions';
     for (const v of versions) {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -214,37 +292,63 @@ async function toggleVersions(u, tr) {
         btn.disabled = true;
         try {
           await callAdmin('restore', { target_id: u.id, version_id: v.id });
-          row.remove();
+          panel.remove();
           await loadUsers();
         } finally {
           btn.disabled = false;
         }
       });
-      cell.appendChild(btn);
+      actions.appendChild(btn);
     }
+    panel.appendChild(actions);
   }
-  row.appendChild(cell);
-  tr.after(row);
-}
-
-function escapeHtml(s) {
-  const div = document.createElement('div');
-  div.textContent = s == null ? '' : String(s);
-  return div.innerHTML;
+  tile.after(panel);
 }
 
 loadBtn.addEventListener('click', async () => {
-  credName = nameInput.value;
+  credName = isAdminUser ? user.name : nameInput.value;
   credPin = pinInput.value;
   loadBtn.disabled = true;
   try {
     await loadUsers();
+    if (isAdminUser) creds.hidden = true;
   } catch {
-    // apiFetch already showed the error banner (e.g. 403 on bad credentials).
+    // apiFetch already showed the error banner (e.g. 403 on bad credentials),
+    // and callAdmin's catch above has already reset the cache/box if that's
+    // what happened.
   } finally {
     loadBtn.disabled = false;
   }
 });
+
+// On load: an already-signed-in admin skips the credentials box entirely if
+// a PIN is still cached from earlier this tab; otherwise they see only the
+// PIN field (name is already known). Anyone else — signed out, or signed in
+// without is_admin — gets the original full name+PIN form, unchanged.
+async function init() {
+  if (!isAdminUser) return;
+
+  nameInput.value = user.name;
+  nameField.hidden = true;
+  credsNote.textContent = 'Confirm your PIN to load the admin console.';
+  credsNote.hidden = false;
+
+  const cachedPin = sessionStorage.getItem(ADMIN_PIN_KEY);
+  if (cachedPin) {
+    credName = user.name;
+    credPin = cachedPin;
+    try {
+      await loadUsers();
+      return; // stayed hidden — never shown at all
+    } catch {
+      // callAdmin's catch already reset the cache and re-showed the box on
+      // an auth failure; any other error just falls through to showing it too.
+    }
+  }
+  creds.hidden = false;
+}
+
+init();
 </script>
 
 </body>

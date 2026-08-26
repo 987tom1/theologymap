@@ -119,10 +119,10 @@ function buildCard(m) {
   return a;
 }
 
-function buildPrimaryCard() {
+function buildPrimaryCard(user) {
   const a = document.createElement('a');
   a.className = 'tm-card tm-card-primary';
-  a.href = '/app';
+  a.href = user ? '/wizard' : '/#signin';
   a.setAttribute('aria-label', 'Make your own map — sign up');
   const h3 = document.createElement('h3');
   h3.textContent = 'Make your own map';
@@ -163,7 +163,7 @@ try {
   const user = getUser();
   const mine = user && maps.find(m => m.name.toLowerCase() === user.name.toLowerCase());
   const showPrimary = !user || !mine || mine.node_count === 0;
-  if (showPrimary) gridEl.appendChild(buildPrimaryCard());
+  if (showPrimary) gridEl.appendChild(buildPrimaryCard(user));
 } catch {
   gridEl.textContent = '';          // never leave a skeleton pretending to load
   gridEl.setAttribute('aria-busy', 'false');

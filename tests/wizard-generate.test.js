@@ -110,6 +110,79 @@ test('answered doctrines are detected from slugs already in the map', () => {
   assert.notStrictEqual(WG.nextDoctrine(domains, corpus).slug, 'inerrancy');
 });
 
+test('an open answer takes the person s own "still working out" text', () => {
+  let domains = EditorCore.parse('');
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'open', todo: 'Read Beasley-Murray first.' });
+  const n = domains[0].nodes[0];
+  assert.strictEqual(n.todo, 'Read Beasley-Murray first.');
+  assert.strictEqual(n.confidence, 'open');
+  // An omitted todo still falls back to the corpus wording.
+  let d2 = WG.applyAnswer(EditorCore.parse(''), corpus,
+    { doctrineId: 'church.baptism', kind: 'open' });
+  assert.ok(d2[0].nodes[0].todo.length > 20);
+});
+
+test('a custom answer builds a node from the person s own fields only', () => {
+  let domains = EditorCore.parse('');
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'custom',
+    hold: 'My own wording.', why: 'Because.', vs: 'Not that.',
+    todo: 'Still reading.', refs: 'Acts 2:38', links: ['the-lords-supper'],
+    tier: 'T4', confidence: 'leaning', study: true });
+  const n = domains[0].nodes[0];
+  assert.strictEqual(n.title, 'Baptism');          // the doctrine supplies the title
+  assert.strictEqual(domains[0].name, 'Church');   // ...and the area
+  assert.strictEqual(n.hold, 'My own wording.');
+  assert.strictEqual(n.why, 'Because.');
+  assert.strictEqual(n.vs, 'Not that.');
+  assert.strictEqual(n.todo, 'Still reading.');
+  assert.strictEqual(n.refs, 'Acts 2:38');
+  assert.strictEqual(n.tier, 'T4');
+  assert.strictEqual(n.confidence, 'leaning');
+  assert.deepStrictEqual(n.flags, ['study']);
+  // Never #assumed: the wizard's output is chosen, not inferred.
+  assert.ok(!n.flags.includes('assumed'));
+  // The person's own Related entries join the doctrine's intended links and
+  // are pruned by the same rule as everything else.
+  assert.ok(n._intendedLinks.includes('the-lords-supper'));
+  WG.pruneLinks(domains);
+  assert.deepStrictEqual(n.link, []);
+  const text = EditorCore.serialize(domains);
+  assert.ok(!text.includes('_intended'), '_intendedLinks leaked into the markdown');
+  assert.deepStrictEqual(EditorCore.parse(text),
+    EditorCore.parse(EditorCore.serialize(EditorCore.parse(text))));
+});
+
+test('domainProgress lists the areas in manifest order with real statuses', () => {
+  let domains = EditorCore.parse('');
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'position',
+    positionId: 'church.baptism/believer' });
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.lords-supper', kind: 'open' });
+
+  const areas = WG.domainProgress(domains, corpus);
+  assert.strictEqual(areas.length, corpus.manifest.domains.length);
+  assert.deepStrictEqual(areas.map(a => a.name),
+    corpus.manifest.domains.slice().sort((a, b) => a.order - b.order).map(d => d.name));
+
+  const church = areas.find(a => a.id === 'church');
+  assert.ok(church.total >= 2);
+  assert.strictEqual(church.answered, 2);
+  assert.strictEqual(church.doctrines.find(d => d.slug === 'baptism').status, 'answered');
+  assert.strictEqual(church.doctrines.find(d => d.slug === 'the-lords-supper').status, 'open');
+
+  // An area with no file published yet reports zero rather than throwing — the
+  // launchpad skips those.
+  for (const a of areas) {
+    assert.strictEqual(a.total, a.doctrines.length);
+    assert.ok(a.answered <= a.total);
+  }
+  const untouched = areas.find(a => a.id === 'scripture');
+  assert.ok(untouched.doctrines.every(d => d.status === 'unasked'));
+});
+
 /* ------------------------------------------------------------ the real corpus
  *
  * Everything above runs against tests/fixtures/corpus/, which pins the SCHEMA

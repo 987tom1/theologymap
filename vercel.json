@@ -2,9 +2,9 @@
   "rewrites": [
     { "source": "/", "destination": "/web/landing.html" },
     { "source": "/thomas", "destination": "/theology-map.html" },
-    { "source": "/app", "destination": "/web/index.html" },
     { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" },
     { "source": "/gallery", "destination": "/web/gallery.html" },
+    { "source": "/history", "destination": "/web/history.html" },
     { "source": "/view", "destination": "/web/view.html" },
     { "source": "/admin", "destination": "/web/admin.html" },
     { "source": "/wizard", "destination": "/web/wizard.html" }

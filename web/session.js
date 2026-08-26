@@ -27,7 +27,7 @@ export function requireUser(why = 'Sign in first — that page needs an account.
   const u = getUser();
   if (!u) {
     stashNotice(why);
-    window.location.href = '/app';
+    window.location.href = '/';
     return null;
   }
   return u;
@@ -61,11 +61,19 @@ export async function apiFetch(path, options = {}) {
     if (res.status === 404 && body && body.error === 'unknown_user') {
       clearUser();
       stashNotice('That account no longer exists. Please sign in again.');
-      window.location.href = '/app';
+      window.location.href = '/';
       return null;
     }
     showError((body && body.message) || 'Something went wrong.');
-    throw new Error((body && body.message) || `Request failed: ${res.status}`);
+    // The thrown Error carries the server's machine-readable `error` field as
+    // `.code`, not just its prose. Callers that need to branch on WHY a call
+    // failed (web/admin.html tells "wrong PIN" apart from "network hiccup")
+    // must not have to string-match the message, which is copy and will change.
+    // Same shape as engine/storage-hosted.js's mapError().
+    const err = new Error((body && body.message) || `Request failed: ${res.status}`);
+    err.code = body && body.error;
+    err.status = res.status;
+    throw err;
   }
 
   return body;

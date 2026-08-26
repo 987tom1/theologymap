@@ -13,55 +13,57 @@
     --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
   }
 
+  /* debug.md §Q: the browser's own `[hidden] { display:none }` is an attribute
+     selector and loses to any author `display` rule on the same element — an
+     ID rule, a .tm-card rule, anything. This page toggles a dozen panes by the
+     hidden attribute, so the fix is stated once here rather than as a dozen
+     `#id[hidden]` overrides that the next screen would have to remember. */
+  [hidden] { display: none !important; }
+
   body.wz main { padding: 0; max-width: none; }
 
-  /* ---- persistent header ---- */
+  /* ---- the question screen's own header (the launchpad uses the site nav) ---- */
   #wz-header {
-    padding: 14px 20px;
+    padding: 10px 20px;
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
   }
-  #wz-brand .kicker { margin: 0 0 3px; font: 600 10px/1 var(--sans); letter-spacing: .16em;
+  #wz-brand .kicker { margin: 0 0 2px; font: 600 10px/1 var(--sans); letter-spacing: .16em;
                        text-transform: uppercase; color: var(--muted); }
-  #wz-brand h1 { margin: 0; font: 400 22px/1.2 var(--serif); letter-spacing: -0.01em; }
+  #wz-brand h1 { margin: 0; font: 400 18px/1.2 var(--serif); letter-spacing: -0.01em; }
   #wz-crumb { margin: 0; font: 600 12px/1 var(--sans); color: var(--muted); letter-spacing: .03em; }
   #wz-headright { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  #wz-lens-btn, #wz-finish {
+  .wz-ghost {
     font: 600 12.5px/1 var(--sans); color: var(--muted); background: transparent;
-    border: 1px solid var(--field-line); border-radius: 7px; padding: 10px 14px;
+    border: 1px solid var(--field-line); border-radius: 7px; padding: 9px 12px;
     cursor: pointer;
   }
-  #wz-lens-btn:hover, #wz-finish:hover { color: var(--ink); }
+  .wz-ghost:hover { color: var(--ink); }
 
   /* ---- shared layout ---- */
-  .wz-screen-body { max-width: 760px; margin: 0 auto; padding: 36px 20px 40px;
-                     display: flex; flex-direction: column; gap: 20px; }
+  .wz-screen-body { max-width: 760px; margin: 0 auto; padding: 22px 18px 36px;
+                     display: flex; flex-direction: column; gap: 14px; }
   .wz-wide  .wz-screen-body { max-width: 860px; }
-  .wz-narrow .wz-screen-body { max-width: 640px; padding-top: 48px; gap: 26px; }
+  .wz-narrow .wz-screen-body { max-width: 640px; padding-top: 32px; gap: 18px; }
 
-  #screen-intro h2, #screen-lens h2, #screen-question h2, #screen-finish h2 {
-    margin: 0; font: 400 28px/1.25 var(--serif); letter-spacing: -0.01em; max-width: 24ch;
+  #screen-intro h2, #screen-lens h2, #screen-question h2, #screen-home h2, #screen-area h2 {
+    margin: 0; font: 400 26px/1.25 var(--serif); letter-spacing: -0.01em; max-width: 26ch;
   }
-  #screen-intro h2 { font-size: 34px; max-width: 16ch; }
-  #screen-finish h2 { max-width: 22ch; }
+  #screen-intro h2 { font-size: 32px; max-width: 16ch; }
 
-  .wz-lead { max-width: 58ch; display: flex; flex-direction: column; gap: 12px; }
+  .wz-lead { max-width: 62ch; display: flex; flex-direction: column; gap: 10px; }
   .wz-lead p { margin: 0; }
 
-  .wz-pills { display: flex; gap: 10px; flex-wrap: wrap; }
-  .wz-pill { font: 600 12px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
-             background: var(--chip); padding: 9px 12px; border-radius: 99px; }
-
-  .wz-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+  .wz-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
   .wz-quiet { font: 12.5px/1.5 var(--sans); color: var(--muted); margin: 0; }
 
   .wz-primary {
     background: var(--ink); color: var(--bg); border: 1px solid var(--ink);
-    text-decoration: none; font: 600 14px/1 var(--sans); padding: 15px 26px;
+    text-decoration: none; font: 600 14px/1 var(--sans); padding: 14px 24px;
     border-radius: 8px; cursor: pointer; display: inline-block;
   }
   .wz-link {
@@ -84,127 +86,179 @@
   .lens-none { grid-column: 1 / -1; background: var(--bg); }
 
   /* ---- question screen ---- */
-  .wz-qhead { display: flex; flex-direction: column; gap: 10px; }
-  #q-framing { margin: 0; max-width: 58ch; color: var(--ink); }
+  .wz-qhead { display: flex; flex-direction: column; gap: 6px; }
+  #q-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
 
-  #positions { display: flex; flex-direction: column; gap: 12px; }
+  #positions { display: flex; flex-direction: column; gap: 8px; }
 
   .wz-card {
+    position: relative;
     background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 16px 18px; display: flex; flex-direction: column; gap: 9px;
+    padding: 12px 14px; display: flex; flex-direction: column; gap: 7px;
   }
-  .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
-  .wz-card-h { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .wz-card-h strong { font: 600 16px/1.3 var(--serif); }
-  .hold { margin: 0; font: 15px/1.6 var(--serif); max-width: 58ch; }
-  .wz-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+  .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink);
+                 background: var(--chip); }
+  .wz-card-h { display: flex; align-items: baseline; justify-content: space-between;
+               gap: 10px; flex-wrap: wrap; padding-right: 96px; }
+  .wz-card-h strong { font: 600 15.5px/1.3 var(--serif); }
+  .wz-chips { display: flex; gap: 5px; flex-wrap: wrap; }
   .tchip { font: 600 11px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
-           background: var(--chip); padding: 6px 9px; border-radius: 99px; }
+           background: var(--chip); padding: 5px 8px; border-radius: 99px; }
+  .wz-card.sel .tchip { background: var(--panel); }
   .tchip-lens { background: var(--ink); color: var(--bg); }
-  .wz-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .wz-card.sel .tchip-lens { background: var(--ink); color: var(--bg); }
+  .wz-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+  /* selection is a tint plus a tick, top right — a border alone reads as noise */
+  .wz-tools { position: absolute; top: 8px; right: 10px; display: flex;
+              align-items: center; gap: 8px; }
+  .wz-tick { font: 600 14px/1 var(--sans); color: var(--ink); }
+  .wz-more { font: 600 11.5px/1 var(--sans); color: var(--muted); background: transparent;
+             border: 1px solid var(--field-line); border-radius: 6px; padding: 6px 8px;
+             cursor: pointer; }
+  .wz-more:hover, .wz-more[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); }
+
+  /* Read more is a popover anchored to that button, not an inline expansion —
+     tap to open, click outside or Escape to close. */
+  .wz-pop {
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
+    width: min(420px, 86vw); max-height: 52vh; overflow-y: auto;
+    background: var(--panel); color: var(--ink);
+    border: 1px solid var(--field-line); border-radius: 9px;
+    padding: 12px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    display: flex; flex-direction: column; gap: 8px; text-align: left;
+  }
 
   .wz-outside { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
                 text-transform: uppercase; color: var(--muted); }
-  .wz-outside-note { margin: 4px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
+  .wz-outside-note { margin: 2px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
 
   #open-answer {
-    background: var(--ink); color: var(--bg); border-radius: 9px; padding: 18px;
-    display: flex; flex-direction: column; gap: 6px; cursor: pointer;
+    position: relative;
+    background: var(--ink); color: var(--bg); border-radius: 9px; padding: 14px;
+    display: flex; flex-direction: column; gap: 7px; cursor: pointer;
   }
-  #open-answer strong { font: 600 16px/1.3 var(--serif); }
-  #open-answer p { margin: 0; font: 13.5px/1.55 var(--serif); max-width: 58ch; opacity: .88; }
+  #open-answer strong { font: 600 15.5px/1.3 var(--serif); }
+  #open-answer .wz-tick { color: var(--bg); }
+  #open-answer .lab { color: var(--bg); opacity: .75; }
+  #open-answer .wz-holdfield { border-color: var(--bg); }
 
-  /* controls the wizard controller appends inside a chosen .wz-card (or a
-     chosen #open-answer) — not present in static markup, styled anyway. */
-  .wz-answer { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
-  .lab { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
+  #custom-answer { position: relative; }
+
+  /* the controls the controller drops into a card's answer slot */
+  .wz-slot:empty { display: none; }
+  .wz-slot { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+  .wz-explain { display: flex; flex-direction: column; gap: 7px; }
+  .lab { margin: 0; font: 600 11px/1.4 var(--sans); letter-spacing: .04em;
          text-transform: uppercase; color: var(--muted); }
   .wz-holdfield { border: 1px solid var(--field-line); border-radius: 8px;
-                  background: var(--bg); color: var(--ink); padding: 12px 14px; }
-  .wz-holdfield textarea {
+                  background: var(--bg); color: var(--ink); padding: 9px 11px; }
+  .wz-holdfield textarea, .wz-holdfield input[type=text] {
     display: block; width: 100%; box-sizing: border-box; border: none; background: none;
-    color: inherit; resize: vertical; font: 15px/1.6 var(--serif); padding: 0;
+    color: inherit; resize: vertical; font: 14.5px/1.55 var(--serif); padding: 0;
   }
-  .wz-holdfield textarea:focus { outline: none; }
-  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
+  .wz-holdfield textarea:focus, .wz-holdfield input:focus { outline: none; }
+  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
 
-  .wz-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  @media (max-width: 480px) { .wz-controls { grid-template-columns: 1fr; } }
-  .wz-controls > div { display: flex; flex-direction: column; gap: 6px; }
-  .wz-controls p.wz-hint { margin: 0; }
+  /* tier / confidence as horizontal radio groups. Real <input type=radio>,
+     visually restyled: arrow-key operation and the a11y semantics come free. */
+  .wz-radios { display: flex; flex-wrap: wrap; gap: 6px; }
+  .wz-radio { display: inline-block; position: relative; }
+  .wz-radio input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .wz-radio span {
+    display: inline-block; border: 1px solid var(--field-line); border-radius: 7px;
+    padding: 9px 11px; font: 600 12.5px/1 var(--sans); color: var(--muted);
+    background: var(--bg); cursor: pointer; min-height: 16px;
+  }
+  .wz-radio input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .wz-radio input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-  .tierchip { display: inline-block; color: #fff; font: 600 12px/1 var(--sans);
-              padding: 8px 11px; border-radius: 6px; }
+  .wz-controls { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+  .wz-controls > div { display: flex; flex-direction: column; gap: 5px; }
 
   .wz-check { display: flex; gap: 9px; align-items: flex-start; font: 13.5px/1.5 var(--serif);
-              color: var(--ink); margin-top: 2px; cursor: pointer; }
+              color: inherit; cursor: pointer; }
   .wz-check input { margin: 2px 0 0; flex: none; width: 16px; height: 16px; }
 
+  .wz-fields { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
+
   /* ---- who believes what ---- */
-  #who-body { padding-top: 10px; display: flex; flex-direction: column; gap: 14px; }
-  .who { margin: 0; display: grid; grid-template-columns: 150px 1fr; gap: 8px 18px; align-items: baseline; }
+  #who-body { padding-top: 8px; display: flex; flex-direction: column; gap: 12px; }
+  .who { margin: 0; display: grid; grid-template-columns: 150px 1fr; gap: 7px 18px; align-items: baseline; }
   .who dt { font: 600 13.5px/1.5 var(--serif); }
   .who dd { margin: 0; font: 13px/1.55 var(--serif); color: var(--muted); }
   .stance { color: var(--ink); }
   @media (max-width: 480px) { .who { grid-template-columns: 1fr; } }
 
   /* ---- nav row ---- */
-  .wz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 4px; }
+  .wz-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 2px; }
 
-  /* ---- finish screen ---- */
+  /* ---- launchpad ---- */
   .wz-stat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
              background: var(--panel); border: 1px solid var(--field-line);
-             border-radius: 9px; padding: 18px 20px; }
-  @media (max-width: 480px) { .wz-stat { grid-template-columns: 1fr 1fr; } }
-  .wz-stat > div { display: flex; flex-direction: column; gap: 4px; }
-  .wz-stat .num { font: 400 30px/1 var(--serif); }
+             border-radius: 9px; padding: 14px 16px; }
+  @media (max-width: 560px) { .wz-stat { grid-template-columns: 1fr 1fr; } }
+  .wz-stat > div { display: flex; flex-direction: column; gap: 3px; }
+  .wz-stat .num { font: 400 28px/1 var(--serif); }
   .wz-stat .lab { margin: 0; }
 
-  .wz-tier { display: flex; flex-direction: column; gap: 8px; }
-  #fin-tierbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+  .wz-tier { display: flex; flex-direction: column; gap: 7px; }
+  #home-tierbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
   .wz-seg { display: block; height: 100%; }
+  #home-tiercounts { margin: 0; }
 
-  #fin-tiercounts { margin: 0; }
+  #home-areas { display: flex; flex-direction: column; gap: 6px; }
+  .wz-area {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 9px 12px;
+  }
+  .wz-area .nm { font: 600 14.5px/1.3 var(--serif); flex: 1 1 auto; min-width: 130px; }
+  .wz-area .pg { font: 12px/1 var(--sans); color: var(--muted); }
+  .wz-area .done { color: var(--ink); }
 
-  .wz-finishcards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  @media (max-width: 480px) { .wz-finishcards { grid-template-columns: 1fr; } }
+  #home-lensrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+  .wz-qlist { display: flex; flex-direction: column; gap: 4px; }
+  .wz-qrow {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 9px 12px; text-decoration: none; color: var(--ink);
+    font: 14px/1.4 var(--serif); min-height: 24px;
+  }
+  .wz-qrow:hover { border-color: var(--field-line); }
+  .wz-qrow .st { font: 600 11.5px/1 var(--sans); color: var(--muted); white-space: nowrap; }
+
+  .wz-cards2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 560px) { .wz-cards2 { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body class="tm-page wz">
 
-<header id="wz-header">
+<div id="tmChrome"></div>
+
+<header id="wz-header" hidden>
   <div id="wz-brand">
     <p class="kicker">Theology map</p>
-    <h1>Build me a map</h1>
+    <h1>Build a map</h1>
   </div>
-  <p id="wz-crumb" hidden></p>
-  <div id="wz-headright" hidden>
-    <button id="wz-lens-btn" type="button">Shown first: —</button>
-    <button id="wz-finish" type="button">Finish here</button>
+  <p id="wz-crumb"></p>
+  <div id="wz-headright">
+    <button id="wz-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
+    <button id="wz-finish" class="wz-ghost" type="button">Finish here</button>
   </div>
 </header>
 
 <main>
-<section id="screen-intro" class="wz-narrow">
+<section id="screen-intro" class="wz-narrow" hidden>
   <div class="wz-screen-body">
     <h2>Answer questions, get a map of what I believe.</h2>
     <div class="wz-lead">
-      <p><span id="intro-count">99</span> questions, one at a time, starting with the ones everything else rests on. Each one shows what different churches actually hold, in their own words, and the answer is whichever one is closest to mine.</p>
-      <p>Most people take twenty minutes and answer a dozen. That is a real map — it can be left at any point and picked up later, and nothing here is locked once it is written.</p>
-    </div>
-    <div class="wz-pills">
-      <span class="wz-pill"><span id="intro-count-chip">99</span> questions</span>
-      <span class="wz-pill">Leave at any point</span>
-      <span class="wz-pill">Everything editable after</span>
+      <p><span id="intro-count">99</span> questions, one at a time, starting with the ones everything else rests on. Answer a dozen and that is already a real map — it can be left at any point, and nothing here is locked once it is written.</p>
     </div>
     <div class="wz-actions">
       <button id="intro-start" type="button" class="wz-primary">Start with the first question</button>
       <a id="intro-byhand" href="/edit" class="wz-link">Write a belief by hand instead</a>
-    </div>
-    <div class="tm-note" style="margin-top: 14px">
-      Choosing a church tradition on the next screen changes the <em>order</em>
-      answers are shown in and labels who holds what. It never fills anything
-      in. Every belief in this map is one I chose.
     </div>
   </div>
 </section>
@@ -218,8 +272,8 @@
     </div>
     <div id="lens-list"></div>
     <div class="wz-actions">
-      <button id="lens-next" type="button" class="wz-primary">First question</button>
-      <span class="wz-quiet">Changeable at any point from the question screen.</span>
+      <button id="lens-next" type="button" class="wz-primary">Done</button>
+      <span class="wz-quiet">Changeable at any point.</span>
     </div>
   </div>
 </section>
@@ -239,14 +293,21 @@
 
     <div id="open-answer">
       <strong>I haven't worked this out yet</strong>
-      <p>This becomes a real entry: confidence 'open', flagged for study, with a note of what is left to settle.</p>
+      <p class="wz-hint" style="color:inherit;opacity:.85">This becomes a real entry: confidence 'open', flagged for study, with a note of what is left to settle.</p>
+      <p class="lab">Still working out</p>
+      <div class="wz-holdfield"><textarea id="open-todo" rows="3"></textarea></div>
+      <div class="wz-slot"></div>
+    </div>
+
+    <div id="custom-answer" class="wz-card">
+      <div class="wz-card-h"><strong>My view is not one of these</strong></div>
+      <p class="wz-hint">Write it from scratch. Nothing here is prefilled, and nothing is inferred.</p>
+      <div id="custom-fields"></div>
     </div>
 
     <details id="who" class="optional">
       <summary>Who believes what?</summary>
-      <div id="who-body">
-        <p class="wz-quiet">Chips and stances describe who holds what. They are not a ranking, and they are not a recommendation.</p>
-      </div>
+      <div id="who-body"></div>
     </details>
 
     <div class="wz-nav">
@@ -256,44 +317,85 @@
   </div>
 </section>
 
-<section id="screen-finish" hidden>
+<section id="screen-home" hidden>
   <div class="wz-screen-body">
-    <h2>I have a map.</h2>
+    <div class="wz-lead">
+      <p>Every belief carries a <strong>tier</strong> — how much weight it holds, from T1, essential to the gospel, down to T4, matters of liberty, with T1.5 and T2.5 for the ones that genuinely sit between two ranks.</p>
+      <p>And a <strong>confidence</strong> — how settled it is: certain, confident, leaning, open, rejected. That is an ordinal band rather than a percentage, and it is independent of whether the belief is still being studied.</p>
+    </div>
 
     <div class="wz-stat">
-      <div><span id="fin-beliefs" class="num"></span><span class="lab">beliefs written</span></div>
-      <div><span id="fin-areas" class="num"></span><span class="lab">areas covered</span></div>
-      <div><span id="fin-open" class="num"></span><span class="lab">still open, flagged #study</span></div>
-      <div><span id="fin-remaining" class="num"></span><span class="lab">questions not yet asked</span></div>
+      <div><span id="home-beliefs" class="num"></span><span class="lab">beliefs written</span></div>
+      <div><span id="home-areas" class="num"></span><span class="lab">areas covered</span></div>
+      <div><span id="home-open" class="num"></span><span class="lab">still open, flagged #study</span></div>
+      <div><span id="home-remaining" class="num"></span><span class="lab">questions not yet asked</span></div>
     </div>
 
     <div class="wz-tier">
       <p class="lab">Tier spread</p>
-      <div id="fin-tierbar"></div>
-      <p id="fin-tiercounts" class="wz-quiet"></p>
+      <div id="home-tierbar"></div>
+      <p id="home-tiercounts" class="wz-quiet"></p>
     </div>
 
-    <div class="tm-note">
-      Every entry here is mine to edit, and editing is expected. The wording
-      came from a starting point; the map is the thing I keep working on.
+    <div id="home-empty" hidden>
+      <p class="lab" style="margin-bottom:8px">Three ways to start</p>
+      <div class="tm-grid">
+        <button id="home-start" type="button" class="tm-card tm-card-primary tm-cardlink tm-span" style="text-align:left">
+          <h3>Answer some questions</h3>
+          <p>Twenty minutes of questions and there is a first map to edit. Nothing is added that was not chosen.</p>
+          <span class="tm-go">Start →</span>
+        </button>
+        <button id="home-copy" type="button" class="tm-card tm-cardlink" style="text-align:left">
+          <h3>Start from someone else's map</h3>
+          <p>Take a copy of a map from the gallery and make it mine. It says whose it was until editing starts.</p>
+          <span class="tm-go">Browse maps →</span>
+        </button>
+        <a id="home-byhand" href="/edit" class="tm-card tm-cardlink">
+          <h3>Write a belief by hand</h3>
+          <p>Write one thing held and build from there. Good when the starting point is already known.</p>
+          <span class="tm-go">Open the editor →</span>
+        </a>
+      </div>
     </div>
 
-    <div class="tm-grid wz-finishcards">
-      <a id="fin-carry" href="#" class="tm-card tm-card-primary">
-        <h3>Carry on</h3>
-        <p id="fin-carry-note"></p>
-        <span class="tm-go">Continue →</span>
-      </a>
-      <a id="fin-edit" href="/edit" class="tm-card">
-        <h3>Open the editor</h3>
-        <p>Rewrite anything in my own words, add texts, add beliefs the questions did not cover.</p>
-        <span class="tm-go">Edit →</span>
-      </a>
-      <a id="fin-view" href="/app" class="tm-card">
-        <h3>See the map</h3>
-        <p>The four views, the way anyone I share the link with will see it.</p>
-        <span class="tm-go">View →</span>
-      </a>
+    <div id="home-full" hidden>
+      <div class="tm-grid wz-cards2" style="margin-bottom:14px">
+        <button id="home-carry" type="button" class="tm-card tm-card-primary tm-cardlink" style="text-align:left">
+          <h3>Carry on</h3>
+          <p id="home-carry-note"></p>
+          <span class="tm-go">Continue →</span>
+        </button>
+        <a id="home-edit" href="/edit" class="tm-card tm-cardlink">
+          <h3>Open the editor</h3>
+          <p>Rewrite anything in my own words, add texts, add beliefs the questions did not cover.</p>
+          <span class="tm-go">Edit →</span>
+        </a>
+      </div>
+      <p class="lab" style="margin-bottom:8px">Areas</p>
+      <div id="home-areas-list"></div>
+    </div>
+
+    <div id="home-lensrow">
+      <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
+      <span class="wz-quiet">Re-orders the answers shown against each question. It never filters and never fills anything in.</span>
+    </div>
+
+    <div id="home-visrow" class="wz-lead">
+      <div class="wz-actions" style="margin:0">
+        <button id="home-vis-btn" class="wz-ghost" type="button">Unlist</button>
+        <span id="home-vis-note" class="wz-quiet"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screen-area" hidden>
+  <div class="wz-screen-body">
+    <h2 id="area-title"></h2>
+    <p id="area-sub" class="wz-quiet"></p>
+    <div id="area-list" class="wz-qlist"></div>
+    <div class="wz-actions">
+      <button id="area-back" type="button" class="wz-link">Back</button>
     </div>
   </div>
 </section>

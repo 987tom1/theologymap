@@ -190,10 +190,10 @@
 
 <header>
   <p class="kicker">Theology Map</p>
-  <h1>Edit theology-map.md</h1>
-  <p class="sub">A form over the plain-text file — nothing here is saved until you say so.</p>
+  <h1 id="editorTitle">Edit theology-map.md</h1>
+  <p class="sub" id="editorSub">A form over the plain-text file — nothing here is saved until you say so.</p>
   <div class="toplinks" id="editorToplinks">
-    <a href="../theology-map.html" target="_blank" rel="noopener">Open the map ↗</a>
+    <a id="editorMapLink" href="../theology-map.html" target="_blank" rel="noopener">Open the map ↗</a>
   </div>
 </header>
 
@@ -221,7 +221,7 @@
 <div class="layout" id="listLayout" style="display:none">
   <nav class="tree" id="tree" aria-label="Domains and nodes"></nav>
   <main class="form" id="form">
-    <p class="empty">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
+    <p class="empty" id="emptyIntro">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
       (Chrome/Edge) lets Save write straight back to the file on disk. Uploading works in any browser
       but Save only copies the text — you'll paste it into the file yourself.</p>
   </main>
@@ -470,6 +470,8 @@
   }
 
   // ---------------------------------------------------------- adapter / boot
+  let visLink = null;      // hosted only: the Unlist/Relist link in the nav
+  let isPublic = true;     // hosted only: mirrors users.is_public
   const HOSTED =
     new URLSearchParams(location.search).get('mode') === 'hosted' ||
     !(location.protocol === 'file:' ||
@@ -491,13 +493,64 @@
         toplinks.appendChild(a);
         return a;
       };
-      navLink('/app', 'My map');
-      navLink('/gallery', 'Gallery');
+      // The hosted page is not "a form over a file on disk" — it is the person's
+      // own map, loaded from the database and autosaved. Every string below is
+      // local-tool copy that leaked onto the hosted screen; an empty hosted map
+      // used to read "Connect or upload theology-map.md above to start editing",
+      // naming a file bar that hosted mode hides and a file the person does not
+      // have. Rewritten here rather than in the markup so the file:// tool, which
+      // never runs this branch, keeps its own wording untouched.
+      const { getUser } = await import('/web/session.js');
+      const me = getUser();
+      $('editorTitle').textContent = 'My map';
+      $('editorSub').textContent =
+        'Every belief here is mine to edit. Changes save automatically.';
+      const mapLink = $('editorMapLink');
+      if (me) {
+        mapLink.href = '/view?name=' + encodeURIComponent(me.name);
+        mapLink.removeAttribute('target');
+        mapLink.removeAttribute('rel');
+        mapLink.textContent = 'My map';
+      } else {
+        mapLink.remove();
+      }
+      $('emptyIntro').textContent =
+        'This map is empty. Answer the questions in the wizard to fill it in, '
+        + 'or add a belief here with "+ New node".';
+
+      // Mirrors web/chrome.js's nav. editor.html cannot import chrome.js — the
+      // offline tool must load from file:// with no network — so this is a
+      // deliberate second copy, not drift. Keep the two in step by hand.
+      navLink('/wizard', 'Wizard');
+      navLink('/history', 'History');
+      navLink('/gallery', 'Browse');
+      if (me && me.is_admin) navLink('/admin', 'Admin');
+      // Listed / unlisted, for the owner. The same control admin.py has always
+      // had; before this the only way to unlist your own map was to ask an admin.
+      const vis = navLink('#', 'Unlist');
+      vis.hidden = true;
+      vis.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const next = !isPublic;
+        vis.textContent = '...';
+        try {
+          isPublic = await adapter.setVisibility(next);
+          vis.textContent = isPublic ? 'Unlist' : 'Relist';
+          setStatus(isPublic
+            ? 'Listed in the gallery.'
+            : 'Unlisted: not in the gallery, and the shared link will not render for anyone else.', 'ok');
+        } catch (err) {
+          vis.textContent = isPublic ? 'Unlist' : 'Relist';
+          setStatus('Could not change that setting: ' + err.message, 'err');
+        }
+      });
+      visLink = vis;
+
       const out = navLink('#', 'Sign out');
       out.addEventListener('click', (e) => {
         e.preventDefault();
         clearUser();
-        location.href = '/app';
+        location.href = '/';
       });
     } else {
       adapter = StorageLocal();
@@ -516,8 +569,13 @@
 
     if (adapter.mode === 'hosted') {
       try {
-        const { text, label, token } = await adapter.load();
+        const { text, label, token, isPublic: pub } = await adapter.load();
         saveToken = token;
+        if (visLink) {
+          isPublic = pub !== false;
+          visLink.textContent = isPublic ? 'Unlist' : 'Relist';
+          visLink.hidden = false;
+        }
         onLoaded(text, label, true);
         lastSavedText = core.serialize(domains);
         maybeOfferDraftRestore(text, token);
