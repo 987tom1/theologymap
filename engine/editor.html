@@ -198,15 +198,15 @@
 </header>
 
 <div class="filebar">
-  <button id="btnConnect">Connect theology-map.md</button>
-  <button id="btnUpload">Upload a copy instead</button>
+  <button id="btnConnect" style="display:none">Connect theology-map.md</button>
+  <button id="btnUpload" style="display:none">Upload a copy instead</button>
   <input type="file" id="fileInput" accept=".md,text/markdown" style="display:none">
-  <span class="status" id="fileStatus">No file loaded yet.</span>
+  <span class="status" id="fileStatus">Starting the editor&hellip;</span>
   <span class="status" id="changeStatus">No changes.</span>
   <div class="spacer"></div>
-  <button id="btnPreview">Preview &amp; copy full text</button>
-  <button id="btnSave" class="primary" disabled>Save to file</button>
-  <button id="btnRender" disabled>Save &amp; render</button>
+  <button id="btnPreview" style="display:none">Preview &amp; copy full text</button>
+  <button id="btnSave" class="primary" style="display:none" disabled>Save to file</button>
+  <button id="btnRender" style="display:none" disabled>Save &amp; render</button>
 </div>
 
 <div class="tabs" id="tabs" style="display:none">
@@ -560,6 +560,8 @@
     btnUpload.style.display = adapter.buttons.upload ? '' : 'none';
     btnSave.style.display = adapter.buttons.save ? '' : 'none';
     btnRender.style.display = adapter.buttons.render ? '' : 'none';
+    btnPreview.style.display = '';
+    if (adapter.mode !== 'hosted') setStatus('No file loaded yet.');
 
     await adapter.init({
       elements: { btnConnect, btnUpload, fileInput },
@@ -1079,7 +1081,15 @@
     if (dirty) { e.preventDefault(); e.returnValue = ''; }
   });
 
-  boot();
+  // debug.md rule 7: a handler with no error path is a black box. boot() does two
+  // dynamic imports and a network load, and a throw in any of them used to leave
+  // the page sitting in its initial markup with no explanation -- which is exactly
+  // what a stale cached copy of this file also looks like. Surface it instead.
+  boot().catch((err) => {
+    console.error('editor boot failed', err);
+    setStatus('The editor could not start: ' + ((err && err.message) || err)
+      + ' — reload the page; if it persists this may be a cached older copy.', 'err');
+  });
 })();
 </script>
 </body>

@@ -362,6 +362,41 @@ case.
 project's signature failure and the reason the file opens the way it does: it was
 found by asking "who else produces a 404 here?", not by reading either diff again.
 
+### X. The editor's initial markup was a convincing fake of a broken adapter — FIXED (2026-08-27)
+
+A phone screenshot after the §U fix shipped: `/edit`, signed in, a map with real
+content, and the page showing the **old** title, no nav, "No file loaded yet." and
+the full local file bar — Connect / Upload / Preview / Save to file / Save & render.
+
+The deployed build was correct. Loading the same URL with a session in
+`localStorage` returned title `My map`, `btnConnect` `display:none`, the full nav
+and the hosted empty-state copy, on both hostnames; `curl` confirmed both edges
+served the new file. It was a cached copy of the previous `editor.html` in a phone
+browser.
+
+**But the screenshot was indistinguishable from a genuine failure, and that is the
+actual defect.** Every file-bar control was visible in the raw markup and hidden
+only part-way through `boot()`, which does two dynamic imports and a network load
+and **had no error path at all**. So *any* throw in `boot()` — a 404 on a module, a
+storage adapter that failed to construct, a stale cached page — leaves the local
+tool's controls sitting on a hosted screen, looking exactly like "no file loaded
+yet" rather than like an error. This is the same shape as §T: a silent throw
+masquerading as a UI state.
+
+Two fixes, both about the failure mode rather than the cache:
+
+- **The file bar starts hidden.** `boot()` reveals what the chosen adapter supports.
+  A boot that never finishes now shows nothing misleading instead of showing the
+  wrong tool's controls. `fileStatus` starts at "Starting the editor…", and the
+  local "No file loaded yet." is set only once local mode is actually known.
+- **`boot()` is wrapped**, and a throw reports itself into the status line, naming
+  the error and suggesting a reload.
+
+**The lesson: initial markup is a state your users will see, and it should never be
+a plausible-looking *wrong* state.** If a page's static HTML happens to look like a
+legitimate screen, every startup failure will be misread as that screen — by users
+filing reports and by whoever reads them.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -397,10 +432,15 @@ found by asking "who else produces a 404 here?", not by reading either diff agai
    the exact words first. §U burned two hypotheses about broken imports and silent
    throws before `grep "Connect or upload"` found a hard-coded sentence written for
    a different runtime.
-9. **A class name used to clear elements is a namespace with one owner.** If two
+9. **Before believing a screenshot describes current code, check what the origin
+   actually serves.** `curl` the URL and grep for a string only the new build has,
+   on every hostname the app answers to. A phone browser holding a stale page looks
+   identical to a regression (§X) — and if the served build *is* current, the bug is
+   in what the initial markup shows before JS runs, not in the JS.
+10. **A class name used to clear elements is a namespace with one owner.** If two
    builders write the same class, one of them will be cleared or duplicated by the
    other's logic (§V). Grep every writer of a shared selector before editing either.
-10. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
+11. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
    `node -e`, with no browser, DOM, or login needed** — §T was fully reproduced and
    fixed this way, using `WG.loadCorpusSync('content/wizard')`. Reach for this
    before asking a human to reproduce anything that touches the corpus or the
