@@ -479,13 +479,23 @@
 
   async function boot() {
     if (HOSTED) {
-      const { createHostedAdapter } = await import('./storage-hosted.js');
+      // ABSOLUTE, never './storage-hosted.js'. This branch only ever runs on the
+      // hosted origin, where the page is reached at /edit and relies on the
+      // <base href="/engine/"> written at the top of this file. Safari does not
+      // apply that base when resolving a dynamic import() from an inline CLASSIC
+      // script -- it resolves against the page URL instead -- so the relative
+      // form asked for /storage-hosted.js, 404'd, and the whole editor died with
+      // "Importing a module script failed" on iPhone while working in Chrome.
+      // The same rewrite trap as debug.md SS-A and SS-B, one layer deeper.
+      // file:// never reaches this line, so an absolute path costs the local
+      // tool nothing.
+      const { createHostedAdapter } = await import('/engine/storage-hosted.js');
       adapter = createHostedAdapter();
       // Hosted-only: the local tool has no accounts or gallery to link to, and
       // must stay importable from file:// with no network (see the header
       // comment on storage-hosted.js). Same dynamic-import-only-when-hosted
       // pattern as the adapter itself, so the offline tool is unaffected.
-      const { clearUser } = await import('/web/session.js');
+      const { getUser, clearUser } = await import('/web/session.js');
       const toplinks = $('editorToplinks');
       const navLink = (href, text) => {
         const a = document.createElement('a');
@@ -500,7 +510,6 @@
       // naming a file bar that hosted mode hides and a file the person does not
       // have. Rewritten here rather than in the markup so the file:// tool, which
       // never runs this branch, keeps its own wording untouched.
-      const { getUser } = await import('/web/session.js');
       const me = getUser();
       $('editorTitle').textContent = 'My map';
       $('editorSub').textContent =

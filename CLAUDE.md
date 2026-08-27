@@ -323,8 +323,14 @@ a credential.** It belongs in the owner's `localStorage` and in an admin's
 Vercel **rewrites** (not redirects), so the browser's address bar keeps showing
 the short path. Two consequences that have each caused a real bug:
 
-- **Import `/web/session.js` by absolute path.** A relative `./session.js` on
-  `/app` resolves to `/session.js` and 404s.
+- **Import by absolute path — every module path, static or dynamic.** A relative
+  `./session.js` resolves to `/session.js` and 404s. `engine/editor.html` also
+  `document.write`s a `<base href="/engine/">` when reached at `/edit`, but **that
+  base does not cover a dynamic `import()`**: Safari resolves those against the page
+  URL from an inline classic script, so `import('./storage-hosted.js')` asked for
+  `/storage-hosted.js` and killed the hosted editor on iPhone while working in
+  Chrome (`debug.md` §Y). The `<base>` is there for the `<script src>` tags the
+  `file://` tool needs relative; nothing else may lean on it.
 - `engine/editor.html` writes `<base href="/engine/">` when it is reached at
   `/edit`, so its five relative script tags still resolve.
 

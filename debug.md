@@ -397,6 +397,47 @@ a plausible-looking *wrong* state.** If a page's static HTML happens to look lik
 legitimate screen, every startup failure will be misread as that screen — by users
 filing reports and by whoever reads them.
 
+### Y. Safari ignores `<base>` when resolving `import()` from an inline classic script — FIXED (2026-08-27)
+
+The real cause of the report §X investigated. Once §X made `boot()` surface its
+exception, the phone said it in one line:
+
+> The editor could not start: Importing a module script failed.
+
+`engine/editor.html` had exactly one **relative** dynamic import:
+
+```js
+const { createHostedAdapter } = await import('./storage-hosted.js');
+```
+
+It depends on the `<base href="/engine/">` that line 12 `document.write`s when the
+page is reached at `/edit`. Chrome applies that base and fetches
+`/engine/storage-hosted.js`. **Safari does not apply the document base when
+resolving a dynamic `import()` from an inline *classic* script** — it resolves
+against the page URL — so it asked for `/storage-hosted.js`, which 404s:
+
+```
+/storage-hosted.js         404
+/engine/storage-hosted.js  200
+```
+
+A failed module fetch rejects the promise with a generic "Importing a module script
+failed", `boot()` threw, and nothing after it ran: no adapter, no nav, no map, and
+(before §X) no error either. Every symptom in one line of resolution.
+
+Fixed by making it absolute — `import('/engine/storage-hosted.js')`. That branch
+only runs on the hosted origin, so `file://` never reaches it and the offline tool
+pays nothing.
+
+**This is `debug.md` §A and §B a third time**, one layer deeper than either: §A was
+a relative *static* import under a rewrite, §B was five relative `<script src>`
+tags, and this is a relative *dynamic* import that the fix for §B (the injected
+`<base>`) appeared to cover and did not, on one engine. The rule is now without
+exception: **under a Vercel rewrite, every path in `editor.html` that is not a
+`<script src>`/`<link href>` relied upon by the `file://` tool is absolute.** Do not
+let `<base>` stand in for it — one browser honours it and one does not, so a
+`<base>`-dependent path is a path that works only where you happened to test.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -432,15 +473,19 @@ filing reports and by whoever reads them.
    the exact words first. §U burned two hypotheses about broken imports and silent
    throws before `grep "Connect or upload"` found a hard-coded sentence written for
    a different runtime.
-9. **Before believing a screenshot describes current code, check what the origin
+9. **"Importing a module script failed" is a 404 on the module, nearly always a
+   path that resolved somewhere you did not expect.** Work out the URL the engine
+   actually requested and `curl` it (§Y). Do not assume `<base href>` covers a
+   dynamic `import()` — Safari does not apply it from an inline classic script.
+10. **Before believing a screenshot describes current code, check what the origin
    actually serves.** `curl` the URL and grep for a string only the new build has,
    on every hostname the app answers to. A phone browser holding a stale page looks
    identical to a regression (§X) — and if the served build *is* current, the bug is
    in what the initial markup shows before JS runs, not in the JS.
-10. **A class name used to clear elements is a namespace with one owner.** If two
+11. **A class name used to clear elements is a namespace with one owner.** If two
    builders write the same class, one of them will be cleared or duplicated by the
    other's logic (§V). Grep every writer of a shared selector before editing either.
-11. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
+12. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
    `node -e`, with no browser, DOM, or login needed** — §T was fully reproduced and
    fixed this way, using `WG.loadCorpusSync('content/wizard')`. Reach for this
    before asking a human to reproduce anything that touches the corpus or the
