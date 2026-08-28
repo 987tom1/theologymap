@@ -211,62 +211,27 @@
     'rejected': 'Considered and rejected.',
   };
 
-  MapView.prototype._leafMetaEditable = function (n) {
-    const core = window.EditorCore;
-    const self = this;
-    const wrap = document.createElement('div');
-    wrap.className = 'mmeta';
-
-    const tierSel = document.createElement('select');
-    tierSel.className = 'chip-select';
-    [''].concat(core.TIERS).forEach(t => {
-      const o = document.createElement('option');
-      o.value = t;
-      o.textContent = t ? t + ' — ' + TIER_GLOSS[t] : 'Tier — not set yet';
-      if (t === (n.tier || '')) o.selected = true;
-      tierSel.appendChild(o);
-    });
-    tierSel.title = 'How much weight this carries. T1 is the gospel itself; T4 is a matter of liberty.';
-    tierSel.addEventListener('click', e => e.stopPropagation());
-    tierSel.addEventListener('change', () => { n.tier = tierSel.value || null; self.onFieldChange(n); self.redraw(); });
-    wrap.appendChild(tierSel);
-
-    const confSel = document.createElement('select');
-    confSel.className = 'chip-select';
-    [''].concat(core.CONFIDENCES).forEach(c => {
-      const o = document.createElement('option');
-      o.value = c;
-      o.textContent = c ? c + ' — ' + CONF_GLOSS[c] : 'Confidence — not set yet';
-      if (c === (n.confidence || '')) o.selected = true;
-      confSel.appendChild(o);
-    });
-    confSel.title = 'How sure I am — not how important it is. Those are two different questions.';
-    confSel.addEventListener('click', e => e.stopPropagation());
-    confSel.addEventListener('change', () => { n.confidence = confSel.value || null; self.onFieldChange(n); });
-    wrap.appendChild(confSel);
-
-    [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
-      const lab = document.createElement('label');
-      lab.className = 'flag-chip';
-      const cb = document.createElement('input');
-      cb.type = 'checkbox'; cb.checked = n.flags.includes(flag);
-      cb.addEventListener('click', e => e.stopPropagation());
-      cb.addEventListener('change', () => {
-        n.flags = cb.checked ? [...new Set([...n.flags, flag])] : n.flags.filter(f => f !== flag);
-        self.onFieldChange(n);
-      });
-      lab.appendChild(cb);
-      lab.appendChild(document.createTextNode(label));
-      wrap.appendChild(lab);
-    });
-
-    return wrap;
+  // Every editable control for an open leaf is built by _leafDetail below, in
+  // the same order as the wizard's doctrine editor (What I hold, Tier,
+  // Confidence, #study, then the optional disclosure), so the meta row has
+  // nothing of its own left to draw. It still has to hand _mountLeaf a node --
+  // that function is lockstep-bearing and must not change -- and an empty
+  // fragment appends nothing.
+  MapView.prototype._leafMetaEditable = function () {
+    return document.createDocumentFragment();
   };
 
   MapView.prototype._leafDetail = function (n) {
+    const core = window.EditorCore;
     const self = this;
     const wrap = document.createElement('div');
     wrap.className = 'mdetail';
+    // Nothing inside an open tile should collapse it. _bindClicks exempts
+    // inputs and a handful of class names, and the radio chips below are
+    // <span>s inside <label>s, which it would not recognise -- so the panel
+    // stops the click here rather than growing that exemption list inside a
+    // lockstep-bearing function.
+    wrap.addEventListener('click', e => e.stopPropagation());
 
     function field(labelText, value, onInput) {
       const row = document.createElement('div');
@@ -277,7 +242,6 @@
       const ta = document.createElement('textarea');
       ta.value = value || '';
       ta.rows = 2;
-      ta.addEventListener('click', e => e.stopPropagation());
       ta.addEventListener('input', () => { onInput(ta.value); self.onFieldChange(n); autosize(ta); });
       row.appendChild(ta);
       autosize(ta);
@@ -285,15 +249,83 @@
     }
     function autosize(ta) { ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; }
 
-    // Promoted: the one field that makes a belief worth having.
+    // Tier and Confidence as radio-chip groups, matching web/wizard.js's
+    // .wz-radios: real <input type=radio> visually restyled, so arrow-key
+    // operation and the radiogroup semantics come from the platform rather
+    // than from us. The group name is keyed on this tile's own stable leaf id,
+    // so two tiles open at once never share a group.
+    function radios(labelText, values, value, gloss, ramp, onPick) {
+      const cell = document.createElement('div');
+      const lab = document.createElement('p');
+      lab.className = 'mlab';
+      lab.textContent = labelText;
+      cell.appendChild(lab);
+      const group = document.createElement('div');
+      group.className = 'mradios';
+      group.setAttribute('role', 'radiogroup');
+      group.setAttribute('aria-label', labelText);
+      const name = labelText.toLowerCase() + '-' + stableLeafId(n);
+      const items = [];
+      const paint = () => {
+        if (!ramp) return;
+        items.forEach(it => {
+          const meta = it.input.checked ? self.tierMeta[it.v] : null;
+          it.span.style.background = meta ? meta[1] : '';
+          it.span.style.color = meta ? '#fff' : '';
+          it.span.style.borderColor = meta ? 'transparent' : '';
+        });
+      };
+      values.forEach(v => {
+        const item = document.createElement('label');
+        item.className = 'mradio';
+        item.title = gloss[v] || '';
+        const input = document.createElement('input');
+        input.type = 'radio'; input.name = name; input.value = v;
+        if (v === value) input.checked = true;
+        const span = document.createElement('span');
+        span.textContent = v;
+        input.addEventListener('change', () => { paint(); onPick(v); });
+        item.appendChild(input);
+        item.appendChild(span);
+        items.push({ input, span, v });
+        group.appendChild(item);
+      });
+      paint();
+      cell.appendChild(group);
+      return cell;
+    }
+
+    // Promoted: the one field that makes a belief worth having, then the two
+    // classifications and the flag. Everything else sits behind the disclosure.
     wrap.appendChild(field('What I hold', n.hold, v => { n.hold = v; }));
+
+    const controls = document.createElement('div');
+    controls.className = 'mcontrols';
+    controls.appendChild(radios('Tier', core.TIERS, n.tier, TIER_GLOSS, true,
+      v => { n.tier = v; self.onFieldChange(n); self.redraw(); }));
+    controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, CONF_GLOSS, false,
+      v => { n.confidence = v; self.onFieldChange(n); }));
+    wrap.appendChild(controls);
+
+    [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
+      const lab = document.createElement('label');
+      lab.className = 'mcheck';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox'; cb.checked = n.flags.includes(flag);
+      cb.addEventListener('change', () => {
+        n.flags = cb.checked ? [...new Set([...n.flags, flag])] : n.flags.filter(f => f !== flag);
+        self.onFieldChange(n);
+      });
+      lab.appendChild(cb);
+      lab.appendChild(document.createTextNode(label));
+      wrap.appendChild(lab);
+    });
 
     const opt = document.createElement('details');
     opt.className = 'optional';
     const sum = document.createElement('summary');
     sum.textContent = "Optional — why, what I'd reject, texts, related";
     opt.appendChild(sum);
-    opt.addEventListener('click', e => e.stopPropagation());
 
     opt.appendChild(field('Why', n.why, v => { n.why = v; }));
     opt.appendChild(field("What I'd reject", n.vs, v => { n.vs = v; }));
@@ -307,15 +339,13 @@
     const refsInput = document.createElement('input');
     refsInput.type = 'text'; refsInput.value = n.refs || '';
     refsInput.placeholder = 'e.g. 2 Tim 3:16-17; Heb 1:1-2';
-    refsInput.addEventListener('click', e => e.stopPropagation());
     refsInput.addEventListener('input', () => { n.refs = refsInput.value; self.onFieldChange(n); });
     refsRow.appendChild(refsInput);
     opt.appendChild(refsRow);
 
-    const linkWrap = document.createElement('div');
-    linkWrap.addEventListener('click', e => e.stopPropagation());
-    linkWrap.appendChild(window.SharedFields.renderLinkField(n, self.getAllSlugs(), () => self.onFieldChange(n)));
-    opt.appendChild(linkWrap);
+    // Related keeps shared-fields.js's tag-chip widget -- the one shared with
+    // the List form -- it has simply moved behind the disclosure.
+    opt.appendChild(window.SharedFields.renderLinkField(n, self.getAllSlugs(), () => self.onFieldChange(n)));
 
     // Existing content is never hidden behind a disclosure someone has to find.
     opt.open = !!(n.why || n.vs || n.todo || n.refs || (n.link && n.link.length));

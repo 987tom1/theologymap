@@ -24,6 +24,12 @@ const Core = window.EditorCore;
 const $ = (id) => document.getElementById(id);
 
 const LENS_KEY = 'tmm.wizard.tradition';
+/* "Ignore for now" is a third state and lives only in this browser: a slug list
+   under one key beside the lens. It is a preference, not content — nothing in
+   the map records it — so a private-mode browser degrades to "nothing ignored"
+   rather than throwing. Every read and write is wrapped, exactly as the lens
+   read is. */
+const IGNORE_KEY = 'tmm.wizard.ignored';
 
 /* The stance vocabulary in plain English, in ONE place. Design section 4.4
    defines the five; phase 6's learn page reads the same field, so if these
@@ -54,9 +60,10 @@ let order = [];             // WG.orderedDoctrines(corpus), computed once
 let idx = 0;                // which doctrine is on screen
 let lens = '';              // tradition id, '' for "I'd rather not say"
 let lensReturn = 'intro';   // which screen the tradition picker was opened from
+let ignored = new Set();    // slugs put aside with "Ignore for now"
+let returnTo = null;        // area id the question screen was entered from, or null
 let chosen = null;          // { kind, position, hold } for the doctrine on screen
 let controls = null;        // the live tier/confidence/hold/study inputs
-let isPublic = true;
 let chromeEl = null;        // the site nav header, once chrome.js has mounted it
 let busy = false;
 
@@ -77,6 +84,16 @@ function button(cls, text, onClick) {
 }
 
 function labelled(text) { return el('p', 'lab', text); }
+
+function loadIgnored() {
+  try { ignored = new Set(JSON.parse(localStorage.getItem(IGNORE_KEY)) || []); }
+  catch { ignored = new Set(); }
+}
+
+function saveIgnored() {
+  try { localStorage.setItem(IGNORE_KEY, JSON.stringify([...ignored])); }
+  catch { /* private mode: the list is a preference, losing it costs nothing */ }
+}
 
 function tradition(id) {
   return traditions.find(t => t.id === id) || null;
@@ -409,12 +426,9 @@ function answerControls(doctrine, position, kind) {
 function select(card, kind, doctrine, position, holdEl, precomputed) {
   for (const c of document.querySelectorAll('#screen-question .sel')) c.classList.remove('sel');
   for (const s of document.querySelectorAll('#screen-question .wz-slot')) s.textContent = '';
-  for (const t of document.querySelectorAll('#screen-question .wz-tick')) t.hidden = true;
 
   chosen = { kind, position, hold: holdEl };
   card.classList.add('sel');
-  const tick = card.querySelector('.wz-tick');
-  if (tick) tick.hidden = false;
 
   if (precomputed) { controls = precomputed; return; }
   const slot = card.querySelector('.wz-slot');
@@ -423,9 +437,6 @@ function select(card, kind, doctrine, position, holdEl, precomputed) {
 
 function tools(card, extra) {
   const box = el('div', 'wz-tools');
-  const tick = el('span', 'wz-tick', '✓');
-  tick.hidden = true;
-  box.appendChild(tick);
   if (extra) box.appendChild(extra);
   card.appendChild(box);
   return box;
@@ -454,11 +465,13 @@ function renderQuestionUnsafe(i) {
     WG.domainName(corpus, doctrine) + ' · question ' + (idx + 1) + ' of ' + order.length;
   paintLensLabels();
   $('q-title').textContent = doctrine.question;
-  $('q-framing').textContent = doctrine.framing || '';
 
+  // Every word of prose about this doctrine is behind the disclosure — the
+  // framing first, then the learn note and the sources.
   $('q-readmore').open = false;
   const rm = $('q-readmore-body');
   rm.textContent = '';
+  if (doctrine.framing) rm.appendChild(el('p', 'wz-framing', doctrine.framing));
   rm.appendChild(explainer(doctrine.learn_note, doctrine.sources));
 
   const host = $('positions');
@@ -480,7 +493,7 @@ function renderQuestionUnsafe(i) {
     // "What I hold" box repeating the same sentence underneath.
     const holdBox = el('div', 'wz-holdfield');
     const area = el('textarea');
-    area.rows = 3;
+    area.rows = 5;
     area.value = position.hold || '';
     holdBox.appendChild(area);
     card.appendChild(holdBox);
@@ -492,7 +505,10 @@ function renderQuestionUnsafe(i) {
 
     card.appendChild(el('div', 'wz-slot'));
     const toolbox = tools(card);
-    toolbox.appendChild(readMoreButton(toolbox, position.learn_detail, position.sources));
+    // The popover's host is the CARD, not the tools box: .wz-tools is a narrow
+    // absolutely-positioned box, so anchoring to it put the popover off the
+    // left edge of a phone. .wz-card is position:relative already.
+    toolbox.appendChild(readMoreButton(card, position.learn_detail, position.sources));
 
     card.addEventListener('click', pick);
     host.appendChild(card);
@@ -509,8 +525,6 @@ function renderQuestionUnsafe(i) {
   const open = $('open-answer');
   open.classList.remove('sel');
   open.querySelector('.wz-slot').textContent = '';
-  if (!open.querySelector('.wz-tools')) tools(open);
-  open.querySelector('.wz-tick').hidden = true;
   const todo = $('open-todo');
   todo.value = (doctrine.open || {}).todo || '';
   const pickOpen = () => {
@@ -525,7 +539,7 @@ function renderQuestionUnsafe(i) {
 
   whoBelievesWhat(doctrine);
   $('who').open = false;
-  $('q-back').hidden = (idx === 0);
+  $('q-back').hidden = (idx === 0 && !returnTo);
   showScreen('question');
 }
 
@@ -538,8 +552,6 @@ function buildCustom(doctrine) {
   card.classList.remove('sel');
   const host = $('custom-fields');
   host.textContent = '';
-  if (!card.querySelector('.wz-tools')) tools(card);
-  card.querySelector('.wz-tick').hidden = true;
 
   const state = {};
   const wrap = el('div', 'wz-fields');
@@ -615,7 +627,7 @@ function renderHome() {
   $('home-open').textContent = String(nodes.filter(n => (n.flags || []).includes('study')).length);
 
   const answered = WG.answeredSlugs(domains);
-  const remaining = order.filter(d => !answered.has(d.slug));
+  const remaining = order.filter(d => !answered.has(d.slug) && !ignored.has(d.slug));
   $('home-remaining').textContent = String(remaining.length);
 
   const bar = $('home-tierbar');
@@ -641,7 +653,10 @@ function renderHome() {
       $('home-carry').hidden = false;
       $('home-carry-note').textContent =
         'Next question: ' + remaining[0].node_title.toLowerCase() + '.';
-      $('home-carry').onclick = () => renderQuestion(orderIndexOf(remaining[0]));
+      $('home-carry').onclick = () => {
+        returnTo = null;
+        renderQuestion(orderIndexOf(remaining[0]));
+      };
     } else {
       $('home-carry').hidden = true;
     }
@@ -649,82 +664,180 @@ function renderHome() {
   }
 
   paintLensLabels();
-  renderVisibility();
   showScreen('home');
 }
 
+/* Two lines per area — name and progress, then the buttons — so a long area
+   name and two buttons never have to share one row on a phone. */
 function renderAreas() {
   const host = $('home-areas-list');
   host.textContent = '';
-  for (const area of WG.domainProgress(domains, corpus)) {
+  for (const area of WG.domainProgress(domains, corpus, ignored)) {
     if (!area.total) continue;   // a manifest area with no questions published
     const row = el('div', 'wz-area');
-    row.appendChild(el('span', 'nm', area.name));
+
+    const top = el('div', 'top');
+    top.appendChild(el('span', 'nm', area.name));
+    // "all N answered" only when nothing at all is left — an ignored doctrine
+    // is still outstanding, it has just been put aside.
     const done = area.answered >= area.total;
-    row.appendChild(el('span', 'pg' + (done ? ' done' : ''),
-      done ? 'all ' + area.total + ' answered' : area.answered + ' of ' + area.total));
-    if (!done) {
-      row.appendChild(button('wz-ghost', 'Next question', () => {
-        const first = area.doctrines.find(d => d.status === 'unasked');
-        const i = first ? order.findIndex(d => d.slug === first.slug) : -1;
-        if (i >= 0) renderQuestion(i);
+    top.appendChild(el('span', 'pg' + (done ? ' done' : ''),
+      done ? 'all ' + area.total + ' answered'
+           : area.answered + ' of ' + area.total
+             + (area.ignored ? ' · ' + area.ignored + ' ignored' : '')));
+    row.appendChild(top);
+
+    const btns = el('div', 'btns');
+    const first = area.doctrines.find(d => d.status === 'unasked');
+    if (first) {
+      btns.appendChild(button('wz-ghost', 'Next question', () => {
+        const i = order.findIndex(d => d.slug === first.slug);
+        if (i >= 0) { returnTo = null; renderQuestion(i); }
       }));
     }
-    row.appendChild(button('wz-ghost', 'List questions', () => renderArea(area)));
+    btns.appendChild(button('wz-ghost', 'List questions', () => renderArea(area.id)));
+    row.appendChild(btns);
     host.appendChild(row);
   }
 }
 
-const STATUS_TEXT = { answered: 'answered', open: 'open', unasked: 'not yet asked' };
+const STATUS_TEXT = {
+  answered: 'answered', open: 'open', unasked: 'not answered', ignored: 'ignored',
+};
 
-/* One line per belief, and clicking it goes to /edit?open=<slug>, which
-   already opens the editor on that belief with its area expanded and its title
-   selected. There is deliberately no editing UI here — that route is the
-   reason this screen can stay four lines long. An unresolvable slug is ignored
-   silently by the editor, on purpose; nothing here needs to check. */
-function renderArea(area) {
+/* One line per belief. A row opens the full question screen in place for that
+   doctrine, with whatever was answered before preselected — the wizard already
+   recovers that (existingNode), so this needs no editing UI of its own. It
+   takes an area ID rather than an area object because progress moves under it:
+   answering a question and coming back must re-read the counts. */
+function renderArea(areaId) {
+  const area = WG.domainProgress(domains, corpus, ignored).find(a => a.id === areaId);
+  if (!area) { renderHome(); return; }
   $('area-title').textContent = area.name;
   $('area-sub').textContent =
-    area.answered + ' of ' + area.total + ' answered. Open one to edit it.';
+    area.answered + ' of ' + area.total + ' answered'
+    + (area.ignored ? ', ' + area.ignored + ' ignored' : '') + '. Open one to answer it.';
   const host = $('area-list');
   host.textContent = '';
   for (const d of area.doctrines) {
-    const a = el('a', 'wz-qrow');
-    a.href = '/edit?open=' + encodeURIComponent(d.slug);
-    a.appendChild(el('span', null, d.node_title));
-    a.appendChild(el('span', 'st', STATUS_TEXT[d.status]));
-    host.appendChild(a);
+    const row = button('wz-qrow', null, () => {
+      const i = order.findIndex(x => x.slug === d.slug);
+      if (i < 0) return;
+      returnTo = areaId;
+      renderQuestion(i);
+    });
+    row.appendChild(el('span', null, d.node_title));
+    row.appendChild(el('span', 'st', STATUS_TEXT[d.status]));
+    host.appendChild(row);
   }
+  $('area-add-panel').hidden = true;
+  $('area-add-panel').textContent = '';
+  $('area-add').onclick = () => buildAddBelief(areaId);
   showScreen('area');
 }
 
-/* Unlisting is not privacy and the wording must keep saying so: it takes the
-   map out of the gallery and turns off the name-keyed render, and anyone
-   already holding a link can still read it. Hence Unlist / Relist, never Hide. */
-function renderVisibility() {
-  $('home-vis-btn').textContent = isPublic ? 'Unlist' : 'Relist';
-  $('home-vis-note').textContent = isPublic
-    ? 'Listed in the gallery. Unlisting takes it out of the gallery and stops the '
-      + 'name-keyed render. That is not privacy.'
-    : 'Unlisted: out of the gallery, and the name-keyed render is off. That is not '
-      + 'privacy — anyone already holding a link can still read it.';
+/* "Add a doctrine": a belief the corpus has no question for. Same promoted /
+   optional split as the custom answer tile (phase 3 design 2.2), plus a title,
+   because there is no corpus doctrine to supply one. */
+function buildAddBelief(areaId) {
+  const panel = $('area-add-panel');
+  panel.hidden = false;
+  panel.textContent = '';
+
+  const title = textField('Title', '', 1);
+  title.input.placeholder = 'What this belief is called';
+  const hold = textField('What I hold', '', 3);
+  panel.appendChild(title.wrap);
+  panel.appendChild(hold.wrap);
+
+  const grid = el('div', 'wz-controls');
+  const tierCell = el('div');
+  tierCell.appendChild(labelled('Tier'));
+  const tier = radioGroup(Core.TIERS, 'T3', true, 'Tier');
+  tierCell.appendChild(tier.wrap);
+  grid.appendChild(tierCell);
+  const confCell = el('div');
+  confCell.appendChild(labelled('Confidence'));
+  const conf = radioGroup(Core.CONFIDENCES, 'leaning', false, 'Confidence');
+  confCell.appendChild(conf.wrap);
+  grid.appendChild(confCell);
+  panel.appendChild(grid);
+
+  const s = studyCheck();
+  panel.appendChild(s.check);
+
+  const adv = el('details', 'optional');
+  adv.appendChild(el('summary', null, 'Advanced'));
+  const body = el('div', 'wz-fields');
+  const why = textField('Why', '', 2);
+  const vs = textField("What I'd reject", '', 2);
+  const still = textField('Still working out', '', 2);
+  const texts = textField('Texts', '', 1);
+  texts.input.placeholder = '2 Tim 3:16-17; Heb 1:1-2';
+  const related = textField('Related', '', 1);
+  related.input.placeholder = 'Titles of other beliefs, comma separated';
+  for (const f of [why, vs, still, texts, related]) body.appendChild(f.wrap);
+  adv.appendChild(body);
+  panel.appendChild(adv);
+
+  const actions = el('div', 'wz-actions');
+  const save = button('wz-primary', 'Add this belief', async () => {
+    if (busy) return;
+    busy = true;
+    save.disabled = true;
+    await addBelief(areaId, {
+      // A title becomes a `## ` heading, so it is one line by definition.
+      title: title.input.value.replace(/\s+/g, ' '),
+      hold: hold.input.value, why: why.input.value, vs: vs.input.value,
+      todo: still.input.value, refs: texts.input.value,
+      links: related.input.value.split(',').map(x => Core.slugify(x.trim())).filter(Boolean),
+      tier: tier.get(), confidence: conf.get(), study: s.cb.checked,
+    });
+    busy = false;
+    save.disabled = false;
+  });
+  actions.appendChild(save);
+  actions.appendChild(button('wz-link', 'Cancel', () => {
+    panel.hidden = true;
+    panel.textContent = '';
+  }));
+  panel.appendChild(actions);
+  title.input.focus();
 }
 
-async function toggleVisibility() {
-  const btn = $('home-vis-btn');
-  btn.disabled = true;
-  let res = null;
-  try {
-    res = await apiFetch('/api/map', {
-      method: 'POST',
-      body: { action: 'set_visibility', user_id: user.id, is_public: !isPublic },
-    });
-  } catch { /* apiFetch showed the banner */ }
-  btn.disabled = false;
-  if (res && typeof res.is_public === 'boolean') {
-    isPublic = res.is_public;
-    renderVisibility();
+/* The model work is WG.addManualNode's; this only collects the fields, prunes
+   and posts. pruneLinks runs immediately before the serialize, as it must
+   before every serialize. */
+async function addBelief(areaId, fields) {
+  if (!fields.title.trim()) {
+    showError('A belief needs a title.');
+    return;
   }
+  const count = () => domains.reduce((a, d) => a + d.nodes.length, 0);
+  const before = count();
+  WG.addManualNode(domains, corpus, Object.assign({ domainId: areaId }, fields));
+  if (count() === before) {
+    showError('There is already a belief with that title. Open it from the list instead.');
+    return;
+  }
+  WG.pruneLinks(domains);   // every serialize, never once at the end (5.6)
+  const { status, body } = await postMap(Core.serialize(domains));
+  if (status === 200 && body) {
+    token = body.updated_at;
+    renderArea(areaId);
+    return;
+  }
+  // The post failed, so the in-memory model is now ahead of the server. Drop
+  // the node again rather than leave the screen lying about what was saved.
+  const slug = Core.slugify(fields.title.trim());
+  for (const d of domains) {
+    const i = d.nodes.findIndex(n => n.slug === slug);
+    if (i !== -1) d.nodes.splice(i, 1);
+  }
+  WG.pruneLinks(domains);
+  showError(status === 409
+    ? 'This map was changed somewhere else — reload to carry on.'
+    : ((body && body.message) || 'That belief could not be saved. Nothing was lost — try again.'));
 }
 
 /* ------------------------------------------ start from someone else's map */
@@ -847,6 +960,10 @@ async function commit(answer) {
     const { status, body } = await postMap(Core.serialize(domains));
     if (status === 200 && body) {
       token = body.updated_at;
+      // Answering by any other tile takes the doctrine back out of the ignored
+      // list — it is no longer put aside, it is decided.
+      const d = WG.findDoctrine(corpus, answer.doctrineId);
+      if (d && ignored.delete(d.slug)) saveIgnored();
       return true;
     }
     if (status !== 409 || attempt === 1) {
@@ -909,14 +1026,26 @@ function orderIndexOf(doctrine) {
 function startQuestions() {
   let next;
   try {
-    next = WG.nextDoctrine(domains, corpus);
+    next = WG.nextDoctrine(domains, corpus, ignored);
   } catch (err) {
     console.error('startQuestions failed', err);
     showError('Could not load the question set. Try reloading the page — '
       + 'if this keeps happening, it may be a stale cached copy of it.');
     return;
   }
+  returnTo = null;
   if (next) renderQuestion(orderIndexOf(next)); else renderHome();
+}
+
+/* "Ignore for now" is not an answer: nothing is chosen, nothing is committed,
+   and no node is written. It records the slug locally and moves on. */
+function ignoreCurrent() {
+  ignored.add(order[idx].slug);
+  saveIgnored();
+  const next = WG.nextDoctrine(domains, corpus, ignored);
+  if (next) renderQuestion(orderIndexOf(next));
+  else if (returnTo) renderArea(returnTo);
+  else renderHome();
 }
 
 async function main() {
@@ -937,9 +1066,9 @@ async function main() {
   if (!map) return;
   domains = Core.parse(map.markdown);
   token = map.updated_at;
-  isPublic = map.is_public !== false;
 
   try { lens = localStorage.getItem(LENS_KEY) || ''; } catch { lens = ''; }
+  loadIgnored();
   paintLensLabels();
 
   $('intro-start').addEventListener('click', () => {
@@ -948,18 +1077,25 @@ async function main() {
   $('lens-next').addEventListener('click', leaveLens);
   $('wz-lens-btn').addEventListener('click', () => openLens('question'));
   $('home-lens-btn').addEventListener('click', () => openLens('home'));
-  $('q-back').addEventListener('click', () => { if (idx > 0) renderQuestion(idx - 1); });
+  // Back and Finish here return to wherever the question screen was entered
+  // from: the area's question list when a row opened it, the launchpad
+  // otherwise. One variable, set at every entry point.
+  $('q-back').addEventListener('click', () => {
+    if (returnTo) renderArea(returnTo);
+    else if (idx > 0) renderQuestion(idx - 1);
+  });
   $('q-next').addEventListener('click', () => advance(() => {
     if (idx + 1 < order.length) renderQuestion(idx + 1); else renderHome();
   }));
+  $('ignore-answer').addEventListener('click', ignoreCurrent);
   // Finish here saves and goes back to the launchpad. No confirmation, no
   // warning, no guilt — that is the whole point of it (design section 5.3).
   // An in-page screen change, not a navigation: the launchpad IS this page.
-  $('wz-finish').addEventListener('click', () => advance(renderHome));
+  $('wz-finish').addEventListener('click', () =>
+    advance(() => { if (returnTo) renderArea(returnTo); else renderHome(); }));
   $('area-back').addEventListener('click', renderHome);
   $('home-start').addEventListener('click', startQuestions);
   $('home-copy').addEventListener('click', () => { if (!busy) openPicker(); });
-  $('home-vis-btn').addEventListener('click', toggleVisibility);
 
   if (!order.length) {
     showError('There are no questions published yet.');

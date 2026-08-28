@@ -97,24 +97,6 @@ export function createHostedAdapter() {
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     },
 
-    // Hosted-only, so it lives on the adapter rather than in editor.html: the
-    // file:// tool has no gallery to be listed in. Unlisting is not privacy --
-    // it removes the map from the gallery and stops the name-keyed render, and
-    // anyone still holding the row id can read it through /api/map. That is why
-    // the label is Unlist, never Hide (decisions.md, phase-2-review.md B7).
-    async setVisibility(isPublic) {
-      const user = requireUser();
-      if (!user) return null;
-      const res = await fetch('/api/map', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'set_visibility', user_id: user.id, is_public: isPublic }),
-      });
-      const body = await res.json().catch(() => null);
-      if (!res.ok) throw mapError(body);
-      return body && body.is_public;
-    },
-
     beaconFlush(text, token) {
       const user = requireUser();
       if (!user) return; // nothing to do — redirecting anyway

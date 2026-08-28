@@ -108,15 +108,26 @@
     return out;
   }
 
+  /* An optional ignored-slug argument is accepted as a Set or an array, and
+   * an omitted one means "nothing ignored" — that is what keeps every existing
+   * caller and test working unchanged. */
+  function toSet(x) {
+    return x instanceof Set ? x : new Set(x || []);
+  }
+
   /* Per-area progress, in corpus manifest order — what the wizard's launchpad
    * lists and what its per-area question list screen renders. Model logic, so
    * it lives here and not in web/wizard.js: the UI only paints the rows.
    *
    * A doctrine is "answered" when a node with its slug is in the map, "open"
    * when that node's confidence is `open` (the "I haven't worked this out yet"
-   * answer, which is a real belief and not a gap), and "unasked" otherwise.
+   * answer, which is a real belief and not a gap), "ignored" when it has no
+   * node and its slug is in `ignored` ("Ignore for now" — a third state, not an
+   * answer), and "unasked" otherwise. `answered` keeps its meaning: nodes
+   * present. Ignored ones are counted separately.
    */
-  function domainProgress(domains, corpus) {
+  function domainProgress(domains, corpus, ignored) {
+    const skip = toSet(ignored);
     const byslug = new Map();
     for (const domain of domains) for (const node of domain.nodes) byslug.set(node.slug, node);
     const entries = ((corpus.manifest || {}).domains || []).slice()
@@ -129,13 +140,16 @@
           const node = byslug.get(d.slug) || null;
           return {
             id: d.id, slug: d.slug, node_title: d.node_title,
-            status: !node ? 'unasked' : (node.confidence === 'open' ? 'open' : 'answered'),
+            status: !node
+              ? (skip.has(d.slug) ? 'ignored' : 'unasked')
+              : (node.confidence === 'open' ? 'open' : 'answered'),
           };
         });
       return {
         id: entry.id, name: entry.name, doctrines: doctrines,
         total: doctrines.length,
-        answered: doctrines.filter(d => d.status !== 'unasked').length,
+        answered: doctrines.filter(d => d.status === 'answered' || d.status === 'open').length,
+        ignored: doctrines.filter(d => d.status === 'ignored').length,
       };
     });
   }
@@ -143,9 +157,11 @@
   /* The next unanswered doctrine in wizard order, or null when the corpus is
    * exhausted. Answered is decided by slugs already in the map, not by an
    * answer log — that is why resume needs no stored state (design 5.4). */
-  function nextDoctrine(domains, corpus) {
+  function nextDoctrine(domains, corpus, ignored) {
     const answered = answeredSlugs(domains);
-    return orderedDoctrines(corpus).find(d => !answered.has(d.slug)) || null;
+    const skip = toSet(ignored);
+    return orderedDoctrines(corpus)
+      .find(d => !answered.has(d.slug) && !skip.has(d.slug)) || null;
   }
 
   /* A new section goes in its manifest.order position relative to the sections
@@ -192,6 +208,15 @@
    * An answer for a doctrine already in the map is ignored unless it carries
    * `revisit: true`. That is the rule protecting work the person did by hand:
    * the wizard adds beliefs, it never rewrites one already there.
+   *
+   * A revisit rebuilds the node, so anything the answer does not carry would
+   * fall back to the corpus default or to empty and the person's own writing
+   * would be destroyed — a hand-written `todo` and hand-written `link`s have no
+   * corpus default at all. So the existing node sits in every fallback chain
+   * between the answer and the corpus: `answer.x !== undefined` still wins, so
+   * an explicit empty string still clears, but an *absent* field keeps what was
+   * already there. Reaching this path used to need the Back button; an area
+   * list row opening an answered doctrine makes it routine.
    */
   function applyAnswer(domains, corpus, answer) {
     const doctrine = findDoctrine(corpus, (answer || {}).doctrineId);
@@ -203,6 +228,10 @@
     const name = domainName(corpus, doctrine);
     const node = EditorCore.newNode(doctrine.node_title, name);
     const open = doctrine.open || {};
+    // The node about to be replaced, read before the revisit splice below
+    // removes it. `{}` on a first answer, so no branch needs to guard it.
+    const prev = domains.reduce(
+      (found, d) => found || d.nodes.find(n => n.slug === doctrine.slug), null) || {};
 
     if (answer.kind === 'open') {
       // "I don't know" is a first-class answer, never a skip: a real node with
@@ -210,11 +239,15 @@
       node.hold = open.hold || 'Undecided.';
       // The wizard prefills the corpus wording into an editable field, so an
       // explicit todo (even an empty one) is the person's, not a missing value.
-      node.todo = answer.todo !== undefined ? answer.todo : (open.todo || '');
+      node.todo = answer.todo !== undefined ? answer.todo : (prev.todo || open.todo || '');
       node.confidence = 'open';
       node.flags = ['study'];
       node.tier = answer.tier || open.tier || doctrine.suggested_tier || null;
-      node.refs = doctrine.refs || '';
+      // hold, confidence and flags are what this answer means, so they are
+      // overwritten. why/vs/refs are not part of it and are the person's.
+      node.why = answer.why !== undefined ? answer.why : (prev.why || '');
+      node.vs = answer.vs !== undefined ? answer.vs : (prev.vs || '');
+      node.refs = answer.refs !== undefined ? answer.refs : (prev.refs || doctrine.refs || '');
     } else if (answer.kind === 'custom') {
       // No corpus position behind this one. Never #assumed either: a belief
       // somebody typed themselves is the most chosen kind there is.
@@ -222,7 +255,7 @@
       node.why = answer.why || '';
       node.vs = answer.vs || '';
       node.todo = answer.todo || '';
-      node.refs = answer.refs !== undefined ? answer.refs : (doctrine.refs || '');
+      node.refs = answer.refs !== undefined ? answer.refs : (prev.refs || doctrine.refs || '');
       node.tier = answer.tier || doctrine.suggested_tier || null;
       node.confidence = answer.confidence || null;
       if (answer.study) node.flags = ['study'];
@@ -232,11 +265,14 @@
       // `hold` is the exact sentence the person chose, or their own wording
       // from "Word it my way". why/vs are droppable: an empty string clears.
       node.hold = answer.hold !== undefined ? answer.hold : (position.hold || '');
-      node.why = answer.why !== undefined ? answer.why : (position.why || '');
-      node.vs = answer.vs !== undefined ? answer.vs : (position.vs || '');
+      node.why = answer.why !== undefined ? answer.why : (prev.why || position.why || '');
+      node.vs = answer.vs !== undefined ? answer.vs : (prev.vs || position.vs || '');
       node.tier = answer.tier || position.tier || doctrine.suggested_tier || null;
       node.confidence = answer.confidence || position.confidence_default || null;
-      node.refs = position.refs || doctrine.refs || '';
+      // A position has no `todo` of its own; without prev it was simply lost.
+      node.todo = answer.todo !== undefined ? answer.todo : (prev.todo || '');
+      node.refs = answer.refs !== undefined ? answer.refs
+        : (prev.refs || position.refs || doctrine.refs || '');
       if (answer.study) node.flags = ['study'];
     }
 
@@ -247,7 +283,11 @@
     // Intended links are held here and resolved by pruneLinks. The underscore
     // matters: serializeNode only reads known fields, so this never reaches
     // the file — the test greps the serialized text to keep it that way.
-    node._intendedLinks = (doctrine.links || []).slice().concat(answer.links || []);
+    // A union, not a replacement: links the person wrote by hand in the editor
+    // must survive pruneLinks. prev._intendedLinks first, because prev.link has
+    // already been pruned to what was in the map at the time.
+    node._intendedLinks = [...new Set((doctrine.links || [])
+      .concat(answer.links || [], prev._intendedLinks || prev.link || []))];
     node.link = [];
 
     if (answer.revisit && existing.has(doctrine.slug)) {
@@ -256,6 +296,36 @@
         if (i !== -1) domain.nodes.splice(i, 1);
       }
     }
+
+    insertInTierOrder(findOrCreateDomain(domains, corpus, name), node);
+    return domains;
+  }
+
+  /* A belief the corpus has no question for: the person supplies the title as
+   * well as the fields. Same insertion rules as applyAnswer, and never
+   * #assumed. Refuses an empty title or one whose slug is already in the map,
+   * returning `domains` unchanged — a duplicate slug would collide with a
+   * corpus doctrine and break links. */
+  function addManualNode(domains, corpus, opts) {
+    const o = opts || {};
+    const title = (o.title || '').trim();
+    if (!title) return domains;
+    const node = EditorCore.newNode(title, '');
+    if (answeredSlugs(domains).has(node.slug)) return domains;
+
+    const entry = domainEntry(corpus, o.domainId);
+    const name = entry ? entry.name : (o.domainId || 'Uncategorised');
+    node.domain = name;
+    node.hold = o.hold || '';
+    node.why = o.why || '';
+    node.vs = o.vs || '';
+    node.todo = o.todo || '';
+    node.refs = o.refs || '';
+    node.tier = o.tier || null;
+    node.confidence = o.confidence || null;
+    if (o.study) node.flags = ['study'];
+    node._intendedLinks = (o.links || []).slice();
+    node.link = [];
 
     insertInTierOrder(findOrCreateDomain(domains, corpus, name), node);
     return domains;
@@ -284,6 +354,6 @@
     TIER_ORDER, tierRank,
     loadCorpusSync, orderedDoctrines, allDoctrines,
     findDoctrine, findPosition, domainName,
-    applyAnswer, pruneLinks, answeredSlugs, nextDoctrine, domainProgress,
+    applyAnswer, addManualNode, pruneLinks, answeredSlugs, nextDoctrine, domainProgress,
   };
 });

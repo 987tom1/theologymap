@@ -24,7 +24,7 @@
 
   /* ---- the question screen's own header (the launchpad uses the site nav) ---- */
   #wz-header {
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
@@ -34,12 +34,15 @@
   }
   #wz-brand .kicker { margin: 0 0 2px; font: 600 10px/1 var(--sans); letter-spacing: .16em;
                        text-transform: uppercase; color: var(--muted); }
-  #wz-brand h1 { margin: 0; font: 400 18px/1.2 var(--serif); letter-spacing: -0.01em; }
-  #wz-crumb { margin: 0; font: 600 12px/1 var(--sans); color: var(--muted); letter-spacing: .03em; }
-  #wz-headright { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  #wz-brand h1 { margin: 0; font: 400 17px/1.2 var(--serif); letter-spacing: -0.01em; }
+  /* The crumb sits under the brand rather than on its own row: three stacked
+     rows made the header taller than the question itself on a 360px screen. */
+  #wz-crumb { margin: 2px 0 0; font: 600 11.5px/1.3 var(--sans); color: var(--muted); letter-spacing: .03em; }
+  #wz-headright { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+                  margin-left: auto; }
   .wz-ghost {
-    font: 600 12.5px/1 var(--sans); color: var(--muted); background: transparent;
-    border: 1px solid var(--field-line); border-radius: 7px; padding: 9px 12px;
+    font: 600 11.5px/1 var(--sans); color: var(--muted); background: transparent;
+    border: 1px solid var(--field-line); border-radius: 7px; padding: 7px 9px;
     cursor: pointer;
   }
   .wz-ghost:hover { color: var(--ink); }
@@ -87,7 +90,18 @@
 
   /* ---- question screen ---- */
   .wz-qhead { display: flex; flex-direction: column; gap: 6px; }
-  #q-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
+  /* All of a doctrine's prose now lives behind the disclosure; only the
+     question and the answer tiles are on the screen itself. */
+  .wz-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
+  /* A real control, not a plain summary link — it is now the only way to the
+     framing text, so it has to look pressable. The .wz-ghost look. */
+  #q-readmore > summary {
+    display: inline-block; align-self: flex-start;
+    border: 1px solid var(--field-line); border-radius: 7px;
+    padding: 8px 11px; font: 600 12px/1.2 var(--sans); letter-spacing: .04em;
+  }
+  #q-readmore > summary:hover { border-color: var(--ink); }
+  #q-readmore-body { padding-top: 8px; display: flex; flex-direction: column; gap: 8px; }
 
   #positions { display: flex; flex-direction: column; gap: 8px; }
 
@@ -98,10 +112,13 @@
   }
   .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink);
                  background: var(--chip); }
+  /* Both rows reserve the same gutter for the absolutely-positioned Read more
+     button. It is the only thing in .wz-tools now that the tick is gone, so the
+     gutter is what that one button needs and no more. */
   .wz-card-h { display: flex; align-items: baseline; justify-content: space-between;
-               gap: 10px; flex-wrap: wrap; padding-right: 96px; }
+               gap: 10px; flex-wrap: wrap; padding-right: 88px; }
   .wz-card-h strong { font: 600 15.5px/1.3 var(--serif); }
-  .wz-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  .wz-chips { display: flex; gap: 5px; flex-wrap: wrap; padding-right: 88px; }
   .tchip { font: 600 11px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
            background: var(--chip); padding: 5px 8px; border-radius: 99px; }
   .wz-card.sel .tchip { background: var(--panel); }
@@ -109,20 +126,23 @@
   .wz-card.sel .tchip-lens { background: var(--ink); color: var(--bg); }
   .wz-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-  /* selection is a tint plus a tick, top right — a border alone reads as noise */
+  /* Selection is the .sel tint and its border, and nothing else. */
   .wz-tools { position: absolute; top: 8px; right: 10px; display: flex;
               align-items: center; gap: 8px; }
-  .wz-tick { font: 600 14px/1 var(--sans); color: var(--ink); }
   .wz-more { font: 600 11.5px/1 var(--sans); color: var(--muted); background: transparent;
              border: 1px solid var(--field-line); border-radius: 6px; padding: 6px 8px;
              cursor: pointer; }
   .wz-more:hover, .wz-more[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); }
 
-  /* Read more is a popover anchored to that button, not an inline expansion —
-     tap to open, click outside or Escape to close. */
+  /* Read more is a popover — tap to open, click outside or Escape to close.
+     It is anchored to the CARD, not to the button: anchored to the button it
+     was `right: 0` inside a ~90px-wide absolutely-positioned .wz-tools, so
+     `width: min(420px, 86vw)` ran off the LEFT edge of a narrow phone. Pinned
+     to both of the card's own edges it cannot overflow either one at any
+     width, and .wz-card is already position:relative. */
   .wz-pop {
-    position: absolute; top: calc(100% + 6px); right: 0; z-index: 40;
-    width: min(420px, 86vw); max-height: 52vh; overflow-y: auto;
+    position: absolute; top: 42px; left: 10px; right: 10px; z-index: 40;
+    max-height: 52vh; overflow-y: auto;
     background: var(--panel); color: var(--ink);
     border: 1px solid var(--field-line); border-radius: 9px;
     padding: 12px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18);
@@ -139,7 +159,6 @@
     display: flex; flex-direction: column; gap: 7px; cursor: pointer;
   }
   #open-answer strong { font: 600 15.5px/1.3 var(--serif); }
-  #open-answer .wz-tick { color: var(--bg); }
   #open-answer .lab { color: var(--bg); opacity: .75; }
   #open-answer .wz-holdfield { border-color: var(--bg); }
 
@@ -159,6 +178,16 @@
   }
   .wz-holdfield textarea:focus, .wz-holdfield input:focus { outline: none; }
   .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
+  /* Every citation refs.js produces is a link and has to read as one: inside
+     .wz-hint it inherited var(--muted) with no underline, so it was
+     indistinguishable from the prose around it. Everywhere citeLink lands. */
+  .wz-hint a, .wz-explain a, .wz-pop a, .who dd em a {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--muted); text-underline-offset: 2px;
+  }
+  .wz-hint a:hover, .wz-explain a:hover, .wz-pop a:hover, .who dd em a:hover {
+    text-decoration-color: var(--ink);
+  }
 
   /* tier / confidence as horizontal radio groups. Real <input type=radio>,
      visually restyled: arrow-key operation and the a11y semantics come free. */
@@ -166,9 +195,10 @@
   .wz-radio { display: inline-block; position: relative; }
   .wz-radio input { position: absolute; opacity: 0; width: 0; height: 0; }
   .wz-radio span {
-    display: inline-block; border: 1px solid var(--field-line); border-radius: 7px;
-    padding: 9px 11px; font: 600 12.5px/1 var(--sans); color: var(--muted);
-    background: var(--bg); cursor: pointer; min-height: 16px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--field-line); border-radius: 7px;
+    padding: 7px 9px; font: 600 11.5px/1 var(--sans); color: var(--muted);
+    background: var(--bg); cursor: pointer; min-height: 30px;
   }
   .wz-radio input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .wz-radio input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
@@ -208,26 +238,50 @@
   #home-tiercounts { margin: 0; }
 
   #home-areas { display: flex; flex-direction: column; gap: 6px; }
+  /* Two lines, auto width: name + progress, then the buttons on their own row.
+     One flex row inside a flex column, so it holds at any aspect ratio. */
   .wz-area {
-    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    display: flex; flex-direction: column; gap: 8px;
     background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
     padding: 9px 12px;
   }
-  .wz-area .nm { font: 600 14.5px/1.3 var(--serif); flex: 1 1 auto; min-width: 130px; }
-  .wz-area .pg { font: 12px/1 var(--sans); color: var(--muted); }
+  .wz-area .top { display: flex; align-items: baseline; gap: 10px; }
+  .wz-area .nm { font: 600 14.5px/1.3 var(--serif); flex: 1 1 auto; min-width: 0; }
+  .wz-area .pg { font: 12px/1.4 var(--sans); color: var(--muted); flex: none; text-align: right; }
   .wz-area .done { color: var(--ink); }
+  .wz-area .btns { display: flex; gap: 8px; flex-wrap: wrap; }
 
   #home-lensrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  #home-lensrow .wz-quiet { flex: 1 1 200px; }
 
   .wz-qlist { display: flex; flex-direction: column; gap: 4px; }
+  /* A row is a <button> now: it opens the question in place rather than
+     navigating to /edit. Same look, plus the reset a button needs. */
   .wz-qrow {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 9px 12px; text-decoration: none; color: var(--ink);
-    font: 14px/1.4 var(--serif); min-height: 24px;
+    padding: 9px 12px; color: var(--ink); font: 14px/1.4 var(--serif);
+    min-height: 24px; width: 100%; text-align: left; cursor: pointer;
   }
   .wz-qrow:hover { border-color: var(--field-line); }
   .wz-qrow .st { font: 600 11.5px/1 var(--sans); color: var(--muted); white-space: nowrap; }
+
+  /* "Ignore for now" is a third state, not an answer: it never takes .sel, has
+     no .wz-slot, and writes nothing to the map. Dashed, so it never reads as
+     one of the answer tiles. */
+  #ignore-answer {
+    display: flex; flex-direction: column; gap: 5px; align-items: flex-start;
+    background: var(--bg); border: 1px dashed var(--field-line); border-radius: 9px;
+    padding: 12px 14px; width: 100%; text-align: left; color: var(--ink);
+    font: inherit; cursor: pointer;
+  }
+  #ignore-answer:hover { border-color: var(--ink); }
+  #ignore-answer strong { font: 600 15.5px/1.3 var(--serif); }
+
+  /* the "Add a doctrine" panel at the foot of an area's question list */
+  #area-add-panel { display: flex; flex-direction: column; gap: 9px;
+                    background: var(--panel); border: 1px solid var(--field-line);
+                    border-radius: 9px; padding: 14px; }
 
   .wz-cards2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 560px) { .wz-cards2 { grid-template-columns: 1fr; } }
@@ -241,8 +295,8 @@
   <div id="wz-brand">
     <p class="kicker">Theology map</p>
     <h1>Build a map</h1>
+    <p id="wz-crumb"></p>
   </div>
-  <p id="wz-crumb"></p>
   <div id="wz-headright">
     <button id="wz-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
     <button id="wz-finish" class="wz-ghost" type="button">Finish here</button>
@@ -282,14 +336,16 @@
   <div class="wz-screen-body">
     <div class="wz-qhead">
       <h2 id="q-title"></h2>
-      <p id="q-framing"></p>
       <details id="q-readmore" class="optional">
-        <summary>Read more about this question</summary>
+        <summary>Read about this question</summary>
         <div id="q-readmore-body"></div>
       </details>
     </div>
 
-    <div id="positions"></div>
+    <button id="ignore-answer" type="button">
+      <strong>Ignore for now</strong>
+      <span class="wz-hint">Takes this one out of the queue without writing anything. It can still be answered later.</span>
+    </button>
 
     <div id="open-answer">
       <strong>I haven't worked this out yet</strong>
@@ -298,6 +354,8 @@
       <div class="wz-holdfield"><textarea id="open-todo" rows="3"></textarea></div>
       <div class="wz-slot"></div>
     </div>
+
+    <div id="positions"></div>
 
     <div id="custom-answer" class="wz-card">
       <div class="wz-card-h"><strong>My view is not one of these</strong></div>
@@ -319,11 +377,6 @@
 
 <section id="screen-home" hidden>
   <div class="wz-screen-body">
-    <div class="wz-lead">
-      <p>Every belief carries a <strong>tier</strong> — how much weight it holds, from T1, essential to the gospel, down to T4, matters of liberty, with T1.5 and T2.5 for the ones that genuinely sit between two ranks.</p>
-      <p>And a <strong>confidence</strong> — how settled it is: certain, confident, leaning, open, rejected. That is an ordinal band rather than a percentage, and it is independent of whether the belief is still being studied.</p>
-    </div>
-
     <div class="wz-stat">
       <div><span id="home-beliefs" class="num"></span><span class="lab">beliefs written</span></div>
       <div><span id="home-areas" class="num"></span><span class="lab">areas covered</span></div>
@@ -335,6 +388,11 @@
       <p class="lab">Tier spread</p>
       <div id="home-tierbar"></div>
       <p id="home-tiercounts" class="wz-quiet"></p>
+    </div>
+
+    <div id="home-lensrow">
+      <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
+      <span class="wz-quiet">Re-orders answers. Never filters, never fills anything in.</span>
     </div>
 
     <div id="home-empty" hidden>
@@ -375,17 +433,6 @@
       <div id="home-areas-list"></div>
     </div>
 
-    <div id="home-lensrow">
-      <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
-      <span class="wz-quiet">Re-orders the answers shown against each question. It never filters and never fills anything in.</span>
-    </div>
-
-    <div id="home-visrow" class="wz-lead">
-      <div class="wz-actions" style="margin:0">
-        <button id="home-vis-btn" class="wz-ghost" type="button">Unlist</button>
-        <span id="home-vis-note" class="wz-quiet"></span>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -394,6 +441,10 @@
     <h2 id="area-title"></h2>
     <p id="area-sub" class="wz-quiet"></p>
     <div id="area-list" class="wz-qlist"></div>
+    <div class="wz-actions">
+      <button id="area-add" type="button" class="wz-ghost">Add a doctrine</button>
+    </div>
+    <div id="area-add-panel" hidden></div>
     <div class="wz-actions">
       <button id="area-back" type="button" class="wz-link">Back</button>
     </div>

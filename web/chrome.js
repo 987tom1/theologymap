@@ -11,23 +11,29 @@ function el(tag, cls, text) {
 }
 function link(href, text) { const a = el('a', null, text); a.href = href; return a; }
 
-export function mount(pageTitle) {
+// actions: optional array of already-built elements, right-aligned in the
+// header. Defaults to none so every existing caller is unchanged.
+export function mount(pageTitle, actions = []) {
   const host = document.getElementById('tmChrome');
   if (!host) return;
   const user = getUser();
   const head = el('header', 'tm-chrome');
-  head.appendChild(el('p', 'kicker', 'Theology Map'));
-  head.appendChild(el('h1', null, pageTitle));
+  const titleRow = el('div', 'tm-chrome-titlerow');
+  const titleCol = el('div');
+  titleCol.appendChild(el('p', 'kicker', 'Theology Map'));
+  titleCol.appendChild(el('h1', null, pageTitle));
+  titleRow.appendChild(titleCol);
+  if (actions.length) {
+    const actionsRow = el('div', 'tm-chrome-actions');
+    for (const a of actions) actionsRow.appendChild(a);
+    titleRow.appendChild(actionsRow);
+  }
+  head.appendChild(titleRow);
   const links = el('div', 'toplinks');
-  // Wraps on a narrow phone. Not in engine/theme.css — that file is owned by
-  // another agent — so the wrap styles are set inline on the element here.
-  links.style.flexWrap = 'wrap';
-  links.style.rowGap = '6px';
+  links.appendChild(link('/', 'Home'));
   if (user) {
-    links.appendChild(link('/view?name=' + encodeURIComponent(user.name), 'My map'));
     links.appendChild(link('/wizard', 'Wizard'));
     links.appendChild(link('/edit', 'Edit'));
-    links.appendChild(link('/history', 'History'));
   }
   links.appendChild(link('/gallery', 'Browse'));
   if (user && user.is_admin) links.appendChild(link('/admin', 'Admin'));

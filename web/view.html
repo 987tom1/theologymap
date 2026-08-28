@@ -7,11 +7,13 @@
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
   h1 { font-size: 1.4em; }
-  .tm-main { display: flex; flex-direction: column; gap: 16px; }
-  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-  iframe { width: 100%; height: 70vh; border: 1px solid var(--field-line); border-radius: 6px; }
-  #make-mine { font: 13px var(--sans); color: var(--muted); background: none;
-               border: 1px solid var(--field-line); border-radius: 5px; padding: 6px 10px; }
+  /* The action buttons live in the header now (mount()'s actions row), which
+     frees the body for the iframe — fill the rest of the viewport with it
+     rather than the old fixed 70vh. */
+  html, body.tm-page { height: 100%; }
+  body.tm-page { display: flex; flex-direction: column; }
+  .tm-main { display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; min-height: 0; }
+  iframe { width: 100%; flex: 1 1 auto; min-height: 320px; border: 1px solid var(--field-line); border-radius: 6px; }
 </style>
 </head>
 <body class="tm-page">
@@ -20,11 +22,6 @@
 
 <div class="tm-main">
   <p id="not-found" hidden>Map not found.</p>
-  <div class="actions">
-    <button id="export-btn" hidden>Export HTML</button>
-    <button id="copy-btn" hidden>Copy link</button>
-    <button id="make-mine" hidden>Make my own map</button>
-  </div>
   <!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
        script smuggled into someone else's map could read our localStorage session
        (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
@@ -44,16 +41,24 @@ function slugify(name) {
     .replace(/^-+|-+$/g, '');
 }
 
+function actionBtn(text) {
+  const b = document.createElement('button');
+  b.className = 'tm-action-btn';
+  b.textContent = text;
+  b.hidden = true;
+  return b;
+}
+
 // Keyed by name, not by row id: the id authorises a save, so it is not public
 // (docs/hosting/phase-2-review.md, B1). Names are unique and already public, and
 // this also drops the gallery round trip the old ?id= form needed for the heading.
 const name = new URLSearchParams(location.search).get('name');
-mount(name ? name + "'s map" : 'Theology Map');
+const exportBtn = actionBtn('Export HTML');
+const copyBtn = actionBtn('Copy link');
+const makeMineBtn = actionBtn('Make my own map');
+mount(name ? name + "'s map" : 'Theology Map', [exportBtn, copyBtn, makeMineBtn]);
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
-const exportBtn = document.getElementById('export-btn');
-const copyBtn = document.getElementById('copy-btn');
-const makeMineBtn = document.getElementById('make-mine');
 
 const user = getUser();
 makeMineBtn.hidden = false;
@@ -74,21 +79,22 @@ if (!name) {
     });
     const html = res.ok ? await res.text() : '';
     const isOwner = !!user && user.name.toLowerCase() === name.toLowerCase();
-    // The nav's "My map" sends a signed-in user straight here. If it's their own
-    // still-empty map, land on the launchpad instead of a dead "not found" —
-    // a substring check on the rendered HTML is cheap and avoids a second
-    // round trip (mbox-leaf marks a belief box; render.py emits one per node).
+    // The home page's "My map" tile sends a signed-in user straight here. If
+    // it's their own still-empty map, land on the launchpad instead of a dead
+    // "not found" — a substring check on the rendered HTML is cheap and avoids
+    // a second round trip (mbox-leaf marks a belief box; render.py emits one
+    // per node).
     //
     // Deliberately gated on res.ok: /api/render 404s a map that is merely
     // UNLISTED as well as one that does not exist, and the owner can unlist
-    // their own map from the editor. Redirecting on any 404 would bounce them
+    // their own map from the home page. Redirecting on any 404 would bounce them
     // to the wizard every time they clicked "My map" — an inescapable loop off
-    // their own nav. A 404 for the owner is the unlisted case; say so instead.
+    // their own home tile. A 404 for the owner is the unlisted case; say so instead.
     if (isOwner && res.ok && !html.includes('mbox-leaf')) {
       location.replace('/wizard');
     } else if (!res.ok) {
       notFoundEl.textContent = isOwner
-        ? 'This map is unlisted, so it does not render by name. Relist it from the editor to share this link.'
+        ? 'This map is unlisted, so it does not render by name. Relist it from the home page to share this link.'
         : 'Map not found.';
       notFoundEl.hidden = false;
     } else {

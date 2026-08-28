@@ -309,8 +309,13 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   .kicker .editlink { float:right; color:var(--muted); text-transform:none;
     letter-spacing:0; font-weight:600; text-decoration:none; }
   .kicker .editlink:hover { color:var(--ink); }
-  h1 { margin:0 0 3px; font-family:var(--serif); font-size:23px; letter-spacing:-0.01em;
+  h1 { margin:0; font-family:var(--serif); font-size:23px; letter-spacing:-0.01em;
     font-weight:600; }
+  /* Title row: heading left, filter controls right. Merges what used to be
+     two stacked rows (h1, then the search box inside .viewrow) into one, to
+     shave height off the sticky header on a phone. */
+  .titlerow { display:flex; align-items:center; gap:12px; flex-wrap:nowrap; margin:0 0 3px; }
+  .titlefilters { display:flex; align-items:center; gap:8px; margin-left:auto; min-width:0; }
   .sub { color:var(--muted); font:12.5px/1.5 var(--sans); margin-bottom:11px; max-width:72ch; }
   .bar { display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-family:var(--sans); }
   .views { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:7px; }
@@ -505,6 +510,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     h1 { font-size:19px; }
     .sub { display:none; }
     .legend { display:none; }
+    .titlerow { gap:8px; }
     .bar { gap:8px; row-gap:8px; }
     .viewrow { gap:8px; width:100%; }
     .views { overflow-x:auto; -webkit-overflow-scrolling:touch; flex:0 1 auto; scrollbar-width:thin; }
@@ -523,15 +529,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     dd { font-size:14px; }
     .group { margin-bottom:18px; }
     .pagefoot { padding:16px 14px 32px; }
-  }
-
-  /* 360px: four view buttons plus a search box on one row leaves the search
-     input a few characters wide, so it takes its own row below 480px. The
-     view switcher keeps the full width it needs and stops scrolling. */
-  @media (max-width:480px) {
-    .viewrow { flex-wrap:wrap; }
-    .views { flex:1 1 auto; }
-    input[type=search] { flex:1 0 100%; order:3; min-width:0; }
   }
 
   @media (max-width:560px) {
@@ -583,7 +580,14 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   <p class="kicker">A personal systematic reference
     <a class="editlink" href="engine/editor.html">Edit &#9998;</a>
   </p>
-  <h1>Theology Map</h1>
+  <div class="titlerow">
+    <h1>Theology Map</h1>
+    <div class="titlefilters">
+      <input type="search" id="q" placeholder="Filter&hellip;">
+      <button type="button" id="filtersToggle" class="filtersToggle" aria-expanded="false"
+        aria-controls="secondaryControls">Filters &#9662;</button>
+    </div>
+  </div>
   <div class="sub">Positions by Ortlund triage tier &middot; tier is how much weight it carries,
     confidence is how settled it is &middot; a dashed border marks a position inferred and not yet confirmed</div>
   <div class="bar">
@@ -594,9 +598,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
         <button data-view="tier" aria-pressed="false">Tier</button>
         <button data-view="confidence" aria-pressed="false">Confidence</button>
       </div>
-      <input type="search" id="q" placeholder="Filter&hellip;">
-      <button type="button" id="filtersToggle" class="filtersToggle" aria-expanded="false"
-        aria-controls="secondaryControls">Filters &#9662;</button>
     </div>
     <div class="secondary" id="secondaryControls">
       <div class="seg" id="studyFilter">

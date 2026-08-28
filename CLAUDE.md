@@ -87,7 +87,7 @@ hand-written page, not part of `render.py`'s generated output, so editing it
 doesn't risk the ~1300-line generator. Loading a file shows two tabs, both
 editing the same live in-memory model so switching tabs never loses work:
 
-- **Map** (default) — the same node-link pan/zoom layout as
+- **Map** — the same node-link pan/zoom layout as
   `theology-map.html`'s Map view. Collapsed leaf tiles render exactly like
   the read-only public Map view (plain title + tier/confidence/`#study`
   chips) — a domain that's merely expanded still looks like the ordinary
@@ -98,8 +98,11 @@ editing the same live in-memory model so switching tabs never loses work:
   to rename it in place. "+ New node"/"+ New domain" tiles use inverted
   (ink-on-paper) colouring so they read as clearly distinct actions, and
   each open leaf has a delete link.
-- **List** — the original structured form: pick a node in the sidebar tree,
-  edit its fields, add/delete nodes and domains.
+- **List** (default since 2026-08-29) — the original structured form: pick a
+  node in the sidebar tree, edit its fields, add/delete nodes and domains.
+  `/edit?open=<slug>` is the one thing that opens on **Map** instead, because
+  `applyOpenParam()` only knows how to drive `MapView` — teaching the List tree
+  to select-and-scroll would be a second implementation of the same contract.
 
 A toolbar indicator ("N nodes edited, N created, N deleted", any zero terms
 omitted) tracks changes across both tabs and resets on save; a node created
@@ -144,7 +147,13 @@ and then deleted before saving nets to zero rather than counting as deleted.
   no lockstep obligation to `render.py`; its one hard rule is that
   `pruneLinks(domains)` runs immediately before **every** `serialize`, because
   a wizard map is partial by definition and `render.py` warns on a `link`
-  whose target does not exist.
+  whose target does not exist. `domainProgress(domains, corpus, ignored?)` and
+  `nextDoctrine(domains, corpus, ignored?)` take an optional Set-or-array of
+  put-aside slugs; omitted means none, so every older caller is unchanged.
+  `addManualNode(domains, corpus, {domainId, title, …})` is the one way to add a
+  belief the corpus has no doctrine for — it refuses an empty title or a
+  duplicate slug by returning `domains` unchanged, which callers detect by node
+  count.
 - **Promoted versus optional fields (phase 3).** Both editing surfaces — the
   List form and an open Map leaf — show **What I hold**, **Tier** and
   **Confidence** directly, and put the other five (**Why**, **What I'd
@@ -174,6 +183,11 @@ and then deleted before saving nets to zero rather than counting as deleted.
   hunks in those three functions and nowhere else. Anything that wants a new
   public method on `MapView` (phase 3 wanted "open this leaf") should drive it
   from `editor.html` instead — see `applyOpenParam()` there for the pattern.
+  **`_leafMetaEditable` deliberately returns an empty `DocumentFragment`** since
+  2026-08-29: `_mountLeaf`/`_updateLeaf` append meta before detail, so moving
+  every editable control into `_leafDetail` is how an open tile gets the wizard's
+  field order without touching those two lockstep-bearing builders. Anyone
+  "tidying" it back into returning a `.mmeta` div will re-order the tile.
 - **`/edit?open=<slug>`** opens the editor on one belief: it expands that area,
   opens the tile and selects the title. An unresolvable slug is ignored
   silently, because a stale bookmark must never be an error. First run hands
@@ -230,8 +244,8 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`ced6cabd632427678b41366cd25da4e49b229145df49aed47fcee8966d13fe10` when written
-with `Path.write_text` on Windows (`380dfefd13abaee0a79362125358d821d0085cf20a0efb08e5504e8d23946598`
+`a2ed6d2f990b4ffeff9a43de2900f844b991f0d9b8faccfadf14956c54509bf7` when written
+with `Path.write_text` on Windows (`0125f4df6710946d80b2ca03314e71823dfd9f1b450df69c7a69384981863767`
 LF-normalised, which is what a Linux-side or hosted-response check compares
 against). Re-run it after any change to `render.py`.
 
@@ -247,7 +261,12 @@ against). Re-run it after any change to `render.py`.
 > moved: `documentation/theology-map.mm` and `documentation/study-list.md` are
 > byte-identical, and the embedded `<script id="data">` payload hashes the same
 > as before. Use those three as the gate for any future restyle
-> (`docs/hosting/phase-7-outcome.md`).
+> (`docs/hosting/phase-7-outcome.md`). **The UI round of 2026-08-29 moved them a
+> third time**, for the same reason and under the same gate: the rendered map's
+> sticky header put the filter field and the Filters button on the `<h1>`'s own
+> row, to shorten it on a phone. The pre-round values were `ced6cabd…8fe10` /
+> `380dfefd…46598`; the `.mm`, `study-list.md` and the embedded `<script
+> id="data">` payload were all verified byte-identical across it.
 
 Hosted users get **no verse fetching**: `documentation/verses.md` ships as a
 bundled read-only asset and `fetch_verses.py` stays local-only, because **no
@@ -352,13 +371,25 @@ questions, start from someone else's map, write one by hand) into the wizard
 launchpad's empty state. Anything still redirecting to `/app` is stale — the
 signed-out redirect is `/`.
 
-The nav is one list in `web/chrome.js`, in this order: **My map** (`/view?name=`
-the signed-in person's own name), **Wizard**, **Edit**, **History**, **Browse**
-(the gallery, renamed), **Admin** (admins only), **Sign out** — or **Sign in**
-(`/#signin`) when signed out. It wraps on a phone. `engine/editor.html` carries a
-hand-written copy of the same list because it cannot import `chrome.js`; that is
+The nav is one list in `web/chrome.js`, in this order: **Home** (`/`, always),
+**Wizard**, **Edit** (signed in only), **Browse** (the gallery, renamed),
+**Admin** (admins only), **Sign out** — or **Sign in** (`/#signin`) when signed
+out. Below 640px it scrolls horizontally rather than wrapping, which is what
+`engine/theme.css`'s `.tm-chrome .toplinks` rule does; `chrome.js` used to set
+`flexWrap` inline, and an inline style beats a media query, so that rule was dead
+from the day it was written. Do not put the wrap styles back on the element.
+
+**"My map", "History" and Unlist/Relist are tiles on `/`, not nav links**
+(2026-08-29). Six nav items is what fits a phone. `engine/editor.html` carries a
+hand-written copy of the same list because it cannot import `chrome.js` — that is
 the documented `file://` exception, not drift, and the two are kept in step by
-hand.
+hand; there the leading Home link reuses the markup's existing "Open the map ↗"
+anchor rather than inserting an element before it.
+
+`mount(pageTitle, actions = [])` takes an optional array of already-built
+elements for a right-aligned actions row in the header. `/view` is the one caller
+that passes any — Export HTML / Copy link / Make my own map, which used to sit in
+the body and cost the map iframe its height on a phone.
 
 **`web/session.js` is the only module that touches `localStorage` for the signed-in
 user** (key `theologymap:user`). There is one way to get the current user id:
@@ -382,7 +413,9 @@ and `boot()` picks an adapter:
 - `engine/storage-hosted.js` — `/api/map` and `/api/render`, plus autosave.
 
 The adapter interface is `{ mode, supportsAutosave, init(ui), load(), save(text,
-token, force), render(text), beaconFlush(text, token), buttons }`. Add a mode by
+token, force), render(text), beaconFlush(text, token), buttons }`. It had a
+`setVisibility` too; that went with the editor's Unlist link on 2026-08-29, since
+its only caller was that link and `/`'s tile calls `/api/map` directly. Add a mode by
 adding an adapter, not by branching inside `editor.html`.
 
 `storage-hosted.js` deliberately does **not** use `apiFetch` for `/api/map`: on a
@@ -619,8 +652,9 @@ keep the sticky header short. Card field labels stack above their values below
 560px. Map panning and pinch-zoom use pointer events with a 6px threshold so a
 tap on a box still registers as a tap rather than a drag.
 
-Below 480px the search input drops to its own row — four view buttons plus a
-search box do not fit one 360px row (phase 7).
+The 480px rule that gave the search input its own row (phase 7) is **gone**: the
+search box and the Filters button now share the `<h1>`'s row, so `.viewrow` holds
+only the four view buttons and they no longer compete for width.
 
 Design language, if you touch the CSS: warm paper-and-ink palette in both
 themes, serif reserved for content and sans for chrome, prose capped at 58ch,
@@ -704,9 +738,10 @@ because they are easy to undo by accident:
   is the `file://` tool's wording; anything hosted-specific belongs in the
   `if (HOSTED)` branch, not in the HTML.** Full account: `debug.md` §U.
 - **Unlisting is now self-service.** `POST /api/map {action: "set_visibility",
-  user_id, is_public}`, plus a matching `setVisibility` on the hosted storage
-  adapter and an Unlist/Relist link in the editor nav and on the wizard launchpad.
-  `user_id` is the credential exactly as it is for save and restore — no new trust.
+  user_id, is_public}`. `user_id` is the credential exactly as it is for save and
+  restore — no new trust. (The control itself has since moved twice: it was a link
+  in the editor nav and on the wizard launchpad, and since 2026-08-29 it is a tile
+  on `/` and nowhere else. The adapter's `setVisibility` went with it.)
   The wording rule is unchanged and still load-bearing: **Unlist, never Hide.**
   Unlisting is not privacy.
 - **`/view` must not redirect an owner on a 404.** The nav's "My map" points at
@@ -719,10 +754,10 @@ because they are easy to undo by accident:
   home screen carrying the stats, the tier bar, the tradition control, the
   listed/unlisted toggle, the first-run offers when the map is empty, and the
   fourteen areas with per-area progress and two buttons each: *Next question*, and
-  *List questions* → a per-doctrine list whose rows link to **`/edit?open=<slug>`**.
-  That route already expands the area and opens the tile, which is the whole
-  reason the list does not carry an editing UI of its own. "Finish here" changes
-  screen rather than navigating.
+  *List questions* → a per-doctrine list. **Those rows opened `/edit?open=<slug>`
+  until 2026-08-29; they now open the wizard's own question screen in place** —
+  see that round's section below. "Finish here" changes screen rather than
+  navigating.
 - **`domainProgress(domains, corpus)` is in `engine/wizard-generate.js`, not
   `web/wizard.js`.** The rule has not moved: the UI decides what to ask, the pure
   UMD module does the model work, and that is what keeps the whole path runnable
@@ -756,6 +791,70 @@ because they are easy to undo by accident:
   of a dozen per-id overrides. It toggles about twelve panes and several carry
   their own `display` rules; this is the root-cause fix for the whole class of
   bug `debug.md` §Q describes on one element.
+
+### The UI round of 2026-08-29 — a phone-sized pass over every screen
+
+Twenty-four items off a single user bug/improvement list, run as four
+file-disjoint batches. Full per-bug write-ups in `debug.md` §Z–§AB. The parts
+worth knowing because they are easy to undo by accident:
+
+- **"Ignore for now" is a third state, and it lives only in the browser.**
+  `localStorage['tmm.wizard.ignored']`, a JSON slug array beside
+  `tmm.wizard.tradition`. It is a *preference, not content* — nothing in the map
+  records it — so every read and write is wrapped in try/catch and a private-mode
+  browser degrades to "nothing ignored". It is deliberately **not**
+  `web/session.js`'s key and does not belong to the session module. The reason it
+  is not in the markdown: a node is the only thing the file format can hold, and a
+  node for a question you skipped would put a belief you never stated onto your
+  map. The reason it is not a column: it would be a migration, a route and a new
+  thing every save path must not clobber, for a "move past this" gesture.
+  Ignored doctrines are skipped by the queue and counted separately — an area
+  reads `4 of 12 · 2 ignored`, and "all N answered" only when nothing is left at
+  all.
+- **The wizard's area question list opens the question screen in place.** A
+  module-level `returnTo` (an area id, or null) decides where Back and "Finish
+  here" land. This is what made the revisit data loss below reachable in normal
+  use; the two changes shipped together and the second is the reason the first is
+  safe.
+- **`applyAnswer`'s revisit rebuild now preserves the person's own writing.**
+  It deletes and rebuilds the node from the corpus, and `currentAnswer()` sends
+  only hold/tier/confidence/#study for a `position` answer — so `todo` and
+  hand-written `link`s were destroyed and `why`/`vs`/`refs` overwritten with
+  corpus text. Every fallback chain is now
+  `answer.x !== undefined ? answer.x : (prev.x || <corpus default> || '')`, which
+  keeps the explicit-clear semantics (an empty string still clears), and
+  `_intendedLinks` is a de-duplicated union rather than a replacement.
+  `tests/wizard-generate.test.js` pins both halves — the preserve *and* the
+  clear. **Do not reorder `prev.x ||` ahead of the `!== undefined` test**; that
+  is what the second test exists to catch.
+- **Every word of prose about a doctrine is behind one disclosure.** The
+  question screen shows the title and the answer tiles; the framing paragraph
+  joined the learn note and the sources under a summary renamed **"Read about
+  this question"** and styled as a real bordered control. `#q-framing` is gone.
+- **Tier and confidence stayed real `<input type="radio">` on both surfaces.**
+  They were only resized (11.5px, `7px 9px`, `inline-flex` centred, `min-height:30px`)
+  so they stop wrapping on a phone. The editor's open map tile now uses the same
+  shape, sized to match. Arrow-key operation and the radiogroup semantics come
+  from the platform in both places — do not hand-roll `role="radiogroup"`.
+- **The selection tick is gone.** `.sel`'s tint and border are the only selection
+  signal, and the gutter both `.wz-card-h` and `.wz-chips` reserve for the
+  Read-more button shrank accordingly.
+
+**Task 21's standing assessment — the wizard against a hand-edited map.** Two
+findings beyond the revisit fix, both deliberate rather than bugs, both worth
+knowing:
+
+- `domainProgress()` iterates the **corpus manifest**, so an area a person
+  invented never appears in the launchpad's Areas list, and neither does a
+  hand-written belief inside a corpus area whose slug is not a corpus doctrine.
+  Both still count in "beliefs written" and "areas covered", which read the map.
+  The two numbers mean different things on purpose. Ordering is safe:
+  `findOrCreateDomain` gives an off-manifest area `orderOf === Infinity`, so a
+  corpus area added later inserts before it.
+- Slug matching is global, so `## Inerrancy` written under `# Ethics` marks the
+  *Scripture* doctrine answered; answering it moves the node to Scripture and
+  leaves an empty `# Ethics` heading. Defensible — one belief, one slug is the
+  rule `pruneLinks` and `compare-core.js` both rest on — but it is silent.
 
 ## Working notes
 

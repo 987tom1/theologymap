@@ -354,9 +354,11 @@ redirect: an owner whose map renders empty goes to `/wizard` instead of a dead
 `POST /api/render {name}` 404s for a map that is merely **unlisted** exactly as it
 does for one that does not exist — and self-service unlisting shipped in the same
 round. So an owner who unlisted their map would click "My map", get a 404, and be
-bounced to the wizard, every time, with no way to reach their own map from their
-own nav. Gated on `res.ok` instead, with the 404 telling an owner it is the unlisted
-case.
+bounced to the wizard, every time, with no way to reach their own map. Gated on
+`res.ok` instead, with the 404 telling an owner it is the unlisted case. (Both ends
+have since moved — "My map" and Unlist are tiles on `/` rather than nav links since
+2026-08-29 — but the 404 ambiguity that made this a trap has not, so the `res.ok`
+gate stays load-bearing.)
 
 **Two features written in the same round, each correct alone.** That is this
 project's signature failure and the reason the file opens the way it does: it was
@@ -438,6 +440,66 @@ exception: **under a Vercel rewrite, every path in `editor.html` that is not a
 let `<base>` stand in for it — one browser honours it and one does not, so a
 `<base>`-dependent path is a path that works only where you happened to test.
 
+### Z. A popover anchored to the wrong containing block ran off the left edge of a phone — FIXED (2026-08-29)
+
+Reported as "the Read more goes slightly off the left side of the screen on an iPhone".
+`.wz-pop` is `position:absolute; right:0; width:min(420px, 86vw)`, and it was appended to
+`.wz-tools` — itself a ~90px absolutely-positioned box pinned to the card's top right. So
+`right:0` resolved against *that* box, not the card, and a 420px popover hanging off a 90px
+anchor near the right edge of a 390px screen has nowhere to go but off the left. The fix is
+the containing block, not the width: the popover's host is now `.wz-card`, which is already
+`position:relative`, and it spans `left:10px; right:10px` with no `width` at all.
+
+**The lesson: a `right:0` that misbehaves is a question about which ancestor is
+`position:relative`, not about the element's own width.** Any future "clamp it with a media
+query" fix on this element is treating the symptom — the popover would still be anchored to
+the wrong box, just less visibly.
+
+### AA. The wizard destroyed hand-written fields whenever it re-answered a doctrine — FIXED (2026-08-29)
+
+Not reported. Found by working through "assess how the wizard handles a belief added by
+hand in the editor" with `node -e`, before touching any code.
+
+`applyAnswer(..., {revisit: true})` deletes the existing node and rebuilds it from the
+corpus. `web/wizard.js`'s `currentAnswer()` sends only `hold`/`tier`/`confidence`/`study`
+for a `position` answer. So every other field fell through to a corpus default or to empty:
+
+    BEFORE  todo: "My own open question."   link: ["some-other-node"]   why: "My own reason."
+    AFTER   todo: ""                        link: []                    why: <corpus why>
+
+Both files were correct against their own brief — the project's signature shape, a seam
+rather than a function. What made it matter is that **the same round turned `revisit` from
+a Back-button edge case into the normal path**: the area question list stopped linking to
+`/edit?open=<slug>` and started opening the question screen in place, and
+`revisit: !!existingNode(doctrine)` is true every time you reopen an answered one.
+
+Fixed in `engine/wizard-generate.js` — where the model logic belongs — by capturing the
+existing node before the splice and putting it between the answer and the corpus default:
+`answer.x !== undefined ? answer.x : (prev.x || <corpus default> || '')`, with
+`_intendedLinks` a de-duplicated union rather than a replacement. The `!== undefined` test
+stays first so an explicit empty string still clears; `tests/wizard-generate.test.js` pins
+that half separately, because a `prev.x ||` moved ahead of it would pass every other test
+in the file.
+
+**The lesson: when a change makes a rare path routine, audit that path before shipping the
+change — not the code you edited.** Nothing about task 8's own diff was wrong.
+
+### AB. A redraw performed while its container is `display:none` measures 0×0 and silently eats `needsCenter` — FIXED (2026-08-29)
+
+Latent for as long as the editor opened on the Map tab; reachable the moment List became
+the default. `MapView.redraw()` measures every box with `offsetWidth`/`offsetHeight`, which
+are 0 for a subtree inside `display:none`. It consumed the `needsCenter` flag against that
+zero rect, so the first time the person actually clicked Map, the layout was already
+"centred" — on nothing — and the map sat parked off-screen.
+
+The guard is in `editor.html`'s `setTab` (a `mapShown` flag that re-arms `needsCenter` the
+first time the Map tab is really shown), **not** in `map-view.js`: `redraw` is
+lockstep-bearing with `render.py`'s embedded Map view and must not change. Do not move it.
+
+**The lesson: changing which pane is visible first changes what every measurement in the
+hidden pane returns.** Any layout pass that reads `offsetWidth`/`offsetHeight` is a
+candidate whenever a default tab, route or accordion state moves.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -485,7 +547,15 @@ let `<base>` stand in for it — one browser honours it and one does not, so a
 11. **A class name used to clear elements is a namespace with one owner.** If two
    builders write the same class, one of them will be cleared or duplicated by the
    other's logic (§V). Grep every writer of a shared selector before editing either.
-12. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
+12. **A measurement taken inside `display:none` is zero, not stale.** If a layout
+   looks right after a resize but wrong on first paint, ask what was hidden when
+   the layout pass ran, and what one-shot flag that pass consumed (§AB). Moving a
+   default tab or route is enough to expose it.
+13. **When a change turns a rare code path into the common one, audit that path,
+   not your diff.** §AA was a data-loss bug in `applyAnswer`'s revisit branch that
+   had been latent for as long as revisit meant "the person pressed Back". The
+   commit that made it reachable did not touch it.
+14. **`wizard-generate.js` and `editor-core.js` are UMD and runnable from plain
    `node -e`, with no browser, DOM, or login needed** — §T was fully reproduced and
    fixed this way, using `WG.loadCorpusSync('content/wizard')`. Reach for this
    before asking a human to reproduce anything that touches the corpus or the

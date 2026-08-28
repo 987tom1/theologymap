@@ -55,7 +55,7 @@
       did not put there.</p>
   </div>
 
-  <div class="tm-grid tm-firstrun">
+  <div class="tm-grid tm-firstrun" id="firstrun-grid">
     <a class="tm-card tm-card-primary" id="make-own-tile" href="/#signin">
       <h3>Make your own map</h3>
       <p>A name and a short PIN is the whole sign-up. Start from a blank page or
@@ -109,6 +109,80 @@ const $ = (id) => document.getElementById(id);
 const user = getUser();
 $('signed-out').hidden = !!user;
 $('make-own-tile').href = user ? '/wizard' : '/#signin';
+
+// "My map", "History" and Unlist/Relist used to live in the nav; they moved
+// here as tiles (task 3) and only exist for a signed-in visitor, so they are
+// built rather than hidden — no static markup, nothing to gate on [hidden].
+function tile(href, title, desc, goText) {
+  const a = document.createElement('a');
+  a.className = 'tm-card';
+  a.href = href;
+  a.appendChild(Object.assign(document.createElement('h3'), { textContent: title }));
+  a.appendChild(Object.assign(document.createElement('p'), { textContent: desc }));
+  const go = document.createElement('span');
+  go.className = 'tm-go';
+  go.textContent = goText;
+  a.appendChild(go);
+  return a;
+}
+
+if (user) {
+  const grid = $('firstrun-grid');
+  grid.appendChild(tile('/view?name=' + encodeURIComponent(user.name), 'My map',
+    'See your map exactly as everyone else does.', 'Open →'));
+  grid.appendChild(tile('/history', 'History',
+    'Your earlier saved versions, and Restore.', 'View history →'));
+
+  // Unlist/Relist: lifted from web/wizard.js's deleted toggleVisibility(), same
+  // action, same wording. Loads in a neutral state and fills in once the GET
+  // answers, rather than blocking the page on it.
+  const visBtn = document.createElement('button');
+  visBtn.type = 'button';
+  visBtn.className = 'tm-card tm-cardlink';
+  visBtn.style.textAlign = 'left';
+  visBtn.disabled = true;
+  const visH3 = Object.assign(document.createElement('h3'), { textContent: 'Listing status' });
+  const visP = Object.assign(document.createElement('p'), { textContent: 'Checking whether your map is listed in the gallery…' });
+  visBtn.append(visH3, visP);
+  grid.appendChild(visBtn);
+
+  let isPublic = null;
+  // Unlisting is not privacy and the wording must keep saying so: it takes the
+  // map out of the gallery and turns off the name-keyed render, and anyone
+  // already holding a link can still read it. Hence Unlist / Relist, never Hide.
+  function renderVis() {
+    visH3.textContent = isPublic ? 'Unlist' : 'Relist';
+    visP.textContent = isPublic
+      ? 'Listed in the gallery. Unlisting takes it out of the gallery and stops the '
+        + 'name-keyed render. That is not privacy.'
+      : 'Unlisted: out of the gallery, and the name-keyed render is off. That is not '
+        + 'privacy — anyone already holding a link can still read it.';
+    visBtn.disabled = false;
+  }
+  visBtn.addEventListener('click', async () => {
+    if (isPublic === null) return;
+    visBtn.disabled = true;
+    let res = null;
+    try {
+      res = await apiFetch('/api/map', {
+        method: 'POST',
+        body: { action: 'set_visibility', user_id: user.id, is_public: !isPublic },
+      });
+    } catch { /* apiFetch already showed the error banner */ }
+    if (res && typeof res.is_public === 'boolean') {
+      isPublic = res.is_public;
+    }
+    renderVis();
+  });
+
+  try {
+    const map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+    isPublic = !!(map && map.is_public !== false);
+  } catch {
+    isPublic = true; // apiFetch already showed the error banner; fall back to the common case
+  }
+  renderVis();
+}
 
 function handleAuthForm(form, action) {
   form.addEventListener('submit', async (e) => {

@@ -154,6 +154,59 @@ test('a custom answer builds a node from the person s own fields only', () => {
     EditorCore.parse(EditorCore.serialize(EditorCore.parse(text))));
 });
 
+test('a revisit keeps the person s own writing that the answer does not carry', () => {
+  // A node written by hand in the editor: its own todo, refs, why and link,
+  // none of which the question screen's position answer sends.
+  const md = '# Scripture\n\n## Inerrancy \u00b7 T1 \u00b7 certain\n'
+    + '  hold  My own hand-written wording.\n'
+    + '  why   My own reason.\n'
+    + '  todo  My own open question.\n'
+    + '  refs  Gen 1:1\n'
+    + '  link  some-other-node\n';
+  let domains = EditorCore.parse(md);
+  const doctrine = WG.findDoctrine(corpus, 'scripture.inerrancy');
+  const position = doctrine.positions[0];
+
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'scripture.inerrancy', kind: 'position', positionId: position.id,
+    hold: position.hold, tier: 'T2', confidence: 'confident', study: false,
+    revisit: true });
+
+  const n = domains[0].nodes.find(x => x.slug === 'inerrancy');
+  // The answer's own fields land...
+  assert.strictEqual(n.hold, position.hold);
+  assert.strictEqual(n.tier, 'T2');
+  assert.strictEqual(n.confidence, 'confident');
+  // ...and everything it does not carry survives.
+  assert.strictEqual(n.todo, 'My own open question.');
+  assert.strictEqual(n.refs, 'Gen 1:1');
+  assert.strictEqual(n.why, 'My own reason.');
+  assert.ok(n._intendedLinks.includes('some-other-node'),
+    'a hand-written link was dropped on revisit');
+  for (const l of doctrine.links || []) assert.ok(n._intendedLinks.includes(l));
+  assert.strictEqual(new Set(n._intendedLinks).size, n._intendedLinks.length);
+});
+
+test('a revisit still clears a field the answer empties explicitly', () => {
+  const md = '# Scripture\n\n## Inerrancy \u00b7 T1 \u00b7 certain\n'
+    + '  hold  My own hand-written wording.\n'
+    + '  why   My own reason.\n'
+    + '  todo  My own open question.\n'
+    + '  refs  Gen 1:1\n';
+  let domains = EditorCore.parse(md);
+  const position = WG.findDoctrine(corpus, 'scripture.inerrancy').positions[0];
+
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'scripture.inerrancy', kind: 'position', positionId: position.id,
+    why: '', vs: '', todo: '', refs: '', revisit: true });
+
+  const n = domains[0].nodes.find(x => x.slug === 'inerrancy');
+  assert.strictEqual(n.why, '');
+  assert.strictEqual(n.vs, '');
+  assert.strictEqual(n.todo, '');
+  assert.strictEqual(n.refs, '');
+});
+
 test('domainProgress lists the areas in manifest order with real statuses', () => {
   let domains = EditorCore.parse('');
   domains = WG.applyAnswer(domains, corpus, {
@@ -181,6 +234,100 @@ test('domainProgress lists the areas in manifest order with real statuses', () =
   }
   const untouched = areas.find(a => a.id === 'scripture');
   assert.ok(untouched.doctrines.every(d => d.status === 'unasked'));
+});
+
+test('domainProgress reports ignored doctrines as a third state', () => {
+  let domains = EditorCore.parse('');
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'position',
+    positionId: 'church.baptism/believer' });
+
+  // No third argument at all is "nothing ignored" — the old behaviour.
+  const plain = WG.domainProgress(domains, corpus).find(a => a.id === 'church');
+  assert.strictEqual(plain.ignored, 0);
+  assert.strictEqual(plain.doctrines.find(d => d.slug === 'the-lords-supper').status, 'unasked');
+
+  // An array and a Set are both accepted.
+  for (const ignored of [['the-lords-supper'], new Set(['the-lords-supper'])]) {
+    const church = WG.domainProgress(domains, corpus, ignored).find(a => a.id === 'church');
+    assert.strictEqual(church.doctrines.find(d => d.slug === 'the-lords-supper').status, 'ignored');
+    assert.strictEqual(church.ignored, 1);
+    // answered still means nodes present — an ignored one is not answered.
+    assert.strictEqual(church.answered, 1);
+  }
+
+  // A doctrine with a node wins over the ignored list: it is answered.
+  const both = WG.domainProgress(domains, corpus, ['baptism']).find(a => a.id === 'church');
+  assert.strictEqual(both.doctrines.find(d => d.slug === 'baptism').status, 'answered');
+  assert.strictEqual(both.ignored, 0);
+});
+
+test('nextDoctrine skips ignored doctrines', () => {
+  const first = WG.nextDoctrine([], corpus);
+  assert.ok(first);
+  const second = WG.nextDoctrine([], corpus, [first.slug]);
+  assert.notStrictEqual(second.slug, first.slug);
+  // Ignoring everything exhausts the queue rather than throwing.
+  const all = WG.orderedDoctrines(corpus).map(d => d.slug);
+  assert.strictEqual(WG.nextDoctrine([], corpus, all), null);
+  // No third argument is unchanged.
+  assert.strictEqual(WG.nextDoctrine([], corpus).slug, first.slug);
+});
+
+test('addManualNode adds a belief the corpus has no question for', () => {
+  let domains = EditorCore.parse('');
+  domains = WG.addManualNode(domains, corpus, {
+    domainId: 'church', title: 'Foot washing', hold: 'A practice, not an ordinance.',
+    why: 'John 13 is example, not institution.', vs: 'Treating it as a third sacrament.',
+    todo: 'Read the Anabaptists.', refs: 'John 13:14',
+    links: ['baptism'], tier: 'T4', confidence: 'leaning', study: true });
+
+  assert.strictEqual(domains.length, 1);
+  assert.strictEqual(domains[0].name, 'Church');
+  const n = domains[0].nodes[0];
+  assert.strictEqual(n.title, 'Foot washing');
+  assert.strictEqual(n.slug, EditorCore.slugify('Foot washing'));
+  assert.strictEqual(n.hold, 'A practice, not an ordinance.');
+  assert.strictEqual(n.why, 'John 13 is example, not institution.');
+  assert.strictEqual(n.vs, 'Treating it as a third sacrament.');
+  assert.strictEqual(n.todo, 'Read the Anabaptists.');
+  assert.strictEqual(n.refs, 'John 13:14');
+  assert.strictEqual(n.tier, 'T4');
+  assert.strictEqual(n.confidence, 'leaning');
+  assert.deepStrictEqual(n.flags, ['study']);
+  assert.ok(!n.flags.includes('assumed'));
+
+  // An unresolvable intended link is pruned; adding its target revives it.
+  WG.pruneLinks(domains);
+  assert.deepStrictEqual(n.link, []);
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'position',
+    positionId: 'church.baptism/believer' });
+  WG.pruneLinks(domains);
+  assert.deepStrictEqual(n.link, ['baptism']);
+
+  const text = EditorCore.serialize(domains);
+  assert.ok(!text.includes('_intended'), '_intendedLinks leaked into the markdown');
+  assert.deepStrictEqual(EditorCore.parse(text),
+    EditorCore.parse(EditorCore.serialize(EditorCore.parse(text))));
+  // ...and it survives a round trip through the file format.
+  const back = EditorCore.parse(text)[0].nodes.find(x => x.slug === 'foot-washing');
+  assert.strictEqual(back.hold, 'A practice, not an ordinance.');
+  assert.strictEqual(back.tier, 'T4');
+  assert.deepStrictEqual(back.link, ['baptism']);
+});
+
+test('addManualNode refuses an empty title or a slug already in the map', () => {
+  let domains = EditorCore.parse('');
+  assert.strictEqual(WG.addManualNode(domains, corpus, { domainId: 'church', title: '   ' }), domains);
+  assert.strictEqual(domains.length, 0);
+  domains = WG.applyAnswer(domains, corpus, {
+    doctrineId: 'church.baptism', kind: 'position',
+    positionId: 'church.baptism/believer' });
+  const count = domains[0].nodes.length;
+  WG.addManualNode(domains, corpus, { domainId: 'church', title: 'Baptism', hold: 'Mine.' });
+  assert.strictEqual(domains[0].nodes.length, count);
+  assert.ok(domains[0].nodes[0].hold.length > 10);
 });
 
 /* ------------------------------------------------------------ the real corpus
