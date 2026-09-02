@@ -43,8 +43,8 @@ nothing else unless its own plan section names the file.
 | 9 | Phase 4 Tasks 0–4 — schema, validator, generator | `phase-4-wizard` | Opus | `phase-4-plan.md` L1–555 |
 | 10 | Phase 4 Tasks 5–8 — wizard UI, seed content, merge — **done** | `phase-4-wizard` (same branch) | Opus | `phase-4-plan.md` L1–92 + L556–end |
 | 11 | Phase 5 — denominational research corpus — **done** | `phase-5-corpus` | Opus main, Sonnet research subagents | `phase-5-brief.md` |
-| 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
-| 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
+| 12 | Phase 6 Tasks 0–2 — tradition maps, compare engine — **done** | `phase-6-compare` | Opus | `phase-6-plan.md` L1–422 |
+| 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces — **done** | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views — **done** | `phase-7-views` | Sonnet | `phase-7-brief.md` |
 | 15 | Phase 8 — version history and restore — **done** | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
 | 16 | Phase 9 — corpus sourcing verification | `phase-9-sourcing` | Opus main, Sonnet subagents **with web access** | `phase-9-corpus-sourcing-verification.md` |
@@ -234,6 +234,28 @@ worry. Everything else is sequential.
 - Two calls were locked on 2026-08-23 and bind phases 3 and 4: **unlisting is not
   privacy** (no id rotation; the control reads Unlist/Relist) and **`map_versions`
   opens phase 4**. Both are in `decisions.md`; both plans are amended in place.
+
+
+## Session 13 ran 2026-09-02 and is merged — phase 6 is complete
+
+Branch `phase-6-compare`, merged as `2954aab`. `/learn`, `/compare` and
+`/view?tradition=` are live and return 200. Full account in
+`phase-6-outcome.md` under "session 13".
+
+**Session 16 (phase 9) is the only session left.** Three things for it:
+
+1. The hand-read of the Catholic and Orthodox maps found a **wrong `held_by`
+   attribution** — Orthodoxy was placed on the Lutheran eucharistic position —
+   and found it *without web access*, because the corpus contradicted itself: the
+   entry's own note denied the position it sat on. **Run that cheap self-consistency
+   sweep before the expensive tier-by-tier retrieval.**
+2. `superseded_holds` now has a **worked example** (two Roman Catholic override
+   holds reworded, old wording preserved, round trip verified). Copy that shape
+   whenever phase 9 changes a `hold`.
+3. Two items deliberately left for phase 9 because they need a retrieved source
+   rather than a judgment call: the Orthodox attribution on
+   `creation-and-science.genre-of-genesis-1`, and per-tradition grounds for the
+   five shared `why` lines this session had to strip of their Western citations.
 
 ## Thomas's one action mid-chain — done
 
