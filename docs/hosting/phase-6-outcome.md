@@ -628,3 +628,131 @@ behaviour: an unlisted map is indistinguishable from a missing one. The guard
 itself is one condition, `if row is None or not row["is_public"]`, the same one
 `api/render.py` already uses on its `name` branch and which phase 1e verified
 there. **Worth five seconds from Thomas the next time he is signed in as admin.**
+
+---
+---
+
+# Phase 6b — tier labelling and tier comparison (2026-09-02)
+
+Two changes, both from Thomas after reading the shipped `/learn`. Branch
+`phase-6b-tiers`, merged to `main`. No schema change, no corpus change.
+
+## 1. The tier chip did not say it was a suggestion
+
+**His question:** why do tiers show against doctrines on `/learn` even when
+nobody is signed in?
+
+**The answer:** because that chip is `doctrine.suggested_tier` — corpus data, a
+property of the doctrine, sitting next to `question` and `framing`. It is the
+same for every reader, so it needs no account. A person's *own* tier is a
+different field (`node.tier`) and it was already gated correctly: `learn.js`
+returns early when `getUser()` is null, so the "my own answer" section never
+renders signed out. The separation was right.
+
+**The gap his question exposed:** the chip was a bare, colour-coded `T2` with no
+label, no legend and no tooltip — and `tier_note`, the corpus field that exists
+precisely to explain the call, was **rendered nowhere on `/learn`**. A signed-out
+visitor saw a garnet-to-slate chip and nothing telling them it is a starting
+point that traditions reasonably disagree about. That reads as the site's verdict
+on how much a doctrine matters, which is the one thing this program is built not
+to do.
+
+Fixed, all in `web/learn.*`:
+
+- the index carries a legend explaining the ramp and the word **suggested**;
+- every chip has a `title`: *"Suggested tier: T3. A starting point, not a verdict."*;
+- each doctrine page now renders **`tier_note`** under the framing — for baptism,
+  *"Ortlund puts baptism at the third tier: it shapes which congregation a person
+  can serve in, but it does not divide the gospel. Traditions that hold baptism to
+  be regenerative reasonably tier it higher."*
+
+## 2. Compare now reports where a person's tiering departs from the suggestion
+
+**`CompareCore.tierDiff(corpus, mineDomains, theirsDomains)`**, plus a `#cmp-tiers`
+section on `/compare` above the scorecard.
+
+`diff()` structurally cannot answer this: it resolves a node to a position by
+matching the `hold` sentence and **never reads `tier` at all**. So two people who
+hold exactly the same position on baptism, and who therefore show as `agree` on
+every existing surface, can still disagree about whether it is worth dividing
+over — which is the entire point of theological triage and was invisible.
+
+### The baseline is the corpus, and that was the real decision
+
+"Most common" could have meant an aggregate over other members' maps. It does
+not, for two reasons, and the reasoning is written into the function's own
+comment so a later session does not quietly change it:
+
+1. **There are three accounts in the gallery and two are tests.** An average over
+   them is noise dressed as a finding.
+2. **An aggregate is a judgement about a person.** "Almost nobody tiers this the
+   way this person does" is exactly the shape design §4.6 rules out, and it would
+   arrive without the person compared against ever knowing. A members-aggregate
+   needs its own decision, not a quiet reuse of this function.
+
+So the baseline is `suggested_tier` — the only "commonly held" tiering this app
+has as data. It ships with the corpus, it is the wizard's default, and `/learn`
+publishes it on every row. When the other side has a tier for the same doctrine
+it is shown alongside, flatly, with no verdict attached to the gap.
+
+### It works on a hand-written map, unlike everything else in compare
+
+This is the useful part. Session 13 recorded that Thomas's own map resolves to
+`own-wording` on all 86 doctrines, so the position diff tells him nothing.
+**`tierDiff` needs only `findNode` and `tier`, so it works on his map today:**
+
+```
+Church government          T3 -> T2.5   (more central)   reformed T3
+Baptism                    T3 -> T2     (more central)   reformed T3
+The Lord's Supper          T3 -> T2.5   (more central)   reformed T3
+Membership and discipline  T3 -> T2.5   (more central)   reformed T3
+```
+
+All four are **ecclesiology**, all four moved the same direction, and the
+Reformed map sits at the suggestion on every one. That is a coherent and
+recognisable result — a higher view of the church's boundaries than Ortlund's
+triage assumes — and it is the first thing compare has ever said about his map
+that was not "worded my own way".
+
+### Copy stays descriptive
+
+*"I treat this as more central than suggested"* / *"less dividing than
+suggested"*, both in the same visual weight, neither coloured. The lead sentence
+says plainly that this is **not** a disagreement with anyone: the suggested tier
+is a starting point and moving it is what building a map is for.
+
+## A latent bug the new test found
+
+`findNode` did `for (const d of (domains || []))`, which throws
+`"(domains || []) is not iterable"` for any truthy non-array — reached as soon as
+`tierDiff` was called with no other side, which is a legitimate call. Now guarded
+with `Array.isArray`, **in `findNode` rather than at the call site**, so every
+caller is fixed at once.
+
+The first draft of the test had its own bug worth recording: it built a one-node
+map under the heading `# X`, but `findNode` matches **domain name first, slug
+second**, so nothing resolved — and the "nothing moved" assertion passed for
+entirely the wrong reason. The fixture now uses `WG.domainName(corpus, doctrine)`.
+
+## Verification
+
+| Check | Result |
+|---|---|
+| `node tests/compare-core.test.js` | **PASS** — 16 ok, 1 skipped, exit 0 (two new tierDiff tests) |
+| `node tests/build-traditions.test.js` | **PASS** — 8/8, exit 0 |
+| `py engine/validate_content.py` | **PASS** — exit 0 |
+| `py tests/check_tradition_maps.py` | **PASS** — 12 maps, 0 problems |
+| `node tests/wizard-generate.test.js` (after `rm -rf tests/out`) | **PASS** |
+| `py tests/check_generated_map.py` | **PASS** — 90 prefix maps, 0 problems |
+| `py engine/render.py` + `git diff` on the three generated files | **PASS** — no diff |
+| **Byte identity** `theology-map.html` | **PASS** — `0125f4df…3767` |
+| **Lockstep pair** (`editor-core.js`, `map-view.js`, `render.py`, `wizard-generate.js`) | **PASS** — zero changed lines |
+| `node --check` on `learn.js`, `compare.js` | **PASS** |
+| Second-person voice grep | **PASS** — none |
+| `tierDiff` against the real `theology-map.md` | **PASS** — output above, read by eye |
+
+`engine/compare-core.js` is the one engine file changed. It is phase 6's own
+module, not part of the hand-maintained parser lockstep, and its suite covers it.
+
+**Still not seen in a browser**, per the standing rule. The tier section is a
+flex list of pills; the layout risk is the same as the rest of `/compare`.

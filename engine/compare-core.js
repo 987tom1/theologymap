@@ -121,8 +121,13 @@
    * doctrine. Joins on doctrine.slug AND the node's domain name matching
    * the doctrine's own domain — never on wording. */
   function findNode(domains, doctrine, corpus) {
+    // `domains` is EditorCore.parse output — an ARRAY. Anything else means
+    // "no map on that side", which is a legitimate call (tierDiff needs no
+    // other side at all), not an error: `|| []` alone let a non-array
+    // truthy value through and threw "is not iterable" at the for-of.
+    if (!Array.isArray(domains)) return null;
     const domName = WG.domainName(corpus, doctrine);
-    for (const d of (domains || [])) {
+    for (const d of domains) {
       if (d.name !== domName) continue;
       for (const n of d.nodes) if (n.slug === doctrine.slug) return n;
     }
@@ -289,6 +294,50 @@
     return { rows: rows, columns: columns, totals: totals };
   }
 
+  /* Tier comparison — a different question from every verdict above, and the
+   * one theological triage actually turns on: two people can hold the SAME
+   * position on baptism and still disagree about whether it is worth dividing
+   * over. `diff()` cannot see that, because it resolves on the `hold`
+   * sentence and ignores `tier` entirely.
+   *
+   * The baseline is the corpus's own `suggested_tier`. That is the only
+   * "commonly held" tiering this app has as data: it ships with the corpus,
+   * it is what the wizard offers as the default, and it is what /learn
+   * publishes on every row. It is deliberately NOT an average over other
+   * members' maps — with a handful of accounts such a number would be noise
+   * dressed as a finding, and an aggregate saying "almost nobody tiers this
+   * the way this person does" is a judgement about a person, which design 4.6
+   * rules out. If a members-aggregate is ever wanted it needs its own
+   * decision, not a quiet reuse of this function.
+   *
+   * `theirsTier` is filled in when the other side has a node for the same
+   * doctrine, so a tradition comparison shows both baselines at once.
+   *
+   * Returns one row per doctrine where MY tier differs from the suggested
+   * one — never a score, never a total, and no direction is "better".
+   * `direction` is 'more-central' when my tier outranks the suggestion
+   * (T1 is the most central), 'less-central' otherwise. */
+  function tierDiff(corpus, mineDomains, theirsDomains) {
+    const rows = [];
+    for (const doctrine of WG.orderedDoctrines(corpus)) {
+      const mineNode = findNode(mineDomains, doctrine, corpus);
+      const mineTier = mineNode && mineNode.tier;
+      const suggested = doctrine.suggested_tier;
+      if (!mineTier || !suggested || mineTier === suggested) continue;
+
+      const theirsNode = findNode(theirsDomains, doctrine, corpus);
+      rows.push({
+        doctrine: doctrine,
+        mineTier: mineTier,
+        suggestedTier: suggested,
+        theirsTier: (theirsNode && theirsNode.tier) || null,
+        direction: WG.tierRank(mineTier) < WG.tierRank(suggested)
+          ? 'more-central' : 'less-central',
+      });
+    }
+    return rows;
+  }
+
   /* design 4.7. The ONE place this predicate is decided. decisions.md flags
    * and does NOT decide whether a person should be able to keep a map
    * public while opting out of being a comparison target (that needs an
@@ -301,7 +350,7 @@
   return {
     normalise, candidates, resolvePosition, findNode,
     scorecardTraditions, findTradition,
-    diff, findPosition, positionsInGroup,
+    diff, tierDiff, findPosition, positionsInGroup,
     closestTradition, scorecard, canBeComparedAgainst,
   };
 });

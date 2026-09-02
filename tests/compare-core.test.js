@@ -3,6 +3,7 @@ const assert = require('assert');
 const EditorCore = require('../engine/editor-core.js');
 const BT = require('../engine/build_traditions.js');
 const CC = require('../engine/compare-core.js');
+const WG = require('../engine/wizard-generate.js');
 
 const corpus = BT.loadCorpusSync('content/wizard');
 const traditionMaps = {};
@@ -163,6 +164,57 @@ test('overlapping overrides from two traditions agree in substance', () => {
   const row = CC.diff(corpus, traditionMaps.anglican, traditionMaps.lutheran)
                 .find(r => r.doctrine.slug === 'baptism');
   assert.strictEqual(row.verdict, 'agree-in-substance', row.verdict);
+});
+
+/* tierDiff is the only thing in this file that reads `tier`. diff() ignores it
+ * entirely, so nothing else here would fail if tierDiff silently stopped
+ * reporting — hence a direct test.
+ * NL/MID are just newline and the middot separator, kept out of the string
+ * literals so this stays readable. */
+const NL = String.fromCharCode(10);
+const MID = String.fromCharCode(183);
+/* The domain heading has to be the doctrine's REAL domain name: findNode
+   matches on domain name first and slug second, so a map filed under the
+   wrong heading resolves to nothing at all — which is what the first draft of
+   this test did, and it passed the "nothing moved" assertion for entirely the
+   wrong reason. */
+function oneNodeMap(doctrine, tier) {
+  return EditorCore.parse(
+    ['# ' + WG.domainName(corpus, doctrine), '',
+     '## ' + doctrine.node_title + ' ' + MID + ' ' + tier + ' ' + MID + ' confident',
+     '  hold  Anything at all.', ''].join(NL));
+}
+
+test('tierDiff reports only doctrines whose tier moved, with the direction', () => {
+  const doctrine = BT.allDoctrines(corpus).find(d => d.suggested_tier === 'T3');
+  assert.ok(doctrine, 'corpus has a T3 doctrine to move');
+
+  // Sitting at the SUGGESTED tier: nothing moved, nothing reported.
+  assert.strictEqual(
+    CC.tierDiff(corpus, oneNodeMap(doctrine, doctrine.suggested_tier), {}).length, 0);
+
+  // Pulled up to T1: exactly one row, more central.
+  const rows = CC.tierDiff(corpus, oneNodeMap(doctrine, 'T1'), {});
+  assert.strictEqual(rows.length, 1, 'one moved tier, got ' + rows.length);
+  assert.strictEqual(rows[0].doctrine.id, doctrine.id);
+  assert.strictEqual(rows[0].mineTier, 'T1');
+  assert.strictEqual(rows[0].suggestedTier, doctrine.suggested_tier);
+  assert.strictEqual(rows[0].direction, 'more-central');
+
+  // Pushed down to T4: less central.
+  assert.strictEqual(
+    CC.tierDiff(corpus, oneNodeMap(doctrine, 'T4'), {})[0].direction, 'less-central');
+});
+
+/* The baseline is the CORPUS suggestion, never the other side. Otherwise
+ * "tiered differently" silently becomes "tiered differently from whoever is
+ * being compared against", which is a different and much weaker claim. */
+test('tierDiff measures against the corpus, not against the other side', () => {
+  const rows = CC.tierDiff(corpus, traditionMaps.reformed, traditionMaps.baptist);
+  for (const r of rows) {
+    assert.notStrictEqual(r.mineTier, r.suggestedTier);
+    assert.strictEqual(r.doctrine.suggested_tier, r.suggestedTier);
+  }
 });
 
 process.exit(failed ? 1 : 0);
