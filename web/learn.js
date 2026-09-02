@@ -85,10 +85,27 @@ function refPills(refsStr) {
   return box;
 }
 
+/* The chip carries `suggested_tier`, which is a property of the DOCTRINE, not
+   of any reader — which is why it renders signed out, unlike section 6's "my
+   own answer". It is a starting point a person is free to move, and some
+   traditions reasonably tier the same doctrine higher or lower, so it must
+   never read as this site's verdict on how much a doctrine matters. The word
+   "suggested" and the tier_note below it are what keep that honest. */
 function tierChip(tier) {
   const chip = el('span', 'lp-tier', tier);
   chip.style.background = TIER_VAR[tier] || 'var(--muted)';
+  chip.title = 'Suggested tier: ' + tier + '. A starting point, not a verdict.';
   return chip;
+}
+
+/* The corpus's own explanation of why a doctrine sits where it does. It exists
+   on every doctrine and, until now, was rendered nowhere. */
+function tierNote(doctrine) {
+  if (!doctrine.tier_note) return null;
+  const box = el('div', 'lp-tiernote');
+  box.appendChild(el('span', 'lab', 'Suggested tier ' + (doctrine.suggested_tier || '') + ' — why'));
+  box.appendChild(el('p', null, doctrine.tier_note));
+  return box;
 }
 
 function traditionById(corpus, id) {
@@ -321,6 +338,11 @@ async function renderDoctrine(corpus, doctrine) {
 
   // 1. question (the page title, via mount) + framing.
   if (doctrine.framing) host.appendChild(el('p', 'lp-prose', doctrine.framing));
+
+  // 1b. Why this doctrine sits at the tier the chip shows. The index can only
+  // fit the chip; this is where the sentence behind it belongs.
+  const tn = tierNote(doctrine);
+  if (tn) host.appendChild(tn);
 
   // 2. learn_note, if present.
   if (doctrine.learn_note) {

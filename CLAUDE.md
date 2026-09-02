@@ -376,6 +376,23 @@ logged or counted anywhere. `engine/compare-core.js` says so in a comment at
 session will find the missing people-vs-people scorecard and read it as an
 obvious symmetry to add. **It is not. Do not add it.**
 
+**Tier comparison is a separate question from the diff.** `CompareCore.tierDiff`
+reports where a person's own `tier` departs from the corpus `suggested_tier` —
+which `diff()` cannot see, because it resolves on the `hold` sentence and never
+reads `tier`. Two people can hold the same position and still disagree about
+whether it is worth dividing over; that is what triage means. **The baseline is
+the corpus suggestion, never an average over other members' maps** — with a
+handful of accounts such a number is noise, and "almost nobody tiers this the way
+this person does" is a judgement about a person, which is the thing compare must
+never make. A members-aggregate needs its own decision, not a quiet reuse of
+`tierDiff`.
+
+`/learn` says **suggested** on every tier chip, carries a legend explaining the
+ramp, and renders each doctrine's `tier_note` on its page. That wording is not
+decoration: the chip is corpus data and renders signed out, so without it a
+stranger reads a colour-coded `T1` as this site's verdict on how much a doctrine
+matters.
+
 **`web/corpus.js` is the one browser-side corpus loader** (phase 6). `loadCorpus()`
 and `STANCE_TEXT` were private to `web/wizard.js` until three pages needed them;
 `/wizard`, `/learn` and `/compare` all import them from there now. A fourth page

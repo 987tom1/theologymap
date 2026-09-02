@@ -198,6 +198,63 @@ function renderClosest(host, closest, ownWordingCount) {
     + ' excluded from that count (undecided, own wording, or unanswered on either side).'));
 }
 
+/* Where my own tiering departs from the corpus's suggested tier — a question
+   the per-doctrine diff cannot answer, because it resolves on the `hold`
+   sentence and never looks at `tier`. Two people can hold exactly the same
+   position on baptism and still disagree about whether it is worth dividing
+   over, which is the whole point of theological triage.
+
+   The baseline is the corpus suggestion, not an average over other members:
+   see the comment on CompareCore.tierDiff for why. Shown for a tradition and
+   a member target alike, because it says nothing about the other person. */
+function renderTiers(host, rows, theirsLabel) {
+  host.textContent = '';
+  if (!rows.length) { host.hidden = true; return; }
+  host.hidden = false;
+
+  host.appendChild(el('h3', 'cmp-section-h', 'Where my tiering differs from the suggestion'));
+  host.appendChild(el('p', 'cmp-tier-lead',
+    rows.length + ' doctrine' + (rows.length === 1 ? ' sits' : 's sit')
+    + ' at a different tier in my map than the question set suggests. That is not a '
+    + 'disagreement with anyone — the suggested tier is a starting point, and moving '
+    + 'it is what building a map is for.'));
+
+  const list = el('ul', 'cmp-tier-list');
+  for (const r of rows) {
+    const li = el('li', 'cmp-tier-item');
+    li.appendChild(el('span', 'nm', r.doctrine.node_title));
+
+    const suggested = el('span', 'cmp-tier-pill', r.suggestedTier);
+    suggested.style.background = TIER_VAR[r.suggestedTier] || 'var(--muted)';
+    suggested.title = 'Suggested tier';
+    li.appendChild(suggested);
+
+    li.appendChild(el('span', 'cmp-tier-arrow', '→'));
+
+    const mineP = el('span', 'cmp-tier-pill', r.mineTier);
+    mineP.style.background = TIER_VAR[r.mineTier] || 'var(--muted)';
+    mineP.title = 'My tier';
+    li.appendChild(mineP);
+
+    li.appendChild(el('span', 'cmp-tier-move', r.direction === 'more-central'
+      ? 'I treat this as more central than suggested'
+      : 'I treat this as less dividing than suggested'));
+
+    // Only stated when the other side actually has a tier for it, and stated
+    // flatly — no verdict is attached to the gap.
+    if (r.theirsTier && r.theirsTier !== r.mineTier) {
+      li.appendChild(el('span', 'cmp-tier-move',
+        '· ' + theirsLabel + ': ' + r.theirsTier));
+    }
+
+    const link = el('a', null, 'Why this tier');
+    link.href = '/learn?doctrine=' + encodeURIComponent(r.doctrine.id);
+    li.appendChild(link);
+    list.appendChild(li);
+  }
+  host.appendChild(list);
+}
+
 /* design 4.5: traditions-only table, my own undecided rows shown as one
    greyed row across every column, column totals repeating the 4.4 fraction. */
 function renderScorecard(tableHost, accHost, corpus, sc) {
@@ -387,6 +444,9 @@ async function renderResults(opts) {
       'This is what our two maps say side by side. '
       + bothSettled + ' doctrine' + (bothSettled === 1 ? '' : 's') + ' where both have settled something.';
   }
+
+  renderTiers($('cmp-tiers'), CompareCore.tierDiff(corpus, mine, theirs),
+    isTradition ? targetLabel : targetLabel + "'s map");
 
   renderDiffGroups($('diff-groups'), corpus, rows, verdictText);
 
