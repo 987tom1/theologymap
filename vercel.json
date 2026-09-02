@@ -7,7 +7,9 @@
     { "source": "/history", "destination": "/web/history.html" },
     { "source": "/view", "destination": "/web/view.html" },
     { "source": "/admin", "destination": "/web/admin.html" },
-    { "source": "/wizard", "destination": "/web/wizard.html" }
+    { "source": "/wizard", "destination": "/web/wizard.html" },
+    { "source": "/learn", "destination": "/web/learn.html" },
+    { "source": "/compare", "destination": "/web/compare.html" }
   ],
   "functions": {
     "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" },

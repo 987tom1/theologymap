@@ -18,6 +18,9 @@ import { mount } from '/web/chrome.js';
 // that recur, a search fallback for the long tail. There is exactly one
 // implementation of that and it is not this file.
 import { citationUrl } from '/web/refs.js';
+// Phase 6: the corpus loader and the stance vocabulary moved to
+// web/corpus.js so /learn and /compare read the same two things.
+import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
 const Core = window.EditorCore;
@@ -31,16 +34,6 @@ const LENS_KEY = 'tmm.wizard.tradition';
    read is. */
 const IGNORE_KEY = 'tmm.wizard.ignored';
 
-/* The stance vocabulary in plain English, in ONE place. Design section 4.4
-   defines the five; phase 6's learn page reads the same field, so if these
-   sentences ever move they move once. */
-const STANCE_TEXT = {
-  confessional: 'defined in its confessions',
-  majority: 'the majority view in practice',
-  permitted: 'one of several views its formularies allow',
-  minority: 'a minority stream within it',
-  historic: 'held historically, less common now',
-};
 /* The tier ramp is engine/render.py's, declared as CSS variables in
    wizard.html. Referencing the variables rather than the hexes keeps one copy
    of the colours in this repo's CSS and none in its JS. */
@@ -992,27 +985,6 @@ async function advance(then) {
 
 /* ------------------------------------------------------------------- start */
 
-async function loadCorpus() {
-  const get = async (path) => {
-    const res = await fetch('/content/wizard/' + path);
-    return res.ok ? res.json() : null;
-  };
-  const manifest = await get('manifest.json');
-  const registry = await get('traditions.json');
-  if (!manifest || !registry) {
-    showError('The question set could not be loaded. Please try again shortly.');
-    return null;
-  }
-  const files = {};
-  let missing = 0;
-  for (const entry of manifest.domains || []) {
-    const data = await get(entry.file);
-    // A domain phase 5 has not written yet is the normal state, not an error.
-    if (data) files[entry.id] = data; else missing++;
-  }
-  if (missing) console.info('wizard: ' + missing + ' domain file(s) not published yet; skipped.');
-  return { manifest, traditions: registry, domains: files };
-}
 
 // WG.nextDoctrine() calls WG.orderedDoctrines() itself, which rebuilds every
 // doctrine object fresh (allDoctrines() wraps each with Object.assign) — so
