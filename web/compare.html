@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — Compare</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/engine/theme.css">
+<style>
+  /* Tier ramp — engine/render.py's ramp exactly, per web/wizard.html line 13. */
+  :root {
+    --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
+  }
+
+  h1 { font-size: 1.4em; }
+  .cmp-body-wrap { display: flex; flex-direction: column; gap: 22px; max-width: 900px; }
+
+  /* ---- picker ---- */
+  #picker-traditions, #picker-members { display: grid; gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 10px; }
+  .cmp-section-h { margin: 18px 0 0; font: 400 20px/1.3 var(--serif); }
+
+  /* ---- results head ---- */
+  #results-heading { margin: 0; font: 400 24px/1.3 var(--serif); }
+  #cmp-framing { margin: 4px 0 0; }
+
+  /* ---- closest tradition ---- */
+  #cmp-closest { display: flex; flex-direction: column; gap: 6px; }
+  .cmp-closest-line { margin: 0; font: 15px/1.55 var(--serif); }
+
+  /* ---- scorecard ---- */
+  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: 8px; }
+  .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: 13px/1.4 var(--sans); }
+  .cmp-table th, .cmp-table td { border-bottom: 1px solid var(--line); padding: 6px 9px; text-align: center; white-space: nowrap; }
+  .cmp-table thead th { text-align: center; font: 600 11px/1.3 var(--sans); color: var(--muted); }
+  .cmp-table td.cmp-doctrine { text-align: left; font: 13.5px/1.4 var(--serif); color: var(--ink); white-space: normal; max-width: 26ch; }
+  .cmp-table tr.cmp-table-group th { text-align: left; background: var(--chip); font: 600 11.5px/1.4 var(--sans);
+    letter-spacing: .03em; color: var(--muted); padding: 5px 9px; }
+  .cmp-table td.cmp-undecided { color: var(--muted); font-style: italic; text-align: left; }
+  .cmp-table td.cmp-glyph { font-size: 15px; color: var(--ink); }
+  .cmp-table tfoot th, .cmp-table tfoot td { font: 600 12px/1.3 var(--sans); border-top: 2px solid var(--field-line); border-bottom: none; }
+
+  #sc-accordion-host { display: none; flex-direction: column; gap: 8px; }
+  .cmp-acc { background: var(--panel); border: 1px solid var(--field-line); border-radius: 8px; padding: 4px 12px; }
+  .cmp-acc > summary { cursor: pointer; padding: 8px 0; font: 600 13.5px/1.3 var(--serif); }
+  .cmp-acc-group { margin: 8px 0 2px; font: 600 11px/1.3 var(--sans); letter-spacing: .03em; color: var(--muted); }
+  .cmp-acc-row { margin: 0 0 4px; font: 13px/1.4 var(--serif); }
+  .cmp-acc-row.cmp-grey { color: var(--muted); font-style: italic; }
+
+  @media (max-width: 860px) {
+    #sc-table-wrap { display: none; }
+    #sc-accordion-host { display: flex; }
+  }
+
+  /* ---- diff groups ---- */
+  #diff-groups { display: flex; flex-direction: column; gap: 18px; }
+  .cmp-group { display: flex; flex-direction: column; gap: 8px; }
+  .cmp-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    border-left: 3px solid var(--muted); padding: 3px 0 3px 10px; }
+  .cmp-group-head h3 { margin: 0; font: 600 14px/1.3 var(--sans); letter-spacing: .02em; }
+  .cmp-count { font: 12px/1.3 var(--sans); color: var(--muted); }
+
+  .cmp-row { background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px; padding: 4px 14px; }
+  .cmp-row > summary { cursor: pointer; padding: 10px 0; display: flex; align-items: baseline;
+    justify-content: space-between; gap: 14px; flex-wrap: wrap; list-style: none; }
+  .cmp-row > summary::-webkit-details-marker { display: none; }
+  .cmp-q { font: 600 14.5px/1.4 var(--serif); flex: 1 1 240px; }
+  .cmp-verdict { font: 12.5px/1.3 var(--sans); color: var(--muted); white-space: nowrap; }
+
+  .cmp-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 4px 0 12px; }
+  @media (max-width: 560px) { .cmp-body { grid-template-columns: 1fr; } }
+  .cmp-col { display: flex; flex-direction: column; gap: 4px; }
+  .cmp-col p { margin: 0; }
+  /* Three shapes borrowed from web/wizard.html so the two pages read as one
+     product. Copied rather than hoisted into theme.css: they are page-local
+     text styles there too, and moving them would touch the wizard mid-phase. */
+  .wz-quiet { font: 12.5px/1.5 var(--sans); color: var(--muted); margin: 0; }
+  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
+  .wz-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
+  .cmp-row .wz-framing { margin: 0 0 10px; }
+  .cmp-row a { display: inline-block; margin: 0 12px 10px 0; font: 600 12.5px/1 var(--sans); color: var(--ink);
+    text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
+</style>
+</head>
+<body class="tm-page">
+
+<div id="tmChrome"></div>
+
+<div class="tm-main">
+  <section id="screen-picker">
+    <p class="tm-note">
+      A comparison sits my own map next to a major tradition's or another
+      member's, doctrine by doctrine. Nothing about either map changes, and no
+      comparison is recorded anywhere.
+    </p>
+
+    <h2 class="cmp-section-h">A major tradition</h2>
+    <div id="picker-traditions"></div>
+
+    <h2 class="cmp-section-h">Another member</h2>
+    <p class="tm-note">Any map that is public can be compared against from this page.</p>
+    <div id="picker-members"></div>
+  </section>
+
+  <section id="screen-results" hidden>
+    <div class="cmp-body-wrap">
+      <h2 id="results-heading"></h2>
+      <p id="cmp-framing" hidden><span id="cmp-framing-text"></span></p>
+
+      <div id="cmp-closest" hidden></div>
+
+      <div id="cmp-scorecard" hidden>
+        <h3 class="cmp-section-h" style="font-size:16px">The all-traditions scorecard</h3>
+        <div id="sc-table-wrap"><div id="sc-table-host"></div></div>
+        <div id="sc-accordion-host"></div>
+      </div>
+
+      <div id="diff-groups"></div>
+    </div>
+  </section>
+</div>
+
+<script src="/engine/editor-core.js"></script>
+<script src="/engine/wizard-generate.js"></script>
+<script src="/engine/compare-core.js"></script>
+<script type="module" src="/web/compare.js"></script>
+</body>
+</html>

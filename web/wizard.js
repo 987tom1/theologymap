@@ -1077,6 +1077,16 @@ async function main() {
   // node counts as answered, so there is no wizard state on the server and
   // nothing in localStorage that can go stale (design 5.4). A genuine
   // first-timer gets the intro; everybody else lands on the launchpad.
+  // Phase 6: /compare links an unanswered doctrine straight to the question
+  // that fills it — `/wizard?doctrine=church.baptism`. The id is the stable
+  // key (phase 4 schema); `order` holds doctrine objects, so match on it and
+  // fall through to the normal landing when it names nothing.
+  const wanted = new URLSearchParams(location.search).get('doctrine');
+  if (wanted) {
+    const at = order.findIndex(d => d.id === wanted);
+    if (at >= 0) { renderQuestion(at); return; }
+  }
+
   if (WG.answeredSlugs(domains).size) renderHome();
   else showScreen('intro');
 }
