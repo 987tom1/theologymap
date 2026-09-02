@@ -74,12 +74,6 @@
               "citation": "Lausanne Covenant (1974), Article 5, applied to marriage in affiliated statements"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice of Churches of Christ congregations"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
               "note": null,
@@ -114,31 +108,38 @@
             {
               "tradition": "anglican",
               "stance": "minority",
-              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
-              "citation": "The Episcopal Church, amendments to Canon I.18 (2015)"
+              "note": "The resolution rewrote Canon I.18 to read “Members of the Clergy may solemnize a marriage using any of the liturgical forms authorized by this Church,” removing the requirement that a couple declare marriage to be “a lifelong union of husband and wife,” while leaving it “within the discretion of any Member of the Clergy ... to decline to solemnize or bless any marriage.”",
+              "citation": "The Episcopal Church, General Convention Resolution 2015-A036, amending Canon I.18 (\"Of the Solemnization of Holy Matrimony\"), effective 29 November 2015"
             },
             {
               "tradition": "lutheran",
               "stance": "minority",
-              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
-              "citation": "ELCA, Human Sexuality: Gift and Trust (2009)"
+              "note": "The statement says: “some people ... conclude that marriage is also the appropriate term to use in describing similar benefits, protection, and support for same-gender couples entering into lifelong, monogamous relationships,” naming this one of four “conscience-bound” positions the ELCA holds together rather than its sole teaching. The 2025 Churchwide Assembly further amended the statement to remove the phrase “to be a covenant between a man and a woman” from its definition of marriage.",
+              "citation": "ELCA, Human Sexuality: Gift and Trust (Social Statement, adopted 2009; amended 2025), section \"Lifelong, monogamous, same-gender relationships\""
             },
             {
               "tradition": "methodist",
-              "stance": "minority",
-              "note": "The United Methodist Church specifically, following its 2024 General Conference; see the tradition note.",
-              "citation": "United Methodist Church, General Conference 2024 legislation removing restrictions on same-sex marriage"
+              "stance": "majority",
+              "note": "The revised Social Principles define marriage as “a sacred, lifelong covenant that brings two people of faith, an adult man and woman of consenting age or two adult persons of consenting age, into union with one another,” replacing the former restriction of marriage to a man and a woman; this is now the United Methodist Church's own defined position, not merely a tolerated minority practice.",
+              "citation": "The Book of Discipline of the United Methodist Church, ¶162.D, Social Principles (as revised, General Conference 2024)"
             }
           ],
           "learn_detail": "ELCA's 2009 statement frames this as a matter on which conscience-bound Christians who share the same core convictions disagree, and it permits but does not require congregations and pastors to bless same-sex marriages.",
           "sources": [
             {
               "label": "Human Sexuality: Gift and Trust",
-              "citation": "ELCA, 2009"
+              "citation": "ELCA, Social Statement, adopted 2009, amended 2025",
+              "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
             },
             {
               "label": "The Episcopal Church, Canon I.18",
-              "citation": "as amended 2015"
+              "citation": "Resolution 2015-A036, as amended 2015",
+              "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=2015-A036"
+            },
+            {
+              "label": "The Book of Discipline of the United Methodist Church",
+              "citation": "¶162.D, Social Principles as revised, General Conference 2024",
+              "url": "https://www.umc.org/en/content/social-principles-the-social-community"
             }
           ]
         }
@@ -155,7 +156,8 @@
         },
         {
           "label": "Human Sexuality: Gift and Trust",
-          "citation": "ELCA, 2009"
+          "citation": "ELCA, 2009, amended 2025",
+          "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
         }
       ],
       "tradition_overrides": {
@@ -314,8 +316,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 32"
+              "note": "Chapter 32 of Grudem's practical-ethics volume treats grounds for divorce and remarriage; the earlier citation named chapter 32 of his 1994 Systematic Theology, which is a different book entirely and that chapter (\"Election and Reprobation\") does not address this question.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 32, \"Divorce and Remarriage\""
             },
             {
               "tradition": "pentecostal",
@@ -332,20 +334,14 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "The Church of England's Convocations resolved in 2002 that a divorced person may in exceptional circumstances be married in church during the lifetime of a former spouse, a change from the 1938 Convocation position.",
-              "citation": "Church of England, Convocations of Canterbury and York, resolutions of 2002"
+              "note": "Synod's three Houses voted by large majorities in November 2002 to rescind the 1957 Convocation resolutions against remarrying divorced people in church, recognising instead that “there are exceptional circumstances in which a divorced person may be married in church during the lifetime of a former spouse,” with the decision resting with the minister.",
+              "citation": "Church of England, Convocations of Canterbury and York, resolution rescinded by General Synod, November 2002"
             },
             {
               "tradition": "methodist",
               "stance": "majority",
-              "note": null,
-              "citation": "The Book of Discipline, pastoral guidance on remarriage"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
+              "note": "The Social Principles say: “When a married couple is estranged beyond reconciliation, even after thoughtful consideration and counsel, divorce is a regrettable alternative in the midst of brokenness,” and that divorce “does not preclude remarriage.” The Discipline does not restrict remarriage to Scripture's named exceptions of infidelity or desertion, and the Social Principles are themselves stated not to be church law but a call to prayerful reflection.",
+              "citation": "The Book of Discipline of the United Methodist Church, Social Principles, \"The Social Community: Divorce\" (as revised, General Conference 2024)"
             }
           ],
           "learn_detail": null,
@@ -353,6 +349,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "24.5-6"
+            },
+            {
+              "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning",
+              "citation": "Wayne Grudem, 2018, ch. 32",
+              "url": "https://www.crossway.org/books/christian-ethics-case/"
             }
           ]
         },
@@ -473,12 +474,6 @@
               "citation": "National Association of Evangelicals, resolutions on the sanctity of human life"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
               "note": null,
@@ -521,21 +516,27 @@
             {
               "tradition": "lutheran",
               "stance": "minority",
-              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
-              "citation": "ELCA, A Social Statement on Abortion (1991)"
+              "note": "The statement says: “An abortion is morally responsible in those cases in which continuation of a pregnancy presents a clear threat to the physical life of the woman.” It also says a woman need not carry a pregnancy from rape or incest to term, and that in “circumstances of extreme fetal abnormality” resulting in “severe suffering and very early death,” a parent “may responsibly choose to terminate the pregnancy.”",
+              "citation": "ELCA, A Social Statement on Abortion, adopted by the second biennial Churchwide Assembly, 28 August-4 September 1991, Section IV.B (\"Ending a Pregnancy\")"
             },
             {
               "tradition": "anglican",
               "stance": "minority",
-              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
-              "citation": "Episcopal Church, General Convention resolutions on reproductive health and choice"
+              "note": "The 1994 resolution regards “all abortion as having a tragic dimension” and states abortion “should be performed only in extreme situations,” opposing government action that would “abridge the right of a woman to reach an informed decision about the termination of pregnancy.” The 2022 resolution goes further, affirming “that all Episcopalians should be able to access abortion services and birth control with no restriction on movement, autonomy, type, or timing” — broader than a narrow tragic-cases exception, though General Convention has also said it “emphatically” opposes abortion “as a means of birth control ... or any reason of mere convenience.”",
+              "citation": "The Episcopal Church, General Convention Resolution 1994-A054 (reaffirmed through 2018) and Resolution 2022-D083"
             }
           ],
           "learn_detail": "ELCA's 1991 statement calls abortion always a matter of grave concern and states a preference for continuing a pregnancy wherever possible, while permitting it in the narrow circumstances named.",
           "sources": [
             {
               "label": "A Social Statement on Abortion",
-              "citation": "ELCA, 1991"
+              "citation": "ELCA, 1991",
+              "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
+            },
+            {
+              "label": "The Episcopal Church, General Convention Resolution 1994-A054",
+              "citation": "reaffirmed through 2018",
+              "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=1994-A054"
             }
           ]
         }
@@ -548,7 +549,8 @@
         },
         {
           "label": "A Social Statement on Abortion",
-          "citation": "ELCA, 1991"
+          "citation": "ELCA, 1991",
+          "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
         }
       ],
       "tradition_overrides": {
@@ -668,13 +670,13 @@
               "tradition": "reformed",
               "stance": "majority",
               "note": null,
-              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\""
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
               "note": null,
-              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\""
             },
             {
               "tradition": "lutheran",
@@ -902,14 +904,14 @@
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+              "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\""
             },
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+              "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\""
             },
             {
               "tradition": "non-denominational",
@@ -928,13 +930,16 @@
           "sources": [
             {
               "label": "The Believer and Positive Confession",
-              "citation": "General Presbytery of the Assemblies of God, position paper, approved 19 August 1980",
-              "url": "https://ag.org/Beliefs/Position-Papers/The-Believer-and-Positive-Confession"
+              "citation": "Assemblies of God, 1980"
             },
             {
               "label": "A Statement on the Prosperity Gospel",
-              "citation": "Lausanne Theology Working Group, Africa Chapter, 16 January 2010",
-              "url": "https://lausanne.org/content/a-statement-on-the-prosperity-gospel"
+              "citation": "Lausanne Movement, 2010"
+            },
+            {
+              "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning",
+              "citation": "Wayne Grudem, 2018, ch. 36",
+              "url": "https://www.crossway.org/books/christian-ethics-case/"
             }
           ]
         }
@@ -1080,12 +1085,6 @@
               "stance": "historic",
               "note": "Rooted in Wesley's own counsel and the nineteenth-century temperance movement the Methodist church helped lead; official Methodist bodies now commend rather than confessionally require abstinence.",
               "citation": "The Book of Discipline, Social Principles, on alcohol and other drugs"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
             }
           ],
           "learn_detail": null,
@@ -1351,12 +1350,6 @@
               "stance": "majority",
               "note": null,
               "citation": "National Association of Evangelicals, resolutions on just war"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
             },
             {
               "tradition": "pentecostal",

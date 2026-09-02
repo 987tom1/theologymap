@@ -62,12 +62,6 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 15"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": "Common practice among Churches of Christ rather than a creedal position, consistent with the movement's non-creedal character.",
-              "citation": "Thomas Campbell, Declaration and Address (1809), as applied in settled Churches of Christ practice"
-            },
-            {
               "tradition": "anglican",
               "stance": "permitted",
               "note": "Provinces and dioceses that do not ordain women are provided for by name within the Church of England's own settlement, rather than tolerated outside it.",
@@ -129,6 +123,11 @@
             {
               "label": "Assemblies of God Position Paper on the Role of Women in Ministry",
               "citation": "2010"
+            },
+            {
+              "label": "The Book of Discipline of the United Methodist Church",
+              "citation": "¶304, Qualifications for Ordination",
+              "url": "https://www.umc.org/en/content/book-of-discipline-304-qualifications-for-ordination"
             }
           ]
         }
@@ -307,9 +306,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held on principle, since the movement's founding aim was to restore the New Testament church without any structure above the local congregation.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The chapter describes each congregation as 'under the jurisdiction of no other community,' the several congregations being 'equally independent of one another, as to the management of their own peculiar affairs.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 24, 'The Body of Christ'"
             },
             {
               "tradition": "pentecostal",
@@ -327,6 +326,11 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article VI"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 24, 'The Body of Christ'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS224.HTM"
             }
           ]
         },
@@ -428,9 +432,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held together with baptismal regeneration, which most other credobaptists reject — see the regeneration position.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter states: \"Penitent believers — not infants nor adults, not males nor females, not Jews nor Greeks; but professors of repentance towards God, and faith in Jesus Christ are the proper subjects of this ordinance.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 16, 'Baptism'"
             },
             {
               "tradition": "inc",
@@ -452,9 +456,9 @@
               "url": "https://bfm.sbc.net/bfm2000/"
             },
             {
-              "label": "International Network of Churches, Declaration of Faith",
-              "citation": "February 2022, \"The Ordinances: Baptism and Holy Communion\"",
-              "url": "https://www.inc.org.au/about/statement-of-faith"
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
             }
           ]
         },
@@ -543,9 +547,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held with believer's baptism only, which distinguishes it sharply from the paedobaptist forms.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter applies Acts 2:38 directly to the ordinance: \"Repent, and be baptized every one ... in the name of the Lord Jesus, for the remission of sins.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 16, 'Baptism'"
             }
           ],
           "learn_detail": "Baptismal regeneration is not one position but a family: Rome and the East hold it with infant baptism, the Restorationist stream holds it with believer's baptism only. Grouping them by effect and splitting them by subject is the clearest way to read this doctrine.",
@@ -559,6 +563,11 @@
               "label": "Augsburg Confession",
               "citation": "1530, Article IX",
               "url": "https://bookofconcord.org/augsburg-confession/"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
             }
           ]
         },
@@ -830,9 +839,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter describes the elements as commemorative representations: \"The loaf is thus constituted a representation of his body... The cup is thus instituted a representation of his blood.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, 'Breaking the Loaf'"
             },
             {
               "tradition": "inc",
@@ -848,9 +857,9 @@
               "citation": "SBC, 2000, Article VII"
             },
             {
-              "label": "International Network of Churches, Declaration of Faith",
-              "citation": "February 2022, \"The Ordinances: Baptism and Holy Communion\"",
-              "url": "https://www.inc.org.au/about/statement-of-faith"
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, 'Breaking the Loaf'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS233.HTM"
             }
           ]
         }
@@ -925,8 +934,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter requires formal reception into a particular congregation: a convert 'ought to be saluted or received as such by the brethren with whom he unites,' since 'a person cannot be under the oversight or under the discipline of a congregation, unless he voluntarily associate with the brethren meeting in that place.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 26, 'The Christian Discipline'"
             },
             {
               "tradition": "pentecostal",
@@ -944,6 +953,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 30"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 26, 'The Christian Discipline'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS226.HTM"
             }
           ]
         },

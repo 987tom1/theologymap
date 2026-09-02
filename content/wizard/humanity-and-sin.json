@@ -306,12 +306,6 @@
               "stance": "majority",
               "note": null,
               "citation": "National Association of Evangelicals, Statement of Faith, 1943"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System, 1839"
             }
           ],
           "learn_detail": null,
@@ -636,8 +630,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System, 1839"
+              "note": "The chapter affirms inherited moral frailty short of total inability: \"We all inherit a frail constitution, physically, intellectually, but especially morally frail and imbecile,\" yet \"man, with all his hereditary imbecility, is not under an invincible necessity to sin.\" The chapter does not use the technical term 'prevenient grace.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 7, 'Man As He Is'"
             },
             {
               "tradition": "non-denominational",
@@ -651,6 +645,11 @@
             {
               "label": "On Working Out Our Own Salvation",
               "citation": "John Wesley, sermon"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 7, 'Man As He Is'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS207.HTM"
             }
           ]
         },
@@ -894,12 +893,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Assemblies of God, position paper, The Salvation of Infants and the Mentally Impaired"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, writings on the innocence of childhood"
             },
             {
               "tradition": "non-denominational",

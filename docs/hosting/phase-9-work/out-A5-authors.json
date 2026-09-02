@@ -1,0 +1,36 @@
+[
+  { "op": "held_by.set", "position": "ethics.divorce-and-remarriage/exception-clause", "tradition": "non-denominational",
+    "fields": { "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 32, \"Divorce and Remarriage\"",
+      "note": "Chapter 32 of Grudem's practical-ethics volume treats grounds for divorce and remarriage; the earlier citation named chapter 32 of his 1994 Systematic Theology, which is a different book entirely and that chapter (\"Election and Reprobation\") does not address this question." } },
+
+  { "op": "position.sources", "position": "ethics.divorce-and-remarriage/exception-clause",
+    "sources": [
+      { "label": "Westminster Confession of Faith", "citation": "24.5-6" },
+      { "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning", "citation": "Wayne Grudem, 2018, ch. 32", "url": "https://www.crossway.org/books/christian-ethics-case/" }
+    ] },
+
+  { "op": "held_by.set", "position": "ethics.prosperity-teaching/prosperity-denied", "tradition": "reformed",
+    "fields": { "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\"",
+      "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume." } },
+
+  { "op": "held_by.set", "position": "ethics.prosperity-teaching/prosperity-denied", "tradition": "baptist",
+    "fields": { "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\"",
+      "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume." } },
+
+  { "op": "position.sources", "position": "ethics.prosperity-teaching/prosperity-denied",
+    "sources": [
+      { "label": "The Believer and Positive Confession", "citation": "Assemblies of God, 1980" },
+      { "label": "A Statement on the Prosperity Gospel", "citation": "Lausanne Movement, 2010" },
+      { "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning", "citation": "Wayne Grudem, 2018, ch. 36", "url": "https://www.crossway.org/books/christian-ethics-case/" }
+    ] },
+
+  { "op": "held_by.set", "position": "ethics.ivf-and-embryos/conditionally-permitted", "tradition": "reformed",
+    "fields": { "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\"" } },
+
+  { "op": "held_by.set", "position": "ethics.ivf-and-embryos/conditionally-permitted", "tradition": "non-denominational",
+    "fields": { "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\"" } },
+
+  { "op": "held_by.set", "position": "the-unseen-realm.divine-council/human-judges-reading", "tradition": "baptist",
+    "fields": { "citation": "Wayne Grudem, Systematic Theology (1994), ch. 19, \"Angels\"",
+      "note": "The earlier citation named chapter 20 (\"Satan and Demons\"); Grudem's discussion of whether \"sons of God\"/\"gods\" language names spiritual beings is in the Angels chapter, ch. 19." } }
+]

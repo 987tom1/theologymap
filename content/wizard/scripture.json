@@ -70,8 +70,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Not confessionally bound, but the movement's founding appeal to 'the Bible alone' presumes a text without error in what it asserts.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states the Bible 'contains a full and perfect revelation of God and his will' and treats it as 'a book of facts, not of opinions, theories, abstract generalities.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 2, 'The Bible'"
             },
             {
               "tradition": "inc",
@@ -88,9 +88,9 @@
               "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"
             },
             {
-              "label": "International Network of Churches, Declaration of Faith",
-              "citation": "February 2022, \"The Bible: How We Know God\"",
-              "url": "https://www.inc.org.au/about/statement-of-faith"
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"
             }
           ]
         },
@@ -244,12 +244,6 @@
               "citation": "Dordrecht Confession of Faith (1632), Article 1"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
-            },
-            {
               "tradition": "inc",
               "stance": "confessional",
               "note": "The statement says: “The sixty-six books of the Old and New Testaments comprise the totality of the Inspired Scripture”",
@@ -388,9 +382,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held as the movement's founding plea — 'no creed but the Bible' — rather than as a proposition argued from a confession.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "Proposition 3 states: \"nothing ought to be inculcated upon Christians as articles of faith; nor required of them as terms of communion, but what is expressly taught and enjoined upon them in the word of God.\"",
+              "citation": "Thomas Campbell, Declaration and Address, 1809, Proposition 3"
             },
             {
               "tradition": "methodist",
@@ -405,6 +399,11 @@
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 1.6, 1.10",
               "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Declaration and Address",
+              "citation": "Thomas Campbell, 1809, Proposition 3",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
             }
           ]
         },
@@ -571,9 +570,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Central to the movement's plea that ordinary readers, without creed or clergy, can read the New Testament and see the pattern of the early church plainly.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter states God 'spoke to man in his own language... as one person converses with another, in fair, stipulated, and well established meaning of the terms,' so that 'all within that circle are taught by God.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 2, 'The Bible'"
             },
             {
               "tradition": "methodist",
@@ -588,6 +587,11 @@
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 1.7",
               "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"
             }
           ]
         },
@@ -702,9 +706,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Central to the movement's method, which sought to read the New Testament as a plain historical pattern rather than through inherited creedal categories.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter's rules of interpretation require considering 'the historical circumstances of the book' and hold that 'the same philological principles, deduced from the nature of language... are to be applied to the language of the Bible' as to any other book.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 2, 'The Bible'"
             }
           ],
           "learn_detail": "Grammatical-historical method does not itself forbid recognising typology where the New Testament authors explicitly identify it; the dispute is over reading types and allegories into a text the New Testament does not identify as such.",
@@ -713,6 +717,11 @@
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 1.9",
               "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"
             }
           ]
         },

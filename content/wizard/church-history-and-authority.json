@@ -177,16 +177,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "This position reaches a practical result close to sola scriptura by a different route, and deliberately rejects the Reformation's confessions along with Rome's magisterium.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "Proposition 3 states: \"nothing ought to be inculcated upon Christians as articles of faith; nor required of them as terms of communion, but what is expressly taught and enjoined upon them in the word of God.\"",
+              "citation": "Thomas Campbell, Declaration and Address, 1809, Proposition 3"
             }
           ],
           "learn_detail": "The Stone-Campbell movement's rejection of creeds is a matter of principle, not merely an absence of theology: the Declaration and Address argues that creeds and confessions, whatever truth they contain, function in practice as tests of fellowship that Scripture itself does not authorise.",
           "sources": [
             {
               "label": "Declaration and Address",
-              "citation": "Thomas Campbell, 1809"
+              "citation": "Thomas Campbell, 1809, Proposition 3",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
             }
           ]
         },
@@ -374,9 +375,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Rejects formal creeds on principle while affirming the substance of Nicene Christology as apostolic teaching.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The chapter states: \"We have the Father, Son, and Holy Spirit equally divine, though personally distinct from each other. We have in fact, but one God, one Lord, one Holy Spirit; yet these are equally possessed of one and of the same divine nature,\" affirmed from scripture without treating the Nicene text itself as a term of communion.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 3, 'God'"
             }
           ],
           "learn_detail": "This is a real and stable position, not merely an absence of one: the Stone-Campbell movement in particular affirms Nicene Christology explicitly while declining formal creedal recitation as a matter of principle, and much of the wider non-denominational and Pentecostal stream follows the same pattern without arguing the point as explicitly.",
@@ -384,6 +385,11 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "2000, Article II"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
             }
           ]
         }
@@ -552,16 +558,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Explicitly minimises reliance on post-apostolic human authorities, patristic included, in favour of a direct return to the New Testament text.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The Declaration does not name the church fathers, but grounds its whole argument in requiring nothing 'but what is expressly taught and enjoined... in the word of God,' excluding any post-apostolic human authority, patristic included, from a formal interpretive role.",
+              "citation": "Thomas Campbell, Declaration and Address, 1809, Proposition 3"
             }
           ],
           "learn_detail": "The wider non-denominational and Pentecostal stream is often unfamiliar with the Fathers in practice, a difference of emphasis and formation rather than an argued position; no confessional statement in that stream addresses patristic authority directly, so no held_by claim is made for it here.",
           "sources": [
             {
               "label": "Declaration and Address",
-              "citation": "Thomas Campbell, 1809"
+              "citation": "Thomas Campbell, 1809, Proposition 3",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
             }
           ]
         }
@@ -682,15 +689,16 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Affirms grace through faith in Christ as the ground of salvation while declining to treat any post-apostolic formula, Reformation solas included, as a fixed creedal standard.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states: \"Let THE BIBLE be substituted for all human creeds; FACTS, for definitions, THINGS, for words,\" declining to treat any post-apostolic formula as a fixed creedal standard.",
+              "citation": "Alexander Campbell, The Christian System, 1839, 'Foundation of Christian Union'"
             }
           ],
           "learn_detail": "This position is not a rejection of what the solas teach; it is a application of the movement's general resistance to post-apostolic formulas, Reformation ones included, as tests of fellowship.",
           "sources": [
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839"
+              "citation": "Alexander Campbell, 1839, 'Foundation of Christian Union'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS229.HTM"
             }
           ]
         },

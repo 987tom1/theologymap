@@ -1040,8 +1040,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Drawn from the movement's founding writings rather than a creed.",
-              "citation": "Alexander Campbell, The Christian System, 1839"
+              "note": "The chapter states its value and efficacy are equal to the salvation of the whole world, while its actual application is limited to believers: \"pardon is offered to all who seek it; and the whole world may be saved\"; but \"redemption... is only commensurate with the elect of God, i.e., with those who believe in Jesus and obey him.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 10, 'Sacrifice for Sin'"
             }
           ],
           "learn_detail": null,
@@ -1049,6 +1049,11 @@
             {
               "label": "Free Grace",
               "citation": "John Wesley, sermon, 1739"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 10, 'Sacrifice for Sin'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS210.HTM"
             }
           ]
         },

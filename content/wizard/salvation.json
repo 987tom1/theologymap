@@ -94,8 +94,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states: \"man, with all his hereditary imbecility, is not under an invincible necessity to sin,\" holding the will genuinely free rather than determined.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 7, 'Man As He Is'"
             },
             {
               "tradition": "anabaptist",
@@ -119,6 +119,11 @@
             {
               "label": "Predestination Calmly Considered",
               "citation": "John Wesley, 1752"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 7, 'Man As He Is'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS207.HTM"
             }
           ]
         },
@@ -268,12 +273,6 @@
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "majority",
               "note": null,
@@ -312,6 +311,12 @@
               "stance": "minority",
               "note": null,
               "citation": "William W. Klein, The New Chosen People (1990)"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "The chapter states: \"The present elect of God are, then, those who are in Christ, and not those out of him: for it was in him that God has set his affection upon them, and chose them to eternal life before the world began.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 8, 'The Purposes of God Concerning Man'"
             }
           ],
           "learn_detail": null,
@@ -494,12 +499,6 @@
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
             },
             {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
               "note": null,
@@ -647,12 +646,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
             }
           ],
           "learn_detail": null,
@@ -766,8 +759,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states: \"Any belief... that does not terminate in our personal confidence in Jesus as the Christ, and to induce trustful submission to him, is not faith unfeigned; but a dead faith, and cannot save the soul.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 14, 'Faith in Christ'"
             },
             {
               "tradition": "anabaptist",
@@ -781,6 +774,11 @@
             {
               "label": "The Gospel According to Jesus",
               "citation": "John MacArthur, 1988"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"
             }
           ]
         },
@@ -945,12 +943,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
             }
           ],
           "learn_detail": null,
@@ -1108,16 +1100,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839), ch. 19"
+              "stance": "majority",
+              "note": "The chapter states the convert is 'pardoned wherein he was guilty — justified wherein he was condemned,' reaching 'actual, and sensible, and formal pardon, justification, sanctification, adoption' through faith, repentance and the ordinances (baptism, confession, prayer) together.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 19"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839, ch. 19"
+              "citation": "Alexander Campbell, 1839, ch. 19",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS219.HTM"
             }
           ]
         },

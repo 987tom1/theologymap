@@ -1,0 +1,178 @@
+[
+  {
+    "op": "position.sources",
+    "position": "church.women-in-ministry/egalitarian",
+    "sources": [
+      {
+        "label": "Assemblies of God Position Paper on the Role of Women in Ministry",
+        "citation": "2010"
+      },
+      {
+        "label": "The Book of Discipline of the United Methodist Church",
+        "citation": "¶304, Qualifications for Ordination",
+        "url": "https://www.umc.org/en/content/book-of-discipline-304-qualifications-for-ordination"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.marriage-and-sexuality/covenantal-same-sex-union",
+    "tradition": "lutheran",
+    "fields": {
+      "stance": "minority",
+      "citation": "ELCA, Human Sexuality: Gift and Trust (Social Statement, adopted 2009; amended 2025), section \"Lifelong, monogamous, same-gender relationships\"",
+      "note": "The statement says: “some people ... conclude that marriage is also the appropriate term to use in describing similar benefits, protection, and support for same-gender couples entering into lifelong, monogamous relationships,” naming this one of four “conscience-bound” positions the ELCA holds together rather than its sole teaching. The 2025 Churchwide Assembly further amended the statement to remove the phrase “to be a covenant between a man and a woman” from its definition of marriage."
+    }
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.marriage-and-sexuality/covenantal-same-sex-union",
+    "tradition": "anglican",
+    "fields": {
+      "stance": "minority",
+      "citation": "The Episcopal Church, General Convention Resolution 2015-A036, amending Canon I.18 (\"Of the Solemnization of Holy Matrimony\"), effective 29 November 2015",
+      "note": "The resolution rewrote Canon I.18 to read “Members of the Clergy may solemnize a marriage using any of the liturgical forms authorized by this Church,” removing the requirement that a couple declare marriage to be “a lifelong union of husband and wife,” while leaving it “within the discretion of any Member of the Clergy ... to decline to solemnize or bless any marriage.”"
+    }
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.marriage-and-sexuality/covenantal-same-sex-union",
+    "tradition": "methodist",
+    "fields": {
+      "stance": "majority",
+      "citation": "The Book of Discipline of the United Methodist Church, ¶162.D, Social Principles (as revised, General Conference 2024)",
+      "note": "The revised Social Principles define marriage as “a sacred, lifelong covenant that brings two people of faith, an adult man and woman of consenting age or two adult persons of consenting age, into union with one another,” replacing the former restriction of marriage to a man and a woman; this is now the United Methodist Church's own defined position, not merely a tolerated minority practice."
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.marriage-and-sexuality/covenantal-same-sex-union",
+    "sources": [
+      {
+        "label": "Human Sexuality: Gift and Trust",
+        "citation": "ELCA, Social Statement, adopted 2009, amended 2025",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
+      },
+      {
+        "label": "The Episcopal Church, Canon I.18",
+        "citation": "Resolution 2015-A036, as amended 2015",
+        "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=2015-A036"
+      },
+      {
+        "label": "The Book of Discipline of the United Methodist Church",
+        "citation": "¶162.D, Social Principles as revised, General Conference 2024",
+        "url": "https://www.umc.org/en/content/social-principles-the-social-community"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.marriage-and-sexuality",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2357-2360"
+      },
+      {
+        "label": "Lambeth Conference Resolution I.10",
+        "citation": "1998"
+      },
+      {
+        "label": "Human Sexuality: Gift and Trust",
+        "citation": "ELCA, 2009, amended 2025",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.divorce-and-remarriage/exception-clause",
+    "tradition": "anglican",
+    "fields": {
+      "stance": "permitted",
+      "citation": "Church of England, Convocations of Canterbury and York, resolution rescinded by General Synod, November 2002",
+      "note": "Synod's three Houses voted by large majorities in November 2002 to rescind the 1957 Convocation resolutions against remarrying divorced people in church, recognising instead that “there are exceptional circumstances in which a divorced person may be married in church during the lifetime of a former spouse,” with the decision resting with the minister."
+    }
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.divorce-and-remarriage/exception-clause",
+    "tradition": "methodist",
+    "fields": {
+      "stance": "majority",
+      "citation": "The Book of Discipline of the United Methodist Church, Social Principles, \"The Social Community: Divorce\" (as revised, General Conference 2024)",
+      "note": "The Social Principles say: “When a married couple is estranged beyond reconciliation, even after thoughtful consideration and counsel, divorce is a regrettable alternative in the midst of brokenness,” and that divorce “does not preclude remarriage.” The Discipline does not restrict remarriage to Scripture's named exceptions of infidelity or desertion, and the Social Principles are themselves stated not to be church law but a call to prayerful reflection."
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.divorce-and-remarriage/exception-clause",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "24.5-6"
+      },
+      {
+        "label": "Church of England, Marriage in Church after Divorce",
+        "citation": "Faculty Office advice on the General Synod resolution of November 2002",
+        "url": "https://www.facultyoffice.org.uk/wp-content/uploads/2023/10/marriage-after-divorce-advice.pdf"
+      },
+      {
+        "label": "The Book of Discipline of the United Methodist Church",
+        "citation": "Social Principles, \"The Social Community: Divorce\", as revised 2024",
+        "url": "https://www.umc.org/en/content/social-principles-the-social-community"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.abortion/permitted-in-tragic-cases",
+    "tradition": "lutheran",
+    "fields": {
+      "stance": "minority",
+      "citation": "ELCA, A Social Statement on Abortion, adopted by the second biennial Churchwide Assembly, 28 August-4 September 1991, Section IV.B (\"Ending a Pregnancy\")",
+      "note": "The statement says: “An abortion is morally responsible in those cases in which continuation of a pregnancy presents a clear threat to the physical life of the woman.” It also says a woman need not carry a pregnancy from rape or incest to term, and that in “circumstances of extreme fetal abnormality” resulting in “severe suffering and very early death,” a parent “may responsibly choose to terminate the pregnancy.”"
+    }
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.abortion/permitted-in-tragic-cases",
+    "tradition": "anglican",
+    "fields": {
+      "stance": "minority",
+      "citation": "The Episcopal Church, General Convention Resolution 1994-A054 (reaffirmed through 2018) and Resolution 2022-D083",
+      "note": "The 1994 resolution regards “all abortion as having a tragic dimension” and states abortion “should be performed only in extreme situations,” opposing government action that would “abridge the right of a woman to reach an informed decision about the termination of pregnancy.” The 2022 resolution goes further, affirming “that all Episcopalians should be able to access abortion services and birth control with no restriction on movement, autonomy, type, or timing” — broader than a narrow tragic-cases exception, though General Convention has also said it “emphatically” opposes abortion “as a means of birth control ... or any reason of mere convenience.”"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.abortion/permitted-in-tragic-cases",
+    "sources": [
+      {
+        "label": "A Social Statement on Abortion",
+        "citation": "ELCA, 1991",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
+      },
+      {
+        "label": "The Episcopal Church, General Convention Resolution 1994-A054",
+        "citation": "reaffirmed through 2018",
+        "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=1994-A054"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.abortion",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2270-2275"
+      },
+      {
+        "label": "A Social Statement on Abortion",
+        "citation": "ELCA, 1991",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
+      }
+    ]
+  }
+]
