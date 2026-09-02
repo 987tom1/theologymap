@@ -517,7 +517,10 @@
             "creation-and-science.age-of-the-earth/old-earth",
             "creation-and-science.age-of-the-earth/evolutionary-creationism"
           ],
-          "hold": "Rome takes no confessional position on the age of the earth, leaving members free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held.",
+          "hold": "There is no confessional position on the age of the earth; the faithful are free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held.",
+          "superseded_holds": [
+            "Rome takes no confessional position on the age of the earth, leaving members free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held."
+          ],
           "why": null,
           "vs": null,
           "tier": null,
@@ -1000,7 +1003,10 @@
             "creation-and-science.miracles-and-science/real-divine-acts",
             "creation-and-science.miracles-and-science/methodological-naturalism"
           ],
-          "hold": "Rome affirms miracles as real divine acts and treats them as motives of credibility for revelation, while also holding, through its long engagement with the natural sciences, that the scientific method properly investigates only natural causes and cannot itself adjudicate a miracle claim.",
+          "hold": "Miracles are affirmed as real divine acts and treated as motives of credibility for revelation, while the natural sciences are held, through a long engagement with them, to investigate natural causes only and so to be unable to adjudicate a miracle claim.",
+          "superseded_holds": [
+            "Rome affirms miracles as real divine acts and treats them as motives of credibility for revelation, while also holding, through its long engagement with the natural sciences, that the scientific method properly investigates only natural causes and cannot itself adjudicate a miracle claim."
+          ],
           "why": null,
           "vs": null,
           "tier": null,

@@ -288,7 +288,7 @@ stay off the wire.
 | `_lib.py` | env resolver, `pg()`, `reply`/`error`/`unknown_user`, `read_json`, `verify_credentials`, `require_admin`, `guard`. Not a route (a leading `_` is not routed by Vercel). |
 | `render.py` | `POST` `{markdown}`, `{name}` **or** `{user_id}` → `text/html`. `name` is the public read path; both lookup paths 404 for a non-public map. |
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
-| `map.py` | `GET ?user_id=` → the map + its `updated_at` token and `is_public`; `POST` saves with optimistic concurrency, or `{action: …}` for `copy_from` / `versions` / `restore` / `set_visibility` |
+| `map.py` | `GET ?user_id=` → the map + its `updated_at` token and `is_public`, for the **owner** (and the admin console) — the id is a save-authorising secret, so this path is not guarded on `is_public` and must not be, or an owner cannot read their own unlisted map. `GET ?name=` is the **public** read path, added for phase 6's compare: it returns markdown **only** when that row's `is_public` is true, 404s otherwise, and never returns an id; `POST` saves with optimistic concurrency, or `{action: …}` for `copy_from` / `versions` / `restore` / `set_visibility` |
 | `gallery.py` | `GET` → public maps, newest first, `limit=200`: `name`, `updated_at`, the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`), and `started_from` when the map is an unedited copy. **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
 | `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
 
@@ -363,6 +363,24 @@ the short path. Two consequences that have each caused a real bug:
 | `/admin` | `web/admin.html` — admin console |
 | `/history` | `web/history.html` — the caller's own earlier versions, and Restore. Nothing else. |
 | `/wizard` | `web/wizard.html` — the wizard **launchpad** and the questions. Signed-out visitors are sent to `/`. |
+| `/view?tradition=` | `web/view.html` — the same page, rendering a **generated tradition map** from `content/traditions/`. Carries a standing line saying it is a generated summary, not a person's map. |
+| `/learn` | `web/learn.html` — the by-doctrine reference surface. `?doctrine=<id>` is the page that matters; `?tradition=<id>` is its transpose. Works signed out. |
+| `/compare` | `web/compare.html` — my map against a tradition or another member. `?tradition=`, `?name=` and `?doctrine=` skip the picker. Signed in only. |
+
+**Compare is descriptive, never evaluative, and that is load-bearing.** The
+"closest tradition" is said of **traditions only** and always with its
+denominator; there is deliberately **no person-vs-person scorecard, no score
+attached to a named person and no leaderboard**, and no comparison is notified,
+logged or counted anywhere. `engine/compare-core.js` says so in a comment at
+`scorecard()` and `web/compare.js` says so again at the member branch. A later
+session will find the missing people-vs-people scorecard and read it as an
+obvious symmetry to add. **It is not. Do not add it.**
+
+**`web/corpus.js` is the one browser-side corpus loader** (phase 6). `loadCorpus()`
+and `STANCE_TEXT` were private to `web/wizard.js` until three pages needed them;
+`/wizard`, `/learn` and `/compare` all import them from there now. A fourth page
+that fetches `content/wizard/*.json` itself is the duplication this file exists to
+prevent.
 
 **`/app` no longer exists (2026-08-27).** `web/index.html` and `web/first-run.js`
 are deleted and the four things that page did have gone to three places: sign-in
@@ -379,8 +397,12 @@ out. Below 640px it scrolls horizontally rather than wrapping, which is what
 `flexWrap` inline, and an inline style beats a media query, so that rule was dead
 from the day it was written. Do not put the wrap styles back on the element.
 
-**"My map", "History" and Unlist/Relist are tiles on `/`, not nav links**
-(2026-08-29). Six nav items is what fits a phone. `engine/editor.html` carries a
+**"My map", "History", Unlist/Relist, Learn and Compare are tiles on `/`, not
+nav links** (2026-08-29; Learn and Compare added by phase 6). Six nav items is
+what fits a phone, and `/learn` and `/compare` reach it the same way the other
+three do rather than pushing the nav to eight. **Learn is a static tile** — it
+works signed out, like the gallery; **Compare is built for a signed-in visitor
+only**, because it needs a map to compare. `engine/editor.html` carries a
 hand-written copy of the same list because it cannot import `chrome.js` — that is
 the documented `file://` exception, not drift, and the two are kept in step by
 hand; there the leading Home link reuses the markup's existing "Open the map ↗"

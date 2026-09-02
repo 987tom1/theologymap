@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Theology Map — Learn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/engine/theme.css">
+<style>
+  /* Tier ramp — engine/render.py's ramp exactly, wizard.html's own copy of
+     the same variables. Declared per page rather than in theme.css so the
+     colour choice stays visible next to the markup that uses it. */
+  :root {
+    --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
+  }
+
+  [hidden] { display: none !important; }
+
+  main.tm-page { max-width: 900px; }
+  body.tm-page { max-width: none; }
+
+  .lp-lead { max-width: 62ch; color: var(--muted); font: 14px/1.55 var(--serif); margin: 0 0 16px; }
+
+  /* ---- filter ---- */
+  .lp-filter-row { display: flex; flex-direction: column; gap: 5px; max-width: 420px; margin-bottom: 18px; }
+  .lp-filter-row label { font: 600 11px/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  #lp-filter {
+    border: 1px solid var(--field-line); border-radius: 8px; background: var(--bg);
+    color: var(--ink); padding: 9px 11px; font: 14.5px/1.4 var(--serif);
+  }
+  #lp-filter:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+  /* ---- doctrine index ---- */
+  .lp-domain { margin-bottom: 22px; }
+  .lp-domain h2 { font: 400 19px/1.3 var(--serif); margin: 0 0 8px; }
+  .lp-rows { display: flex; flex-direction: column; gap: 7px; }
+  .lp-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 12px; text-decoration: none; color: var(--ink);
+  }
+  .lp-row:hover { border-color: var(--field-line); }
+  .lp-row .nm { font: 14.5px/1.4 var(--serif); flex: 1 1 auto; min-width: 0; }
+  .lp-row .meta { display: flex; align-items: center; gap: 8px; flex: none; }
+  .lp-row .count { font: 12px/1.4 var(--sans); color: var(--muted); white-space: nowrap; }
+
+  .lp-tier {
+    font: 600 11px/1 var(--sans); letter-spacing: .02em; color: #fff;
+    padding: 5px 8px; border-radius: 99px; white-space: nowrap;
+  }
+
+  /* ---- reference pills ---- */
+  .lp-refs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
+  .lp-refchip {
+    font: 500 11px/1.5 var(--sans); letter-spacing: .01em; color: var(--muted);
+    background: transparent; border: 1px solid var(--field-line);
+    padding: 2.5px 7px; border-radius: 4px; white-space: nowrap;
+  }
+
+  /* ---- doctrine page ---- */
+  .lp-back { display: inline-block; margin-bottom: 14px; font: 600 12.5px/1 var(--sans);
+             color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .lp-back:hover { color: var(--ink); }
+  .lp-section { margin: 26px 0; }
+  .lp-section h2 { font: 400 19px/1.3 var(--serif); margin: 0 0 10px; }
+  .lp-section h3 { font: 600 15.5px/1.3 var(--serif); margin: 0; }
+  .lp-prose { max-width: 68ch; font: 14.5px/1.6 var(--serif); margin: 0 0 10px; }
+  .lp-hint { max-width: 68ch; font: 13px/1.55 var(--serif); color: var(--muted); margin: 4px 0; }
+
+  .lp-positions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 860px) { .lp-positions { grid-template-columns: 1fr; } }
+  .lp-pos {
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .lp-pos-label { font: 600 11px/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .lp-outside { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
+                text-transform: uppercase; color: var(--muted); }
+  .lp-outside-note { margin: 2px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); }
+
+  .lp-who { margin: 0; display: grid; grid-template-columns: 170px 1fr; gap: 8px 18px; align-items: baseline; }
+  .lp-who dt { font: 600 13.5px/1.5 var(--serif); }
+  .lp-who dd { margin: 0; font: 13px/1.55 var(--serif); color: var(--muted); }
+  .lp-who .stance { color: var(--ink); }
+  @media (max-width: 480px) { .lp-who { grid-template-columns: 1fr; } }
+
+  .lp-mine {
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; max-width: 68ch;
+  }
+  .lp-mine-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .lp-mine-actions a { font: 600 12.5px/1 var(--sans); color: var(--muted); text-decoration: none;
+                        border-bottom: 1px solid var(--line); }
+  .lp-mine-actions a:hover { color: var(--ink); }
+
+  .lp-sources { display: flex; flex-direction: column; gap: 4px; }
+
+  .lp-prose a, .lp-hint a, .lp-sources a, .lp-who dd a {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--muted); text-underline-offset: 2px;
+  }
+  .lp-prose a:hover, .lp-hint a:hover, .lp-sources a:hover, .lp-who dd a:hover {
+    text-decoration-color: var(--ink);
+  }
+</style>
+</head>
+<body class="tm-page">
+
+<div id="tmChrome"></div>
+
+<main>
+
+<section id="view-index" hidden>
+  <p class="lp-lead">Every doctrine the corpus covers, grouped by domain. Open one to read the positions side by side.</p>
+  <div class="lp-filter-row">
+    <label for="lp-filter">Filter doctrines</label>
+    <input id="lp-filter" type="text" placeholder="Search by title, question or position">
+  </div>
+  <div id="lp-index-list"></div>
+</section>
+
+<section id="view-doctrine" hidden>
+  <a class="lp-back" href="/learn">&larr; All doctrines</a>
+  <div id="lp-doctrine-body"></div>
+</section>
+
+<section id="view-tradition" hidden>
+  <a class="lp-back" href="/learn">&larr; All doctrines</a>
+  <div id="lp-tradition-body"></div>
+</section>
+
+<p id="lp-notfound" hidden>Not found.</p>
+
+</main>
+
+<script src="/engine/editor-core.js"></script>
+<script src="/engine/wizard-generate.js"></script>
+<script type="module" src="/web/learn.js"></script>
+</body>
+</html>

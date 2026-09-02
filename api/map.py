@@ -25,8 +25,31 @@ MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check cons
 def _get_map(self):
     qs = parse_qs(urlparse(self.path).query)
     user_id = (qs.get("user_id") or [None])[0]
+    name = (qs.get("name") or [None])[0]
+
+    # Phase 6, design 4.7: compare needs to read someone else's map. The plan
+    # said to guard the `user_id` path on is_public, but phase 2 (B1) already
+    # moved the public read key OFF the id — the id authorises a save, the
+    # gallery no longer publishes it, and the only caller that still holds one
+    # is the owner (wizard, editor) or the admin console. Guarding `user_id`
+    # would lock an owner out of their own unlisted map; guarding the PUBLIC
+    # key is the same rule applied where the exposure actually is. So `name`
+    # is the compare-target path and it returns markdown only for a public
+    # map. `id` is never in the reply, exactly as /api/gallery is careful not
+    # to publish one. This mirrors api/render.py's `name` branch.
+    if name and not user_id:
+        row = row_by_name(name, "markdown,updated_at,is_public,name")
+        if row is None or not row["is_public"]:
+            return unknown_user(self)
+        return reply(self, 200, {
+            "markdown": row["markdown"],
+            "updated_at": row["updated_at"],
+            "is_public": row["is_public"],
+            "name": row["name"],
+        })
+
     if not user_id:
-        return error(self, 400, "bad_request", "Missing user_id.")
+        return error(self, 400, "bad_request", "Missing user_id, or a name.")
 
     status, rows, _ = pg("GET", f"/users?id=eq.{q(user_id)}"
                                  "&select=markdown,updated_at,is_public,name")

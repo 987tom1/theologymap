@@ -62,7 +62,7 @@
 
 ## Divine foreknowledge · T3 · confident
   hold  God simply knows the whole future as it will actually be, without that knowledge being grounded in a decree that determines it or in a prior knowledge of what creatures would do under other circumstances.
-  why   Foreknowledge is knowledge, not causation, and a God who sees what will be does not thereby make it be; the classical Arminian tradition has held exactly this since the Remonstrance.
+  why   Foreknowledge is knowledge, not causation, and a God who sees what will be does not thereby make it be; the traditions holding this read God's knowledge of the future as reading it rather than as fixing it.
   vs    Accounts that make God's knowledge of the future depend on his having determined it, which this position holds turns foreknowledge into another name for predestination.
   refs  Rom 8:29; 1 Pet 1:2; Isa 46:9-10
   link  open-theism

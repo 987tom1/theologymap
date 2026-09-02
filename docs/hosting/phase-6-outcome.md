@@ -355,3 +355,250 @@ None touch the data model or the file format.
   Do it again next session; it reads whatever is there.
 - The throwaway accounts (`zz-phase8-check`, `zz-phase8-check-2`, `zz-schema-check`) are
   still in the gallery and still need an admin PIN. Nothing in this phase could clear them.
+
+---
+---
+
+# Phase 6 — outcome (session 13, Tasks 3–7)
+
+**Branch:** `phase-6-compare`, the same branch session 12 used. **Model:** Opus main
+thread, two Sonnet subagents (one per surface, Tasks 4 and 5 in parallel).
+**Design canvas:** unchanged — <https://claude.ai/code/artifact/2f7bf0db-0b6d-450a-b447-3611969c5277>
+
+Tasks 3–7 are complete and merged. What follows is what landed, what the plan got
+wrong about the repo as it now stands, and the findings the hand-read produced.
+
+## What shipped
+
+| Path | What it is |
+|---|---|
+| `web/view.html` | **modified** — a `?tradition=` branch, same page and same render call |
+| `web/corpus.js` | **new** — one corpus loader and one `STANCE_TEXT`, shared by three pages |
+| `web/learn.html` / `web/learn.js` | **new** — the by-doctrine reference surface, three views |
+| `web/compare.html` / `web/compare.js` | **new** — picker, per-doctrine diff, closest tradition, scorecard |
+| `api/map.py` | **modified** — a public `?name=` read path (see below) |
+| `web/wizard.js` | **modified** — reads `corpus.js`; accepts `/wizard?doctrine=<id>` |
+| `vercel.json` | **modified** — `/learn` and `/compare` rewrites |
+| `content/wizard/*.json` | **modified** — seven corpus corrections, below |
+
+## Three places the plan was wrong about the repo, and what was done instead
+
+The plan was written before phase 7 and before the August UI rounds. None of these
+are judgment calls; the repo had moved.
+
+1. **Task 3's code assumes `/view?id=`. That parameter no longer exists.** `view.html`
+   is keyed by `?name=` and POSTs `{name}` to `/api/render`, which fetches the map
+   server-side (phase 2, B1: the row id authorises a save, so it is not public). The
+   tradition branch therefore fetches `content/traditions/<file>` client-side and
+   POSTs `{markdown}` — a shape `api/render.py` already supports. No route added, no
+   change to `api/render.py`.
+
+2. **Task 6 says to guard the `user_id` GET on `is_public`. Doing that would have
+   been a bug.** With ids no longer public, the only callers holding one are the
+   owner (wizard, editor) and the admin console — so an `is_public` guard there
+   would lock an owner out of their own unlisted map. The exposure moved to the
+   **name**, so the guard went there: `GET /api/map?name=` returns markdown **only**
+   for a public map and 404s otherwise, and never returns an id. Same rule, applied
+   where the public key actually is. `/compare?name=` is consequently the member
+   deep link, not the plan's `?user=`.
+
+3. **Task 5's member fetch (`/api/map?user_id=<targetId>`) is unreachable** for the
+   same reason — `/api/gallery` publishes no ids. Compare uses `?name=`.
+
+**The plan's byte-identity constant (`eaedf3e4…1a90`) is stale.** Phase 7 redesigned
+the generated views and re-baselined deliberately; `CLAUDE.md` line 248 carries the
+current hash. Verified against **that**: `0125f4df…3767`, exact match.
+
+## The hand-read (Task 7 Step 2), and the six things it found
+
+`roman-catholic.md` (76 nodes) and `orthodox.md` (62) read end to end on the main
+thread. Both are broadly excellent — the Orthodox map's `Justification`,
+`Sovereignty and free will`, `Prima scriptura`, `The Fathers`, `Intermediate state`
+and `The creeds` entries are genuinely Eastern and well made, and the Catholic map's
+`Divorce and remarriage`, `Church and the public square` and `Euthanasia` entries
+would be signed without hesitation.
+
+**Every problem found had one cause: a position shared with a Western tradition
+carries prose written from the Western side.** The per-tradition `citation` fields
+are consistently right (Dositheus, Philaret, John of Damascus for Orthodoxy); it is
+the shared `hold`/`why` that leaks.
+
+### 1. The Orthodox map confessed Lutheran eucharistic doctrine — the real defect
+
+`orthodox` sat in `church.lords-supper/real-presence`'s `held_by`, whose `hold` is
+the Lutheran *"in, with and under … received by all communicants whether or not they
+believe"* and whose `vs` explicitly rejects *"a change in the substance of the
+elements."*
+
+**The corpus already knew this was wrong.** That same `held_by` entry's own note
+reads *"The East affirms a real change but has historically declined to define it in
+the Western scholastic vocabulary of substance and accident,"* cited to **Confession
+of Dositheus (1672), Decree 17** — the decree that uses μετουσίωσις. The note
+contradicted the position it was attached to. And because `build_traditions.js`
+writes only `hold`/`why`/`vs`/`todo`/`refs`/`link`, **a `note` has no path into a
+generated map**: the qualification was invisible and only the contradiction shipped.
+
+Fixed in `content/wizard/church.json`: the Orthodox entry moved to the
+`transubstantiation` position — the one position in the corpus that affirms a change
+— plus a `tradition_overrides["orthodox"]` spanning it, so the generated node states
+it in Orthodox terms (*the manner of the change confessed as a mystery rather than
+defined in the scholastic vocabulary of substance and accident*) rather than under a
+Latin label. Same shape and same reasoning as session 12's Roman Catholic election
+override. Citation unchanged — Dositheus Decree 17, already in the corpus. Node
+count unchanged.
+
+**This is the class of error phase 9 exists to find, found by reading one map.** It
+was not a sourcing gap: the source was right and the position was wrong.
+
+### 2. Five `why` lines written from outside the tradition holding them
+
+All five are shared positions. `why` is free to change — compare matches on `hold`
+— so all five were corrected in place, five lines total:
+
+| Position | Was | Now |
+|---|---|---|
+| `salvation.perseverance-and-apostasy/mortal-sin-restoration` | grounded in **Trent** | the shared logic, no council named |
+| `salvation.assurance/present-grace-only` | grounded in **Trent** | as above |
+| `humanity-and-sin.depravity-and-prevenient-grace/synergistic` | *"Catholic and Orthodox theology reject…"* | stated from inside |
+| `humanity-and-sin.age-of-accountability/baptismal` | *"**Both traditions** treat baptism…"* — no antecedent in a single-tradition map | stated from inside |
+| `god.divine-foreknowledge/simple` | *"the classical **Arminian** tradition has held exactly this since the Remonstrance"* — held by six traditions including Orthodoxy | no single tradition named |
+
+An Orthodox reader was being told that **Trent** grounds their belief about grace and
+assurance. That is the sharpest wince in either map after the Eucharist.
+
+**Phase 9 should restore per-tradition grounds** — the right home for them is each
+`held_by` entry's own `citation`, which is already correct and was not touched.
+
+### 3. Two "Rome" holds — and the first real use of `superseded_holds`
+
+`creation-and-science.miracles-and-science` and `.age-of-the-earth` each carried a
+`roman-catholic` **override** whose `hold` began *"Rome affirms…"* / *"Rome takes no
+confessional position…"* — the only two nodes in the map referring to the communion
+in the third person, and a term many Catholics read as othering.
+
+Because both live on an **override**, they reach only the Roman Catholic map, so the
+blast radius is one tradition plus any member map carrying that exact wording.
+Reworded, with the previous text pushed into **`superseded_holds`**.
+
+**Session 12 shipped `superseded_holds` read-but-never-written and flagged that
+nothing enforced a writer. This is its first writer, and the path is now proven end
+to end**: a map carrying the old *"Rome takes no confessional position…"* wording
+still resolves to
+`creation-and-science.age-of-the-earth/@override:roman-catholic`, not to
+`own-wording`. Verified by running it, not by reading the code. Phase 9 has a
+worked example to copy.
+
+### 4. Raised, not fixed — for Thomas and for phase 9
+
+- **`creation-and-science.genre-of-genesis-1` attributes six-ordinary-day literalism
+  to Orthodoxy as its position.** Orthodoxy has no dogmatic position here and the
+  patristic readings vary widely. Left alone deliberately: correcting it means
+  removing or re-sourcing a `held_by` entry, which is phase 9's job and needs a
+  retrieved source, not a guess. **Flagged as a Tier A/B phase 9 item.**
+- The Catholic `Atonement` node states satisfaction alone with penal substitution as
+  its `vs`. Defensible and recognisable; noted, not changed.
+
+## The finding that matters most for anyone testing this
+
+**Compared against `theology-map.md` — Thomas's own hand-written map — every single
+doctrine reads `own-wording`.** Measured: **73 of 86 rows own-wording, 12 undecided,
+1 rejected, and zero resolved to a position.** No closest tradition is named and the
+scorecard is empty of verdicts.
+
+**This is correct behaviour, not a bug.** Compare recovers a position by exact
+normalised match on the `hold` sentence, and Thomas wrote his holds by hand years
+before the wizard existed. `CLAUDE.md` is explicit that his map "is not user 1's row
+in the database." A **wizard-built** map resolves properly — a tradition map against
+itself is 82 of 82 agree with zero differences, and Reformed vs Baptist is 50 agree,
+10 agree-in-substance, 17 differ, which reads as a real and recognisable set of
+disagreements (creeds recited vs affirmed; renewed vs replaced creation; meticulous
+vs general providence).
+
+Per the plan's own instruction, **the match was not loosened to improve this number.**
+
+One copy fix was made instead. The closest-tradition guard fires below eight
+resolvable doctrines, and its specified copy — *"not enough answered questions
+yet"* — is actively misleading to someone whose map is complete but hand-written.
+`compare.js` now distinguishes the two cases and says which one applies. **This is
+the first thing to expect a "compare is broken" report about, and it will be Thomas's
+own map that produces it.**
+
+## Decisions made rather than waiting
+
+1. **`web/corpus.js`.** Three pages needed `loadCorpus()` and `STANCE_TEXT`; phase 4
+   had both private inside `wizard.js`. Extracted rather than copied twice — the
+   plan's Task 4 Step 3 asked for exactly this. `wizard.js` imports them now.
+2. **`/wizard?doctrine=<id>`.** The plan requires a `mine-unanswered` row to link
+   "into `/wizard` at that doctrine" and no such deep link existed. Six lines in
+   `wizard.js`'s `main()`, matching on `doctrine.id`.
+3. **An override spanning one position no longer reads "No single position."** Three
+   of the corpus's 53 overrides span exactly one, and each says in its own note that
+   the tradition is *not* divided. `/learn` would have invented a division the corpus
+   explicitly denies.
+4. **Gallery rows reach `canBeComparedAgainst` as `{...row, is_public: true}`**, with
+   a comment: `/api/gallery` is public-only by construction and carries no such
+   field. One predicate, one gate — not a second one.
+5. **Scorecard glyph collapse**: agree / agree-in-substance / differ keep their own
+   glyph, everything else collapses to "no position". Design §4.5 names four glyphs
+   without enumerating the mapping.
+
+## Still open — needs Thomas, not a session
+
+**Can a person keep a map public but opt out of being a comparison target?**
+Unchanged from session 12 and still not decided. It needs an `is_comparable` column,
+which is a data-model change, so it stops and waits. Design §8's three options stand.
+Until then **public means comparable**, which is the locked call, and phase 6 ships
+the two no-schema mitigations: the picker says plainly that a public map can be
+compared against, and **no comparison is notified, logged or counted** — nothing in
+`compare.js` records anything anywhere.
+
+Session 12's other two open items also stand unchanged: the three doctrines named
+after one of their positions (`Open theism`, `Continuationism`, `EFS / ESS`), and
+`orthodoxy: "contested"` — which `/learn` now surfaces as a plain "Contested" label
+with the corpus's own note, and which the compare engine still ignores entirely.
+
+## Verification — every command run, every output read
+
+| Check | Result |
+|---|---|
+| `py engine/validate_content.py` | **PASS** — exit 0, 0 errors, 31 warnings (unchanged by seven corpus edits) |
+| `node engine/build_traditions.js` | **PASS** — 12 maps, **698 nodes**, unchanged |
+| `node tests/build-traditions.test.js` | **PASS** — 8/8, exit 0 |
+| `node tests/compare-core.test.js` | **PASS** — 14 ok, 1 skipped (no equivalence pair in corpus), exit 0 |
+| `py tests/check_tradition_maps.py` | **PASS** — 12 maps, **0 problems** |
+| `node tests/wizard-generate.test.js` (after `rm -rf tests/out`) | **PASS** — all passed |
+| `py tests/check_generated_map.py` | **PASS** — 90 prefix maps, 0 problems |
+| `py engine/corpus_refs.py` then `fetch_verses.py` | **PASS** — 482 entries, **0 blank** |
+| Every `refs` part in all 12 tradition maps | **PASS** — 1608 ref parts, **0 unresolvable** |
+| `py engine/render.py` | **PASS** — zero warnings, 99 nodes, 156 refs, 0 without text |
+| `git diff` on the three generated files | **PASS** — no diff |
+| **Byte identity** `theology-map.html` | **PASS** — `0125f4df…3767`, exactly `CLAUDE.md` line 248 |
+| **Lockstep**: `git diff main -- engine/` | **PASS** — **zero changed lines**, all six files |
+| `node --check` on `learn.js`, `compare.js`, `corpus.js`, `wizard.js` | **PASS** — all parse |
+| Second-person voice grep, all four new files | **PASS** — none |
+| `innerHTML` grep, all four new files | **PASS** — none |
+| Self-comparison (reformed vs reformed) | **PASS** — 82 agree, **0 differ** |
+| Cross-comparison plausibility (reformed vs baptist) | **PASS** — read by eye, three rows checked against the corpus |
+| `superseded_holds` round trip on a reworded hold | **PASS** — old wording resolves to the position, not `own-wording` |
+| Secrets in anything added | **PASS** — none |
+
+**Not verified, and stated plainly**: nothing here has been seen on a screen. Browser
+verification is forbidden by the standing rule, so the two new surfaces are verified
+by parse, by grep, by reading them end to end, and by exercising every engine call
+they make headlessly against real data — but no one has looked at `/learn` or
+`/compare` in a browser. **That is the largest remaining risk in this phase**, and
+it is a layout risk rather than a logic one.
+
+## For the next session
+
+- Phase 9 (`phase-9-corpus-sourcing-verification.md`) is the only phase left.
+  It now has three concrete leads from this session: the Genesis 1 Orthodox
+  attribution, the five `why` lines needing per-tradition grounds restored, and a
+  proven `superseded_holds` workflow.
+- **The pattern worth generalising for phase 9**: this session found a wrong
+  attribution *without web access*, because **the corpus contradicted itself** — a
+  `held_by` note that denied the position it was attached to. Cross-checking notes
+  against their own position's `hold` and `vs` is cheap, needs no retrieval, and
+  should run before the expensive tier-by-tier sweep.
+- The throwaway accounts (`zz-phase8-check`, `zz-phase8-check-2`, `zz-schema-check`)
+  are still in the gallery and still need an admin PIN.
