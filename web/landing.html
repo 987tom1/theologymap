@@ -68,6 +68,12 @@
         belief by belief.</p>
       <span class="tm-go">Open the gallery &rarr;</span>
     </a>
+    <a class="tm-card" href="/learn">
+      <h3>Learn by doctrine</h3>
+      <p>One question at a time, with every position side by side and the
+        traditions that hold each one. No account needed.</p>
+      <span class="tm-go">Start reading &rarr;</span>
+    </a>
   </div>
 
   <div id="signin">
@@ -132,6 +138,9 @@ if (user) {
     'See your map exactly as everyone else does.', 'Open →'));
   grid.appendChild(tile('/history', 'History',
     'Your earlier saved versions, and Restore.', 'View history →'));
+  grid.appendChild(tile('/compare', 'Compare',
+    'Your map beside a major tradition, or beside another member of the gallery.',
+    'Compare →'));
 
   // Unlist/Relist: lifted from web/wizard.js's deleted toggleVisibility(), same
   // action, same wording. Loads in a neutral state and fills in once the GET
