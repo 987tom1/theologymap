@@ -572,7 +572,7 @@
   link  world-religions
   link  the-unevangelised
 
-## Israel and Judaism · T3 · certain
+## Israel and Judaism · T3 · confident
   hold  The church neither conducts nor supports any institutional mission specifically directed at Jews, while continuing to bear witness to faith in Jesus Christ and never denying that salvation flows from Christ alone.
   why   God's gifts and call to Israel are irrevocable, and the church's own reflection on its unique bond with the Jewish people leads it to reject a programme of institutional mission aimed specifically at Jews, without this meaning it ceases to believe or proclaim that salvation is from Christ.
   vs    Directing an institutional missionary programme specifically at Jewish people in the same way the church directs mission toward other, non-covenanted peoples.
