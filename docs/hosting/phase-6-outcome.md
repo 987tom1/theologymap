@@ -600,5 +600,31 @@ it is a layout risk rather than a logic one.
   `held_by` note that denied the position it was attached to. Cross-checking notes
   against their own position's `hold` and `vs` is cheap, needs no retrieval, and
   should run before the expensive tier-by-tier sweep.
-- The throwaway accounts (`zz-phase8-check`, `zz-phase8-check-2`, `zz-schema-check`)
-  are still in the gallery and still need an admin PIN.
+- **The throwaway accounts are gone.** `/api/gallery` on production now returns
+  `Thomas`, `Test1`, `test2` — the three `zz-*` rows session 12 carried forward
+  are no longer listed. Nothing in this phase removed them; correcting the note
+  so session 16 does not go looking.
+
+## Post-merge, on production
+
+Merged to `main` as `2954aab` and pushed; Vercel redeployed. Checked live:
+
+| Check | Result |
+|---|---|
+| `/learn` | **200** |
+| `/compare` | **200** |
+| `/view?tradition=orthodox` | **200** |
+| `/content/traditions/manifest.json` | **200** |
+| `/content/traditions/orthodox.md` | **200**, and the Eucharist node serves the corrected Orthodox wording |
+| `GET /api/map?name=Thomas` (public) | **markdown returned**, no `id` in the reply |
+| `GET /api/map?name=zz-not-a-real-map` | **`{"error": "unknown_user", "message": "No such map."}`** |
+
+**One check in the plan could not be run and is not claimed.** Task 6 Step 3 asks
+for a `GET` against a **hidden** map's key, expecting a 404. Every map in the
+gallery is public and hiding one needs the admin PIN, which no session has. What
+*was* verified is the same guard's other branch (a name that does not exist) and
+that the reply shape is identical in both cases — which is the intended
+behaviour: an unlisted map is indistinguishable from a missing one. The guard
+itself is one condition, `if row is None or not row["is_public"]`, the same one
+`api/render.py` already uses on its `name` branch and which phase 1e verified
+there. **Worth five seconds from Thomas the next time he is signed in as admin.**
