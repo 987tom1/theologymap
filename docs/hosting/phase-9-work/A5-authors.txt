@@ -1,0 +1,426 @@
+
+DOCTRINE christ.divine-power  (christ.json)
+   doctrine sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, ch. 26, 1994"}, {"label": "Formula of Concord, Solid Declaration", "citation": "Article VIII, 1577"}]
+   POSITION christ.divine-power/voluntary-restraint  [Voluntary restraint]
+      hold: Christ retained full possession of every divine attribute but voluntarily declined their independent exercise, drawing on divine power only as the Father willed and the Spirit enabled, so that growth, weariness and limited knowledge were genuinely experienced.
+      vs:   Treating the divine attributes as constantly and fully exercised behind a mere veil, which this view judges to make the Gospels' record of Christ's limitation and growth misleading rather than real.
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology, ch. 26, 1994
+        note: Representative of a major strand of evangelical Baptist Christology rather than a confessional article.
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology, ch. 26, 1994
+        note: Widely taught in evangelical systematic theology without a binding confession on the point.
+      position sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, ch. 26, 1994"}]
+
+DOCTRINE church.women-in-ministry  (church.json)
+   doctrine sources: [{"label": "Danvers Statement", "citation": "Council on Biblical Manhood and Womanhood, 1987"}, {"label": "Christians for Biblical Equality, Statement of Faith", "citation": "Christians for Biblical Equality"}]
+   tradition_overrides: {"anglican": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Whether women may be ordained to the priesthood or episcopate is left to each province of the Communion to determine, and both convictions are held with integrity within it.", "why": "The Thirty-Nine Articles do not speak to the sex of the ordained, and the Communion's 1998 Lambeth Conference recognised that provinces would reach different conclusions in good conscience.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "Anglican polity is provincial rather than universal on this question: some provinces ordain women as priests and bishops, others do not, and the Communion has formally declined to settle it centrally.", "citation": "Lambeth Conference 1998, Resolution III.2"}, "methodist": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Women are ordained to the same orders of ministry as men in the great majority of Methodist bodies, though holiness and Wesleyan-Arminian bodies outside the mainline sometimes retain a male eldership.", "why": "Wesley's own practice licensed women to preach, and the American Methodist Episcopal tradition ordained women from the 19th century onward on the ground of gifting rather than sex.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "The United Methodist Church and most mainline Wesleyan bodies ordain women fully; some smaller holiness-Methodist and Free Methodist-adjacent bodies retain complementarian practice, so the tradition as a whole is genuinely divided rather than uniform.", "citation": "The Book of Discipline of the United Methodist Church, para. 304"}}
+   POSITION church.women-in-ministry/egalitarian  [Egalitarian]
+      hold: Women may hold the teaching and governing eldership of the local church on the same terms as men, gifting and calling being the qualification the New Testament actually names.
+      vs:   Reserving the teaching and governing eldership for men on the ground of a permanent creation-order pattern in 1 Timothy 2.
+      - held_by quaker / confessional
+        citation: Robert Barclay, Apology for the True Christian Divinity (1678), Proposition XII
+        note: None
+      position sources: [{"label": "Assemblies of God Position Paper on the Role of Women in Ministry", "citation": "2010"}]
+
+DOCTRINE church.baptism  (church.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381, 'one baptism for the remission of sins'", "url": "https://www.ccel.org/creeds/nicene.creed.html"}]
+   tradition_overrides: {"anglican": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Infant baptism is the church's normal practice, and the Articles hold it agreeable with the institution of Christ without settling what the water effects.", "why": "The Thirty-Nine Articles commend the baptism of young children and describe baptism as a sign of regeneration and an instrument of ingrafting — wording both wings of the tradition have read in their own sense for four centuries.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Anglican formularies are deliberately capacious here. An entry that picked either the evangelical or the Anglo-Catholic reading would be describing a party, not the tradition.", "citation": "Thirty-Nine Articles, XXVII; Book of Common Prayer (1662)"}, "restorationist": {"positions": ["church.baptism/believer", "church.baptism/regeneration"], "hold": "Baptism is by immersion, on profession of faith, for the remission of sins.", "why": "Peter's answer at Pentecost joins repentance, baptism and forgiveness in a single sentence, and the Restorationist plea is to say no more and no less than that sentence says.", "vs": "Separating baptism from the moment of remission so that it becomes a testimony to a forgiveness already received.", "tier": "T2", "confidence": "confident", "flags": [], "note": "This is genuinely a third position rather than a compromise: credobaptist in subject, regenerative in effect. It is why the two-axis framing in this doctrine matters.", "citation": "Acts 2:38 as read in Alexander Campbell, The Christian System (1839)"}, "lutheran": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Baptism is administered to infants and converts alike, and it is the means through which God works forgiveness, delivers from death and gives eternal salvation.", "why": "The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.", "vs": null, "tier": "T2", "confidence": "confident", "flags": [], "note": "Lutherans appear under two positions here only because this doctrine splits who is baptised from what baptism does. Lutheran teaching does not hold them apart, and it is not a divided tradition on this question.", "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"}}
+   POSITION church.baptism/not-required  [No water baptism]
+      hold: Water baptism belonged to an earlier stage of God's dealings and is not the practice of the church now; the baptism that matters is the Spirit's.
+      vs:   Continuing the water rite as a standing command of Christ to the church.
+      - held_by quaker / confessional
+        citation: Robert Barclay, Apology for the True Christian Divinity (1678), Proposition XII
+        note: Held on the ground that the outward sign is fulfilled in the inward reality, not that the sign is trivial.
+      position sources: [{"label": "Barclay's Apology", "citation": "1678, Proposition XII", "url": "https://quakerheritagepress.com/qhpbooks/apology.htm"}]
+
+DOCTRINE creation-and-science.genre-of-genesis-1  (creation-and-science.json)
+   doctrine sources: [{"label": "The Lost World of Genesis One", "citation": "John H. Walton, 2009"}, {"label": "Seven Days That Divide the World", "citation": "John Lennox, 2011"}]
+   tradition_overrides: {"non-denominational": {"positions": ["creation-and-science.genre-of-genesis-1/historical-narrative", "creation-and-science.genre-of-genesis-1/cosmic-temple"], "hold": "Genesis 1's genre is not settled within non-denominational evangelicalism: some congregations read it as straightforward historical narrative describing six ordinary days, while others, following the cosmic-temple reading, read it as an account of functional order tied to temple-inauguration language.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Independent congregations vary widely and hold no binding confession on the question; position typically follows a congregation's teachers rather than a denominational standard.", "citation": "Creation Research Society, Statement of Belief, contrasted with John H. Walton, The Lost World of Genesis One (2009)"}, "reformed": {"positions": ["creation-and-science.genre-of-genesis-1/framework", "creation-and-science.genre-of-genesis-1/analogical-day-age"], "hold": "Confessionally Reformed churches permit more than one reading of Genesis 1's genre: some hold the framework view associated with Meredith Kline, others the analogical day-age reading, and Reformed assemblies have generally declined to bind the conscience beyond affirming God's work of creation itself.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The Orthodox Presbyterian Church's 2000 study committee concluded that several views, including these two, fall within the bounds of the Westminster Standards.", "citation": "OPC General Assembly, Report of the Committee to Study the Views of Creation Days (2000)"}}
+   POSITION creation-and-science.genre-of-genesis-1/cosmic-temple  [Cosmic temple]
+      hold: Genesis 1 describes God assigning functions and taking up rest and rule within a cosmic temple, using the ancient world's temple-inauguration pattern rather than describing the material manufacture of the universe.
+      vs:   Reading Genesis 1 as an account of the material origin of matter itself rather than as an account of functional order and divine rule within an already-existing cosmos.
+      - held_by non-denominational / minority
+        citation: John H. Walton, The Lost World of Genesis One (2009)
+        note: See the tradition override below for how this relates to the historical-narrative reading within the same stream.
+      position sources: [{"label": "The Lost World of Genesis One", "citation": "John H. Walton, 2009"}]
+
+DOCTRINE creation-and-science.the-flood  (creation-and-science.json)
+   doctrine sources: [{"label": "The Lost World of the Flood", "citation": "John H. Walton and Tremper Longman III, 2018"}]
+   tradition_overrides: {"non-denominational": {"positions": ["creation-and-science.the-flood/global-catastrophist", "creation-and-science.the-flood/regional-catastrophist"], "hold": "Independent evangelical congregations hold no single position on the flood's extent: some affirm a literal global flood, others a real but regional catastrophe, and neither carries denominational weight.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Position generally follows a congregation's preferred teachers or parachurch ministry rather than any binding statement.", "citation": "Creation Research Society, Statement of Belief; John H. Walton and Tremper Longman III, The Lost World of the Flood (2018)"}}
+   POSITION creation-and-science.the-flood/regional-catastrophist  [Regional flood]
+      hold: The flood of Noah's day was a real, historical, catastrophic flood confined to the region of Noah's world, described in Genesis using the universal language ancient narrators used for a locally total catastrophe.
+      vs:   Requiring the flood to have covered the entire globe rather than the whole of the world as Noah and his contemporaries knew it.
+      - held_by non-denominational / minority
+        citation: John H. Walton and Tremper Longman III, The Lost World of the Flood (2018)
+        note: See the tradition override below.
+      position sources: [{"label": "The Lost World of the Flood", "citation": "John H. Walton and Tremper Longman III, 2018"}]
+
+DOCTRINE ethics.divorce-and-remarriage  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1614, 1629-1632"}, {"label": "Rite for a Second Marriage", "citation": "Evchologion, Orthodox liturgical tradition"}, {"label": "Westminster Confession of Faith", "citation": "24.5-6"}]
+   POSITION ethics.divorce-and-remarriage/exception-clause  [Exception clause]
+      hold: Divorce, and the remarriage of the innocent party, is permitted on the ground of a spouse's sexual immorality or desertion by an unbelieving spouse, though reconciliation is always to be preferred.
+      vs:   Reading Scripture's exceptions as grounds for separation only, never for remarriage while the former spouse lives.
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 32
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "24.5-6"}]
+
+DOCTRINE ethics.ivf-and-embryos  (ethics.json)
+   doctrine sources: [{"label": "Donum Vitae", "citation": "Congregation for the Doctrine of the Faith, 1987"}, {"label": "Resolution on Human Embryo Adoption and Stewardship of Frozen Embryos", "citation": "Southern Baptist Convention, 2010"}]
+   POSITION ethics.ivf-and-embryos/conditionally-permitted  [Conditionally permitted]
+      hold: In vitro fertilization may be pursued by a married couple using their own gametes, provided every embryo created is treated as a full human life to be protected: none deliberately destroyed, selectively reduced, or left indefinitely frozen without intent to preserve or implant.
+      vs:   Holding that separating conception from the marital act makes in vitro fertilization impermissible regardless of how carefully the resulting embryos are treated.
+      - held_by reformed / majority
+        citation: Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology
+        note: None
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology
+        note: None
+      position sources: [{"label": "Resolution on Human Embryo Adoption and Stewardship of Frozen Embryos", "citation": "Southern Baptist Convention, 2010"}]
+
+DOCTRINE ethics.prosperity-teaching  (ethics.json)
+   doctrine sources: [{"label": "The Believer and Positive Confession", "citation": "Assemblies of God, 1980"}, {"label": "A Statement on the Prosperity Gospel", "citation": "Lausanne Movement, 2010"}]
+   tradition_overrides: {"pentecostal": {"positions": ["ethics.prosperity-teaching/covenant-right", "ethics.prosperity-teaching/prosperity-denied"], "hold": "Pentecostal bodies are divided: the classical denominations have formally rejected guaranteed-prosperity teaching, while a large independent charismatic constituency continues to hold it.", "why": "The Assemblies of God addressed the question directly in 1980 and rejected the positive-confession formula, but the movement is only lightly confessional and its independent wing is not bound by that judgement.", "vs": null, "tier": "T1.5", "confidence": "leaning", "flags": ["study"], "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The division is real and documented, and reporting either half alone would be false to what a Pentecostal reader meets in practice.", "citation": "Assemblies of God, The Believer and Positive Confession (1980); Lausanne Movement, Statement on the Prosperity Gospel (2010)"}}
+   POSITION ethics.prosperity-teaching/prosperity-denied  [Not a guarantee]
+      hold: Material prosperity and physical health are not guaranteed to believers by covenant right; faith is not a formula that secures wealth or healing, and teaching that treats it as one distorts the doctrine of faith and burdens the poor and unhealed with blame for their own suffering.
+      vs:   Teaching that sufficient faith, rightly confessed, guarantees material prosperity or physical healing to any believer who exercises it.
+      - held_by reformed / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 17
+        note: None
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 17
+        note: None
+      position sources: [{"label": "The Believer and Positive Confession", "citation": "Assemblies of God, 1980"}, {"label": "A Statement on the Prosperity Gospel", "citation": "Lausanne Movement, 2010"}]
+
+DOCTRINE ethics.church-and-the-public-square  (ethics.json)
+   doctrine sources: [{"label": "Augsburg Confession", "citation": "1530, Article XVI"}, {"label": "Schleitheim Confession", "citation": "1527, Article VI"}, {"label": "Lectures on Calvinism", "citation": "Abraham Kuyper, 1898"}, {"label": "Catechism of the Catholic Church", "citation": "1883-1885, 1897-1904"}]
+   POSITION ethics.church-and-the-public-square/anabaptist-separatism  [Anabaptist separatism]
+      hold: The church constitutes a people whose citizenship is in heaven, called to abstain from holding civil office, wielding the sword of civil government, or seeking to control the state, and to bear witness instead through a visibly different community.
+      vs:   Holding that Christians should seek civil office and use civil power to reform society, when this position holds that Christ's own kingdom advances by other means entirely.
+      - held_by quaker / confessional
+        citation: Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 15
+        note: Historically diverse in practice: the Quaker peace testimony has sometimes meant refusing civil office and oaths and sometimes direct civic engagement, as in William Penn's Pennsylvania; the constant across both is refusal of the sword.
+      position sources: [{"label": "Schleitheim Confession", "citation": "1527, Article VI"}]
+
+DOCTRINE ethics.war-and-violence  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2307-2317"}, {"label": "Schleitheim Confession", "citation": "1527, Article VI"}]
+   POSITION ethics.war-and-violence/christian-pacifism  [Christian pacifism]
+      hold: Christians are called to renounce the use of lethal violence altogether, including in war and in defense of the state, following Christ's own example and command to love enemies and to put away the sword.
+      vs:   Holding that Christians may serve as soldiers under a just cause and legitimate authority, when this position holds Christ's own command and example close the use of lethal force to his disciples altogether.
+      - held_by quaker / confessional
+        citation: Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 15; the Peace Testimony (1660)
+        note: None
+      position sources: [{"label": "Schleitheim Confession", "citation": "1527, Article VI"}, {"label": "The Peace Testimony", "citation": "1660"}]
+
+DOCTRINE formation-and-practice.sanctification-progressive  (formation-and-practice.json)
+   doctrine sources: [{"label": "Five Views on Sanctification", "citation": "Melvin Dieter et al., 1987"}]
+   tradition_overrides: {"non-denominational": {"positions": ["formation-and-practice.sanctification-progressive/reformed-gradual", "formation-and-practice.sanctification-progressive/keswick"], "hold": "Most non-denominational evangelical congregations teach gradual, lifelong growth through ordinary means; a real minority stream draws on Keswick higher-life teaching of decisive surrender.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "No single confession binds this stream, and both accounts circulate within evangelical devotional literature without formal resolution.", "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38, contrasted with Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)"}}
+   POSITION formation-and-practice.sanctification-progressive/reformed-gradual  [Gradual, incomplete]
+      hold: Sanctification is the work of God's Spirit renewing the whole person after the image of God, real and progressive but never perfect in this life, carried on through the ordinary means of grace: the word, prayer and the sacraments.
+      vs:   Teaching that a believer can reach a state in this life in which no further mortification of remaining sin is needed.
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 38
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 13"}]
+   POSITION formation-and-practice.sanctification-progressive/keswick  [Keswick higher life]
+      hold: Victory over besetting sin is entered by a decisive act of surrender in which the believer yields wholly to Christ and counts on the Spirit's indwelling power moment by moment, rather than struggling toward it by self-effort.
+      vs:   Locating growth in holiness in sustained personal effort and gradual moral improvement rather than in a definite surrender that releases the Spirit's own power.
+      - held_by non-denominational / minority
+        citation: Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)
+        note: A real stream within evangelical devotional writing, associated with the Keswick Convention and figures such as Hannah Whitall Smith and Watchman Nee, rather than a formal confessional body.
+      position sources: [{"label": "The Christian's Secret of a Happy Life", "citation": "Hannah Whitall Smith, 1875"}]
+
+DOCTRINE formation-and-practice.hearing-god  (formation-and-practice.json)
+   doctrine sources: [{"label": "Hearing God", "citation": "Dallas Willard, 1984"}]
+   POSITION formation-and-practice.hearing-god/inward-leading  [Inward leading]
+      hold: The Spirit ordinarily guides believers not only through Scripture and circumstance but through a real, non-revelatory inward sense of peace or unease that confirms or restrains a course of action already bounded by Scripture.
+      vs:   Confining the Spirit's ordinary guidance to Scripture, reason and circumstance alone, with no room for an inward sense of leading that is not itself new revelation.
+      - held_by non-denominational / majority
+        citation: Dallas Willard, Hearing God (1984)
+        note: None
+      - held_by anglican / permitted
+        citation: John Stott, Baptism and Fullness (1964)
+        note: None
+      position sources: [{"label": "Hearing God", "citation": "Dallas Willard, 1984"}]
+   POSITION formation-and-practice.hearing-god/subjective-revelation  [Subjective revelation]
+      hold: God speaks directly to individuals today through impressions, dreams, visions and an inward light, a genuinely revelatory address distinct from Scripture but held to carry real, personal authority for the one who receives it.
+      vs:   Treating every claim of God speaking directly to an individual as necessarily either Scripture's own settled content restated, or mere providence misread as a voice.
+      - held_by quaker / confessional
+        citation: Robert Barclay, An Apology for the True Christian Divinity (1678), Propositions 2 and 5
+        note: The inward light is Friends' distinct and confessional doctrine of personal guidance: Christ's own immediate teaching available to every person, tested corporately in the meeting rather than received as private license.
+      position sources: [{"label": "An Apology for the True Christian Divinity", "citation": "Robert Barclay, 1678"}]
+
+DOCTRINE formation-and-practice.spiritual-disciplines  (formation-and-practice.json)
+   doctrine sources: [{"label": "Celebration of Discipline", "citation": "Richard Foster, 1978"}]
+   tradition_overrides: {"non-denominational": {"positions": ["formation-and-practice.spiritual-disciplines/daily-quiet-time", "formation-and-practice.spiritual-disciplines/contemplative-retrieval"], "hold": "Most non-denominational evangelicals practice a personal daily pattern of Scripture reading and prayer; a real minority stream also draws on contemplative retrieval, contested by critics within the same tradition.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The retrieval stream and its evangelical critics both sit inside this same tradition, without a confession to settle the dispute.", "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991), contrasted with Richard Foster, Celebration of Discipline (1978)"}}
+   POSITION formation-and-practice.spiritual-disciplines/contemplative-retrieval  [Contemplative retrieval]
+      hold: The believer is formed by deliberately retrieving a wider range of historic contemplative practices, such as silence, solitude and meditative prayer, as disciplines that open the self to God's transforming presence beyond ordinary Bible study and petition.
+      vs:   Restricting formation to daily Bible reading and petitionary prayer alone, treating the wider historic contemplative tradition as outside the bounds of ordinary evangelical devotion.
+      - held_by non-denominational / minority
+        citation: Richard Foster, Celebration of Discipline (1978)
+        note: A real and growing stream associated with writers such as Richard Foster and Dallas Willard, alongside a critical stream within the same tradition that rejects the retrieval on the grounds stated above.
+      position sources: [{"label": "Celebration of Discipline", "citation": "Richard Foster, 1978"}]
+
+DOCTRINE god.trinity  (god.json)
+   doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Catechism of the Catholic Church", "citation": "1992, 232-267"}]
+   POSITION god.trinity/nicene  [Nicene Trinitarianism]
+      hold: God is one in being and three in person — Father, Son and Holy Spirit — eternally distinct, equal in nature and glory, and not three gods nor one person under three names.
+      vs:   Accounts that secure the oneness of God by dissolving the distinction of the persons, or that secure the distinction by making the Son and the Spirit less than God.
+      - held_by quaker / majority
+        citation: Robert Barclay, An Apology for the True Christian Divinity (1678), Proposition 2
+        note: Friends do not subscribe creeds, and Barclay's Apology affirms the doctrine while declining the scholastic vocabulary used to state it.
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "The Athanasian Creed (Quicunque vult)", "citation": "Latin West, c. 5th-6th century"}]
+
+DOCTRINE god.eternal-generation  (god.json)
+   doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Retrieving Eternal Generation", "citation": "Fred Sanders and Scott Swain, eds., 2017"}]
+   POSITION god.eternal-generation/set-aside  [Deity without generation]
+      hold: The Son is fully and eternally God, of the same nature as the Father and in no way derived from him, and the creedal language of eternal begetting is a later formulation the biblical text does not itself require.
+      vs:   The creedal account of eternal generation as the very thing that distinguishes the persons.
+      - held_by non-denominational / minority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 14, and the revised treatment in the second edition (2020)
+        note: A real minority position in independent evangelical seminaries and pulpits from the 1990s, argued from the lexical case on monogenes. Wayne Grudem, who advanced it in the first edition of his Systematic Theology, revised his position in the second edition of 2020.
+      position sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, 1994, ch. 14; position revised in the 2020 second edition"}]
+
+DOCTRINE god.efs-ess  (god.json)
+   doctrine sources: [{"label": "Retrieving Eternal Generation", "citation": "Fred Sanders and Scott Swain, eds., 2017"}, {"label": "The Rise and Fall of the Complementarian Doctrine of the Trinity", "citation": "Kevin Giles, 2017"}]
+   POSITION god.efs-ess/eternal-submission  [EFS (ERAS)]
+      hold: The Son is eternally equal to the Father in being and eternally submitted to him in role, so that the authority of the Father and the glad submission of the Son are not merely features of the incarnation but of the eternal life of God.
+      vs:   The view that all subordination of the Son belongs to the incarnation, which this position holds leaves the eternal distinction of the persons underdetermined.
+      - held_by non-denominational / minority
+        citation: Bruce Ware, Father, Son and Holy Spirit (2005); Wayne Grudem, Systematic Theology (1994), ch. 14
+        note: Advanced chiefly by complementarian evangelicals in independent and Baptist settings; not a confessional position of any communion.
+      - held_by baptist / minority
+        citation: Bruce Ware, Father, Son and Holy Spirit: Relationships, Roles, and Relevance (2005)
+        note: Held by a section of Southern Baptist theologians; the Baptist Faith and Message does not address the question.
+      position sources: [{"label": "Father, Son and Holy Spirit: Relationships, Roles, and Relevance", "citation": "Bruce A. Ware, 2005"}]
+
+DOCTRINE god.classical-theism  (god.json)
+   doctrine sources: [{"label": "All That Is In God", "citation": "James E. Dolezal, 2017"}, {"label": "Divine Impassibility and the Mystery of Human Suffering", "citation": "James F. Keating and Thomas Joseph White, eds., 2009"}]
+   tradition_overrides: {"methodist": {"positions": ["god.classical-theism/classical", "god.classical-theism/relational"], "hold": "God is eternal, infinite and without body, parts or passions as the Articles of Religion state, and a substantial strand of Wesleyan theology holds alongside that a genuine divine responsiveness continuous with Wesley's teaching on prevenient grace.", "why": "Wesley retained the Anglican Article on God unaltered, and the later Wesleyan emphasis on a God who woos, waits and responds has developed within that inheritance rather than by repudiating it.", "vs": null, "tier": "T2", "confidence": "leaning", "flags": ["study"], "note": "Methodism is confessionally classical and, in much of its living theology, relational. Reporting either half alone would describe a party rather than the tradition, and the tension between the Article and the strand is itself part of what a Methodist reader would recognise.", "citation": "Articles of Religion (1784), Article 1; Thomas Jay Oord, The Uncontrolling Love of God (2015)"}}
+   POSITION god.classical-theism/relational  [Relational theism]
+      hold: God is unchanging in character, purpose and faithfulness, and is genuinely responsive to creatures — grieving over sin, rejoicing over repentance and entering into real relation with what he has made — so that immutability is constancy of character rather than absence of all change.
+      vs:   A strict account of simplicity and impassibility which, on this reading, requires so much of the biblical language about God to be non-literal that the God of the narrative disappears behind the account.
+      - held_by methodist / minority
+        citation: Thomas Jay Oord, The Uncontrolling Love of God (2015)
+        note: A significant strand of Wesleyan theology treats divine responsiveness as continuous with Wesley's emphasis on prevenient grace, though the Articles of Religion state the classical position.
+      position sources: [{"label": "Suffering Love", "citation": "Nicholas Wolterstorff, in Philosophy and the Christian Faith, 1988"}, {"label": "The Crucified God", "citation": "Jürgen Moltmann, 1972"}]
+
+DOCTRINE god.time  (god.json)
+   doctrine sources: [{"label": "God and Time: Four Views", "citation": "Gregory E. Ganssle, ed., 2001"}]
+   POSITION god.time/temporal  [Everlasting through time]
+      hold: God is without beginning or end and experiences the succession of moments alongside creation, so that eternity is unending duration rather than the absence of time.
+      vs:   Strict timelessness, which this position holds makes God's involvement at particular moments in the biblical narrative difficult to state without translation into another idiom.
+      - held_by non-denominational / permitted
+        citation: Nicholas Wolterstorff, 'God Everlasting' (1975); William Lane Craig, Time and Eternity (2001)
+        note: Common among analytic evangelical philosophers; not a confessional position anywhere, and held alongside full affirmation of God's eternity.
+      position sources: [{"label": "God Everlasting", "citation": "Nicholas Wolterstorff, 1975"}, {"label": "Time and Eternity: Exploring God's Relationship to Time", "citation": "William Lane Craig, 2001"}]
+
+DOCTRINE god.divine-foreknowledge  (god.json)
+   doctrine sources: [{"label": "Divine Foreknowledge: Four Views", "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"}, {"label": "Concordia (On Divine Foreknowledge, Part IV)", "citation": "Luis de Molina, 1588"}]
+   tradition_overrides: {"roman-catholic": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and the church leaves open how that knowledge relates to his eternal decree — the Thomist and Molinist accounts are both permitted, and neither may condemn the other.", "why": "The Congregatio de Auxiliis examined the dispute for a decade and closed it without a verdict, permitting both schools and forbidding each to declare the other heretical.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Rome is not divided here by accident or by drift. The breadth is a formal decision of the Holy See, and an entry that picked either the Dominican or the Jesuit account would be describing a school rather than the church.", "citation": "Congregatio de Auxiliis (1597-1607); Catechism of the Catholic Church 302, 600"}, "baptist": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and Baptists differ among themselves as to whether that knowledge is grounded in his eternal decree, in a middle knowledge of what creatures would freely do, or simply in the future as it will be.", "why": "The Baptist Faith and Message affirms God's perfect knowledge of all things without settling the mechanism, and Baptist life has contained Reformed, Molinist and simple-foreknowledge accounts side by side throughout its history.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": ["study"], "note": "Baptists are confessional but not creedally bound, and this is one of the questions their confessions deliberately leave open. Naming a single Baptist answer here would be false.", "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession (1689), 3.1-3.2"}, "non-denominational": {"positions": ["god.divine-foreknowledge/molinism", "god.divine-foreknowledge/simple"], "hold": "God knows the whole future infallibly, and independent evangelical congregations hold no common account of how, with simple foreknowledge the most widely assumed and middle knowledge argued for by a smaller philosophical strand.", "why": "The stream has no binding confession on the question, and its statements of faith affirm God's omniscience without addressing the mechanism at all.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "This is a case where the honest entry is that the stream has no single answer rather than a thin majority reported as one.", "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"}}
+   POSITION god.divine-foreknowledge/molinism  [Middle knowledge]
+      hold: Prior to his decree God knows what every possible creature would freely choose in every possible circumstance, and by choosing which circumstances to actualise he brings about his purposes without determining any free choice.
+      vs:   Grounding foreknowledge wholly in the decree, which this position holds leaves creaturely freedom doing no real work.
+      - held_by non-denominational / minority
+        citation: William Lane Craig, The Only Wise God (1987)
+        note: A live position among evangelical philosophers, most prominently William Lane Craig; not confessional anywhere in the stream.
+      - held_by baptist / minority
+        citation: Kenneth Keathley, Salvation and Sovereignty: A Molinist Approach (2010)
+        note: Held by a section of Southern Baptist theologians as an alternative to both Calvinist and simple-foreknowledge accounts.
+      position sources: [{"label": "Concordia (On Divine Foreknowledge, Part IV)", "citation": "Luis de Molina, 1588"}, {"label": "Salvation and Sovereignty: A Molinist Approach", "citation": "Kenneth Keathley, 2010"}]
+
+DOCTRINE holy-spirit.baptism-in-the-holy-spirit  (holy-spirit.json)
+   doctrine sources: [{"label": "Perspectives on Spirit Baptism: Five Views", "citation": "Chad Owen Brand, ed., 2004"}]
+   POSITION holy-spirit.baptism-in-the-holy-spirit/conversion-initiation  [Conversion-initiation]
+      hold: Baptism in the Holy Spirit is Paul's term for the Spirit's work of uniting every believer to Christ and to the church at conversion, not a second or separate experience to be sought afterward.
+      vs:   Treating the same baptism in one Spirit that Paul says every believer already has as a further experience still to be sought after conversion.
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 39
+        note: None
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 39
+        note: None
+      - held_by anglican / permitted
+        citation: John Stott, Baptism and Fullness (1964)
+        note: None
+      position sources: [{"label": "Baptism and Fullness", "citation": "John Stott, 1964"}]
+
+DOCTRINE holy-spirit.sealing-of-the-spirit  (holy-spirit.json)
+   doctrine sources: [{"label": "The Holy Spirit", "citation": "Sinclair Ferguson, 1996"}]
+   POSITION holy-spirit.sealing-of-the-spirit/conversion-sealing  [Sealed at conversion]
+      hold: The sealing of the Holy Spirit named in Ephesians occurs at the moment of believing, when the Spirit himself is given as God's mark of ownership and down payment guaranteeing the believer's inheritance.
+      vs:   Locating the completion of the Spirit's seal in a later sacramental act rather than in the Spirit's own gift at the moment of faith.
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 39
+        note: None
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 39
+        note: None
+      - held_by anglican / permitted
+        citation: John Stott, Baptism and Fullness (1964)
+        note: None
+      position sources: [{"label": "The Holy Spirit", "citation": "Sinclair Ferguson, 1996"}]
+
+DOCTRINE holy-spirit.continuationism  (holy-spirit.json)
+   doctrine sources: [{"label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996"}]
+   POSITION holy-spirit.continuationism/cessationist  [Cessationist]
+      hold: The revelatory and sign gifts, including tongues, prophecy and the working of miracles as attesting apostolic ministry, ceased with the apostolic era and the completion of the New Testament canon.
+      vs:   Continuing the full range of New Testament spiritual gifts as an ordinary part of church life today.
+      - held_by reformed / majority
+        citation: B. B. Warfield, Counterfeit Miracles (1918)
+        note: Not confessionally required by the Westminster Standards themselves, but the predominant position among Reformed and Presbyterian bodies since the modern cessationist-continuationist debate emerged.
+      - held_by baptist / majority
+        citation: John MacArthur, Charismatic Chaos (1992), representative of a major strand of Baptist cessationism
+        note: Widely but not universally held; the Baptist Faith and Message does not itself settle the question.
+      position sources: [{"label": "Counterfeit Miracles", "citation": "B. B. Warfield, 1918"}]
+
+DOCTRINE holy-spirit.prophecy  (holy-spirit.json)
+   doctrine sources: [{"label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996"}]
+   POSITION holy-spirit.prophecy/cessationist  [Cessationist]
+      hold: The revelatory gift of prophecy, understood as the Spirit speaking fresh words through a human messenger, ceased with the closing of the New Testament canon; the church's ongoing task is the faithful preaching and application of the completed Scriptures.
+      vs:   Continuing to receive a category of Spirit-prompted prophetic speech alongside the completed canon of Scripture.
+      - held_by reformed / majority
+        citation: B. B. Warfield, Counterfeit Miracles (1918)
+        note: None
+      - held_by baptist / majority
+        citation: John MacArthur, Charismatic Chaos (1992)
+        note: Widely but not universally held.
+      position sources: [{"label": "Counterfeit Miracles", "citation": "B. B. Warfield, 1918"}]
+   POSITION holy-spirit.prophecy/fallible-congregational  [Fallible congregational]
+      hold: The gift of prophecy in the local congregation today is a Spirit-prompted impression that a believer reports in their own words; it is not equal to Scripture in authority, and the congregation must weigh it, testing all things and holding fast to what is good.
+      vs:   Treating New Testament congregational prophecy as carrying the same unweighable authority as the prophetic word that produced Scripture, so that it necessarily ceased once the canon closed.
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, The Gift of Prophecy in the New Testament and Today (1988)
+        note: None
+      position sources: [{"label": "The Gift of Prophecy in the New Testament and Today", "citation": "Wayne Grudem, 1988"}]
+
+DOCTRINE holy-spirit.tongues  (holy-spirit.json)
+   doctrine sources: [{"label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996"}]
+   tradition_overrides: {"pentecostal": {"positions": ["holy-spirit.tongues/initial-evidence", "holy-spirit.tongues/gift-to-some"], "hold": "Classical Pentecostal denominations confessionally teach tongues as the necessary initial evidence of Spirit baptism; broader charismatic streams within the Pentecostal-charismatic movement hold tongues as one gift among several, not a required sign.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The movement is not unanimous: this is the one point where classical Pentecostal confession and the wider charismatic stream it gave rise to genuinely part ways.", "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7, contrasted with charismatic-stream teaching such as John Wimber, Power Evangelism (1985)"}}
+   POSITION holy-spirit.tongues/gift-to-some  [Gift to some]
+      hold: Tongues is one spiritual gift among several that the Spirit distributes to believers as he chooses, not a necessary sign given to every believer or evidence of a separate baptism in the Spirit.
+      vs:   Requiring tongues as the necessary evidence of Spirit baptism for every believer, rather than treating it as one gift given to some.
+      - held_by non-denominational / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 53
+        note: None
+      position sources: [{"label": "Power Evangelism", "citation": "John Wimber, 1985"}]
+   POSITION holy-spirit.tongues/cessationist  [Cessationist]
+      hold: Tongues, understood as a Spirit-given sign gift authenticating apostolic revelation, ceased with the completion of the New Testament canon and is not to be sought or expected today.
+      vs:   Continuing to seek or practise tongues as an ordinary part of church life after the apostolic era and the closing of the canon.
+      - held_by reformed / majority
+        citation: B. B. Warfield, Counterfeit Miracles (1918)
+        note: None
+      - held_by baptist / majority
+        citation: John MacArthur, Charismatic Chaos (1992)
+        note: Widely but not universally held.
+      position sources: [{"label": "Counterfeit Miracles", "citation": "B. B. Warfield, 1918"}]
+
+DOCTRINE holy-spirit.healing  (holy-spirit.json)
+   doctrine sources: [{"label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996"}]
+   POSITION holy-spirit.healing/cessationist  [Cessationist]
+      hold: The charismatic gift of healing, understood as a Spirit-given sign gift authenticating apostolic ministry, ceased with the apostolic era; God still heals in answer to ordinary prayer and providence, but not through a standing gift of healing exercised by particular believers.
+      vs:   Treating healing as a standing charismatic gift exercised by particular believers today, rather than as God's ordinary providential response to prayer.
+      - held_by reformed / majority
+        citation: B. B. Warfield, Counterfeit Miracles (1918)
+        note: None
+      - held_by baptist / majority
+        citation: John MacArthur, Charismatic Chaos (1992)
+        note: Widely but not universally held.
+      position sources: [{"label": "Counterfeit Miracles", "citation": "B. B. Warfield, 1918"}]
+
+DOCTRINE last-things.hell  (last-things.json)
+   doctrine sources: [{"label": "Four Views on Hell", "citation": "Preston Sprinkle, ed., 2016"}]
+   tradition_overrides: {"anglican": {"positions": ["last-things.hell/eternal-conscious-torment", "last-things.hell/annihilationism"], "hold": "Anglican formularies affirm everlasting punishment for the impenitent, though the Communion has never dogmatically excluded conditional immortality, and a minority within it, including John Stott, has held annihilationism as a permitted reading.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "The Thirty-Nine Articles do not directly legislate the duration of hell's punishment; the Athanasian Creed's language of everlasting fire is the received liturgical consensus, but Stott's 1988 case for annihilationism was not treated as heresy within the Communion.", "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662); John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)"}}
+   POSITION last-things.hell/annihilationism  [Annihilationism]
+      hold: The unrepentant are raised, judged, and finally cease to exist entirely rather than suffering consciously forever, since immortality belongs only to those united to Christ and the judgment texts that speak of destruction mean an actual ending.
+      vs:   Holding that the wicked suffer consciously without end rather than being finally destroyed.
+      - held_by anglican / minority
+        citation: John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)
+        note: Held tentatively by John Stott, who stated it was not a matter he would insist on and did not treat as heresy.
+      position sources: [{"label": "The Fire That Consumes", "citation": "Edward Fudge, 1982"}]
+
+DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized", "citation": "John Sanders, ed., 1995"}, {"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964"}]
+   POSITION missions-and-world-religions.the-unevangelised/inclusivism  [Inclusivism]
+      hold: Christ is the only saviour, but his atoning work can be applied to those who, without ever hearing the gospel, respond in sincere faith and love to God as he has made himself known to them through creation and conscience.
+      vs:   Requiring explicit, conscious faith in the name of Jesus Christ as a condition of the salvation his death secured.
+      - held_by anglican / permitted
+        citation: John Stott and David Edwards, Essentials (1988)
+        note: Held by a strand within the Communion rather than required by the Articles.
+      - held_by methodist / minority
+        citation: Clark Pinnock, A Wideness in God's Mercy (1992)
+        note: Consistent with Wesley's own doctrine of prevenient grace at work in all people, though Wesley did not draw this precise conclusion himself.
+      position sources: [{"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964, §16"}, {"label": "Nostra Aetate", "citation": "Second Vatican Council, 1965"}]
+
+DOCTRINE salvation.election  (salvation.json)
+   doctrine sources: [{"label": "Canons of Dordt", "citation": "1619, First Head of Doctrine"}, {"label": "The Remonstrance", "citation": "1610, Article 1"}]
+   tradition_overrides: {"non-denominational": {"positions": ["salvation.election/conditional-foreseen-faith", "salvation.election/corporate-in-christ", "salvation.election/molinist"], "hold": "Independent evangelical congregations are not confessionally settled on election's basis; most read election as resting on foreseen faith, while some hold corporate or Molinist accounts instead.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The stream has no binding confession, so this describes majority practice alongside two live minority readings rather than a settled position.", "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1, contrasted with William W. Klein, The New Chosen People (1990) and William Lane Craig, The Only Wise God (1987)"}, "roman-catholic": {"positions": ["salvation.election/molinist"], "hold": "God predestines no one to evil and the grace that saves is wholly gratuitous, while the relation between that grace and the free consent it draws out is left formally undefined: the Thomist and the Molinist accounts are both permitted, and neither may condemn the other.", "why": "Trent defined predestination against Pelagius on one side and against the Reformers on the other, but the Congregatio de Auxiliis closed in 1607 without deciding between the schools, and Paul V forbade either party to censure the other.", "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Roman Catholics appear under the Molinist option here because it is the one election position in this corpus a Catholic may hold without qualification. The communion has never settled between Thomism, Molinism and the Augustinian school, so an entry naming one of them would be describing a school rather than the church.", "citation": "Catechism of the Catholic Church 600, 1037; Council of Trent, Session 6, canon 17; Congregatio de Auxiliis (1597-1607), closed by Paul V without a definition"}}
+   POSITION salvation.election/molinist  [Molinist election]
+      hold: God elects those he knows, through middle knowledge of what every possible person would freely do under any circumstance, will respond to grace in the circumstances he chooses to actualise for them.
+      vs:   Treating foreseen faith as a bare future fact God simply observes, which this position holds cannot explain why God foreknows one person's faith and not another's without some further ground.
+      - held_by baptist / minority
+        citation: Kenneth Keathley, Salvation and Sovereignty: A Molinist Approach (2010)
+        note: None
+      - held_by non-denominational / minority
+        citation: William Lane Craig, The Only Wise God (1987)
+        note: None
+      position sources: [{"label": "Concordia", "citation": "Luis de Molina, 1588"}]
+
+DOCTRINE salvation.lordship-salvation  (salvation.json)
+   doctrine sources: [{"label": "The Gospel According to Jesus", "citation": "John MacArthur, 1988"}, {"label": "Absolutely Free!", "citation": "Zane Hodges, 1989"}]
+   tradition_overrides: {"non-denominational": {"positions": ["salvation.lordship-salvation/lordship-salvation", "salvation.lordship-salvation/free-grace"], "hold": "Independent evangelical congregations mostly teach that saving faith includes repentance and submission to Christ, though a minority Free Grace stream distinguishes faith itself from a later discipleship response.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The stream has no binding confession; this describes the majority Lordship-leaning consensus alongside a real, self-identified Free Grace minority.", "citation": "Lausanne Covenant (1974), Article 4, contrasted with Zane Hodges, Absolutely Free! (1989)"}, "baptist": {"positions": ["salvation.lordship-salvation/lordship-salvation", "salvation.lordship-salvation/free-grace"], "hold": "Baptists generally hold that repentance and faith are inseparable, but a minority Free Grace strand distinguishes saving faith itself from a later discipleship response.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Baptist Faith and Message language ties repentance and faith together; the Free Grace strand is a minority within Baptist life, not confessionally represented.", "citation": "Baptist Faith and Message (2000), Article 4, contrasted with Charles Ryrie, So Great Salvation (1989)"}}
+   POSITION salvation.lordship-salvation/lordship-salvation  [Lordship salvation]
+      hold: The faith that justifies is itself a repentant, submissive trust in Christ as both Savior and Lord, so that a professed faith producing no repentance or change of life was never the saving faith Scripture describes.
+      vs:   Defining saving faith as bare intellectual assent to the gospel's truth, with submission to Christ's lordship added afterward as a separate and optional response.
+      - held_by reformed / majority
+        citation: John MacArthur, The Gospel According to Jesus (1988)
+        note: None
+      position sources: [{"label": "The Gospel According to Jesus", "citation": "John MacArthur, 1988"}]
+
+DOCTRINE the-unseen-realm.divine-council  (the-unseen-realm.json)
+   doctrine sources: [{"label": "The Unseen Realm", "citation": "Michael S. Heiser, 2015"}]
+   POSITION the-unseen-realm.divine-council/human-judges-reading  [Human judges reading]
+      hold: The 'gods' of Psalm 82 are human judges or rulers whom God indicts for injustice, and Deuteronomy 32:8-9's 'sons of God' is best read without positing a literal council of spiritual beings governing the nations.
+      vs:   Reading the 'gods' judged in the council and the 'sons of God' allotted the nations as real created spiritual beings rather than as human officeholders or a rhetorical figure.
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 20
+        note: None
+      position sources: [{"label": "Commentary on the Psalms", "citation": "John Calvin, 1557, on Psalm 82"}]
+
+DOCTRINE the-unseen-realm.can-a-christian-be-demonised  (the-unseen-realm.json)
+   doctrine sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, 1994, ch. 20"}]
+   tradition_overrides: {"reformed": {"positions": ["the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed", "the-unseen-realm.can-a-christian-be-demonised/category-inapplicable"], "hold": "Most Reformed teaching holds a believer cannot be possessed but can be oppressed from without; a minority within the biblical counseling movement rejects the category of demonisation for believers entirely.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The biblical counseling movement's rejection of the category is a real minority stream, not the tradition's common teaching.", "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20, contrasted with Jay E. Adams, Competent to Counsel (1970)"}}
+   POSITION the-unseen-realm.can-a-christian-be-demonised/oppressed-not-possessed  [Oppressed, not possessed]
+      hold: A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.
+      vs:   Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.
+      - held_by reformed / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 20
+        note: None
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 20
+        note: None
+      - held_by anglican / permitted
+        citation: John Stott, Christ the Controversialist (1970), ch. 8
+        note: None
+      position sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, 1994, ch. 20"}]
+
+DOCTRINE the-unseen-realm.deliverance-ministry  (the-unseen-realm.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1673"}, {"label": "Assemblies of God position paper on demonic oppression", "citation": "'Ministry to Persons Oppressed by Demons' (1972)"}]
+   POSITION the-unseen-realm.deliverance-ministry/formal-exorcism  [Formal exorcism]
+      hold: Deliverance from demonic affliction is exercised through the church's formal rite of exorcism, administered only by a priest specifically authorised by the bishop after careful discernment, never as private or freelance practice.
+      vs:   Treating deliverance as a ministry any believer may exercise informally, without ordination or the bishop's specific authorisation.
+      - held_by orthodox / confessional
+        citation: Euchologion (Great Book of Needs), exorcism prayers of the baptismal rite
+        note: Exorcism prayers are included within the baptismal rite itself and administered by clergy under episcopal oversight beyond that.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1673"}]
+   POSITION the-unseen-realm.deliverance-ministry/ordinary-means-of-grace  [Ordinary means of grace]
+      hold: The church's proper response to spiritual affliction is repentance, prayer, Scripture, and pastoral care, without a specialised deliverance ministry or rite set apart for the purpose.
+      vs:   Setting apart a specialised rite or ministry of deliverance, whether sacramental or charismatic, distinct from the church's ordinary pastoral care and means of grace.
+      - held_by reformed / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 20
+        note: None
+      - held_by baptist / majority
+        citation: Wayne Grudem, Systematic Theology (1994), ch. 20
+        note: None
+      position sources: [{"label": "Systematic Theology", "citation": "Wayne Grudem, 1994, ch. 20"}]

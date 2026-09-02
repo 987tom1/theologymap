@@ -1,0 +1,122 @@
+[
+  { "op": "held_by.set", "position": "christ.deity-and-humanity/chalcedonian", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\"",
+                "note": "The statement says: “Jesus Christ is the Son of God, and is co-equal and co-eternal with the Father,” and that he “became a man in flesh, lived a sinless human life.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "christ.deity-and-humanity/chalcedonian",
+    "sources": [
+      { "label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "christ.virgin-birth/virginal-conception", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\"",
+                "note": "The statement says: “Jesus, born of a virgin birth, became a man in flesh.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "christ.virgin-birth/virginal-conception",
+    "sources": [
+      { "label": "Catechism of the Catholic Church", "citation": "CCC 496-498" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "christ.bodily-resurrection/bodily", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\"",
+                "note": "The statement says: “He arose bodily from the dead after three days to demonstrate His power over sin and death.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "christ.bodily-resurrection/bodily",
+    "sources": [
+      { "label": "1 Corinthians 15 as the hinge of Christian hope", "citation": "1 Cor 15:12-19" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "christ.atonement/penal-substitution", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Gospel: God Saves Sinners\"",
+                "note": "The statement says Christ “died in our place by being crucified for our sins,” against a section that places humanity “rightfully under His just and Holy wrath.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "christ.atonement/penal-substitution",
+    "sources": [
+      { "label": "What Did the Cross Achieve? The Logic of Penal Substitution", "citation": "J. I. Packer, Tyndale Bulletin, 1974" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Gospel: God Saves Sinners\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "god.trinity/nicene", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"God: Holy Trinity\"",
+                "note": "The statement says: “We believe in one God, eternally existing in three equally divine yet distinct Persons... God the Father, Jesus God the Son, and God the Holy Spirit,” and INC states it “holds to both the Apostles’ Creed and Nicene Creed as foundational Christian beliefs.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "god.trinity/nicene",
+    "sources": [
+      { "label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381" },
+      { "label": "The Athanasian Creed (Quicunque vult)", "citation": "Latin West, c. 5th-6th century" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"God: Holy Trinity\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "holy-spirit.continuationism/continuationist", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Baptism and Gifts of The Holy Spirit\"",
+                "note": "The statement says: “All of the spiritual gifts as outlined in 1 Corinthians 12:8-10 are still in operation and are available to believers for the building up of the church and for the glory of God.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "holy-spirit.continuationism/continuationist",
+    "sources": [
+      { "label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Baptism and Gifts of The Holy Spirit\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "last-things.second-coming/personal-return", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Restoration of All Things\"",
+                "note": "The statement says: “We believe in the personal, glorious, bodily, and imminent return of our Lord Jesus Christ in fulfilling the prophetic word.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "last-things.second-coming/personal-return",
+    "sources": [
+      { "label": "The Nicene-Constantinopolitan Creed", "citation": "381" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Restoration of All Things\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "held_by.set", "position": "missions-and-world-religions.exclusivity-of-christ/particularism", "tradition": "inc",
+    "fields": { "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\"",
+                "note": "The statement says Christ arose “to validate that the way of salvation is through Him alone.”",
+                "stance": "confessional" } },
+
+  { "op": "position.sources", "position": "missions-and-world-religions.exclusivity-of-christ/particularism",
+    "sources": [
+      { "label": "Catechism of the Catholic Church", "citation": "846-848" },
+      { "label": "Lausanne Covenant", "citation": "1974, Article 3" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "position.sources", "position": "church.baptism/believer",
+    "sources": [
+      { "label": "Second London Baptist Confession", "citation": "1689, ch. 29", "url": "https://www.the1689confession.com/" },
+      { "label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VII", "url": "https://bfm.sbc.net/bfm2000/" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Ordinances: Baptism and Holy Communion\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "position.sources", "position": "church.lords-supper/memorial",
+    "sources": [
+      { "label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VII" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Ordinances: Baptism and Holy Communion\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "position.sources", "position": "scripture.inerrancy/full",
+    "sources": [
+      { "label": "Chicago Statement on Biblical Inerrancy", "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII", "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Bible: How We Know God\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "position.sources", "position": "scripture.canon/protestant",
+    "sources": [
+      { "label": "Westminster Confession of Faith", "citation": "1646, ch. 1.2-1.3", "url": "https://www.pcaac.org/bco/westminster-confession/" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Bible: How We Know God\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] },
+
+  { "op": "position.sources", "position": "scripture.sufficiency/continuing-revelation",
+    "sources": [
+      { "label": "Assemblies of God Statement of Fundamental Truths", "citation": "1916, revised, Article 7 (Baptism in the Holy Spirit)", "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths" },
+      { "label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Bible: How We Know God\"", "url": "https://www.inc.org.au/about/statement-of-faith" }
+    ] }
+]

@@ -1,0 +1,69 @@
+
+DOCTRINE church.women-in-ministry  (church.json)
+   doctrine sources: [{"label": "Danvers Statement", "citation": "Council on Biblical Manhood and Womanhood, 1987"}, {"label": "Christians for Biblical Equality, Statement of Faith", "citation": "Christians for Biblical Equality"}]
+   tradition_overrides: {"anglican": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Whether women may be ordained to the priesthood or episcopate is left to each province of the Communion to determine, and both convictions are held with integrity within it.", "why": "The Thirty-Nine Articles do not speak to the sex of the ordained, and the Communion's 1998 Lambeth Conference recognised that provinces would reach different conclusions in good conscience.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "Anglican polity is provincial rather than universal on this question: some provinces ordain women as priests and bishops, others do not, and the Communion has formally declined to settle it centrally.", "citation": "Lambeth Conference 1998, Resolution III.2"}, "methodist": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Women are ordained to the same orders of ministry as men in the great majority of Methodist bodies, though holiness and Wesleyan-Arminian bodies outside the mainline sometimes retain a male eldership.", "why": "Wesley's own practice licensed women to preach, and the American Methodist Episcopal tradition ordained women from the 19th century onward on the ground of gifting rather than sex.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "The United Methodist Church and most mainline Wesleyan bodies ordain women fully; some smaller holiness-Methodist and Free Methodist-adjacent bodies retain complementarian practice, so the tradition as a whole is genuinely divided rather than uniform.", "citation": "The Book of Discipline of the United Methodist Church, para. 304"}}
+   POSITION church.women-in-ministry/egalitarian  [Egalitarian]
+      hold: Women may hold the teaching and governing eldership of the local church on the same terms as men, gifting and calling being the qualification the New Testament actually names.
+      vs:   Reserving the teaching and governing eldership for men on the ground of a permanent creation-order pattern in 1 Timothy 2.
+      - held_by methodist / majority
+        citation: The Book of Discipline of the United Methodist Church, para. 304
+        note: Wesley licensed women to preach, and the mainline Wesleyan bodies ordain women to the same orders as men; a few smaller holiness bodies in the same line do not.
+      position sources: [{"label": "Assemblies of God Position Paper on the Role of Women in Ministry", "citation": "2010"}]
+
+DOCTRINE ethics.marriage-and-sexuality  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}, {"label": "Human Sexuality: Gift and Trust", "citation": "ELCA, 2009"}]
+   tradition_overrides: {"anglican": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "The Anglican Communion is not of one mind: most provinces hold marriage to be the covenant union of a man and a woman under Lambeth Resolution 1.10, while the Episcopal Church has permitted the marriage of same-sex couples in church since amending its canons in 2015.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a live, unresolved division within the Communion itself rather than a settled Anglican position either way.", "citation": "Lambeth Conference Resolution I.10 (1998); The Episcopal Church, Canon I.18 (as amended 2015)"}, "methodist": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Methodism divided formally in 2024: the United Methodist Church's General Conference removed its restrictions on same-sex marriage, while the Global Methodist Church, formed by conservative congregations leaving the UMC, and much of the wider Wesleyan world retain the traditional definition.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "The 2024 General Conference marks a genuine, recent split in the Wesleyan family rather than a single Methodist position.", "citation": "United Methodist Church, General Conference 2024 legislation; Global Methodist Church, Book of Doctrines and Discipline (2022)"}, "lutheran": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.", "citation": "ELCA, Human Sexuality: Gift and Trust (2009); Lutheran Church-Missouri Synod, Commission on Theology and Church Relations statements on marriage"}}
+   POSITION ethics.marriage-and-sexuality/male-female-covenant  [Male-female covenant]
+      hold: Marriage is a covenant between one man and one woman, instituted by God in creation and reaffirmed by Christ, and sexual intimacy belongs within that covenant alone.
+      vs:   Extending marriage, and the blessing of sexual union within it, to same-sex couples, on the ground that Scripture's creation pattern does not itself settle that question.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow; canonical tradition of the seven councils
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}]
+   POSITION ethics.marriage-and-sexuality/covenantal-same-sex-union  [Covenantal same-sex union]
+      hold: Marriage can also be the lifelong covenant union of two people of the same sex, blessed by the church on the same terms of fidelity and permanence asked of any Christian marriage.
+      vs:   Treating the sex of the spouses, rather than the covenant of fidelity and permanence itself, as the defining boundary of Christian marriage.
+      - held_by anglican / minority
+        citation: The Episcopal Church, amendments to Canon I.18 (2015)
+        note: The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.
+      - held_by lutheran / minority
+        citation: ELCA, Human Sexuality: Gift and Trust (2009)
+        note: The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.
+      - held_by methodist / minority
+        citation: United Methodist Church, General Conference 2024 legislation removing restrictions on same-sex marriage
+        note: The United Methodist Church specifically, following its 2024 General Conference; see the tradition note.
+      position sources: [{"label": "Human Sexuality: Gift and Trust", "citation": "ELCA, 2009"}, {"label": "The Episcopal Church, Canon I.18", "citation": "as amended 2015"}]
+
+DOCTRINE ethics.divorce-and-remarriage  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1614, 1629-1632"}, {"label": "Rite for a Second Marriage", "citation": "Evchologion, Orthodox liturgical tradition"}, {"label": "Westminster Confession of Faith", "citation": "24.5-6"}]
+   POSITION ethics.divorce-and-remarriage/oikonomia  [Oikonomia]
+      hold: Marriage is ordinarily indissoluble, but the church, exercising pastoral economy for human weakness, may permit a second or third marriage through a penitential rite once a marriage has effectively died through adultery or desertion.
+      vs:   Treating the church's pastoral economy toward a marriage's death either as a Catholic-style finding that no marriage existed or as an unqualified license to remarry without repentance.
+      - held_by orthodox / confessional
+        citation: Rite for a Second Marriage (Evchologion); canonical tradition following St Basil the Great
+        note: The subsequent marriage is celebrated with a distinct, more penitential rite, marking it as an act of pastoral economy rather than an ordinary sacrament.
+      position sources: [{"label": "Rite for a Second Marriage", "citation": "Evchologion, Orthodox liturgical tradition"}]
+   POSITION ethics.divorce-and-remarriage/exception-clause  [Exception clause]
+      hold: Divorce, and the remarriage of the innocent party, is permitted on the ground of a spouse's sexual immorality or desertion by an unbelieving spouse, though reconciliation is always to be preferred.
+      vs:   Reading Scripture's exceptions as grounds for separation only, never for remarriage while the former spouse lives.
+      - held_by anglican / permitted
+        citation: Church of England, Convocations of Canterbury and York, resolutions of 2002
+        note: The Church of England's Convocations resolved in 2002 that a divorced person may in exceptional circumstances be married in church during the lifetime of a former spouse, a change from the 1938 Convocation position.
+      - held_by methodist / majority
+        citation: The Book of Discipline, pastoral guidance on remarriage
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "24.5-6"}]
+
+DOCTRINE ethics.abortion  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2270-2275"}, {"label": "A Social Statement on Abortion", "citation": "ELCA, 1991"}]
+   tradition_overrides: {"lutheran": {"positions": ["ethics.abortion/protected-from-conception", "ethics.abortion/permitted-in-tragic-cases"], "hold": "Lutheran bodies differ by church: the Lutheran Church-Missouri Synod holds unborn life protected from conception, while the Evangelical Lutheran Church in America permits abortion in narrowly defined tragic circumstances under its 1991 social statement.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.", "citation": "Lutheran Church-Missouri Synod statements on abortion; ELCA, A Social Statement on Abortion (1991)"}, "anglican": {"positions": ["ethics.abortion/protected-from-conception", "ethics.abortion/permitted-in-tragic-cases"], "hold": "The Anglican Communion is not of one mind: most provinces hold to the sanctity of unborn life with no broad exception, while the Episcopal Church's General Convention has affirmed access to abortion within a framework that also opposes its use as routine birth control.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a live division within the Communion rather than a single settled Anglican position.", "citation": "Lambeth Conference resolutions on the sanctity of life; Episcopal Church, General Convention resolutions on reproductive health and choice"}}
+   POSITION ethics.abortion/permitted-in-tragic-cases  [Permitted in tragic cases]
+      hold: Ending a pregnancy that resulted from rape or incest, gravely threatens the mother's life or health, or involves a lethal fetal anomaly may be a tragic but morally permissible choice reached in conscience, though abortion itself is never treated as a good.
+      vs:   Holding that no circumstance, including a grave threat to the mother's own life understood apart from indirect medical treatment, justifies an abortion.
+      - held_by lutheran / minority
+        citation: ELCA, A Social Statement on Abortion (1991)
+        note: The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.
+      - held_by anglican / minority
+        citation: Episcopal Church, General Convention resolutions on reproductive health and choice
+        note: The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.
+      position sources: [{"label": "A Social Statement on Abortion", "citation": "ELCA, 1991"}]
