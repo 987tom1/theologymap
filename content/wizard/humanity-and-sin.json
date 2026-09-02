@@ -36,14 +36,37 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1704-1705" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man" },
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Larger Catechism, Q&A 17" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Formula of Concord, Solid Declaration, Article I" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 1704-1705"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Larger Catechism, Q&A 17"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration, Article I"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Catechism of the Catholic Church", "citation": "1704-1705" }
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1704-1705"
+            }
           ]
         },
         {
@@ -59,14 +82,37 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "majority", "note": "Not confessionally defined in these terms, but the predominant reading within contemporary Reformed biblical theology of creation.", "citation": "Meredith G. Kline, Images of the Spirit, 1980" },
-            { "tradition": "baptist", "stance": "majority", "note": "Reflects the stewardship language of the modern confession rather than the earlier confessions' briefer treatment.", "citation": "Baptist Faith and Message, 2000, Article III" },
-            { "tradition": "non-denominational", "stance": "majority", "note": "Widely shared within contemporary evangelical biblical-theology teaching on creation and vocation.", "citation": "G. K. Beale, The Temple and the Church's Mission, 2004" },
-            { "tradition": "anglican", "stance": "permitted", "note": "Not addressed directly by the Articles; held within Anglican creation theology alongside the structural reading.", "citation": "Chicago-Lambeth Quadrilateral, 1888, framing of creation stewardship" }
+            {
+              "tradition": "reformed",
+              "stance": "majority",
+              "note": "Not confessionally defined in these terms, but the predominant reading within contemporary Reformed biblical theology of creation.",
+              "citation": "Meredith G. Kline, Images of the Spirit, 1980"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Reflects the stewardship language of the modern confession rather than the earlier confessions' briefer treatment.",
+              "citation": "Baptist Faith and Message, 2000, Article III"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": "Widely shared within contemporary evangelical biblical-theology teaching on creation and vocation.",
+              "citation": "G. K. Beale, The Temple and the Church's Mission, 2004"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "permitted",
+              "note": "Not addressed directly by the Articles; held within Anglican creation theology alongside the structural reading.",
+              "citation": "Chicago-Lambeth Quadrilateral, 1888, framing of creation stewardship"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "The Temple and the Church's Mission", "citation": "G. K. Beale, 2004" }
+            {
+              "label": "The Temple and the Church's Mission",
+              "citation": "G. K. Beale, 2004"
+            }
           ]
         },
         {
@@ -82,14 +128,37 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1702" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "The Longer Catechism of St Philaret of Moscow, on likeness through communion with God" },
-            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Confession of Faith in a Mennonite Perspective, 1995, Article 6" },
-            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 1:26-27" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 1702"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Longer Catechism of St Philaret of Moscow, on likeness through communion with God"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Confession of Faith in a Mennonite Perspective, 1995, Article 6"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 1:26-27"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Catechism of the Catholic Church", "citation": "1702" }
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1702"
+            }
           ]
         }
       ],
@@ -139,8 +208,14 @@
       },
       "learn_note": "Most traditions hold two or more of these readings together, and the three-way split functions here as a teaching typology rather than a live schism. The near-universal agreement that the fall defaced but did not erase the image belongs to the framing shared by every position, not to any one of them.",
       "sources": [
-        { "label": "Catechism of the Catholic Church", "citation": "1701-1707" },
-        { "label": "Westminster Larger Catechism", "citation": "Q&A 17" }
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1701-1707"
+        },
+        {
+          "label": "Westminster Larger Catechism",
+          "citation": "Q&A 17"
+        }
       ]
     },
     {
@@ -178,20 +253,73 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith VI.3" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article II" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Pius XII, Humani Generis, 1950, §37" },
-            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Second London Baptist Confession, VI.3" },
-            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Thirty-Nine Articles, Article IX" },
-            { "tradition": "orthodox", "stance": "historic", "note": "Reflects the patristic consensus rather than a single conciliar definition of Adam's biological exclusivity.", "citation": "St Athanasius, Against the Heathen, on Adam as forefather of the race" },
-            { "tradition": "methodist", "stance": "majority", "note": null, "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 3" },
-            { "tradition": "anabaptist", "stance": "majority", "note": null, "citation": "Dordrecht Confession of Faith, Article II" },
-            { "tradition": "non-denominational", "stance": "majority", "note": null, "citation": "National Association of Evangelicals, Statement of Faith, 1943" },
-            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, The Christian System, 1839" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith VI.3"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article II"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Pius XII, Humani Generis, 1950, §37"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession, VI.3"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article IX"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "historic",
+              "note": "Reflects the patristic consensus rather than a single conciliar definition of Adam's biological exclusivity.",
+              "citation": "St Athanasius, Against the Heathen, on Adam as forefather of the race"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "majority",
+              "note": null,
+              "citation": "John Wesley, Explanatory Notes Upon the Old Testament, on Genesis 3"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Dordrecht Confession of Faith, Article II"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "majority",
+              "note": null,
+              "citation": "National Association of Evangelicals, Statement of Faith, 1943"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System, 1839"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Humani Generis", "citation": "Pius XII, 1950, §37" }
+            {
+              "label": "Humani Generis",
+              "citation": "Pius XII, 1950, §37"
+            }
           ]
         },
         {
@@ -207,11 +335,19 @@
           "orthodoxy": "contested",
           "orthodoxy_note": "Inside the historic creeds, which say nothing about Adam's biological exclusivity, but a live dispute among evangelicals who read Romans 5 and Genesis as requiring strict descent from one couple alone.",
           "held_by": [
-            { "tradition": "non-denominational", "stance": "minority", "note": "A minority position among non-denominational evangelicals engaging contemporary population genetics, not adopted by any denominational body.", "citation": "S. Joshua Swamidass, The Genealogical Adam and Eve, 2019" }
+            {
+              "tradition": "non-denominational",
+              "stance": "minority",
+              "note": "A minority position among non-denominational evangelicals engaging contemporary population genetics, not adopted by any denominational body.",
+              "citation": "S. Joshua Swamidass, The Genealogical Adam and Eve, 2019"
+            }
           ],
           "learn_detail": "Some Catholic theologians have also proposed genealogical-Adam-style readings as a way to satisfy Humani Generis's requirement of a single origin while accommodating population genetics, but this remains an unsettled question within Catholic scholarship rather than a taught position.",
           "sources": [
-            { "label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019" }
+            {
+              "label": "The Genealogical Adam and Eve",
+              "citation": "S. Joshua Swamidass, 2019"
+            }
           ]
         },
         {
@@ -229,7 +365,10 @@
           "held_by": [],
           "learn_detail": "No tradition registered in this corpus confessionally or as a majority position holds this reading; it appears in wider biblical scholarship and is included here because it is a live option in the broader evangelical and academic conversation this domain sits within.",
           "sources": [
-            { "label": "The Lost World of Adam and Eve", "citation": "John H. Walton, 2015, representative of a non-historical-Adam reading in evangelical scholarship" }
+            {
+              "label": "The Lost World of Adam and Eve",
+              "citation": "John H. Walton, 2015, representative of a non-historical-Adam reading in evangelical scholarship"
+            }
           ]
         }
       ],
@@ -253,8 +392,14 @@
       },
       "learn_note": "The dispute is often reported as being about evolution as such, but the sharper edge among interpreters who already accept an old earth and common descent is whether Adam's headship requires exclusive biological descent. Humani Generis (1950) remains formally in force for Catholics and requires a single origin for the race, which is why the genealogical reading is a live question inside Catholic scholarship rather than a settled alternative.",
       "sources": [
-        { "label": "Humani Generis", "citation": "Pius XII, 1950, §37" },
-        { "label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019" }
+        {
+          "label": "Humani Generis",
+          "citation": "Pius XII, 1950, §37"
+        },
+        {
+          "label": "The Genealogical Adam and Eve",
+          "citation": "S. Joshua Swamidass, 2019"
+        }
       ]
     },
     {
@@ -293,15 +438,43 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith VI.3" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Augsburg Confession, Article II" },
-            { "tradition": "roman-catholic", "stance": "confessional", "note": "Catholic teaching distinguishes original sin itself from the concupiscence that remains after baptism, which is an inclination toward sin rather than sin properly so called.", "citation": "Catechism of the Catholic Church 402-405" },
-            { "tradition": "anglican", "stance": "confessional", "note": null, "citation": "Thirty-Nine Articles, Article IX" },
-            { "tradition": "baptist", "stance": "majority", "note": "The Second London Confession states the doctrine in Augustinian terms; the modern Baptist Faith and Message states it more cautiously, tying guilt to the point of moral capacity.", "citation": "Second London Baptist Confession, VI.3" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith VI.3"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Augsburg Confession, Article II"
+            },
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": "Catholic teaching distinguishes original sin itself from the concupiscence that remains after baptism, which is an inclination toward sin rather than sin properly so called.",
+              "citation": "Catechism of the Catholic Church 402-405"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Thirty-Nine Articles, Article IX"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "The Second London Confession states the doctrine in Augustinian terms; the modern Baptist Faith and Message states it more cautiously, tying guilt to the point of moral capacity.",
+              "citation": "Second London Baptist Confession, VI.3"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Catechism of the Catholic Church", "citation": "402-405" }
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "402-405"
+            }
           ]
         },
         {
@@ -317,11 +490,19 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Confession of Dositheus, Synod of Jerusalem, 1672, Decree 6" }
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus, Synod of Jerusalem, 1672, Decree 6"
+            }
           ],
           "learn_detail": "This is not a denial of original sin; it is a different account of what is inherited. Orthodox theology affirms as strongly as any Western tradition that every person is born into a fallen, mortal, sin-prone condition that only Christ can heal, and that infant baptism addresses a real need. What it declines to affirm is the specifically Augustinian claim that Adam's own guilt is imputed to each descendant prior to their own sin.",
           "sources": [
-            { "label": "The Longer Catechism of St Philaret of Moscow", "citation": "On the Consequences of the Fall" }
+            {
+              "label": "The Longer Catechism of St Philaret of Moscow",
+              "citation": "On the Consequences of the Fall"
+            }
           ]
         },
         {
@@ -337,19 +518,33 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "The Articles of Religion, 1784, Article VII, Of Original or Birth Sin" }
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Articles of Religion, 1784, Article VII, Of Original or Birth Sin"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "The Doctrine of Original Sin", "citation": "John Wesley, 1757" }
+            {
+              "label": "The Doctrine of Original Sin",
+              "citation": "John Wesley, 1757"
+            }
           ]
         }
       ],
       "tradition_overrides": {},
       "learn_note": "The three positions agree far more than popular summaries suggest: all affirm universal sinfulness, all affirm the need for God's grace in Christ, and none teaches that human beings are born neutral. The genuine divide is the narrower question of whether guilt itself, and not only a corrupted and mortal condition, is transmitted prior to a person's own will and action.",
       "sources": [
-        { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 6" },
-        { "label": "The Doctrine of Original Sin", "citation": "John Wesley, 1757" }
+        {
+          "label": "Confession of Dositheus",
+          "citation": "Synod of Jerusalem, 1672, Decree 6"
+        },
+        {
+          "label": "The Doctrine of Original Sin",
+          "citation": "John Wesley, 1757"
+        }
       ]
     },
     {
@@ -386,13 +581,31 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Canons of Dordt, III/IV, Articles 1-17" },
-            { "tradition": "lutheran", "stance": "confessional", "note": null, "citation": "Formula of Concord, Solid Declaration, Article II" },
-            { "tradition": "baptist", "stance": "majority", "note": "Reflected in the Second London Confession; modern Baptist bodies are divided in practice.", "citation": "Second London Baptist Confession, IX-X" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Canons of Dordt, III/IV, Articles 1-17"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Formula of Concord, Solid Declaration, Article II"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "Reflected in the Second London Confession; modern Baptist bodies are divided in practice.",
+              "citation": "Second London Baptist Confession, IX-X"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Canons of Dordt", "citation": "III/IV" }
+            {
+              "label": "Canons of Dordt",
+              "citation": "III/IV"
+            }
           ]
         },
         {
@@ -408,14 +621,37 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "The Articles of Religion, Article VIII, Of Free Will" },
-            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983" },
-            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, The Christian System, 1839" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": "Widely but not universally held within Arminian-leaning evangelicalism.", "citation": "Lausanne Covenant, 1974, Article 3" }
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "The Articles of Religion, Article VIII, Of Free Will"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, The Christian System, 1839"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": "Widely but not universally held within Arminian-leaning evangelicalism.",
+              "citation": "Lausanne Covenant, 1974, Article 3"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "On Working Out Our Own Salvation", "citation": "John Wesley, sermon" }
+            {
+              "label": "On Working Out Our Own Salvation",
+              "citation": "John Wesley, sermon"
+            }
           ]
         },
         {
@@ -431,12 +667,25 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Council of Trent, Session VI, Chapter 5; Catechism of the Catholic Church 1993" },
-            { "tradition": "orthodox", "stance": "confessional", "note": null, "citation": "Confession of Dositheus, Decree 3" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Trent, Session VI, Chapter 5; Catechism of the Catholic Church 1993"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Confession of Dositheus, Decree 3"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Decrees of the Council of Trent", "citation": "Session VI, 1547" }
+            {
+              "label": "Decrees of the Council of Trent",
+              "citation": "Session VI, 1547"
+            }
           ]
         },
         {
@@ -454,15 +703,24 @@
           "held_by": [],
           "learn_detail": null,
           "sources": [
-            { "label": "Canons of the Council of Carthage", "citation": "418" }
+            {
+              "label": "Canons of the Council of Carthage",
+              "citation": "418"
+            }
           ]
         }
       ],
       "tradition_overrides": {},
       "learn_note": "No tradition registered in this corpus holds the Pelagian position; it is included because every other position defines itself against it. Semi-Pelagianism, the claim that an unaided first step toward God is possible before grace responds to it, is sometimes wrongly equated with the Catholic and Orthodox synergistic position above. Trent and the Orthodox doctrine of synergeia both insist grace comes first; what they add to the monergistic and prevenient-grace positions is that the will's own cooperation is part of what faith is, not a separate later stage.",
       "sources": [
-        { "label": "Canons of the Council of Carthage", "citation": "418" },
-        { "label": "Decrees of the Council of Trent", "citation": "Session VI, 1547" }
+        {
+          "label": "Canons of the Council of Carthage",
+          "citation": "418"
+        },
+        {
+          "label": "Decrees of the Council of Trent",
+          "citation": "Session VI, 1547"
+        }
       ]
     },
     {
@@ -497,16 +755,49 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Council of Vienne, 1312; Catechism of the Catholic Church 362-368" },
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, XXXII.1" },
-            { "tradition": "lutheran", "stance": "majority", "note": null, "citation": "Standard Lutheran anthropology following the Augsburg Confession's body-and-soul language" },
-            { "tradition": "anglican", "stance": "majority", "note": null, "citation": "Thirty-Nine Articles, twofold anthropology" },
-            { "tradition": "baptist", "stance": "confessional", "note": null, "citation": "Second London Baptist Confession, XXXI.1" },
-            { "tradition": "orthodox", "stance": "majority", "note": "The mainstream modern reading; some early Fathers used threefold language.", "citation": "The Longer Catechism of St Philaret of Moscow" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Council of Vienne, 1312; Catechism of the Catholic Church 362-368"
+            },
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith, XXXII.1"
+            },
+            {
+              "tradition": "lutheran",
+              "stance": "majority",
+              "note": null,
+              "citation": "Standard Lutheran anthropology following the Augsburg Confession's body-and-soul language"
+            },
+            {
+              "tradition": "anglican",
+              "stance": "majority",
+              "note": null,
+              "citation": "Thirty-Nine Articles, twofold anthropology"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Second London Baptist Confession, XXXI.1"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "The mainstream modern reading; some early Fathers used threefold language.",
+              "citation": "The Longer Catechism of St Philaret of Moscow"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76, on the unity of the soul" }
+            {
+              "label": "Summa Theologiae",
+              "citation": "Thomas Aquinas, I q.75-76, on the unity of the soul"
+            }
           ]
         },
         {
@@ -522,19 +813,33 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983" }
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, Foundations of Pentecostal Theology, 1983"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983" }
+            {
+              "label": "Foundations of Pentecostal Theology",
+              "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983"
+            }
           ]
         }
       ],
       "tradition_overrides": {},
       "learn_note": "Both readings appeal to the same handful of texts, chiefly 1 Thessalonians 5:23 and Hebrews 4:12, and the dispute is more about how much theological weight those texts can bear than about separate bodies of exegetical evidence. Trichotomy became especially associated with Pentecostal and holiness teaching on the workings of the human spirit in worship, without becoming a matter any tradition here treats as confessionally binding the way it treats justification or the Trinity.",
       "sources": [
-        { "label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983" },
-        { "label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76" }
+        {
+          "label": "Foundations of Pentecostal Theology",
+          "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983"
+        },
+        {
+          "label": "Summa Theologiae",
+          "citation": "Thomas Aquinas, I q.75-76"
+        }
       ]
     },
     {
@@ -572,16 +877,49 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "baptist", "stance": "confessional", "note": "Reads the confession's language about becoming a transgressor upon capacity for moral action as implying no condemnation before that point.", "citation": "Baptist Faith and Message, 2000, Article III" },
-            { "tradition": "methodist", "stance": "confessional", "note": null, "citation": "Wesleyan doctrine of prevenient grace applied to those incapable of a personal response" },
-            { "tradition": "pentecostal", "stance": "majority", "note": null, "citation": "Assemblies of God, position paper, The Salvation of Infants and the Mentally Impaired" },
-            { "tradition": "restorationist", "stance": "majority", "note": null, "citation": "Alexander Campbell, writings on the innocence of childhood" },
-            { "tradition": "non-denominational", "stance": "permitted", "note": "Widely assumed within broadly Arminian evangelical teaching without a single confessional source.", "citation": "National Association of Evangelicals, Statement of Faith, 1943" },
-            { "tradition": "anabaptist", "stance": "majority", "note": "Believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.", "citation": "Dordrecht Confession of Faith, Article VII" }
+            {
+              "tradition": "baptist",
+              "stance": "confessional",
+              "note": "Reads the confession's language about becoming a transgressor upon capacity for moral action as implying no condemnation before that point.",
+              "citation": "Baptist Faith and Message, 2000, Article III"
+            },
+            {
+              "tradition": "methodist",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Wesleyan doctrine of prevenient grace applied to those incapable of a personal response"
+            },
+            {
+              "tradition": "pentecostal",
+              "stance": "majority",
+              "note": null,
+              "citation": "Assemblies of God, position paper, The Salvation of Infants and the Mentally Impaired"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": null,
+              "citation": "Alexander Campbell, writings on the innocence of childhood"
+            },
+            {
+              "tradition": "non-denominational",
+              "stance": "permitted",
+              "note": "Widely assumed within broadly Arminian evangelical teaching without a single confessional source.",
+              "citation": "National Association of Evangelicals, Statement of Faith, 1943"
+            },
+            {
+              "tradition": "anabaptist",
+              "stance": "majority",
+              "note": "Believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.",
+              "citation": "Dordrecht Confession of Faith, Article VII"
+            }
           ],
           "learn_detail": "There is no single confessional label for this position across the traditions that hold some version of it, and they differ among themselves on why the threshold exists, whether by prevenient grace, by non-imputation of guilt prior to moral agency, or by pastoral conviction without a developed doctrine. None of them fixes a specific age.",
           "sources": [
-            { "label": "Baptist Faith and Message", "citation": "2000, Article III" }
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "2000, Article III"
+            }
           ]
         },
         {
@@ -597,11 +935,19 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "reformed", "stance": "confessional", "note": null, "citation": "Westminster Confession of Faith, X.3" }
+            {
+              "tradition": "reformed",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Westminster Confession of Faith, X.3"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Westminster Confession of Faith", "citation": "X.3" }
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "X.3"
+            }
           ]
         },
         {
@@ -617,21 +963,43 @@
           "orthodoxy": "historic",
           "orthodoxy_note": null,
           "held_by": [
-            { "tradition": "roman-catholic", "stance": "confessional", "note": null, "citation": "Catechism of the Catholic Church 1261" },
-            { "tradition": "orthodox", "stance": "majority", "note": "Standard pastoral practice of infant baptism and chrismation without a defined dogmatic statement about the unbaptized.", "citation": "Standard Orthodox pastoral and liturgical practice" }
+            {
+              "tradition": "roman-catholic",
+              "stance": "confessional",
+              "note": null,
+              "citation": "Catechism of the Catholic Church 1261"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "majority",
+              "note": "Standard pastoral practice of infant baptism and chrismation without a defined dogmatic statement about the unbaptized.",
+              "citation": "Standard Orthodox pastoral and liturgical practice"
+            }
           ],
           "learn_detail": null,
           "sources": [
-            { "label": "Catechism of the Catholic Church", "citation": "1261" }
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1261"
+            }
           ]
         }
       ],
       "tradition_overrides": {},
       "learn_note": "Because these three frameworks are not different answers to the same question but different questions each tradition treats as the pastorally decisive one, this entry deliberately does not rank them or treat one as a more developed version of another.",
       "sources": [
-        { "label": "Baptist Faith and Message", "citation": "2000, Article III" },
-        { "label": "Westminster Confession of Faith", "citation": "X.3" },
-        { "label": "Catechism of the Catholic Church", "citation": "1261" }
+        {
+          "label": "Baptist Faith and Message",
+          "citation": "2000, Article III"
+        },
+        {
+          "label": "Westminster Confession of Faith",
+          "citation": "X.3"
+        },
+        {
+          "label": "Catechism of the Catholic Church",
+          "citation": "1261"
+        }
       ]
     }
   ]
