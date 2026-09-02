@@ -369,8 +369,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “All of the spiritual gifts as outlined in 1 Corinthians 12:8-10 are still in operation and are available to believers for the building up of the church and for the glory of God.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Baptism and Gifts of The Holy Spirit\""
             },
             {
               "tradition": "non-denominational",
@@ -394,8 +394,13 @@
           "learn_detail": "Continuationists divide further on how the gifts are exercised in practice, from classical Pentecostal expectation of tongues as initial evidence of Spirit baptism to a lighter charismatic openness within otherwise traditional worship.",
           "sources": [
             {
-              "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 7-8"
+              "label": "Are Miraculous Gifts for Today? Four Views",
+              "citation": "Wayne Grudem, ed., 1996"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"The Baptism and Gifts of The Holy Spirit\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         }

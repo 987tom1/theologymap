@@ -52,8 +52,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “Jesus Christ is the Son of God, and is co-equal and co-eternal with the Father,” and that he “became a man in flesh, lived a sinless human life.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
@@ -109,6 +109,11 @@
             {
               "label": "Chalcedonian Definition",
               "citation": "Council of Chalcedon, 451"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         },
@@ -261,8 +266,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “Jesus, born of a virgin birth, became a man in flesh.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
@@ -318,6 +323,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "CCC 496-498"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         }
@@ -380,8 +390,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “He arose bodily from the dead after three days to demonstrate His power over sin and death.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
@@ -437,6 +447,11 @@
             {
               "label": "1 Corinthians 15 as the hinge of Christian hope",
               "citation": "1 Cor 15:12-19"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         }
@@ -751,8 +766,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says Christ “died in our place by being crucified for our sins,” against a section that places humanity “rightfully under His just and Holy wrath.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Gospel: God Saves Sinners\""
             }
           ],
           "learn_detail": null,
@@ -760,6 +775,11 @@
             {
               "label": "What Did the Cross Achieve? The Logic of Penal Substitution",
               "citation": "J. I. Packer, Tyndale Bulletin, 1974"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"The Gospel: God Saves Sinners\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         },

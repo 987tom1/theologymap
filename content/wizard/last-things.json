@@ -100,8 +100,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “We believe in the personal, glorious, bodily, and imminent return of our Lord Jesus Christ in fulfilling the prophetic word.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Restoration of All Things\""
             }
           ],
           "learn_detail": "Traditions differ sharply over the manner and timing of this return, which is why the millennium and the rapture are treated as separate, genuinely disputed questions rather than folded into this one.",
@@ -109,6 +109,11 @@
             {
               "label": "The Nicene-Constantinopolitan Creed",
               "citation": "381"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"The Restoration of All Things\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         }

@@ -868,7 +868,7 @@
             {
               "tradition": "pentecostal",
               "stance": "minority",
-              "note": "Associated with independent Word of Faith teachers within the broader Pentecostal-charismatic movement; the Assemblies of God's own Statement of Fundamental Truths does not teach this, and its 1980 position paper explicitly critiques it.",
+              "note": "Associated with independent Word of Faith teachers within the broader Pentecostal-charismatic movement, not with any classical Pentecostal denomination's own statement. The Assemblies of God's 1980 position paper explicitly rejects this reasoning: \"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture. Some heroes of faith suffered greatly, some even died through faith, and they were commended for it.\"",
               "citation": "Kenneth Hagin, The Believer's Authority (1984), representative of Word of Faith teaching"
             }
           ],
@@ -896,8 +896,8 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": "The Assemblies of God's own official position, formally distinguishing biblical faith from positive-confession teaching.",
-              "citation": "Assemblies of God, The Believer and Positive Confession (1980)"
+              "note": "The statement says: \"This puts man in the position of using God rather than man surrendering himself to be used of God,\" and concludes: \"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture.\" It also warns the teaching \"can often be more detrimental than views which reject Scripture altogether.\"",
+              "citation": "General Presbytery of the Assemblies of God, \"The Believer and Positive Confession\" (position paper, approved 19 August 1980)"
             },
             {
               "tradition": "reformed",
@@ -914,8 +914,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Movement, A Statement on the Prosperity Gospel (2010)"
+              "note": "The statement concludes: \"it is our overall view that the teachings of those who most vigorously promote the 'prosperity gospel' are false and gravely distorting of the Bible ... it can be soberly described as a false gospel,\" and names it \"incompatible with evangelical biblical Christianity.\" It also rejects \"the unbiblical notion that spiritual welfare can be measured in terms of material welfare, or that wealth is always a sign of God's blessing ... or that poverty or illness or early death, is always a sign of God's curse.\"",
+              "citation": "Lausanne Theology Working Group, Africa Chapter, \"A Statement on the Prosperity Gospel\" (16 January 2010)"
             },
             {
               "tradition": "roman-catholic",
@@ -928,11 +928,13 @@
           "sources": [
             {
               "label": "The Believer and Positive Confession",
-              "citation": "Assemblies of God, 1980"
+              "citation": "General Presbytery of the Assemblies of God, position paper, approved 19 August 1980",
+              "url": "https://ag.org/Beliefs/Position-Papers/The-Believer-and-Positive-Confession"
             },
             {
               "label": "A Statement on the Prosperity Gospel",
-              "citation": "Lausanne Movement, 2010"
+              "citation": "Lausanne Theology Working Group, Africa Chapter, 16 January 2010",
+              "url": "https://lausanne.org/content/a-statement-on-the-prosperity-gospel"
             }
           ]
         }
@@ -941,11 +943,13 @@
       "sources": [
         {
           "label": "The Believer and Positive Confession",
-          "citation": "Assemblies of God, 1980"
+          "citation": "General Presbytery of the Assemblies of God, position paper, approved 19 August 1980",
+          "url": "https://ag.org/Beliefs/Position-Papers/The-Believer-and-Positive-Confession"
         },
         {
           "label": "A Statement on the Prosperity Gospel",
-          "citation": "Lausanne Movement, 2010"
+          "citation": "Lausanne Theology Working Group, Africa Chapter, 16 January 2010",
+          "url": "https://lausanne.org/content/a-statement-on-the-prosperity-gospel"
         }
       ],
       "tradition_overrides": {
@@ -962,8 +966,8 @@
           "flags": [
             "study"
           ],
-          "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The division is real and documented, and reporting either half alone would be false to what a Pentecostal reader meets in practice.",
-          "citation": "Assemblies of God, The Believer and Positive Confession (1980); Lausanne Movement, Statement on the Prosperity Gospel (2010)"
+          "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The Assemblies of God's General Presbytery formally rejected positive-confession teaching in 1980 (\"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture\"), but a large independent Word of Faith and charismatic constituency, outside any classical Pentecostal denomination's own governance, continues to teach it. Reporting either half alone would be false to what a Pentecostal reader meets in practice.",
+          "citation": "General Presbytery of the Assemblies of God, \"The Believer and Positive Confession\" (approved 19 August 1980); Lausanne Theology Working Group, Africa Chapter, \"A Statement on the Prosperity Gospel\" (16 January 2010)"
         }
       }
     },

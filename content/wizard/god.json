@@ -94,8 +94,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “We believe in one God, eternally existing in three equally divine yet distinct Persons... God the Father, Jesus God the Son, and God the Holy Spirit,” and INC states it “holds to both the Apostles’ Creed and Nicene Creed as foundational Christian beliefs.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"God: Holy Trinity\""
             },
             {
               "tradition": "non-denominational",
@@ -125,6 +125,11 @@
             {
               "label": "The Athanasian Creed (Quicunque vult)",
               "citation": "Latin West, c. 5th-6th century"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"God: Holy Trinity\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         },

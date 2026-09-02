@@ -53,8 +53,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says Christ arose “to validate that the way of salvation is through Him alone.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
@@ -120,6 +120,11 @@
             {
               "label": "Lausanne Covenant",
               "citation": "1974, Article 3"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
             }
           ]
         },
@@ -725,20 +730,17 @@
           "held_by": [
             {
               "tradition": "roman-catholic",
-              "stance": "confessional",
-              "note": "The church neither conducts nor supports any specific institutional mission work directed towards Jews, while it is committed to bear witness to its faith in the presence of Jews, doing so with humility and sensitivity.",
-              "citation": "Commission for Religious Relations with the Jews, The Gifts and the Calling of God are Irrevocable (2015), §40; Nostra Aetate 4 (1965)"
+              "stance": "majority",
+              "note": "Verbatim, §40: \"In concrete terms this means that the Catholic Church neither conducts nor supports any specific institutional mission work directed towards Jews. ... Christians are nonetheless called to bear witness to their faith in Jesus Christ also to Jews, although they should do so in a humble and sensitive manner, acknowledging that Jews are bearers of God's Word.\" The document states its own status in its preface: \"The text is not a magisterial document or doctrinal teaching of the Catholic Church, but is a reflection prepared by the Commission for Religious Relations with the Jews.\" Nostra Aetate 4 (1965), the binding conciliar text, does not itself address institutional mission to Jews at all; the specific no-institutional-mission position rests only on this later, explicitly non-magisterial reflection.",
+              "citation": "Commission for Religious Relations with the Jews, \"The Gifts and the Calling of God are Irrevocable\" (10 December 2015), §40"
             }
           ],
           "learn_detail": "This position must be stated with precision: it is a specific judgment about institutional missionary programmes aimed at Jews, made explicit in the 2015 document The Gifts and the Calling of God are Irrevocable from the Vatican's Commission for Religious Relations with the Jews, and it explicitly does not deny that Jesus Christ is the way, the truth and the life, nor that salvation comes through him.",
           "sources": [
             {
               "label": "The Gifts and the Calling of God are Irrevocable",
-              "citation": "Commission for Religious Relations with the Jews, 2015, §40"
-            },
-            {
-              "label": "Nostra Aetate",
-              "citation": "Second Vatican Council, 1965, §4"
+              "citation": "Commission for Religious Relations with the Jews, 10 December 2015, §40",
+              "url": "https://www.ccjr.us/dialogika-resources/documents-and-statements/roman-catholic/vatican-curia/crrj-2015dec10"
             }
           ]
         }
@@ -747,11 +749,13 @@
       "sources": [
         {
           "label": "The Gifts and the Calling of God are Irrevocable",
-          "citation": "Commission for Religious Relations with the Jews, 2015"
+          "citation": "Commission for Religious Relations with the Jews, 10 December 2015",
+          "url": "https://www.ccjr.us/dialogika-resources/documents-and-statements/roman-catholic/vatican-curia/crrj-2015dec10"
         },
         {
           "label": "Nostra Aetate",
-          "citation": "Second Vatican Council, 1965"
+          "citation": "Second Vatican Council, 28 October 1965, §4",
+          "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
         }
       ]
     }
