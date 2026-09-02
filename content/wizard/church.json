@@ -660,6 +660,21 @@
         "todo": "Work out what 'this is my body' claimed in its own setting against the Passover background, and decide whether the Supper conveys grace, signifies a finished work, or both at once.",
         "tier": "T3"
       },
+      "tradition_overrides": {
+        "orthodox": {
+          "positions": [
+            "church.lords-supper/transubstantiation"
+          ],
+          "hold": "The bread and wine are changed into the body and blood of Christ, truly and really, while the manner of the change is confessed as a mystery rather than defined in the scholastic vocabulary of substance and accident.",
+          "why": "Dositheus confesses the change of the elements in the plainest terms the East has ever used, and the same tradition has declined to make the Latin philosophical explanation of that change a term of communion.",
+          "vs": null,
+          "tier": "T2",
+          "confidence": "certain",
+          "flags": [],
+          "note": "Orthodoxy appears under the transubstantiation position because it is the one position in this corpus that affirms a real change of the elements, which Decree 17 does. It is not a divided tradition here. Placing it on the non-transubstantive real-presence position instead — as this corpus did until phase 6 — put the Lutheran 'in, with and under', and a vs that rejects any change of substance, into the Orthodox map's mouth.",
+          "citation": "Confession of Dositheus (1672), Decree 17"
+        }
+      },
       "positions": [
         {
           "id": "church.lords-supper/transubstantiation",
@@ -679,6 +694,12 @@
               "stance": "confessional",
               "note": null,
               "citation": "Catechism of the Catholic Church, 1373-1377; Council of Trent, Session XIII"
+            },
+            {
+              "tradition": "orthodox",
+              "stance": "confessional",
+              "note": "The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident. See this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.",
+              "citation": "Confession of Dositheus (1672), Decree 17"
             }
           ],
           "learn_detail": "Transubstantiation is a claim about substance rather than appearance: the philosophical vocabulary distinguishes what a thing is from how it presents to the senses.",
@@ -711,12 +732,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Augsburg Confession, X; Formula of Concord, Solid Declaration VII"
-            },
-            {
-              "tradition": "orthodox",
-              "stance": "confessional",
-              "note": "The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident.",
-              "citation": "Confession of Dositheus (1672), Decree 17"
             }
           ],
           "learn_detail": "Lutherans reject transubstantiation's philosophical apparatus while affirming an objective sacramental union of Christ's body and blood with the bread and wine, sometimes summarised as 'in, with and under.'",

@@ -186,14 +186,14 @@
 
 ## Depravity and prevenient grace · T2.5 · certain
   hold  Grace initiates and accompanies the whole process of coming to faith, since no one can turn to God without it, but the person's own free cooperation with that grace, rather than a separate prior act of grace restoring ability, is part of what faith itself consists in.
-  why   Catholic and Orthodox theology reject both an unaided human turning to God and an account in which the will contributes nothing to the assent of faith, holding that grace and freedom act together as a single, non-competing cause of a person's coming to believe.
+  why   Neither an unaided human turning to God nor an account in which the will contributes nothing to the assent of faith is accepted here: grace and freedom are held to act together as a single, non-competing cause of a person's coming to believe.
   vs    Treating grace and human freedom as though enabling one required subtracting from the other, so either grace alone or the will alone must be given the whole credit for faith.
   refs  Phil 2:12-13
   link  original-sin
 
 ## Age of accountability · T2.5 · certain
   hold  The standing of infants and others incapable of personal faith is addressed through incorporation into the Church by baptism rather than through a threshold of moral accountability, and the fate of those who die unbaptized is entrusted to God's mercy without a settled dogmatic answer.
-  why   Both traditions treat baptism, not a developmental stage, as the ordinary means by which a person, including an infant, is united to Christ and the Church, so the pastoral question is framed around the sacrament rather than around when culpability might begin.
+  why   Baptism, not a developmental stage, is the ordinary means by which a person, including an infant, is united to Christ and the church, so the pastoral question is framed around the sacrament rather than around when culpability might begin.
   vs    Answering the same pastoral question through a threshold of moral or cognitive capacity rather than through incorporation by baptism.
   refs  Acts 2:38-39
   link  baptism
@@ -256,7 +256,7 @@
 
 ## Perseverance and apostasy · T3 · certain
   hold  Grave, deliberate sin against a known command can destroy the sanctifying grace given in justification, but that grace, once lost, can be restored through repentance and confession rather than being finally and irrecoverably forfeited.
-  why   Trent teaches that the justified can lose grace through mortal sin, and that this grace is recovered through the sacrament of penance rather than requiring an entirely new justification.
+  why   Grave, deliberate sin against a known command is held to destroy the grace given in justification rather than merely to wound it, and the church's ordinary provision for that loss is repentance and confession, so grace once lost is restored through the church's own remedy rather than by a wholly new justification.
   vs    Treating salvation as either unlosable regardless of subsequent sin or as finally forfeited beyond any provision for restoration, both of which this position holds misdescribe how grace, once given, relates to serious sin and repentance.
   refs  1 John 5:16-17; James 5:19-20; Gal 5:4
   link  assurance
@@ -265,7 +265,7 @@
 
 ## Assurance · T3 · certain
   hold  A believer may know present grace and hope in God's mercy, but a settled certainty of final salvation ahead of death is not sought or promised in this life, so as to guard against presumption while sanctifying grace remains at stake.
-  why   Trent warns against the vain confidence of claiming an absolute and infallible certainty of one's own final perseverance apart from special revelation, while still affirming a well-founded hope in God's mercy.
+  why   What is promised is a well-founded hope in God's mercy rather than an infallible certainty of one's own final perseverance, so the counsel is to rest in present grace and guard against presumption while the outcome of a life still lies ahead.
   vs    Claiming an infallible certainty of final salvation ahead of death apart from special revelation, which this position holds Scripture nowhere promises and which risks presumption.
   refs  Phil 2:12; 1 Cor 9:27; 2 Cor 5:10
   link  perseverance-and-apostasy
@@ -375,7 +375,7 @@
   link  genre-of-genesis-1
 
 ## Miracles and science · T2 · confident
-  hold  Rome affirms miracles as real divine acts and treats them as motives of credibility for revelation, while also holding, through its long engagement with the natural sciences, that the scientific method properly investigates only natural causes and cannot itself adjudicate a miracle claim.
+  hold  Miracles are affirmed as real divine acts and treated as motives of credibility for revelation, while the natural sciences are held, through a long engagement with them, to investigate natural causes only and so to be unable to adjudicate a miracle claim.
   refs  John 2:11; Acts 2:22; 1 Cor 15:3-8
   link  classical-theism
   link  trinity
@@ -391,7 +391,7 @@
   link  hermeneutic-method
 
 ## Age of the earth · T3 · leaning
-  hold  Rome takes no confessional position on the age of the earth, leaving members free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held.
+  hold  There is no confessional position on the age of the earth; the faithful are free to hold an old earth on ordinary scientific grounds, provided the immediate creation of each human soul by God is held.
   refs  Gen 1:1-31; Gen 5; Gen 11:10-32; Ps 90:4
   link  genre-of-genesis-1
   link  evolution
