@@ -48,8 +48,8 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article IV.B"
+              "note": "Article IV.C says sanctification “is the experience, beginning in regeneration, by which the believer is set apart to God's purposes” — progressive growth, not instant perfection. (The corpus previously cited Article IV.B, which is Justification, not Sanctification.)",
+              "citation": "Baptist Faith and Message (2000), Article IV.C"
             },
             {
               "tradition": "anglican",
@@ -62,19 +62,22 @@
               "stance": "majority",
               "note": null,
               "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article XVI"
             }
           ],
           "learn_detail": "Reformed theology distinguishes definitive sanctification, the decisive break with sin's dominion at conversion, from this progressive, lifelong sense; Thomas's map treats those as settled bookends and this doctrine addresses only the contested middle.",
           "sources": [
             {
+              "label": "Five Views on Sanctification",
+              "citation": "Melvin Dieter et al., 1987"
+            },
+            {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 13"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article IV.C",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -284,12 +287,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Westminster Confession of Faith 1.6"
-            },
-            {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": "Widely but not universally held.",
-              "citation": "Baptist Faith and Message (2000), Article I"
             }
           ],
           "learn_detail": null,
@@ -353,12 +350,6 @@
           "orthodoxy": "contested",
           "orthodoxy_note": "Whether God grants genuinely revelatory personal guidance beyond Scripture is a live and sharp dispute among evangelicals themselves, not a departure from the creeds.",
           "held_by": [
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
-            },
             {
               "tradition": "quaker",
               "stance": "confessional",
@@ -475,12 +466,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, general practice"
             }
           ],
           "learn_detail": null,
@@ -634,15 +619,24 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession says: “God as Father reigns with providential care over His universe, His creatures, and the flow of the stream of human history according to the purposes of His grace.”",
               "citation": "Baptist Faith and Message (2000), Article II.A"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
+              "label": "Where Is God When It Hurts?",
+              "citation": "Philip Yancey, 1977"
+            },
+            {
               "label": "Catechism of the Catholic Church",
               "citation": "309-314"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article II.A",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },

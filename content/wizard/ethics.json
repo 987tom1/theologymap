@@ -58,7 +58,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “Marriage is the uniting of one man and one woman in covenant commitment for a lifetime.”",
               "citation": "Baptist Faith and Message (2000), Article XVIII"
             },
             {
@@ -66,12 +66,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Assemblies of God, position paper, Marriage"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 5, applied to marriage in affiliated statements"
             },
             {
               "tradition": "anabaptist",
@@ -89,6 +83,11 @@
             {
               "label": "Lambeth Conference Resolution I.10",
               "citation": "1998"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article XVIII",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -369,14 +368,7 @@
           "equivalence_group": null,
           "orthodoxy": "contested",
           "orthodoxy_note": "This reading and the exception-clause reading disagree sharply over how far Matthew's and Paul's exceptions extend, each regarding the other's reading as pastorally mistaken on a question with real consequences.",
-          "held_by": [
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), article on marriage"
-            }
-          ],
+          "held_by": [],
           "learn_detail": null,
           "sources": [
             {
@@ -452,7 +444,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says believers “should speak on behalf of the unborn and contend for the sanctity of all human life from conception to natural death.”",
               "citation": "Baptist Faith and Message (2000), Article XV"
             },
             {
@@ -497,6 +489,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "2270-2275"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article XV",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -1069,12 +1066,6 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "baptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article XV"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
               "note": null,
@@ -1146,8 +1137,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Schleitheim Confession (1527), Article VI"
+              "note": "The confession says a Christian's “citizenship is in this world, but the Christians' citizenship is in heaven,” concluding “it is not appropriate for a Christian to serve as a magistrate.”",
+              "citation": "Schleitheim Confession (1527), Article 6"
             },
             {
               "tradition": "quaker",
@@ -1161,6 +1152,11 @@
             {
               "label": "Schleitheim Confession",
               "citation": "1527, Article VI"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 6",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         },
@@ -1382,8 +1378,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Schleitheim Confession (1527), Article VI; Dordrecht Confession of Faith (1632)"
+              "note": "Schleitheim says “in the perfection of Christ... only the ban is used,” not the sword, and Dordrecht says Christ “has forbidden and set aside to His disciples and followers all revenge and retaliation... but to put the sword into the sheath.”",
+              "citation": "Schleitheim Confession (1527), Article 6; Dordrecht Confession of Faith (1632), Article 14"
             },
             {
               "tradition": "quaker",
@@ -1401,6 +1397,16 @@
             {
               "label": "The Peace Testimony",
               "citation": "1660"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 6",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 14",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },

@@ -82,20 +82,14 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 1"
+              "note": "The confession says of God: “He is the Creator of all things visible and invisible; that He, in six days, created, made, and prepared, heaven and earth, and the sea, and all that in them is.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says: \"The one true God has revealed himself as the eternally self-existent 'I AM,' the Creator of heaven and earth\" (Article 2).",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith, Article 2"
             }
           ],
           "learn_detail": "Affirming that God created the universe out of nothing says nothing by itself about how his design within that creation is discerned; positions on that question, from classical teleological argument to the modern intelligent design movement, vary widely without touching this doctrine's substance.",
@@ -107,6 +101,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "4.1"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 1",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         }
@@ -905,24 +904,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Articles of Religion, Article 3"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": "See the tradition override below.",
-              "citation": "National Association of Evangelicals, Statement of Faith"
             }
           ],
           "learn_detail": null,

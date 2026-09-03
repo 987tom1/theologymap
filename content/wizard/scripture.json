@@ -46,20 +46,20 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “Therefore, all Scripture is totally true and trustworthy.”",
               "citation": "Baptist Faith and Message (2000), Article I"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": "The Assemblies of God's Statement of Fundamental Truths affirms verbal inspiration and infallibility; 'inerrancy' as a term is more recent than the movement.",
+              "note": "The statement says: \"The Scriptures, both the Old and New Testaments, are verbally inspired of God and are the revelation of God to man, the infallible, authoritative rule of faith and conduct\" (Article 1). The Assemblies of God's Statement affirms verbal inspiration and infallibility; 'inerrancy' as a term is more recent than the movement.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 2"
+              "note": "The Covenant says: \"We affirm the divine inspiration, truthfulness and authority of both Old and New Testament Scriptures in their entirety as the only written word of God, without error in all that it affirms.\"",
+              "citation": "Lausanne Covenant (1974), Article 2, 'The Authority and Power of the Bible'"
             },
             {
               "tradition": "anabaptist",
@@ -91,6 +91,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 2, 'The Authority and Power of the Bible'",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         },
@@ -227,21 +232,9 @@
             },
             {
               "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
-            },
-            {
-              "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+              "note": "The statement says: \"The Scriptures, both the Old and New Testaments, are verbally inspired of God\" (Article 1). The article does not itself enumerate the sixty-six books or address the deuterocanon; the Protestant canon is the Assemblies of God's settled practice rather than a point this article argues.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
             },
             {
               "tradition": "inc",
@@ -261,6 +254,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"The Bible: How We Know God\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 1",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -369,16 +367,10 @@
               "citation": "Thirty-Nine Articles, VI"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 2"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+              "note": "The confession says Christ's New Testament contains “the whole counsel and will of His heavenly Father, as far as is necessary for salvation,” charging that “neither angel nor man may alter it, nor add to it nor take away from it.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 5"
             },
             {
               "tradition": "restorationist",
@@ -404,6 +396,11 @@
               "label": "Declaration and Address",
               "citation": "Thomas Campbell, 1809, Proposition 3",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 5",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -458,8 +455,8 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1, 7"
+              "note": "The statement says Scripture is \"the infallible, authoritative rule of faith and conduct\" (Article 1) and describes the baptism in the Holy Spirit as bringing \"the bestowment of the gifts and their uses in the work of the ministry\" (Article 7) — continuing gifts operating alongside, not replacing, Scripture's stated authority.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1; Article 7"
             },
             {
               "tradition": "inc",
@@ -549,24 +546,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Thirty-Nine Articles, VI"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Schleitheim Confession (1527), Preface"
             },
             {
               "tradition": "restorationist",
@@ -681,18 +660,6 @@
               "citation": "Westminster Confession of Faith 1.9"
             },
             {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article I"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
               "tradition": "lutheran",
               "stance": "majority",
               "note": null,
@@ -778,14 +745,7 @@
           "equivalence_group": "grammatical-historical",
           "orthodoxy": "historic",
           "orthodoxy_note": null,
-          "held_by": [
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
-            }
-          ],
+          "held_by": [],
           "learn_detail": "This position is grouped with grammatical-historical method as substantively the same account of meaning, adding a doctrine of illumination that most grammatical-historical holders would also affirm rather than dispute; some charismatic teaching pushes further toward reading a text's application as itself a fresh 'rhema' word, which is a distinct and more contested claim.",
           "sources": [
             {
@@ -846,28 +806,10 @@
               "citation": "Westminster Confession of Faith 1.8"
             },
             {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article I"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
               "tradition": "anglican",
               "stance": "majority",
               "note": null,
               "citation": "Thirty-Nine Articles, XXIV"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 1"
             },
             {
               "tradition": "methodist",

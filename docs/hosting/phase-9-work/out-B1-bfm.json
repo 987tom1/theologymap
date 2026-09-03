@@ -1,0 +1,767 @@
+[
+  {
+    "op": "held_by.set",
+    "position": "christ.deity-and-humanity/chalcedonian",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.B",
+      "note": "The confession says: “He ascended into heaven and is now exalted at the right hand of God where He is the One Mediator, fully God, fully man, in whose Person is effected the reconciliation between God and man.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.deity-and-humanity/chalcedonian",
+    "sources": [
+      {
+        "label": "Chalcedonian Definition",
+        "citation": "Council of Chalcedon, 451"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Baptist Faith and Message 2000",
+        "citation": "SBC, 2000, Article II.B",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "christ.virgin-birth/virginal-conception",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.B",
+      "note": "The confession says: “In His incarnation as Jesus Christ He was conceived of the Holy Spirit and born of the virgin Mary.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.virgin-birth/virginal-conception",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "CCC 496-498"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Baptist Faith and Message 2000",
+        "citation": "SBC, 2000, Article II.B",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "christ.bodily-resurrection/bodily",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.B",
+      "note": "The confession says: “He was raised from the dead with a glorified body and appeared to His disciples as the person who was with them before His crucifixion.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.bodily-resurrection/bodily",
+    "sources": [
+      {
+        "label": "1 Corinthians 15 as the hinge of Christian hope",
+        "citation": "1 Cor 15:12-19"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Baptist Faith and Message 2000",
+        "citation": "SBC, 2000, Article II.B",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "christ.atonement/penal-substitution",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.B",
+      "note": "The confession says: “He honored the divine law by His personal obedience, and in His substitutionary death on the cross He made provision for the redemption of men from sin.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.atonement/penal-substitution",
+    "sources": [
+      {
+        "label": "What Did the Cross Achieve? The Logic of Penal Substitution",
+        "citation": "J. I. Packer, Tyndale Bulletin, 1974"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"The Gospel: God Saves Sinners\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Baptist Faith and Message 2000",
+        "citation": "SBC, 2000, Article II.B",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church-history-and-authority.authority/sola-scriptura",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message (2000), Article I",
+      "note": "The confession says Scripture “is, and will remain to the end of the world, the true center of Christian union, and the supreme standard by which all human conduct, creeds, and religious opinions should be tried.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church-history-and-authority.authority/sola-scriptura",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1.10 (1646)"
+      },
+      {
+        "label": "Baptist Faith and Message 2000",
+        "citation": "SBC, 2000, Article I",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church-history-and-authority.creeds/affirmed-not-recited",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II",
+      "note": "Article II confesses “the eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being” — the Nicene Trinitarian content, with no confessional requirement to recite the creed's text.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church-history-and-authority.creeds/affirmed-not-recited",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article II",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.women-in-ministry/complementarian",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article VI",
+      "note": "The confession says: “While both men and women are gifted for service in the church, the office of pastor/elder/overseer is limited to men as qualified by Scripture.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.women-in-ministry/complementarian",
+    "sources": [
+      {
+        "label": "Danvers Statement",
+        "citation": "Council on Biblical Manhood and Womanhood, 1987"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VI",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.church-government/congregational",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article VI; Second London Baptist Confession (1689), ch. 26",
+      "note": "The confession describes a church as “an autonomous local congregation of baptized believers... governed by His laws” and adds, “Each congregation operates under the Lordship of Christ through democratic processes.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.church-government/congregational",
+    "sources": [
+      {
+        "label": "Second London Baptist Confession",
+        "citation": "1689, ch. 26"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VI",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 24, 'The Body of Christ'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS224.HTM"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.baptism/believer",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689), 29.2",
+      "note": "The confession says: “Christian baptism is the immersion of a believer in water in the name of the Father, the Son, and the Holy Spirit... an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.lords-supper/memorial",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article VII",
+      "note": "The confession says: “The Lord's Supper is a symbolic act of obedience whereby members of the church, through partaking of the bread and the fruit of the vine, memorialize the death of the Redeemer and anticipate His second coming.”",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.lords-supper/memorial",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VII",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, 'Breaking the Loaf'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS233.HTM"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.membership/covenant",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Second London Baptist Confession (1689), ch. 26.6; Baptist Faith and Message (2000), Article VI",
+      "note": "The confession describes a church as “an autonomous local congregation of baptized believers, associated by covenant in the faith and fellowship of the gospel.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.membership/covenant",
+    "sources": [
+      {
+        "label": "Second London Baptist Confession",
+        "citation": "1689, ch. 26"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 30"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VI",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 26, 'The Christian Discipline'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS226.HTM"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.marriage-and-sexuality/male-female-covenant",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article XVIII",
+      "note": "The confession says: “Marriage is the uniting of one man and one woman in covenant commitment for a lifetime.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.marriage-and-sexuality/male-female-covenant",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2357-2360"
+      },
+      {
+        "label": "Lambeth Conference Resolution I.10",
+        "citation": "1998"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article XVIII",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.abortion/protected-from-conception",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article XV",
+      "note": "The confession says believers “should speak on behalf of the unborn and contend for the sanctity of all human life from conception to natural death.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.abortion/protected-from-conception",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2270-2275"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article XV",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "formation-and-practice.sanctification-progressive/reformed-gradual",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article IV.C",
+      "note": "Article IV.C says sanctification “is the experience, beginning in regeneration, by which the believer is set apart to God's purposes” — progressive growth, not instant perfection. (The corpus previously cited Article IV.B, which is Justification, not Sanctification.)",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "formation-and-practice.sanctification-progressive/reformed-gradual",
+    "sources": [
+      {
+        "label": "Five Views on Sanctification",
+        "citation": "Melvin Dieter et al., 1987"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 13"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article IV.C",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "formation-and-practice.suffering-and-providence/general-providence-permission",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.A",
+      "note": "The confession says: “God as Father reigns with providential care over His universe, His creatures, and the flow of the stream of human history according to the purposes of His grace.”",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "formation-and-practice.suffering-and-providence/general-providence-permission",
+    "sources": [
+      {
+        "label": "Where Is God When It Hurts?",
+        "citation": "Philip Yancey, 1977"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "309-314"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article II.A",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "god.trinity/nicene",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II; Second London Baptist Confession 2.3",
+      "note": "The confession says: “The eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "god.trinity/nicene",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "First Council of Constantinople, 381"
+      },
+      {
+        "label": "The Athanasian Creed (Quicunque vult)",
+        "citation": "Latin West, c. 5th-6th century"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article II",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "god.open-theism/settled-future",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II",
+      "note": "The confession says: “God is all powerful and all knowing; and His perfect knowledge extends to all things, past, present, and future, including the future decisions of His free creatures.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "god.open-theism/settled-future",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 2.2"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1992, 302, 600"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article II",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "humanity-and-sin.age-of-accountability/accountability-age",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message, 2000, Article III",
+      "note": "The confession says: “Therefore, as soon as they are capable of moral action, they become transgressors and are under condemnation” — implying no condemnation before that point.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "humanity-and-sin.age-of-accountability/accountability-age",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article III",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.second-coming/personal-return",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article X",
+      "note": "The confession says: “Jesus Christ will return personally and visibly in glory to the earth; the dead will be raised; and Christ will judge all men in righteousness.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.second-coming/personal-return",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "381"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"The Restoration of All Things\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article X",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.hell/eternal-conscious-torment",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article X",
+      "note": "The confession says: “The unrighteous will be consigned to Hell, the place of everlasting punishment.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.hell/eternal-conscious-torment",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "33.2"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article X",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "missions-and-world-religions.exclusivity-of-christ/particularism",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article II.B",
+      "note": "The confession calls Christ “the One Mediator, fully God, fully man, in whose Person is effected the reconciliation between God and man.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "missions-and-world-religions.exclusivity-of-christ/particularism",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "846-848"
+      },
+      {
+        "label": "Lausanne Covenant",
+        "citation": "1974, Article 3"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, 'Remission of Sins'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article II.B",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.perseverance-and-apostasy/unconditional-perseverance",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article V; Second London Baptist Confession (1689) 17.1",
+      "note": "The confession says: “All true believers endure to the end. Those whom God has accepted in Christ, and sanctified by His Spirit, will never fall away from the state of grace, but shall persevere to the end.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.perseverance-and-apostasy/unconditional-perseverance",
+    "sources": [
+      {
+        "label": "Canons of Dordt",
+        "citation": "1619, Fifth Head of Doctrine"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article V",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.lordship-salvation/lordship-salvation",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article IV.A",
+      "note": "The confession says: “Repentance and faith are inseparable experiences of grace. Repentance is a genuine turning from sin toward God. Faith is the acceptance of Jesus Christ and commitment of the entire personality to Him as Lord and Saviour.”",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.lordship-salvation/lordship-salvation",
+    "sources": [
+      {
+        "label": "The Gospel According to Jesus",
+        "citation": "John MacArthur, 1988"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article IV.A",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.regeneration-and-baptism/symbolic-ordinance",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689) 29.1",
+      "note": "The confession describes baptism as “an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour,” a testimony rather than a means of the new birth.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.regeneration-and-baptism/symbolic-ordinance",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article VII",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "scripture.inerrancy/full",
+    "tradition": "baptist",
+    "fields": {
+      "citation": "Baptist Faith and Message (2000), Article I",
+      "note": "The confession says: “Therefore, all Scripture is totally true and trustworthy.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "scripture.inerrancy/full",
+    "sources": [
+      {
+        "label": "Chicago Statement on Biblical Inerrancy",
+        "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII",
+        "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article I",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "ethics.alcohol/total-abstinence",
+    "tradition": "baptist",
+    "reason": "The Baptist Faith and Message 2000 contains no mention of alcohol, drinking, drunkenness, temperance or abstinence anywhere in its eighteen articles; Article XV (Christian and the Social Order) addresses racism, sexual immorality, the unborn and social order, but not alcohol, and no other article touches the subject."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "formation-and-practice.hearing-god/scripture-providence-reason",
+    "tradition": "baptist",
+    "reason": "Article I addresses Scripture's inspiration, truthfulness and authority only. It says nothing about providence, reason, or the ordinary means of guidance, and does not address or exclude an inward impression as a channel of guidance."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "humanity-and-sin.image-of-god/functional",
+    "tradition": "baptist",
+    "reason": "Article III grounds the image of God in inherent human dignity and personhood (“the sacredness of human personality is evident in that God created man in His own image”), not in a vocation of dominion or rule over creation; it teaches no functional/dominion reading of the image."
+  },
+  {
+    "op": "held_by.add",
+    "position": "humanity-and-sin.image-of-god/structural",
+    "tradition": "baptist",
+    "stance": "majority",
+    "citation": "Baptist Faith and Message (2000), Article III",
+    "note": "The confession says: “The sacredness of human personality is evident in that God created man in His own image, and in that Christ died for man; therefore, every person of every race possesses full dignity and is worthy of respect and Christian love.”"
+  },
+  {
+    "op": "position.sources",
+    "position": "humanity-and-sin.image-of-god/structural",
+    "sources": [
+      {
+        "label": "Westminster Larger Catechism",
+        "citation": "Q&A 17"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article III",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "last-things.intermediate-state/with-christ",
+    "tradition": "baptist",
+    "reason": "The Baptist Faith and Message 2000 contains no statement anywhere about the intermediate state; Article X moves directly from bodily death and resurrection to final judgment and eternal destiny without addressing what happens to the soul between death and the resurrection."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "missions-and-world-religions.the-unevangelised/restrictivism",
+    "tradition": "baptist",
+    "reason": "Article X (Last Things) does not address the destiny of the unevangelized; it states only that Christ will return, the dead will be raised, and all will be judged. The prior corpus note already conceded the document 'does not itself adjudicate the question directly' — confirmed on retrieval, so the entry is removed rather than kept on a hedge."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "missions-and-world-religions.world-religions/false-and-demonic",
+    "tradition": "baptist",
+    "reason": "Article II.B is entirely about the person and work of Christ (incarnation, sinlessness, atonement, resurrection, mediatorship); nothing in the Baptist Faith and Message characterizes non-Christian religions as false or demonic, and no other article addresses the subject."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "missions-and-world-religions.israel-and-judaism/great-commission-includes-all",
+    "tradition": "baptist",
+    "reason": "Article XI commands making disciples of “all nations” in general terms and never mentions Jewish people or Judaism specifically anywhere in the document; the specific claim about Jewish evangelism is not addressed."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "scripture.hermeneutic-method/grammatical-historical",
+    "tradition": "baptist",
+    "reason": "Article I addresses Scripture's inspiration, truthfulness and authority; it says nothing about interpretive method, grammatical-historical or otherwise, anywhere in the document."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "scripture.translations/multiple-legitimate",
+    "tradition": "baptist",
+    "reason": "Article I never mentions Bible translations; it addresses only Scripture's inspiration and authority. Baptist remains attested on this doctrine via the kjv-only position's own held_by entry (cited to Peter Ruckman, not the BF&M), so removing this entry does not orphan the tradition_overrides.baptist entry, which requires the tradition to appear in at least one of its listed positions."
+  }
+]

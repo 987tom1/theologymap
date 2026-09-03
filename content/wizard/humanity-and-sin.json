@@ -59,13 +59,24 @@
               "stance": "confessional",
               "note": null,
               "citation": "Formula of Concord, Solid Declaration, Article I"
+            },
+            {
+              "tradition": "baptist",
+              "stance": "majority",
+              "note": "The confession says: “The sacredness of human personality is evident in that God created man in His own image, and in that Christ died for man; therefore, every person of every race possesses full dignity and is worthy of respect and Christian love.”",
+              "citation": "Baptist Faith and Message (2000), Article III"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
-              "label": "Catechism of the Catholic Church",
-              "citation": "1704-1705"
+              "label": "Westminster Larger Catechism",
+              "citation": "Q&A 17"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "2000, Article III",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -87,12 +98,6 @@
               "stance": "majority",
               "note": "Not confessionally defined in these terms, but the predominant reading within contemporary Reformed biblical theology of creation.",
               "citation": "Meredith G. Kline, Images of the Spirit, 1980"
-            },
-            {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": "Reflects the stewardship language of the modern confession rather than the earlier confessions' briefer treatment.",
-              "citation": "Baptist Faith and Message, 2000, Article III"
             },
             {
               "tradition": "non-denominational",
@@ -298,14 +303,8 @@
             {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article II"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith, 1943"
+              "note": "The confession says God caused “that from this one man Adam, all men that dwell upon the whole earth have descended.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
             }
           ],
           "learn_detail": null,
@@ -313,6 +312,11 @@
             {
               "label": "Humani Generis",
               "citation": "Pius XII, 1950, §37"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 1",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -632,12 +636,6 @@
               "stance": "majority",
               "note": "The chapter affirms inherited moral frailty short of total inability: \"We all inherit a frail constitution, physically, intellectually, but especially morally frail and imbecile,\" yet \"man, with all his hereditary imbecility, is not under an invincible necessity to sin.\" The chapter does not use the technical term 'prevenient grace.'",
               "citation": "Alexander Campbell, The Christian System, 1839, ch. 7, 'Man As He Is'"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "permitted",
-              "note": "Widely but not universally held within Arminian-leaning evangelicalism.",
-              "citation": "Lausanne Covenant, 1974, Article 3"
             }
           ],
           "learn_detail": null,
@@ -879,7 +877,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": "Reads the confession's language about becoming a transgressor upon capacity for moral action as implying no condemnation before that point.",
+              "note": "The confession says: “Therefore, as soon as they are capable of moral action, they become transgressors and are under condemnation” — implying no condemnation before that point.",
               "citation": "Baptist Faith and Message, 2000, Article III"
             },
             {
@@ -895,16 +893,10 @@
               "citation": "Assemblies of God, position paper, The Salvation of Infants and the Mentally Impaired"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "permitted",
-              "note": "Widely assumed within broadly Arminian evangelical teaching without a single confessional source.",
-              "citation": "National Association of Evangelicals, Statement of Faith, 1943"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": "Believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.",
-              "citation": "Dordrecht Confession of Faith, Article VII"
+              "note": "The confession restricts baptism to “all penitent believers, who, through faith, regeneration, and the renewing of the Holy Ghost, are made one with God”; believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 7"
             }
           ],
           "learn_detail": "There is no single confessional label for this position across the traditions that hold some version of it, and they differ among themselves on why the threshold exists, whether by prevenient grace, by non-imputation of guilt prior to moral agency, or by pastoral conviction without a developed doctrine. None of them fixes a specific age.",
@@ -912,6 +904,11 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "2000, Article III"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 7",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },

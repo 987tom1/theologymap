@@ -5,22 +5,13 @@
   why   Scripture's self-attestation and Christ's own use of the Old Testament treat it as true in what it asserts, not only in what it teaches for salvation.
   vs    Limited infallibility — Scripture trustworthy on faith and salvation, errant on history and science.
   refs  2 Tim 3:16-17; John 10:35
-  link  canon
   link  hermeneutic-method
-
-## Canon · T1 · certain
-  hold  The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.
-  why   Authority belongs to a book because of what it is — the word of God given through its human author — and the church's historic role was to recognise that authority already present, not to grant it.
-  vs    Including the deuterocanonical books received by Rome and the East as part of the canon proper rather than as edifying but non-canonical writing.
-  refs  2 Pet 3:15-16
-  link  inerrancy
 
 ## Sufficiency of Scripture · T1 · certain
   hold  Scripture is sufficient for faith and practice, and no tradition, teaching office or further revelation may be added to it as binding on the conscience.
   why   Scripture claims to equip the man of God for every good work, and a rule that requires an external supplement to be complete is not, by its own account, a sufficient rule.
   vs    Scripture read within and normed by sacred tradition, which holds that Scripture was never meant to be read or interpreted apart from the church that produced and transmitted it.
   refs  2 Tim 3:16-17; Rev 22:18-19
-  link  clarity-of-scripture
   link  the-lords-supper
 
 ## Hermeneutic method · T2 · confident
@@ -28,13 +19,6 @@
   why   God communicated through human authors writing in real languages to real audiences, and honouring that communication means reading a text the way its author meant it, rather than importing a later sense onto it.
   vs    Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.
   link  women-in-ministry
-
-## Clarity of Scripture · T2.5 · certain
-  hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
-  why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
-  vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
-  refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
 
 
 # God
@@ -46,26 +30,12 @@
   refs  Matt 28:19; John 1:1-3; John 10:30; 2 Cor 13:13
   link  eternal-generation-of-the-son
 
-## Eternal generation of the Son · T1.5 · certain
+## Eternal generation of the Son · T1.5 · confident
   hold  The Son is eternally begotten of the Father — receiving the one undivided divine essence from the Father without beginning, without division and without subordination of nature — and the Spirit eternally proceeds.
   why   It is how the creeds state the distinction of the persons without introducing degrees of deity: what distinguishes the Son from the Father is the manner of having the divine life, not the amount of it.
   vs    The view that eternal generation is a speculative inheritance from Greek philosophy which the biblical text does not require.
   refs  John 1:14; John 1:18; John 5:26; Heb 1:3
   link  trinity
-
-## Open theism · T1.5 · confident
-  hold  God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.
-  why   God declares the end from the beginning as the mark that distinguishes him from every idol, and prophecy of free human acts across centuries requires that those acts be known before they occur.
-  vs    The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.
-  refs  Isa 46:9-10; Ps 139:4; Isa 42:9
-  link  divine-foreknowledge
-
-## Divine foreknowledge · T3 · confident
-  hold  God simply knows the whole future as it will actually be, without that knowledge being grounded in a decree that determines it or in a prior knowledge of what creatures would do under other circumstances.
-  why   Foreknowledge is knowledge, not causation, and a God who sees what will be does not thereby make it be; the traditions holding this read God's knowledge of the future as reading it rather than as fixing it.
-  vs    Accounts that make God's knowledge of the future depend on his having determined it, which this position holds turns foreknowledge into another name for predestination.
-  refs  Rom 8:29; 1 Pet 1:2; Isa 46:9-10
-  link  open-theism
 
 
 # Christ
@@ -141,24 +111,6 @@
   refs  Rom 4:1-8; Gal 2:16; 2 Cor 5:21
   link  regeneration-and-baptism
 
-## Sovereignty and free will · T2.5 · confident
-  hold  God's grace genuinely enables a sinner to respond to the gospel, but the will remains libertarianly free to accept or resist that grace, so that a person's response is truly their own and not determined by God's decree.
-  why   The Remonstrance and Wesley hold that grace is resistible and that a will unable to do otherwise could not be meaningfully commanded, warned, or held responsible in the way Scripture everywhere holds it.
-  vs    Grounding the certainty of a person's response in an eternal decree that determines it, which this position holds turns commands and warnings addressed to a genuinely free will into a performance for an audience already decided.
-  refs  Deut 30:19; Josh 24:15; Rev 3:20
-  link  election
-  link  perseverance-and-apostasy
-  link  divine-foreknowledge
-
-## Election · T2.5 · confident
-  hold  God elects to salvation those whom he foresees will freely believe the gospel and persevere in that faith, so that election responds to, rather than causes, the faith of those chosen.
-  why   The Remonstrance and Wesley read Romans 8 and 1 Peter 1 as grounding election in God's foreknowledge of who will believe, preserving both grace's initiative and human responsibility.
-  vs    Grounding election in God's will alone apart from any foreseen response, which this position holds makes God the author of unbelief in those passed over.
-  refs  Rom 8:29; 1 Pet 1:1-2
-  link  divine-foreknowledge
-  link  sovereignty-and-free-will
-  link  perseverance-and-apostasy
-
 ## Regeneration and baptism · T2.5 · certain
   hold  Regeneration occurs at the moment of Spirit-wrought faith, prior to and apart from water baptism, which is a public ordinance testifying to a new birth already given rather than its means.
   why   Regeneration is credited to those who believe on Christ's name apart from any rite, and baptism follows as the believer's obedient testimony to a new birth already accomplished by the Spirit through faith.
@@ -172,7 +124,6 @@
   why   Hebrews warns those who have been enlightened, tasted the heavenly gift and shared in the Holy Spirit against an apostasy from which there is no return, language read as addressed to the genuinely regenerate.
   vs    Reading every warning against apostasy as addressed only to the merely professing, which this position holds empties the warnings of the force the text gives them.
   refs  Heb 6:4-6; Heb 10:26-29; Ezek 18:24
-  link  sovereignty-and-free-will
   link  justification
 
 ## Lordship salvation · T3 · certain
@@ -263,14 +214,6 @@
   vs    Treating matter as eternal and uncreated, or treating the universe as an emanation flowing of necessity from the divine nature rather than as a free act of will.
   refs  Gen 1:1; John 1:3; Col 1:16; Heb 11:3
 
-## Miracles and science · T2 · certain
-  hold  Miracles are real, particular acts of God within his ordinarily ordered creation, neither violations of a self-sufficient nature nor beyond the reach of a God who freely sustains the natural order he made.
-  why   Scripture presents God's miracles, culminating in the bodily resurrection of Christ, as real events within history and nature, consistent with a God who freely governs the order he continually sustains rather than a deity bound by it.
-  vs    Treating the miraculous as either scientifically impossible in principle or as merely a symbolic idiom for events that did not actually occur.
-  refs  John 2:11; Acts 2:22; 1 Cor 15:14-17
-  link  inerrancy
-  link  trinity
-
 
 # Ethics
 
@@ -279,7 +222,6 @@
   why   Scripture presents marriage as the one-flesh union of a man and a woman from creation onward, a pattern Christ himself reaffirms as the standard rather than one option among others, and channels sexual desire toward covenant fidelity within it.
   vs    Extending marriage, and the blessing of sexual union within it, to same-sex couples, on the ground that Scripture's creation pattern does not itself settle that question.
   refs  Gen 2:24; Matt 19:4-6; 1 Cor 7:2
-  link  divorce-and-remarriage
   link  women-in-ministry
 
 ## Abortion · T2 · certain
@@ -295,13 +237,6 @@
   refs  Matt 5:38-44; Matt 26:52
   link  church-and-the-public-square
 
-## Divorce and remarriage · T3 · certain
-  hold  Divorce may in some circumstances be permitted, but remarriage is not, so long as the former spouse is alive, because the marriage bond itself persists until death.
-  why   Paul teaches that a wife is bound to her husband as long as he lives, and instructs a woman who divorces to remain unmarried or be reconciled, without naming remarriage among the options.
-  vs    Treating Scripture's exceptions for sexual immorality or desertion as grounds for remarriage rather than for separation alone.
-  refs  Rom 7:2-3; 1 Cor 7:10-11
-  link  marriage-and-sexuality
-
 ## Church and the public square · T3 · certain
   hold  The church constitutes a people whose citizenship is in heaven, called to abstain from holding civil office, wielding the sword of civil government, or seeking to control the state, and to bear witness instead through a visibly different community.
   why   Christ's kingdom is not of this world, and the sword, which civil government bears for its own limited purposes, does not belong among the means Christ gave his church, so the church's calling is to be a visible alternative community rather than to seek civil power.
@@ -313,18 +248,11 @@
 
 # Formation and practice
 
-## Sanctification — progressive · T2 · confident
-  hold  Sanctification is the work of God's Spirit renewing the whole person after the image of God, real and progressive but never perfect in this life, carried on through the ordinary means of grace: the word, prayer and the sacraments.
-  why   Scripture describes sanctification as an ongoing renewal and commands continual mortification of sin, which would be needless instruction if perfection were already attainable in this life.
-  vs    Teaching that a believer can reach a state in this life in which no further mortification of remaining sin is needed.
-  refs  Rom 6:1-14; Phil 1:6; 2 Cor 3:18
-
 ## Suffering and providence · T2 · confident
   hold  Much suffering results from the genuinely free choices of creatures, human and angelic, which God did not specifically ordain; God enters into that suffering, works redemptively within it, and will finally set it right, without having authored it himself.
   why   God gave creatures a freedom real enough to be genuinely resisted and abused, and the consistent biblical picture of God grieving over sin and suffering fits a God who enters in and redeems rather than one who specifically willed the suffering itself.
   vs    Holding that God specifically ordains each instance of suffering as part of a meticulous plan, which this position holds makes God the author of evils that free creatures alone brought about.
   refs  Gen 3:6; Luke 19:41-44
-  link  divine-foreknowledge
 
 
 # Missions and world religions
@@ -352,7 +280,6 @@
   vs    Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
-  link  clarity-of-scripture
   link  hermeneutic-method
   link  the-creeds
 

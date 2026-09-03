@@ -60,14 +60,14 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message 2000, Article I"
+              "note": "The confession says Scripture “is, and will remain to the end of the world, the true center of Christian union, and the supreme standard by which all human conduct, creeds, and religious opinions should be tried.”",
+              "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message (2000), Article I"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": "Held without a parallel doctrine of subordinate creedal authority; Anabaptist confessions themselves function as testimonies rather than binding standards.",
-              "citation": "Dordrecht Confession of Faith (1632), Preface"
+              "note": "The confession says Christ's New Testament, sealed with His blood, was given to the disciples so that “neither angel nor man may alter it, nor add to it nor take away from it,” containing the whole counsel of God as far as is necessary for salvation.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 5"
             }
           ],
           "learn_detail": "Confessional sola scriptura is often misstated, by critics and by its own less careful holders, as denying any authority to creeds and councils at all. The Reformed and Lutheran confessions themselves say the opposite: they claim binding subordinate authority for their own summaries, precisely because they claim to teach only what Scripture teaches.",
@@ -75,6 +75,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1.10 (1646)"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 5",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -205,15 +210,9 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Widely held in practice as 'no creed but the Bible' rather than as a formally argued position; independent congregations typically hold no confession binding beyond a brief statement of faith.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), representative of the genre"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": "Held in practice alongside the Assemblies of God's own Statement of Fundamental Truths, which the movement itself does not treat as creedal or binding beyond its stated purpose of doctrinal cohesion.",
+              "note": "The preamble says: \"The Bible is our all-sufficient rule for faith and practice...The phraseology employed in this statement is not inspired or contended for, but the truth set forth is held to be essential to a full-gospel ministry.\" The Statement explicitly declines binding authority for its own wording, holding Scripture alone as the rule.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Preamble"
             }
           ],
@@ -221,7 +220,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Preamble"
+              "citation": "Preamble",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         }
@@ -352,8 +352,8 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": "Baptist confessions affirm the substance of Nicene Trinitarian and Chalcedonian Christology without requiring liturgical recitation of the creed.",
-              "citation": "Baptist Faith and Message 2000, Article II"
+              "note": "Article II confesses “the eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being” — the Nicene Trinitarian content, with no confessional requirement to recite the creed's text.",
+              "citation": "Baptist Faith and Message (2000), Article II"
             },
             {
               "tradition": "anabaptist",
@@ -362,15 +362,9 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 2"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Practice varies, and a growing minority of non-denominational congregations recite the creed liturgically, but formal recitation is not the norm.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
+              "note": "The statement affirms Trinitarian content in its own propositional wording — \"The one true God has revealed himself...as Father, Son, and Holy Spirit\" (Article 2) — without reciting or subscribing the Nicene-Constantinopolitan Creed's text.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
             },
             {
@@ -390,6 +384,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 2",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         }
@@ -653,16 +652,10 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 3"
-            },
-            {
               "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+              "stance": "majority",
+              "note": "The statement says salvation comes \"By the washing of regeneration and renewing of the Holy Spirit, being justified by grace through faith\" (Article 5(a)) — this affirms grace-through-faith justification, but the document never uses the five-solas framework itself (it does not, in this article, speak to Scripture alone or the glory of God alone), so this is the movement's broad theological alignment rather than a confessionally defined 'five solas' article.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a)"
             }
           ],
           "learn_detail": "The five solas as a fixed set of five is itself a later systematisation; the Reformers argued each point extensively but did not present them together as a numbered list until the twentieth century.",
@@ -670,6 +663,11 @@
             {
               "label": "Augsburg Confession",
               "citation": "Article 4, 1530"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 5(a)",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },

@@ -76,25 +76,25 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “Jesus Christ will return personally and visibly in glory to the earth; the dead will be raised; and Christ will judge all men in righteousness.”",
               "citation": "Baptist Faith and Message (2000), Article X"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says all the dead “shall be placed before the judgment seat of Christ,” Christ Himself being the one “who will come again to judge the quick and the dead” (Article 4).",
               "citation": "Dordrecht Confession of Faith (1632), Article 18"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says: \"The second coming of Christ includes the rapture of the saints...followed by the visible return of Christ with His saints to reign on the earth for one thousand years\" (Article 14, The Millennial Reign of Christ).",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
             },
             {
               "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
+              "stance": "majority",
+              "note": "The Covenant says: \"We believe that Jesus Christ will return personally and visibly, in power and glory, to consummate his salvation and his judgment.\"",
               "citation": "Lausanne Covenant (1974), Paragraph 15, 'The Return of Christ'"
             },
             {
@@ -114,6 +114,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"The Restoration of All Things\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Paragraph 15, 'The Return of Christ'",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         }
@@ -199,8 +204,8 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15, 'The Millennial Reign of Christ'"
+              "note": "The statement says: \"The second coming of Christ includes the rapture of the saints...followed by the visible return of Christ with His saints to reign on the earth for one thousand years\" (Article 14, The Millennial Reign of Christ — Article 15 is a different article, The Final Judgment).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
             },
             {
               "tradition": "non-denominational",
@@ -213,7 +218,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 15"
+              "citation": "Article 14",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -368,8 +374,8 @@
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": "Reflects classical Pentecostalism's dispensational premillennial heritage.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15"
+              "note": "The statement says: \"This millennial reign will bring the salvation of national Israel\" (Article 14, The Millennial Reign of Christ — Article 15 is The Final Judgment, a different article).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
             },
             {
               "tradition": "non-denominational",
@@ -389,6 +395,11 @@
             {
               "label": "Dispensationalism",
               "citation": "Charles Ryrie, 1965/1995"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 14",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -543,9 +554,9 @@
           "held_by": [
             {
               "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14, 'The Blessed Hope'"
+              "stance": "majority",
+              "note": "The statement says: \"The resurrection of those who have fallen asleep in Christ and their translation together with those who are alive and remain unto the coming of the Lord is the imminent and blessed hope of the Church\" (Article 13, The Blessed Hope — not Article 14, which is the millennial reign). The Statement affirms imminency but does not itself specify pretribulational timing or mention a seven-year tribulation; that specific sequencing is taught in the AG's separate 'The Rapture of the Church' position paper, which does not carry the Statement's binding weight.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 13"
             },
             {
               "tradition": "non-denominational",
@@ -558,7 +569,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 14"
+              "citation": "Article 13",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -669,7 +681,7 @@
             {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession describes one gathering at Christ's return: the dead “shall be awaked and quickened, and shall rise again... together with those who then will still be alive, and who shall be changed in the twinkling of an eye, at the sound of the last trump, shall be placed before the judgment seat of Christ,” with no separate prior rapture mentioned.",
               "citation": "Dordrecht Confession of Faith (1632), Article 18"
             }
           ],
@@ -678,6 +690,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "32-33"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 18",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         }
@@ -774,7 +791,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “The unrighteous will be consigned to Hell, the place of everlasting punishment.”",
               "citation": "Baptist Faith and Message (2000), Article X"
             },
             {
@@ -786,13 +803,13 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 16"
+              "note": "The statement says the unrepentant \"will be consigned to everlasting punishment in the lake which burneth with fire and brimstone, which is the second death\" (Article 15, The Final Judgment — Article 16 is a different article, The New Heavens and the New Earth).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 15"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says the wicked “shall be cast into outer darkness, yea, into the everlasting pains of hell, where their worm shall not die, nor their fire be quenched, and where they... can nevermore expect any hope, comfort, or redemption.”",
               "citation": "Dordrecht Confession of Faith (1632), Article 18"
             }
           ],
@@ -801,6 +818,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "33.2"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 18",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -926,12 +948,6 @@
               "citation": "Westminster Confession of Faith 32.1"
             },
             {
-              "tradition": "baptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article X"
-            },
-            {
               "tradition": "lutheran",
               "stance": "majority",
               "note": null,
@@ -950,22 +966,10 @@
               "citation": "Wesley's Explanatory Notes upon the New Testament (1755), on Philippians 1:23"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Paragraph 15"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 14"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 18"
+              "note": "Article 18 describes only what happens “in the last day,” when the dead “shall be awaked and quickened, and shall rise again”; the confession does not separately state what happens to the soul between death and that day. This reading follows the tradition's general majority practice rather than a confessional statement, as the doctrine's tradition_override already notes.",
+              "citation": "Dordrecht Confession of Faith (1632); Article 18 addresses only the resurrection at the last day"
             }
           ],
           "learn_detail": "Reformed and Catholic accounts of this position both speak of a 'particular judgment' at death, distinct from the general judgment at the resurrection, which fixes the soul's destiny immediately.",
@@ -973,6 +977,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "32.1"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 18",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },

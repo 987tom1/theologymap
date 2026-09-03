@@ -38,16 +38,10 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Not formally binding on independent congregations, but the predominant confessional expectation.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"He is, therefore, acknowledged to be both God and man; who because He is God and man, is 'Immanuel,' God with us\" (Article 2(f)), and \"The Lord Jesus Christ is the eternal Son of God\" (Article 3, which lists His virgin birth, sinless life, miracles, substitutionary death, bodily resurrection and exaltation). The Statement affirms full deity and full humanity without using Chalcedon's own technical vocabulary.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2(f)-(g); Article 3"
             },
             {
               "tradition": "inc",
@@ -58,7 +52,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He ascended into heaven and is now exalted at the right hand of God where He is the One Mediator, fully God, fully man, in whose Person is effected the reconciliation between God and man.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
@@ -100,8 +94,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “is the Son of the living God, in whom alone consist all our hope, consolation, redemption, and salvation,” the same one who was conceived, suffered, died and rose bodily — affirming full deity and full humanity in the one Christ.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": null,
@@ -114,6 +108,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"Jesus: Our Saviour\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 4",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -254,14 +253,14 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+              "note": "The Statement of Faith says: \"We believe in the deity of our Lord Jesus Christ, in His virgin birth, in His sinless life, in His miracles, in His vicarious and atoning death through His shed blood, in His bodily resurrection, in His ascension to the right hand of the Father, and in His personal return in power and glory.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 3"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"His virgin birth\" (Article 3(a), citing Matthew 1:23; Luke 1:31,35).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(a)"
             },
             {
               "tradition": "inc",
@@ -272,7 +271,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “In His incarnation as Jesus Christ He was conceived of the Holy Spirit and born of the virgin Mary.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
@@ -314,8 +313,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “was conceived in the virgin Mary, who was espoused to a man named Joseph, of the house of David; and that she brought Him forth as her first-born son, at Bethlehem.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": "Catholic and Orthodox theology additionally confess Mary's perpetual virginity as a related but distinct Marian doctrine, not addressed by this entry.",
@@ -328,6 +327,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"Jesus: Our Saviour\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 3",
+              "url": "https://www.nae.org/statement-of-faith/"
             }
           ]
         }
@@ -378,14 +382,14 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+              "note": "The Statement of Faith says: \"We believe in the deity of our Lord Jesus Christ, in His virgin birth, in His sinless life, in His miracles, in His vicarious and atoning death through His shed blood, in His bodily resurrection, in His ascension to the right hand of the Father, and in His personal return in power and glory.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 3"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"His bodily resurrection from the dead\" (Article 3(e), citing Matthew 28:6; Luke 24:39; 1 Corinthians 15:4).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(e)"
             },
             {
               "tradition": "inc",
@@ -396,7 +400,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He was raised from the dead with a glorified body and appeared to His disciples as the person who was with them before His crucifixion.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
@@ -438,8 +442,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “was crucified, dead, was buried, and on the third day, rose from the dead, and ascended to heaven.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": null,
@@ -452,6 +456,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"Jesus: Our Saviour\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 3",
+              "url": "https://www.nae.org/statement-of-faith/"
             }
           ]
         }
@@ -730,7 +739,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He honored the divine law by His personal obedience, and in His substitutionary death on the cross He made provision for the redemption of men from sin.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
@@ -748,14 +757,8 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 4"
+              "note": "The statement says: \"His substitutionary work on the cross\" (Article 3(d), citing 1 Corinthians 15:3 and 2 Corinthians 5:21) — the article on Christ's deity, not Article 5, is where the substitutionary language actually sits.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(d)"
             },
             {
               "tradition": "methodist",
@@ -780,6 +783,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"The Gospel: God Saves Sinners\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 3(d)",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -1030,12 +1038,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
             },
             {
               "tradition": "restorationist",

@@ -1,0 +1,432 @@
+
+DOCTRINE christ.impeccability  (christ.json)
+   doctrine sources: [{"label": "Summa Theologiae III, q.15", "citation": "Thomas Aquinas, c. 1270"}, {"label": "Christian Theology", "citation": "Millard Erickson, 3rd ed., 2013"}]
+   POSITION christ.impeccability/impeccable  [Impeccable]
+      hold: Because the human nature never exists or acts except in the person of the eternal Son, it was not possible for Christ to sin; the wilderness and Gethsemane temptations were genuinely felt by the human nature even though yielding to them was never a live possibility for the person.
+      vs:   A Christ whose sinlessness was genuinely at risk and had to be achieved, which this view judges to be incompatible with the person acting being God the Son.
+      - held_by orthodox / majority
+        citation: John of Damascus, Exposition of the Orthodox Faith III.20
+        note: None
+      position sources: [{"label": "Summa Theologiae III, q.15", "citation": "Thomas Aquinas, c. 1270"}]
+
+DOCTRINE christ.atonement  (christ.json)
+   doctrine sources: [{"label": "Christus Victor", "citation": "Gustaf Aulén, 1931"}, {"label": "Cur Deus Homo", "citation": "Anselm of Canterbury, 1098"}, {"label": "What Did the Cross Achieve? The Logic of Penal Substitution", "citation": "J. I. Packer, Tyndale Bulletin, 1974"}]
+   tradition_overrides: {"reformed": {"positions": ["christ.atonement/penal-substitution", "christ.atonement/christus-victor"], "hold": "Christ's death is a penal, substitutionary satisfaction of divine justice, and within that centre the confessions also affirm a real deliverance from the power of the devil.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "Reformed confessions treat penal substitution as the confessionally defining logic of the cross; Christus Victor is a real, biblically grounded theme within Reformed theology but not itself a separate confessional article.", "citation": "Heidelberg Catechism, Q&A 1; Westminster Confession of Faith 8.5"}, "orthodox": {"positions": ["christ.atonement/christus-victor", "christ.atonement/recapitulation"], "hold": "Orthodox theology holds Christus Victor and recapitulation as one integrated account of the cross: Christ, as the new Adam, retraces and reverses humanity's fall and in so doing breaks the dominion of sin and death, rather than treating victory and recapitulation as two separate logics.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "These two western-labeled theories are not held apart in Orthodox theology, which regards them as a single Irenaean account of salvation; they are separated in this corpus only because it treats them as distinct positions.", "citation": "Irenaeus, Against Heresies, Book V; John of Damascus, Exposition of the Orthodox Faith III.27"}}
+   POSITION christ.atonement/christus-victor  [Christus Victor]
+      hold: The cross and resurrection together are Christ's triumph over sin, death and the powers that held humanity captive, breaking their dominion and liberating creation to share in his victory.
+      vs:   Reducing the cross to a legal transaction alone, which this view judges to miss the New Testament's cosmic language of rescue and triumph over hostile powers.
+      - held_by orthodox / confessional
+        citation: John of Damascus, Exposition of the Orthodox Faith III.27
+        note: None
+      position sources: [{"label": "Christus Victor", "citation": "Gustaf Aulén, 1931"}]
+   OVERRIDE christ.atonement :: orthodox  (citation matched; see tradition_overrides above)
+
+DOCTRINE church-history-and-authority.authority  (church-history-and-authority.json)
+   doctrine sources: [{"label": "Four Views on the Spectrum of Evangelicalism", "citation": "Andrew David Naselli and Collin Hansen, eds., 2011"}]
+   POSITION church-history-and-authority.authority/holy-tradition  [Holy Tradition]
+      hold: Scripture is read within Holy Tradition, the whole living faith of the church as carried by the seven ecumenical councils, the Fathers and the church's liturgical and sacramental life; Scripture is not read as a source standing apart from that life.
+      vs:   Isolating Scripture from the church's continuous liturgical, conciliar and patristic life as though it could be rightly read apart from that context.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Synod of Jerusalem (1672), Decree 2
+        note: None
+      position sources: [{"label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672"}]
+
+DOCTRINE church-history-and-authority.creeds  (church-history-and-authority.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}]
+   POSITION church-history-and-authority.creeds/recited-without-filioque  [Recited, without filioque]
+      hold: The Nicene Creed is recited in its original conciliar text, confessing the Holy Spirit as proceeding from the Father, without the later Western filioque addition.
+      vs:   Adding the filioque clause to the creed's conciliar text on the authority of a single patriarchate rather than another ecumenical council.
+      - held_by orthodox / confessional
+        citation: The Nicene-Constantinopolitan Creed (381), as received without later addition; Confession of Dositheus, Decree 1
+        note: None
+      position sources: [{"label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 1"}]
+
+DOCTRINE church-history-and-authority.fathers  (church-history-and-authority.json)
+   doctrine sources: [{"label": "The Vindication of Tradition", "citation": "Jaroslav Pelikan, 1984"}]
+   POSITION church-history-and-authority.fathers/consensus-patrum  [Consensus patrum]
+      hold: The universal consent of the Fathers is the organ through which the church discerns Holy Tradition, carrying an authority close to that of the councils whose faith it expresses.
+      vs:   Reading Scripture as an isolated modern interpreter without reference to how the church has continuously understood it since the apostles.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 2; the Longer Catechism of St Philaret of Moscow (1830)
+        note: None
+      position sources: [{"label": "Longer Catechism of St Philaret of Moscow", "citation": "1830"}]
+
+DOCTRINE church-history-and-authority.solas  (church-history-and-authority.json)
+   doctrine sources: [{"label": "Roman Catholic Theology and Practice", "citation": "Gregg Allison, 2014, on Trent and the Reformation debate over justification"}]
+   POSITION church-history-and-authority.solas/orthodox-position  [Synergy toward theosis]
+      hold: Salvation is a work of grace from beginning to end, worked out through the human person's free, grace-enabled cooperation in a lifelong movement toward union with God, rather than framed through the Western Reformation's own categories of forensic justification.
+      vs:   Framing salvation primarily as a single forensic verdict received by faith apart from the lifelong, grace-enabled process of transformation the Fathers describe.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 13-14
+        note: None
+      position sources: [{"label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decrees 13-14"}]
+
+DOCTRINE church.church-government  (church.json)
+   doctrine sources: [{"label": "The Book of Church Order", "citation": "Presbyterian Church in America, Preliminary Principles"}]
+   POSITION church.church-government/episcopal  [Episcopal]
+      hold: Authority is exercised through bishops standing in historic succession, who ordain clergy and oversee multiple congregations within a diocese.
+      vs:   Government by a plurality of elders with no single office standing over the local eldership.
+      - held_by orthodox / confessional
+        citation: Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus (1672), Decree 10
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 880-887"}, {"label": "Thirty-Nine Articles of Religion", "citation": "1571, Article XXXVI"}]
+
+DOCTRINE church.baptism  (church.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381, 'one baptism for the remission of sins'", "url": "https://www.ccel.org/creeds/nicene.creed.html"}]
+   tradition_overrides: {"anglican": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Infant baptism is the church's normal practice, and the Articles hold it agreeable with the institution of Christ without settling what the water effects.", "why": "The Thirty-Nine Articles commend the baptism of young children and describe baptism as a sign of regeneration and an instrument of ingrafting — wording both wings of the tradition have read in their own sense for four centuries.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Anglican formularies are deliberately capacious here. An entry that picked either the evangelical or the Anglo-Catholic reading would be describing a party, not the tradition.", "citation": "Thirty-Nine Articles, XXVII; Book of Common Prayer (1662)"}, "restorationist": {"positions": ["church.baptism/believer", "church.baptism/regeneration"], "hold": "Baptism is by immersion, on profession of faith, for the remission of sins.", "why": "Peter's answer at Pentecost joins repentance, baptism and forgiveness in a single sentence, and the Restorationist plea is to say no more and no less than that sentence says.", "vs": "Separating baptism from the moment of remission so that it becomes a testimony to a forgiveness already received.", "tier": "T2", "confidence": "confident", "flags": [], "note": "This is genuinely a third position rather than a compromise: credobaptist in subject, regenerative in effect. It is why the two-axis framing in this doctrine matters.", "citation": "Acts 2:38 as read in Alexander Campbell, The Christian System (1839)"}, "lutheran": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Baptism is administered to infants and converts alike, and it is the means through which God works forgiveness, delivers from death and gives eternal salvation.", "why": "The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.", "vs": null, "tier": "T2", "confidence": "confident", "flags": [], "note": "Lutherans appear under two positions here only because this doctrine splits who is baptised from what baptism does. Lutheran teaching does not hold them apart, and it is not a divided tradition on this question.", "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"}}
+   POSITION church.baptism/regeneration  [Baptismal regeneration]
+      hold: Baptism is the instrument by which God gives new birth, forgiveness and union with Christ, and is therefore administered to infants and converts alike.
+      vs:   Treating baptism as a sign of a grace given elsewhere, which detaches the promise from the act the New Testament attaches it to.
+      - held_by orthodox / confessional
+        citation: Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus (1672), Decree 16
+        note: Administered with chrismation and communion in a single rite, so the question is less separable than in the West.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1213-1215, 1250", "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"}, {"label": "Augsburg Confession", "citation": "1530, Article IX", "url": "https://bookofconcord.org/augsburg-confession/"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"}]
+
+DOCTRINE church.lords-supper  (church.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 29"}]
+   tradition_overrides: {"orthodox": {"positions": ["church.lords-supper/transubstantiation"], "hold": "The bread and wine are changed into the body and blood of Christ, truly and really, while the manner of the change is confessed as a mystery rather than defined in the scholastic vocabulary of substance and accident.", "why": "Dositheus confesses the change of the elements in the plainest terms the East has ever used, and the same tradition has declined to make the Latin philosophical explanation of that change a term of communion.", "vs": null, "tier": "T2", "confidence": "certain", "flags": [], "note": "Orthodoxy appears under the transubstantiation position because it is the one position in this corpus that affirms a real change of the elements, which Decree 17 does. It is not a divided tradition here. Placing it on the non-transubstantive real-presence position instead — as this corpus did until phase 6 — put the Lutheran 'in, with and under', and a vs that rejects any change of substance, into the Orthodox map's mouth.", "citation": "Confession of Dositheus (1672), Decree 17"}}
+   POSITION church.lords-supper/transubstantiation  [Transubstantiation]
+      hold: The bread and wine become the body and blood of Christ in substance while retaining the appearance of bread and wine.
+      vs:   A real spiritual presence received by faith without any change in the substance of the elements.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 17
+        note: The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident. See this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1373-1377"}, {"label": "Council of Trent", "citation": "1551, Session XIII, ch. 4"}]
+   OVERRIDE church.lords-supper :: orthodox  (citation matched; see tradition_overrides above)
+
+DOCTRINE church.membership  (church.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 30"}]
+   POSITION church.membership/parish-sacramental  [Parish / sacramental standing]
+      hold: Belonging is constituted by baptism and sacramental standing within a parish or diocese, administered by the clergy under the bishop, rather than by a local covenant the congregation itself enters into.
+      vs:   Requiring a separate congregational covenant beyond baptism and sacramental standing to establish who belongs.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 10
+        note: None
+      position sources: [{"label": "Code of Canon Law", "citation": "1983, can. 204, can. 1331"}]
+
+DOCTRINE ethics.marriage-and-sexuality  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}, {"label": "Human Sexuality: Gift and Trust", "citation": "ELCA, 2009, amended 2025", "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"}]
+   tradition_overrides: {"anglican": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "The Anglican Communion is not of one mind: most provinces hold marriage to be the covenant union of a man and a woman under Lambeth Resolution 1.10, while the Episcopal Church has permitted the marriage of same-sex couples in church since amending its canons in 2015.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a live, unresolved division within the Communion itself rather than a settled Anglican position either way.", "citation": "Lambeth Conference Resolution I.10 (1998); The Episcopal Church, Canon I.18 (as amended 2015)"}, "methodist": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Methodism divided formally in 2024: the United Methodist Church's General Conference removed its restrictions on same-sex marriage, while the Global Methodist Church, formed by conservative congregations leaving the UMC, and much of the wider Wesleyan world retain the traditional definition.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "The 2024 General Conference marks a genuine, recent split in the Wesleyan family rather than a single Methodist position.", "citation": "United Methodist Church, General Conference 2024 legislation; Global Methodist Church, Book of Doctrines and Discipline (2022)"}, "lutheran": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.", "citation": "ELCA, Human Sexuality: Gift and Trust (2009); Lutheran Church-Missouri Synod, Commission on Theology and Church Relations statements on marriage"}}
+   POSITION ethics.marriage-and-sexuality/male-female-covenant  [Male-female covenant]
+      hold: Marriage is a covenant between one man and one woman, instituted by God in creation and reaffirmed by Christ, and sexual intimacy belongs within that covenant alone.
+      vs:   Extending marriage, and the blessing of sexual union within it, to same-sex couples, on the ground that Scripture's creation pattern does not itself settle that question.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow; canonical tradition of the seven councils
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}]
+
+DOCTRINE ethics.alcohol  (ethics.json)
+   doctrine sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article XV"}, {"label": "Catechism of the Catholic Church", "citation": "1334"}]
+   POSITION ethics.alcohol/moderation-permitted  [Moderation permitted]
+      hold: Scripture nowhere prohibits alcohol itself and repeatedly commends wine as a gift of God, so consumption in moderation is permitted while drunkenness is condemned as a sin.
+      vs:   Treating any use of alcohol at all, rather than drunkenness specifically, as the sin Scripture warns against.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow, on the Eucharist
+        note: Wine is used in the Eucharist itself.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1334"}]
+
+DOCTRINE formation-and-practice.sanctification-progressive  (formation-and-practice.json)
+   doctrine sources: [{"label": "Five Views on Sanctification", "citation": "Melvin Dieter et al., 1987"}]
+   tradition_overrides: {"non-denominational": {"positions": ["formation-and-practice.sanctification-progressive/reformed-gradual", "formation-and-practice.sanctification-progressive/keswick"], "hold": "Most non-denominational evangelical congregations teach gradual, lifelong growth through ordinary means; a real minority stream draws on Keswick higher-life teaching of decisive surrender.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "No single confession binds this stream, and both accounts circulate within evangelical devotional literature without formal resolution.", "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38, contrasted with Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)"}}
+   POSITION formation-and-practice.sanctification-progressive/theosis  [Theosis]
+      hold: The Christian life is a lifelong, synergistic ascent into ever-deepening participation in God's own uncreated energies, a real sharing in the divine life that the church calls deification, worked out through ascetic struggle, the sacraments and unceasing prayer.
+      vs:   Confining the aim of the Christian life to moral improvement or the resolution of guilt, when Scripture and the fathers describe a real participation in the divine nature itself.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow; Gregory Palamas, Triads
+        note: None
+      position sources: [{"label": "The Orthodox Way", "citation": "Kallistos Ware, 1979, ch. 8"}]
+
+DOCTRINE formation-and-practice.spiritual-disciplines  (formation-and-practice.json)
+   doctrine sources: [{"label": "Celebration of Discipline", "citation": "Richard Foster, 1978"}]
+   tradition_overrides: {"non-denominational": {"positions": ["formation-and-practice.spiritual-disciplines/daily-quiet-time", "formation-and-practice.spiritual-disciplines/contemplative-retrieval"], "hold": "Most non-denominational evangelicals practice a personal daily pattern of Scripture reading and prayer; a real minority stream also draws on contemplative retrieval, contested by critics within the same tradition.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The retrieval stream and its evangelical critics both sit inside this same tradition, without a confession to settle the dispute.", "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991), contrasted with Richard Foster, Celebration of Discipline (1978)"}}
+   POSITION formation-and-practice.spiritual-disciplines/liturgical-office  [Liturgical patterning]
+      hold: The Christian life is formed by praying the church's daily office at fixed hours and by keeping the church year's cycle of fasts, feasts and seasons, so that the whole community is shaped by a shared, inherited rhythm rather than by private discretion.
+      vs:   Leaving the pattern and timing of devotional practice to each believer's private discretion, with no shared daily office or church calendar to hold the community to a common rhythm.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow
+        note: None
+      position sources: [{"label": "Book of Common Prayer", "citation": "1662"}]
+
+DOCTRINE formation-and-practice.suffering-and-providence  (formation-and-practice.json)
+   doctrine sources: [{"label": "Where Is God When It Hurts?", "citation": "Philip Yancey, 1977"}]
+   POSITION formation-and-practice.suffering-and-providence/general-providence-permission  [General providence, permitted]
+      hold: God upholds and governs all things in his general providence and can redeem any suffering for good, but particular instances of suffering are permitted within that governance rather than specifically willed by God for their own sake.
+      vs:   Attributing a particular instance of suffering directly to God's specific intention, as though it were something he purposed for its own sake rather than something his governance permits and can redeem.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "309-314"}]
+
+DOCTRINE god.eternal-generation  (god.json)
+   doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Retrieving Eternal Generation", "citation": "Fred Sanders and Scott Swain, eds., 2017"}]
+   POSITION god.eternal-generation/affirmed  [Eternal generation]
+      hold: The Son is eternally begotten of the Father — receiving the one undivided divine essence from the Father without beginning, without division and without subordination of nature — and the Spirit eternally proceeds.
+      vs:   The view that eternal generation is a speculative inheritance from Greek philosophy which the biblical text does not require.
+      - held_by orthodox / confessional
+        citation: The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret, 132-140
+        note: Central to the Eastern account of the monarchy of the Father as the source of the Son's begetting and the Spirit's procession.
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Retrieving Eternal Generation", "citation": "Fred Sanders and Scott Swain, eds., 2017"}]
+
+DOCTRINE god.classical-theism  (god.json)
+   doctrine sources: [{"label": "All That Is In God", "citation": "James E. Dolezal, 2017"}, {"label": "Divine Impassibility and the Mystery of Human Suffering", "citation": "James F. Keating and Thomas Joseph White, eds., 2009"}]
+   tradition_overrides: {"methodist": {"positions": ["god.classical-theism/classical", "god.classical-theism/relational"], "hold": "God is eternal, infinite and without body, parts or passions as the Articles of Religion state, and a substantial strand of Wesleyan theology holds alongside that a genuine divine responsiveness continuous with Wesley's teaching on prevenient grace.", "why": "Wesley retained the Anglican Article on God unaltered, and the later Wesleyan emphasis on a God who woos, waits and responds has developed within that inheritance rather than by repudiating it.", "vs": null, "tier": "T2", "confidence": "leaning", "flags": ["study"], "note": "Methodism is confessionally classical and, in much of its living theology, relational. Reporting either half alone would describe a party rather than the tradition, and the tension between the Article and the strand is itself part of what a Methodist reader would recognise.", "citation": "Articles of Religion (1784), Article 1; Thomas Jay Oord, The Uncontrolling Love of God (2015)"}}
+   POSITION god.classical-theism/classical  [Classical theism]
+      hold: God is simple, immutable, impassible and eternally self-sufficient — not composed of parts, not changing in being or purpose, and not moved from outside himself — so that his love and mercy are the fullness of his own life rather than states produced in him by the world.
+      vs:   The view that God is genuinely affected and changed by what creatures do, which this position holds makes God one being among others rather than the source of all being.
+      - held_by orthodox / confessional
+        citation: Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret, 89-97
+        note: Held with the distinction between the divine essence and the divine energies, which the East uses to affirm both God's utter transcendence and his real presence to creatures.
+      position sources: [{"label": "Summa Theologiae", "citation": "Thomas Aquinas, Ia, qq. 3-11"}, {"label": "Westminster Confession of Faith", "citation": "1646, ch. 2.1"}]
+
+DOCTRINE god.time  (god.json)
+   doctrine sources: [{"label": "God and Time: Four Views", "citation": "Gregory E. Ganssle, ed., 2001"}]
+   POSITION god.time/timeless  [Timeless eternity]
+      hold: God exists outside the succession of moments altogether, in a single undivided present to which every point in created time is equally immediate, so that God does not wait, anticipate or remember.
+      vs:   The view that God experiences succession, which this position holds would make God's life measurable by the creation he made.
+      - held_by orthodox / majority
+        citation: Longer Catechism of St Philaret, 90
+        note: None
+      position sources: [{"label": "The Consolation of Philosophy", "citation": "Boethius, c. 524, Book 5, prose 6"}, {"label": "Summa Theologiae", "citation": "Thomas Aquinas, Ia, q. 10"}]
+
+DOCTRINE god.open-theism  (god.json)
+   doctrine sources: [{"label": "The Openness of God", "citation": "Clark Pinnock et al., 1994"}, {"label": "Divine Foreknowledge: Four Views", "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"}]
+   POSITION god.open-theism/settled-future  [Exhaustive foreknowledge]
+      hold: God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.
+      vs:   The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret, 90-93
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 2.2"}, {"label": "Catechism of the Catholic Church", "citation": "1992, 302, 600"}]
+
+DOCTRINE god.divine-foreknowledge  (god.json)
+   doctrine sources: [{"label": "Divine Foreknowledge: Four Views", "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"}, {"label": "Concordia (On Divine Foreknowledge, Part IV)", "citation": "Luis de Molina, 1588"}]
+   tradition_overrides: {"roman-catholic": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and the church leaves open how that knowledge relates to his eternal decree — the Thomist and Molinist accounts are both permitted, and neither may condemn the other.", "why": "The Congregatio de Auxiliis examined the dispute for a decade and closed it without a verdict, permitting both schools and forbidding each to declare the other heretical.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Rome is not divided here by accident or by drift. The breadth is a formal decision of the Holy See, and an entry that picked either the Dominican or the Jesuit account would be describing a school rather than the church.", "citation": "Congregatio de Auxiliis (1597-1607); Catechism of the Catholic Church 302, 600"}, "baptist": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and Baptists differ among themselves as to whether that knowledge is grounded in his eternal decree, in a middle knowledge of what creatures would freely do, or simply in the future as it will be.", "why": "The Baptist Faith and Message affirms God's perfect knowledge of all things without settling the mechanism, and Baptist life has contained Reformed, Molinist and simple-foreknowledge accounts side by side throughout its history.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": ["study"], "note": "Baptists are confessional but not creedally bound, and this is one of the questions their confessions deliberately leave open. Naming a single Baptist answer here would be false.", "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession (1689), 3.1-3.2"}, "non-denominational": {"positions": ["god.divine-foreknowledge/molinism", "god.divine-foreknowledge/simple"], "hold": "God knows the whole future infallibly, and independent evangelical congregations hold no common account of how, with simple foreknowledge the most widely assumed and middle knowledge argued for by a smaller philosophical strand.", "why": "The stream has no binding confession on the question, and its statements of faith affirm God's omniscience without addressing the mechanism at all.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "This is a case where the honest entry is that the stream has no single answer rather than a thin majority reported as one.", "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"}}
+   POSITION god.divine-foreknowledge/simple  [Simple foreknowledge]
+      hold: God simply knows the whole future as it will actually be, without that knowledge being grounded in a decree that determines it or in a prior knowledge of what creatures would do under other circumstances.
+      vs:   Accounts that make God's knowledge of the future depend on his having determined it, which this position holds turns foreknowledge into another name for predestination.
+      - held_by orthodox / majority
+        citation: John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30
+        note: The East has consistently declined to ground foreknowledge in a decree that determines creaturely choice, holding foreknowledge and freedom together without the Western apparatus.
+      position sources: [{"label": "On Predestination", "citation": "John Wesley, Sermon 58, 1773"}, {"label": "The Arminian Confession of 1621", "citation": "Simon Episcopius, ch. 2"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 8, 'The Purposes of God Concerning Man'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS208.HTM"}]
+
+DOCTRINE holy-spirit.baptism-in-the-holy-spirit  (holy-spirit.json)
+   doctrine sources: [{"label": "Perspectives on Spirit Baptism: Five Views", "citation": "Chad Owen Brand, ed., 2004"}]
+   POSITION holy-spirit.baptism-in-the-holy-spirit/sacramental-initiation  [Sacramental initiation]
+      hold: The fullness of the Holy Spirit given at conversion is sealed and completed in the sacrament of confirmation, or chrismation, administered through the laying on of hands and anointing with chrism.
+      vs:   Locating the giving of the Spirit's fullness in an inward experience sought apart from the church's sacramental rite of confirmation or chrismation.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow
+        note: Administered immediately after baptism, including for infants.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1285-1321"}]
+
+DOCTRINE holy-spirit.healing  (holy-spirit.json)
+   doctrine sources: [{"label": "Are Miraculous Gifts for Today? Four Views", "citation": "Wayne Grudem, ed., 1996"}]
+   POSITION holy-spirit.healing/real-sovereign-gift  [Real but sovereign gift]
+      hold: God really heals the sick today in answer to believing prayer, but does so as a sovereign gift given according to his own will rather than as an entitlement guaranteed to every believer who asks in faith.
+      vs:   Guaranteeing physical healing in this life as a provision of the atonement that faith can claim, so that continued sickness is read as a failure of faith.
+      - held_by orthodox / permitted
+        citation: Longer Catechism of St Philaret of Moscow
+        note: Through the sacrament of Holy Unction.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1499-1532"}]
+
+DOCTRINE humanity-and-sin.image-of-god  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1701-1707"}, {"label": "Westminster Larger Catechism", "citation": "Q&A 17"}]
+   tradition_overrides: {"roman-catholic": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/relational"], "hold": "The image of God includes both the rational soul that makes a person capable of knowing and loving, and the relational capacity for communion with God and others; these are held together as one reality, not chosen between.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "The Catechism treats the substantive and relational readings as complementary aspects of the same doctrine rather than competing accounts.", "citation": "Catechism of the Catholic Church 1701-1706"}, "orthodox": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/relational"], "hold": "The image of God includes the rational and free soul and the capacity for communion with God, understood together as the ground of humanity's calling toward likeness with God.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "Orthodox anthropology distinguishes image, given at creation, from likeness, the relational growth toward God the image makes possible, without separating a structural reading from a relational one.", "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man"}, "reformed": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/functional"], "hold": "Reformed theology holds that the image of God includes both the rational and moral capacities given to humanity and the vocation to exercise dominion under God as his covenant representative, as one unified endowment rather than rival accounts.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "The Larger Catechism's structural language and the wider Reformed creation-mandate tradition are read as complementary, not as alternatives.", "citation": "Westminster Larger Catechism, Q&A 17"}}
+   POSITION humanity-and-sin.image-of-god/structural  [Structural image]
+      hold: The image of God consists chiefly in capacities that set humanity apart from the rest of creation, especially reason, moral agency and an immortal soul, which the fall wounded but did not destroy.
+      vs:   Locating the image entirely in humanity's task of ruling creation, apart from any distinct capacity that makes the task possible.
+      - held_by orthodox / confessional
+        citation: The Longer Catechism of St Philaret of Moscow, On the Creation of Man
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1704-1705"}]
+   POSITION humanity-and-sin.image-of-god/relational  [Relational image]
+      hold: The image of God consists most fundamentally in humanity's capacity for relationship and communion, mirroring the relations of love within God and grounding love of God and neighbour.
+      vs:   Reducing the image to an individual capacity or task considered apart from the relationships the person is made for.
+      - held_by orthodox / confessional
+        citation: The Longer Catechism of St Philaret of Moscow, on likeness through communion with God
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1702"}]
+   OVERRIDE humanity-and-sin.image-of-god :: orthodox  (citation matched; see tradition_overrides above)
+
+DOCTRINE humanity-and-sin.original-sin  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 6"}, {"label": "The Doctrine of Original Sin", "citation": "John Wesley, 1757"}]
+   POSITION humanity-and-sin.original-sin/ancestral-sin  [Ancestral sin]
+      hold: Through Adam's fall, mortality and a corrupted, sin-prone condition entered the human race and are inherited by every person, but Adam's personal guilt for his own transgression is not inherited or imputed to his descendants.
+      vs:   Holding that Adam's own guilt, and not only the corrupted and mortal condition his sin produced, is imputed to every descendant at birth.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Synod of Jerusalem, 1672, Decree 6
+        note: None
+      position sources: [{"label": "The Longer Catechism of St Philaret of Moscow", "citation": "On the Consequences of the Fall"}]
+
+DOCTRINE humanity-and-sin.depravity-and-prevenient-grace  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Canons of the Council of Carthage", "citation": "418"}, {"label": "Decrees of the Council of Trent", "citation": "Session VI, 1547"}]
+   POSITION humanity-and-sin.depravity-and-prevenient-grace/synergistic  [Synergism]
+      hold: Grace initiates and accompanies the whole process of coming to faith, since no one can turn to God without it, but the person's own free cooperation with that grace, rather than a separate prior act of grace restoring ability, is part of what faith itself consists in.
+      vs:   Treating grace and human freedom as though enabling one required subtracting from the other, so either grace alone or the will alone must be given the whole credit for faith.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Decree 3
+        note: None
+      position sources: [{"label": "Decrees of the Council of Trent", "citation": "Session VI, 1547"}]
+
+DOCTRINE humanity-and-sin.dichotomy-vs-trichotomy  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983"}, {"label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76"}]
+   POSITION humanity-and-sin.dichotomy-vs-trichotomy/dichotomy  [Dichotomy]
+      hold: Human nature consists of two constitutive parts, a material body and a single immaterial aspect that Scripture calls, interchangeably, the soul or the spirit.
+      vs:   Treating soul and spirit as two separate constitutive parts of a person rather than two names for one immaterial aspect.
+      - held_by orthodox / majority
+        citation: The Longer Catechism of St Philaret of Moscow
+        note: The mainstream modern reading; some early Fathers used threefold language.
+      position sources: [{"label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76, on the unity of the soul"}]
+
+DOCTRINE last-things.millennium  (last-things.json)
+   doctrine sources: [{"label": "Four Views on the Book of Revelation", "citation": "Marvin Pate, ed., 1998"}]
+   tradition_overrides: {"reformed": {"positions": ["last-things.millennium/amillennial", "last-things.millennium/postmillennial"], "hold": "The Reformed tradition is predominantly amillennial, though a historic minority within it, including Puritan and later postmillennial writers, holds that the gospel will visibly triumph in history before Christ returns.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Reformed confessions do not bind a single millennial position; Berkhof's amillennialism represents the modern majority, while Hodge represents a live minority stream.", "citation": "Louis Berkhof, Systematic Theology (1938); Charles Hodge, Systematic Theology, vol. 3 (1873)"}, "non-denominational": {"positions": ["last-things.millennium/historic-premillennial", "last-things.millennium/dispensational-premillennial"], "hold": "Non-denominational evangelical congregations divide between dispensational premillennialism, historically dominant in the Bible-church movement, and a historic premillennialism that keeps the future earthly reign without the dispensational framework, without a shared confession settling between them.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "No confession binds non-denominational evangelicalism on this question, and both readings circulate within it.", "citation": "Dallas Theological Seminary, Doctrinal Statement, Article VII; George Eldon Ladd, The Presence of the Future (1974)"}}
+   POSITION last-things.millennium/amillennial  [Amillennial]
+      hold: The thousand years of Revelation 20 is a symbolic description of the whole present age between Christ's first and second comings, during which the church shares his reign and Satan is restrained from deceiving the nations, ending in one resurrection and judgment at Christ's return.
+      vs:   Placing the thousand-year reign in the future, either as an earthly reign beginning at Christ's return or a golden age preceding it.
+      - held_by orthodox / majority
+        citation: Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed
+        note: Orthodox eschatology does not organise around a distinct millennial scheme; life in the Church is already understood as participation in Christ's reign.
+      position sources: [{"label": "Systematic Theology", "citation": "Louis Berkhof, 1938, Eschatology"}]
+
+DOCTRINE last-things.hell  (last-things.json)
+   doctrine sources: [{"label": "Four Views on Hell", "citation": "Preston Sprinkle, ed., 2016"}]
+   tradition_overrides: {"anglican": {"positions": ["last-things.hell/eternal-conscious-torment", "last-things.hell/annihilationism"], "hold": "Anglican formularies affirm everlasting punishment for the impenitent, though the Communion has never dogmatically excluded conditional immortality, and a minority within it, including John Stott, has held annihilationism as a permitted reading.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "The Thirty-Nine Articles do not directly legislate the duration of hell's punishment; the Athanasian Creed's language of everlasting fire is the received liturgical consensus, but Stott's 1988 case for annihilationism was not treated as heresy within the Communion.", "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662); John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)"}}
+   POSITION last-things.hell/eternal-conscious-torment  [Eternal conscious torment]
+      hold: The unrepentant are raised bodily and consciously suffer just punishment for sin forever, a state as everlasting as the life of the redeemed.
+      vs:   Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
+      - held_by orthodox / confessional
+        citation: Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "33.2"}]
+
+DOCTRINE last-things.intermediate-state  (last-things.json)
+   doctrine sources: [{"label": "The Orthodox Church", "citation": "Kallistos Ware, 1963/1993, on the departed"}]
+   tradition_overrides: {"anabaptist": {"positions": ["last-things.intermediate-state/with-christ", "last-things.intermediate-state/soul-sleep"], "hold": "Anabaptist congregations generally affirm the soul's conscious presence with Christ after death, though a historic minority stream within the sixteenth-century movement held that the dead sleep unconsciously until the resurrection.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "The Dordrecht Confession does not settle the question directly; mortalism was a real minority position among some early Anabaptist groups without becoming the tradition's confessional norm.", "citation": "Dordrecht Confession of Faith (1632); George H. Williams, The Radical Reformation (1962)"}}
+   POSITION last-things.intermediate-state/toll-houses  [Prayer for the departed]
+      hold: The soul's journey after death, prayed for and remembered by the Church, still awaits the final judgment and resurrection; the Church continues to pray and offer the Divine Liturgy for the departed, trusting that such prayer benefits them, without defining that interval as a formal process of expiatory punishment.
+      vs:   Defining the interval after death as a formal, dogmatically specified process of purification, as in the Catholic doctrine of purgatory.
+      - held_by orthodox / majority
+        citation: Confession of Dositheus, Synod of Jerusalem (1672), Decree 18
+        note: The Confession of Dositheus affirms that prayer, almsgiving and the Liturgy benefit the departed; it is a seventeenth-century document, not treated by all Orthodox as binding in its details.
+      position sources: [{"label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 18"}, {"label": "2 Maccabees 12:44-45", "citation": "Received as canonical in the Orthodox and Catholic canons; the classic text for prayer for the departed. Not served by the NET Bible API, which carries the Protestant canon only."}]
+
+DOCTRINE last-things.new-creation  (last-things.json)
+   doctrine sources: [{"label": "Surprised by Hope", "citation": "N. T. Wright, 2008"}]
+   POSITION last-things.new-creation/renewed  [Renewed creation]
+      hold: The present creation itself will be liberated, purified and transformed into the new heavens and new earth, in continuity with the world that exists now rather than its replacement by an unrelated new one.
+      vs:   Reading the present creation as destroyed and replaced rather than purified and transformed.
+      - held_by orthodox / majority
+        citation: Longer Catechism of St Philaret of Moscow, on the Twelfth Article of the Creed
+        note: Reflects the Orthodox emphasis on the cosmic scope of Christ's transfiguring work.
+      position sources: [{"label": "Reformed Dogmatics, vol. 4", "citation": "Herman Bavinck, 1918/2008"}]
+
+DOCTRINE missions-and-world-religions.exclusivity-of-christ  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "Lausanne Covenant", "citation": "1974, Article 3"}, {"label": "Catechism of the Catholic Church", "citation": "846-848"}]
+   POSITION missions-and-world-religions.exclusivity-of-christ/particularism  [Salvation in Christ alone]
+      hold: Salvation is found only in Jesus Christ, who alone is the one mediator between God and humanity and the name by which anyone must be saved.
+      vs:   Treating the world's religions as equally valid paths to God alongside faith in Christ.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 1
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "846-848"}, {"label": "Lausanne Covenant", "citation": "1974, Article 3"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, 'Remission of Sins'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"}]
+
+DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized", "citation": "John Sanders, ed., 1995"}, {"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964"}]
+   POSITION missions-and-world-religions.the-unevangelised/inclusivism  [Inclusivism]
+      hold: Christ is the only saviour, but his atoning work can be applied to those who, without ever hearing the gospel, respond in sincere faith and love to God as he has made himself known to them through creation and conscience.
+      vs:   Requiring explicit, conscious faith in the name of Jesus Christ as a condition of the salvation his death secured.
+      - held_by orthodox / majority
+        citation: Longer Catechism of St Philaret of Moscow
+        note: Read from the wider Orthodox emphasis on God's mercy toward the invincibly ignorant rather than from a single conciliar statement.
+      position sources: [{"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964, §16"}, {"label": "Nostra Aetate", "citation": "Second Vatican Council, 1965"}]
+
+DOCTRINE salvation.sovereignty-and-free-will  (salvation.json)
+   doctrine sources: [{"label": "Canons of Dordt", "citation": "1619"}, {"label": "The Remonstrance", "citation": "1610"}]
+   POSITION salvation.sovereignty-and-free-will/synergistic-mystery  [Synergistic mystery]
+      hold: Salvation unfolds through synergy, divine grace and human free will cooperating in the lifelong work of theosis, a framework that does not divide along the West's sovereignty-versus-freedom debate.
+      vs:   Framing the question as a choice between monergism and libertarian freedom, categories this reading regards as belonging to a specifically Western debate rather than to the church's original vocabulary.
+      - held_by orthodox / confessional
+        citation: John Cassian, Conference 13; Confession of Dositheus (1672), Decree 3
+        note: None
+      position sources: [{"label": "Confession of Dositheus", "citation": "1672, Decree 3"}]
+
+DOCTRINE salvation.perseverance-and-apostasy  (salvation.json)
+   doctrine sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}, {"label": "Council of Trent", "citation": "Session 6, 1547, ch. 15"}]
+   POSITION salvation.perseverance-and-apostasy/mortal-sin-restoration  [Mortal sin, restoration]
+      hold: Grave, deliberate sin against a known command can destroy the sanctifying grace given in justification, but that grace, once lost, can be restored through repentance and confession rather than being finally and irrecoverably forfeited.
+      vs:   Treating salvation as either unlosable regardless of subsequent sin or as finally forfeited beyond any provision for restoration, both of which this position holds misdescribe how grace, once given, relates to serious sin and repentance.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 14
+        note: Grounded in the sacrament of confession as the ordinary remedy for post-baptismal sin rather than in the same Western canon.
+      position sources: [{"label": "Council of Trent", "citation": "Session 6, 1547, ch. 15"}]
+
+DOCTRINE salvation.assurance  (salvation.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 18"}, {"label": "Council of Trent", "citation": "Session 6, 1547, ch. 9"}]
+   POSITION salvation.assurance/present-grace-only  [Present grace only]
+      hold: A believer may know present grace and hope in God's mercy, but a settled certainty of final salvation ahead of death is not sought or promised in this life, so as to guard against presumption while sanctifying grace remains at stake.
+      vs:   Claiming an infallible certainty of final salvation ahead of death apart from special revelation, which this position holds Scripture nowhere promises and which risks presumption.
+      - held_by orthodox / majority
+        citation: Confession of Dositheus (1672), Decree 9
+        note: None
+      position sources: [{"label": "Council of Trent", "citation": "Session 6, 1547, ch. 9"}]
+
+DOCTRINE salvation.justification  (salvation.json)
+   doctrine sources: [{"label": "Council of Trent", "citation": "Session 6, 1547"}, {"label": "Joint Declaration on the Doctrine of Justification", "citation": "Lutheran World Federation and Catholic Church, 1999"}]
+   POSITION salvation.justification/theosis  [Theosis]
+      hold: Salvation is participation in the life of God, a real union with Christ that transfigures the believer by grace, and the West's forensic categories of imputed or infused righteousness are not the terms in which this participation is chiefly described.
+      vs:   Organizing salvation around the forensic question of how righteousness is reckoned, a framework this position holds is a specifically Western development rather than the church's original vocabulary.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 13; Athanasius, On the Incarnation, 54
+        note: None
+      position sources: [{"label": "On the Incarnation", "citation": "Athanasius, 54"}]
+
+DOCTRINE salvation.regeneration-and-baptism  (salvation.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1213-1215"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 19"}]
+   POSITION salvation.regeneration-and-baptism/baptismal-regeneration  [Baptismal regeneration]
+      hold: God ordinarily gives the new birth through the washing of water baptism itself, so that baptism is the instrument, not merely the sign, of the regeneration it accompanies.
+      vs:   Locating the new birth entirely in an inward experience prior to and apart from water baptism, so the water rite becomes a testimony to a birth already complete rather than its ordinary means.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus (1672), Decree 16
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1213-1215"}]
+
+DOCTRINE scripture.canon  (scripture.json)
+   doctrine sources: [{"label": "Council of Trent", "citation": "Session IV (1546)", "url": null}]
+   POSITION scripture.canon/deuterocanon  [With deuterocanon]
+      hold: The canon includes the deuterocanonical books received by the church from the earliest centuries, read as Scripture in Christian worship long before the Reformation, and confirmed as canonical by ecumenical and local council.
+      vs:   Restricting the canon to the sixty-six books of the Hebrew canon plus the New Testament, treating the deuterocanonical books as edifying but not Scripture.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Synod of Jerusalem (1672), Decree 3
+        note: The precise list of deuterocanonical books varies between Orthodox jurisdictions more than it does in Roman Catholicism; the Synod of Jerusalem's list is the most commonly cited.
+      position sources: [{"label": "Council of Trent", "citation": "Session IV, Decree on Sacred Books (1546)", "url": null}]
+
+DOCTRINE scripture.sufficiency  (scripture.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.6", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   POSITION scripture.sufficiency/tradition  [Scripture within sacred tradition]
+      hold: Scripture is the highest written authority, and is transmitted, canonised and rightly interpreted within the living tradition and teaching authority of the church, which does not add to Scripture but safeguards its right reading.
+      vs:   Scripture alone as the sole binding authority, which treats the church's role in recognising and transmitting the canon as merely historical rather than as an authority that continues.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Synod of Jerusalem (1672), Decree 2
+        note: Orthodoxy resists framing Scripture and tradition as two separate sources, holding instead that Scripture is itself the highest expression of a single tradition.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 80-83", "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"}]
+
+DOCTRINE scripture.clarity  (scripture.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.7", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   POSITION scripture.clarity/magisterium  [Authoritative interpretation required]
+      hold: Scripture's meaning is safeguarded and authoritatively set forth through the church's teaching office, so that private reading is a genuine good but not a sufficient guarantee of rightly understanding what Scripture teaches.
+      vs:   Treating personal or private reading as sufficient on its own to establish doctrine, without reference to the church's authoritative interpretation.
+      - held_by orthodox / confessional
+        citation: Confession of Dositheus, Synod of Jerusalem (1672), Decree 2
+        note: Orthodoxy grounds right reading in the mind of the church as expressed through the councils and the received tradition of interpretation, rather than in a single defined teaching office.
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 85-87", "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"}]
+
+DOCTRINE scripture.hermeneutic-method  (scripture.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.9", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   POSITION scripture.hermeneutic-method/theological-tradition  [Reading within the church's tradition]
+      hold: Scripture is read in continuity with the church's received tradition of interpretation, including a legitimate use of typological and allegorical reading where the historic church has consistently used it, alongside attention to the literal sense.
+      vs:   Restricting legitimate meaning to what grammatical-historical method alone can establish, setting aside a use of typology and allegory the historic church regarded as a real, secondary sense of the text.
+      - held_by orthodox / confessional
+        citation: The Longer Catechism of St Philaret of Moscow (1830)
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 115-119", "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"}]

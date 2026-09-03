@@ -76,19 +76,19 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession 2.3"
+              "note": "The confession says: “The eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being.”",
+              "citation": "Baptist Faith and Message (2000), Article II; Second London Baptist Confession 2.3"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says believers “confess with the mouth, and believe with the heart... in one eternal, almighty, and incomprehensible God, the Father, Son, and Holy Ghost, and in none more, nor in any other.”",
               "citation": "Dordrecht Confession of Faith (1632), Article 1"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": "Article 2 of the Assemblies of God statement was written in 1916 partly to settle this question against the Oneness position within the movement.",
+              "note": "The statement says: \"The one true God has revealed himself as the eternally self-existent 'I AM,' the Creator of heaven and earth and the Redeemer of mankind. He has further revealed himself as embodying the principles of relationship and association as Father, Son and Holy Spirit\" (Article 2). Article 2 of the Assemblies of God statement was written in 1916 partly to settle this question against the Oneness position within the movement.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2 (The One True God)"
             },
             {
@@ -99,9 +99,9 @@
             },
             {
               "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "stance": "majority",
+              "note": "The Statement of Faith says: \"We believe that there is one God, eternally existent in three persons: Father, Son and Holy Spirit.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
             },
             {
               "tradition": "restorationist",
@@ -130,6 +130,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 2",
+              "url": "https://www.nae.org/statement-of-faith/"
             }
           ]
         },
@@ -251,9 +256,9 @@
             },
             {
               "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+              "stance": "majority",
+              "note": "The confession says of Christ: “this is the same whose goings forth have been from of old, from everlasting, without beginning of days, or end of life.” This affirms the Son's eternal, beginningless existence but does not use the technical vocabulary of “begetting” or an undivided essence communicated from the Father.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             },
             {
               "tradition": "baptist",
@@ -271,6 +276,11 @@
             {
               "label": "Retrieving Eternal Generation",
               "citation": "Fred Sanders and Scott Swain, eds., 2017"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 4",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -793,26 +803,8 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 2"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "note": "The confession says: “God is all powerful and all knowing; and His perfect knowledge extends to all things, past, present, and future, including the future decisions of His free creatures.”",
+              "citation": "Baptist Faith and Message (2000), Article II"
             }
           ],
           "learn_detail": "This position is shared across the Calvinist and Arminian divide: what separates those two is not whether God foreknows the future but whether foreknowledge is grounded in his decree. That is a separate question, and it is asked separately in this map.",
@@ -824,6 +816,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1992, 302, 600"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article II",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -1008,28 +1005,10 @@
               "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": "Classical Pentecostal bodies are broadly Arminian in this respect, though most statements of faith do not address the mechanism.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
               "tradition": "restorationist",
               "stance": "majority",
               "note": "The chapter grounds election 'in Christ' rather than an antecedent decree and holds human choice operative: \"all enjoyments shall be, as respects human agency, conditional; and that every man...shall certainly and infallibly have his own choice.\"",
               "citation": "Alexander Campbell, The Christian System, 1839, ch. 8, 'The Purposes of God Concerning Man'"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
             }
           ],
           "learn_detail": "The standing objection is that simple foreknowledge is providentially useless: if God learns the future only as it will actually be, that knowledge arrives too late, so to speak, to inform any decision about what to actualise. Its defenders reply that providence does not require the future to be a resource for deliberation, and that the objection assumes a temporal ordering in God's knowing that the position denies.",

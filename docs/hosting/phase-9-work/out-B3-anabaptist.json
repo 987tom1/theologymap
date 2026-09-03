@@ -1,0 +1,781 @@
+[
+  {
+    "op": "held_by.set",
+    "position": "christ.deity-and-humanity/chalcedonian",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 4",
+      "note": "The confession says Christ “is the Son of the living God, in whom alone consist all our hope, consolation, redemption, and salvation,” the same one who was conceived, suffered, died and rose bodily — affirming full deity and full humanity in the one Christ.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.deity-and-humanity/chalcedonian",
+    "sources": [
+      {
+        "label": "Chalcedonian Definition",
+        "citation": "Council of Chalcedon, 451"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 4",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "christ.virgin-birth/virginal-conception",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 4",
+      "note": "The confession says Christ “was conceived in the virgin Mary, who was espoused to a man named Joseph, of the house of David; and that she brought Him forth as her first-born son, at Bethlehem.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.virgin-birth/virginal-conception",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "CCC 496-498"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 4",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "christ.bodily-resurrection/bodily",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 4",
+      "note": "The confession says Christ “was crucified, dead, was buried, and on the third day, rose from the dead, and ascended to heaven.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "christ.bodily-resurrection/bodily",
+    "sources": [
+      {
+        "label": "1 Corinthians 15 as the hinge of Christian hope",
+        "citation": "1 Cor 15:12-19"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"Jesus: Our Saviour\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 4",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church-history-and-authority.authority/sola-scriptura",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 5",
+      "note": "The confession says Christ's New Testament, sealed with His blood, was given to the disciples so that “neither angel nor man may alter it, nor add to it nor take away from it,” containing the whole counsel of God as far as is necessary for salvation.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church-history-and-authority.authority/sola-scriptura",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1.10 (1646)"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 5",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.church-government/congregational",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 9",
+      "note": "The confession says the apostles worked, “with prayer and supplication to God, through the election of brethren, to provide every city, place, or church, with bishops, pastors, and leaders,” each congregation choosing and ordaining its own.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.church-government/congregational",
+    "sources": [
+      {
+        "label": "Second London Baptist Confession",
+        "citation": "1689, ch. 26"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VI"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 24, 'The Body of Christ'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS224.HTM"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 9",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.baptism/believer",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 1",
+      "note": "The confession says “Baptism shall be given to all those who have learned repentance and amendment of life, and who believe truly that their sins are taken away by Christ... This excludes all infant baptism.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.baptism/believer",
+    "sources": [
+      {
+        "label": "Second London Baptist Confession",
+        "citation": "1689, ch. 29",
+        "url": "https://www.the1689confession.com/"
+      },
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VII",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 1",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.lords-supper/memorial",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 10",
+      "note": "The confession says the Supper is kept “in remembrance of the suffering and death of the Lord... whereby we are admonished... to love and forgive one another,” without describing any change in, or grace conveyed through, the elements themselves.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.lords-supper/memorial",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "SBC, 2000, Article VII"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, 'Breaking the Loaf'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS233.HTM"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 10",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "church.membership/covenant",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 2",
+      "note": "The confession applies the ban “with all those who have given themselves to the Lord, to walk in His commandments, and with all those who are baptized into the one body of Christ and who are called brethren or sisters,” disciplining a member who falls into sin. Church discipline, including the ban, is a defining mark of the tradition rather than an occasional practice.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "church.membership/covenant",
+    "sources": [
+      {
+        "label": "Second London Baptist Confession",
+        "citation": "1689, ch. 26"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 30"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 26, 'The Christian Discipline'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS226.HTM"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 2",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "creation-and-science.creation-ex-nihilo-and-design/ex-nihilo",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 1",
+      "note": "The confession says of God: “He is the Creator of all things visible and invisible; that He, in six days, created, made, and prepared, heaven and earth, and the sea, and all that in them is.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "creation-and-science.creation-ex-nihilo-and-design/ex-nihilo",
+    "sources": [
+      {
+        "label": "Fourth Lateran Council",
+        "citation": "1215, ch. 1"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "4.1"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 1",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "creation-and-science.miracles-and-science/real-divine-acts",
+    "tradition": "anabaptist",
+    "reason": "Neither Article 2 (Of the Fall of Man, the article cited) nor any other article of the Dordrecht Confession addresses miracles or their relation to scientific method; the topic is not treated anywhere in the text."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "ethics.divorce-and-remarriage/no-remarriage-while-living",
+    "tradition": "anabaptist",
+    "reason": "Article 12 (Of the State of Matrimony) says only who may marry whom (believers marrying within \"the chosen generation and spiritual kindred of Christ\"); it does not mention divorce or remarriage, and no other article does either."
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.church-and-the-public-square/anabaptist-separatism",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 6",
+      "note": "The confession says a Christian's “citizenship is in this world, but the Christians' citizenship is in heaven,” concluding “it is not appropriate for a Christian to serve as a magistrate.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.church-and-the-public-square/anabaptist-separatism",
+    "sources": [
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article VI"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 6",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "ethics.war-and-violence/christian-pacifism",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 6; Dordrecht Confession of Faith (1632), Article 14",
+      "note": "Schleitheim says “in the perfection of Christ... only the ban is used,” not the sword, and Dordrecht says Christ “has forbidden and set aside to His disciples and followers all revenge and retaliation... but to put the sword into the sheath.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "ethics.war-and-violence/christian-pacifism",
+    "sources": [
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article VI"
+      },
+      {
+        "label": "The Peace Testimony",
+        "citation": "1660"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 6",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 14",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "formation-and-practice.sanctification-progressive/reformed-gradual",
+    "tradition": "anabaptist",
+    "reason": "Article XVI (cited) is \"Of the Ecclesiastical Ban\" and has nothing to do with sanctification. No article of Dordrecht states that sanctification is gradual, ongoing through the means of grace, and never complete in this life."
+  },
+  {
+    "op": "held_by.set",
+    "position": "god.trinity/nicene",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 1",
+      "note": "The confession says believers “confess with the mouth, and believe with the heart... in one eternal, almighty, and incomprehensible God, the Father, Son, and Holy Ghost, and in none more, nor in any other.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "god.trinity/nicene",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "First Council of Constantinople, 381"
+      },
+      {
+        "label": "The Athanasian Creed (Quicunque vult)",
+        "citation": "Latin West, c. 5th-6th century"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 1",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "god.eternal-generation/affirmed",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 4",
+      "note": "The confession says of Christ: “this is the same whose goings forth have been from of old, from everlasting, without beginning of days, or end of life.” This affirms the Son's eternal, beginningless existence but does not use the technical vocabulary of “begetting” or an undivided essence communicated from the Father.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "god.eternal-generation/affirmed",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "First Council of Constantinople, 381"
+      },
+      {
+        "label": "Retrieving Eternal Generation",
+        "citation": "Fred Sanders and Scott Swain, eds., 2017"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 4",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "god.open-theism/settled-future",
+    "tradition": "anabaptist",
+    "reason": "Article 1 (cited) is about God and creation and says nothing about the extent of God's knowledge of future free choices; no article of Dordrecht addresses open theism or exhaustive foreknowledge."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "god.divine-foreknowledge/simple",
+    "tradition": "anabaptist",
+    "reason": "Article 1 (cited) does not address the ground or mechanism of God's foreknowledge, and no other article of Dordrecht does either."
+  },
+  {
+    "op": "held_by.set",
+    "position": "humanity-and-sin.historical-adam/sole-progenitor",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 1",
+      "note": "The confession says God caused “that from this one man Adam, all men that dwell upon the whole earth have descended.”",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "humanity-and-sin.historical-adam/sole-progenitor",
+    "sources": [
+      {
+        "label": "Humani Generis",
+        "citation": "Pius XII, 1950, §37"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 1",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "humanity-and-sin.age-of-accountability/accountability-age",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 7",
+      "note": "The confession restricts baptism to “all penitent believers, who, through faith, regeneration, and the renewing of the Holy Ghost, are made one with God”; believer's-baptism theology, which declines to baptize infants, implies infants are not yet under the guilt baptism addresses.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "humanity-and-sin.age-of-accountability/accountability-age",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article III"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 7",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.second-coming/personal-return",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 18",
+      "note": "The confession says all the dead “shall be placed before the judgment seat of Christ,” Christ Himself being the one “who will come again to judge the quick and the dead” (Article 4).",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.second-coming/personal-return",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "381"
+      },
+      {
+        "label": "International Network of Churches, Declaration of Faith",
+        "citation": "February 2022, \"The Restoration of All Things\"",
+        "url": "https://www.inc.org.au/about/statement-of-faith"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 18",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.rapture/single-return",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 18",
+      "note": "The confession describes one gathering at Christ's return: the dead “shall be awaked and quickened, and shall rise again... together with those who then will still be alive, and who shall be changed in the twinkling of an eye, at the sound of the last trump, shall be placed before the judgment seat of Christ,” with no separate prior rapture mentioned.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.rapture/single-return",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "32-33"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 18",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.hell/eternal-conscious-torment",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 18",
+      "note": "The confession says the wicked “shall be cast into outer darkness, yea, into the everlasting pains of hell, where their worm shall not die, nor their fire be quenched, and where they... can nevermore expect any hope, comfort, or redemption.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.hell/eternal-conscious-torment",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "33.2"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 18",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "last-things.intermediate-state/with-christ",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632); Article 18 addresses only the resurrection at the last day",
+      "note": "Article 18 describes only what happens “in the last day,” when the dead “shall be awaked and quickened, and shall rise again”; the confession does not separately state what happens to the soul between death and that day. This reading follows the tradition's general majority practice rather than a confessional statement, as the doctrine's tradition_override already notes.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "last-things.intermediate-state/with-christ",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "32.1"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 18",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "missions-and-world-religions.exclusivity-of-christ/particularism",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 4",
+      "note": "The confession says of Christ: “He is the Son of the living God, in whom alone consist all our hope, consolation, redemption, and salvation, which we neither may nor must seek in any other.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "missions-and-world-religions.exclusivity-of-christ/particularism",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "846-848"
+      },
+      {
+        "label": "Lausanne Covenant",
+        "citation": "1974, Article 3"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, 'Remission of Sins'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 4",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "salvation.sovereignty-and-free-will/libertarian-free-will",
+    "tradition": "anabaptist",
+    "reason": "Article 1 (cited) is about God and creation, not sovereignty and free will; Dordrecht nowhere states that grace enables a libertarianly free response or otherwise addresses this question."
+  },
+  {
+    "op": "held_by.remove",
+    "position": "salvation.election/conditional-foreseen-faith",
+    "tradition": "anabaptist",
+    "reason": "Article 1 (cited) does not address election; Dordrecht does not state that election is grounded in foreseen faith or otherwise address the basis of election anywhere in its text."
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.perseverance-and-apostasy/conditional-perseverance",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 16",
+      "note": "The confession says a believer who, after receiving “the knowledge of the truth” and being “incorporated into the communion of the saints, sins again unto death... falls into the unfruitful works of darkness, thereby becoming separated from God, and forfeiting the kingdom of God.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.perseverance-and-apostasy/conditional-perseverance",
+    "sources": [
+      {
+        "label": "A Call to Backsliders",
+        "citation": "John Wesley, 1751"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 16",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.lordship-salvation/lordship-salvation",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 1",
+      "note": "The confession restricts baptism, and the profession of faith it seals, to those “who have learned repentance and amendment of life, and who believe truly that their sins are taken away by Christ.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.lordship-salvation/lordship-salvation",
+    "sources": [
+      {
+        "label": "The Gospel According to Jesus",
+        "citation": "John MacArthur, 1988"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 1",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.justification/forensic-imputed",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 6",
+      "note": "The confession says: “through which faith we obtain forgiveness of sins, are sanctified, justified, and made children of God.” It affirms justification by faith without using the technical vocabulary of a legal verdict or imputed righteousness.",
+      "stance": "majority"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.justification/forensic-imputed",
+    "sources": [
+      {
+        "label": "Augsburg Confession",
+        "citation": "1530, Article 4"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 6",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.set",
+    "position": "salvation.regeneration-and-baptism/symbolic-ordinance",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Schleitheim Confession (1527), Article 1",
+      "note": "The confession gives baptism to those “who believe truly that their sins are taken away by Christ,” naming faith, not the water, as what takes sin away, with baptism following as public testimony.",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "salvation.regeneration-and-baptism/symbolic-ordinance",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article 7"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article 1",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "scripture.canon/protestant",
+    "tradition": "anabaptist",
+    "reason": "Article 1 (cited) is about God and creation. No article of the Dordrecht Confession lists, numbers or otherwise defines the canon of Scripture."
+  },
+  {
+    "op": "held_by.set",
+    "position": "scripture.sufficiency/sola-scriptura",
+    "tradition": "anabaptist",
+    "fields": {
+      "citation": "Dordrecht Confession of Faith (1632), Article 5",
+      "note": "The confession says Christ's New Testament contains “the whole counsel and will of His heavenly Father, as far as is necessary for salvation,” charging that “neither angel nor man may alter it, nor add to it nor take away from it.”",
+      "stance": "confessional"
+    }
+  },
+  {
+    "op": "position.sources",
+    "position": "scripture.sufficiency/sola-scriptura",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 1.6, 1.10",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      },
+      {
+        "label": "Declaration and Address",
+        "citation": "Thomas Campbell, 1809, Proposition 3",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
+      },
+      {
+        "label": "Dordrecht Confession of Faith",
+        "citation": "1632, Article 5",
+        "url": "https://www.reformedreader.org/ccc/dcf.htm"
+      }
+    ]
+  },
+  {
+    "op": "held_by.remove",
+    "position": "scripture.clarity/perspicuity",
+    "tradition": "anabaptist",
+    "reason": "There is no distinct \"Preface\" section in the Schleitheim Confession beyond the introductory pastoral letter, and neither it nor any of the seven articles addresses the clarity or perspicuity of Scripture."
+  }
+]

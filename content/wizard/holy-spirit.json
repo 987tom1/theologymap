@@ -40,7 +40,7 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says: \"This experience is distinct from and subsequent to the experience of the new birth\" (Article 7, The Baptism in the Holy Spirit).",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
             }
           ],
@@ -48,7 +48,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 7"
+              "citation": "Article 7",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -363,7 +364,7 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says the baptism in the Holy Spirit brings \"the bestowment of the gifts and their uses in the work of the ministry\" (Article 7), and that speaking in tongues \"is the same in essence as the gift of tongues\" (Article 8) — both treating the New Testament gifts as continuing.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7-8"
             },
             {
@@ -371,12 +372,6 @@
               "stance": "confessional",
               "note": "The statement says: “All of the spiritual gifts as outlined in 1 Corinthians 12:8-10 are still in operation and are available to believers for the building up of the church and for the glory of God.”",
               "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Baptism and Gifts of The Holy Spirit\""
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "permitted",
-              "note": "Practice varies widely; many independent evangelical congregations are charismatic in expectation without a formal confessional statement on the gifts.",
-              "citation": "Lausanne Covenant (1974), Article 14"
             },
             {
               "tradition": "roman-catholic",
@@ -401,6 +396,11 @@
               "label": "International Network of Churches, Declaration of Faith",
               "citation": "February 2022, \"The Baptism and Gifts of The Holy Spirit\"",
               "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 7-8",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         }
@@ -484,12 +484,6 @@
           "orthodoxy": "contested",
           "orthodoxy_note": "Whether prophecy can be a genuine but fallible, weighable gift, distinct from the canon-forming prophetic office, is disputed among continuationists and cessationists alike; some continuationists themselves reject the fallibility distinction as a novel category.",
           "held_by": [
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": "The Statement of Fundamental Truths does not use the term fallible, but classical Pentecostal practice weighs prophetic utterances against Scripture per 1 Corinthians 14:29.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
-            },
             {
               "tradition": "non-denominational",
               "stance": "majority",
@@ -580,15 +574,16 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": "Classical Pentecostal denominations; see the tradition override below for the movement's broader charismatic streams.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+              "note": "The statement says: \"The baptism of believers in the Holy Spirit is witnessed by the initial physical sign of speaking with other tongues as the Spirit of God gives them utterance\" (Article 8, The Initial Physical Evidence of the Baptism in the Holy Spirit — not Article 7, which is the baptism itself).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 8"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 7"
+              "citation": "Article 8",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -693,7 +688,7 @@
           "confidence": "leaning",
           "flags": [],
           "note": "The movement is not unanimous: this is the one point where classical Pentecostal confession and the wider charismatic stream it gave rise to genuinely part ways.",
-          "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7, contrasted with charismatic-stream teaching such as John Wimber, Power Evangelism (1985)"
+          "citation": "Assemblies of God, Statement of Fundamental Truths, Article 8, contrasted with charismatic-stream teaching such as John Wimber, Power Evangelism (1985)"
         }
       }
     },
@@ -735,7 +730,7 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says: \"Divine healing is an integral part of the gospel. Deliverance from sickness is provided for in the Atonement, and is the privilege of all believers\" (Article 12, Divine Healing).",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 12"
             }
           ],
@@ -743,7 +738,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Article 12"
+              "citation": "Article 12",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         },
@@ -777,12 +773,6 @@
               "stance": "permitted",
               "note": null,
               "citation": "Book of Common Prayer (1662), Visitation of the Sick"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 14"
             }
           ],
           "learn_detail": null,

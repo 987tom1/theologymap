@@ -1,0 +1,360 @@
+
+DOCTRINE christ.deity-and-humanity  (christ.json)
+   doctrine sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "On the Incarnation", "citation": "Athanasius, c. 318"}]
+   tradition_overrides: {"reformed": {"positions": ["christ.deity-and-humanity/chalcedonian", "christ.deity-and-humanity/extra-calvinisticum"], "hold": "Christ is one person in two natures as Chalcedon defines, and the divine nature is not circumscribed by the human, so the Son continues to sustain all things while fully incarnate.", "why": "The Reformed hold the Chalcedonian definition and read it as requiring that the finite humanity not contain the infinite deity, which is the point the extra Calvinisticum makes.", "vs": null, "tier": "T1", "confidence": "certain", "flags": [], "note": "Reformed churches are not divided here. The second position is how the tradition reads the first, so the two belong together in one node rather than as a choice between them.", "citation": "Westminster Confession of Faith 8.2; Heidelberg Catechism, Q. 47-48"}, "lutheran": {"positions": ["christ.deity-and-humanity/chalcedonian", "christ.deity-and-humanity/genus-majestaticum"], "hold": "Christ is one person in two natures as Chalcedon defines, and the divine attributes are genuinely communicated to the human nature in the one person, so the whole Christ is present where he promises to be.", "why": "The Formula of Concord holds that the personal union means a real communication of majesty to the assumed humanity, which is what makes the bodily presence in the Supper intelligible.", "vs": null, "tier": "T1", "confidence": "certain", "flags": [], "note": "Lutheran churches are not divided here either. The genus majestaticum is the Lutheran reading of Chalcedon, and it is the christological ground of the Lutheran doctrine of the Supper.", "citation": "Formula of Concord, Solid Declaration 8; Augsburg Confession, Article 3"}}
+   POSITION christ.deity-and-humanity/chalcedonian  [Chalcedonian]
+      hold: Christ is one person subsisting in two complete natures, divine and human, united without confusion, change, division or separation, each nature retaining its own properties.
+      vs:   Any account that blends the two natures into one, divides Christ into two separate subjects, or diminishes either full deity or full humanity.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: None
+      position sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+
+DOCTRINE christ.virgin-birth  (christ.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381"}]
+   POSITION christ.virgin-birth/virginal-conception  [Virginal conception]
+      hold: Jesus was conceived in Mary's womb by the power of the Holy Spirit, without a human father, so that from the very beginning of his human existence he was both fully God and fully man.
+      vs:   Treating the virgin birth as a later legendary addition to an originally ordinary human birth narrative.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "CCC 496-498"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+
+DOCTRINE christ.bodily-resurrection  (christ.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381"}]
+   POSITION christ.bodily-resurrection/bodily  [Bodily resurrection]
+      hold: Christ rose from the dead bodily and physically on the third day, the same body that was crucified now transformed and glorified, leaving the tomb empty and appearing to witnesses who touched him and watched him eat.
+      vs:   Any account that reduces the resurrection to a purely spiritual experience, a vision, or a continuing memory or influence, without an empty tomb and a transformed physical body.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: None
+      position sources: [{"label": "1 Corinthians 15 as the hinge of Christian hope", "citation": "1 Cor 15:12-19"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+
+DOCTRINE christ.atonement  (christ.json)
+   doctrine sources: [{"label": "Christus Victor", "citation": "Gustaf Aulén, 1931"}, {"label": "Cur Deus Homo", "citation": "Anselm of Canterbury, 1098"}, {"label": "What Did the Cross Achieve? The Logic of Penal Substitution", "citation": "J. I. Packer, Tyndale Bulletin, 1974"}]
+   tradition_overrides: {"reformed": {"positions": ["christ.atonement/penal-substitution", "christ.atonement/christus-victor"], "hold": "Christ's death is a penal, substitutionary satisfaction of divine justice, and within that centre the confessions also affirm a real deliverance from the power of the devil.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "Reformed confessions treat penal substitution as the confessionally defining logic of the cross; Christus Victor is a real, biblically grounded theme within Reformed theology but not itself a separate confessional article.", "citation": "Heidelberg Catechism, Q&A 1; Westminster Confession of Faith 8.5"}, "orthodox": {"positions": ["christ.atonement/christus-victor", "christ.atonement/recapitulation"], "hold": "Orthodox theology holds Christus Victor and recapitulation as one integrated account of the cross: Christ, as the new Adam, retraces and reverses humanity's fall and in so doing breaks the dominion of sin and death, rather than treating victory and recapitulation as two separate logics.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "These two western-labeled theories are not held apart in Orthodox theology, which regards them as a single Irenaean account of salvation; they are separated in this corpus only because it treats them as distinct positions.", "citation": "Irenaeus, Against Heresies, Book V; John of Damascus, Exposition of the Orthodox Faith III.27"}}
+   POSITION christ.atonement/penal-substitution  [Penal substitution]
+      hold: On the cross Christ bore, in the place of sinners, the penalty their sin deserved, so that God's righteous judgment against sin was fully executed and exhausted in him, and sinners who trust him are released from that penalty.
+      vs:   Any account of the cross that does not include a real transfer of penalty from sinners to Christ, which this view judges to leave God's justice against sin unaddressed.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: None
+      position sources: [{"label": "What Did the Cross Achieve? The Logic of Penal Substitution", "citation": "J. I. Packer, Tyndale Bulletin, 1974"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Gospel: God Saves Sinners\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+
+DOCTRINE church-history-and-authority.authority  (church-history-and-authority.json)
+   doctrine sources: [{"label": "Four Views on the Spectrum of Evangelicalism", "citation": "Andrew David Naselli and Collin Hansen, eds., 2011"}]
+   POSITION church-history-and-authority.authority/sola-scriptura  [Sola scriptura]
+      hold: Scripture alone is the church's only infallible rule of faith and practice; creeds, confessions and councils carry real but subordinate authority as faithful, correctable summaries of what Scripture teaches.
+      vs:   Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.
+      - held_by baptist / confessional
+        citation: Second London Baptist Confession 1.1; Baptist Faith and Message 2000, Article I
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1.10 (1646)"}]
+
+DOCTRINE church-history-and-authority.creeds  (church-history-and-authority.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}]
+   POSITION church-history-and-authority.creeds/affirmed-not-recited  [Affirmed, not recited]
+      hold: The Nicene-Constantinopolitan Creed's content, the full deity and humanity of Christ and the Trinity it confesses, is affirmed as apostolic truth without a congregational practice of formally reciting or subscribing the creed itself.
+      vs:   Treating formal recitation or confessional subscription of the creed's text as itself a necessary mark of holding its content.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message 2000, Article II
+        note: Baptist confessions affirm the substance of Nicene Trinitarian and Chalcedonian Christology without requiring liturgical recitation of the creed.
+      position sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article II"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 3, 'God'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"}]
+
+DOCTRINE church.women-in-ministry  (church.json)
+   doctrine sources: [{"label": "Danvers Statement", "citation": "Council on Biblical Manhood and Womanhood, 1987"}, {"label": "Christians for Biblical Equality, Statement of Faith", "citation": "Christians for Biblical Equality"}]
+   tradition_overrides: {"anglican": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Whether women may be ordained to the priesthood or episcopate is left to each province of the Communion to determine, and both convictions are held with integrity within it.", "why": "The Thirty-Nine Articles do not speak to the sex of the ordained, and the Communion's 1998 Lambeth Conference recognised that provinces would reach different conclusions in good conscience.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "Anglican polity is provincial rather than universal on this question: some provinces ordain women as priests and bishops, others do not, and the Communion has formally declined to settle it centrally.", "citation": "Lambeth Conference 1998, Resolution III.2"}, "methodist": {"positions": ["church.women-in-ministry/complementarian", "church.women-in-ministry/egalitarian"], "hold": "Women are ordained to the same orders of ministry as men in the great majority of Methodist bodies, though holiness and Wesleyan-Arminian bodies outside the mainline sometimes retain a male eldership.", "why": "Wesley's own practice licensed women to preach, and the American Methodist Episcopal tradition ordained women from the 19th century onward on the ground of gifting rather than sex.", "vs": null, "tier": "T2.5", "confidence": "leaning", "flags": [], "note": "The United Methodist Church and most mainline Wesleyan bodies ordain women fully; some smaller holiness-Methodist and Free Methodist-adjacent bodies retain complementarian practice, so the tradition as a whole is genuinely divided rather than uniform.", "citation": "The Book of Discipline of the United Methodist Church, para. 304"}}
+   POSITION church.women-in-ministry/complementarian  [Complementarian]
+      hold: The teaching and governing eldership of the local church is reserved for qualified men, while women teach, prophesy and lead in every other capacity the New Testament describes.
+      vs:   Ordaining women to the teaching and governing eldership on the ground that Paul addresses a local disorder rather than a permanent creation pattern.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article VI
+        note: None
+      position sources: [{"label": "Danvers Statement", "citation": "Council on Biblical Manhood and Womanhood, 1987"}, {"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VI"}]
+
+DOCTRINE church.church-government  (church.json)
+   doctrine sources: [{"label": "The Book of Church Order", "citation": "Presbyterian Church in America, Preliminary Principles"}]
+   POSITION church.church-government/congregational  [Congregational / autonomous local church]
+      hold: Each local congregation, governed by its own elders and members, is complete in itself under Christ and accountable to no higher ecclesiastical court.
+      vs:   Subordinating the local congregation's decisions to a regional or national assembly of elders or to a bishop.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article VI; Second London Baptist Confession (1689), ch. 26
+        note: None
+      position sources: [{"label": "Second London Baptist Confession", "citation": "1689, ch. 26"}, {"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VI"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 24, 'The Body of Christ'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS224.HTM"}]
+
+DOCTRINE church.baptism  (church.json)
+   doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381, 'one baptism for the remission of sins'", "url": "https://www.ccel.org/creeds/nicene.creed.html"}]
+   tradition_overrides: {"anglican": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Infant baptism is the church's normal practice, and the Articles hold it agreeable with the institution of Christ without settling what the water effects.", "why": "The Thirty-Nine Articles commend the baptism of young children and describe baptism as a sign of regeneration and an instrument of ingrafting — wording both wings of the tradition have read in their own sense for four centuries.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Anglican formularies are deliberately capacious here. An entry that picked either the evangelical or the Anglo-Catholic reading would be describing a party, not the tradition.", "citation": "Thirty-Nine Articles, XXVII; Book of Common Prayer (1662)"}, "restorationist": {"positions": ["church.baptism/believer", "church.baptism/regeneration"], "hold": "Baptism is by immersion, on profession of faith, for the remission of sins.", "why": "Peter's answer at Pentecost joins repentance, baptism and forgiveness in a single sentence, and the Restorationist plea is to say no more and no less than that sentence says.", "vs": "Separating baptism from the moment of remission so that it becomes a testimony to a forgiveness already received.", "tier": "T2", "confidence": "confident", "flags": [], "note": "This is genuinely a third position rather than a compromise: credobaptist in subject, regenerative in effect. It is why the two-axis framing in this doctrine matters.", "citation": "Acts 2:38 as read in Alexander Campbell, The Christian System (1839)"}, "lutheran": {"positions": ["church.baptism/infant-covenant", "church.baptism/regeneration"], "hold": "Baptism is administered to infants and converts alike, and it is the means through which God works forgiveness, delivers from death and gives eternal salvation.", "why": "The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.", "vs": null, "tier": "T2", "confidence": "confident", "flags": [], "note": "Lutherans appear under two positions here only because this doctrine splits who is baptised from what baptism does. Lutheran teaching does not hold them apart, and it is not a divided tradition on this question.", "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"}}
+   POSITION church.baptism/believer  [Believer's baptism]
+      hold: Baptism is for those who have professed faith, by immersion, as the public sign of a repentance already given.
+      vs:   The baptism of infants on the ground of the covenant promise made to believers and their children.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689), 29.2
+        note: None
+      position sources: [{"label": "Second London Baptist Confession", "citation": "1689, ch. 29", "url": "https://www.the1689confession.com/"}, {"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VII", "url": "https://bfm.sbc.net/bfm2000/"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"}]
+
+DOCTRINE church.lords-supper  (church.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 29"}]
+   tradition_overrides: {"orthodox": {"positions": ["church.lords-supper/transubstantiation"], "hold": "The bread and wine are changed into the body and blood of Christ, truly and really, while the manner of the change is confessed as a mystery rather than defined in the scholastic vocabulary of substance and accident.", "why": "Dositheus confesses the change of the elements in the plainest terms the East has ever used, and the same tradition has declined to make the Latin philosophical explanation of that change a term of communion.", "vs": null, "tier": "T2", "confidence": "certain", "flags": [], "note": "Orthodoxy appears under the transubstantiation position because it is the one position in this corpus that affirms a real change of the elements, which Decree 17 does. It is not a divided tradition here. Placing it on the non-transubstantive real-presence position instead — as this corpus did until phase 6 — put the Lutheran 'in, with and under', and a vs that rejects any change of substance, into the Orthodox map's mouth.", "citation": "Confession of Dositheus (1672), Decree 17"}}
+   POSITION church.lords-supper/memorial  [Memorial]
+      hold: The Supper is a remembrance of Christ's death, in which the bread and wine signify his body and blood without conveying grace beyond what faith already possesses.
+      vs:   A real presence of Christ, bodily or spiritual, given in or through the elements themselves.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article VII
+        note: None
+      position sources: [{"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article VII"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, 'Breaking the Loaf'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS233.HTM"}]
+
+DOCTRINE church.membership  (church.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 30"}]
+   POSITION church.membership/covenant  [Congregational covenant membership]
+      hold: Membership is entered by a formal covenant with a particular local congregation, which both grants the privileges of belonging and creates the accountability Matthew 18 and 1 Corinthians 5 assume.
+      vs:   Treating baptism and sacramental standing in a parish, rather than a local covenant, as what constitutes belonging.
+      - held_by baptist / confessional
+        citation: Second London Baptist Confession (1689), ch. 26.6; Baptist Faith and Message (2000), Article VI
+        note: None
+      position sources: [{"label": "Second London Baptist Confession", "citation": "1689, ch. 26"}, {"label": "Westminster Confession of Faith", "citation": "1646, ch. 30"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 26, 'The Christian Discipline'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS226.HTM"}]
+
+DOCTRINE ethics.marriage-and-sexuality  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}, {"label": "Human Sexuality: Gift and Trust", "citation": "ELCA, 2009, amended 2025", "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"}]
+   tradition_overrides: {"anglican": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "The Anglican Communion is not of one mind: most provinces hold marriage to be the covenant union of a man and a woman under Lambeth Resolution 1.10, while the Episcopal Church has permitted the marriage of same-sex couples in church since amending its canons in 2015.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a live, unresolved division within the Communion itself rather than a settled Anglican position either way.", "citation": "Lambeth Conference Resolution I.10 (1998); The Episcopal Church, Canon I.18 (as amended 2015)"}, "methodist": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Methodism divided formally in 2024: the United Methodist Church's General Conference removed its restrictions on same-sex marriage, while the Global Methodist Church, formed by conservative congregations leaving the UMC, and much of the wider Wesleyan world retain the traditional definition.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "The 2024 General Conference marks a genuine, recent split in the Wesleyan family rather than a single Methodist position.", "citation": "United Methodist Church, General Conference 2024 legislation; Global Methodist Church, Book of Doctrines and Discipline (2022)"}, "lutheran": {"positions": ["ethics.marriage-and-sexuality/male-female-covenant", "ethics.marriage-and-sexuality/covenantal-same-sex-union"], "hold": "Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.", "citation": "ELCA, Human Sexuality: Gift and Trust (2009); Lutheran Church-Missouri Synod, Commission on Theology and Church Relations statements on marriage"}}
+   POSITION ethics.marriage-and-sexuality/male-female-covenant  [Male-female covenant]
+      hold: Marriage is a covenant between one man and one woman, instituted by God in creation and reaffirmed by Christ, and sexual intimacy belongs within that covenant alone.
+      vs:   Extending marriage, and the blessing of sexual union within it, to same-sex couples, on the ground that Scripture's creation pattern does not itself settle that question.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article XVIII
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "2357-2360"}, {"label": "Lambeth Conference Resolution I.10", "citation": "1998"}]
+
+DOCTRINE ethics.abortion  (ethics.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "2270-2275"}, {"label": "A Social Statement on Abortion", "citation": "ELCA, 1991", "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"}]
+   tradition_overrides: {"lutheran": {"positions": ["ethics.abortion/protected-from-conception", "ethics.abortion/permitted-in-tragic-cases"], "hold": "Lutheran bodies differ by church: the Lutheran Church-Missouri Synod holds unborn life protected from conception, while the Evangelical Lutheran Church in America permits abortion in narrowly defined tragic circumstances under its 1991 social statement.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a denominational division within the Lutheran world, not a single Lutheran confessional answer.", "citation": "Lutheran Church-Missouri Synod statements on abortion; ELCA, A Social Statement on Abortion (1991)"}, "anglican": {"positions": ["ethics.abortion/protected-from-conception", "ethics.abortion/permitted-in-tragic-cases"], "hold": "The Anglican Communion is not of one mind: most provinces hold to the sanctity of unborn life with no broad exception, while the Episcopal Church's General Convention has affirmed access to abortion within a framework that also opposes its use as routine birth control.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": ["study"], "note": "This is a live division within the Communion rather than a single settled Anglican position.", "citation": "Lambeth Conference resolutions on the sanctity of life; Episcopal Church, General Convention resolutions on reproductive health and choice"}}
+   POSITION ethics.abortion/protected-from-conception  [Protected from conception]
+      hold: Unborn human life possesses full moral status from conception, so intentionally taking that life is a grave moral wrong; where a mother's life is genuinely threatened, treating the underlying medical crisis is distinguished from directly ending the pregnancy.
+      vs:   Treating fetal life as acquiring full moral status only at some later point in development, or as a matter left to a mother's choice.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article XV
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "2270-2275"}]
+
+DOCTRINE ethics.alcohol  (ethics.json)
+   doctrine sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article XV"}, {"label": "Catechism of the Catholic Church", "citation": "1334"}]
+   POSITION ethics.alcohol/total-abstinence  [Total abstinence]
+      hold: Believers should abstain from alcohol entirely, both to avoid the harm drunkenness causes and, as a matter of positive testimony and care for the weaker brother, rather than relying on personal moderation to avoid it.
+      vs:   Treating moderate use of alcohol as a matter of Christian liberty rather than as something believers should abstain from as a matter of testimony and care for the weaker brother.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article XV
+        note: None
+      position sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article XV"}]
+
+DOCTRINE formation-and-practice.sanctification-progressive  (formation-and-practice.json)
+   doctrine sources: [{"label": "Five Views on Sanctification", "citation": "Melvin Dieter et al., 1987"}]
+   tradition_overrides: {"non-denominational": {"positions": ["formation-and-practice.sanctification-progressive/reformed-gradual", "formation-and-practice.sanctification-progressive/keswick"], "hold": "Most non-denominational evangelical congregations teach gradual, lifelong growth through ordinary means; a real minority stream draws on Keswick higher-life teaching of decisive surrender.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "No single confession binds this stream, and both accounts circulate within evangelical devotional literature without formal resolution.", "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38, contrasted with Hannah Whitall Smith, The Christian's Secret of a Happy Life (1875)"}}
+   POSITION formation-and-practice.sanctification-progressive/reformed-gradual  [Gradual, incomplete]
+      hold: Sanctification is the work of God's Spirit renewing the whole person after the image of God, real and progressive but never perfect in this life, carried on through the ordinary means of grace: the word, prayer and the sacraments.
+      vs:   Teaching that a believer can reach a state in this life in which no further mortification of remaining sin is needed.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article IV.B
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 13"}]
+
+DOCTRINE formation-and-practice.hearing-god  (formation-and-practice.json)
+   doctrine sources: [{"label": "Hearing God", "citation": "Dallas Willard, 1984"}]
+   POSITION formation-and-practice.hearing-god/scripture-providence-reason  [Scripture, reason, providence]
+      hold: God guides believers today through the settled teaching of Scripture, the circumstances of providence and sanctified reason and counsel, without any further inward voice or impression to be sought or expected.
+      vs:   Seeking an inward impression or subjective leading as a supplementary channel of guidance alongside Scripture, reason and providence.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article I
+        note: Widely but not universally held.
+      position sources: [{"label": "Decision Making and the Will of God", "citation": "Garry Friesen, 1980"}]
+
+DOCTRINE formation-and-practice.suffering-and-providence  (formation-and-practice.json)
+   doctrine sources: [{"label": "Where Is God When It Hurts?", "citation": "Philip Yancey, 1977"}]
+   POSITION formation-and-practice.suffering-and-providence/general-providence-permission  [General providence, permitted]
+      hold: God upholds and governs all things in his general providence and can redeem any suffering for good, but particular instances of suffering are permitted within that governance rather than specifically willed by God for their own sake.
+      vs:   Attributing a particular instance of suffering directly to God's specific intention, as though it were something he purposed for its own sake rather than something his governance permits and can redeem.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article II.A
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "309-314"}]
+
+DOCTRINE god.trinity  (god.json)
+   doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Catechism of the Catholic Church", "citation": "1992, 232-267"}]
+   POSITION god.trinity/nicene  [Nicene Trinitarianism]
+      hold: God is one in being and three in person — Father, Son and Holy Spirit — eternally distinct, equal in nature and glory, and not three gods nor one person under three names.
+      vs:   Accounts that secure the oneness of God by dissolving the distinction of the persons, or that secure the distinction by making the Son and the Spirit less than God.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article 2; Second London Baptist Confession 2.3
+        note: None
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "The Athanasian Creed (Quicunque vult)", "citation": "Latin West, c. 5th-6th century"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 3, 'God'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"}]
+
+DOCTRINE god.open-theism  (god.json)
+   doctrine sources: [{"label": "The Openness of God", "citation": "Clark Pinnock et al., 1994"}, {"label": "Divine Foreknowledge: Four Views", "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"}]
+   POSITION god.open-theism/settled-future  [Exhaustive foreknowledge]
+      hold: God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.
+      vs:   The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article 2
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 2.2"}, {"label": "Catechism of the Catholic Church", "citation": "1992, 302, 600"}]
+
+DOCTRINE god.divine-foreknowledge  (god.json)
+   doctrine sources: [{"label": "Divine Foreknowledge: Four Views", "citation": "James K. Beilby and Paul R. Eddy, eds., 2001"}, {"label": "Concordia (On Divine Foreknowledge, Part IV)", "citation": "Luis de Molina, 1588"}]
+   tradition_overrides: {"roman-catholic": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and the church leaves open how that knowledge relates to his eternal decree — the Thomist and Molinist accounts are both permitted, and neither may condemn the other.", "why": "The Congregatio de Auxiliis examined the dispute for a decade and closed it without a verdict, permitting both schools and forbidding each to declare the other heretical.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "Rome is not divided here by accident or by drift. The breadth is a formal decision of the Holy See, and an entry that picked either the Dominican or the Jesuit account would be describing a school rather than the church.", "citation": "Congregatio de Auxiliis (1597-1607); Catechism of the Catholic Church 302, 600"}, "baptist": {"positions": ["god.divine-foreknowledge/decree", "god.divine-foreknowledge/molinism"], "hold": "God knows the whole future infallibly, and Baptists differ among themselves as to whether that knowledge is grounded in his eternal decree, in a middle knowledge of what creatures would freely do, or simply in the future as it will be.", "why": "The Baptist Faith and Message affirms God's perfect knowledge of all things without settling the mechanism, and Baptist life has contained Reformed, Molinist and simple-foreknowledge accounts side by side throughout its history.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": ["study"], "note": "Baptists are confessional but not creedally bound, and this is one of the questions their confessions deliberately leave open. Naming a single Baptist answer here would be false.", "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession (1689), 3.1-3.2"}, "non-denominational": {"positions": ["god.divine-foreknowledge/molinism", "god.divine-foreknowledge/simple"], "hold": "God knows the whole future infallibly, and independent evangelical congregations hold no common account of how, with simple foreknowledge the most widely assumed and middle knowledge argued for by a smaller philosophical strand.", "why": "The stream has no binding confession on the question, and its statements of faith affirm God's omniscience without addressing the mechanism at all.", "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "This is a case where the honest entry is that the stream has no single answer rather than a thin majority reported as one.", "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"}}
+   OVERRIDE god.divine-foreknowledge :: baptist  (citation matched; see tradition_overrides above)
+
+DOCTRINE humanity-and-sin.image-of-god  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1701-1707"}, {"label": "Westminster Larger Catechism", "citation": "Q&A 17"}]
+   tradition_overrides: {"roman-catholic": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/relational"], "hold": "The image of God includes both the rational soul that makes a person capable of knowing and loving, and the relational capacity for communion with God and others; these are held together as one reality, not chosen between.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "The Catechism treats the substantive and relational readings as complementary aspects of the same doctrine rather than competing accounts.", "citation": "Catechism of the Catholic Church 1701-1706"}, "orthodox": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/relational"], "hold": "The image of God includes the rational and free soul and the capacity for communion with God, understood together as the ground of humanity's calling toward likeness with God.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "Orthodox anthropology distinguishes image, given at creation, from likeness, the relational growth toward God the image makes possible, without separating a structural reading from a relational one.", "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man"}, "reformed": {"positions": ["humanity-and-sin.image-of-god/structural", "humanity-and-sin.image-of-god/functional"], "hold": "Reformed theology holds that the image of God includes both the rational and moral capacities given to humanity and the vocation to exercise dominion under God as his covenant representative, as one unified endowment rather than rival accounts.", "why": null, "vs": null, "tier": null, "confidence": "confident", "flags": [], "note": "The Larger Catechism's structural language and the wider Reformed creation-mandate tradition are read as complementary, not as alternatives.", "citation": "Westminster Larger Catechism, Q&A 17"}}
+   POSITION humanity-and-sin.image-of-god/functional  [Functional image]
+      hold: The image of God consists in humanity's vocation to represent God's rule within creation, exercising the dominion and stewardship God gave in the creation mandate.
+      vs:   Locating the image solely in an inner capacity possessed independently of humanity's task of ruling and keeping creation.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message, 2000, Article III
+        note: Reflects the stewardship language of the modern confession rather than the earlier confessions' briefer treatment.
+      position sources: [{"label": "The Temple and the Church's Mission", "citation": "G. K. Beale, 2004"}]
+
+DOCTRINE humanity-and-sin.age-of-accountability  (humanity-and-sin.json)
+   doctrine sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article III"}, {"label": "Westminster Confession of Faith", "citation": "X.3"}, {"label": "Catechism of the Catholic Church", "citation": "1261"}]
+   POSITION humanity-and-sin.age-of-accountability/accountability-age  [Age of accountability]
+      hold: A person is not held morally guilty for sin until reaching a point of moral and cognitive capacity sufficient to knowingly understand and reject God's call, so anyone who dies before that point is received by God's grace through Christ's atonement.
+      vs:   Addressing the standing of those who die too young or too impaired to believe entirely through the covenant status of their parents or through the sacrament of baptism, rather than through a threshold of culpability.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message, 2000, Article III
+        note: Reads the confession's language about becoming a transgressor upon capacity for moral action as implying no condemnation before that point.
+      position sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article III"}]
+
+DOCTRINE last-things.second-coming  (last-things.json)
+   doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "381"}]
+   POSITION last-things.second-coming/personal-return  [Personal return]
+      hold: Jesus Christ will return personally, bodily and visibly to judge the living and the dead and to bring his kingdom to its consummation, as the Nicene Creed confesses.
+      vs:   
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article X
+        note: None
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "381"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Restoration of All Things\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+
+DOCTRINE last-things.hell  (last-things.json)
+   doctrine sources: [{"label": "Four Views on Hell", "citation": "Preston Sprinkle, ed., 2016"}]
+   tradition_overrides: {"anglican": {"positions": ["last-things.hell/eternal-conscious-torment", "last-things.hell/annihilationism"], "hold": "Anglican formularies affirm everlasting punishment for the impenitent, though the Communion has never dogmatically excluded conditional immortality, and a minority within it, including John Stott, has held annihilationism as a permitted reading.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "The Thirty-Nine Articles do not directly legislate the duration of hell's punishment; the Athanasian Creed's language of everlasting fire is the received liturgical consensus, but Stott's 1988 case for annihilationism was not treated as heresy within the Communion.", "citation": "Athanasian Creed, as used in the Book of Common Prayer (1662); John Stott and David L. Edwards, Essentials: A Liberal-Evangelical Dialogue (1988)"}}
+   POSITION last-things.hell/eternal-conscious-torment  [Eternal conscious torment]
+      hold: The unrepentant are raised bodily and consciously suffer just punishment for sin forever, a state as everlasting as the life of the redeemed.
+      vs:   Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article X
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "33.2"}]
+
+DOCTRINE last-things.intermediate-state  (last-things.json)
+   doctrine sources: [{"label": "The Orthodox Church", "citation": "Kallistos Ware, 1963/1993, on the departed"}]
+   tradition_overrides: {"anabaptist": {"positions": ["last-things.intermediate-state/with-christ", "last-things.intermediate-state/soul-sleep"], "hold": "Anabaptist congregations generally affirm the soul's conscious presence with Christ after death, though a historic minority stream within the sixteenth-century movement held that the dead sleep unconsciously until the resurrection.", "why": null, "vs": null, "tier": "T3", "confidence": "leaning", "flags": [], "note": "The Dordrecht Confession does not settle the question directly; mortalism was a real minority position among some early Anabaptist groups without becoming the tradition's confessional norm.", "citation": "Dordrecht Confession of Faith (1632); George H. Williams, The Radical Reformation (1962)"}}
+   POSITION last-things.intermediate-state/with-christ  [With Christ]
+      hold: At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.
+      vs:   Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article X
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "32.1"}]
+
+DOCTRINE missions-and-world-religions.exclusivity-of-christ  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "Lausanne Covenant", "citation": "1974, Article 3"}, {"label": "Catechism of the Catholic Church", "citation": "846-848"}]
+   POSITION missions-and-world-religions.exclusivity-of-christ/particularism  [Salvation in Christ alone]
+      hold: Salvation is found only in Jesus Christ, who alone is the one mediator between God and humanity and the name by which anyone must be saved.
+      vs:   Treating the world's religions as equally valid paths to God alongside faith in Christ.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: None
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "846-848"}, {"label": "Lausanne Covenant", "citation": "1974, Article 3"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, 'Remission of Sins'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"}]
+
+DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized", "citation": "John Sanders, ed., 1995"}, {"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964"}]
+   POSITION missions-and-world-religions.the-unevangelised/restrictivism  [Restrictivism]
+      hold: Explicit, conscious faith in Jesus Christ is necessary for salvation, so that those who die without ever hearing and believing the gospel are lost.
+      vs:   Holding that saving faith can be exercised toward Christ by someone who has never heard of him, on the basis of the general revelation available to them.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article X
+        note: Widely held, though the Baptist Faith and Message does not itself adjudicate the question directly.
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "10.4"}]
+
+DOCTRINE missions-and-world-religions.world-religions  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "Nostra Aetate", "citation": "Second Vatican Council, 1965"}, {"label": "Perspectives on the World Christian Movement", "citation": "Ralph D. Winter and Steven C. Hawthorne, eds., 1981"}]
+   POSITION missions-and-world-religions.world-religions/false-and-demonic  [False and demonic]
+      hold: The teaching and worship of the non-Christian religions are false and, where they involve the worship of other gods, are in fact offered to demons rather than to God.
+      vs:   Treating the teaching of the non-Christian religions as containing real truth and goodness that Christian proclamation can build upon.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article II.B
+        note: Widely but not universally held.
+      position sources: [{"label": "1 Corinthians", "citation": "10:20"}]
+
+DOCTRINE missions-and-world-religions.israel-and-judaism  (missions-and-world-religions.json)
+   doctrine sources: [{"label": "The Gifts and the Calling of God are Irrevocable", "citation": "Commission for Religious Relations with the Jews, 10 December 2015", "url": "https://www.ccjr.us/dialogika-resources/documents-and-statements/roman-catholic/vatican-curia/crrj-2015dec10"}, {"label": "Nostra Aetate", "citation": "Second Vatican Council, 28 October 1965, §4", "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"}]
+   POSITION missions-and-world-religions.israel-and-judaism/great-commission-includes-all  [No distinction]
+      hold: The Great Commission includes Jewish people without any distinction from other peoples, so the church is to proclaim the gospel to Jewish people just as it does to everyone else, in fulfilment rather than betrayal of God's covenant with Israel.
+      vs:   Treating Jewish people as a people for whom explicit faith in Christ is not required, or as a people the church should decline to evangelise as it evangelises others.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article XI
+        note: None
+      position sources: [{"label": "Romans", "citation": "1:16; 10:1"}]
+
+DOCTRINE salvation.perseverance-and-apostasy  (salvation.json)
+   doctrine sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}, {"label": "Council of Trent", "citation": "Session 6, 1547, ch. 15"}]
+   POSITION salvation.perseverance-and-apostasy/unconditional-perseverance  [Perseverance of saints]
+      hold: Everyone truly regenerated by the Holy Spirit will be kept by God's power through faith and will certainly persevere to final salvation; a professed believer who finally falls away was never truly regenerate.
+      vs:   Treating the promises of preservation as conditional on a continuing faith the believer might finally abandon, which this position holds would make Christ's own promise less than certain.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article 5; Second London Baptist Confession (1689) 17.1
+        note: None
+      position sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}]
+
+DOCTRINE salvation.lordship-salvation  (salvation.json)
+   doctrine sources: [{"label": "The Gospel According to Jesus", "citation": "John MacArthur, 1988"}, {"label": "Absolutely Free!", "citation": "Zane Hodges, 1989"}]
+   tradition_overrides: {"non-denominational": {"positions": ["salvation.lordship-salvation/lordship-salvation", "salvation.lordship-salvation/free-grace"], "hold": "Independent evangelical congregations mostly teach that saving faith includes repentance and submission to Christ, though a minority Free Grace stream distinguishes faith itself from a later discipleship response.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "The stream has no binding confession; this describes the majority Lordship-leaning consensus alongside a real, self-identified Free Grace minority.", "citation": "Lausanne Covenant (1974), Article 4, contrasted with Zane Hodges, Absolutely Free! (1989)"}, "baptist": {"positions": ["salvation.lordship-salvation/lordship-salvation", "salvation.lordship-salvation/free-grace"], "hold": "Baptists generally hold that repentance and faith are inseparable, but a minority Free Grace strand distinguishes saving faith itself from a later discipleship response.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Baptist Faith and Message language ties repentance and faith together; the Free Grace strand is a minority within Baptist life, not confessionally represented.", "citation": "Baptist Faith and Message (2000), Article 4, contrasted with Charles Ryrie, So Great Salvation (1989)"}}
+   POSITION salvation.lordship-salvation/lordship-salvation  [Lordship salvation]
+      hold: The faith that justifies is itself a repentant, submissive trust in Christ as both Savior and Lord, so that a professed faith producing no repentance or change of life was never the saving faith Scripture describes.
+      vs:   Defining saving faith as bare intellectual assent to the gospel's truth, with submission to Christ's lordship added afterward as a separate and optional response.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article 4
+        note: None
+      position sources: [{"label": "The Gospel According to Jesus", "citation": "John MacArthur, 1988"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"}]
+   OVERRIDE salvation.lordship-salvation :: baptist  (citation matched; see tradition_overrides above)
+
+DOCTRINE salvation.regeneration-and-baptism  (salvation.json)
+   doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1213-1215"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 19"}]
+   POSITION salvation.regeneration-and-baptism/symbolic-ordinance  [Symbolic ordinance]
+      hold: Regeneration occurs at the moment of Spirit-wrought faith, prior to and apart from water baptism, which is a public ordinance testifying to a new birth already given rather than its means.
+      vs:   Treating water baptism as the instrument or occasion of the new birth rather than a testimony to a new birth already given through faith alone.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article 7; Second London Baptist Confession (1689) 29.1
+        note: None
+      position sources: [{"label": "Baptist Faith and Message", "citation": "2000, Article 7"}]
+
+DOCTRINE scripture.inerrancy  (scripture.json)
+   doctrine sources: [{"label": "Chicago Statement on Biblical Inerrancy", "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII", "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"}]
+   POSITION scripture.inerrancy/full  [Full inerrancy]
+      hold: Scripture is without error in all that it affirms, including what it affirms about history and the created order.
+      vs:   Limited infallibility — Scripture trustworthy on faith and salvation, errant on history and science.
+      - held_by baptist / confessional
+        citation: Baptist Faith and Message (2000), Article I
+        note: None
+      position sources: [{"label": "Chicago Statement on Biblical Inerrancy", "citation": "International Council on Biblical Inerrancy, 1978, Articles XII-XIII", "url": "https://www.etsjets.org/files/documents/Chicago_Statement.pdf"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"}]
+
+DOCTRINE scripture.hermeneutic-method  (scripture.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.9", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   POSITION scripture.hermeneutic-method/grammatical-historical  [Grammatical-historical]
+      hold: Authorial intent, grammar, genre and historical context govern a passage's meaning, and application follows from that meaning rather than substituting for it.
+      vs:   Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article I
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.9", "url": "https://www.pcaac.org/bco/westminster-confession/"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 2, 'The Bible'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS202.HTM"}]
+
+DOCTRINE scripture.translations  (scripture.json)
+   doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.8", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   tradition_overrides: {"baptist": {"positions": ["scripture.translations/multiple-legitimate", "scripture.translations/kjv-only"], "hold": "Formal and dynamic translations made from the original languages are legitimate, and a self-identified King-James-only minority holds the King James Version as uniquely authoritative instead.", "why": null, "vs": null, "tier": null, "confidence": "leaning", "flags": [], "note": "Baptist churches are confessional but not creedally bound on translation choice; the Baptist Faith and Message commends faithful translation generally, and King-James-onlyism survives as a real, self-identified minority stream within independent and fundamentalist Baptist churches rather than as a party-wide position.", "citation": "Baptist Faith and Message (2000), Article I; Peter Ruckman, The Christian's Handbook of Manuscript Evidence (1970)"}}
+   POSITION scripture.translations/multiple-legitimate  [Multiple legitimate translations]
+      hold: Formal and dynamic translations made from the original languages are both legitimate, no version is uniquely authorised, and a translation's suitability depends on its purpose, from close study to public reading to paraphrase.
+      vs:   Holding one translation as uniquely authoritative such that other faithful translations from the original languages are treated as illegitimate.
+      - held_by baptist / majority
+        citation: Baptist Faith and Message (2000), Article I
+        note: None
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.8", "url": "https://www.pcaac.org/bco/westminster-confession/"}]
+   OVERRIDE scripture.translations :: baptist  (citation matched; see tradition_overrides above)

@@ -86,28 +86,10 @@
               "citation": "John Wesley, 'Predestination Calmly Considered' (1752); Articles of Religion (1784), Article 8"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
               "tradition": "restorationist",
               "stance": "majority",
               "note": "The chapter states: \"man, with all his hereditary imbecility, is not under an invincible necessity to sin,\" holding the will genuinely free rather than determined.",
               "citation": "Alexander Campbell, The Christian System, 1839, ch. 7, 'Man As He Is'"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
             }
           ],
           "learn_detail": null,
@@ -265,24 +247,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "The Remonstrance (1610), Article 1; John Wesley, 'Predestination Calmly Considered' (1752)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
             }
           ],
           "learn_detail": null,
@@ -455,14 +419,8 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 5; Second London Baptist Confession (1689) 17.1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
+              "note": "The confession says: “All true believers endure to the end. Those whom God has accepted in Christ, and sanctified by His Spirit, will never fall away from the state of grace, but shall persevere to the end.”",
+              "citation": "Baptist Faith and Message (2000), Article V; Second London Baptist Confession (1689) 17.1"
             }
           ],
           "learn_detail": null,
@@ -470,6 +428,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "1619, Fifth Head of Doctrine"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article V",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -493,16 +456,10 @@
               "citation": "Articles of Religion (1784), Article 12, as amended; John Wesley, 'A Call to Backsliders' (1751)"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": "The Statement of Fundamental Truths does not use the term apostasy, but classical Pentecostal teaching on backsliding presumes a real possibility of falling away.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 17"
+              "note": "The confession says a believer who, after receiving “the knowledge of the truth” and being “incorporated into the communion of the saints, sins again unto death... falls into the unfruitful works of darkness, thereby becoming separated from God, and forfeiting the kingdom of God.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 16"
             }
           ],
           "learn_detail": null,
@@ -510,6 +467,11 @@
             {
               "label": "A Call to Backsliders",
               "citation": "John Wesley, 1751"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 16",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -606,12 +568,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Second London Baptist Confession (1689) 18.1-18.2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
             }
           ],
           "learn_detail": null,
@@ -640,12 +596,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "John Wesley, 'The Witness of the Spirit' (Sermon 10, 1746)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
             }
           ],
           "learn_detail": null,
@@ -747,14 +697,14 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 4"
+              "note": "The confession says: “Repentance and faith are inseparable experiences of grace. Repentance is a genuine turning from sin toward God. Faith is the acceptance of Jesus Christ and commitment of the entire personality to Him as Lord and Saviour.”",
+              "citation": "Baptist Faith and Message (2000), Article IV.A"
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 4"
+              "note": "The Covenant says: \"Jesus still calls all who would follow him to deny themselves, take up their cross, and identify themselves with his new community.\"",
+              "citation": "Lausanne Covenant (1974), Article 4, 'The Nature of Evangelism'"
             },
             {
               "tradition": "restorationist",
@@ -765,7 +715,7 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession restricts baptism, and the profession of faith it seals, to those “who have learned repentance and amendment of life, and who believe truly that their sins are taken away by Christ.”",
               "citation": "Schleitheim Confession (1527), Article 1"
             }
           ],
@@ -779,6 +729,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 4, 'The Nature of Evangelism'",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         },
@@ -929,20 +884,14 @@
             {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession says: “through which faith we obtain forgiveness of sins, are sanctified, justified, and made children of God.” It affirms justification by faith without using the technical vocabulary of a legal verdict or imputed righteousness.",
               "citation": "Dordrecht Confession of Faith (1632), Article 6"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+              "note": "The statement says: \"being justified by grace through faith, man becomes an heir of God according to the hope of eternal life\" (Article 5(a), Conditions to Salvation) — grace-through-faith justification, though the Statement does not itself use forensic-imputation vocabulary.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a)"
             }
           ],
           "learn_detail": null,
@@ -950,6 +899,11 @@
             {
               "label": "Augsburg Confession",
               "citation": "1530, Article 4"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 6",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -1164,25 +1118,19 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 7; Second London Baptist Confession (1689) 29.1"
+              "note": "The confession describes baptism as “an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour,” a testimony rather than a means of the new birth.",
+              "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689) 29.1"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
+              "note": "The statement ties new birth to faith alone — \"By the washing of regeneration and renewing of the Holy Spirit, being justified by grace through faith, man becomes an heir of God\" (Article 5(a)) — and separately describes water baptism as something believers undergo to \"declare to the world\" a death and resurrection already true of them (Article 6(a)), i.e. testimony rather than the means of the new birth.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a); Article 6(a)"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession gives baptism to those “who believe truly that their sins are taken away by Christ,” naming faith, not the water, as what takes sin away, with baptism following as public testimony.",
               "citation": "Schleitheim Confession (1527), Article 1"
             }
           ],
@@ -1191,6 +1139,11 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "2000, Article 7"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 1",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         }
