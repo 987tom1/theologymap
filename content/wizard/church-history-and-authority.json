@@ -54,8 +54,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 6"
+              "note": "Article 6 says \"Holy Scripture containeth all things necessary to salvation: so that whatsoever is not read therein, nor may be proved thereby, is not to be required of any man...as an article of the Faith.\"",
+              "citation": "Thirty-Nine Articles of Religion, Article 6"
             },
             {
               "tradition": "baptist",
@@ -85,6 +85,11 @@
               "label": "Formula of Concord",
               "citation": "Epitome, Rule and Norm 1",
               "url": "https://bookofconcord.org/epitome/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 6",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -295,7 +300,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 8 says the three creeds \"ought thoroughly to be received and believed,\" and the Book of Common Prayer's Nicene Creed text, which Article 8 commits the Church to, includes the filioque clause.",
               "citation": "Thirty-Nine Articles, Article 8; Book of Common Prayer, the Nicene Creed"
             },
             {
@@ -310,6 +315,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "246"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 8",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -510,12 +520,6 @@
               "citation": "Westminster Confession of Faith 1.10; John Calvin, Institutes, Prefatory Address to Francis I"
             },
             {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 20; The Books of Homilies"
-            },
-            {
               "tradition": "lutheran",
               "stance": "confessional",
               "note": null,
@@ -641,7 +645,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 11 says \"We are accounted righteous before God only for the merit of our Lord and Saviour Jesus Christ by Faith, and not for our own works or deservings,\" grounding sola fide, solus Christus and sola gratia, though the Articles do not use the later five-solas formula itself.",
               "citation": "Thirty-Nine Articles, Article 11"
             },
             {
@@ -679,6 +683,11 @@
               "label": "Assemblies of God, Statement of Fundamental Truths",
               "citation": "Article 5(a)",
               "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 11",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

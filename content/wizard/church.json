@@ -224,7 +224,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 36 says the Book of Consecration of Bishops \"doth contain all things necessary to such Consecration and Ordering,\" formally establishing bishops as a distinct, lawfully consecrated order; the Ordinal Preface's further claim that the three orders continue from the Apostles' time was not independently retrieved in this pass.",
               "citation": "Thirty-Nine Articles, XXXVI; Ordinal (1662), Preface"
             },
             {
@@ -242,7 +242,8 @@
             },
             {
               "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article XXXVI"
+              "citation": "1571, Article XXXVI",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -787,8 +788,8 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "The evangelical wing of the tradition reads the Articles in this sense; the Anglo-Catholic wing reads the same formularies closer to real presence.",
-              "citation": "Thirty-Nine Articles, XXVIII"
+              "note": "Article 28 says \"The Body of Christ is given, taken, and eaten, in the Supper, only after an heavenly spiritual manner. And the mean whereby the Body of Christ is received and eaten in the Supper, is Faith.\"",
+              "citation": "Thirty-Nine Articles, Article 28"
             }
           ],
           "learn_detail": "The Reformed position is sometimes called 'virtualism' or 'receptionism': the elements remain bread and wine, but the believer receives Christ himself, not merely a reminder of him, by the Spirit's working.",
@@ -796,6 +797,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 29.7"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 28",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

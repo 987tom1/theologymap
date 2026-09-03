@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "corpus_schema_version": 1,
-  "corpus_sha256": "1d77c76e364c087d4e55c9fde15a47b95ec7a6a29491aee27eca55cb8db209cb",
+  "corpus_sha256": "8ea93fbc450dcc15322458949b6b3699644a0af4aa42afbe8c72217184d90bd8",
   "traditions": [
     {
       "id": "non-denominational",
@@ -214,13 +214,17 @@
       "display_name": "Anglican / Episcopal",
       "short_name": "Anglican",
       "file": "anglican.md",
-      "node_count": 60,
+      "node_count": 53,
       "skipped": [
+        "scripture.clarity",
+        "scripture.translations",
+        "god.open-theism",
         "god.divine-foreknowledge",
         "christ.divine-power",
         "christ.impeccability",
         "christ.extent-of-the-atonement",
         "humanity-and-sin.depravity-and-prevenient-grace",
+        "humanity-and-sin.dichotomy-vs-trichotomy",
         "humanity-and-sin.age-of-accountability",
         "salvation.sovereignty-and-free-will",
         "salvation.election",
@@ -233,6 +237,8 @@
         "creation-and-science.genre-of-genesis-1",
         "creation-and-science.age-of-the-earth",
         "creation-and-science.the-flood",
+        "creation-and-science.miracles-and-science",
+        "the-unseen-realm.angels-and-demons",
         "the-unseen-realm.divine-council",
         "the-unseen-realm.genesis-6-sons-of-god",
         "the-unseen-realm.deliverance-ministry",
@@ -241,7 +247,8 @@
         "formation-and-practice.suffering-and-providence",
         "formation-and-practice.desert-seasons",
         "missions-and-world-religions.contextualisation",
-        "missions-and-world-religions.israel-and-judaism"
+        "missions-and-world-religions.israel-and-judaism",
+        "church-history-and-authority.fathers"
       ]
     },
     {

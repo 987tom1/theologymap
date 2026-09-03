@@ -20,7 +20,6 @@
   why   Scripture claims to equip the man of God for every good work, and a rule that requires an external supplement to be complete is not, by its own account, a sufficient rule.
   vs    Scripture read within and normed by sacred tradition, which holds that Scripture was never meant to be read or interpreted apart from the church that produced and transmitted it.
   refs  2 Tim 3:16-17; Rev 22:18-19
-  link  clarity-of-scripture
   link  the-lords-supper
 
 ## Hermeneutic method · T2 · leaning
@@ -28,19 +27,6 @@
   why   The literal sense is foundational, but the church fathers and the liturgical tradition read many texts typologically in ways later ages have found spiritually fruitful and doctrinally sound, and abandoning that reading in favour of a purely literal method discards a genuine mode of scriptural meaning.
   vs    Restricting legitimate meaning to what grammatical-historical method alone can establish, setting aside a use of typology and allegory the historic church regarded as a real, secondary sense of the text.
   link  women-in-ministry
-
-## Clarity of Scripture · T2.5 · certain
-  hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
-  why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
-  vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
-  refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
-
-## Translations · T3 · confident
-  hold  Formal and dynamic translations made from the original languages are both legitimate, no version is uniquely authorised, and a translation's suitability depends on its purpose, from close study to public reading to paraphrase.
-  why   Inspiration attaches to the original-language texts, not to any one translation of them, so faithfulness in translating from those texts is what makes a version legitimate, not adherence to a particular English rendering.
-  vs    Holding one translation as uniquely authoritative such that other faithful translations from the original languages are treated as illegitimate.
-  link  canon
 
 
 # God
@@ -61,21 +47,12 @@
   link  trinity
   link  efs-ess
 
-## Open theism · T1.5 · certain
-  hold  God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.
-  why   God declares the end from the beginning as the mark that distinguishes him from every idol, and prophecy of free human acts across centuries requires that those acts be known before they occur.
-  vs    The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.
-  refs  Isa 46:9-10; Ps 139:4; Isa 42:9
-  link  classical-theism
-  link  gods-relation-to-time
-
 ## Classical theism · T2 · certain
   hold  God is simple, immutable, impassible and eternally self-sufficient — not composed of parts, not changing in being or purpose, and not moved from outside himself — so that his love and mercy are the fullness of his own life rather than states produced in him by the world.
   why   A God who could be added to or diminished would depend on what is not God, and the scriptures that speak of God relenting are read as accommodation to human ways of speaking, as the same books elsewhere say plainly that God does not change.
   vs    The view that God is genuinely affected and changed by what creatures do, which this position holds makes God one being among others rather than the source of all being.
   refs  Mal 3:6; Jas 1:17; Num 23:19; Exod 3:14
   link  gods-relation-to-time
-  link  open-theism
 
 ## EFS / ESS · T2.5 · confident
   hold  The Son's obedience to the Father belongs to his incarnate mission and to the economy of salvation, and within the eternal life of God the three persons share one undivided will and one authority.
@@ -203,12 +180,6 @@
   link  historical-adam
   link  baptism
 
-## Dichotomy vs trichotomy · T3 · confident
-  hold  Human nature consists of two constitutive parts, a material body and a single immaterial aspect that Scripture calls, interchangeably, the soul or the spirit.
-  why   Scripture regularly uses soul and spirit as parallel or interchangeable terms for the same immaterial reality, as when Jesus commits his spirit to the Father at death while other texts speak of the soul departing.
-  vs    Treating soul and spirit as two separate constitutive parts of a person rather than two names for one immaterial aspect.
-  refs  Luke 23:46; Eccl 12:7
-
 
 # Salvation
 
@@ -308,15 +279,6 @@
   refs  Gen 1:1; John 1:3; Col 1:16; Heb 11:3
   link  classical-theism
 
-## Miracles and science · T2 · certain
-  hold  Miracles are real, particular acts of God within his ordinarily ordered creation, neither violations of a self-sufficient nature nor beyond the reach of a God who freely sustains the natural order he made.
-  why   Scripture presents God's miracles, culminating in the bodily resurrection of Christ, as real events within history and nature, consistent with a God who freely governs the order he continually sustains rather than a deity bound by it.
-  vs    Treating the miraculous as either scientifically impossible in principle or as merely a symbolic idiom for events that did not actually occur.
-  refs  John 2:11; Acts 2:22; 1 Cor 15:14-17
-  link  inerrancy
-  link  classical-theism
-  link  trinity
-
 ## Evolution · T3 · leaning
   hold  God brought about the diversity of life, including the human body, through the ordinary means of a directed evolutionary process of common descent, while specially creating each human person's soul and standing before him.
   why   The genetic, fossil and comparative-anatomical evidence for common descent is read as a true account of the ordinary means God used, in keeping with a God who works through, rather than only apart from, the processes he sustains.
@@ -327,20 +289,11 @@
 
 # The unseen realm
 
-## Angels and demons · T2 · certain
-  hold  Angels and demons are real created spiritual beings, Satan and demons among them fallen through rebellion against God, resisted through ordinary prayer, Scripture, and the sacraments rather than through heightened attention or specialised practice.
-  why   The historic confessions affirm a spiritual realm of angels and fallen angels but locate the Christian's resistance to evil within ordinary practice rather than a specialised discipline.
-  vs    Treating angels and demons as a subject requiring specialised attention, heightened vigilance, or dedicated ministry beyond the ordinary means of grace.
-  refs  Col 1:16; Jude 1:6
-  link  can-a-christian-be-demonised
-  link  the-creeds
-
 ## Can a Christian be demonised · T2 · leaning
   hold  A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.
   why   Scripture describes the indwelling Spirit as God's own seal and guarantee, incompatible with a demon owning a believer, while also warning believers to resist an adversary who prowls seeking to devour.
   vs    Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.
   refs  1 John 4:4; 1 Pet 5:8-9
-  link  angels-and-demons
   link  healing
 
 
@@ -457,7 +410,6 @@
   why   The Spirit's procession from the Son as well as the Father safeguards the full unity of the Trinity's inner life and was received as a legitimate clarification by the Western church.
   vs    Reciting the creed in its original conciliar form, without the filioque clause, as adopted at Constantinople in 381.
   link  prima-scriptura
-  link  the-fathers
 
 ## Prima scriptura · T1.5 · certain
   hold  Scripture alone is the church's only infallible rule of faith and practice; creeds, confessions and councils carry real but subordinate authority as faithful, correctable summaries of what Scripture teaches.
@@ -465,7 +417,6 @@
   vs    Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
-  link  clarity-of-scripture
   link  hermeneutic-method
   link  the-creeds
 
@@ -476,14 +427,6 @@
   refs  Eph 2:8-9; Rom 3:28; Rom 1:17
   link  prima-scriptura
   link  roman-catholics-and-orthodox
-
-## The Fathers · T2.5 · certain
-  hold  The Fathers are read with real respect as faithful, though fallible, witnesses to the apostolic faith, useful for interpretation and for guarding against novelty, but subordinate to and correctable by Scripture.
-  why   The Fathers were themselves servants of the word rather than a second source of revelation, so their writing is weighed against Scripture rather than treated as an independent standard.
-  vs    Treating patristic consensus as carrying binding, near-conciliar authority over the interpretation of Scripture.
-  link  prima-scriptura
-  link  the-creeds
-  link  hermeneutic-method
 
 ## Roman Catholics and Orthodox · T3 · certain
   hold  Roman Catholic and Orthodox Christians are regarded as fellow believers whose churches nonetheless hold serious doctrinal error, on justification, the papacy or the invocation of the saints among other matters, that a faithful church should not hold.

@@ -363,8 +363,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, VI"
+              "note": "Article 6 says \"Holy Scripture containeth all things necessary to salvation,\" so that nothing beyond it may be required as an article of the Faith.",
+              "citation": "Thirty-Nine Articles, Article 6"
             },
             {
               "tradition": "anabaptist",
@@ -401,6 +401,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 5",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 6",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -540,12 +545,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, VI"
             },
             {
               "tradition": "restorationist",
@@ -798,12 +797,6 @@
               "stance": "majority",
               "note": "The Confession says the Scriptures \"are to be translated into the vulgar language of every nation unto which they come, that the Word of God dwelling plentifully in all, they may worship him in an acceptable manner.\"",
               "citation": "Westminster Confession of Faith 1.8"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "majority",
-              "note": null,
-              "citation": "Thirty-Nine Articles, XXIV"
             },
             {
               "tradition": "methodist",

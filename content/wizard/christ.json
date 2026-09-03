@@ -282,7 +282,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say the Son \"took Man's nature in the womb of the blessed Virgin, of her substance,\" so that the Godhead and Manhood were joined together in one Person.",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
@@ -343,6 +343,11 @@
               "label": "Augsburg Confession",
               "citation": "1530, Article III",
               "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 2",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         }
@@ -769,7 +774,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 31 says Christ's offering \"is that perfect redemption, propitiation, and satisfaction, for all the sins of the whole world,\" and that there is no other satisfaction for sin.",
               "citation": "Thirty-Nine Articles of Religion, Article 31"
             },
             {
@@ -806,6 +811,11 @@
               "label": "Assemblies of God, Statement of Fundamental Truths",
               "citation": "Article 3(d)",
               "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 31",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

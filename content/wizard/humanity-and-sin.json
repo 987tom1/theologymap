@@ -286,8 +286,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article IX"
+              "note": "Article 9 says original sin \"is the fault and corruption of the Nature of every man, that naturally is engendered of the offspring of Adam.\"",
+              "citation": "Thirty-Nine Articles, Article 9"
             },
             {
               "tradition": "orthodox",
@@ -323,6 +323,11 @@
               "label": "Augsburg Confession",
               "citation": "1530, Article II",
               "url": "https://bookofconcord.org/augsburg-confession/original-sin/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 9",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -463,8 +468,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article IX"
+              "note": "Article 9 says that in every person born into the world, original sin \"deserveth God's wrath and damnation,\" not merely a corrupted nature.",
+              "citation": "Thirty-Nine Articles, Article 9"
             },
             {
               "tradition": "baptist",
@@ -478,6 +483,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "402-405"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 9",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -780,12 +790,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Standard Lutheran anthropology following the Augsburg Confession's body-and-soul language"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "majority",
-              "note": null,
-              "citation": "Thirty-Nine Articles, twofold anthropology"
             },
             {
               "tradition": "baptist",

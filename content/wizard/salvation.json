@@ -890,7 +890,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 11 says \"We are accounted righteous before God only for the merit of our Lord and Saviour Jesus Christ by Faith, and not for our own works or deservings.\"",
               "citation": "Thirty-Nine Articles, Article 11"
             },
             {
@@ -922,6 +922,11 @@
               "label": "Formula of Concord",
               "citation": "Solid Declaration, Article III",
               "url": "https://bookofconcord.org/formula-of-concord-solid-declaration/article-iii/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 11",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

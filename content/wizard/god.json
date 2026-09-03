@@ -52,7 +52,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 1 says \"there be three Persons, of one substance, power, and eternity; the Father, the Son, and the Holy Ghost.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 1 (Of Faith in the Holy Trinity)"
             },
             {
@@ -140,6 +140,11 @@
               "label": "Augsburg Confession",
               "citation": "1530, Article 1",
               "url": "https://bookofconcord.org/augsburg-confession/god/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -239,7 +244,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 2 says the Son is \"the Word of the Father, begotten from everlasting of the Father...and of one substance with the Father.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
@@ -287,6 +292,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 4",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 2",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -427,7 +437,7 @@
             {
               "tradition": "anglican",
               "stance": "majority",
-              "note": null,
+              "note": "Article 1 says the three Persons are \"of one substance, power, and eternity,\" which this position reads as excluding any eternal ranking of authority within the Godhead.",
               "citation": "Thirty-Nine Articles of Religion, Articles 1-2"
             },
             {
@@ -451,6 +461,11 @@
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 2.3",
               "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         }
@@ -808,12 +823,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Formula of Concord, Solid Declaration 11"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion, Articles 1 and 17"
             },
             {
               "tradition": "methodist",

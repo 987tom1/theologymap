@@ -54,8 +54,8 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article XV"
+              "note": "Article 15 says that \"all we the rest, although baptized, and born again in Christ, yet offend in many things; and if we say we have no sin, we deceive ourselves.\"",
+              "citation": "Thirty-Nine Articles, Article 15"
             },
             {
               "tradition": "non-denominational",
@@ -78,6 +78,11 @@
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article IV.C",
               "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 15",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

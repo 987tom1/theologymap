@@ -64,7 +64,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 1 calls God \"the Maker, and Preserver of all things both visible and invisible,\" the Nicene Creed's own ex-nihilo formula, without a rival maker or pre-existing matter.",
               "citation": "Thirty-Nine Articles of Religion, Article 1"
             },
             {
@@ -107,6 +107,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 1",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         }
@@ -894,12 +899,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Book of Concord, general confession of Christ's miracles including the resurrection"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion, Article 4"
             },
             {
               "tradition": "methodist",
