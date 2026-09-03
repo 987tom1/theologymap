@@ -155,11 +155,13 @@
       "sources": [
         {
           "label": "Lausanne Covenant",
-          "citation": "1974, Article 3"
+          "citation": "1974, Article 3",
+          "url": "https://lausanne.org/covenant"
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "846-848"
+          "citation": "846-848",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -441,7 +443,8 @@
       "sources": [
         {
           "label": "Nostra Aetate",
-          "citation": "Second Vatican Council, 1965"
+          "citation": "Second Vatican Council, 1965",
+          "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
         },
         {
           "label": "Perspectives on the World Christian Movement",

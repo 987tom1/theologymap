@@ -866,7 +866,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 29"
+          "citation": "1646, ch. 29",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     },
@@ -1009,7 +1010,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 30"
+          "citation": "1646, ch. 30",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     }

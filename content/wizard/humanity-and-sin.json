@@ -215,7 +215,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1701-1707"
+          "citation": "1701-1707",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Westminster Larger Catechism",
@@ -980,15 +981,18 @@
       "sources": [
         {
           "label": "Baptist Faith and Message",
-          "citation": "2000, Article III"
+          "citation": "2000, Article III",
+          "url": "https://bfm.sbc.net/bfm2000/"
         },
         {
           "label": "Westminster Confession of Faith",
-          "citation": "X.3"
+          "citation": "X.3",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1261"
+          "citation": "1261",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     }

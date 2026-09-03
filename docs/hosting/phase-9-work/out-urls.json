@@ -1,0 +1,343 @@
+[
+  {
+    "op": "doctrine.sources",
+    "doctrine": "christ.virgin-birth",
+    "sources": [
+      {
+        "label": "Nicene-Constantinopolitan Creed",
+        "citation": "381",
+        "url": "https://www.ccel.org/creeds/nicene.creed.html"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "christ.bodily-resurrection",
+    "sources": [
+      {
+        "label": "Nicene-Constantinopolitan Creed",
+        "citation": "381",
+        "url": "https://www.ccel.org/creeds/nicene.creed.html"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "church-history-and-authority.creeds",
+    "sources": [
+      {
+        "label": "Nicene-Constantinopolitan Creed",
+        "citation": "First Council of Constantinople, 381",
+        "url": "https://www.ccel.org/creeds/nicene.creed.html"
+      },
+      {
+        "label": "Chalcedonian Definition",
+        "citation": "Council of Chalcedon, 451"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "church.lords-supper",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 29",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "church.membership",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 30",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "creation-and-science.creation-ex-nihilo-and-design",
+    "sources": [
+      {
+        "label": "Nicene-Constantinopolitan Creed",
+        "citation": "381",
+        "url": "https://www.ccel.org/creeds/nicene.creed.html"
+      },
+      {
+        "label": "Fourth Lateran Council",
+        "citation": "1215, ch. 1"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.marriage-and-sexuality",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2357-2360",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "Lambeth Conference Resolution I.10",
+        "citation": "1998"
+      },
+      {
+        "label": "Human Sexuality: Gift and Trust",
+        "citation": "ELCA, 2009, amended 2025",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.divorce-and-remarriage",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1614, 1629-1632",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "Rite for a Second Marriage",
+        "citation": "Evchologion, Orthodox liturgical tradition"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "24.5-6",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.abortion",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2270-2275",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "A Social Statement on Abortion",
+        "citation": "ELCA, 1991",
+        "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.euthanasia",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2276-2279",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.alcohol",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article XV",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1334",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.church-and-the-public-square",
+    "sources": [
+      {
+        "label": "Augsburg Confession",
+        "citation": "1530, Article XVI",
+        "url": "https://bookofconcord.org/augsburg-confession/"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article VI",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      },
+      {
+        "label": "Lectures on Calvinism",
+        "citation": "Abraham Kuyper, 1898"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1883-1885, 1897-1904",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "ethics.war-and-violence",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "2307-2317",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "Schleitheim Confession",
+        "citation": "1527, Article VI",
+        "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "god.trinity",
+    "sources": [
+      {
+        "label": "The Nicene-Constantinopolitan Creed",
+        "citation": "First Council of Constantinople, 381"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1992, 232-267",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "humanity-and-sin.image-of-god",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1701-1707",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "Westminster Larger Catechism",
+        "citation": "Q&A 17"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "humanity-and-sin.age-of-accountability",
+    "sources": [
+      {
+        "label": "Baptist Faith and Message",
+        "citation": "2000, Article III",
+        "url": "https://bfm.sbc.net/bfm2000/"
+      },
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "X.3",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1261",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "missions-and-world-religions.exclusivity-of-christ",
+    "sources": [
+      {
+        "label": "Lausanne Covenant",
+        "citation": "1974, Article 3",
+        "url": "https://lausanne.org/covenant"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "846-848",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "missions-and-world-religions.world-religions",
+    "sources": [
+      {
+        "label": "Nostra Aetate",
+        "citation": "Second Vatican Council, 1965",
+        "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
+      },
+      {
+        "label": "Perspectives on the World Christian Movement",
+        "citation": "Ralph D. Winter and Steven C. Hawthorne, eds., 1981"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "salvation.assurance",
+    "sources": [
+      {
+        "label": "Westminster Confession of Faith",
+        "citation": "1646, ch. 18",
+        "url": "https://www.pcaac.org/bco/westminster-confession/"
+      },
+      {
+        "label": "Council of Trent",
+        "citation": "Session 6, 1547, ch. 9"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "salvation.regeneration-and-baptism",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1992, 1213-1215",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "The Christian System",
+        "citation": "Alexander Campbell, 1839, ch. 19",
+        "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS219.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "the-unseen-realm.angels-and-demons",
+    "sources": [
+      {
+        "label": "Fourth Lateran Council, Canon 1",
+        "citation": "Fourth Lateran Council (1215), Canon 1"
+      },
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "328-336",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      }
+    ]
+  },
+  {
+    "op": "doctrine.sources",
+    "doctrine": "the-unseen-realm.deliverance-ministry",
+    "sources": [
+      {
+        "label": "Catechism of the Catholic Church",
+        "citation": "1673",
+        "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      },
+      {
+        "label": "Assemblies of God position paper on demonic oppression",
+        "citation": "'Ministry to Persons Oppressed by Demons' (1972)"
+      }
+    ]
+  }
+]

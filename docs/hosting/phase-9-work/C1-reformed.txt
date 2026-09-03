@@ -8,7 +8,7 @@ DOCTRINE christ.deity-and-humanity  (christ.json)
       - held_by anglican / confessional
         citation: Thirty-Nine Articles of Religion, Article 2
         note: None
-      position sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+      position sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 4", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE christ.bodily-resurrection  (christ.json)
    doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381"}]
@@ -18,7 +18,7 @@ DOCTRINE christ.bodily-resurrection  (christ.json)
       - held_by anglican / confessional
         citation: Thirty-Nine Articles of Religion, Article 4
         note: None
-      position sources: [{"label": "1 Corinthians 15 as the hinge of Christian hope", "citation": "1 Cor 15:12-19"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+      position sources: [{"label": "1 Corinthians 15 as the hinge of Christian hope", "citation": "1 Cor 15:12-19"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}, {"label": "National Association of Evangelicals, Statement of Faith", "citation": "1943, Article 3", "url": "https://www.nae.org/statement-of-faith/"}]
 
 DOCTRINE christ.extent-of-the-atonement  (christ.json)
    doctrine sources: [{"label": "Canons of Dordt, Second Head of Doctrine", "citation": "Synod of Dort, 1618-1619"}, {"label": "A Dissertation on the Death of Christ", "citation": "John Davenant, 1650"}]
@@ -68,7 +68,7 @@ DOCTRINE creation-and-science.creation-ex-nihilo-and-design  (creation-and-scien
       - held_by reformed / confessional
         citation: Westminster Confession of Faith 4.1
         note: None
-      position sources: [{"label": "Fourth Lateran Council", "citation": "1215, ch. 1"}, {"label": "Westminster Confession of Faith", "citation": "4.1"}]
+      position sources: [{"label": "Fourth Lateran Council", "citation": "1215, ch. 1"}, {"label": "Westminster Confession of Faith", "citation": "4.1"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 1", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE ethics.divorce-and-remarriage  (ethics.json)
    doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1614, 1629-1632"}, {"label": "Rite for a Second Marriage", "citation": "Evchologion, Orthodox liturgical tradition"}, {"label": "Westminster Confession of Faith", "citation": "24.5-6"}]
@@ -98,7 +98,7 @@ DOCTRINE formation-and-practice.suffering-and-providence  (formation-and-practic
       - held_by anglican / permitted
         citation: Thirty-Nine Articles, Article XVII, read alongside the Homilies
         note: None
-      position sources: [{"label": "Catechism of the Catholic Church", "citation": "309-314"}]
+      position sources: [{"label": "Where Is God When It Hurts?", "citation": "Philip Yancey, 1977"}, {"label": "Catechism of the Catholic Church", "citation": "309-314"}, {"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article II.A", "url": "https://bfm.sbc.net/bfm2000/"}]
 
 DOCTRINE god.efs-ess  (god.json)
    doctrine sources: [{"label": "Retrieving Eternal Generation", "citation": "Fred Sanders and Scott Swain, eds., 2017"}, {"label": "The Rise and Fall of the Complementarian Doctrine of the Trinity", "citation": "Kevin Giles, 2017"}]
@@ -121,14 +121,14 @@ DOCTRINE god.time  (god.json)
       position sources: [{"label": "The Consolation of Philosophy", "citation": "Boethius, c. 524, Book 5, prose 6"}, {"label": "Summa Theologiae", "citation": "Thomas Aquinas, Ia, q. 10"}]
 
 DOCTRINE humanity-and-sin.historical-adam  (humanity-and-sin.json)
-   doctrine sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, ง37"}, {"label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019"}]
+   doctrine sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, ยง37"}, {"label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019"}]
    POSITION humanity-and-sin.historical-adam/sole-progenitor  [Sole progenitor]
       hold: Adam and Eve were real historical individuals, specially created by God, and every other human being descends from them, so that Adam's fall is transmitted to the whole race by ordinary generation.
       vs:   Treating Adam as a real historical figure whose headship over the race did not require being every living human's only biological ancestor.
       - held_by reformed / confessional
         citation: Westminster Confession of Faith VI.3
         note: None
-      position sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, ง37"}]
+      position sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, ยง37"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 1", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE humanity-and-sin.dichotomy-vs-trichotomy  (humanity-and-sin.json)
    doctrine sources: [{"label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983"}, {"label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76"}]
@@ -148,7 +148,7 @@ DOCTRINE last-things.rapture  (last-things.json)
       - held_by reformed / confessional
         citation: Westminster Confession of Faith 32-33
         note: None
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "32-33"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "32-33"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 18", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-religions.json)
    doctrine sources: [{"label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized", "citation": "John Sanders, ed., 1995"}, {"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964"}]
@@ -158,7 +158,7 @@ DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-rel
       - held_by reformed / majority
         citation: Westminster Confession of Faith 10.4
         note: The predominant historic Reformed reading, though not the only one contemporary Reformed theologians hold.
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "10.4"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "10.4"}, {"label": "Lausanne Covenant", "citation": "1974, Article 3", "url": "https://lausanne.org/covenant"}]
 
 DOCTRINE salvation.perseverance-and-apostasy  (salvation.json)
    doctrine sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}, {"label": "Council of Trent", "citation": "Session 6, 1547, ch. 15"}]
@@ -168,7 +168,7 @@ DOCTRINE salvation.perseverance-and-apostasy  (salvation.json)
       - held_by reformed / confessional
         citation: Westminster Confession of Faith 17.1-17.2; Canons of Dordt, Fifth Head of Doctrine
         note: None
-      position sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}]
+      position sources: [{"label": "Canons of Dordt", "citation": "1619, Fifth Head of Doctrine"}, {"label": "Baptist Faith and Message", "citation": "SBC, 2000, Article V", "url": "https://bfm.sbc.net/bfm2000/"}]
 
 DOCTRINE salvation.regeneration-and-baptism  (salvation.json)
    doctrine sources: [{"label": "Catechism of the Catholic Church", "citation": "1992, 1213-1215"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 19"}]
@@ -188,7 +188,7 @@ DOCTRINE scripture.sufficiency  (scripture.json)
       - held_by reformed / confessional
         citation: Westminster Confession of Faith 1.6
         note: None
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.6, 1.10", "url": "https://www.pcaac.org/bco/westminster-confession/"}, {"label": "Declaration and Address", "citation": "Thomas Campbell, 1809, Proposition 3", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.6, 1.10", "url": "https://www.pcaac.org/bco/westminster-confession/"}, {"label": "Declaration and Address", "citation": "Thomas Campbell, 1809, Proposition 3", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 5", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE scripture.translations  (scripture.json)
    doctrine sources: [{"label": "Westminster Confession of Faith", "citation": "1646, ch. 1.8", "url": "https://www.pcaac.org/bco/westminster-confession/"}]

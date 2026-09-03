@@ -147,7 +147,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2357-2360"
+          "citation": "2357-2360",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Lambeth Conference Resolution I.10",
@@ -382,7 +383,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1614, 1629-1632"
+          "citation": "1614, 1629-1632",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Rite for a Second Marriage",
@@ -390,7 +392,8 @@
         },
         {
           "label": "Westminster Confession of Faith",
-          "citation": "24.5-6"
+          "citation": "24.5-6",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     },
@@ -542,7 +545,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2270-2275"
+          "citation": "2270-2275",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "A Social Statement on Abortion",
@@ -826,7 +830,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2276-2279"
+          "citation": "2276-2279",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -1091,11 +1096,13 @@
       "sources": [
         {
           "label": "Baptist Faith and Message",
-          "citation": "2000, Article XV"
+          "citation": "2000, Article XV",
+          "url": "https://bfm.sbc.net/bfm2000/"
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1334"
+          "citation": "1334",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -1249,11 +1256,13 @@
       "sources": [
         {
           "label": "Augsburg Confession",
-          "citation": "1530, Article XVI"
+          "citation": "1530, Article XVI",
+          "url": "https://bookofconcord.org/augsburg-confession/"
         },
         {
           "label": "Schleitheim Confession",
-          "citation": "1527, Article VI"
+          "citation": "1527, Article VI",
+          "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
         },
         {
           "label": "Lectures on Calvinism",
@@ -1261,7 +1270,8 @@
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1883-1885, 1897-1904"
+          "citation": "1883-1885, 1897-1904",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -1436,11 +1446,13 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2307-2317"
+          "citation": "2307-2317",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Schleitheim Confession",
-          "citation": "1527, Article VI"
+          "citation": "1527, Article VI",
+          "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
         }
       ]
     }

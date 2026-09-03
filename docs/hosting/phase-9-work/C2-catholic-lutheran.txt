@@ -8,7 +8,7 @@ DOCTRINE christ.deity-and-humanity  (christ.json)
       - held_by roman-catholic / confessional
         citation: Catechism of the Catholic Church 464-469
         note: None
-      position sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+      position sources: [{"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 4", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE christ.virgin-birth  (christ.json)
    doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "381"}]
@@ -18,7 +18,7 @@ DOCTRINE christ.virgin-birth  (christ.json)
       - held_by lutheran / confessional
         citation: Augsburg Confession, Article III
         note: None
-      position sources: [{"label": "Catechism of the Catholic Church", "citation": "CCC 496-498"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+      position sources: [{"label": "Catechism of the Catholic Church", "citation": "CCC 496-498"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"Jesus: Our Saviour\"", "url": "https://www.inc.org.au/about/statement-of-faith"}, {"label": "National Association of Evangelicals, Statement of Faith", "citation": "1943, Article 3", "url": "https://www.nae.org/statement-of-faith/"}]
 
 DOCTRINE church-history-and-authority.authority  (church-history-and-authority.json)
    doctrine sources: [{"label": "Four Views on the Spectrum of Evangelicalism", "citation": "Andrew David Naselli and Collin Hansen, eds., 2011"}]
@@ -28,7 +28,7 @@ DOCTRINE church-history-and-authority.authority  (church-history-and-authority.j
       - held_by lutheran / confessional
         citation: Formula of Concord, Epitome, Rule and Norm 1
         note: None
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "1.10 (1646)"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "1.10 (1646)"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 5", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE church-history-and-authority.creeds  (church-history-and-authority.json)
    doctrine sources: [{"label": "Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Chalcedonian Definition", "citation": "Council of Chalcedon, 451"}]
@@ -113,17 +113,17 @@ DOCTRINE formation-and-practice.spiritual-disciplines  (formation-and-practice.j
 DOCTRINE god.trinity  (god.json)
    doctrine sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "Catechism of the Catholic Church", "citation": "1992, 232-267"}]
    POSITION god.trinity/nicene  [Nicene Trinitarianism]
-      hold: God is one in being and three in person — Father, Son and Holy Spirit — eternally distinct, equal in nature and glory, and not three gods nor one person under three names.
+      hold: God is one in being and three in person â€” Father, Son and Holy Spirit â€” eternally distinct, equal in nature and glory, and not three gods nor one person under three names.
       vs:   Accounts that secure the oneness of God by dissolving the distinction of the persons, or that secure the distinction by making the Son and the Spirit less than God.
       - held_by lutheran / confessional
         citation: Augsburg Confession (1530), Article 1 (De Deo)
         note: None
-      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "The Athanasian Creed (Quicunque vult)", "citation": "Latin West, c. 5th-6th century"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 3, 'God'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"}]
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "First Council of Constantinople, 381"}, {"label": "The Athanasian Creed (Quicunque vult)", "citation": "Latin West, c. 5th-6th century"}, {"label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 3, 'God'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"}, {"label": "National Association of Evangelicals, Statement of Faith", "citation": "1943, Article 2", "url": "https://www.nae.org/statement-of-faith/"}]
 
 DOCTRINE god.classical-theism  (god.json)
    doctrine sources: [{"label": "All That Is In God", "citation": "James E. Dolezal, 2017"}, {"label": "Divine Impassibility and the Mystery of Human Suffering", "citation": "James F. Keating and Thomas Joseph White, eds., 2009"}]
    POSITION god.classical-theism/classical  [Classical theism]
-      hold: God is simple, immutable, impassible and eternally self-sufficient — not composed of parts, not changing in being or purpose, and not moved from outside himself — so that his love and mercy are the fullness of his own life rather than states produced in him by the world.
+      hold: God is simple, immutable, impassible and eternally self-sufficient â€” not composed of parts, not changing in being or purpose, and not moved from outside himself â€” so that his love and mercy are the fullness of his own life rather than states produced in him by the world.
       vs:   The view that God is genuinely affected and changed by what creatures do, which this position holds makes God one being among others rather than the source of all being.
       - held_by roman-catholic / confessional
         citation: Fourth Lateran Council (1215), ch. 1; First Vatican Council, Dei Filius 1; Catechism of the Catholic Church 212-213
@@ -151,14 +151,14 @@ DOCTRINE holy-spirit.tongues  (holy-spirit.json)
       position sources: [{"label": "Power Evangelism", "citation": "John Wimber, 1985"}]
 
 DOCTRINE humanity-and-sin.historical-adam  (humanity-and-sin.json)
-   doctrine sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, §37"}, {"label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019"}]
+   doctrine sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, Â§37"}, {"label": "The Genealogical Adam and Eve", "citation": "S. Joshua Swamidass, 2019"}]
    POSITION humanity-and-sin.historical-adam/sole-progenitor  [Sole progenitor]
       hold: Adam and Eve were real historical individuals, specially created by God, and every other human being descends from them, so that Adam's fall is transmitted to the whole race by ordinary generation.
       vs:   Treating Adam as a real historical figure whose headship over the race did not require being every living human's only biological ancestor.
       - held_by lutheran / confessional
         citation: Augsburg Confession, Article II
         note: None
-      position sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, §37"}]
+      position sources: [{"label": "Humani Generis", "citation": "Pius XII, 1950, Â§37"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 1", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE humanity-and-sin.dichotomy-vs-trichotomy  (humanity-and-sin.json)
    doctrine sources: [{"label": "Foundations of Pentecostal Theology", "citation": "Guy P. Duffield and Nathaniel M. Van Cleave, 1983"}, {"label": "Summa Theologiae", "citation": "Thomas Aquinas, I q.75-76"}]
@@ -178,7 +178,7 @@ DOCTRINE last-things.second-coming  (last-things.json)
       - held_by anglican / confessional
         citation: Book of Common Prayer (1662), the Nicene Creed
         note: Confessed through the Nicene Creed as used in the Book of Common Prayer rather than a separate Article.
-      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "381"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Restoration of All Things\"", "url": "https://www.inc.org.au/about/statement-of-faith"}]
+      position sources: [{"label": "The Nicene-Constantinopolitan Creed", "citation": "381"}, {"label": "International Network of Churches, Declaration of Faith", "citation": "February 2022, \"The Restoration of All Things\"", "url": "https://www.inc.org.au/about/statement-of-faith"}, {"label": "Lausanne Covenant", "citation": "1974, Paragraph 15, 'The Return of Christ'", "url": "https://lausanne.org/covenant"}]
 
 DOCTRINE last-things.rapture  (last-things.json)
    doctrine sources: [{"label": "Three Views on the Rapture", "citation": "Alan Hultberg, ed., 2010"}]
@@ -188,7 +188,7 @@ DOCTRINE last-things.rapture  (last-things.json)
       - held_by roman-catholic / confessional
         citation: Catechism of the Catholic Church, 1038
         note: None
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "32-33"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "32-33"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 18", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE last-things.intermediate-state  (last-things.json)
    doctrine sources: [{"label": "The Orthodox Church", "citation": "Kallistos Ware, 1963/1993, on the departed"}]
@@ -198,7 +198,7 @@ DOCTRINE last-things.intermediate-state  (last-things.json)
       - held_by lutheran / majority
         citation: Luther's Small Catechism, on the Third Article, as commonly received
         note: None
-      position sources: [{"label": "Westminster Confession of Faith", "citation": "32.1"}]
+      position sources: [{"label": "Westminster Confession of Faith", "citation": "32.1"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 18", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-religions.json)
    doctrine sources: [{"label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized", "citation": "John Sanders, ed., 1995"}, {"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964"}]
@@ -208,7 +208,7 @@ DOCTRINE missions-and-world-religions.the-unevangelised  (missions-and-world-rel
       - held_by roman-catholic / confessional
         citation: Lumen Gentium 16 (1964); Catechism of the Catholic Church, 847
         note: Stated of those who, through no fault of their own, do not know the gospel but sincerely seek God.
-      position sources: [{"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964, §16"}, {"label": "Nostra Aetate", "citation": "Second Vatican Council, 1965"}]
+      position sources: [{"label": "Lumen Gentium", "citation": "Second Vatican Council, 1964, Â§16"}, {"label": "Nostra Aetate", "citation": "Second Vatican Council, 1965"}]
 
 DOCTRINE salvation.justification  (salvation.json)
    doctrine sources: [{"label": "Council of Trent", "citation": "Session 6, 1547"}, {"label": "Joint Declaration on the Doctrine of Justification", "citation": "Lutheran World Federation and Catholic Church, 1999"}]
@@ -218,7 +218,7 @@ DOCTRINE salvation.justification  (salvation.json)
       - held_by lutheran / confessional
         citation: Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article 3
         note: None
-      position sources: [{"label": "Augsburg Confession", "citation": "1530, Article 4"}]
+      position sources: [{"label": "Augsburg Confession", "citation": "1530, Article 4"}, {"label": "Dordrecht Confession of Faith", "citation": "1632, Article 6", "url": "https://www.reformedreader.org/ccc/dcf.htm"}]
 
 DOCTRINE scripture.canon  (scripture.json)
    doctrine sources: [{"label": "Council of Trent", "citation": "Session IV (1546)", "url": null}]

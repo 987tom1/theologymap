@@ -645,7 +645,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 18"
+          "citation": "1646, ch. 18",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         },
         {
           "label": "Council of Trent",
@@ -1152,11 +1153,13 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1992, 1213-1215"
+          "citation": "1992, 1213-1215",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "The Christian System",
-          "citation": "Alexander Campbell, 1839, ch. 19"
+          "citation": "Alexander Campbell, 1839, ch. 19",
+          "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS219.HTM"
         }
       ]
     }
