@@ -47,7 +47,7 @@ nothing else unless its own plan section names the file.
 | 13 | Phase 6 Tasks 3–7 — render, learn, compare surfaces — **done** | `phase-6-compare` (same branch) | Opus | `phase-6-plan.md` L1–85 + L423–end |
 | 14 | Phase 7 — redesign the generated views — **done** | `phase-7-views` | Sonnet | `phase-7-brief.md` |
 | 15 | Phase 8 — version history and restore — **done** | `phase-8-versions` | Sonnet | `phase-8-brief.md` |
-| 16 | Phase 9 — corpus sourcing verification | `phase-9-sourcing` | Opus main, Sonnet subagents **with web access** | `phase-9-corpus-sourcing-verification.md` |
+| 16 ✅ | Phase 9 — corpus sourcing verification (done 2026-09-03) | `phase-9-sourcing` | Opus main, Sonnet subagents **with web access** | `phase-9-corpus-sourcing-verification.md` |
 
 **Phase 5 (session 11) may run in parallel** with 7–10 once phase 4's schema is
 frozen — it produces content, not code.
@@ -242,7 +242,30 @@ Branch `phase-6-compare`, merged as `2954aab`. `/learn`, `/compare` and
 `/view?tradition=` are live and return 200. Full account in
 `phase-6-outcome.md` under "session 13".
 
-**Session 16 (phase 9) is the only session left.** Three things for it:
+**Session 16 (phase 9) is complete (2026-09-03), and it was the last one. The
+whole program is done.** Full account in `phase-9-outcome.md`; the short version
+is that phase 5's citations were checked against the retrieved documents for the
+first time, 273 were corrected and **99 attributions were removed** because no
+document supported them. The corpus is thinner and honest; three traditions newly
+trip the validator's coverage warning and that is the intended outcome, not a
+regression to repair. 108 Catholic and creedal Tier C entries remain sampled
+rather than swept, listed as unverified in the outcome file.
+
+All three things below were done. Notes on how they turned out:
+
+1. The self-consistency sweep ran first and free, as instructed, and found 0
+   further cross-communion mismatches; re-run after every change, still 0.
+2. `superseded_holds` was never needed — **no `hold` changed in the whole phase**,
+   because every defect was in the citation rather than the prose.
+3. Both deliberately-deferred items were resolved. The Genesis-1 Orthodox
+   attribution was **kept** and re-sourced to Basil's *Hexaemeron* 2.8 rather than
+   removed (it was already stanced `historic`, so it claimed no dogma) — a
+   judgment call, with the case for removal recorded. Four of the five shared
+   `why` lines turned out to have Orthodox citations pointing at the **wrong
+   Dositheus decree**, contrary to this note's expectation that they were "already
+   in good shape".
+
+The original three, as written before the session:
 
 1. The hand-read of the Catholic and Orthodox maps found a **wrong `held_by`
    attribution** — Orthodoxy was placed on the Lutheran eucharistic position —
