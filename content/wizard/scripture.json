@@ -284,8 +284,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "The precise list of deuterocanonical books varies between Orthodox jurisdictions more than it does in Roman Catholicism; the Synod of Jerusalem's list is the most commonly cited.",
-              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 3"
+              "note": "The reply lists \"The Wisdom of Solomon, Judith, Tobit, The History of the Dragon, The History of Susanna, The Maccabees, and The Wisdom of Sirach\" as \"genuine parts of Scripture.\" The previous citation to Decree 3 (predestination) was the wrong section — the canon list is in the appended Question 3, not a numbered decree.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), reply to Question 3 ('What Books do you call Sacred Scripture?')"
             }
           ],
           "learn_detail": "Rome closed the question conciliarly at Trent, partly in response to the Reformation; Orthodoxy has never issued a single equivalent conciliar list binding on every jurisdiction, though the Synod of Jerusalem's is widely received.",
@@ -426,8 +426,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Orthodoxy resists framing Scripture and tradition as two separate sources, holding instead that Scripture is itself the highest expression of a single tradition.",
-              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+              "note": "The Catechism: divine revelation spreads through \"two channels — holy tradition and holy Scripture\" (Q16), tradition being \"the most ancient and original instrument\" (Q21) and still necessary \"as a guide to the right understanding of holy Scripture\" (Q24). Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Qq. 16-18, 21-24"
             }
           ],
           "learn_detail": "Rome and the East differ on how tradition develops and on the scope of a teaching office's authority to define doctrine, but agree that Scripture is not rightly read outside the church's tradition.",
@@ -596,8 +596,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Orthodoxy grounds right reading in the mind of the church as expressed through the councils and the received tradition of interpretation, rather than in a single defined teaching office.",
-              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+              "note": "Q24: tradition is necessary \"as a guide to the right understanding of holy Scripture, for the right ministration of the sacraments, and the preservation of sacred rites and ceremonies.\" Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Q24"
             }
           ],
           "learn_detail": "Rome locates this authority in the magisterium as a distinct office; Orthodoxy locates it more diffusely in the conciliar and patristic consensus, which its own theologians describe as a difference of structure rather than of principle.",
@@ -708,8 +708,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "The Longer Catechism of St Philaret of Moscow (1830)"
+              "note": "Q24 grounds reading Scripture through tradition; Q29 reads Old Testament preparation for Christ as coming \"through gradual revelations, by prophecies and types,\" affirming typological reading. The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 21-24, 29"
             },
             {
               "tradition": "anglican",

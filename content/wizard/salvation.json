@@ -153,8 +153,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "John Cassian, Conference 13; Confession of Dositheus (1672), Decree 3"
+              "note": "Decree 3 says God \"foreknew the one would make a right use of their free-will, and the other a wrong,\" and predestined or condemned accordingly. Verified directly; the decree number was already correct.",
+              "citation": "John Cassian, Conference 13; Confession of Dositheus, Synod of Jerusalem (1672), Decree 3"
             }
           ],
           "learn_detail": null,
@@ -498,8 +498,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Grounded in the sacrament of confession as the ordinary remedy for post-baptismal sin rather than in the same Western canon.",
-              "citation": "Confession of Dositheus (1672), Decree 14"
+              "note": "The Catechism says: “Penitence is a Sacrament, in which he who confesses his sins is, on the outward declaration of pardon by the priest, inwardly loosed from his sins by Jesus Christ himself.” Dositheus's Decree 15 names Penance, joined with sacramental confession, among the sacraments by which post-baptismal sin is forgiven. The previous citation to Decree 14 was wrong — Decree 14 concerns the retained freedom of the will after the fall, not the loss or restoration of grace through sin.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 351-353 (On Penitence); Confession of Dositheus, Synod of Jerusalem (1672), Decree 15"
             }
           ],
           "learn_detail": null,
@@ -507,6 +507,11 @@
             {
               "label": "Council of Trent",
               "citation": "Session 6, 1547, ch. 15"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 15",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         }
@@ -628,9 +633,9 @@
             },
             {
               "tradition": "orthodox",
-              "stance": "majority",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 9"
+              "stance": "confessional",
+              "note": "Decree 13 says: “faith [alone] fulfilling the function of a hand layeth hold on the righteousness which is in Christ, and applieth it unto us for salvation, we know to be far from all Orthodoxy. For faith so understood would be possible in all, and so none could miss salvation, which is obviously false.” The previous citation to Decree 9 (a general statement that no one is saved without faith) did not actually address assurance; Decree 13 is the decree that rejects a settled certainty of final salvation on faith alone.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13"
             }
           ],
           "learn_detail": null,
@@ -638,6 +643,11 @@
             {
               "label": "Council of Trent",
               "citation": "Session 6, 1547, ch. 9"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 13",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         }
@@ -959,8 +969,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 13; Athanasius, On the Incarnation, 54"
+              "note": "Decree 13 says a person is \"not simply justified through faith alone, but through faith which worketh through love, that is to say, through faith and works.\" Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13; Athanasius, On the Incarnation, 54"
             }
           ],
           "learn_detail": null,
@@ -1029,8 +1039,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 16"
+              "note": "Decree 16 says baptism is of \"the highest necessity,\" grounded in John 3:5, and necessary even for infants for the remission of original sin. Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 16"
             },
             {
               "tradition": "lutheran",

@@ -45,8 +45,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "The Longer Catechism of St Philaret of Moscow, On the Creation of Man"
+              "note": "Q114: “In what consists the image of God? It consists ... in righteousness and holiness of truth” (Eph 4:24); Q115 names the soul “a substance spiritual and immortal.” The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 113-115"
             },
             {
               "tradition": "reformed",
@@ -142,8 +142,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "The Longer Catechism of St Philaret of Moscow, on likeness through communion with God"
+              "note": "Q113 quotes Genesis 1:26, \"in our image, and after our likeness\"; Q117 describes the soul's life in Paradise as \"a state of communion by grace with God.\" This is thinner support for a distinctly relational reading than for the structural one (Q114 above); flagged rather than overstated. The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 113, 117"
             },
             {
               "tradition": "anabaptist",
@@ -497,8 +497,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus, Synod of Jerusalem, 1672, Decree 6"
+              "note": "Decree 6 says hereditary sin is not to be understood as \"[actual] sin, such as impiety, blasphemy, murder, sodomy, adultery, fornication\" but as the mortal, corrupted condition itself. Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 6"
             }
           ],
           "learn_detail": "This is not a denial of original sin; it is a different account of what is inherited. Orthodox theology affirms as strongly as any Western tradition that every person is born into a fallen, mortal, sin-prone condition that only Christ can heal, and that infant baptism addresses a real need. What it declines to affirm is the specifically Augustinian claim that Adam's own guilt is imputed to each descendant prior to their own sin.",
@@ -679,8 +679,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus, Decree 3"
+              "note": "Decree 14 says: “for the regenerated to do spiritual good ... it is necessary that he be guided and [preceded] by grace ... so that he is not able of himself to do any work worthy of a Christian life, although he hath it in his own power to will, or not to will, to co-operate with grace.” The previous citation to Decree 3 (predestination grounded in foreknowledge) was a mismatch; Decree 14 is the decree that actually states the grace-and-cooperation position.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 14"
             }
           ],
           "learn_detail": null,
@@ -688,6 +688,11 @@
             {
               "label": "Decrees of the Council of Trent",
               "citation": "Session VI, 1547"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 14",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         },
@@ -791,8 +796,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": "The mainstream modern reading; some early Fathers used threefold language.",
-              "citation": "The Longer Catechism of St Philaret of Moscow"
+              "note": "Q115: \"What is the breath of life? The soul, a substance spiritual and immortal\" — a single immaterial component, not two. The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Q115"
             }
           ],
           "learn_detail": null,
@@ -973,8 +978,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": "Standard pastoral practice of infant baptism and chrismation without a defined dogmatic statement about the unbaptized.",
-              "citation": "Standard Orthodox pastoral and liturgical practice"
+              "note": "Decree 16 says: “it is necessary even for infants, since they also are subject to original sin, and without Baptism are not able to obtain its remission.” This grounds infant baptism as the ordinary means of incorporation, but Dositheus does not address the fate of an unbaptized infant, so the prior wording about that being left to God's mercy without a defined dogmatic statement is retained. The previous citation, “Standard Orthodox pastoral and liturgical practice,” named no traceable text.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 16"
             }
           ],
           "learn_detail": null,
@@ -982,6 +987,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1261"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 16",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         }

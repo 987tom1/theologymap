@@ -1,0 +1,186 @@
+[
+  { "op": "held_by.set", "position": "salvation.perseverance-and-apostasy/mortal-sin-restoration", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 351-353 (On Penitence); Confession of Dositheus, Synod of Jerusalem (1672), Decree 15",
+      "note": "The Catechism says: “Penitence is a Sacrament, in which he who confesses his sins is, on the outward declaration of pardon by the priest, inwardly loosed from his sins by Jesus Christ himself.” Dositheus's Decree 15 names Penance, joined with sacramental confession, among the sacraments by which post-baptismal sin is forgiven. The previous citation to Decree 14 was wrong — Decree 14 concerns the retained freedom of the will after the fall, not the loss or restoration of grace through sin.",
+      "stance": "confessional" } },
+
+  { "op": "held_by.set", "position": "salvation.assurance/present-grace-only", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13",
+      "note": "Decree 13 says: “faith [alone] fulfilling the function of a hand layeth hold on the righteousness which is in Christ, and applieth it unto us for salvation, we know to be far from all Orthodoxy. For faith so understood would be possible in all, and so none could miss salvation, which is obviously false.” The previous citation to Decree 9 (a general statement that no one is saved without faith) did not actually address assurance; Decree 13 is the decree that rejects a settled certainty of final salvation on faith alone.",
+      "stance": "confessional" } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.depravity-and-prevenient-grace/synergistic", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 14",
+      "note": "Decree 14 says: “for the regenerated to do spiritual good ... it is necessary that he be guided and [preceded] by grace ... so that he is not able of himself to do any work worthy of a Christian life, although he hath it in his own power to will, or not to will, to co-operate with grace.” The previous citation to Decree 3 (predestination grounded in foreknowledge) was a mismatch; Decree 14 is the decree that actually states the grace-and-cooperation position.",
+      "stance": "confessional" } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.age-of-accountability/baptismal", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 16",
+      "note": "Decree 16 says: “it is necessary even for infants, since they also are subject to original sin, and without Baptism are not able to obtain its remission.” This grounds infant baptism as the ordinary means of incorporation, but Dositheus does not address the fate of an unbaptized infant, so the prior wording about that being left to God's mercy without a defined dogmatic statement is retained. The previous citation, “Standard Orthodox pastoral and liturgical practice,” named no traceable text.",
+      "stance": "majority" } },
+
+  { "op": "held_by.set", "position": "god.divine-foreknowledge/simple", "tradition": "orthodox",
+    "fields": { "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30, ‘Concerning Prescience and Predestination’",
+      "note": "Damascene says: “We ought to understand that while God knows all things beforehand, yet He does not predetermine all things. For He knows beforehand those things that are in our power, but He does not predetermine them ... predetermination is the work of the divine command based on foreknowledge.” Verified directly against the text; the existing citation and chapter number were already correct.",
+      "stance": "majority" } },
+
+  { "op": "position.sources", "position": "salvation.perseverance-and-apostasy/mortal-sin-restoration",
+    "sources": [ { "label": "Council of Trent", "citation": "Session 6, 1547, ch. 15" },
+      { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 15", "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html" } ] },
+
+  { "op": "position.sources", "position": "salvation.assurance/present-grace-only",
+    "sources": [ { "label": "Council of Trent", "citation": "Session 6, 1547, ch. 9" },
+      { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 13", "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html" } ] },
+
+  { "op": "position.sources", "position": "humanity-and-sin.depravity-and-prevenient-grace/synergistic",
+    "sources": [ { "label": "Decrees of the Council of Trent", "citation": "Session VI, 1547" },
+      { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 14", "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html" } ] },
+
+  { "op": "position.sources", "position": "humanity-and-sin.age-of-accountability/baptismal",
+    "sources": [ { "label": "Catechism of the Catholic Church", "citation": "1261" },
+      { "label": "Confession of Dositheus", "citation": "Synod of Jerusalem, 1672, Decree 16", "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html" } ] },
+
+  { "op": "position.sources", "position": "god.divine-foreknowledge/simple",
+    "sources": [ { "label": "On Predestination", "citation": "John Wesley, Sermon 58, 1773" },
+      { "label": "The Arminian Confession of 1621", "citation": "Simon Episcopius, ch. 2" },
+      { "label": "The Christian System", "citation": "Alexander Campbell, 1839, ch. 8, 'The Purposes of God Concerning Man'", "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS208.HTM" },
+      { "label": "John of Damascus, An Exact Exposition of the Orthodox Faith", "citation": "Book II, ch. 30", "url": "https://www.newadvent.org/fathers/33042.htm" } ] },
+
+  { "op": "held_by.set", "position": "christ.impeccability/impeccable", "tradition": "orthodox",
+    "fields": { "citation": "John of Damascus, An Exposition of the Orthodox Faith III.20, 'Concerning the natural and innocent passions'",
+      "note": "Damascene says: “no compulsion is contemplated in Him but all is voluntary. For it was with His will that He hungered and thirsted and feared and died”; the wicked one's assault came “from without,” and the temptations Christ overcame prepared “victory for us.” Verified directly; the chapter number was already correct." } },
+
+  { "op": "held_by.set", "position": "christ.atonement/christus-victor", "tradition": "orthodox",
+    "fields": { "citation": "John of Damascus, An Exposition of the Orthodox Faith III.27",
+      "note": "Damascene says death, \"swallowing up the body as a bait[,] is transfixed on the hook of divinity, and after tasting of a sinless and life-giving body, perishes, and brings up again all whom of old he swallowed up.\" Verified directly; the chapter number was already correct." } },
+
+  { "op": "held_by.set", "position": "church-history-and-authority.authority/holy-tradition", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Qq. 16-18, 21, 24",
+      "note": "Dositheus: “we ought to believe the [Scriptures] without doubting; yet not otherwise than as the Catholic Church hath interpreted and delivered the same.” The Catechism: divine revelation spreads through “two channels — holy tradition and holy Scripture” (Q16), and tradition is necessary “as a guide to the right understanding of holy Scripture” (Q24). Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "church-history-and-authority.creeds/recited-without-filioque", "tradition": "orthodox",
+    "fields": { "citation": "The Nicene-Constantinopolitan Creed (381), as received without later addition; Confession of Dositheus, Synod of Jerusalem (1672), Decree 1",
+      "note": "Decree 1 says: “the Holy Spirit proceeding from the Father, and consubstantial with the Father and the Son” — with no mention of the Son. Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "church-history-and-authority.fathers/consensus-patrum", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 12; Longer Catechism of St Philaret of Moscow, Q18",
+      "note": "Decree 12 says: “The teaching of the Holy Spirit ... doth not immediately, but through the holy Fathers and Leaders of the Catholic Church, illuminate the Church.” The previous citation to Decree 2 (on Scripture read within the Church) was the wrong decree; Decree 12 is the one that names the Fathers as the Spirit's organ.",
+      "stance": "confessional" } },
+
+  { "op": "held_by.set", "position": "church-history-and-authority.solas/orthodox-position", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13",
+      "note": "Decree 13 says: “a man [is] not simply justified through faith alone, but through faith which worketh through love, that is to say, through faith and works.” Verified directly; the decree range was already correct (Decree 14 also bears on the point, describing grace as necessary and cooperated with)." } },
+
+  { "op": "held_by.set", "position": "church.church-government/episcopal", "tradition": "orthodox",
+    "fields": { "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus, Synod of Jerusalem (1672), Decree 10",
+      "note": "Decree 10 says: “the dignity of the Bishop is so necessary in the Church, that without him, neither Church nor Christian could either be or be spoken of. For he, as a successor of the Apostles ... is a fountain of all the Mysteries of the Catholic Church, through which we obtain salvation.” Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "church.baptism/regeneration", "tradition": "orthodox",
+    "fields": { "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus, Synod of Jerusalem (1672), Decree 16",
+      "note": "Decree 16 says: baptism “is necessary even for infants, since they also are subject to original sin, and without Baptism are not able to obtain its remission.” Administered with chrismation and communion in a single rite, so the question is less separable than in the West. Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "church.lords-supper/transubstantiation", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17",
+      "note": "Decree 17 says the bread “is transmuted, transubstantiated, converted and transformed into the true Body Itself of the Lord.” Verified directly; the decree number was already correct. The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident — see this doctrine's tradition_overrides entry, which is what the generated Orthodox map states." } },
+
+  { "op": "held_by.set", "position": "church.membership/parish-sacramental", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 10 (episcopal governance of particular churches); Decree 11 (who counts as a member)",
+      "note": "Decree 11 says: “unless the Faithful, even when living in sin, were members of the Church, they could not be judged by the Church. But now being judged by her, and called to repentance ... they are, and are regarded as, members of the Catholic Church.” Decree 10 grounds the clergy-under-bishop structure. The previous citation named only Decree 10, which supports the clergy point but not the membership definition itself." } },
+
+  { "op": "held_by.set", "position": "ethics.marriage-and-sexuality/male-female-covenant", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 361-362 (On Matrimony); canonical tradition of the seven councils",
+      "note": "The Catechism says: “Matrimony is a Sacrament, in which, on the free promise of the man and woman before the priest and the Church to be true to each other, their conjugal union is blessed to be an image of Christ's union with the Church,” citing “A man shall leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh” (Eph 5:31-32). The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "ethics.alcohol/moderation-permitted", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17 (institution of the Eucharist with wine)",
+      "note": "No decree or catechism question addresses alcohol as an ethical question directly; the support is inferential from wine's sacramental use in Decree 17 (\"taking the chalice ... Drink ye all of It\"). Downgraded from confessional to majority because no confessional document actually states a moderation-vs-abstinence position.",
+      "stance": "majority" } },
+
+  { "op": "held_by.set", "position": "formation-and-practice.spiritual-disciplines/liturgical-office", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), reply to the Calvinists' objection to fasting and the prayers of the Church (following Decree 18)",
+      "note": "Dositheus says: the Church “for the mortification of the flesh and all the passions ... carefully appointeth prayer and fasting, of which all the Saints have been lovers and examples,” and defends the Church's use of “the Paracletike, the Triodion, and the Menaion” — its liturgical office books. The previous citation named the Catechism with no locator, and no such passage on fasting or the daily office was found in the Catechism itself." } },
+
+  { "op": "held_by.set", "position": "formation-and-practice.suffering-and-providence/general-providence-permission", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 5",
+      "note": "Decree 5 says: “although God foreknoweth evils, and permitteth them, yet in that they are evils, He is neither their contriver nor their author.” The previous citation named the Catechism with no locator; Decree 5 is a precise, direct match." } },
+
+  { "op": "held_by.set", "position": "god.eternal-generation/affirmed", "tradition": "orthodox",
+    "fields": { "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret of Moscow, Qq. 94, 139-144",
+      "note": "The Catechism: “The Son of God is from all eternity begotten of the Father: the Holy Ghost from all eternity proceeds from the Father” (Q94); “that none should think there was ever a time when he was not” (Q142, on 'begotten before all worlds'). The previous range, Qq. 132-140, was imprecise; 139-144 is the section that actually states eternal generation." } },
+
+  { "op": "held_by.set", "position": "god.classical-theism/classical", "tradition": "orthodox",
+    "fields": { "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret of Moscow, Q86",
+      "note": "Q86: “That God is a Spirit, eternal, all-good, omniscient, all-just, almighty, omnipresent, unchangeable, all-sufficing to himself, all-blessed.” The previous range, Qq. 89-97, is the Trinity/creation section, not the attributes list; corrected to Q86. The Catechism itself does not use the words \"simple,\" \"impassible,\" or \"essence-energies\" — those rest on the Palamite councils, already cited separately." } },
+
+  { "op": "held_by.set", "position": "god.time/timeless", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Q86",
+      "note": "Q86 lists God as \"eternal\" among the divine attributes, but the Catechism does not elaborate a doctrine of timeless eternity (no undivided-present language was found). The previous citation, Q90, is the Trinity section and does not mention eternity at all. This is thin support and is flagged as such rather than strengthened beyond what the text says." } },
+
+  { "op": "held_by.set", "position": "god.open-theism/settled-future", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 121-123",
+      "note": "Q122-123: God \"of his foreknowledge and infinite mercy, hath predestined\" a way to happiness for all, giving \"to all men ... preparatory grace, and means sufficient for the attainment of happiness.\" The previous range, Qq. 90-93, is the Trinity section and does not address foreknowledge; corrected to 121-123, the actual predestination/foreknowledge section." } },
+
+  { "op": "held_by.set", "position": "holy-spirit.baptism-in-the-holy-spirit/sacramental-initiation", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 307-310 (On Unction with Chrism)",
+      "note": "Q307: “Unction with Chrism is a Sacrament, in which the baptized believer, being anointed with holy chrism ... in the name of the Holy Ghost, receives the gifts of the Holy Ghost for growth and strength in spiritual life.” The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "holy-spirit.healing/real-sovereign-gift", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 364-365 (On Unction with Oil)",
+      "note": "Q364: “Unction with Oil is a Sacrament, in which, while the body is anointed with oil, God's grace is invoked on the sick, to heal him of spiritual and bodily infirmities.” The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.image-of-god/structural", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 113-115",
+      "note": "Q114: “In what consists the image of God? It consists ... in righteousness and holiness of truth” (Eph 4:24); Q115 names the soul “a substance spiritual and immortal.” The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.image-of-god/relational", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 113, 117",
+      "note": "Q113 quotes Genesis 1:26, \"in our image, and after our likeness\"; Q117 describes the soul's life in Paradise as \"a state of communion by grace with God.\" This is thinner support for a distinctly relational reading than for the structural one (Q114 above); flagged rather than overstated. The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.original-sin/ancestral-sin", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 6",
+      "note": "Decree 6 says hereditary sin is not to be understood as \"[actual] sin, such as impiety, blasphemy, murder, sodomy, adultery, fornication\" but as the mortal, corrupted condition itself. Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "humanity-and-sin.dichotomy-vs-trichotomy/dichotomy", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Q115",
+      "note": "Q115: \"What is the breath of life? The soul, a substance spiritual and immortal\" — a single immaterial component, not two. The previous citation named the Catechism with no question number." } },
+
+  { "op": "held_by.set", "position": "last-things.hell/eternal-conscious-torment", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 383-384 (Twelfth Article)",
+      "note": "Q383: unbelievers and transgressors \"will be given over to everlasting death — that is, to everlasting fire, to everlasting torment, with the devils.\" The previous citation named only \"the Twelfth Article\" with no question number." } },
+
+  { "op": "held_by.set", "position": "last-things.new-creation/renewed", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 370-372 (Twelfth Article)",
+      "note": "Q371-372: \"this corruptible world shall come to an end, and shall be transformed into another, incorruptible ... we ... look for new heavens and a new earth, wherein dwelleth righteousness,\" transformed \"by fire\" rather than replaced. The previous citation named only \"the Twelfth Article\" with no question number." } },
+
+  { "op": "held_by.set", "position": "missions-and-world-religions.exclusivity-of-christ/particularism", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 8",
+      "note": "Decree 8 says: \"our Lord Jesus Christ [is] the only mediator, and ... in giving Himself a ransom for all He hath through His own Blood made a reconciliation between God and man.\" The previous citation to Decree 1 (the Trinity) was the wrong decree." } },
+
+  { "op": "held_by.set", "position": "salvation.sovereignty-and-free-will/synergistic-mystery", "tradition": "orthodox",
+    "fields": { "citation": "John Cassian, Conference 13; Confession of Dositheus, Synod of Jerusalem (1672), Decree 3",
+      "note": "Decree 3 says God \"foreknew the one would make a right use of their free-will, and the other a wrong,\" and predestined or condemned accordingly. Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "salvation.justification/theosis", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13; Athanasius, On the Incarnation, 54",
+      "note": "Decree 13 says a person is \"not simply justified through faith alone, but through faith which worketh through love, that is to say, through faith and works.\" Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "salvation.regeneration-and-baptism/baptismal-regeneration", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 16",
+      "note": "Decree 16 says baptism is of \"the highest necessity,\" grounded in John 3:5, and necessary even for infants for the remission of original sin. Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "scripture.canon/deuterocanon", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), reply to Question 3 ('What Books do you call Sacred Scripture?')",
+      "note": "The reply lists \"The Wisdom of Solomon, Judith, Tobit, The History of the Dragon, The History of Susanna, The Maccabees, and The Wisdom of Sirach\" as \"genuine parts of Scripture.\" The previous citation to Decree 3 (predestination) was the wrong section — the canon list is in the appended Question 3, not a numbered decree." } },
+
+  { "op": "held_by.set", "position": "scripture.sufficiency/tradition", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Qq. 16-18, 21-24",
+      "note": "The Catechism: divine revelation spreads through \"two channels — holy tradition and holy Scripture\" (Q16), tradition being \"the most ancient and original instrument\" (Q21) and still necessary \"as a guide to the right understanding of holy Scripture\" (Q24). Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "scripture.clarity/magisterium", "tradition": "orthodox",
+    "fields": { "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Q24",
+      "note": "Q24: tradition is necessary \"as a guide to the right understanding of holy Scripture, for the right ministration of the sacraments, and the preservation of sacred rites and ceremonies.\" Verified directly; the decree number was already correct." } },
+
+  { "op": "held_by.set", "position": "scripture.hermeneutic-method/theological-tradition", "tradition": "orthodox",
+    "fields": { "citation": "Longer Catechism of St Philaret of Moscow, Qq. 21-24, 29",
+      "note": "Q24 grounds reading Scripture through tradition; Q29 reads Old Testament preparation for Christ as coming \"through gradual revelations, by prophecies and types,\" affirming typological reading. The previous citation named the Catechism with no question number." } }
+]

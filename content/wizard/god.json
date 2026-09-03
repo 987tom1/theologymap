@@ -233,8 +233,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Central to the Eastern account of the monarchy of the Father as the source of the Son's begetting and the Spirit's procession.",
-              "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret, 132-140"
+              "note": "The Catechism: “The Son of God is from all eternity begotten of the Father: the Holy Ghost from all eternity proceeds from the Father” (Q94); “that none should think there was ever a time when he was not” (Q142, on 'begotten before all worlds'). The previous range, Qq. 132-140, was imprecise; 139-144 is the section that actually states eternal generation.",
+              "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret of Moscow, Qq. 94, 139-144"
             },
             {
               "tradition": "anglican",
@@ -511,8 +511,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Held with the distinction between the divine essence and the divine energies, which the East uses to affirm both God's utter transcendence and his real presence to creatures.",
-              "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret, 89-97"
+              "note": "Q86: “That God is a Spirit, eternal, all-good, omniscient, all-just, almighty, omnipresent, unchangeable, all-sufficing to himself, all-blessed.” The previous range, Qq. 89-97, is the Trinity/creation section, not the attributes list; corrected to Q86. The Catechism itself does not use the words \"simple,\" \"impassible,\" or \"essence-energies\" — those rest on the Palamite councils, already cited separately.",
+              "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret of Moscow, Q86"
             },
             {
               "tradition": "reformed",
@@ -675,8 +675,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret, 90"
+              "note": "Q86 lists God as \"eternal\" among the divine attributes, but the Catechism does not elaborate a doctrine of timeless eternity (no undivided-present language was found). The previous citation, Q90, is the Trinity section and does not mention eternity at all. This is thin support and is flagged as such rather than strengthened beyond what the text says.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Q86"
             },
             {
               "tradition": "reformed",
@@ -794,8 +794,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret, 90-93"
+              "note": "Q122-123: God \"of his foreknowledge and infinite mercy, hath predestined\" a way to happiness for all, giving \"to all men ... preparatory grace, and means sufficient for the attainment of happiness.\" The previous range, Qq. 90-93, is the Trinity section and does not address foreknowledge; corrected to 121-123, the actual predestination/foreknowledge section.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 121-123"
             },
             {
               "tradition": "reformed",
@@ -1027,8 +1027,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": "The East has consistently declined to ground foreknowledge in a decree that determines creaturely choice, holding foreknowledge and freedom together without the Western apparatus.",
-              "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30"
+              "note": "Damascene says: “We ought to understand that while God knows all things beforehand, yet He does not predetermine all things. For He knows beforehand those things that are in our power, but He does not predetermine them ... predetermination is the work of the divine command based on foreknowledge.” Verified directly against the text; the existing citation and chapter number were already correct.",
+              "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30, ‘Concerning Prescience and Predestination’"
             },
             {
               "tradition": "restorationist",
@@ -1051,6 +1051,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, ch. 8, 'The Purposes of God Concerning Man'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS208.HTM"
+            },
+            {
+              "label": "John of Damascus, An Exact Exposition of the Orthodox Faith",
+              "citation": "Book II, ch. 30",
+              "url": "https://www.newadvent.org/fathers/33042.htm"
             }
           ]
         }

@@ -218,8 +218,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus (1672), Decree 10"
+              "note": "Decree 10 says: “the dignity of the Bishop is so necessary in the Church, that without him, neither Church nor Christian could either be or be spoken of. For he, as a successor of the Apostles ... is a fountain of all the Mysteries of the Catholic Church, through which we obtain salvation.” Verified directly; the decree number was already correct.",
+              "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus, Synod of Jerusalem (1672), Decree 10"
             },
             {
               "tradition": "anglican",
@@ -529,8 +529,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Administered with chrismation and communion in a single rite, so the question is less separable than in the West.",
-              "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus (1672), Decree 16"
+              "note": "Decree 16 says: baptism “is necessary even for infants, since they also are subject to original sin, and without Baptism are not able to obtain its remission.” Administered with chrismation and communion in a single rite, so the question is less separable than in the West. Verified directly; the decree number was already correct.",
+              "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus, Synod of Jerusalem (1672), Decree 16"
             },
             {
               "tradition": "lutheran",
@@ -711,8 +711,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident. See this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.",
-              "citation": "Confession of Dositheus (1672), Decree 17"
+              "note": "Decree 17 says the bread “is transmuted, transubstantiated, converted and transformed into the true Body Itself of the Lord.” Verified directly; the decree number was already correct. The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident — see this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17"
             }
           ],
           "learn_detail": "Transubstantiation is a claim about substance rather than appearance: the philosophical vocabulary distinguishes what a thing is from how it presents to the senses.",
@@ -981,8 +981,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 10"
+              "note": "Decree 11 says: “unless the Faithful, even when living in sin, were members of the Church, they could not be judged by the Church. But now being judged by her, and called to repentance ... they are, and are regarded as, members of the Catholic Church.” Decree 10 grounds the clergy-under-bishop structure. The previous citation named only Decree 10, which supports the clergy point but not the membership definition itself.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 10 (episcopal governance of particular churches); Decree 11 (who counts as a member)"
             },
             {
               "tradition": "anglican",

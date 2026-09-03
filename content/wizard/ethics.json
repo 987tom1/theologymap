@@ -46,8 +46,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret of Moscow; canonical tradition of the seven councils"
+              "note": "The Catechism says: “Matrimony is a Sacrament, in which, on the free promise of the man and woman before the priest and the Church to be true to each other, their conjugal union is blessed to be an image of Christ's union with the Church,” citing “A man shall leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh” (Eph 5:31-32). The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 361-362 (On Matrimony); canonical tradition of the seven councils"
             },
             {
               "tradition": "reformed",
@@ -1022,9 +1022,9 @@
             },
             {
               "tradition": "orthodox",
-              "stance": "confessional",
-              "note": "Wine is used in the Eucharist itself.",
-              "citation": "Longer Catechism of St Philaret of Moscow, on the Eucharist"
+              "stance": "majority",
+              "note": "No decree or catechism question addresses alcohol as an ethical question directly; the support is inferential from wine's sacramental use in Decree 17 (\"taking the chalice ... Drink ye all of It\"). Downgraded from confessional to majority because no confessional document actually states a moderation-vs-abstinence position.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17 (institution of the Eucharist with wine)"
             },
             {
               "tradition": "anglican",
