@@ -89,8 +89,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article III-IV"
+              "note": "The Smalcald Articles say \"there is none other name under heaven, given among men whereby we must be saved.\" Retargeted from Augsburg Confession, Article III-IV, which teach Christ's atonement and justification by faith but do not state the exclusivity claim this directly.",
+              "citation": "Smalcald Articles (1537), Part II, Article 1, \"The First and Chief Article\""
             },
             {
               "tradition": "methodist",
@@ -126,6 +126,11 @@
               "label": "The Christian System",
               "citation": "Alexander Campbell, 1839, 'Remission of Sins'",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"
+            },
+            {
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 1",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-christ-and-faith/"
             }
           ]
         },

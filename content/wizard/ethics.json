@@ -326,12 +326,6 @@
               "citation": "Assemblies of God, position paper, Divorce and Remarriage"
             },
             {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Luther's Small Catechism, Table of Duties, applied by later Lutheran pastoral practice"
-            },
-            {
               "tradition": "anglican",
               "stance": "permitted",
               "note": "Synod's three Houses voted by large majorities in November 2002 to rescind the 1957 Convocation resolutions against remarrying divorced people in church, recognising instead that “there are exceptional circumstances in which a divorced person may be married in church during the lifetime of a former spouse,” with the decision resting with the minister.",
@@ -1045,8 +1039,8 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": null,
-              "citation": "Luther's Large Catechism, on the seventh petition of the Lord's Prayer"
+              "note": "The Large Catechism lists among the flesh's temptations \"inchastity, laziness, gluttony and drunkenness, avarice and deception,\" naming drunkenness rather than drink itself as the vice. Retargeted from the Seventh Petition, which discusses deliverance from the devil generally and does not mention drink at all.",
+              "citation": "Luther's Large Catechism, Lord's Prayer, the Sixth Petition"
             },
             {
               "tradition": "reformed",
@@ -1066,6 +1060,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1334"
+            },
+            {
+              "label": "Large Catechism",
+              "citation": "Lord's Prayer, Sixth Petition",
+              "url": "https://bookofconcord.org/large-catechism/lords-prayer/"
             }
           ]
         },
@@ -1195,15 +1194,16 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article XVI"
+              "note": "The Augsburg Confession says civil ordinances \"are good works of God,\" and that the gospel \"does not destroy the State or the family, but very much requires that they be preserved as ordinances of God.\"",
+              "citation": "Augsburg Confession, Article XVI"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Augsburg Confession",
-              "citation": "1530, Article XVI"
+              "citation": "1530, Article XVI",
+              "url": "https://bookofconcord.org/augsburg-confession/of-civil-affairs/"
             }
           ]
         },
@@ -1343,8 +1343,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article XVI"
+              "note": "The Augsburg Confession says it is right for Christians \"to engage in just wars, to serve as soldiers,\" against those who forbid Christians from civil office.",
+              "citation": "Augsburg Confession, Article XVI"
             },
             {
               "tradition": "anglican",
@@ -1389,9 +1389,9 @@
               "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             },
             {
-              "label": "For the Health of the Nation",
-              "citation": "NAE, 2004, \"Promoting Just Peace and Restraining Violence\"",
-              "url": "https://www.nae.org/for-the-health-of-a-nation/promoting-just-peace-and-restraining-violence/"
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVI",
+              "url": "https://bookofconcord.org/augsburg-confession/of-civil-affairs/"
             }
           ]
         },

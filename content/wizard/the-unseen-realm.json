@@ -61,8 +61,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "Affirmed through the ecumenical creeds the Book of Concord opens with rather than a dedicated article.",
-              "citation": "Book of Concord (1580), the three chief symbols"
+              "note": "The Augsburg Confession confesses God as \"the Maker and Preserver of all things, visible and invisible,\" the traditional basis for affirming angels and demons as real created beings; neither text develops a separate treatment of them. Retargeted from a vague reference to \"the three chief symbols\" to the specific text that carries this language.",
+              "citation": "Augsburg Confession, Article I; Nicene Creed (Book of Concord, Ecumenical Creeds)"
             }
           ],
           "learn_detail": null,
@@ -70,6 +70,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "328-336"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article I",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
+            },
+            {
+              "label": "Nicene Creed",
+              "citation": "Book of Concord, Ecumenical Creeds",
+              "url": "https://bookofconcord.org/ecumenical-creeds/nicene-creed/"
             }
           ]
         },
@@ -410,12 +420,6 @@
               "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
             },
             {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
-            },
-            {
               "tradition": "anglican",
               "stance": "permitted",
               "note": null,
@@ -633,12 +637,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Wayne Grudem, Systematic Theology (1994), ch. 20"
-            },
-            {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Book of Concord, Small Catechism, explanation of the Third Article"
             }
           ],
           "learn_detail": null,

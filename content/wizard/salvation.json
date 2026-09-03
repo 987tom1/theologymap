@@ -54,8 +54,8 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": "Lutherans affirm monergism in conversion while declining to extend the decree symmetrically to reprobation.",
-              "citation": "Formula of Concord, Solid Declaration, Article 11"
+              "note": "The Solid Declaration says God \"observes its order also in wicked acts or works, inasmuch as a limit and measure is fixed by God to the evil,\" while the \"wicked, perverse will of the devil and of men\" remains the cause of evil.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             }
           ],
           "learn_detail": null,
@@ -63,6 +63,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "1619, Third and Fourth Heads of Doctrine"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },
@@ -1050,7 +1055,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Small Catechism says baptism \"works forgiveness of sins, delivers from death and the devil, and gives eternal salvation to all who believe,\" and that it is not water alone but \"the word of God which is in and with the water, and faith\" that makes it effective.",
               "citation": "Augsburg Confession, Article 9; Small Catechism, Part 4"
             }
           ],
@@ -1059,6 +1064,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1992, 1213-1215"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article IX",
+              "url": "https://bookofconcord.org/augsburg-confession/of-baptism/"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Sacrament of Holy Baptism",
+              "url": "https://bookofconcord.org/small-catechism/the-sacrament-of-holy-baptism/"
             }
           ]
         },

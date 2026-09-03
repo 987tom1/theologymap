@@ -55,12 +55,6 @@
               "citation": "Westminster Larger Catechism, Q&A 17"
             },
             {
-              "tradition": "lutheran",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration, Article I"
-            },
-            {
               "tradition": "baptist",
               "stance": "majority",
               "note": "The confession says: “The sacredness of human personality is evident in that God created man in His own image, and in that Christ died for man; therefore, every person of every race possesses full dignity and is worthy of respect and Christian love.”",
@@ -456,7 +450,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says original sin \"is truly sin, even now condemning and bringing eternal death upon those not born again through Baptism and the Holy Ghost.\"",
               "citation": "Augsburg Confession, Article II"
             },
             {
@@ -485,9 +479,9 @@
               "citation": "402-405"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 9",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Augsburg Confession",
+              "citation": "1530, Article II",
+              "url": "https://bookofconcord.org/augsburg-confession/original-sin/"
             }
           ]
         },
@@ -604,7 +598,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Solid Declaration says that \"in spiritual and divine things the intellect, heart, and will of the unregenerate man are utterly unable, by their own natural powers, to understand, believe, accept, think, will, begin, effect, do, work, or concur in working anything.\"",
               "citation": "Formula of Concord, Solid Declaration, Article II"
             },
             {
@@ -619,6 +613,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "III/IV"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article II, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/free-will/"
             }
           ]
         },
@@ -788,8 +787,8 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": null,
-              "citation": "Standard Lutheran anthropology following the Augsburg Confession's body-and-soul language"
+              "note": "The Small Catechism speaks of God as the one who has \"given me my body and soul, eyes, ears, and all my limbs, my reason, and all my senses,\" naming body and soul rather than a separate soul and spirit. Retargeted from an uncited generalization about \"standard Lutheran anthropology\" to this specific text.",
+              "citation": "Luther's Small Catechism, explanation of the First Article of the Apostles' Creed"
             },
             {
               "tradition": "baptist",
@@ -814,6 +813,11 @@
               "label": "Council of Vienne",
               "citation": "1312",
               "url": "https://www.ewtn.com/catholicism/library/council-of-vienne-1542"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Creed, First Article",
+              "url": "https://bookofconcord.org/small-catechism/the-creed/"
             }
           ]
         },

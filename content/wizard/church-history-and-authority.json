@@ -294,8 +294,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article 1"
+              "note": "The Nicene Creed as printed in the Book of Concord confesses the Holy Spirit as the one \"who proceedeth from the Father and the Son.\" Retargeted from Augsburg Confession, Article 1, which affirms the Council of Nicaea's Trinitarian doctrine but does not itself quote the creed's wording on the Spirit's procession.",
+              "citation": "Book of Concord, Ecumenical Creeds, the Nicene Creed"
             },
             {
               "tradition": "anglican",
@@ -317,9 +317,9 @@
               "citation": "246"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 8",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Nicene Creed",
+              "citation": "Book of Concord, Ecumenical Creeds",
+              "url": "https://bookofconcord.org/ecumenical-creeds/nicene-creed/"
             }
           ]
         },
@@ -522,8 +522,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Epitome, Rule and Norm 2"
+              "note": "The Formula says other confessions and the writings of teachers, ancient and modern, stand \"as a witness of the truth and as the unanimously received correct understanding of our predecessors,\" from and according to which, because the Formula is derived from God's Word, \"all other writings should be judged and adjusted.\" Retargeted from \"Rule and Norm 2,\" which is the paragraph naming the three ecumenical creeds, not this one.",
+              "citation": "Formula of Concord, Comprehensive Summary, Rule and Norm"
             },
             {
               "tradition": "methodist",
@@ -554,6 +554,11 @@
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 1.10",
               "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Formula of Concord, Rule and Norm",
+              "citation": "Solid Declaration, Comprehensive Summary",
+              "url": "https://bookofconcord.org/solid-declaration/rule-and-norm/"
             }
           ]
         },

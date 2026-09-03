@@ -1,24 +1,11 @@
 # Scripture
 
-## Canon · T1 · certain
-  hold  The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.
-  why   Authority belongs to a book because of what it is — the word of God given through its human author — and the church's historic role was to recognise that authority already present, not to grant it.
-  vs    Including the deuterocanonical books received by Rome and the East as part of the canon proper rather than as edifying but non-canonical writing.
-  refs  2 Pet 3:15-16
-
 ## Sufficiency of Scripture · T1 · certain
   hold  Scripture is sufficient for faith and practice, and no tradition, teaching office or further revelation may be added to it as binding on the conscience.
   why   Scripture claims to equip the man of God for every good work, and a rule that requires an external supplement to be complete is not, by its own account, a sufficient rule.
   vs    Scripture read within and normed by sacred tradition, which holds that Scripture was never meant to be read or interpreted apart from the church that produced and transmitted it.
   refs  2 Tim 3:16-17; Rev 22:18-19
-  link  clarity-of-scripture
   link  the-lords-supper
-
-## Clarity of Scripture · T2.5 · certain
-  hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
-  why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
-  vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
-  refs  Ps 119:105; 2 Tim 3:15
 
 
 # God
@@ -111,13 +98,6 @@
 
 
 # Humanity and sin
-
-## Image of God · T1.5 · certain
-  hold  The image of God consists chiefly in capacities that set humanity apart from the rest of creation, especially reason, moral agency and an immortal soul, which the fall wounded but did not destroy.
-  why   Genesis places the image language alongside humanity's unique capacity for God-given dominion and moral address, and the New Testament describes the image being renewed in knowledge, righteousness and holiness, qualities of the soul rather than of a role alone.
-  vs    Locating the image entirely in humanity's task of ruling creation, apart from any distinct capacity that makes the task possible.
-  refs  Gen 1:26-27; Col 3:10; Eph 4:24
-  link  historical-adam
 
 ## Historical Adam · T2.5 · certain
   hold  Adam and Eve were real historical individuals, specially created by God, and every other human being descends from them, so that Adam's fall is transmitted to the whole race by ordinary generation.
@@ -280,25 +260,7 @@
   why   The historic confessions affirm a spiritual realm of angels and fallen angels but locate the Christian's resistance to evil within ordinary practice rather than a specialised discipline.
   vs    Treating angels and demons as a subject requiring specialised attention, heightened vigilance, or dedicated ministry beyond the ordinary means of grace.
   refs  Col 1:16; Jude 1:6
-  link  can-a-christian-be-demonised
-  link  deliverance-ministry
   link  the-creeds
-
-## Can a Christian be demonised · T2 · confident
-  hold  A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.
-  why   Scripture describes the indwelling Spirit as God's own seal and guarantee, incompatible with a demon owning a believer, while also warning believers to resist an adversary who prowls seeking to devour.
-  vs    Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.
-  refs  1 John 4:4; 1 Pet 5:8-9
-  link  angels-and-demons
-  link  deliverance-ministry
-
-## Deliverance ministry · T2.5 · confident
-  hold  The church's proper response to spiritual affliction is repentance, prayer, Scripture, and pastoral care, without a specialised deliverance ministry or rite set apart for the purpose.
-  why   The New Testament's own instruction for the afflicted is prayer and the elders' pastoral care, and confidence in the ordinary means of grace is sufficient without a dedicated deliverance practice.
-  vs    Setting apart a specialised rite or ministry of deliverance, whether sacramental or charismatic, distinct from the church's ordinary pastoral care and means of grace.
-  refs  James 5:14-16; 1 Pet 5:8-9
-  link  can-a-christian-be-demonised
-  link  angels-and-demons
 
 
 # Ethics
@@ -306,7 +268,6 @@
 ## Marriage and sexuality · T2 · leaning · #study
   hold  Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.
   refs  Gen 2:24; Matt 19:4-6; Rom 1:26-27; 1 Cor 6:9-11
-  link  divorce-and-remarriage
 
 ## Abortion · T2 · leaning · #study
   hold  Lutheran bodies differ by church: the Lutheran Church-Missouri Synod holds unborn life protected from conception, while the Evangelical Lutheran Church in America permits abortion in narrowly defined tragic circumstances under its 1991 social statement.
@@ -320,13 +281,6 @@
   vs    Holding that Christ's teaching closes the use of lethal force to Christians altogether, when this position holds Romans 13's grant of the sword to civil government extends to a Christian's own service within it.
   refs  Rom 13:1-4; Luke 3:14
   link  church-and-the-public-square
-
-## Divorce and remarriage · T3 · confident
-  hold  Divorce, and the remarriage of the innocent party, is permitted on the ground of a spouse's sexual immorality or desertion by an unbelieving spouse, though reconciliation is always to be preferred.
-  why   Jesus himself names sexual immorality as an exception to his general prohibition of divorce, and Paul releases a believer from the marriage bond when an unbelieving spouse abandons it.
-  vs    Reading Scripture's exceptions as grounds for separation only, never for remarriage while the former spouse lives.
-  refs  Matt 19:9; 1 Cor 7:15
-  link  marriage-and-sexuality
 
 ## IVF and embryos · T3 · confident
   hold  In vitro fertilization may be pursued by a married couple using their own gametes, provided every embryo created is treated as a full human life to be protected: none deliberately destroyed, selectively reduced, or left indefinitely frozen without intent to preserve or implant.
@@ -408,7 +362,6 @@
   vs    Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
-  link  clarity-of-scripture
   link  the-creeds
 
 ## Reformation solas · T1.5 · certain

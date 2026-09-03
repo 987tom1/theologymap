@@ -70,7 +70,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Small Catechism confesses God as the one who \"has made me and all creatures... out of pure, fatherly, divine goodness and mercy, without any merit or worthiness in me.\" The catechism affirms God as maker of all things without spelling out creation from nothing as such.",
               "citation": "Luther's Small Catechism, explanation of the First Article of the Apostles' Creed"
             },
             {
@@ -109,9 +109,9 @@
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 1",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Small Catechism",
+              "citation": "The Creed, First Article",
+              "url": "https://bookofconcord.org/small-catechism/the-creed/"
             }
           ]
         }
@@ -897,8 +897,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Book of Concord, general confession of Christ's miracles including the resurrection"
+              "note": "The Augsburg Confession confesses that Christ \"was crucified, dead, and buried... and truly rose again the third day,\" and the Nicene Creed printed in the Book of Concord confesses these events \"according to the Scriptures.\" Retargeted from a vague reference to \"the Book of Concord's general confession of Christ's miracles\" to the specific article that makes these claims.",
+              "citation": "Augsburg Confession, Article III"
             },
             {
               "tradition": "methodist",
@@ -917,6 +917,11 @@
               "label": "First Vatican Council, Dei Filius",
               "citation": "ch. 3, 1870",
               "url": "https://www.papalencyclicals.net/councils/vatican1.htm"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         },

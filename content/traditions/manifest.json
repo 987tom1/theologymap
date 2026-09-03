@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "corpus_schema_version": 1,
-  "corpus_sha256": "8ea93fbc450dcc15322458949b6b3699644a0af4aa42afbe8c72217184d90bd8",
+  "corpus_sha256": "38e5670e94d87232a110e19b3382d491cee052e078e4df4036c8e170833e8b95",
   "traditions": [
     {
       "id": "non-denominational",
@@ -321,9 +321,11 @@
       "display_name": "Lutheran",
       "short_name": "Lutheran",
       "file": "lutheran.md",
-      "node_count": 54,
+      "node_count": 48,
       "skipped": [
         "scripture.inerrancy",
+        "scripture.canon",
+        "scripture.clarity",
         "scripture.hermeneutic-method",
         "scripture.translations",
         "god.time",
@@ -335,6 +337,7 @@
         "holy-spirit.prophecy",
         "holy-spirit.tongues",
         "holy-spirit.healing",
+        "humanity-and-sin.image-of-god",
         "humanity-and-sin.age-of-accountability",
         "salvation.election",
         "salvation.perseverance-and-apostasy",
@@ -348,6 +351,9 @@
         "creation-and-science.genre-of-genesis-1",
         "the-unseen-realm.divine-council",
         "the-unseen-realm.genesis-6-sons-of-god",
+        "the-unseen-realm.can-a-christian-be-demonised",
+        "the-unseen-realm.deliverance-ministry",
+        "ethics.divorce-and-remarriage",
         "ethics.prosperity-teaching",
         "formation-and-practice.hearing-god",
         "formation-and-practice.desert-seasons",

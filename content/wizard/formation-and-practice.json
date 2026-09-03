@@ -102,15 +102,21 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration, Article III"
+              "note": "The Solid Declaration says believers \"are declared and regarded godly and righteous by faith\" though \"they still are and remain sinners to the grave,\" and the Small Catechism describes baptism's daily meaning: \"the old Adam in us should, by daily contrition and repentance, be drowned and die... and a new man daily come forth and arise.\"",
+              "citation": "Formula of Concord, Solid Declaration, Article III; Small Catechism, The Sacrament of Holy Baptism"
             }
           ],
           "learn_detail": "This is not a milder version of the gradual-growth position; it denies that the believer's remaining sin is best pictured as a shrinking quantity, holding instead that the old self is daily drowned and a new self daily arises, a genuinely different account of the Christian life.",
           "sources": [
             {
               "label": "Formula of Concord, Solid Declaration",
-              "citation": "Article III, 1577"
+              "citation": "Article III, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/righteousness-of-faith/"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Sacrament of Holy Baptism",
+              "url": "https://bookofconcord.org/small-catechism/the-sacrament-of-holy-baptism/"
             }
           ]
         },
@@ -435,7 +441,7 @@
             {
               "tradition": "lutheran",
               "stance": "permitted",
-              "note": null,
+              "note": "The Augsburg Confession says usages \"ought to be observed which may be observed without sin, and which are profitable unto tranquillity and good order,\" permitting a shared liturgical pattern without requiring one and without discussing a daily office or church calendar by name.",
               "citation": "Augsburg Confession, Article XV"
             }
           ],
@@ -449,6 +455,11 @@
               "label": "Catechism of the Catholic Church",
               "citation": "1174-1178",
               "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XV",
+              "url": "https://bookofconcord.org/augsburg-confession/of-ecclesiastical-usages/"
             }
           ]
         },
@@ -583,7 +594,7 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": null,
+              "note": "The Solid Declaration says \"God in His purpose has ordained before the time of the world by what crosses and sufferings He would conform every one of His elect to the image of His Son, and that to every one His cross shall and must work together for good.\"",
               "citation": "Formula of Concord, Solid Declaration, Article XI"
             }
           ],
@@ -592,6 +603,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 5"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },

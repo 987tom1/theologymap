@@ -58,8 +58,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article XVII, 'Of Christ's Return to Judgment'"
+              "note": "The Augsburg Confession says \"at the Consummation of the World Christ will appear for judgment, and will raise up all the dead; He will give to the godly and elect eternal life and everlasting joys, but ungodly men and the devils He will condemn to be tormented without end.\"",
+              "citation": "Augsburg Confession, Article XVII, \"Of Christ's Return to Judgment\""
             },
             {
               "tradition": "anglican",
@@ -119,6 +119,11 @@
               "label": "Lausanne Covenant",
               "citation": "1974, Paragraph 15, 'The Return of Christ'",
               "url": "https://lausanne.org/covenant"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVII",
+              "url": "https://bookofconcord.org/augsburg-confession/of-christs-return-to-judgment/"
             }
           ]
         }
@@ -245,7 +250,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "Stated as a rejection of a future earthly reign preceding the resurrection.",
+              "note": "The Augsburg Confession condemns \"others who are now spreading certain Jewish opinions, that before the resurrection of the dead the godly shall take possession of the kingdom of the world, the ungodly being everywhere suppressed.\"",
               "citation": "Augsburg Confession, Article XVII"
             },
             {
@@ -266,6 +271,11 @@
             {
               "label": "Systematic Theology",
               "citation": "Louis Berkhof, 1938, Eschatology"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVII",
+              "url": "https://bookofconcord.org/augsburg-confession/of-christs-return-to-judgment/"
             }
           ]
         },
@@ -651,7 +661,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession frames Christ's return as a single event at \"the Consummation of the World,\" when he judges and raises all the dead at once, without a separate prior gathering — an inference from its single-event eschatology rather than direct engagement with the modern pretribulational-rapture question.",
               "citation": "Augsburg Confession, Article XVII"
             },
             {
@@ -700,6 +710,11 @@
               "label": "Catechism of the Catholic Church",
               "citation": "1038",
               "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVII",
+              "url": "https://bookofconcord.org/augsburg-confession/of-christs-return-to-judgment/"
             }
           ]
         }
@@ -784,7 +799,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "Stated as a rejection of any teaching that punishment for the condemned will end.",
+              "note": "The Augsburg Confession says ungodly men and devils will be condemned \"to be tormented without end,\" and condemns \"the Anabaptists, who think that there will be an end to the punishments of condemned men and devils.\"",
               "citation": "Augsburg Confession, Article XVII"
             },
             {
@@ -828,6 +843,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 18",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVII",
+              "url": "https://bookofconcord.org/augsburg-confession/of-christs-return-to-judgment/"
             }
           ]
         },

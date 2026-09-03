@@ -250,8 +250,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Epitome 8; Augsburg Confession, Article 3"
+              "note": "The Nicene Creed printed in the Book of Concord confesses the Son as \"begotten of the Father before all worlds, God of God, Light of Light, very God of very God, begotten, not made, being of one substance with the Father.\" Retargeted from Formula of Concord, Epitome 8, which speaks of Christ's person in the incarnation and only mentions eternal generation in passing.",
+              "citation": "Nicene Creed (Book of Concord, Ecumenical Creeds); Augsburg Confession, Article 1"
             },
             {
               "tradition": "reformed",
@@ -294,9 +294,14 @@
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 2",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Nicene Creed",
+              "citation": "Book of Concord, Ecumenical Creeds",
+              "url": "https://bookofconcord.org/ecumenical-creeds/nicene-creed/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
             }
           ]
         },
@@ -425,8 +430,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration 8"
+              "note": "The Solid Declaration treats the Son's humiliation and exaltation as belonging to the incarnate state, saying the human nature's majesty was present already \"when He was conceived in His mother's womb\" though \"laid aside... and kept it concealed in the state of His humiliation.\" It does not itself address an eternal ordering of authority between Father and Son; the shared, undivided will rests on the wider confession in Augsburg Confession, Article 1, that the three Persons are \"of the same essence and power.\"",
+              "citation": "Augsburg Confession, Article 1; Formula of Concord, Solid Declaration, Article VIII"
             },
             {
               "tradition": "reformed",
@@ -463,9 +468,14 @@
               "url": "https://www.pcaac.org/bco/westminster-confession/"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 1",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article VIII, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/person-of-christ/"
             }
           ]
         }
@@ -544,8 +554,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article 1"
+              "note": "The Augsburg Confession describes the one \"Divine Essence... eternal, without body, without parts, of infinite power, wisdom, and goodness.\" The article affirms simplicity and eternity in these terms but does not use the word impassible.",
+              "citation": "Augsburg Confession, Article 1"
             },
             {
               "tradition": "methodist",
@@ -574,6 +584,11 @@
               "label": "Fourth Lateran Council",
               "citation": "1215, ch. 1",
               "url": "https://legacy.fordham.edu/halsall/basis/lateran4.asp"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
             }
           ]
         },
@@ -821,8 +836,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration 11"
+              "note": "The Solid Declaration says \"God sees and knows everything before it happens\" and \"foresees and foreknows everything that is or will be,\" whether good or bad.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             },
             {
               "tradition": "methodist",
@@ -851,6 +866,11 @@
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article II",
               "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },

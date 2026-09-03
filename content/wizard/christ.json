@@ -82,7 +82,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"there are two natures, the divine and the human, inseparably enjoined in one Person, one Christ, true God and true man.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -118,6 +118,11 @@
               "label": "Catechism of the Catholic Church",
               "citation": "464-469",
               "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         },
@@ -165,7 +170,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Solid Declaration says the human nature in Christ, glorified and exalted, \"did receive... special, high, great, supernatural, inscrutable, ineffable, heavenly prerogatives,\" and that Christ had this majesty already \"when He was conceived in His mother's womb.\"",
               "citation": "Formula of Concord, Solid Declaration, Article VIII"
             }
           ],
@@ -173,7 +178,8 @@
           "sources": [
             {
               "label": "Formula of Concord, Solid Declaration",
-              "citation": "Article VIII, 1577"
+              "citation": "Article VIII, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/person-of-christ/"
             }
           ]
         }
@@ -447,7 +453,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says Christ \"was crucified, dead, and buried... He also descended into hell, and truly rose again the third day; afterward He ascended into heaven that He might sit on the right hand of the Father.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -483,6 +489,11 @@
               "label": "Thirty-Nine Articles of Religion",
               "citation": "1571, Article 4",
               "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         }
@@ -768,8 +779,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article III"
+              "note": "The Smalcald Articles say: \"Jesus Christ, our God and Lord, died for our sins, and was raised again for our justification,\" and that \"there is none other name under heaven, given among men whereby we must be saved.\" Retargeted from Augsburg Confession, Article III, which speaks of Christ as a sacrifice for sin but not in penal terms as directly as this article does.",
+              "citation": "Smalcald Articles (1537), Part II, Article 1, \"The First and Chief Article\""
             },
             {
               "tradition": "anglican",
@@ -813,9 +824,9 @@
               "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             },
             {
-              "label": "Thirty-Nine Articles of Religion",
-              "citation": "1571, Article 31",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 1",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-christ-and-faith/"
             }
           ]
         },
