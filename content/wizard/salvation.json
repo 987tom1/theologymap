@@ -413,7 +413,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says the truly regenerate \"can neither totally nor finally fall away from the state of grace; but shall certainly persevere therein to the end, and be eternally saved.\"",
               "citation": "Westminster Confession of Faith 17.1-17.2; Canons of Dordt, Fifth Head of Doctrine"
             },
             {
@@ -427,7 +427,8 @@
           "sources": [
             {
               "label": "Canons of Dordt",
-              "citation": "1619, Fifth Head of Doctrine"
+              "citation": "1619, Fifth Head of Doctrine",
+              "url": "https://www.crcna.org/welcome/beliefs/confessions/canons-dort"
             },
             {
               "label": "Baptist Faith and Message",
@@ -861,8 +862,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article 3"
+              "note": "The Formula says: \"our righteousness before God is [this]... that God forgives us our sins out of pure grace... that He presents and imputes to us the righteousness of Christ's obedience, on account of which righteousness we are received into grace by God, and regarded as righteous\" (Solid Declaration III); the Augsburg Confession adds that faith, not works, \"God imputes for righteousness in His sight\" (Article 4).",
+              "citation": "Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article III"
             },
             {
               "tradition": "baptist",
@@ -899,12 +900,18 @@
           "sources": [
             {
               "label": "Augsburg Confession",
-              "citation": "1530, Article 4"
+              "citation": "1530, Article 4",
+              "url": "https://bookofconcord.org/augsburg-confession/of-justification/"
             },
             {
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 6",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Solid Declaration, Article III",
+              "url": "https://bookofconcord.org/formula-of-concord-solid-declaration/article-iii/"
             }
           ]
         },
@@ -1091,15 +1098,21 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "Read this way chiefly within the evangelical wing of the Communion.",
-              "citation": "Thirty-Nine Articles, Article 27"
+              "note": "Article 27 calls baptism \"a sign of Regeneration or New-Birth, whereby, as by an instrument, they that receive Baptism rightly are grafted into the Church.\" Read this way chiefly within the evangelical wing of the Communion, alongside the sacramentalist reading the same clause permits.",
+              "citation": "Thirty-Nine Articles of Religion, Article 27"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "1646, ch. 28"
+              "citation": "1646, ch. 28",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 27",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

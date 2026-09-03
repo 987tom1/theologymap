@@ -52,7 +52,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says it pleased God \"in the beginning, to create or make of nothing the world, and all things therein.\"",
               "citation": "Westminster Confession of Faith 4.1"
             },
             {
@@ -100,7 +100,8 @@
             },
             {
               "label": "Westminster Confession of Faith",
-              "citation": "4.1"
+              "citation": "1646, ch. 4.1",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
             },
             {
               "label": "Dordrecht Confession of Faith",
@@ -867,7 +868,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "Dei Filius says: \"it was God's will that there should be linked to the internal assistance of the Holy Spirit external indications of his revelation, that is to say divine acts, and first and foremost miracles and prophecies... which are the most certain signs of revelation.\"",
               "citation": "First Vatican Council, Dei Filius, ch. 3 (1870)"
             },
             {
@@ -912,6 +913,11 @@
             {
               "label": "Miracles",
               "citation": "C. S. Lewis, 1947"
+            },
+            {
+              "label": "First Vatican Council, Dei Filius",
+              "citation": "ch. 3, 1870",
+              "url": "https://www.papalencyclicals.net/councils/vatican1.htm"
             }
           ]
         },

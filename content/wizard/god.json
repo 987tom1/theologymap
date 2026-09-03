@@ -58,7 +58,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"there is one Divine Essence which is called and which is God... and yet there are three Persons, of the same essence and power, who also are coeternal, the Father, the Son, and the Holy Ghost.\"",
               "citation": "Augsburg Confession (1530), Article 1 (De Deo)"
             },
             {
@@ -128,13 +128,18 @@
             },
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+              "citation": "Alexander Campbell, 1839, ch. 3, \"God\"",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
             },
             {
               "label": "National Association of Evangelicals, Statement of Faith",
               "citation": "1943, Article 2",
               "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/god/"
             }
           ]
         },
@@ -416,7 +421,7 @@
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": "The classical Reformed account, restated forcefully in the 2016 exchange by Carl Trueman and Liam Goligher; a minority of Reformed complementarians hold the other position.",
+              "note": "The Confession describes the three persons as \"of one substance, power, and eternity: God the Father, God the Son, and God the Holy Ghost,\" naming only the relations of begetting and procession, never authority and submission.",
               "citation": "Westminster Confession of Faith 2.3; Carl Trueman and Liam Goligher, Mortification of Spin exchange (2016)"
             },
             {
@@ -441,6 +446,11 @@
             {
               "label": "Third Council of Constantinople",
               "citation": "681, on the two wills"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 2.3",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
             }
           ]
         }
@@ -495,7 +505,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "Lateran IV says: \"there is only one true God, eternal and immense, omnipotent, unchangeable... three Persons indeed but one essence, substance, or nature absolutely simple.\" The Catechism adds that God \"remains ever faithful to himself and to his promises\" (212).",
               "citation": "Fourth Lateran Council (1215), ch. 1; First Vatican Council, Dei Filius 1; Catechism of the Catholic Church 212-213"
             },
             {
@@ -544,6 +554,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 2.1"
+            },
+            {
+              "label": "Fourth Lateran Council",
+              "citation": "1215, ch. 1",
+              "url": "https://legacy.fordham.edu/halsall/basis/lateran4.asp"
             }
           ]
         },
@@ -672,7 +687,7 @@
             {
               "tradition": "anglican",
               "stance": "majority",
-              "note": null,
+              "note": "Article 1 describes God as \"one living and true God, everlasting, without body, parts, or passions,\" the classical language later theologians read as entailing timeless eternity.",
               "citation": "Thirty-Nine Articles of Religion, Article 1"
             }
           ],
@@ -685,6 +700,11 @@
             {
               "label": "Summa Theologiae",
               "citation": "Thomas Aquinas, Ia, q. 10"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -907,9 +927,9 @@
             },
             {
               "tradition": "lutheran",
-              "stance": "majority",
-              "note": "Lutheran theology affirms the decree in election while declining to extend the same account to reprobation, which the Formula of Concord treats as a mystery rather than a symmetry.",
-              "citation": "Formula of Concord, Solid Declaration 11"
+              "stance": "confessional",
+              "note": "The Formula says election is grounded \"before we had done anything good, but also before we were born, yea, even before the foundations of the world were laid, He elected us in Christ,\" and rejects the view \"that also in us there is a cause of God's election\" (Solid Declaration XI, para. 88), while treating reprobation as a mystery it declines to fold into the same account.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             },
             {
               "tradition": "roman-catholic",
@@ -933,6 +953,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "1619, First Head of Doctrine"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Solid Declaration, Article XI",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },

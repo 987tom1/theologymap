@@ -412,7 +412,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says the Liturgy of the Hours is \"so devised that the whole course of the day and night is made holy by the praise of God,\" in which \"the faithful (clergy, religious, and lay people) exercise the royal priesthood of the baptized\" (1174).",
               "citation": "Catechism of the Catholic Church, 1174-1178"
             },
             {
@@ -439,6 +439,11 @@
             {
               "label": "Book of Common Prayer",
               "citation": "1662"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1174-1178",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },
@@ -609,12 +614,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Longer Catechism of St Philaret of Moscow"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "permitted",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article XVII, read alongside the Homilies"
             },
             {
               "tradition": "baptist",

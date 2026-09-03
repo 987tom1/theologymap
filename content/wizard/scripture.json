@@ -278,8 +278,8 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
-              "citation": "Council of Trent, Session IV (1546)"
+              "note": "The decree says: \"if any one receive not, as sacred and canonical, these same books entire with all their parts, as they have been used to be read in the Catholic Church, and as they are contained in the old Latin vulgate edition... let him be anathema.\"",
+              "citation": "Council of Trent, Session IV, Decree on Sacred Books (1546)"
             },
             {
               "tradition": "orthodox",
@@ -293,7 +293,7 @@
             {
               "label": "Council of Trent",
               "citation": "Session IV, Decree on Sacred Books (1546)",
-              "url": null
+              "url": "https://en.wikisource.org/wiki/Canons_and_Decrees_of_the_Council_of_Trent/Session_IV/Sacred_Books"
             }
           ]
         }
@@ -345,7 +345,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says nothing \"is to be added\" to Scripture's whole counsel, \"whether by new revelations of the Spirit, or traditions of men.\"",
               "citation": "Westminster Confession of Faith 1.6"
             },
             {
@@ -660,12 +660,6 @@
               "citation": "Westminster Confession of Faith 1.9"
             },
             {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Formula of Concord (1577), Epitome, Rule and Norm, 1"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "majority",
               "note": null,
@@ -802,7 +796,7 @@
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": null,
+              "note": "The Confession says the Scriptures \"are to be translated into the vulgar language of every nation unto which they come, that the Word of God dwelling plentifully in all, they may worship him in an acceptable manner.\"",
               "citation": "Westminster Confession of Faith 1.8"
             },
             {

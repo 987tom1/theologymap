@@ -413,13 +413,6 @@
   link  spiritual-disciplines
   link  sufficiency-of-scripture
 
-## Suffering and providence · T2 · leaning
-  hold  God upholds and governs all things in his general providence and can redeem any suffering for good, but particular instances of suffering are permitted within that governance rather than specifically willed by God for their own sake.
-  why   Scripture distinguishes what God does from what he allows, and holding suffering as permitted rather than specifically willed protects the goodness of God's character while still trusting his overarching governance of history.
-  vs    Attributing a particular instance of suffering directly to God's specific intention, as though it were something he purposed for its own sake rather than something his governance permits and can redeem.
-  refs  Job 1:12; 2 Cor 12:7-9
-  link  hearing-god
-
 ## Spiritual disciplines · T3 · certain
   hold  The Christian life is formed by praying the church's daily office at fixed hours and by keeping the church year's cycle of fasts, feasts and seasons, so that the whole community is shaped by a shared, inherited rhythm rather than by private discretion.
   why   The church has prayed the psalter at fixed hours since the earliest centuries, and a shared calendar disciplines the whole body together rather than leaving formation to each believer's own initiative.

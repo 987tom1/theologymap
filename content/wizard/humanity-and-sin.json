@@ -262,13 +262,13 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
-              "citation": "Westminster Confession of Faith VI.3"
+              "note": "The Confession says Adam and Eve, \"being the root of all mankind, the guilt of this sin was imputed, and the same death in sin and corrupted nature conveyed to all their posterity descending from them by ordinary generation.\"",
+              "citation": "Westminster Confession of Faith 6.3"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"since the fall of Adam all men begotten in the natural way are born with sin... this disease, or vice of origin, is truly sin, even now condemning and bringing eternal death upon those not born again through Baptism and the Holy Ghost.\"",
               "citation": "Augsburg Confession, Article II"
             },
             {
@@ -312,12 +312,17 @@
           "sources": [
             {
               "label": "Humani Generis",
-              "citation": "Pius XII, 1950, §37"
+              "citation": "Pius XII, 1950, para. 37"
             },
             {
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 1",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article II",
+              "url": "https://bookofconcord.org/augsburg-confession/original-sin/"
             }
           ]
         },
@@ -756,14 +761,14 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Council of Vienne declared that anyone who denies that the rational or intellectual soul is essentially and of itself the form of the human body is a heretic; the Catechism adds that \"'soul' signifies the spiritual principle in man\" (363), naming one immaterial aspect rather than two separate constitutive parts.",
               "citation": "Council of Vienne, 1312; Catechism of the Catholic Church 362-368"
             },
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
-              "citation": "Westminster Confession of Faith, XXXII.1"
+              "note": "The Confession says the bodies of men \"return to dust... but their souls (which neither die nor sleep), having an immortal subsistence, immediately return to God who gave them,\" naming only body and soul.",
+              "citation": "Westminster Confession of Faith 32.1"
             },
             {
               "tradition": "lutheran",
@@ -795,6 +800,11 @@
             {
               "label": "Summa Theologiae",
               "citation": "Thomas Aquinas, I q.75-76, on the unity of the soul"
+            },
+            {
+              "label": "Council of Vienne",
+              "citation": "1312",
+              "url": "https://www.ewtn.com/catholicism/library/council-of-vienne-1542"
             }
           ]
         },

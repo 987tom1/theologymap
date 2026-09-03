@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "corpus_schema_version": 1,
-  "corpus_sha256": "e6141ba6b9743f7ba5b3835285ea67bbff637fdcf3654502eddad261cc469c60",
+  "corpus_sha256": "19e333dd391d61251cd137a7091015a72e29bdf92ac3d634b2a7c641d2249242",
   "traditions": [
     {
       "id": "non-denominational",
@@ -214,7 +214,7 @@
       "display_name": "Anglican / Episcopal",
       "short_name": "Anglican",
       "file": "anglican.md",
-      "node_count": 61,
+      "node_count": 60,
       "skipped": [
         "god.divine-foreknowledge",
         "christ.divine-power",
@@ -238,6 +238,7 @@
         "the-unseen-realm.deliverance-ministry",
         "ethics.prosperity-teaching",
         "ethics.church-and-the-public-square",
+        "formation-and-practice.suffering-and-providence",
         "formation-and-practice.desert-seasons",
         "missions-and-world-religions.contextualisation",
         "missions-and-world-religions.israel-and-judaism"
@@ -313,9 +314,10 @@
       "display_name": "Lutheran",
       "short_name": "Lutheran",
       "file": "lutheran.md",
-      "node_count": 57,
+      "node_count": 54,
       "skipped": [
         "scripture.inerrancy",
+        "scripture.hermeneutic-method",
         "scripture.translations",
         "god.time",
         "christ.divine-power",
@@ -332,7 +334,9 @@
         "salvation.assurance",
         "salvation.lordship-salvation",
         "church.women-in-ministry",
+        "church.membership",
         "last-things.israel-and-the-church",
+        "last-things.intermediate-state",
         "last-things.new-creation",
         "creation-and-science.genre-of-genesis-1",
         "the-unseen-realm.divine-council",

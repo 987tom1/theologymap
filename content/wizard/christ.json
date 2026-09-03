@@ -58,7 +58,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say: \"two whole and perfect Natures, that is to say, the Godhead and Manhood, were joined together in one Person, never to be divided, whereof is one Christ, very God, and very Man.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
@@ -70,8 +70,8 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
-              "citation": "Catechism of the Catholic Church 464-469"
+              "note": "The Catechism says: \"We confess that one and the same Christ, Lord, and only-begotten Son, is to be acknowledged in two natures without confusion, change, division or separation\" (CCC 467, quoting Chalcedon).",
+              "citation": "Catechism of the Catholic Church 464-469, esp. 467"
             },
             {
               "tradition": "orthodox",
@@ -113,6 +113,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 4",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "464-469",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },
@@ -301,7 +306,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"The Word, that is, the Son of God, did assume the human nature in the womb of the blessed Virgin Mary, so that there are two natures, the divine and the human, inseparably enjoined in one Person, one Christ, true God and true man, who was born of the Virgin Mary.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -321,7 +326,8 @@
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "CCC 496-498"
+              "citation": "CCC 496-498",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             },
             {
               "label": "International Network of Churches, Declaration of Faith",
@@ -332,6 +338,11 @@
               "label": "National Association of Evangelicals, Statement of Faith",
               "citation": "1943, Article 3",
               "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         }
@@ -407,7 +418,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say: \"Christ did truly rise again from death, and took again his body, with flesh, bones, and all things appertaining to the perfection of Man's nature.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 4"
             },
             {
@@ -462,6 +473,11 @@
               "label": "National Association of Evangelicals, Statement of Faith",
               "citation": "1943, Article 3",
               "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 4",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         }
@@ -998,7 +1014,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 8 says: \"it was the entirely free plan and very gracious will and intention of God the Father that the enlivening and saving effectiveness of his Son's costly death should work itself out in all the elect.\"",
               "citation": "Canons of Dordt, Second Head of Doctrine, Articles 3 and 8"
             },
             {
@@ -1012,7 +1028,8 @@
           "sources": [
             {
               "label": "Canons of Dordt, Second Head of Doctrine",
-              "citation": "Synod of Dort, 1618-1619"
+              "citation": "Synod of Dort, 1618-1619",
+              "url": "https://www.crcna.org/welcome/beliefs/confessions/canons-dort"
             }
           ]
         },

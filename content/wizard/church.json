@@ -477,8 +477,8 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
-              "citation": "Westminster Confession of Faith 28.4; Heidelberg Catechism Q.74"
+              "note": "The Catechism says: \"Infants as well as adults are included in God's covenant and people... Therefore, by baptism, the sign of the covenant, they too should be incorporated into the Christian church.\"",
+              "citation": "Westminster Confession of Faith 28.4; Heidelberg Catechism Q&A 74"
             },
             {
               "tradition": "methodist",
@@ -523,7 +523,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"Holy Baptism is the basis of the whole Christian life... Through Baptism we are freed from sin and reborn as sons of God\" (1213), and of infants: \"Born with a fallen human nature and tainted by original sin, children also have need of the new birth in Baptism\" (1250).",
               "citation": "Catechism of the Catholic Church, 1213-1215, 1250"
             },
             {
@@ -565,7 +565,7 @@
             },
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'",
+              "citation": "Alexander Campbell, 1839, ch. 16, \"Baptism\"",
               "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
             }
           ]
@@ -989,12 +989,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Book of Common Prayer (1662), Publick Baptism; Canons of the Church of England"
-            },
-            {
-              "tradition": "lutheran",
-              "stance": "permitted",
-              "note": "Practice varies between state-church and free-church Lutheran bodies; both ground standing in baptism and sacramental participation rather than a separate covenant.",
-              "citation": "Augsburg Confession, XIV"
             }
           ],
           "learn_detail": "Discipline in this model is exercised by the clergy, typically as exclusion from the sacraments, rather than by a vote or process of the gathered congregation.",

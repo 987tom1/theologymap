@@ -205,7 +205,7 @@
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": "The predominant historic Reformed reading, though not the only one contemporary Reformed theologians hold.",
+              "note": "The Confession says such persons \"never truly come unto Christ, and therefore cannot be saved,\" and calls the claim that they may be saved otherwise \"very pernicious, and to be detested.\"",
               "citation": "Westminster Confession of Faith 10.4"
             },
             {
@@ -219,7 +219,8 @@
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "10.4"
+              "citation": "1646, ch. 10.4",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
             },
             {
               "label": "Lausanne Covenant",
@@ -244,7 +245,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": "Stated of those who, through no fault of their own, do not know the gospel but sincerely seek God.",
+              "note": "The Catechism says: \"Those who, through no fault of their own, do not know the Gospel of Christ or his Church, but who nevertheless seek God with a sincere heart, and, moved by grace, try in their actions to do his will as they know it through the dictates of their conscience — those too may achieve eternal salvation\" (847).",
               "citation": "Lumen Gentium 16 (1964); Catechism of the Catholic Church, 847"
             },
             {
@@ -270,11 +271,17 @@
           "sources": [
             {
               "label": "Lumen Gentium",
-              "citation": "Second Vatican Council, 1964, §16"
+              "citation": "Second Vatican Council, 1964, para. 16",
+              "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
             },
             {
               "label": "Nostra Aetate",
               "citation": "Second Vatican Council, 1965"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "847",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },

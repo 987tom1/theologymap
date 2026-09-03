@@ -14,17 +14,11 @@
   link  clarity-of-scripture
   link  the-lords-supper
 
-## Hermeneutic method · T2 · confident
-  hold  Authorial intent, grammar, genre and historical context govern a passage's meaning, and application follows from that meaning rather than substituting for it.
-  why   God communicated through human authors writing in real languages to real audiences, and honouring that communication means reading a text the way its author meant it, rather than importing a later sense onto it.
-  vs    Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.
-
 ## Clarity of Scripture · T2.5 · certain
   hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
   why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
   vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
   refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
 
 
 # God
@@ -68,7 +62,7 @@
   link  trinity
   link  eternal-generation-of-the-son
 
-## Divine foreknowledge · T3 · confident
+## Divine foreknowledge · T3 · certain
   hold  God knows the future because he has eternally decreed it, so his foreknowledge of what creatures will do is knowledge of his own purpose rather than knowledge drawn from the creatures themselves.
   why   Nothing comes to pass outside God's ordination, and a knowledge of the future that God derived from what creatures will independently do would make his knowledge dependent on the creation.
   vs    Accounts that ground God's foreknowledge in the creature's independent choice, which this position holds makes God a spectator of a future he did not determine.
@@ -190,7 +184,6 @@
   why   The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.
   refs  Matt 28:19; Acts 2:38-39; Col 2:11-12; 1 Pet 3:21
   link  the-lords-supper
-  link  membership-and-discipline
 
 ## The Lord's Supper · T2 · certain
   hold  Christ's body and blood are truly and objectively present in, with and under the bread and wine, given and received by all communicants whether or not they believe.
@@ -204,15 +197,6 @@
   why   The New Testament pattern of apostolic oversight passed to Timothy and Titus as individuals charged with appointing elders, and the earliest post-apostolic churches were governed by a single bishop in each city.
   vs    Government by a plurality of elders with no single office standing over the local eldership.
   refs  1 Tim 3:1-7; Titus 1:5; 1 Tim 5:22
-  link  membership-and-discipline
-
-## Membership and discipline · T3 · leaning
-  hold  Belonging is constituted by baptism and sacramental standing within a parish or diocese, administered by the clergy under the bishop, rather than by a local covenant the congregation itself enters into.
-  why   The church's boundary has historically been the sacraments themselves — baptism admits, and excommunication from the sacraments, exercised by the clergy, is the discipline the New Testament describes.
-  vs    Requiring a separate congregational covenant beyond baptism and sacramental standing to establish who belongs.
-  refs  1 Cor 5:1-13; Matt 18:15-17
-  link  baptism
-  link  church-government
 
 
 # Last things
@@ -237,15 +221,6 @@
   why   The same Greek word for 'eternal' describes both the punishment of the wicked and the life of the righteous in the same verse, and Revelation describes the suffering of the condemned as continuing day and night forever and ever.
   vs    Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
   refs  Matt 25:46; Rev 14:11
-  link  second-coming
-  link  intermediate-state
-
-## Intermediate state · T3 · confident
-  hold  At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.
-  why   Paul describes departing the body as being at home with the Lord without any interval of unconsciousness, and Jesus promises the repentant thief that he will be with him in paradise that very day.
-  vs    Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.
-  refs  2 Cor 5:6-8; Luke 23:43
-  link  hell
   link  second-coming
 
 ## Rapture · T4 · certain
@@ -372,7 +347,6 @@
   why   Wine is used in Scripture as an image of blessing and is present at the wedding at Cana and in the Lord's Supper itself, so the consistent target of biblical warning is drunkenness, not moderate use as such.
   vs    Treating any use of alcohol at all, rather than drunkenness specifically, as the sin Scripture warns against.
   refs  Ps 104:14-15; John 2:1-10
-  link  membership-and-discipline
 
 ## Church and the public square · T3 · certain
   hold  God rules through two distinct kingdoms, the spiritual kingdom of the church governed by the gospel and the temporal kingdom of civil government governed by law and the sword, and Christians may serve faithfully in both without collapsing one into the other.
@@ -435,7 +409,6 @@
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
   link  clarity-of-scripture
-  link  hermeneutic-method
   link  the-creeds
 
 ## Reformation solas · T1.5 · certain
@@ -452,7 +425,6 @@
   vs    Treating patristic consensus as carrying binding, near-conciliar authority over the interpretation of Scripture.
   link  prima-scriptura
   link  the-creeds
-  link  hermeneutic-method
 
 ## Roman Catholics and Orthodox · T3 · certain
   hold  Roman Catholic and Orthodox Christians are regarded as fellow believers whose churches nonetheless hold serious doctrinal error, on justification, the papacy or the invocation of the saints among other matters, that a faithful church should not hold.

@@ -48,7 +48,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Formula of Concord says: \"the sole rule and standard according to which all dogmas together with [all] teachers should be estimated and judged are the prophetic and apostolic Scriptures of the Old and of the New Testament alone.\"",
               "citation": "Formula of Concord, Epitome, Rule and Norm 1"
             },
             {
@@ -80,6 +80,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 5",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Epitome, Rule and Norm 1",
+              "url": "https://bookofconcord.org/epitome/"
             }
           ]
         },
@@ -501,7 +506,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says: \"The Supreme Judge, by which all controversies of religion are to be determined, and all decrees of councils, opinions of ancient writers, doctrines of men, and private spirits, are to be examined... can be no other but the Holy Spirit speaking in the Scripture.\"",
               "citation": "Westminster Confession of Faith 1.10; John Calvin, Institutes, Prefatory Address to Francis I"
             },
             {
@@ -540,6 +545,11 @@
             {
               "label": "Institutes of the Christian Religion",
               "citation": "John Calvin, Prefatory Address to Francis I, 1536/1559"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.10",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
             }
           ]
         },
@@ -810,8 +820,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 19"
+              "note": "Article 19 says the Church of Rome, like Jerusalem, Alexandria and Antioch, \"hath erred, not only in their living and manner of Ceremonies, but also in matters of Faith.\"",
+              "citation": "Thirty-Nine Articles of Religion, Article 19"
             },
             {
               "tradition": "methodist",
@@ -822,8 +832,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "The Book of Concord's polemic against the papacy is sharper than this position's framing while still addressing Rome as a church holding corrupted doctrine rather than as no church at all.",
-              "citation": "Augsburg Confession, Article 7-8"
+              "note": "The Smalcald Articles say: \"The Pope is not, according to divine law or according to the Word of God, the head of all Christendom... but is only the bishop and pastor of the Church at Rome, and of those who voluntarily have attached themselves to him.\" The same article elsewhere calls the papacy \"the very Antichrist\" — sharper than this position's framing — while still addressing Rome as a church whose bishop and adherents are engaged as Christians in serious error rather than as no church at all.",
+              "citation": "Smalcald Articles (1537), Part II, Article 4, \"Of the Papacy\""
             }
           ],
           "learn_detail": "Anglican Article 19 states plainly that 'as the Church of Jerusalem, Alexandria, and Antioch, have erred; so also the Church of Rome hath erred', treating Rome as a church that has erred rather than as no church.",
@@ -831,6 +841,11 @@
             {
               "label": "Thirty-Nine Articles",
               "citation": "Article 19"
+            },
+            {
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 4",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-the-papacy/"
             }
           ]
         },

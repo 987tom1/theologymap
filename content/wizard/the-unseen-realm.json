@@ -562,8 +562,8 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": "Governed by canon law and the revised Rite of Exorcism; explicitly not a ministry any believer may undertake privately.",
-              "citation": "Catechism of the Catholic Church, 1673; De Exorcismis et Supplicationibus Quibusdam (revised 1999)"
+              "note": "The Catechism says: \"The solemn exorcism, called 'a major exorcism,' can be performed only by a priest and with the permission of the bishop. The priest must proceed with prudence, strictly observing the rules established by the Church.\"",
+              "citation": "Catechism of the Catholic Church, 1673"
             },
             {
               "tradition": "orthodox",
@@ -576,7 +576,8 @@
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "1673"
+              "citation": "1673",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },

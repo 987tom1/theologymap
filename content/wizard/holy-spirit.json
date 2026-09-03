@@ -609,7 +609,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "permitted",
-              "note": "Affirmed through the Catholic Charismatic Renewal.",
+              "note": "The Catechism says: \"There are furthermore special graces, also called charisms... Whatever their character — sometimes it is extraordinary, such as the gift of miracles or of tongues... charisms are oriented toward sanctifying grace and are intended for the common good of the Church.\"",
               "citation": "Catechism of the Catholic Church, 2003"
             },
             {
@@ -630,6 +630,11 @@
             {
               "label": "Power Evangelism",
               "citation": "John Wimber, 1985"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "2003",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },

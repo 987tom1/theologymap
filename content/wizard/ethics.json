@@ -304,7 +304,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says: \"it is lawful for the innocent party to sue out a divorce, and after the divorce to marry another, as if the offending party were dead.\"",
               "citation": "Westminster Confession of Faith 24.5-6"
             },
             {
@@ -348,7 +348,8 @@
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "24.5-6"
+              "citation": "1646, ch. 24.5-6",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
             },
             {
               "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning",
@@ -750,7 +751,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"Discontinuing medical procedures that are burdensome, dangerous, extraordinary, or disproportionate to the expected outcome can be legitimate... Here one does not will to cause death\" (2278), while \"the ordinary care owed to a sick person cannot be legitimately interrupted\" (2279).",
               "citation": "Catechism of the Catholic Church, 2276-2279"
             },
             {
@@ -800,7 +801,8 @@
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "2276-2279"
+              "citation": "2276-2279",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },
@@ -1239,7 +1241,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"a community of a higher order should not interfere in the internal life of a community of a lower order, depriving the latter of its functions, but rather should support it in case of need... always with a view to the common good\" (1883).",
               "citation": "Catechism of the Catholic Church, 1883-1885, 1897-1904"
             }
           ],
@@ -1247,7 +1249,8 @@
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "1883-1885, 1897-1904"
+              "citation": "1883-1885, 1897-1904",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         }
@@ -1336,8 +1339,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion (1571), Article XXXVII"
+              "note": "Article 37 says: \"It is lawful for Christian men, at the commandment of the Magistrate, to wear weapons, and serve in the wars.\"",
+              "citation": "Thirty-Nine Articles of Religion (1571), Article 37"
             },
             {
               "tradition": "baptist",
@@ -1369,6 +1372,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "2307-2317"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 37",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },

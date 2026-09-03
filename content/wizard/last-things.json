@@ -645,7 +645,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "Chapter 33 says God \"hath appointed a day wherein he will judge the world in righteousness by Jesus Christ,\" one appointed day rather than a separate prior rapture.",
               "citation": "Westminster Confession of Faith 32-33"
             },
             {
@@ -657,7 +657,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"The resurrection of all the dead, 'of both the just and the unjust,' will precede the Last Judgment... Then Christ will come 'in his glory, and all the angels with him.'\"",
               "citation": "Catechism of the Catholic Church, 1038"
             },
             {
@@ -695,6 +695,11 @@
               "label": "Dordrecht Confession of Faith",
               "citation": "1632, Article 18",
               "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1038",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         }
@@ -946,12 +951,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Westminster Confession of Faith 32.1"
-            },
-            {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Luther's Small Catechism, on the Third Article, as commonly received"
             },
             {
               "tradition": "anglican",
