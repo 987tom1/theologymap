@@ -466,8 +466,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on the sanctity of human life"
+              "note": "The statement says: “Because God created human beings in his image, every human life from conception to death bears the image of God and has inestimable worth.”",
+              "citation": "For the Health of the Nation: An Evangelical Call to Civic Responsibility (NAE, 2004), \"Safeguarding the Nature and Sanctity of Human Life\""
             },
             {
               "tradition": "anabaptist",
@@ -498,6 +498,11 @@
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article XV",
               "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "For the Health of the Nation",
+              "citation": "NAE, 2004, \"Safeguarding the Nature and Sanctity of Human Life\"",
+              "url": "https://www.nae.org/for-the-health-of-the-nation/safeguarding-the-nature-and-sanctity-of-human-life/"
             }
           ]
         },
@@ -793,8 +798,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on end-of-life care"
+              "note": "The resolution says: “In cases where patients are terminally ill, death appears imminent and treatment offers no medical hope for recovery, it is morally appropriate to request the withholding or withdrawal of life-support systems, allowing natural death to occur,” while affirming a “profound moral distinction” between allowing death and euthanasia, of which “we deny that there are any circumstances that justify” it.",
+              "citation": "National Association of Evangelicals, \"Allowing Natural Death\" resolution, 2014"
             }
           ],
           "learn_detail": "This is the ordinary-extraordinary distinction associated with Pope Pius XII's 1957 address to anesthesiologists, and it is widely shared well beyond the Catholic tradition that first formalized it.",
@@ -803,6 +808,11 @@
               "label": "Catechism of the Catholic Church",
               "citation": "2276-2279",
               "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Allowing Natural Death",
+              "citation": "NAE resolution, 2014",
+              "url": "https://nae.org/updates/allowing-natural-death"
             }
           ]
         },
@@ -1357,8 +1367,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on just war"
+              "note": "The statement says: “Governments should at a minimum restrain violence by applying classical just war principles, which are designed to clarify the limited conditions under which military action is justifiable, and establish standards of right conduct in fighting a war,” while noting believers have long differed on when Christians ought to participate in government-authorized force.",
+              "citation": "For the Health of the Nation: An Evangelical Call to Civic Responsibility (NAE, 2004), \"Promoting Just Peace and Restraining Violence\""
             },
             {
               "tradition": "pentecostal",
@@ -1377,6 +1387,11 @@
               "label": "Thirty-Nine Articles of Religion",
               "citation": "1571, Article 37",
               "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+            },
+            {
+              "label": "For the Health of the Nation",
+              "citation": "NAE, 2004, \"Promoting Just Peace and Restraining Violence\"",
+              "url": "https://www.nae.org/for-the-health-of-a-nation/promoting-just-peace-and-restraining-violence/"
             }
           ]
         },
