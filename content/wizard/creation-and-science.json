@@ -52,7 +52,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says it pleased God \"in the beginning, to create or make of nothing the world, and all things therein.\"",
               "citation": "Westminster Confession of Faith 4.1"
             },
             {
@@ -64,13 +64,13 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 1 calls God \"the Maker, and Preserver of all things both visible and invisible,\" the Nicene Creed's own ex-nihilo formula, without a rival maker or pre-existing matter.",
               "citation": "Thirty-Nine Articles of Religion, Article 1"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Small Catechism confesses God as the one who \"has made me and all creatures... out of pure, fatherly, divine goodness and mercy, without any merit or worthiness in me.\" The catechism affirms God as maker of all things without spelling out creation from nothing as such.",
               "citation": "Luther's Small Catechism, explanation of the First Article of the Apostles' Creed"
             },
             {
@@ -82,20 +82,14 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 1"
+              "note": "The confession says of God: “He is the Creator of all things visible and invisible; that He, in six days, created, made, and prepared, heaven and earth, and the sea, and all that in them is.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 1"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
+              "note": "The statement says: \"The one true God has revealed himself as the eternally self-existent 'I AM,' the Creator of heaven and earth\" (Article 2).",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith, Article 2"
             }
           ],
           "learn_detail": "Affirming that God created the universe out of nothing says nothing by itself about how his design within that creation is discerned; positions on that question, from classical teleological argument to the modern intelligent design movement, vary widely without touching this doctrine's substance.",
@@ -106,7 +100,18 @@
             },
             {
               "label": "Westminster Confession of Faith",
-              "citation": "4.1"
+              "citation": "1646, ch. 4.1",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 1",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Creed, First Article",
+              "url": "https://bookofconcord.org/small-catechism/the-creed/"
             }
           ]
         }
@@ -115,7 +120,8 @@
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
-          "citation": "381"
+          "citation": "381",
+          "url": "https://www.ccel.org/creeds/nicene.creed.html"
         },
         {
           "label": "Fourth Lateran Council",
@@ -164,31 +170,33 @@
             {
               "tradition": "baptist",
               "stance": "minority",
-              "note": "A young-earth reading is common within the tradition's more conservative wing, though the Baptist Faith and Message does not itself specify.",
-              "citation": "Answers in Genesis, Statement of Faith"
+              "note": "The statement says: “The days in Genesis do not correspond to geologic ages but are six consecutive, 24-hour days of creation.” A young-earth reading is common within the tradition's more conservative wing, though the Baptist Faith and Message does not itself specify.",
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section"
             },
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below for how this position relates to the cosmic-temple reading within the same stream.",
-              "citation": "Creation Research Society, Statement of Belief"
+              "note": "The statement says: “The Bible is the written Word of God, and because it is inspired throughout, all its assertions are historically and scientifically true in the original autographs. To the student of nature this means that the account of origins in Genesis is a factual presentation of simple historical truths.” See the tradition override below for how this position relates to the cosmic-temple reading within the same stream.",
+              "citation": "Creation Research Society, Statement of Belief, point 1"
             },
             {
               "tradition": "orthodox",
               "stance": "historic",
-              "note": "Patristic exegesis is not uniform; Basil read the days as ordinary, while Origen and others read them non-literally.",
-              "citation": "Basil of Caesarea, Hexaemeron (4th century)"
+              "note": "The homily reasons that Scripture says “one day” rather than “the first day” in order to fix the measure of day and night together: “Now twenty-four hours fill up the space of one day — we mean of a day and of a night.” Basil reads the day as ordinary time; other Fathers, including Origen, read the days non-literally, and no Orthodox council has dogmatized the question.",
+              "citation": "Basil of Caesarea, Hexaemeron, Homily 2.8 (on Genesis 1:5)"
             }
           ],
           "learn_detail": "Held across several evangelical traditions less through confessional requirement than through parachurch statements of faith such as Answers in Genesis and the Creation Research Society, which individual members subscribe to personally.",
           "sources": [
             {
               "label": "Answers in Genesis, Statement of Faith",
-              "citation": "Answers in Genesis, Statement of Faith, section D"
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section",
+              "url": "https://answersingenesis.org/about/faith/"
             },
             {
               "label": "Creation Research Society, Statement of Belief",
-              "citation": "Creation Research Society, Statement of Belief, articles 1-4"
+              "citation": "Creation Research Society, Statement of Belief, points 1-4",
+              "url": "https://www.creationresearch.org/statement-of-belief"
             }
           ]
         },
@@ -386,14 +394,14 @@
             {
               "tradition": "baptist",
               "stance": "minority",
-              "note": "Widely held within the tradition's more conservative wing; the Baptist Faith and Message does not itself specify an age.",
-              "citation": "Answers in Genesis, Statement of Faith"
+              "note": "The statement says: “Scripture teaches a recent origin of man and the whole creation, with history spanning approximately 4,000 years from creation to Christ.” Widely held within the tradition's more conservative wing; the Baptist Faith and Message does not itself specify an age.",
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section"
             },
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "Creation Research Society, Statement of Belief"
+              "note": "The statement affirms the Genesis account of origins as “a factual presentation of simple historical truths,” the basis for the society's young-earth chronology. See the tradition override below.",
+              "citation": "Creation Research Society, Statement of Belief, point 1"
             },
             {
               "tradition": "lutheran",
@@ -406,11 +414,13 @@
           "sources": [
             {
               "label": "Answers in Genesis, Statement of Faith",
-              "citation": "Answers in Genesis, Statement of Faith, section D"
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section",
+              "url": "https://answersingenesis.org/about/faith/"
             },
             {
               "label": "Creation Research Society, Statement of Belief",
-              "citation": "Creation Research Society, Statement of Belief, articles 1-4"
+              "citation": "Creation Research Society, Statement of Belief, points 1-4",
+              "url": "https://www.creationresearch.org/statement-of-belief"
             }
           ]
         },
@@ -470,8 +480,8 @@
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "BioLogos, What We Believe"
+              "note": "BioLogos affirms evolution, including common descent, as the best scientific explanation for the diversity of life over billions of years, held together with a Christ-centered, biblical faith (“Rigorous Science” and “Christ-centered Faith” among its three stated core values). The page was rewritten in 2024 into a shorter statement; the corpus's earlier “articles 1-12” numbering no longer applies.",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)"
             },
             {
               "tradition": "roman-catholic",
@@ -483,8 +493,9 @@
           "learn_detail": null,
           "sources": [
             {
-              "label": "BioLogos, What We Believe",
-              "citation": "BioLogos, What We Believe, articles 1-12"
+              "label": "BioLogos, Faith Commitments",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)",
+              "url": "https://biologos.org/about-us/what-we-believe"
             }
           ]
         }
@@ -570,8 +581,8 @@
             {
               "tradition": "baptist",
               "stance": "minority",
-              "note": "Widely held within the tradition's more conservative wing.",
-              "citation": "Answers in Genesis, Statement of Faith"
+              "note": "The statement says: “The various original life forms (kinds), including mankind, were made by direct, supernatural, creative acts of God (i.e., not by natural, physical processes over millions of years).” Widely held within the tradition's more conservative wing.",
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section"
             },
             {
               "tradition": "lutheran",
@@ -582,15 +593,16 @@
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "Answers in Genesis, Statement of Faith"
+              "note": "The statement says: “The various original life forms (kinds), including mankind, were made by direct, supernatural, creative acts of God.” See the tradition override below.",
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Answers in Genesis, Statement of Faith",
-              "citation": "Answers in Genesis, Statement of Faith, section D"
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section",
+              "url": "https://answersingenesis.org/about/faith/"
             }
           ]
         },
@@ -610,8 +622,8 @@
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "BioLogos, What We Believe"
+              "note": "BioLogos affirms that God brought about the diversity of life, including the human body, through common-descent evolution, while its member scholars are explicitly not unanimous on the historicity of Adam and Eve. The page was rewritten in 2024 into a shorter statement; the corpus's earlier “articles 1-12” numbering no longer applies.",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)"
             },
             {
               "tradition": "roman-catholic",
@@ -629,8 +641,9 @@
           "learn_detail": null,
           "sources": [
             {
-              "label": "BioLogos, What We Believe",
-              "citation": "BioLogos, What We Believe, articles 1-12"
+              "label": "BioLogos, Faith Commitments",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)",
+              "url": "https://biologos.org/about-us/what-we-believe"
             }
           ]
         }
@@ -711,14 +724,14 @@
             {
               "tradition": "baptist",
               "stance": "minority",
-              "note": "Widely held within the tradition's more conservative wing.",
-              "citation": "Answers in Genesis, Statement of Faith"
+              "note": "The statement says: “The great flood of Genesis was an actual historic event, worldwide (global) in its extent and catastrophic in its effects. At one stage during the flood, the waters covered the entire surface of the whole globe.” Widely held within the tradition's more conservative wing.",
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section"
             },
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "Creation Research Society, Statement of Belief"
+              "note": "The statement says: “The great flood described in Genesis, commonly referred to as the Noachian Flood, was an historic event worldwide in its extent and effect.” See the tradition override below.",
+              "citation": "Creation Research Society, Statement of Belief, point 3"
             },
             {
               "tradition": "lutheran",
@@ -731,7 +744,13 @@
           "sources": [
             {
               "label": "Answers in Genesis, Statement of Faith",
-              "citation": "Answers in Genesis, Statement of Faith, section D"
+              "citation": "Answers in Genesis, Statement of Faith, “Origins and History” section",
+              "url": "https://answersingenesis.org/about/faith/"
+            },
+            {
+              "label": "Creation Research Society, Statement of Belief",
+              "citation": "Creation Research Society, Statement of Belief, point 3",
+              "url": "https://www.creationresearch.org/statement-of-belief"
             }
           ]
         },
@@ -854,7 +873,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "Dei Filius says: \"it was God's will that there should be linked to the internal assistance of the Holy Spirit external indications of his revelation, that is to say divine acts, and first and foremost miracles and prophecies... which are the most certain signs of revelation.\"",
               "citation": "First Vatican Council, Dei Filius, ch. 3 (1870)"
             },
             {
@@ -878,38 +897,14 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Book of Concord, general confession of Christ's miracles including the resurrection"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion, Article 4"
+              "note": "The Augsburg Confession confesses that Christ \"was crucified, dead, and buried... and truly rose again the third day,\" and the Nicene Creed printed in the Book of Concord confesses these events \"according to the Scriptures.\" Retargeted from a vague reference to \"the Book of Concord's general confession of Christ's miracles\" to the specific article that makes these claims.",
+              "citation": "Augsburg Confession, Article III"
             },
             {
               "tradition": "methodist",
               "stance": "confessional",
               "note": null,
               "citation": "Articles of Religion, Article 3"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": "See the tradition override below.",
-              "citation": "National Association of Evangelicals, Statement of Faith"
             }
           ],
           "learn_detail": null,
@@ -917,6 +912,16 @@
             {
               "label": "Miracles",
               "citation": "C. S. Lewis, 1947"
+            },
+            {
+              "label": "First Vatican Council, Dei Filius",
+              "citation": "ch. 3, 1870",
+              "url": "https://www.papalencyclicals.net/councils/vatican1.htm"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         },
@@ -936,8 +941,8 @@
             {
               "tradition": "non-denominational",
               "stance": "minority",
-              "note": "See the tradition override below.",
-              "citation": "BioLogos, What We Believe"
+              "note": "BioLogos states “Rigorous Science” as one of three core values — affirming the established findings of modern science — held together with “Christ-centered Faith” upholding the authority of Scripture, rather than treating scientific method as competent to adjudicate a miracle claim either way. The page was rewritten in 2024 into a shorter statement; the corpus's earlier “articles 1-12” numbering no longer applies.",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)"
             },
             {
               "tradition": "roman-catholic",
@@ -949,8 +954,9 @@
           "learn_detail": "This position is usually held together with, rather than as a rival to, the affirmation that miracles are real divine acts; it addresses what science as a method can and cannot adjudicate, not whether miracles occur.",
           "sources": [
             {
-              "label": "BioLogos, What We Believe",
-              "citation": "BioLogos, What We Believe, articles 1-12"
+              "label": "BioLogos, Faith Commitments",
+              "citation": "BioLogos, Faith Commitments (2024 revision of “What We Believe”)",
+              "url": "https://biologos.org/about-us/what-we-believe"
             }
           ]
         },

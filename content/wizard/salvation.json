@@ -54,8 +54,8 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": "Lutherans affirm monergism in conversion while declining to extend the decree symmetrically to reprobation.",
-              "citation": "Formula of Concord, Solid Declaration, Article 11"
+              "note": "The Solid Declaration says God \"observes its order also in wicked acts or works, inasmuch as a limit and measure is fixed by God to the evil,\" while the \"wicked, perverse will of the devil and of men\" remains the cause of evil.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             }
           ],
           "learn_detail": null,
@@ -63,6 +63,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "1619, Third and Fourth Heads of Doctrine"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },
@@ -86,28 +91,10 @@
               "citation": "John Wesley, 'Predestination Calmly Considered' (1752); Articles of Religion (1784), Article 8"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "note": "The chapter states: \"man, with all his hereditary imbecility, is not under an invincible necessity to sin,\" holding the will genuinely free rather than determined.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 7, 'Man As He Is'"
             }
           ],
           "learn_detail": null,
@@ -119,6 +106,11 @@
             {
               "label": "Predestination Calmly Considered",
               "citation": "John Wesley, 1752"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 7, 'Man As He Is'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS207.HTM"
             }
           ]
         },
@@ -166,8 +158,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "John Cassian, Conference 13; Confession of Dositheus (1672), Decree 3"
+              "note": "Decree 3 says God \"foreknew the one would make a right use of their free-will, and the other a wrong,\" and predestined or condemned accordingly. Verified directly; the decree number was already correct.",
+              "citation": "John Cassian, Conference 13; Confession of Dositheus, Synod of Jerusalem (1672), Decree 3"
             }
           ],
           "learn_detail": null,
@@ -260,30 +252,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "The Remonstrance (1610), Article 1; John Wesley, 'Predestination Calmly Considered' (1752)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
             }
           ],
           "learn_detail": null,
@@ -312,6 +280,12 @@
               "stance": "minority",
               "note": null,
               "citation": "William W. Klein, The New Chosen People (1990)"
+            },
+            {
+              "tradition": "restorationist",
+              "stance": "majority",
+              "note": "The chapter states: \"The present elect of God are, then, those who are in Christ, and not those out of him: for it was in him that God has set his affection upon them, and chose them to eternal life before the world began.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 8, 'The Purposes of God Concerning Man'"
             }
           ],
           "learn_detail": null,
@@ -444,27 +418,27 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says the truly regenerate \"can neither totally nor finally fall away from the state of grace; but shall certainly persevere therein to the end, and be eternally saved.\"",
               "citation": "Westminster Confession of Faith 17.1-17.2; Canons of Dordt, Fifth Head of Doctrine"
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 5; Second London Baptist Confession (1689) 17.1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
+              "note": "The confession says: “All true believers endure to the end. Those whom God has accepted in Christ, and sanctified by His Spirit, will never fall away from the state of grace, but shall persevere to the end.”",
+              "citation": "Baptist Faith and Message (2000), Article V; Second London Baptist Confession (1689) 17.1"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Canons of Dordt",
-              "citation": "1619, Fifth Head of Doctrine"
+              "citation": "1619, Fifth Head of Doctrine",
+              "url": "https://www.crcna.org/welcome/beliefs/confessions/canons-dort"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article V",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -488,22 +462,10 @@
               "citation": "Articles of Religion (1784), Article 12, as amended; John Wesley, 'A Call to Backsliders' (1751)"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": "The Statement of Fundamental Truths does not use the term apostasy, but classical Pentecostal teaching on backsliding presumes a real possibility of falling away.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 17"
+              "note": "The confession says a believer who, after receiving “the knowledge of the truth” and being “incorporated into the communion of the saints, sins again unto death... falls into the unfruitful works of darkness, thereby becoming separated from God, and forfeiting the kingdom of God.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 16"
             }
           ],
           "learn_detail": null,
@@ -511,6 +473,11 @@
             {
               "label": "A Call to Backsliders",
               "citation": "John Wesley, 1751"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 16",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -536,8 +503,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Grounded in the sacrament of confession as the ordinary remedy for post-baptismal sin rather than in the same Western canon.",
-              "citation": "Confession of Dositheus (1672), Decree 14"
+              "note": "The Catechism says: “Penitence is a Sacrament, in which he who confesses his sins is, on the outward declaration of pardon by the priest, inwardly loosed from his sins by Jesus Christ himself.” Dositheus's Decree 15 names Penance, joined with sacramental confession, among the sacraments by which post-baptismal sin is forgiven. The previous citation to Decree 14 was wrong — Decree 14 concerns the retained freedom of the will after the fall, not the loss or restoration of grace through sin.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 351-353 (On Penitence); Confession of Dositheus, Synod of Jerusalem (1672), Decree 15"
             }
           ],
           "learn_detail": null,
@@ -545,6 +512,11 @@
             {
               "label": "Council of Trent",
               "citation": "Session 6, 1547, ch. 15"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 15",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         }
@@ -607,12 +579,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Second London Baptist Confession (1689) 18.1-18.2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 8"
             }
           ],
           "learn_detail": null,
@@ -641,18 +607,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "John Wesley, 'The Witness of the Spirit' (Sermon 10, 1746)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
             }
           ],
           "learn_detail": null,
@@ -684,9 +638,9 @@
             },
             {
               "tradition": "orthodox",
-              "stance": "majority",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 9"
+              "stance": "confessional",
+              "note": "Decree 13 says: “faith [alone] fulfilling the function of a hand layeth hold on the righteousness which is in Christ, and applieth it unto us for salvation, we know to be far from all Orthodoxy. For faith so understood would be possible in all, and so none could miss salvation, which is obviously false.” The previous citation to Decree 9 (a general statement that no one is saved without faith) did not actually address assurance; Decree 13 is the decree that rejects a settled certainty of final salvation on faith alone.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13"
             }
           ],
           "learn_detail": null,
@@ -694,6 +648,11 @@
             {
               "label": "Council of Trent",
               "citation": "Session 6, 1547, ch. 9"
+            },
+            {
+              "label": "Confession of Dositheus",
+              "citation": "Synod of Jerusalem, 1672, Decree 13",
+              "url": "https://catholicity.elcore.net/ConfessionOfDositheus.html"
             }
           ]
         }
@@ -702,7 +661,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 18"
+          "citation": "1646, ch. 18",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         },
         {
           "label": "Council of Trent",
@@ -754,25 +714,25 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 4"
+              "note": "The confession says: “Repentance and faith are inseparable experiences of grace. Repentance is a genuine turning from sin toward God. Faith is the acceptance of Jesus Christ and commitment of the entire personality to Him as Lord and Saviour.”",
+              "citation": "Baptist Faith and Message (2000), Article IV.A"
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 4"
+              "note": "The Covenant says: \"Jesus still calls all who would follow him to deny themselves, take up their cross, and identify themselves with his new community.\"",
+              "citation": "Lausanne Covenant (1974), Article 4, 'The Nature of Evangelism'"
             },
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states: \"Any belief... that does not terminate in our personal confidence in Jesus as the Christ, and to induce trustful submission to him, is not faith unfeigned; but a dead faith, and cannot save the soul.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 14, 'Faith in Christ'"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession restricts baptism, and the profession of faith it seals, to those “who have learned repentance and amendment of life, and who believe truly that their sins are taken away by Christ.”",
               "citation": "Schleitheim Confession (1527), Article 1"
             }
           ],
@@ -781,6 +741,16 @@
             {
               "label": "The Gospel According to Jesus",
               "citation": "John MacArthur, 1988"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 14, 'Faith in Christ'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS214.HTM"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 4, 'The Nature of Evangelism'",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         },
@@ -907,8 +877,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article 3"
+              "note": "The Formula says: \"our righteousness before God is [this]... that God forgives us our sins out of pure grace... that He presents and imputes to us the righteousness of Christ's obedience, on account of which righteousness we are received into grace by God, and regarded as righteous\" (Solid Declaration III); the Augsburg Confession adds that faith, not works, \"God imputes for righteousness in His sight\" (Article 4).",
+              "citation": "Augsburg Confession, Article 4; Formula of Concord, Solid Declaration, Article III"
             },
             {
               "tradition": "baptist",
@@ -925,39 +895,43 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 11 says \"We are accounted righteous before God only for the merit of our Lord and Saviour Jesus Christ by Faith, and not for our own works or deservings.\"",
               "citation": "Thirty-Nine Articles, Article 11"
             },
             {
               "tradition": "anabaptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession says: “through which faith we obtain forgiveness of sins, are sanctified, justified, and made children of God.” It affirms justification by faith without using the technical vocabulary of a legal verdict or imputed righteousness.",
               "citation": "Dordrecht Confession of Faith (1632), Article 6"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The statement says: \"being justified by grace through faith, man becomes an heir of God according to the hope of eternal life\" (Article 5(a), Conditions to Salvation) — grace-through-faith justification, though the Statement does not itself use forensic-imputation vocabulary.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a)"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Augsburg Confession",
-              "citation": "1530, Article 4"
+              "citation": "1530, Article 4",
+              "url": "https://bookofconcord.org/augsburg-confession/of-justification/"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 6",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Solid Declaration, Article III",
+              "url": "https://bookofconcord.org/formula-of-concord-solid-declaration/article-iii/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 11",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -1005,8 +979,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 13; Athanasius, On the Incarnation, 54"
+              "note": "Decree 13 says a person is \"not simply justified through faith alone, but through faith which worketh through love, that is to say, through faith and works.\" Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13; Athanasius, On the Incarnation, 54"
             }
           ],
           "learn_detail": null,
@@ -1075,13 +1049,13 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 16"
+              "note": "Decree 16 says baptism is of \"the highest necessity,\" grounded in John 3:5, and necessary even for infants for the remission of original sin. Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 16"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Small Catechism says baptism \"works forgiveness of sins, delivers from death and the devil, and gives eternal salvation to all who believe,\" and that it is not water alone but \"the word of God which is in and with the water, and faith\" that makes it effective.",
               "citation": "Augsburg Confession, Article 9; Small Catechism, Part 4"
             }
           ],
@@ -1090,6 +1064,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1992, 1213-1215"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article IX",
+              "url": "https://bookofconcord.org/augsburg-confession/of-baptism/"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Sacrament of Holy Baptism",
+              "url": "https://bookofconcord.org/small-catechism/the-sacrament-of-holy-baptism/"
             }
           ]
         },
@@ -1108,16 +1092,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839), ch. 19"
+              "stance": "majority",
+              "note": "The chapter states the convert is 'pardoned wherein he was guilty — justified wherein he was condemned,' reaching 'actual, and sensible, and formal pardon, justification, sanctification, adoption' through faith, repentance and the ordinances (baptism, confession, prayer) together.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 19"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839, ch. 19"
+              "citation": "Alexander Campbell, 1839, ch. 19",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS219.HTM"
             }
           ]
         },
@@ -1143,15 +1128,21 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "Read this way chiefly within the evangelical wing of the Communion.",
-              "citation": "Thirty-Nine Articles, Article 27"
+              "note": "Article 27 calls baptism \"a sign of Regeneration or New-Birth, whereby, as by an instrument, they that receive Baptism rightly are grafted into the Church.\" Read this way chiefly within the evangelical wing of the Communion, alongside the sacramentalist reading the same clause permits.",
+              "citation": "Thirty-Nine Articles of Religion, Article 27"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "1646, ch. 28"
+              "citation": "1646, ch. 28",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 27",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -1171,25 +1162,19 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 7; Second London Baptist Confession (1689) 29.1"
+              "note": "The confession describes baptism as “an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour,” a testimony rather than a means of the new birth.",
+              "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689) 29.1"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 6"
+              "note": "The statement ties new birth to faith alone — \"By the washing of regeneration and renewing of the Holy Spirit, being justified by grace through faith, man becomes an heir of God\" (Article 5(a)) — and separately describes water baptism as something believers undergo to \"declare to the world\" a death and resurrection already true of them (Article 6(a)), i.e. testimony rather than the means of the new birth.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a); Article 6(a)"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession gives baptism to those “who believe truly that their sins are taken away by Christ,” naming faith, not the water, as what takes sin away, with baptism following as public testimony.",
               "citation": "Schleitheim Confession (1527), Article 1"
             }
           ],
@@ -1198,6 +1183,11 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "2000, Article 7"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 1",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         }
@@ -1206,11 +1196,13 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1992, 1213-1215"
+          "citation": "1992, 1213-1215",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "The Christian System",
-          "citation": "Alexander Campbell, 1839, ch. 19"
+          "citation": "Alexander Campbell, 1839, ch. 19",
+          "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS219.HTM"
         }
       ]
     }

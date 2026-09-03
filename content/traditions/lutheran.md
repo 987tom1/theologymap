@@ -1,30 +1,11 @@
 # Scripture
 
-## Canon · T1 · certain
-  hold  The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.
-  why   Authority belongs to a book because of what it is — the word of God given through its human author — and the church's historic role was to recognise that authority already present, not to grant it.
-  vs    Including the deuterocanonical books received by Rome and the East as part of the canon proper rather than as edifying but non-canonical writing.
-  refs  2 Pet 3:15-16
-
 ## Sufficiency of Scripture · T1 · certain
   hold  Scripture is sufficient for faith and practice, and no tradition, teaching office or further revelation may be added to it as binding on the conscience.
   why   Scripture claims to equip the man of God for every good work, and a rule that requires an external supplement to be complete is not, by its own account, a sufficient rule.
   vs    Scripture read within and normed by sacred tradition, which holds that Scripture was never meant to be read or interpreted apart from the church that produced and transmitted it.
   refs  2 Tim 3:16-17; Rev 22:18-19
-  link  clarity-of-scripture
   link  the-lords-supper
-
-## Hermeneutic method · T2 · confident
-  hold  Authorial intent, grammar, genre and historical context govern a passage's meaning, and application follows from that meaning rather than substituting for it.
-  why   God communicated through human authors writing in real languages to real audiences, and honouring that communication means reading a text the way its author meant it, rather than importing a later sense onto it.
-  vs    Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.
-
-## Clarity of Scripture · T2.5 · certain
-  hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
-  why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
-  vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
-  refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
 
 
 # God
@@ -68,7 +49,7 @@
   link  trinity
   link  eternal-generation-of-the-son
 
-## Divine foreknowledge · T3 · confident
+## Divine foreknowledge · T3 · certain
   hold  God knows the future because he has eternally decreed it, so his foreknowledge of what creatures will do is knowledge of his own purpose rather than knowledge drawn from the creatures themselves.
   why   Nothing comes to pass outside God's ordination, and a knowledge of the future that God derived from what creatures will independently do would make his knowledge dependent on the creation.
   vs    Accounts that ground God's foreknowledge in the creature's independent choice, which this position holds makes God a spectator of a future he did not determine.
@@ -117,13 +98,6 @@
 
 
 # Humanity and sin
-
-## Image of God · T1.5 · certain
-  hold  The image of God consists chiefly in capacities that set humanity apart from the rest of creation, especially reason, moral agency and an immortal soul, which the fall wounded but did not destroy.
-  why   Genesis places the image language alongside humanity's unique capacity for God-given dominion and moral address, and the New Testament describes the image being renewed in knowledge, righteousness and holiness, qualities of the soul rather than of a role alone.
-  vs    Locating the image entirely in humanity's task of ruling creation, apart from any distinct capacity that makes the task possible.
-  refs  Gen 1:26-27; Col 3:10; Eph 4:24
-  link  historical-adam
 
 ## Historical Adam · T2.5 · certain
   hold  Adam and Eve were real historical individuals, specially created by God, and every other human being descends from them, so that Adam's fall is transmitted to the whole race by ordinary generation.
@@ -190,7 +164,6 @@
   why   The promise attaches to the water joined to God's word, so the subject follows from the effect: what baptism gives, an infant needs and can receive.
   refs  Matt 28:19; Acts 2:38-39; Col 2:11-12; 1 Pet 3:21
   link  the-lords-supper
-  link  membership-and-discipline
 
 ## The Lord's Supper · T2 · certain
   hold  Christ's body and blood are truly and objectively present in, with and under the bread and wine, given and received by all communicants whether or not they believe.
@@ -204,15 +177,6 @@
   why   The New Testament pattern of apostolic oversight passed to Timothy and Titus as individuals charged with appointing elders, and the earliest post-apostolic churches were governed by a single bishop in each city.
   vs    Government by a plurality of elders with no single office standing over the local eldership.
   refs  1 Tim 3:1-7; Titus 1:5; 1 Tim 5:22
-  link  membership-and-discipline
-
-## Membership and discipline · T3 · leaning
-  hold  Belonging is constituted by baptism and sacramental standing within a parish or diocese, administered by the clergy under the bishop, rather than by a local covenant the congregation itself enters into.
-  why   The church's boundary has historically been the sacraments themselves — baptism admits, and excommunication from the sacraments, exercised by the clergy, is the discipline the New Testament describes.
-  vs    Requiring a separate congregational covenant beyond baptism and sacramental standing to establish who belongs.
-  refs  1 Cor 5:1-13; Matt 18:15-17
-  link  baptism
-  link  church-government
 
 
 # Last things
@@ -237,15 +201,6 @@
   why   The same Greek word for 'eternal' describes both the punishment of the wicked and the life of the righteous in the same verse, and Revelation describes the suffering of the condemned as continuing day and night forever and ever.
   vs    Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
   refs  Matt 25:46; Rev 14:11
-  link  second-coming
-  link  intermediate-state
-
-## Intermediate state · T3 · confident
-  hold  At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.
-  why   Paul describes departing the body as being at home with the Lord without any interval of unconsciousness, and Jesus promises the repentant thief that he will be with him in paradise that very day.
-  vs    Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.
-  refs  2 Cor 5:6-8; Luke 23:43
-  link  hell
   link  second-coming
 
 ## Rapture · T4 · certain
@@ -305,25 +260,7 @@
   why   The historic confessions affirm a spiritual realm of angels and fallen angels but locate the Christian's resistance to evil within ordinary practice rather than a specialised discipline.
   vs    Treating angels and demons as a subject requiring specialised attention, heightened vigilance, or dedicated ministry beyond the ordinary means of grace.
   refs  Col 1:16; Jude 1:6
-  link  can-a-christian-be-demonised
-  link  deliverance-ministry
   link  the-creeds
-
-## Can a Christian be demonised · T2 · confident
-  hold  A believer indwelt by the Holy Spirit cannot be possessed or owned by a demon, since the Spirit's indwelling excludes such ownership, but can still be oppressed, afflicted, or attacked by demonic influence from without.
-  why   Scripture describes the indwelling Spirit as God's own seal and guarantee, incompatible with a demon owning a believer, while also warning believers to resist an adversary who prowls seeking to devour.
-  vs    Holding that a believer can be demonised in some internal degree, rather than only oppressed or attacked from without.
-  refs  1 John 4:4; 1 Pet 5:8-9
-  link  angels-and-demons
-  link  deliverance-ministry
-
-## Deliverance ministry · T2.5 · confident
-  hold  The church's proper response to spiritual affliction is repentance, prayer, Scripture, and pastoral care, without a specialised deliverance ministry or rite set apart for the purpose.
-  why   The New Testament's own instruction for the afflicted is prayer and the elders' pastoral care, and confidence in the ordinary means of grace is sufficient without a dedicated deliverance practice.
-  vs    Setting apart a specialised rite or ministry of deliverance, whether sacramental or charismatic, distinct from the church's ordinary pastoral care and means of grace.
-  refs  James 5:14-16; 1 Pet 5:8-9
-  link  can-a-christian-be-demonised
-  link  angels-and-demons
 
 
 # Ethics
@@ -331,7 +268,6 @@
 ## Marriage and sexuality · T2 · leaning · #study
   hold  Lutheran bodies differ by church: the Evangelical Lutheran Church in America affirms and permits the blessing of same-sex marriage under its 2009 social statement, while confessional Lutheran bodies such as the Lutheran Church-Missouri Synod hold marriage to be exclusively the union of a man and a woman.
   refs  Gen 2:24; Matt 19:4-6; Rom 1:26-27; 1 Cor 6:9-11
-  link  divorce-and-remarriage
 
 ## Abortion · T2 · leaning · #study
   hold  Lutheran bodies differ by church: the Lutheran Church-Missouri Synod holds unborn life protected from conception, while the Evangelical Lutheran Church in America permits abortion in narrowly defined tragic circumstances under its 1991 social statement.
@@ -345,13 +281,6 @@
   vs    Holding that Christ's teaching closes the use of lethal force to Christians altogether, when this position holds Romans 13's grant of the sword to civil government extends to a Christian's own service within it.
   refs  Rom 13:1-4; Luke 3:14
   link  church-and-the-public-square
-
-## Divorce and remarriage · T3 · confident
-  hold  Divorce, and the remarriage of the innocent party, is permitted on the ground of a spouse's sexual immorality or desertion by an unbelieving spouse, though reconciliation is always to be preferred.
-  why   Jesus himself names sexual immorality as an exception to his general prohibition of divorce, and Paul releases a believer from the marriage bond when an unbelieving spouse abandons it.
-  vs    Reading Scripture's exceptions as grounds for separation only, never for remarriage while the former spouse lives.
-  refs  Matt 19:9; 1 Cor 7:15
-  link  marriage-and-sexuality
 
 ## IVF and embryos · T3 · confident
   hold  In vitro fertilization may be pursued by a married couple using their own gametes, provided every embryo created is treated as a full human life to be protected: none deliberately destroyed, selectively reduced, or left indefinitely frozen without intent to preserve or implant.
@@ -372,7 +301,6 @@
   why   Wine is used in Scripture as an image of blessing and is present at the wedding at Cana and in the Lord's Supper itself, so the consistent target of biblical warning is drunkenness, not moderate use as such.
   vs    Treating any use of alcohol at all, rather than drunkenness specifically, as the sin Scripture warns against.
   refs  Ps 104:14-15; John 2:1-10
-  link  membership-and-discipline
 
 ## Church and the public square · T3 · certain
   hold  God rules through two distinct kingdoms, the spiritual kingdom of the church governed by the gospel and the temporal kingdom of civil government governed by law and the sword, and Christians may serve faithfully in both without collapsing one into the other.
@@ -434,8 +362,6 @@
   vs    Placing an unwritten tradition or a living teaching office alongside Scripture as a second, co-equal source of binding doctrine.
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
-  link  clarity-of-scripture
-  link  hermeneutic-method
   link  the-creeds
 
 ## Reformation solas · T1.5 · certain
@@ -452,7 +378,6 @@
   vs    Treating patristic consensus as carrying binding, near-conciliar authority over the interpretation of Scripture.
   link  prima-scriptura
   link  the-creeds
-  link  hermeneutic-method
 
 ## Roman Catholics and Orthodox · T3 · certain
   hold  Roman Catholic and Orthodox Christians are regarded as fellow believers whose churches nonetheless hold serious doctrinal error, on justification, the papacy or the invocation of the saints among other matters, that a faithful church should not hold.

@@ -46,8 +46,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret of Moscow; canonical tradition of the seven councils"
+              "note": "The Catechism says: “Matrimony is a Sacrament, in which, on the free promise of the man and woman before the priest and the Church to be true to each other, their conjugal union is blessed to be an image of Christ's union with the Church,” citing “A man shall leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh” (Eph 5:31-32). The previous citation named the Catechism with no question number.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 361-362 (On Matrimony); canonical tradition of the seven councils"
             },
             {
               "tradition": "reformed",
@@ -58,7 +58,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “Marriage is the uniting of one man and one woman in covenant commitment for a lifetime.”",
               "citation": "Baptist Faith and Message (2000), Article XVIII"
             },
             {
@@ -66,18 +66,6 @@
               "stance": "confessional",
               "note": null,
               "citation": "Assemblies of God, position paper, Marriage"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 5, applied to marriage in affiliated statements"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice of Churches of Christ congregations"
             },
             {
               "tradition": "anabaptist",
@@ -95,6 +83,11 @@
             {
               "label": "Lambeth Conference Resolution I.10",
               "citation": "1998"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article XVIII",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -114,31 +107,38 @@
             {
               "tradition": "anglican",
               "stance": "minority",
-              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
-              "citation": "The Episcopal Church, amendments to Canon I.18 (2015)"
+              "note": "The resolution rewrote Canon I.18 to read “Members of the Clergy may solemnize a marriage using any of the liturgical forms authorized by this Church,” removing the requirement that a couple declare marriage to be “a lifelong union of husband and wife,” while leaving it “within the discretion of any Member of the Clergy ... to decline to solemnize or bless any marriage.”",
+              "citation": "The Episcopal Church, General Convention Resolution 2015-A036, amending Canon I.18 (\"Of the Solemnization of Holy Matrimony\"), effective 29 November 2015"
             },
             {
               "tradition": "lutheran",
               "stance": "minority",
-              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
-              "citation": "ELCA, Human Sexuality: Gift and Trust (2009)"
+              "note": "The statement says: “some people ... conclude that marriage is also the appropriate term to use in describing similar benefits, protection, and support for same-gender couples entering into lifelong, monogamous relationships,” naming this one of four “conscience-bound” positions the ELCA holds together rather than its sole teaching. The 2025 Churchwide Assembly further amended the statement to remove the phrase “to be a covenant between a man and a woman” from its definition of marriage.",
+              "citation": "ELCA, Human Sexuality: Gift and Trust (Social Statement, adopted 2009; amended 2025), section \"Lifelong, monogamous, same-gender relationships\""
             },
             {
               "tradition": "methodist",
-              "stance": "minority",
-              "note": "The United Methodist Church specifically, following its 2024 General Conference; see the tradition note.",
-              "citation": "United Methodist Church, General Conference 2024 legislation removing restrictions on same-sex marriage"
+              "stance": "majority",
+              "note": "The revised Social Principles define marriage as “a sacred, lifelong covenant that brings two people of faith, an adult man and woman of consenting age or two adult persons of consenting age, into union with one another,” replacing the former restriction of marriage to a man and a woman; this is now the United Methodist Church's own defined position, not merely a tolerated minority practice.",
+              "citation": "The Book of Discipline of the United Methodist Church, ¶162.D, Social Principles (as revised, General Conference 2024)"
             }
           ],
           "learn_detail": "ELCA's 2009 statement frames this as a matter on which conscience-bound Christians who share the same core convictions disagree, and it permits but does not require congregations and pastors to bless same-sex marriages.",
           "sources": [
             {
               "label": "Human Sexuality: Gift and Trust",
-              "citation": "ELCA, 2009"
+              "citation": "ELCA, Social Statement, adopted 2009, amended 2025",
+              "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
             },
             {
               "label": "The Episcopal Church, Canon I.18",
-              "citation": "as amended 2015"
+              "citation": "Resolution 2015-A036, as amended 2015",
+              "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=2015-A036"
+            },
+            {
+              "label": "The Book of Discipline of the United Methodist Church",
+              "citation": "¶162.D, Social Principles as revised, General Conference 2024",
+              "url": "https://www.umc.org/en/content/social-principles-the-social-community"
             }
           ]
         }
@@ -147,7 +147,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2357-2360"
+          "citation": "2357-2360",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Lambeth Conference Resolution I.10",
@@ -155,7 +156,8 @@
         },
         {
           "label": "Human Sexuality: Gift and Trust",
-          "citation": "ELCA, 2009"
+          "citation": "ELCA, 2009, amended 2025",
+          "url": "https://cdn.elca.org/cdn/wp-content/uploads/SexualitySS.pdf"
         }
       ],
       "tradition_overrides": {
@@ -302,7 +304,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says: \"it is lawful for the innocent party to sue out a divorce, and after the divorce to marry another, as if the offending party were dead.\"",
               "citation": "Westminster Confession of Faith 24.5-6"
             },
             {
@@ -314,8 +316,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 32"
+              "note": "Chapter 32 of Grudem's practical-ethics volume treats grounds for divorce and remarriage; the earlier citation named chapter 32 of his 1994 Systematic Theology, which is a different book entirely and that chapter (\"Election and Reprobation\") does not address this question.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 32, \"Divorce and Remarriage\""
             },
             {
               "tradition": "pentecostal",
@@ -324,35 +326,29 @@
               "citation": "Assemblies of God, position paper, Divorce and Remarriage"
             },
             {
-              "tradition": "lutheran",
-              "stance": "majority",
-              "note": null,
-              "citation": "Luther's Small Catechism, Table of Duties, applied by later Lutheran pastoral practice"
-            },
-            {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "The Church of England's Convocations resolved in 2002 that a divorced person may in exceptional circumstances be married in church during the lifetime of a former spouse, a change from the 1938 Convocation position.",
-              "citation": "Church of England, Convocations of Canterbury and York, resolutions of 2002"
+              "note": "Synod's three Houses voted by large majorities in November 2002 to rescind the 1957 Convocation resolutions against remarrying divorced people in church, recognising instead that “there are exceptional circumstances in which a divorced person may be married in church during the lifetime of a former spouse,” with the decision resting with the minister.",
+              "citation": "Church of England, Convocations of Canterbury and York, resolution rescinded by General Synod, November 2002"
             },
             {
               "tradition": "methodist",
               "stance": "majority",
-              "note": null,
-              "citation": "The Book of Discipline, pastoral guidance on remarriage"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
+              "note": "The Social Principles say: “When a married couple is estranged beyond reconciliation, even after thoughtful consideration and counsel, divorce is a regrettable alternative in the midst of brokenness,” and that divorce “does not preclude remarriage.” The Discipline does not restrict remarriage to Scripture's named exceptions of infidelity or desertion, and the Social Principles are themselves stated not to be church law but a call to prayerful reflection.",
+              "citation": "The Book of Discipline of the United Methodist Church, Social Principles, \"The Social Community: Divorce\" (as revised, General Conference 2024)"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "24.5-6"
+              "citation": "1646, ch. 24.5-6",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning",
+              "citation": "Wayne Grudem, 2018, ch. 32",
+              "url": "https://www.crossway.org/books/christian-ethics-case/"
             }
           ]
         },
@@ -368,14 +364,7 @@
           "equivalence_group": null,
           "orthodoxy": "contested",
           "orthodoxy_note": "This reading and the exception-clause reading disagree sharply over how far Matthew's and Paul's exceptions extend, each regarding the other's reading as pastorally mistaken on a question with real consequences.",
-          "held_by": [
-            {
-              "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), article on marriage"
-            }
-          ],
+          "held_by": [],
           "learn_detail": null,
           "sources": [
             {
@@ -389,7 +378,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1614, 1629-1632"
+          "citation": "1614, 1629-1632",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Rite for a Second Marriage",
@@ -397,7 +387,8 @@
         },
         {
           "label": "Westminster Confession of Faith",
-          "citation": "24.5-6"
+          "citation": "24.5-6",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     },
@@ -451,7 +442,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says believers “should speak on behalf of the unborn and contend for the sanctity of all human life from conception to natural death.”",
               "citation": "Baptist Faith and Message (2000), Article XV"
             },
             {
@@ -469,14 +460,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on the sanctity of human life"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
+              "note": "The statement says: “Because God created human beings in his image, every human life from conception to death bears the image of God and has inestimable worth.”",
+              "citation": "For the Health of the Nation: An Evangelical Call to Civic Responsibility (NAE, 2004), \"Safeguarding the Nature and Sanctity of Human Life\""
             },
             {
               "tradition": "anabaptist",
@@ -502,6 +487,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "2270-2275"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article XV",
+              "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "For the Health of the Nation",
+              "citation": "NAE, 2004, \"Safeguarding the Nature and Sanctity of Human Life\"",
+              "url": "https://www.nae.org/for-the-health-of-the-nation/safeguarding-the-nature-and-sanctity-of-human-life/"
             }
           ]
         },
@@ -521,21 +516,27 @@
             {
               "tradition": "lutheran",
               "stance": "minority",
-              "note": "The Evangelical Lutheran Church in America specifically, not confessional Lutheran bodies generally; see the tradition note.",
-              "citation": "ELCA, A Social Statement on Abortion (1991)"
+              "note": "The statement says: “An abortion is morally responsible in those cases in which continuation of a pregnancy presents a clear threat to the physical life of the woman.” It also says a woman need not carry a pregnancy from rape or incest to term, and that in “circumstances of extreme fetal abnormality” resulting in “severe suffering and very early death,” a parent “may responsibly choose to terminate the pregnancy.”",
+              "citation": "ELCA, A Social Statement on Abortion, adopted by the second biennial Churchwide Assembly, 28 August-4 September 1991, Section IV.B (\"Ending a Pregnancy\")"
             },
             {
               "tradition": "anglican",
               "stance": "minority",
-              "note": "The Episcopal Church specifically, not the wider Anglican Communion; see the tradition note.",
-              "citation": "Episcopal Church, General Convention resolutions on reproductive health and choice"
+              "note": "The 1994 resolution regards “all abortion as having a tragic dimension” and states abortion “should be performed only in extreme situations,” opposing government action that would “abridge the right of a woman to reach an informed decision about the termination of pregnancy.” The 2022 resolution goes further, affirming “that all Episcopalians should be able to access abortion services and birth control with no restriction on movement, autonomy, type, or timing” — broader than a narrow tragic-cases exception, though General Convention has also said it “emphatically” opposes abortion “as a means of birth control ... or any reason of mere convenience.”",
+              "citation": "The Episcopal Church, General Convention Resolution 1994-A054 (reaffirmed through 2018) and Resolution 2022-D083"
             }
           ],
           "learn_detail": "ELCA's 1991 statement calls abortion always a matter of grave concern and states a preference for continuing a pregnancy wherever possible, while permitting it in the narrow circumstances named.",
           "sources": [
             {
               "label": "A Social Statement on Abortion",
-              "citation": "ELCA, 1991"
+              "citation": "ELCA, 1991",
+              "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
+            },
+            {
+              "label": "The Episcopal Church, General Convention Resolution 1994-A054",
+              "citation": "reaffirmed through 2018",
+              "url": "https://digitalarchives.episcopalarchives.org/cgi-bin/acts/acts_resolution.pl?resolution=1994-A054"
             }
           ]
         }
@@ -544,11 +545,13 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2270-2275"
+          "citation": "2270-2275",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "A Social Statement on Abortion",
-          "citation": "ELCA, 1991"
+          "citation": "ELCA, 1991",
+          "url": "https://cdn.elca.org/cdn/wp-content/uploads/AbortionSS.pdf"
         }
       ],
       "tradition_overrides": {
@@ -668,13 +671,13 @@
               "tradition": "reformed",
               "stance": "majority",
               "note": null,
-              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\""
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
               "note": null,
-              "citation": "Wayne Grudem, Christian Ethics (2018), ch. on reproductive technology"
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 30, \"Infertility, Reproductive Technology, and Adoption\""
             },
             {
               "tradition": "lutheran",
@@ -747,7 +750,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"Discontinuing medical procedures that are burdensome, dangerous, extraordinary, or disproportionate to the expected outcome can be legitimate... Here one does not will to cause death\" (2278), while \"the ordinary care owed to a sick person cannot be legitimately interrupted\" (2279).",
               "citation": "Catechism of the Catholic Church, 2276-2279"
             },
             {
@@ -789,15 +792,21 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on end-of-life care"
+              "note": "The resolution says: “In cases where patients are terminally ill, death appears imminent and treatment offers no medical hope for recovery, it is morally appropriate to request the withholding or withdrawal of life-support systems, allowing natural death to occur,” while affirming a “profound moral distinction” between allowing death and euthanasia, of which “we deny that there are any circumstances that justify” it.",
+              "citation": "National Association of Evangelicals, \"Allowing Natural Death\" resolution, 2014"
             }
           ],
           "learn_detail": "This is the ordinary-extraordinary distinction associated with Pope Pius XII's 1957 address to anesthesiologists, and it is widely shared well beyond the Catholic tradition that first formalized it.",
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "2276-2279"
+              "citation": "2276-2279",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Allowing Natural Death",
+              "citation": "NAE resolution, 2014",
+              "url": "https://nae.org/updates/allowing-natural-death"
             }
           ]
         },
@@ -827,7 +836,8 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2276-2279"
+          "citation": "2276-2279",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -868,7 +878,7 @@
             {
               "tradition": "pentecostal",
               "stance": "minority",
-              "note": "Associated with independent Word of Faith teachers within the broader Pentecostal-charismatic movement; the Assemblies of God's own Statement of Fundamental Truths does not teach this, and its 1980 position paper explicitly critiques it.",
+              "note": "Associated with independent Word of Faith teachers within the broader Pentecostal-charismatic movement, not with any classical Pentecostal denomination's own statement. The Assemblies of God's 1980 position paper explicitly rejects this reasoning: \"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture. Some heroes of faith suffered greatly, some even died through faith, and they were commended for it.\"",
               "citation": "Kenneth Hagin, The Believer's Authority (1984), representative of Word of Faith teaching"
             }
           ],
@@ -896,26 +906,26 @@
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": "The Assemblies of God's own official position, formally distinguishing biblical faith from positive-confession teaching.",
-              "citation": "Assemblies of God, The Believer and Positive Confession (1980)"
+              "note": "The statement says: \"This puts man in the position of using God rather than man surrendering himself to be used of God,\" and concludes: \"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture.\" It also warns the teaching \"can often be more detrimental than views which reject Scripture altogether.\"",
+              "citation": "General Presbytery of the Assemblies of God, \"The Believer and Positive Confession\" (position paper, approved 19 August 1980)"
             },
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+              "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\""
             },
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
-              "citation": "Wayne Grudem, Systematic Theology (1994), ch. 17"
+              "note": "The earlier citation named chapter 17 of Grudem's 1994 Systematic Theology, which is \"Miracles\" and does not address prosperity teaching; his treatment of prosperity and wealth is in the later Christian Ethics volume.",
+              "citation": "Wayne Grudem, Christian Ethics: An Introduction to Biblical Moral Reasoning (2018), ch. 36, \"Increasing Prosperity: Is More Prosperity a Good Thing?\""
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Movement, A Statement on the Prosperity Gospel (2010)"
+              "note": "The statement concludes: \"it is our overall view that the teachings of those who most vigorously promote the 'prosperity gospel' are false and gravely distorting of the Bible ... it can be soberly described as a false gospel,\" and names it \"incompatible with evangelical biblical Christianity.\" It also rejects \"the unbiblical notion that spiritual welfare can be measured in terms of material welfare, or that wealth is always a sign of God's blessing ... or that poverty or illness or early death, is always a sign of God's curse.\"",
+              "citation": "Lausanne Theology Working Group, Africa Chapter, \"A Statement on the Prosperity Gospel\" (16 January 2010)"
             },
             {
               "tradition": "roman-catholic",
@@ -933,6 +943,11 @@
             {
               "label": "A Statement on the Prosperity Gospel",
               "citation": "Lausanne Movement, 2010"
+            },
+            {
+              "label": "Christian Ethics: An Introduction to Biblical Moral Reasoning",
+              "citation": "Wayne Grudem, 2018, ch. 36",
+              "url": "https://www.crossway.org/books/christian-ethics-case/"
             }
           ]
         }
@@ -941,11 +956,13 @@
       "sources": [
         {
           "label": "The Believer and Positive Confession",
-          "citation": "Assemblies of God, 1980"
+          "citation": "General Presbytery of the Assemblies of God, position paper, approved 19 August 1980",
+          "url": "https://ag.org/Beliefs/Position-Papers/The-Believer-and-Positive-Confession"
         },
         {
           "label": "A Statement on the Prosperity Gospel",
-          "citation": "Lausanne Movement, 2010"
+          "citation": "Lausanne Theology Working Group, Africa Chapter, 16 January 2010",
+          "url": "https://lausanne.org/content/a-statement-on-the-prosperity-gospel"
         }
       ],
       "tradition_overrides": {
@@ -962,8 +979,8 @@
           "flags": [
             "study"
           ],
-          "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The division is real and documented, and reporting either half alone would be false to what a Pentecostal reader meets in practice.",
-          "citation": "Assemblies of God, The Believer and Positive Confession (1980); Lausanne Movement, Statement on the Prosperity Gospel (2010)"
+          "note": "This is the one doctrine in the corpus where the divided tradition is the reader's own. The Assemblies of God's General Presbytery formally rejected positive-confession teaching in 1980 (\"To hold that all suffering results from negative confessions and indicates a lack of faith contradicts the Scripture\"), but a large independent Word of Faith and charismatic constituency, outside any classical Pentecostal denomination's own governance, continues to teach it. Reporting either half alone would be false to what a Pentecostal reader meets in practice.",
+          "citation": "General Presbytery of the Assemblies of God, \"The Believer and Positive Confession\" (approved 19 August 1980); Lausanne Theology Working Group, Africa Chapter, \"A Statement on the Prosperity Gospel\" (16 January 2010)"
         }
       }
     },
@@ -1009,9 +1026,9 @@
             },
             {
               "tradition": "orthodox",
-              "stance": "confessional",
-              "note": "Wine is used in the Eucharist itself.",
-              "citation": "Longer Catechism of St Philaret of Moscow, on the Eucharist"
+              "stance": "majority",
+              "note": "No decree or catechism question addresses alcohol as an ethical question directly; the support is inferential from wine's sacramental use in Decree 17 (\"taking the chalice ... Drink ye all of It\"). Downgraded from confessional to majority because no confessional document actually states a moderation-vs-abstinence position.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17 (institution of the Eucharist with wine)"
             },
             {
               "tradition": "anglican",
@@ -1022,8 +1039,8 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": null,
-              "citation": "Luther's Large Catechism, on the seventh petition of the Lord's Prayer"
+              "note": "The Large Catechism lists among the flesh's temptations \"inchastity, laziness, gluttony and drunkenness, avarice and deception,\" naming drunkenness rather than drink itself as the vice. Retargeted from the Seventh Petition, which discusses deliverance from the devil generally and does not mention drink at all.",
+              "citation": "Luther's Large Catechism, Lord's Prayer, the Sixth Petition"
             },
             {
               "tradition": "reformed",
@@ -1043,6 +1060,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1334"
+            },
+            {
+              "label": "Large Catechism",
+              "citation": "Lord's Prayer, Sixth Petition",
+              "url": "https://bookofconcord.org/large-catechism/lords-prayer/"
             }
           ]
         },
@@ -1060,12 +1082,6 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "baptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article XV"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
               "note": null,
@@ -1076,12 +1092,6 @@
               "stance": "historic",
               "note": "Rooted in Wesley's own counsel and the nineteenth-century temperance movement the Methodist church helped lead; official Methodist bodies now commend rather than confessionally require abstinence.",
               "citation": "The Book of Discipline, Social Principles, on alcohol and other drugs"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
             }
           ],
           "learn_detail": null,
@@ -1097,11 +1107,13 @@
       "sources": [
         {
           "label": "Baptist Faith and Message",
-          "citation": "2000, Article XV"
+          "citation": "2000, Article XV",
+          "url": "https://bfm.sbc.net/bfm2000/"
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1334"
+          "citation": "1334",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -1143,8 +1155,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Schleitheim Confession (1527), Article VI"
+              "note": "The confession says a Christian's “citizenship is in this world, but the Christians' citizenship is in heaven,” concluding “it is not appropriate for a Christian to serve as a magistrate.”",
+              "citation": "Schleitheim Confession (1527), Article 6"
             },
             {
               "tradition": "quaker",
@@ -1158,6 +1170,11 @@
             {
               "label": "Schleitheim Confession",
               "citation": "1527, Article VI"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 6",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         },
@@ -1177,15 +1194,16 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article XVI"
+              "note": "The Augsburg Confession says civil ordinances \"are good works of God,\" and that the gospel \"does not destroy the State or the family, but very much requires that they be preserved as ordinances of God.\"",
+              "citation": "Augsburg Confession, Article XVI"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Augsburg Confession",
-              "citation": "1530, Article XVI"
+              "citation": "1530, Article XVI",
+              "url": "https://bookofconcord.org/augsburg-confession/of-civil-affairs/"
             }
           ]
         },
@@ -1233,7 +1251,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"a community of a higher order should not interfere in the internal life of a community of a lower order, depriving the latter of its functions, but rather should support it in case of need... always with a view to the common good\" (1883).",
               "citation": "Catechism of the Catholic Church, 1883-1885, 1897-1904"
             }
           ],
@@ -1241,7 +1259,8 @@
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "1883-1885, 1897-1904"
+              "citation": "1883-1885, 1897-1904",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         }
@@ -1250,11 +1269,13 @@
       "sources": [
         {
           "label": "Augsburg Confession",
-          "citation": "1530, Article XVI"
+          "citation": "1530, Article XVI",
+          "url": "https://bookofconcord.org/augsburg-confession/"
         },
         {
           "label": "Schleitheim Confession",
-          "citation": "1527, Article VI"
+          "citation": "1527, Article VI",
+          "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
         },
         {
           "label": "Lectures on Calvinism",
@@ -1262,7 +1283,8 @@
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1883-1885, 1897-1904"
+          "citation": "1883-1885, 1897-1904",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -1321,14 +1343,14 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article XVI"
+              "note": "The Augsburg Confession says it is right for Christians \"to engage in just wars, to serve as soldiers,\" against those who forbid Christians from civil office.",
+              "citation": "Augsburg Confession, Article XVI"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion (1571), Article XXXVII"
+              "note": "Article 37 says: \"It is lawful for Christian men, at the commandment of the Magistrate, to wear weapons, and serve in the wars.\"",
+              "citation": "Thirty-Nine Articles of Religion (1571), Article 37"
             },
             {
               "tradition": "baptist",
@@ -1345,14 +1367,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, resolutions on just war"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Common settled practice among Churches of Christ congregations"
+              "note": "The statement says: “Governments should at a minimum restrain violence by applying classical just war principles, which are designed to clarify the limited conditions under which military action is justifiable, and establish standards of right conduct in fighting a war,” while noting believers have long differed on when Christians ought to participate in government-authorized force.",
+              "citation": "For the Health of the Nation: An Evangelical Call to Civic Responsibility (NAE, 2004), \"Promoting Just Peace and Restraining Violence\""
             },
             {
               "tradition": "pentecostal",
@@ -1366,6 +1382,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "2307-2317"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 37",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XVI",
+              "url": "https://bookofconcord.org/augsburg-confession/of-civil-affairs/"
             }
           ]
         },
@@ -1385,8 +1411,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Schleitheim Confession (1527), Article VI; Dordrecht Confession of Faith (1632)"
+              "note": "Schleitheim says “in the perfection of Christ... only the ban is used,” not the sword, and Dordrecht says Christ “has forbidden and set aside to His disciples and followers all revenge and retaliation... but to put the sword into the sheath.”",
+              "citation": "Schleitheim Confession (1527), Article 6; Dordrecht Confession of Faith (1632), Article 14"
             },
             {
               "tradition": "quaker",
@@ -1404,6 +1430,16 @@
             {
               "label": "The Peace Testimony",
               "citation": "1660"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 6",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 14",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -1433,11 +1469,13 @@
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "2307-2317"
+          "citation": "2307-2317",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         },
         {
           "label": "Schleitheim Confession",
-          "citation": "1527, Article VI"
+          "citation": "1527, Article VI",
+          "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
         }
       ]
     }

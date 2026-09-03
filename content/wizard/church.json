@@ -46,7 +46,7 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “While both men and women are gifted for service in the church, the office of pastor/elder/overseer is limited to men as qualified by Scripture.”",
               "citation": "Baptist Faith and Message (2000), Article VI"
             },
             {
@@ -60,12 +60,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 15"
-            },
-            {
-              "tradition": "restorationist",
-              "stance": "majority",
-              "note": "Common practice among Churches of Christ rather than a creedal position, consistent with the movement's non-creedal character.",
-              "citation": "Thomas Campbell, Declaration and Address (1809), as applied in settled Churches of Christ practice"
             },
             {
               "tradition": "anglican",
@@ -82,7 +76,8 @@
             },
             {
               "label": "Baptist Faith and Message",
-              "citation": "SBC, 2000, Article VI"
+              "citation": "SBC, 2000, Article VI",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },
@@ -129,6 +124,11 @@
             {
               "label": "Assemblies of God Position Paper on the Role of Women in Ministry",
               "citation": "2010"
+            },
+            {
+              "label": "The Book of Discipline of the United Methodist Church",
+              "citation": "¶304, Qualifications for Ordination",
+              "url": "https://www.umc.org/en/content/book-of-discipline-304-qualifications-for-ordination"
             }
           ]
         }
@@ -218,20 +218,20 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus (1672), Decree 10"
+              "note": "Decree 10 says: “the dignity of the Bishop is so necessary in the Church, that without him, neither Church nor Christian could either be or be spoken of. For he, as a successor of the Apostles ... is a fountain of all the Mysteries of the Catholic Church, through which we obtain salvation.” Verified directly; the decree number was already correct.",
+              "citation": "Canons of the Apostles, cited by the seven ecumenical councils; Confession of Dositheus, Synod of Jerusalem (1672), Decree 10"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 36 says the Book of Consecration of Bishops \"doth contain all things necessary to such Consecration and Ordering,\" formally establishing bishops as a distinct, lawfully consecrated order; the Ordinal Preface's further claim that the three orders continue from the Apostles' time was not independently retrieved in this pass.",
               "citation": "Thirty-Nine Articles, XXXVI; Ordinal (1662), Preface"
             },
             {
               "tradition": "lutheran",
               "stance": "permitted",
-              "note": "Some Lutheran bodies, especially in Scandinavia, retain historic episcopal succession; others hold the pastoral office without it.",
-              "citation": "Augsburg Confession, XIV, XXVIII"
+              "note": "Article XIV says no one should teach or administer the sacraments \"unless he be regularly called,\" and Article XXVIII limits a bishop's power to preaching the gospel and administering the sacraments, without mandating any one form of church government — the basis on which some Lutheran bodies retain the historic episcopate and others do not.",
+              "citation": "Augsburg Confession, Article XIV; Article XXVIII"
             }
           ],
           "learn_detail": "Rome and the East both hold episcopal government but disagree sharply on whether one bishop, Rome's, holds universal jurisdiction over the others.",
@@ -243,6 +243,16 @@
             {
               "label": "Thirty-Nine Articles of Religion",
               "citation": "1571, Article XXXVI"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XIV",
+              "url": "https://bookofconcord.org/augsburg-confession/of-ecclesiastical-order/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XXVIII",
+              "url": "https://bookofconcord.org/augsburg-confession/of-ecclesiastical-power/"
             }
           ]
         },
@@ -290,26 +300,20 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession describes a church as “an autonomous local congregation of baptized believers... governed by His laws” and adds, “Each congregation operates under the Lordship of Christ through democratic processes.”",
               "citation": "Baptist Faith and Message (2000), Article VI; Second London Baptist Confession (1689), ch. 26"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 6"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says the apostles worked, “with prayer and supplication to God, through the election of brethren, to provide every city, place, or church, with bishops, pastors, and leaders,” each congregation choosing and ordaining its own.",
               "citation": "Dordrecht Confession of Faith (1632), Article 9"
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held on principle, since the movement's founding aim was to restore the New Testament church without any structure above the local congregation.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The chapter describes each congregation as 'under the jurisdiction of no other community,' the several congregations being 'equally independent of one another, as to the management of their own peculiar affairs.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 24, 'The Body of Christ'"
             },
             {
               "tradition": "pentecostal",
@@ -327,6 +331,16 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article VI"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 24, 'The Body of Christ'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS224.HTM"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 9",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         },
@@ -405,32 +419,26 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “Christian baptism is the immersion of a believer in water in the name of the Father, the Son, and the Holy Spirit... an act of obedience symbolizing the believer's faith in a crucified, buried, and risen Saviour.”",
               "citation": "Baptist Faith and Message (2000), Article VII; Second London Baptist Confession (1689), 29.2"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Practice rather than confession; most independent evangelical congregations baptise on profession without holding a developed covenantal argument against the alternative.",
-              "citation": "Lausanne Covenant (1974), Article 6"
+              "note": "The statement says: \"All who repent and believe on Christ as Saviour and Lord are to be baptized. Thus they declare to the world that they have died with Christ and that they also have been raised with Him to walk in newness of life\" (Article 6(a), Baptism in Water).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6(a)"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says “Baptism shall be given to all those who have learned repentance and amendment of life, and who believe truly that their sins are taken away by Christ... This excludes all infant baptism.”",
               "citation": "Schleitheim Confession (1527), Article 1"
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held together with baptismal regeneration, which most other credobaptists reject — see the regeneration position.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter states: \"Penitent believers — not infants nor adults, not males nor females, not Jews nor Greeks; but professors of repentance towards God, and faith in Jesus Christ are the proper subjects of this ordinance.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 16, 'Baptism'"
             },
             {
               "tradition": "inc",
@@ -450,6 +458,16 @@
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article VII",
               "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 16, 'Baptism'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 1",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         },
@@ -469,8 +487,8 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
-              "citation": "Westminster Confession of Faith 28.4; Heidelberg Catechism Q.74"
+              "note": "The Catechism says: \"Infants as well as adults are included in God's covenant and people... Therefore, by baptism, the sign of the covenant, they too should be incorporated into the Christian church.\"",
+              "citation": "Westminster Confession of Faith 28.4; Heidelberg Catechism Q&A 74"
             },
             {
               "tradition": "methodist",
@@ -481,8 +499,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "Lutherans affirm infant baptism but ground it in baptismal regeneration rather than covenant succession — see the regeneration position.",
-              "citation": "Augsburg Confession, IX"
+              "note": "The Augsburg Confession says children are to be baptized \"who, being offered to God through Baptism, are received into God's grace,\" and condemns the Anabaptists who reject infant baptism.",
+              "citation": "Augsburg Confession, Article IX"
             }
           ],
           "learn_detail": "The covenantal argument is an argument from continuity: it places the burden on the credobaptist to show where the New Testament excludes the children who were included before.",
@@ -496,6 +514,11 @@
               "label": "Heidelberg Catechism",
               "citation": "1563, Q&A 74",
               "url": "https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article IX",
+              "url": "https://bookofconcord.org/augsburg-confession/of-baptism/"
             }
           ]
         },
@@ -515,20 +538,20 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says: \"Holy Baptism is the basis of the whole Christian life... Through Baptism we are freed from sin and reborn as sons of God\" (1213), and of infants: \"Born with a fallen human nature and tainted by original sin, children also have need of the new birth in Baptism\" (1250).",
               "citation": "Catechism of the Catholic Church, 1213-1215, 1250"
             },
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Administered with chrismation and communion in a single rite, so the question is less separable than in the West.",
-              "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus (1672), Decree 16"
+              "note": "Decree 16 says: baptism “is necessary even for infants, since they also are subject to original sin, and without Baptism are not able to obtain its remission.” Administered with chrismation and communion in a single rite, so the question is less separable than in the West. Verified directly; the decree number was already correct.",
+              "citation": "Nicene Creed, 'one baptism for the remission of sins'; Confession of Dositheus, Synod of Jerusalem (1672), Decree 16"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, IX; Small Catechism, IV"
+              "note": "The Small Catechism says baptism \"works forgiveness of sins, delivers from death and the devil, and gives eternal salvation to all who believe,\" through \"the word of God which is in and with the water, and faith.\"",
+              "citation": "Augsburg Confession, Article IX; Small Catechism, IV"
             },
             {
               "tradition": "anglican",
@@ -538,9 +561,9 @@
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Held with believer's baptism only, which distinguishes it sharply from the paedobaptist forms.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter applies Acts 2:38 directly to the ordinance: \"Repent, and be baptized every one ... in the name of the Lord Jesus, for the remission of sins.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 16, 'Baptism'"
             }
           ],
           "learn_detail": "Baptismal regeneration is not one position but a family: Rome and the East hold it with infant baptism, the Restorationist stream holds it with believer's baptism only. Grouping them by effect and splitting them by subject is the clearest way to read this doctrine.",
@@ -554,6 +577,16 @@
               "label": "Augsburg Confession",
               "citation": "1530, Article IX",
               "url": "https://bookofconcord.org/augsburg-confession/"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 16, \"Baptism\"",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS216.HTM"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Sacrament of Holy Baptism",
+              "url": "https://bookofconcord.org/small-catechism/the-sacrament-of-holy-baptism/"
             }
           ]
         },
@@ -698,8 +731,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident. See this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.",
-              "citation": "Confession of Dositheus (1672), Decree 17"
+              "note": "Decree 17 says the bread “is transmuted, transubstantiated, converted and transformed into the true Body Itself of the Lord.” Verified directly; the decree number was already correct. The East affirms a real change but has historically declined to define it in the Western scholastic vocabulary of substance and accident — see this doctrine's tradition_overrides entry, which is what the generated Orthodox map states.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 17"
             }
           ],
           "learn_detail": "Transubstantiation is a claim about substance rather than appearance: the philosophical vocabulary distinguishes what a thing is from how it presents to the senses.",
@@ -730,19 +763,21 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, X; Formula of Concord, Solid Declaration VII"
+              "note": "The Solid Declaration says the bread and wine \"are the true body and blood of Jesus Christ, which are offered and received, not only by the godly, but also by godless Christians,\" adding that even an unworthy communicant \"receives the true Sacrament... just as truly as he who receives... in the most worthy manner.\"",
+              "citation": "Augsburg Confession, Article X; Formula of Concord, Solid Declaration, Article VII"
             }
           ],
           "learn_detail": "Lutherans reject transubstantiation's philosophical apparatus while affirming an objective sacramental union of Christ's body and blood with the bread and wine, sometimes summarised as 'in, with and under.'",
           "sources": [
             {
               "label": "Augsburg Confession",
-              "citation": "1530, Article X"
+              "citation": "1530, Article X",
+              "url": "https://bookofconcord.org/augsburg-confession/of-the-lords-supper/"
             },
             {
               "label": "Formula of Concord",
-              "citation": "1577, Solid Declaration, Article VII"
+              "citation": "1577, Solid Declaration, Article VII",
+              "url": "https://bookofconcord.org/solid-declaration/the-holy-supper/"
             }
           ]
         },
@@ -774,8 +809,8 @@
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": "The evangelical wing of the tradition reads the Articles in this sense; the Anglo-Catholic wing reads the same formularies closer to real presence.",
-              "citation": "Thirty-Nine Articles, XXVIII"
+              "note": "Article 28 says \"The Body of Christ is given, taken, and eaten, in the Supper, only after an heavenly spiritual manner. And the mean whereby the Body of Christ is received and eaten in the Supper, is Faith.\"",
+              "citation": "Thirty-Nine Articles, Article 28"
             }
           ],
           "learn_detail": "The Reformed position is sometimes called 'virtualism' or 'receptionism': the elements remain bread and wine, but the believer receives Christ himself, not merely a reminder of him, by the Spirit's working.",
@@ -783,6 +818,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 29.7"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 28",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -802,32 +842,26 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession says: “The Lord's Supper is a symbolic act of obedience whereby members of the church, through partaking of the bread and the fruit of the vine, memorialize the death of the Redeemer and anticipate His second coming.”",
               "citation": "Baptist Faith and Message (2000), Article VII"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 6"
             },
             {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
+              "note": "The statement says the Lord's Supper is \"the symbol expressing our sharing the divine nature of our Lord Jesus Christ...a memorial of His suffering and death...and a prophecy of His second coming\" (Article 6(b), Holy Communion, not Article 7).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 6(b)"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says the Supper is kept “in remembrance of the suffering and death of the Lord... whereby we are admonished... to love and forgive one another,” without describing any change in, or grace conveyed through, the elements themselves.",
               "citation": "Dordrecht Confession of Faith (1632), Article 10"
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "stance": "majority",
+              "note": "The chapter describes the elements as commemorative representations: \"The loaf is thus constituted a representation of his body... The cup is thus instituted a representation of his blood.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, 'Breaking the Loaf'"
             },
             {
               "tradition": "inc",
@@ -841,6 +875,16 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "SBC, 2000, Article VII"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, 'Breaking the Loaf'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS233.HTM"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 10",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
             }
           ]
         }
@@ -849,7 +893,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 29"
+          "citation": "1646, ch. 29",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     },
@@ -891,19 +936,13 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession describes a church as “an autonomous local congregation of baptized believers, associated by covenant in the faith and fellowship of the gospel.”",
               "citation": "Second London Baptist Confession (1689), ch. 26.6; Baptist Faith and Message (2000), Article VI"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 6"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": "Church discipline, including the ban, is a defining mark of the tradition rather than an occasional practice.",
+              "note": "The confession applies the ban “with all those who have given themselves to the Lord, to walk in His commandments, and with all those who are baptized into the one body of Christ and who are called brethren or sisters,” disciplining a member who falls into sin. Church discipline, including the ban, is a defining mark of the tradition rather than an occasional practice.",
               "citation": "Schleitheim Confession (1527), Article 2"
             },
             {
@@ -915,8 +954,8 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter requires formal reception into a particular congregation: a convert 'ought to be saluted or received as such by the brethren with whom he unites,' since 'a person cannot be under the oversight or under the discipline of a congregation, unless he voluntarily associate with the brethren meeting in that place.'",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 26, 'The Christian Discipline'"
             },
             {
               "tradition": "pentecostal",
@@ -934,6 +973,16 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 30"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 26, 'The Christian Discipline'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS226.HTM"
+            },
+            {
+              "label": "Schleitheim Confession",
+              "citation": "1527, Article 2",
+              "url": "https://pages.uoregon.edu/sshoemak/323/texts/schleitheim.htm"
             }
           ]
         },
@@ -959,20 +1008,14 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 10"
+              "note": "Decree 11 says: “unless the Faithful, even when living in sin, were members of the Church, they could not be judged by the Church. But now being judged by her, and called to repentance ... they are, and are regarded as, members of the Catholic Church.” Decree 10 grounds the clergy-under-bishop structure. The previous citation named only Decree 10, which supports the clergy point but not the membership definition itself.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 10 (episcopal governance of particular churches); Decree 11 (who counts as a member)"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
               "note": null,
               "citation": "Book of Common Prayer (1662), Publick Baptism; Canons of the Church of England"
-            },
-            {
-              "tradition": "lutheran",
-              "stance": "permitted",
-              "note": "Practice varies between state-church and free-church Lutheran bodies; both ground standing in baptism and sacramental participation rather than a separate covenant.",
-              "citation": "Augsburg Confession, XIV"
             }
           ],
           "learn_detail": "Discipline in this model is exercised by the clergy, typically as exclusion from the sacraments, rather than by a vote or process of the gathered congregation.",
@@ -988,7 +1031,8 @@
       "sources": [
         {
           "label": "Westminster Confession of Faith",
-          "citation": "1646, ch. 30"
+          "citation": "1646, ch. 30",
+          "url": "https://www.pcaac.org/bco/westminster-confession/"
         }
       ]
     }

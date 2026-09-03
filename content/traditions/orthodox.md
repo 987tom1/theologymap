@@ -230,7 +230,7 @@
   link  sovereignty-and-free-will
   link  justification
 
-## Assurance · T3 · confident
+## Assurance · T3 · certain
   hold  A believer may know present grace and hope in God's mercy, but a settled certainty of final salvation ahead of death is not sought or promised in this life, so as to guard against presumption while sanctifying grace remains at stake.
   why   What is promised is a well-founded hope in God's mercy rather than an infallible certainty of one's own final perseverance, so the counsel is to rest in present grace and guard against presumption while the outcome of a life still lies ahead.
   vs    Claiming an infallible certainty of final salvation ahead of death apart from special revelation, which this position holds Scripture nowhere promises and which risks presumption.
@@ -410,7 +410,7 @@
   refs  Eccl 3:1-2
   link  abortion
 
-## Alcohol · T3 · certain
+## Alcohol · T3 · confident
   hold  Scripture nowhere prohibits alcohol itself and repeatedly commends wine as a gift of God, so consumption in moderation is permitted while drunkenness is condemned as a sin.
   why   Wine is used in Scripture as an image of blessing and is present at the wedding at Cana and in the Lord's Supper itself, so the consistent target of biblical warning is drunkenness, not moderate use as such.
   vs    Treating any use of alcohol at all, rather than drunkenness specifically, as the sin Scripture warns against.

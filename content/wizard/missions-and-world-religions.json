@@ -40,26 +40,26 @@
           "held_by": [
             {
               "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 3"
+              "stance": "majority",
+              "note": "The Covenant says: \"Jesus Christ, being himself the only God-Man, who gave himself as the only ransom for sinners, is the only mediator between God and people.\"",
+              "citation": "Lausanne Covenant (1974), Article 3, 'The Uniqueness and Universality of Christ'"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"Man's only hope of redemption is through the shed blood of Jesus Christ the Son of God\" (Article 5, The Salvation of Man — not Article 3, which is about Christ's deity rather than salvation's exclusivity).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
             },
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says Christ arose “to validate that the way of salvation is through Him alone.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession calls Christ “the One Mediator, fully God, fully man, in whose Person is effected the reconciliation between God and man.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
@@ -83,14 +83,14 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 1"
+              "note": "Decree 8 says: \"our Lord Jesus Christ [is] the only mediator, and ... in giving Himself a ransom for all He hath through His own Blood made a reconciliation between God and man.\" The previous citation to Decree 1 (the Trinity) was the wrong decree.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 8"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article III-IV"
+              "note": "The Smalcald Articles say \"there is none other name under heaven, given among men whereby we must be saved.\" Retargeted from Augsburg Confession, Article III-IV, which teach Christ's atonement and justification by faith but do not state the exclusivity claim this directly.",
+              "citation": "Smalcald Articles (1537), Part II, Article 1, \"The First and Chief Article\""
             },
             {
               "tradition": "methodist",
@@ -101,14 +101,14 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article II"
+              "note": "The confession says of Christ: “He is the Son of the living God, in whom alone consist all our hope, consolation, redemption, and salvation, which we neither may nor must seek in any other.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Alexander Campbell, The Christian System (1839), ch. 1"
+              "stance": "majority",
+              "note": "The chapter states: \"To be out of him, or not under his mediatorship or government, is to be... unpardoned, unjustified, unsanctified, unreconciled, and an alien from the family of God, lost in trespasses and sins.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, 'Remission of Sins'"
             }
           ],
           "learn_detail": "This is the one claim in the domain every registered tradition confesses without exception; the disputes that follow it are about the unevangelised and about how to assess the other religions, never about this.",
@@ -119,7 +119,18 @@
             },
             {
               "label": "Lausanne Covenant",
-              "citation": "1974, Article 3"
+              "citation": "1974, Article 3",
+              "url": "https://lausanne.org/covenant"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, 'Remission of Sins'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS231.HTM"
+            },
+            {
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 1",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-christ-and-faith/"
             }
           ]
         },
@@ -149,11 +160,13 @@
       "sources": [
         {
           "label": "Lausanne Covenant",
-          "citation": "1974, Article 3"
+          "citation": "1974, Article 3",
+          "url": "https://lausanne.org/covenant"
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "846-848"
+          "citation": "846-848",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -195,35 +208,29 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": "Widely held, though the Baptist Faith and Message does not itself adjudicate the question directly.",
-              "citation": "Baptist Faith and Message (2000), Article X"
-            },
-            {
               "tradition": "reformed",
               "stance": "majority",
-              "note": "The predominant historic Reformed reading, though not the only one contemporary Reformed theologians hold.",
+              "note": "The Confession says such persons \"never truly come unto Christ, and therefore cannot be saved,\" and calls the claim that they may be saved otherwise \"very pernicious, and to be detested.\"",
               "citation": "Westminster Confession of Faith 10.4"
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 3"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The Covenant says: \"We recognize that everyone has some knowledge of God through his general revelation in nature. But we deny that this can save, for people suppress the truth by their unrighteousness.\"",
+              "citation": "Lausanne Covenant (1974), Article 3, 'The Uniqueness and Universality of Christ'"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
               "label": "Westminster Confession of Faith",
-              "citation": "10.4"
+              "citation": "1646, ch. 10.4",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 3",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         },
@@ -243,7 +250,7 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": "Stated of those who, through no fault of their own, do not know the gospel but sincerely seek God.",
+              "note": "The Catechism says: \"Those who, through no fault of their own, do not know the Gospel of Christ or his Church, but who nevertheless seek God with a sincere heart, and, moved by grace, try in their actions to do his will as they know it through the dictates of their conscience — those too may achieve eternal salvation\" (847).",
               "citation": "Lumen Gentium 16 (1964); Catechism of the Catholic Church, 847"
             },
             {
@@ -269,11 +276,17 @@
           "sources": [
             {
               "label": "Lumen Gentium",
-              "citation": "Second Vatican Council, 1964, §16"
+              "citation": "Second Vatican Council, 1964, para. 16",
+              "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
             },
             {
               "label": "Nostra Aetate",
               "citation": "Second Vatican Council, 1965"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "847",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
             }
           ]
         },
@@ -367,20 +380,7 @@
           "equivalence_group": null,
           "orthodoxy": "historic",
           "orthodoxy_note": null,
-          "held_by": [
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
-            },
-            {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": "Widely but not universally held.",
-              "citation": "Baptist Faith and Message (2000), Article II.B"
-            }
-          ],
+          "held_by": [],
           "learn_detail": null,
           "sources": [
             {
@@ -419,12 +419,6 @@
               "stance": "majority",
               "note": "Read through the Reformed doctrine of general revelation and common grace.",
               "citation": "Westminster Confession of Faith 1.1; Belgic Confession, Article 2"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "permitted",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 3"
             }
           ],
           "learn_detail": "The Catholic form of this position is Nostra Aetate's language of rays of that truth which enlightens all people; the Reformed and evangelical form is drawn independently from general revelation and common grace rather than from the council. Both converge on the same claim: real truth, insufficient for salvation.",
@@ -461,7 +455,8 @@
       "sources": [
         {
           "label": "Nostra Aetate",
-          "citation": "Second Vatican Council, 1965"
+          "citation": "Second Vatican Council, 1965",
+          "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
         },
         {
           "label": "Perspectives on the World Christian Movement",
@@ -507,8 +502,8 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 10"
+              "note": "The Covenant says: \"The development of strategies for world evangelization calls for imaginative pioneering methods. Under God, the result will be the rise of churches deeply rooted in Christ and closely related to their culture.\"",
+              "citation": "Lausanne Covenant (1974), Article 10, 'Evangelism and Culture'"
             },
             {
               "tradition": "roman-catholic",
@@ -522,6 +517,11 @@
             {
               "label": "Ad Gentes",
               "citation": "Second Vatican Council, 1965, §22"
+            },
+            {
+              "label": "Lausanne Covenant",
+              "citation": "1974, Article 10, 'Evangelism and Culture'",
+              "url": "https://lausanne.org/covenant"
             }
           ]
         },
@@ -657,24 +657,6 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article XI"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 9"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
-            },
-            {
               "tradition": "reformed",
               "stance": "majority",
               "note": null,
@@ -725,20 +707,17 @@
           "held_by": [
             {
               "tradition": "roman-catholic",
-              "stance": "confessional",
-              "note": "The church neither conducts nor supports any specific institutional mission work directed towards Jews, while it is committed to bear witness to its faith in the presence of Jews, doing so with humility and sensitivity.",
-              "citation": "Commission for Religious Relations with the Jews, The Gifts and the Calling of God are Irrevocable (2015), §40; Nostra Aetate 4 (1965)"
+              "stance": "majority",
+              "note": "Verbatim, §40: \"In concrete terms this means that the Catholic Church neither conducts nor supports any specific institutional mission work directed towards Jews. ... Christians are nonetheless called to bear witness to their faith in Jesus Christ also to Jews, although they should do so in a humble and sensitive manner, acknowledging that Jews are bearers of God's Word.\" The document states its own status in its preface: \"The text is not a magisterial document or doctrinal teaching of the Catholic Church, but is a reflection prepared by the Commission for Religious Relations with the Jews.\" Nostra Aetate 4 (1965), the binding conciliar text, does not itself address institutional mission to Jews at all; the specific no-institutional-mission position rests only on this later, explicitly non-magisterial reflection.",
+              "citation": "Commission for Religious Relations with the Jews, \"The Gifts and the Calling of God are Irrevocable\" (10 December 2015), §40"
             }
           ],
           "learn_detail": "This position must be stated with precision: it is a specific judgment about institutional missionary programmes aimed at Jews, made explicit in the 2015 document The Gifts and the Calling of God are Irrevocable from the Vatican's Commission for Religious Relations with the Jews, and it explicitly does not deny that Jesus Christ is the way, the truth and the life, nor that salvation comes through him.",
           "sources": [
             {
               "label": "The Gifts and the Calling of God are Irrevocable",
-              "citation": "Commission for Religious Relations with the Jews, 2015, §40"
-            },
-            {
-              "label": "Nostra Aetate",
-              "citation": "Second Vatican Council, 1965, §4"
+              "citation": "Commission for Religious Relations with the Jews, 10 December 2015, §40",
+              "url": "https://www.ccjr.us/dialogika-resources/documents-and-statements/roman-catholic/vatican-curia/crrj-2015dec10"
             }
           ]
         }
@@ -747,11 +726,13 @@
       "sources": [
         {
           "label": "The Gifts and the Calling of God are Irrevocable",
-          "citation": "Commission for Religious Relations with the Jews, 2015"
+          "citation": "Commission for Religious Relations with the Jews, 10 December 2015",
+          "url": "https://www.ccjr.us/dialogika-resources/documents-and-statements/roman-catholic/vatican-curia/crrj-2015dec10"
         },
         {
           "label": "Nostra Aetate",
-          "citation": "Second Vatican Council, 1965"
+          "citation": "Second Vatican Council, 28 October 1965, §4",
+          "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
         }
       ]
     }

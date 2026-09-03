@@ -48,26 +48,26 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Formula of Concord says: \"the sole rule and standard according to which all dogmas together with [all] teachers should be estimated and judged are the prophetic and apostolic Scriptures of the Old and of the New Testament alone.\"",
               "citation": "Formula of Concord, Epitome, Rule and Norm 1"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 6"
+              "note": "Article 6 says \"Holy Scripture containeth all things necessary to salvation: so that whatsoever is not read therein, nor may be proved thereby, is not to be required of any man...as an article of the Faith.\"",
+              "citation": "Thirty-Nine Articles of Religion, Article 6"
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message 2000, Article I"
+              "note": "The confession says Scripture “is, and will remain to the end of the world, the true center of Christian union, and the supreme standard by which all human conduct, creeds, and religious opinions should be tried.”",
+              "citation": "Second London Baptist Confession 1.1; Baptist Faith and Message (2000), Article I"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": "Held without a parallel doctrine of subordinate creedal authority; Anabaptist confessions themselves function as testimonies rather than binding standards.",
-              "citation": "Dordrecht Confession of Faith (1632), Preface"
+              "note": "The confession says Christ's New Testament, sealed with His blood, was given to the disciples so that “neither angel nor man may alter it, nor add to it nor take away from it,” containing the whole counsel of God as far as is necessary for salvation.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 5"
             }
           ],
           "learn_detail": "Confessional sola scriptura is often misstated, by critics and by its own less careful holders, as denying any authority to creeds and councils at all. The Reformed and Lutheran confessions themselves say the opposite: they claim binding subordinate authority for their own summaries, precisely because they claim to teach only what Scripture teaches.",
@@ -75,6 +75,21 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1.10 (1646)"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 5",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Epitome, Rule and Norm 1",
+              "url": "https://bookofconcord.org/epitome/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 6",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -150,8 +165,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2"
+              "note": "Dositheus: “we ought to believe the [Scriptures] without doubting; yet not otherwise than as the Catholic Church hath interpreted and delivered the same.” The Catechism: divine revelation spreads through “two channels — holy tradition and holy Scripture” (Q16), and tradition is necessary “as a guide to the right understanding of holy Scripture” (Q24). Verified directly; the decree number was already correct.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 2; Longer Catechism of St Philaret of Moscow, Qq. 16-18, 21, 24"
             }
           ],
           "learn_detail": "Orthodox theology generally resists ranking Scripture and Tradition against one another at all, since it regards Scripture as internal to Tradition rather than a second thing to be weighed against it.",
@@ -177,16 +192,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "This position reaches a practical result close to sola scriptura by a different route, and deliberately rejects the Reformation's confessions along with Rome's magisterium.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "Proposition 3 states: \"nothing ought to be inculcated upon Christians as articles of faith; nor required of them as terms of communion, but what is expressly taught and enjoined upon them in the word of God.\"",
+              "citation": "Thomas Campbell, Declaration and Address, 1809, Proposition 3"
             }
           ],
           "learn_detail": "The Stone-Campbell movement's rejection of creeds is a matter of principle, not merely an absence of theology: the Declaration and Address argues that creeds and confessions, whatever truth they contain, function in practice as tests of fellowship that Scripture itself does not authorise.",
           "sources": [
             {
               "label": "Declaration and Address",
-              "citation": "Thomas Campbell, 1809"
+              "citation": "Thomas Campbell, 1809, Proposition 3",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
             }
           ]
         },
@@ -204,15 +220,9 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Widely held in practice as 'no creed but the Bible' rather than as a formally argued position; independent congregations typically hold no confession binding beyond a brief statement of faith.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), representative of the genre"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": "Held in practice alongside the Assemblies of God's own Statement of Fundamental Truths, which the movement itself does not treat as creedal or binding beyond its stated purpose of doctrinal cohesion.",
+              "note": "The preamble says: \"The Bible is our all-sufficient rule for faith and practice...The phraseology employed in this statement is not inspired or contended for, but the truth set forth is held to be essential to a full-gospel ministry.\" The Statement explicitly declines binding authority for its own wording, holding Scripture alone as the rule.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Preamble"
             }
           ],
@@ -220,7 +230,8 @@
           "sources": [
             {
               "label": "Assemblies of God Statement of Fundamental Truths",
-              "citation": "Preamble"
+              "citation": "Preamble",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         }
@@ -283,13 +294,13 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article 1"
+              "note": "The Nicene Creed as printed in the Book of Concord confesses the Holy Spirit as the one \"who proceedeth from the Father and the Son.\" Retargeted from Augsburg Confession, Article 1, which affirms the Council of Nicaea's Trinitarian doctrine but does not itself quote the creed's wording on the Spirit's procession.",
+              "citation": "Book of Concord, Ecumenical Creeds, the Nicene Creed"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 8 says the three creeds \"ought thoroughly to be received and believed,\" and the Book of Common Prayer's Nicene Creed text, which Article 8 commits the Church to, includes the filioque clause.",
               "citation": "Thirty-Nine Articles, Article 8; Book of Common Prayer, the Nicene Creed"
             },
             {
@@ -304,6 +315,11 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "246"
+            },
+            {
+              "label": "Nicene Creed",
+              "citation": "Book of Concord, Ecumenical Creeds",
+              "url": "https://bookofconcord.org/ecumenical-creeds/nicene-creed/"
             }
           ]
         },
@@ -323,8 +339,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "The Nicene-Constantinopolitan Creed (381), as received without later addition; Confession of Dositheus, Decree 1"
+              "note": "Decree 1 says: “the Holy Spirit proceeding from the Father, and consubstantial with the Father and the Son” — with no mention of the Son. Verified directly; the decree number was already correct.",
+              "citation": "The Nicene-Constantinopolitan Creed (381), as received without later addition; Confession of Dositheus, Synod of Jerusalem (1672), Decree 1"
             }
           ],
           "learn_detail": "Orthodox objection to the filioque is as much about ecclesial authority, whether any one church may alter an ecumenically agreed text, as it is about the underlying question of the Spirit's eternal procession.",
@@ -351,8 +367,8 @@
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": "Baptist confessions affirm the substance of Nicene Trinitarian and Chalcedonian Christology without requiring liturgical recitation of the creed.",
-              "citation": "Baptist Faith and Message 2000, Article II"
+              "note": "Article II confesses “the eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being” — the Nicene Trinitarian content, with no confessional requirement to recite the creed's text.",
+              "citation": "Baptist Faith and Message (2000), Article II"
             },
             {
               "tradition": "anabaptist",
@@ -361,22 +377,16 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 2"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Practice varies, and a growing minority of non-denominational congregations recite the creed liturgically, but formal recitation is not the norm.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943)"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "majority",
-              "note": null,
+              "note": "The statement affirms Trinitarian content in its own propositional wording — \"The one true God has revealed himself...as Father, Son, and Holy Spirit\" (Article 2) — without reciting or subscribing the Nicene-Constantinopolitan Creed's text.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
             },
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Rejects formal creeds on principle while affirming the substance of Nicene Christology as apostolic teaching.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The chapter states: \"We have the Father, Son, and Holy Spirit equally divine, though personally distinct from each other. We have in fact, but one God, one Lord, one Holy Spirit; yet these are equally possessed of one and of the same divine nature,\" affirmed from scripture without treating the Nicene text itself as a term of communion.",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 3, 'God'"
             }
           ],
           "learn_detail": "This is a real and stable position, not merely an absence of one: the Stone-Campbell movement in particular affirms Nicene Christology explicitly while declining formal creedal recitation as a matter of principle, and much of the wider non-denominational and Pentecostal stream follows the same pattern without arguing the point as explicitly.",
@@ -384,6 +394,16 @@
             {
               "label": "Baptist Faith and Message",
               "citation": "2000, Article II"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 3, 'God'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 2",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
             }
           ]
         }
@@ -392,7 +412,8 @@
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
-          "citation": "First Council of Constantinople, 381"
+          "citation": "First Council of Constantinople, 381",
+          "url": "https://www.ccel.org/creeds/nicene.creed.html"
         },
         {
           "label": "Chalcedonian Definition",
@@ -467,8 +488,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 2; the Longer Catechism of St Philaret of Moscow (1830)"
+              "note": "Decree 12 says: “The teaching of the Holy Spirit ... doth not immediately, but through the holy Fathers and Leaders of the Catholic Church, illuminate the Church.” The previous citation to Decree 2 (on Scripture read within the Church) was the wrong decree; Decree 12 is the one that names the Fathers as the Spirit's organ.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 12; Longer Catechism of St Philaret of Moscow, Q18"
             }
           ],
           "learn_detail": "Orthodox theology tends to resist ranking the Fathers as a source distinct from and subordinate to Scripture, since it regards their consensus as an expression of the same Holy Tradition Scripture itself belongs to.",
@@ -495,20 +516,14 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "The Confession says: \"The Supreme Judge, by which all controversies of religion are to be determined, and all decrees of councils, opinions of ancient writers, doctrines of men, and private spirits, are to be examined... can be no other but the Holy Spirit speaking in the Scripture.\"",
               "citation": "Westminster Confession of Faith 1.10; John Calvin, Institutes, Prefatory Address to Francis I"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 20; The Books of Homilies"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Epitome, Rule and Norm 2"
+              "note": "The Formula says other confessions and the writings of teachers, ancient and modern, stand \"as a witness of the truth and as the unanimously received correct understanding of our predecessors,\" from and according to which, because the Formula is derived from God's Word, \"all other writings should be judged and adjusted.\" Retargeted from \"Rule and Norm 2,\" which is the paragraph naming the three ecumenical creeds, not this one.",
+              "citation": "Formula of Concord, Comprehensive Summary, Rule and Norm"
             },
             {
               "tradition": "methodist",
@@ -534,6 +549,16 @@
             {
               "label": "Institutes of the Christian Religion",
               "citation": "John Calvin, Prefatory Address to Francis I, 1536/1559"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 1.10",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Formula of Concord, Rule and Norm",
+              "citation": "Solid Declaration, Comprehensive Summary",
+              "url": "https://bookofconcord.org/solid-declaration/rule-and-norm/"
             }
           ]
         },
@@ -552,16 +577,17 @@
           "held_by": [
             {
               "tradition": "restorationist",
-              "stance": "confessional",
-              "note": "Explicitly minimises reliance on post-apostolic human authorities, patristic included, in favour of a direct return to the New Testament text.",
-              "citation": "Thomas Campbell, Declaration and Address (1809)"
+              "stance": "majority",
+              "note": "The Declaration does not name the church fathers, but grounds its whole argument in requiring nothing 'but what is expressly taught and enjoined... in the word of God,' excluding any post-apostolic human authority, patristic included, from a formal interpretive role.",
+              "citation": "Thomas Campbell, Declaration and Address, 1809, Proposition 3"
             }
           ],
           "learn_detail": "The wider non-denominational and Pentecostal stream is often unfamiliar with the Fathers in practice, a difference of emphasis and formation rather than an argued position; no confessional statement in that stream addresses patristic authority directly, so no held_by claim is made for it here.",
           "sources": [
             {
               "label": "Declaration and Address",
-              "citation": "Thomas Campbell, 1809"
+              "citation": "Thomas Campbell, 1809, Proposition 3",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/tcampbell/da/DA-1ST.HTM"
             }
           ]
         }
@@ -624,7 +650,7 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 11 says \"We are accounted righteous before God only for the merit of our Lord and Saviour Jesus Christ by Faith, and not for our own works or deservings,\" grounding sola fide, solus Christus and sola gratia, though the Articles do not use the later five-solas formula itself.",
               "citation": "Thirty-Nine Articles, Article 11"
             },
             {
@@ -646,16 +672,10 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
             },
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 3"
-            },
-            {
               "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
+              "stance": "majority",
+              "note": "The statement says salvation comes \"By the washing of regeneration and renewing of the Holy Spirit, being justified by grace through faith\" (Article 5(a)) — this affirms grace-through-faith justification, but the document never uses the five-solas framework itself (it does not, in this article, speak to Scripture alone or the glory of God alone), so this is the movement's broad theological alignment rather than a confessionally defined 'five solas' article.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5(a)"
             }
           ],
           "learn_detail": "The five solas as a fixed set of five is itself a later systematisation; the Reformers argued each point extensively but did not present them together as a numbered list until the twentieth century.",
@@ -663,6 +683,16 @@
             {
               "label": "Augsburg Confession",
               "citation": "Article 4, 1530"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 5(a)",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 11",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -682,15 +712,16 @@
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Affirms grace through faith in Christ as the ground of salvation while declining to treat any post-apostolic formula, Reformation solas included, as a fixed creedal standard.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
+              "note": "The chapter states: \"Let THE BIBLE be substituted for all human creeds; FACTS, for definitions, THINGS, for words,\" declining to treat any post-apostolic formula as a fixed creedal standard.",
+              "citation": "Alexander Campbell, The Christian System, 1839, 'Foundation of Christian Union'"
             }
           ],
           "learn_detail": "This position is not a rejection of what the solas teach; it is a application of the movement's general resistance to post-apostolic formulas, Reformation ones included, as tests of fellowship.",
           "sources": [
             {
               "label": "The Christian System",
-              "citation": "Alexander Campbell, 1839"
+              "citation": "Alexander Campbell, 1839, 'Foundation of Christian Union'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS229.HTM"
             }
           ]
         },
@@ -738,8 +769,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Confession of Dositheus (1672), Decree 13-14"
+              "note": "Decree 13 says: “a man [is] not simply justified through faith alone, but through faith which worketh through love, that is to say, through faith and works.” Verified directly; the decree range was already correct (Decree 14 also bears on the point, describing grace as necessary and cooperated with).",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 13"
             }
           ],
           "learn_detail": "Orthodox writers frequently note that the Reformation debate over faith and works was conducted in Western, largely Augustinian and legal categories that the Christian East never fully shared, which makes the dispute harder to translate directly than it first appears.",
@@ -803,8 +834,8 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article 19"
+              "note": "Article 19 says the Church of Rome, like Jerusalem, Alexandria and Antioch, \"hath erred, not only in their living and manner of Ceremonies, but also in matters of Faith.\"",
+              "citation": "Thirty-Nine Articles of Religion, Article 19"
             },
             {
               "tradition": "methodist",
@@ -815,8 +846,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": "The Book of Concord's polemic against the papacy is sharper than this position's framing while still addressing Rome as a church holding corrupted doctrine rather than as no church at all.",
-              "citation": "Augsburg Confession, Article 7-8"
+              "note": "The Smalcald Articles say: \"The Pope is not, according to divine law or according to the Word of God, the head of all Christendom... but is only the bishop and pastor of the Church at Rome, and of those who voluntarily have attached themselves to him.\" The same article elsewhere calls the papacy \"the very Antichrist\" — sharper than this position's framing — while still addressing Rome as a church whose bishop and adherents are engaged as Christians in serious error rather than as no church at all.",
+              "citation": "Smalcald Articles (1537), Part II, Article 4, \"Of the Papacy\""
             }
           ],
           "learn_detail": "Anglican Article 19 states plainly that 'as the Church of Jerusalem, Alexandria, and Antioch, have erred; so also the Church of Rome hath erred', treating Rome as a church that has erred rather than as no church.",
@@ -824,6 +855,11 @@
             {
               "label": "Thirty-Nine Articles",
               "citation": "Article 19"
+            },
+            {
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 4",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-the-papacy/"
             }
           ]
         },

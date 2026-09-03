@@ -6,7 +6,6 @@
   vs    Limited infallibility — Scripture trustworthy on faith and salvation, errant on history and science.
   refs  2 Tim 3:16-17; John 10:35
   link  canon
-  link  hermeneutic-method
 
 ## Canon · T1 · certain
   hold  The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.
@@ -23,18 +22,11 @@
   link  clarity-of-scripture
   link  the-lords-supper
 
-## Hermeneutic method · T2 · confident
-  hold  Authorial intent, grammar, genre and historical context govern a passage's meaning, and application follows from that meaning rather than substituting for it.
-  why   God communicated through human authors writing in real languages to real audiences, and honouring that communication means reading a text the way its author meant it, rather than importing a later sense onto it.
-  vs    Allegorical or typological reading that treats a passage as bearing a further spiritual sense beyond what its author and original audience would have understood.
-  link  women-in-ministry
-
 ## Clarity of Scripture · T2.5 · certain
   hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
   why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
   vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
   refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
 
 ## Translations · T3 · leaning
   hold  Formal and dynamic translations made from the original languages are legitimate, and a self-identified King-James-only minority holds the King James Version as uniquely authoritative instead.
@@ -202,10 +194,10 @@
 # Humanity and sin
 
 ## Image of God · T1.5 · confident
-  hold  The image of God consists in humanity's vocation to represent God's rule within creation, exercising the dominion and stewardship God gave in the creation mandate.
-  why   Ancient Near Eastern usage applied 'image' to a king representing a god's rule over a territory, and Genesis 1:26-28 pairs 'let them have dominion' directly with the making of humanity in God's image.
-  vs    Locating the image solely in an inner capacity possessed independently of humanity's task of ruling and keeping creation.
-  refs  Gen 1:26-28; Ps 8:5-8
+  hold  The image of God consists chiefly in capacities that set humanity apart from the rest of creation, especially reason, moral agency and an immortal soul, which the fall wounded but did not destroy.
+  why   Genesis places the image language alongside humanity's unique capacity for God-given dominion and moral address, and the New Testament describes the image being renewed in knowledge, righteousness and holiness, qualities of the soul rather than of a role alone.
+  vs    Locating the image entirely in humanity's task of ruling creation, apart from any distinct capacity that makes the task possible.
+  refs  Gen 1:26-27; Col 3:10; Eph 4:24
   link  historical-adam
 
 ## Historical Adam · T2.5 · certain
@@ -319,7 +311,6 @@
   vs    Ordaining women to the teaching and governing eldership on the ground that Paul addresses a local disorder rather than a permanent creation pattern.
   refs  1 Tim 2:11-14; 1 Tim 3:1-7; Titus 1:5-9
   link  church-government
-  link  hermeneutic-method
 
 ## Church government · T3 · certain
   hold  Each local congregation, governed by its own elders and members, is complete in itself under Christ and accountable to no higher ecclesiastical court.
@@ -390,15 +381,6 @@
   vs    Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
   refs  Matt 25:46; Rev 14:11
   link  second-coming
-  link  intermediate-state
-
-## Intermediate state · T3 · certain
-  hold  At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.
-  why   Paul describes departing the body as being at home with the Lord without any interval of unconsciousness, and Jesus promises the repentant thief that he will be with him in paradise that very day.
-  vs    Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.
-  refs  2 Cor 5:6-8; Luke 23:43
-  link  hell
-  link  second-coming
 
 ## Rapture · T4 · leaning
   hold  The church remains on earth through the entire future tribulation and is caught up to meet Christ in the air at his visible return, at the very end of that period, rather than being removed beforehand.
@@ -436,7 +418,6 @@
   link  age-of-the-earth
   link  evolution
   link  the-flood
-  link  hermeneutic-method
   link  inerrancy
 
 ## Age of the earth · T3 · leaning
@@ -556,13 +537,6 @@
   refs  Eccl 3:1-2
   link  abortion
 
-## Alcohol · T3 · certain
-  hold  Believers should abstain from alcohol entirely, both to avoid the harm drunkenness causes and, as a matter of positive testimony and care for the weaker brother, rather than relying on personal moderation to avoid it.
-  why   Given the real and widespread harm alcohol does, this position holds that total abstinence better honors Scripture's repeated warnings against drunkenness and its call to avoid causing another believer to stumble than personal moderation does.
-  vs    Treating moderate use of alcohol as a matter of Christian liberty rather than as something believers should abstain from as a matter of testimony and care for the weaker brother.
-  refs  Prov 20:1; Rom 14:21
-  link  membership-and-discipline
-
 
 # Formation and practice
 
@@ -571,19 +545,9 @@
   why   Scripture describes sanctification as an ongoing renewal and commands continual mortification of sin, which would be needless instruction if perfection were already attainable in this life.
   vs    Teaching that a believer can reach a state in this life in which no further mortification of remaining sin is needed.
   refs  Rom 6:1-14; Phil 1:6; 2 Cor 3:18
-  link  hearing-god
   link  spiritual-disciplines
   link  depravity-and-prevenient-grace
   link  original-sin
-
-## Hearing God · T2 · confident
-  hold  God guides believers today through the settled teaching of Scripture, the circumstances of providence and sanctified reason and counsel, without any further inward voice or impression to be sought or expected.
-  why   Scripture is sufficient to equip the believer for every good work, and the ordinary Christian life is one of applying its wisdom to circumstances rather than waiting for a further private word.
-  vs    Seeking an inward impression or subjective leading as a supplementary channel of guidance alongside Scripture, reason and providence.
-  refs  2 Tim 3:16-17; Prov 3:5-6
-  link  prophecy
-  link  spiritual-disciplines
-  link  sufficiency-of-scripture
 
 ## Suffering and providence · T2 · confident
   hold  God upholds and governs all things in his general providence and can redeem any suffering for good, but particular instances of suffering are permitted within that governance rather than specifically willed by God for their own sake.
@@ -591,14 +555,12 @@
   vs    Attributing a particular instance of suffering directly to God's specific intention, as though it were something he purposed for its own sake rather than something his governance permits and can redeem.
   refs  Job 1:12; 2 Cor 12:7-9
   link  divine-foreknowledge
-  link  hearing-god
 
 ## Spiritual disciplines · T3 · confident
   hold  The believer is formed chiefly through a personal daily practice of reading Scripture and praying, ordinarily alone, sustained by individual discipline rather than by a fixed office or church calendar.
   why   The psalmist meditates on God's word day and night as a personal practice, and evangelical devotional life has long held individual daily engagement with Scripture and prayer as the primary means of growth.
   vs    Making a fixed liturgical office or church calendar the ordinary shape of devotional life, rather than trusting the believer's own daily discipline with Scripture and prayer.
   refs  Ps 1:2; Ps 119:147-148
-  link  hearing-god
   link  the-lords-supper
 
 
@@ -609,45 +571,13 @@
   why   Peter tells the Sanhedrin there is salvation in no one else, and Paul names one mediator between God and humanity, the man Christ Jesus, without qualification or exception.
   vs    Treating the world's religions as equally valid paths to God alongside faith in Christ.
   refs  Acts 4:12; 1 Tim 2:5; John 14:6
-  link  the-unevangelised
-  link  world-religions
   link  trinity
-
-## World religions · T2 · confident
-  hold  The teaching and worship of the non-Christian religions are false and, where they involve the worship of other gods, are in fact offered to demons rather than to God.
-  why   Paul tells the Corinthians that what pagans sacrifice, they sacrifice to demons and not to God, refusing to treat pagan worship as a lesser but still valid approach to the divine.
-  vs    Treating the teaching of the non-Christian religions as containing real truth and goodness that Christian proclamation can build upon.
-  refs  1 Cor 10:20; Deut 32:17
-  link  exclusivity-of-christ
-  link  the-unevangelised
-  link  israel-and-judaism
-
-## The unevangelised · T3 · confident
-  hold  Explicit, conscious faith in Jesus Christ is necessary for salvation, so that those who die without ever hearing and believing the gospel are lost.
-  why   Paul asks how anyone can call on the one they have not believed in, and how they can believe without hearing, and how they can hear without a preacher being sent, making explicit hearing and believing the ordinary means God has appointed.
-  vs    Holding that saving faith can be exercised toward Christ by someone who has never heard of him, on the basis of the general revelation available to them.
-  refs  Rom 10:13-15; John 14:6
-  link  exclusivity-of-christ
-  link  world-religions
-  link  election
-  link  divine-foreknowledge
 
 ## Contextualisation · T3 · leaning
   hold  Some cultural and religious forms are so bound up with the theology of a non-Christian religion that they carry inseparable religious meaning and cannot be safely reused to express the Christian gospel.
   why   A form developed to express and reinforce a rival religion's own theology can teach that theology by its very use, whatever content a missionary intends to attach to it, so the safer course is a clean break with such forms rather than an attempt to repurpose them.
   vs    Treating any cultural or religious form as a neutral vessel that can be filled with Christian content regardless of the prior theological freight it carries.
   refs  1 Cor 10:20-21; 2 Cor 6:14-16
-  link  world-religions
-  link  the-unevangelised
-
-## Israel and Judaism · T3 · confident
-  hold  The Great Commission includes Jewish people without any distinction from other peoples, so the church is to proclaim the gospel to Jewish people just as it does to everyone else, in fulfilment rather than betrayal of God's covenant with Israel.
-  why   The gospel is the power of God for salvation to everyone who believes, to the Jew first and also to the Greek, naming Jewish people as the first, not the excluded, recipients of that same gospel.
-  vs    Treating Jewish people as a people for whom explicit faith in Christ is not required, or as a people the church should decline to evangelise as it evangelises others.
-  refs  Rom 1:16; Rom 10:1; Matt 28:19-20
-  link  israel-and-the-church
-  link  exclusivity-of-christ
-  link  the-unevangelised
 
 
 # Church history and authority
@@ -666,7 +596,6 @@
   refs  2 Tim 3:16-17; Acts 17:11
   link  sufficiency-of-scripture
   link  clarity-of-scripture
-  link  hermeneutic-method
   link  the-creeds
 
 ## Reformation solas · T1.5 · certain
@@ -682,4 +611,3 @@
   vs    Treating patristic consensus as carrying binding, near-conciliar authority over the interpretation of Scripture.
   link  prima-scriptura
   link  the-creeds
-  link  hermeneutic-method

@@ -52,13 +52,13 @@
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 1 says \"there be three Persons, of one substance, power, and eternity; the Father, the Son, and the Holy Ghost.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 1 (Of Faith in the Holy Trinity)"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"there is one Divine Essence which is called and which is God... and yet there are three Persons, of the same essence and power, who also are coeternal, the Father, the Son, and the Holy Ghost.\"",
               "citation": "Augsburg Confession (1530), Article 1 (De Deo)"
             },
             {
@@ -76,38 +76,38 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 2; Second London Baptist Confession 2.3"
+              "note": "The confession says: “The eternal triune God reveals Himself to us as Father, Son, and Holy Spirit, with distinct personal attributes, but without division of nature, essence, or being.”",
+              "citation": "Baptist Faith and Message (2000), Article II; Second London Baptist Confession 2.3"
             },
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says believers “confess with the mouth, and believe with the heart... in one eternal, almighty, and incomprehensible God, the Father, Son, and Holy Ghost, and in none more, nor in any other.”",
               "citation": "Dordrecht Confession of Faith (1632), Article 1"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": "Article 2 of the Assemblies of God statement was written in 1916 partly to settle this question against the Oneness position within the movement.",
+              "note": "The statement says: \"The one true God has revealed himself as the eternally self-existent 'I AM,' the Creator of heaven and earth and the Redeemer of mankind. He has further revealed himself as embodying the principles of relationship and association as Father, Son and Holy Spirit\" (Article 2). Article 2 of the Assemblies of God statement was written in 1916 partly to settle this question against the Oneness position within the movement.",
               "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2 (The One True God)"
             },
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “We believe in one God, eternally existing in three equally divine yet distinct Persons... God the Father, Jesus God the Son, and God the Holy Spirit,” and INC states it “holds to both the Apostles’ Creed and Nicene Creed as foundational Christian beliefs.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"God: Holy Trinity\""
             },
             {
               "tradition": "non-denominational",
-              "stance": "confessional",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "stance": "majority",
+              "note": "The Statement of Faith says: \"We believe that there is one God, eternally existent in three persons: Father, Son and Holy Spirit.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
             },
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "The movement rejects creedal subscription on principle while affirming the doctrine from scripture directly, so it is held as settled teaching rather than as a subscribed article.",
-              "citation": "Alexander Campbell, The Christian System (1839), on the Father, Son and Holy Spirit"
+              "note": "The chapter states: \"We have the Father, Son, and Holy Spirit equally divine, though personally distinct from each other. We have in fact, but one God, one Lord, one Holy Spirit; yet these are equally possessed of one and of the same divine nature.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 3, 'God'"
             },
             {
               "tradition": "quaker",
@@ -125,6 +125,26 @@
             {
               "label": "The Athanasian Creed (Quicunque vult)",
               "citation": "Latin West, c. 5th-6th century"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 3, \"God\"",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS203.HTM"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 2",
+              "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/god/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -169,7 +189,8 @@
         },
         {
           "label": "Catechism of the Catholic Church",
-          "citation": "1992, 232-267"
+          "citation": "1992, 232-267",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
         }
       ]
     },
@@ -217,20 +238,20 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Central to the Eastern account of the monarchy of the Father as the source of the Son's begetting and the Spirit's procession.",
-              "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret, 132-140"
+              "note": "The Catechism: “The Son of God is from all eternity begotten of the Father: the Holy Ghost from all eternity proceeds from the Father” (Q94); “that none should think there was ever a time when he was not” (Q142, on 'begotten before all worlds'). The previous range, Qq. 132-140, was imprecise; 139-144 is the section that actually states eternal generation.",
+              "citation": "The Nicene-Constantinopolitan Creed (381); Longer Catechism of St Philaret of Moscow, Qq. 94, 139-144"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 2 says the Son is \"the Word of the Father, begotten from everlasting of the Father...and of one substance with the Father.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Epitome 8; Augsburg Confession, Article 3"
+              "note": "The Nicene Creed printed in the Book of Concord confesses the Son as \"begotten of the Father before all worlds, God of God, Light of Light, very God of very God, begotten, not made, being of one substance with the Father.\" Retargeted from Formula of Concord, Epitome 8, which speaks of Christ's person in the incarnation and only mentions eternal generation in passing.",
+              "citation": "Nicene Creed (Book of Concord, Ecumenical Creeds); Augsburg Confession, Article 1"
             },
             {
               "tradition": "reformed",
@@ -246,9 +267,9 @@
             },
             {
               "tradition": "anabaptist",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+              "stance": "majority",
+              "note": "The confession says of Christ: “this is the same whose goings forth have been from of old, from everlasting, without beginning of days, or end of life.” This affirms the Son's eternal, beginningless existence but does not use the technical vocabulary of “begetting” or an undivided essence communicated from the Father.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             },
             {
               "tradition": "baptist",
@@ -266,6 +287,21 @@
             {
               "label": "Retrieving Eternal Generation",
               "citation": "Fred Sanders and Scott Swain, eds., 2017"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 4",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Nicene Creed",
+              "citation": "Book of Concord, Ecumenical Creeds",
+              "url": "https://bookofconcord.org/ecumenical-creeds/nicene-creed/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
             }
           ]
         },
@@ -394,19 +430,19 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration 8"
+              "note": "The Solid Declaration treats the Son's humiliation and exaltation as belonging to the incarnate state, saying the human nature's majesty was present already \"when He was conceived in His mother's womb\" though \"laid aside... and kept it concealed in the state of His humiliation.\" It does not itself address an eternal ordering of authority between Father and Son; the shared, undivided will rests on the wider confession in Augsburg Confession, Article 1, that the three Persons are \"of the same essence and power.\"",
+              "citation": "Augsburg Confession, Article 1; Formula of Concord, Solid Declaration, Article VIII"
             },
             {
               "tradition": "reformed",
               "stance": "majority",
-              "note": "The classical Reformed account, restated forcefully in the 2016 exchange by Carl Trueman and Liam Goligher; a minority of Reformed complementarians hold the other position.",
+              "note": "The Confession describes the three persons as \"of one substance, power, and eternity: God the Father, God the Son, and God the Holy Ghost,\" naming only the relations of begetting and procession, never authority and submission.",
               "citation": "Westminster Confession of Faith 2.3; Carl Trueman and Liam Goligher, Mortification of Spin exchange (2016)"
             },
             {
               "tradition": "anglican",
               "stance": "majority",
-              "note": null,
+              "note": "Article 1 says the three Persons are \"of one substance, power, and eternity,\" which this position reads as excluding any eternal ranking of authority within the Godhead.",
               "citation": "Thirty-Nine Articles of Religion, Articles 1-2"
             },
             {
@@ -425,6 +461,21 @@
             {
               "label": "Third Council of Constantinople",
               "citation": "681, on the two wills"
+            },
+            {
+              "label": "Westminster Confession of Faith",
+              "citation": "1646, ch. 2.3",
+              "url": "https://www.pcaac.org/bco/westminster-confession/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article VIII, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/person-of-christ/"
             }
           ]
         }
@@ -479,14 +530,14 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "Lateran IV says: \"there is only one true God, eternal and immense, omnipotent, unchangeable... three Persons indeed but one essence, substance, or nature absolutely simple.\" The Catechism adds that God \"remains ever faithful to himself and to his promises\" (212).",
               "citation": "Fourth Lateran Council (1215), ch. 1; First Vatican Council, Dei Filius 1; Catechism of the Catholic Church 212-213"
             },
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": "Held with the distinction between the divine essence and the divine energies, which the East uses to affirm both God's utter transcendence and his real presence to creatures.",
-              "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret, 89-97"
+              "note": "Q86: “That God is a Spirit, eternal, all-good, omniscient, all-just, almighty, omnipresent, unchangeable, all-sufficing to himself, all-blessed.” The previous range, Qq. 89-97, is the Trinity/creation section, not the attributes list; corrected to Q86. The Catechism itself does not use the words \"simple,\" \"impassible,\" or \"essence-energies\" — those rest on the Palamite councils, already cited separately.",
+              "citation": "Councils of Constantinople (1341, 1351), on the essence-energies distinction; Longer Catechism of St Philaret of Moscow, Q86"
             },
             {
               "tradition": "reformed",
@@ -503,8 +554,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession (1530), Article 1"
+              "note": "The Augsburg Confession describes the one \"Divine Essence... eternal, without body, without parts, of infinite power, wisdom, and goodness.\" The article affirms simplicity and eternity in these terms but does not use the word impassible.",
+              "citation": "Augsburg Confession, Article 1"
             },
             {
               "tradition": "methodist",
@@ -528,6 +579,16 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 2.1"
+            },
+            {
+              "label": "Fourth Lateran Council",
+              "citation": "1215, ch. 1",
+              "url": "https://legacy.fordham.edu/halsall/basis/lateran4.asp"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article 1",
+              "url": "https://bookofconcord.org/augsburg-confession/of-god/"
             }
           ]
         },
@@ -644,8 +705,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret, 90"
+              "note": "Q86 lists God as \"eternal\" among the divine attributes, but the Catechism does not elaborate a doctrine of timeless eternity (no undivided-present language was found). The previous citation, Q90, is the Trinity section and does not mention eternity at all. This is thin support and is flagged as such rather than strengthened beyond what the text says.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Q86"
             },
             {
               "tradition": "reformed",
@@ -656,7 +717,7 @@
             {
               "tradition": "anglican",
               "stance": "majority",
-              "note": null,
+              "note": "Article 1 describes God as \"one living and true God, everlasting, without body, parts, or passions,\" the classical language later theologians read as entailing timeless eternity.",
               "citation": "Thirty-Nine Articles of Religion, Article 1"
             }
           ],
@@ -669,6 +730,11 @@
             {
               "label": "Summa Theologiae",
               "citation": "Thomas Aquinas, Ia, q. 10"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 1",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -758,8 +824,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret, 90-93"
+              "note": "Q122-123: God \"of his foreknowledge and infinite mercy, hath predestined\" a way to happiness for all, giving \"to all men ... preparatory grace, and means sufficient for the attainment of happiness.\" The previous range, Qq. 90-93, is the Trinity section and does not address foreknowledge; corrected to 121-123, the actual predestination/foreknowledge section.",
+              "citation": "Longer Catechism of St Philaret of Moscow, Qq. 121-123"
             },
             {
               "tradition": "reformed",
@@ -770,14 +836,8 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration 11"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Thirty-Nine Articles of Religion, Articles 1 and 17"
+              "note": "The Solid Declaration says \"God sees and knows everything before it happens\" and \"foresees and foreknows everything that is or will be,\" whether good or bad.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             },
             {
               "tradition": "methodist",
@@ -788,26 +848,8 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article 2"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "note": "The confession says: “God is all powerful and all knowing; and His perfect knowledge extends to all things, past, present, and future, including the future decisions of His free creatures.”",
+              "citation": "Baptist Faith and Message (2000), Article II"
             }
           ],
           "learn_detail": "This position is shared across the Calvinist and Arminian divide: what separates those two is not whether God foreknows the future but whether foreknowledge is grounded in his decree. That is a separate question, and it is asked separately in this map.",
@@ -819,6 +861,16 @@
             {
               "label": "Catechism of the Catholic Church",
               "citation": "1992, 302, 600"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article II",
+              "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },
@@ -904,9 +956,9 @@
             },
             {
               "tradition": "lutheran",
-              "stance": "majority",
-              "note": "Lutheran theology affirms the decree in election while declining to extend the same account to reprobation, which the Formula of Concord treats as a mystery rather than a symmetry.",
-              "citation": "Formula of Concord, Solid Declaration 11"
+              "stance": "confessional",
+              "note": "The Formula says election is grounded \"before we had done anything good, but also before we were born, yea, even before the foundations of the world were laid, He elected us in Christ,\" and rejects the view \"that also in us there is a cause of God's election\" (Solid Declaration XI, para. 88), while treating reprobation as a mystery it declines to fold into the same account.",
+              "citation": "Formula of Concord, Solid Declaration, Article XI"
             },
             {
               "tradition": "roman-catholic",
@@ -930,6 +982,11 @@
             {
               "label": "Canons of Dordt",
               "citation": "1619, First Head of Doctrine"
+            },
+            {
+              "label": "Formula of Concord",
+              "citation": "Solid Declaration, Article XI",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },
@@ -999,32 +1056,14 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": "The East has consistently declined to ground foreknowledge in a decree that determines creaturely choice, holding foreknowledge and freedom together without the Western apparatus.",
-              "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": "Classical Pentecostal bodies are broadly Arminian in this respect, though most statements of faith do not address the mechanism.",
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article 1"
+              "note": "Damascene says: “We ought to understand that while God knows all things beforehand, yet He does not predetermine all things. For He knows beforehand those things that are in our power, but He does not predetermine them ... predetermination is the work of the divine command based on foreknowledge.” Verified directly against the text; the existing citation and chapter number were already correct.",
+              "citation": "John of Damascus, An Exact Exposition of the Orthodox Faith, Book 2, ch. 30, ‘Concerning Prescience and Predestination’"
             },
             {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Held as the plain reading of scripture rather than as a confessional article, consistent with the movement's rejection of creedal subscription.",
-              "citation": "Alexander Campbell, The Christian System (1839)"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 1"
+              "note": "The chapter grounds election 'in Christ' rather than an antecedent decree and holds human choice operative: \"all enjoyments shall be, as respects human agency, conditional; and that every man...shall certainly and infallibly have his own choice.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 8, 'The Purposes of God Concerning Man'"
             }
           ],
           "learn_detail": "The standing objection is that simple foreknowledge is providentially useless: if God learns the future only as it will actually be, that knowledge arrives too late, so to speak, to inform any decision about what to actualise. Its defenders reply that providence does not require the future to be a resource for deliberation, and that the objection assumes a temporal ordering in God's knowing that the position denies.",
@@ -1036,6 +1075,16 @@
             {
               "label": "The Arminian Confession of 1621",
               "citation": "Simon Episcopius, ch. 2"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 8, 'The Purposes of God Concerning Man'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS208.HTM"
+            },
+            {
+              "label": "John of Damascus, An Exact Exposition of the Orthodox Faith",
+              "citation": "Book II, ch. 30",
+              "url": "https://www.newadvent.org/fathers/33042.htm"
             }
           ]
         }

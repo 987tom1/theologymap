@@ -48,33 +48,41 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Baptist Faith and Message (2000), Article IV.B"
+              "note": "Article IV.C says sanctification “is the experience, beginning in regeneration, by which the believer is set apart to God's purposes” — progressive growth, not instant perfection. (The corpus previously cited Article IV.B, which is Justification, not Sanctification.)",
+              "citation": "Baptist Faith and Message (2000), Article IV.C"
             },
             {
               "tradition": "anglican",
               "stance": "permitted",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article XV"
+              "note": "Article 15 says that \"all we the rest, although baptized, and born again in Christ, yet offend in many things; and if we say we have no sin, we deceive ourselves.\"",
+              "citation": "Thirty-Nine Articles, Article 15"
             },
             {
               "tradition": "non-denominational",
               "stance": "majority",
               "note": null,
               "citation": "Wayne Grudem, Systematic Theology (1994), ch. 38"
-            },
-            {
-              "tradition": "anabaptist",
-              "stance": "majority",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith (1632), Article XVI"
             }
           ],
           "learn_detail": "Reformed theology distinguishes definitive sanctification, the decisive break with sin's dominion at conversion, from this progressive, lifelong sense; Thomas's map treats those as settled bookends and this doctrine addresses only the contested middle.",
           "sources": [
             {
+              "label": "Five Views on Sanctification",
+              "citation": "Melvin Dieter et al., 1987"
+            },
+            {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 13"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article IV.C",
+              "url": "https://bfm.sbc.net/bfm2000/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 15",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         },
@@ -94,15 +102,21 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Formula of Concord, Solid Declaration, Article III"
+              "note": "The Solid Declaration says believers \"are declared and regarded godly and righteous by faith\" though \"they still are and remain sinners to the grave,\" and the Small Catechism describes baptism's daily meaning: \"the old Adam in us should, by daily contrition and repentance, be drowned and die... and a new man daily come forth and arise.\"",
+              "citation": "Formula of Concord, Solid Declaration, Article III; Small Catechism, The Sacrament of Holy Baptism"
             }
           ],
           "learn_detail": "This is not a milder version of the gradual-growth position; it denies that the believer's remaining sin is best pictured as a shrinking quantity, holding instead that the old self is daily drowned and a new self daily arises, a genuinely different account of the Christian life.",
           "sources": [
             {
               "label": "Formula of Concord, Solid Declaration",
-              "citation": "Article III, 1577"
+              "citation": "Article III, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/righteousness-of-faith/"
+            },
+            {
+              "label": "Small Catechism",
+              "citation": "The Sacrament of Holy Baptism",
+              "url": "https://bookofconcord.org/small-catechism/the-sacrament-of-holy-baptism/"
             }
           ]
         },
@@ -284,12 +298,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Westminster Confession of Faith 1.6"
-            },
-            {
-              "tradition": "baptist",
-              "stance": "majority",
-              "note": "Widely but not universally held.",
-              "citation": "Baptist Faith and Message (2000), Article I"
             }
           ],
           "learn_detail": null,
@@ -354,12 +362,6 @@
           "orthodoxy_note": "Whether God grants genuinely revelatory personal guidance beyond Scripture is a live and sharp dispute among evangelicals themselves, not a departure from the creeds.",
           "held_by": [
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 7"
-            },
-            {
               "tradition": "quaker",
               "stance": "confessional",
               "note": "The inward light is Friends' distinct and confessional doctrine of personal guidance: Christ's own immediate teaching available to every person, tested corporately in the meeting rather than received as private license.",
@@ -421,14 +423,14 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
+              "note": "The Catechism says the Liturgy of the Hours is \"so devised that the whole course of the day and night is made holy by the praise of God,\" in which \"the faithful (clergy, religious, and lay people) exercise the royal priesthood of the baptized\" (1174).",
               "citation": "Catechism of the Catholic Church, 1174-1178"
             },
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret of Moscow"
+              "note": "Dositheus says: the Church “for the mortification of the flesh and all the passions ... carefully appointeth prayer and fasting, of which all the Saints have been lovers and examples,” and defends the Church's use of “the Paracletike, the Triodion, and the Menaion” — its liturgical office books. The previous citation named the Catechism with no locator, and no such passage on fasting or the daily office was found in the Catechism itself.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), reply to the Calvinists' objection to fasting and the prayers of the Church (following Decree 18)"
             },
             {
               "tradition": "anglican",
@@ -439,7 +441,7 @@
             {
               "tradition": "lutheran",
               "stance": "permitted",
-              "note": null,
+              "note": "The Augsburg Confession says usages \"ought to be observed which may be observed without sin, and which are profitable unto tranquillity and good order,\" permitting a shared liturgical pattern without requiring one and without discussing a daily office or church calendar by name.",
               "citation": "Augsburg Confession, Article XV"
             }
           ],
@@ -448,6 +450,16 @@
             {
               "label": "Book of Common Prayer",
               "citation": "1662"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "1174-1178",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article XV",
+              "url": "https://bookofconcord.org/augsburg-confession/of-ecclesiastical-usages/"
             }
           ]
         },
@@ -475,12 +487,6 @@
               "stance": "majority",
               "note": null,
               "citation": "Donald Whitney, Spiritual Disciplines for the Christian Life (1991)"
-            },
-            {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, general practice"
             }
           ],
           "learn_detail": null,
@@ -588,7 +594,7 @@
             {
               "tradition": "lutheran",
               "stance": "majority",
-              "note": null,
+              "note": "The Solid Declaration says \"God in His purpose has ordained before the time of the world by what crosses and sufferings He would conform every one of His elect to the image of His Son, and that to every one His cross shall and must work together for good.\"",
               "citation": "Formula of Concord, Solid Declaration, Article XI"
             }
           ],
@@ -597,6 +603,11 @@
             {
               "label": "Westminster Confession of Faith",
               "citation": "1646, ch. 5"
+            },
+            {
+              "label": "Formula of Concord, Solid Declaration",
+              "citation": "Article XI, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/election/"
             }
           ]
         },
@@ -622,27 +633,30 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "Longer Catechism of St Philaret of Moscow"
-            },
-            {
-              "tradition": "anglican",
-              "stance": "permitted",
-              "note": null,
-              "citation": "Thirty-Nine Articles, Article XVII, read alongside the Homilies"
+              "note": "Decree 5 says: “although God foreknoweth evils, and permitteth them, yet in that they are evils, He is neither their contriver nor their author.” The previous citation named the Catechism with no locator; Decree 5 is a precise, direct match.",
+              "citation": "Confession of Dositheus, Synod of Jerusalem (1672), Decree 5"
             },
             {
               "tradition": "baptist",
               "stance": "majority",
-              "note": null,
+              "note": "The confession says: “God as Father reigns with providential care over His universe, His creatures, and the flow of the stream of human history according to the purposes of His grace.”",
               "citation": "Baptist Faith and Message (2000), Article II.A"
             }
           ],
           "learn_detail": null,
           "sources": [
             {
+              "label": "Where Is God When It Hurts?",
+              "citation": "Philip Yancey, 1977"
+            },
+            {
               "label": "Catechism of the Catholic Church",
               "citation": "309-314"
+            },
+            {
+              "label": "Baptist Faith and Message",
+              "citation": "SBC, 2000, Article II.A",
+              "url": "https://bfm.sbc.net/bfm2000/"
             }
           ]
         },

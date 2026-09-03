@@ -38,33 +38,27 @@
           "orthodoxy_note": null,
           "held_by": [
             {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": "Not formally binding on independent congregations, but the predominant confessional expectation.",
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
-            },
-            {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"He is, therefore, acknowledged to be both God and man; who because He is God and man, is 'Immanuel,' God with us\" (Article 2(f)), and \"The Lord Jesus Christ is the eternal Son of God\" (Article 3, which lists His virgin birth, sinless life, miracles, substitutionary death, bodily resurrection and exaltation). The Statement affirms full deity and full humanity without using Chalcedon's own technical vocabulary.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 2(f)-(g); Article 3"
             },
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “Jesus Christ is the Son of God, and is co-equal and co-eternal with the Father,” and that he “became a man in flesh, lived a sinless human life.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He ascended into heaven and is now exalted at the right hand of God where He is the One Mediator, fully God, fully man, in whose Person is effected the reconciliation between God and man.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say: \"two whole and perfect Natures, that is to say, the Godhead and Manhood, were joined together in one Person, never to be divided, whereof is one Christ, very God, and very Man.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
@@ -76,8 +70,8 @@
             {
               "tradition": "roman-catholic",
               "stance": "confessional",
-              "note": null,
-              "citation": "Catechism of the Catholic Church 464-469"
+              "note": "The Catechism says: \"We confess that one and the same Christ, Lord, and only-begotten Son, is to be acknowledged in two natures without confusion, change, division or separation\" (CCC 467, quoting Chalcedon).",
+              "citation": "Catechism of the Catholic Church 464-469, esp. 467"
             },
             {
               "tradition": "orthodox",
@@ -88,7 +82,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"there are two natures, the divine and the human, inseparably enjoined in one Person, one Christ, true God and true man.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -100,8 +94,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “is the Son of the living God, in whom alone consist all our hope, consolation, redemption, and salvation,” the same one who was conceived, suffered, died and rose bodily — affirming full deity and full humanity in the one Christ.",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": null,
@@ -109,6 +103,26 @@
             {
               "label": "Chalcedonian Definition",
               "citation": "Council of Chalcedon, 451"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Dordrecht Confession of Faith",
+              "citation": "1632, Article 4",
+              "url": "https://www.reformedreader.org/ccc/dcf.htm"
+            },
+            {
+              "label": "Catechism of the Catholic Church",
+              "citation": "464-469",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         },
@@ -156,7 +170,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Solid Declaration says the human nature in Christ, glorified and exalted, \"did receive... special, high, great, supernatural, inscrutable, ineffable, heavenly prerogatives,\" and that Christ had this majesty already \"when He was conceived in His mother's womb.\"",
               "citation": "Formula of Concord, Solid Declaration, Article VIII"
             }
           ],
@@ -164,7 +178,8 @@
           "sources": [
             {
               "label": "Formula of Concord, Solid Declaration",
-              "citation": "Article VIII, 1577"
+              "citation": "Article VIII, 1577",
+              "url": "https://bookofconcord.org/solid-declaration/person-of-christ/"
             }
           ]
         }
@@ -249,31 +264,31 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+              "note": "The Statement of Faith says: \"We believe in the deity of our Lord Jesus Christ, in His virgin birth, in His sinless life, in His miracles, in His vicarious and atoning death through His shed blood, in His bodily resurrection, in His ascension to the right hand of the Father, and in His personal return in power and glory.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 3"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"His virgin birth\" (Article 3(a), citing Matthew 1:23; Luke 1:31,35).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(a)"
             },
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “Jesus, born of a virgin birth, became a man in flesh.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “In His incarnation as Jesus Christ He was conceived of the Holy Spirit and born of the virgin Mary.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say the Son \"took Man's nature in the womb of the blessed Virgin, of her substance,\" so that the Godhead and Manhood were joined together in one Person.",
               "citation": "Thirty-Nine Articles of Religion, Article 2"
             },
             {
@@ -297,7 +312,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says: \"The Word, that is, the Son of God, did assume the human nature in the womb of the blessed Virgin Mary, so that there are two natures, the divine and the human, inseparably enjoined in one Person, one Christ, true God and true man, who was born of the Virgin Mary.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -309,15 +324,36 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “was conceived in the virgin Mary, who was espoused to a man named Joseph, of the house of David; and that she brought Him forth as her first-born son, at Bethlehem.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": "Catholic and Orthodox theology additionally confess Mary's perpetual virginity as a related but distinct Marian doctrine, not addressed by this entry.",
           "sources": [
             {
               "label": "Catechism of the Catholic Church",
-              "citation": "CCC 496-498"
+              "citation": "CCC 496-498",
+              "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 3",
+              "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 2",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
             }
           ]
         }
@@ -326,7 +362,8 @@
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
-          "citation": "381"
+          "citation": "381",
+          "url": "https://www.ccel.org/creeds/nicene.creed.html"
         }
       ]
     },
@@ -368,31 +405,31 @@
             {
               "tradition": "non-denominational",
               "stance": "majority",
-              "note": null,
-              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 2"
+              "note": "The Statement of Faith says: \"We believe in the deity of our Lord Jesus Christ, in His virgin birth, in His sinless life, in His miracles, in His vicarious and atoning death through His shed blood, in His bodily resurrection, in His ascension to the right hand of the Father, and in His personal return in power and glory.\"",
+              "citation": "National Association of Evangelicals, Statement of Faith (1943), Article 3"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3"
+              "note": "The statement says: \"His bodily resurrection from the dead\" (Article 3(e), citing Matthew 28:6; Luke 24:39; 1 Corinthians 15:4).",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(e)"
             },
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says: “He arose bodily from the dead after three days to demonstrate His power over sin and death.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"Jesus: Our Saviour\""
             },
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He was raised from the dead with a glorified body and appeared to His disciples as the person who was with them before His crucifixion.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "The Articles say: \"Christ did truly rise again from death, and took again his body, with flesh, bones, and all things appertaining to the perfection of Man's nature.\"",
               "citation": "Thirty-Nine Articles of Religion, Article 4"
             },
             {
@@ -416,7 +453,7 @@
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
+              "note": "The Augsburg Confession says Christ \"was crucified, dead, and buried... He also descended into hell, and truly rose again the third day; afterward He ascended into heaven that He might sit on the right hand of the Father.\"",
               "citation": "Augsburg Confession, Article III"
             },
             {
@@ -428,8 +465,8 @@
             {
               "tradition": "anabaptist",
               "stance": "confessional",
-              "note": null,
-              "citation": "Dordrecht Confession of Faith, Article 2"
+              "note": "The confession says Christ “was crucified, dead, was buried, and on the third day, rose from the dead, and ascended to heaven.”",
+              "citation": "Dordrecht Confession of Faith (1632), Article 4"
             }
           ],
           "learn_detail": null,
@@ -437,6 +474,26 @@
             {
               "label": "1 Corinthians 15 as the hinge of Christian hope",
               "citation": "1 Cor 15:12-19"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"Jesus: Our Saviour\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "National Association of Evangelicals, Statement of Faith",
+              "citation": "1943, Article 3",
+              "url": "https://www.nae.org/statement-of-faith/"
+            },
+            {
+              "label": "Thirty-Nine Articles of Religion",
+              "citation": "1571, Article 4",
+              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+            },
+            {
+              "label": "Augsburg Confession",
+              "citation": "1530, Article III",
+              "url": "https://bookofconcord.org/augsburg-confession/son-of-god/"
             }
           ]
         }
@@ -445,7 +502,8 @@
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
-          "citation": "381"
+          "citation": "381",
+          "url": "https://www.ccel.org/creeds/nicene.creed.html"
         }
       ]
     },
@@ -613,8 +671,8 @@
             {
               "tradition": "orthodox",
               "stance": "majority",
-              "note": null,
-              "citation": "John of Damascus, Exposition of the Orthodox Faith III.20"
+              "note": "Damascene says: “no compulsion is contemplated in Him but all is voluntary. For it was with His will that He hungered and thirsted and feared and died”; the wicked one's assault came “from without,” and the temptations Christ overcame prepared “victory for us.” Verified directly; the chapter number was already correct.",
+              "citation": "John of Damascus, An Exposition of the Orthodox Faith III.20, 'Concerning the natural and innocent passions'"
             }
           ],
           "learn_detail": null,
@@ -715,32 +773,26 @@
             {
               "tradition": "baptist",
               "stance": "confessional",
-              "note": null,
+              "note": "The confession says: “He honored the divine law by His personal obedience, and in His substitutionary death on the cross He made provision for the redemption of men from sin.”",
               "citation": "Baptist Faith and Message (2000), Article II.B"
             },
             {
               "tradition": "lutheran",
               "stance": "confessional",
-              "note": null,
-              "citation": "Augsburg Confession, Article III"
+              "note": "The Smalcald Articles say: \"Jesus Christ, our God and Lord, died for our sins, and was raised again for our justification,\" and that \"there is none other name under heaven, given among men whereby we must be saved.\" Retargeted from Augsburg Confession, Article III, which speaks of Christ as a sacrifice for sin but not in penal terms as directly as this article does.",
+              "citation": "Smalcald Articles (1537), Part II, Article 1, \"The First and Chief Article\""
             },
             {
               "tradition": "anglican",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 31 says Christ's offering \"is that perfect redemption, propitiation, and satisfaction, for all the sins of the whole world,\" and that there is no other satisfaction for sin.",
               "citation": "Thirty-Nine Articles of Religion, Article 31"
             },
             {
               "tradition": "pentecostal",
               "stance": "confessional",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
-            },
-            {
-              "tradition": "non-denominational",
-              "stance": "majority",
-              "note": null,
-              "citation": "Lausanne Covenant (1974), Article 4"
+              "note": "The statement says: \"His substitutionary work on the cross\" (Article 3(d), citing 1 Corinthians 15:3 and 2 Corinthians 5:21) — the article on Christ's deity, not Article 5, is where the substitutionary language actually sits.",
+              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 3(d)"
             },
             {
               "tradition": "methodist",
@@ -751,8 +803,8 @@
             {
               "tradition": "inc",
               "stance": "confessional",
-              "note": null,
-              "citation": "International Network of Churches, Statement of Faith"
+              "note": "The statement says Christ “died in our place by being crucified for our sins,” against a section that places humanity “rightfully under His just and Holy wrath.”",
+              "citation": "International Network of Churches, Statement of Faith (Declaration of Faith, February 2022), \"The Gospel: God Saves Sinners\""
             }
           ],
           "learn_detail": null,
@@ -760,6 +812,21 @@
             {
               "label": "What Did the Cross Achieve? The Logic of Penal Substitution",
               "citation": "J. I. Packer, Tyndale Bulletin, 1974"
+            },
+            {
+              "label": "International Network of Churches, Declaration of Faith",
+              "citation": "February 2022, \"The Gospel: God Saves Sinners\"",
+              "url": "https://www.inc.org.au/about/statement-of-faith"
+            },
+            {
+              "label": "Assemblies of God, Statement of Fundamental Truths",
+              "citation": "Article 3(d)",
+              "url": "https://ag.org/Beliefs/Statement-of-Fundamental-Truths"
+            },
+            {
+              "label": "Smalcald Articles",
+              "citation": "1537, Part II, Article 1",
+              "url": "https://bookofconcord.org/smalcald-articles/ii/of-christ-and-faith/"
             }
           ]
         },
@@ -779,8 +846,8 @@
             {
               "tradition": "orthodox",
               "stance": "confessional",
-              "note": null,
-              "citation": "John of Damascus, Exposition of the Orthodox Faith III.27"
+              "note": "Damascene says death, \"swallowing up the body as a bait[,] is transfixed on the hook of divinity, and after tasting of a sinless and life-giving body, perishes, and brings up again all whom of old he swallowed up.\" Verified directly; the chapter number was already correct.",
+              "citation": "John of Damascus, An Exposition of the Orthodox Faith III.27"
             },
             {
               "tradition": "anabaptist",
@@ -968,7 +1035,7 @@
             {
               "tradition": "reformed",
               "stance": "confessional",
-              "note": null,
+              "note": "Article 8 says: \"it was the entirely free plan and very gracious will and intention of God the Father that the enlivening and saving effectiveness of his Son's costly death should work itself out in all the elect.\"",
               "citation": "Canons of Dordt, Second Head of Doctrine, Articles 3 and 8"
             },
             {
@@ -982,7 +1049,8 @@
           "sources": [
             {
               "label": "Canons of Dordt, Second Head of Doctrine",
-              "citation": "Synod of Dort, 1618-1619"
+              "citation": "Synod of Dort, 1618-1619",
+              "url": "https://www.crcna.org/welcome/beliefs/confessions/canons-dort"
             }
           ]
         },
@@ -1012,16 +1080,10 @@
               "citation": "Confession of Faith in a Mennonite Perspective (1995), Article 8"
             },
             {
-              "tradition": "pentecostal",
-              "stance": "majority",
-              "note": null,
-              "citation": "Assemblies of God, Statement of Fundamental Truths, Article 5"
-            },
-            {
               "tradition": "restorationist",
               "stance": "majority",
-              "note": "Drawn from the movement's founding writings rather than a creed.",
-              "citation": "Alexander Campbell, The Christian System, 1839"
+              "note": "The chapter states its value and efficacy are equal to the salvation of the whole world, while its actual application is limited to believers: \"pardon is offered to all who seek it; and the whole world may be saved\"; but \"redemption... is only commensurate with the elect of God, i.e., with those who believe in Jesus and obey him.\"",
+              "citation": "Alexander Campbell, The Christian System, 1839, ch. 10, 'Sacrifice for Sin'"
             }
           ],
           "learn_detail": null,
@@ -1029,6 +1091,11 @@
             {
               "label": "Free Grace",
               "citation": "John Wesley, sermon, 1739"
+            },
+            {
+              "label": "The Christian System",
+              "citation": "Alexander Campbell, 1839, ch. 10, 'Sacrifice for Sin'",
+              "url": "https://webfiles.acu.edu/departments/Library/HR/restmov_nov11/www.mun.ca/rels/restmov/texts/acampbell/tcs2/TCS210.HTM"
             }
           ]
         },

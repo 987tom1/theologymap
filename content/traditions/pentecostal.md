@@ -6,9 +6,8 @@
   vs    Limited infallibility — Scripture trustworthy on faith and salvation, errant on history and science.
   refs  2 Tim 3:16-17; John 10:35
   link  canon
-  link  hermeneutic-method
 
-## Canon · T1 · certain
+## Canon · T1 · confident
   hold  The canon is the sixty-six books of the Protestant Bible, recognised by the church because of their divine origin rather than conferred by ecclesiastical decree.
   why   Authority belongs to a book because of what it is — the word of God given through its human author — and the church's historic role was to recognise that authority already present, not to grant it.
   vs    Including the deuterocanonical books received by Rome and the East as part of the canon proper rather than as edifying but non-canonical writing.
@@ -20,28 +19,7 @@
   why   Scripture nowhere teaches that the gifts described in the New Testament ceased, and holding both a closed canon and continuing prophetic gifts requires only that the gifts be subordinate to, not additions to, the completed canon.
   vs    Restricting the Spirit's ongoing work to illumination of a text already given, which some continuationists read as narrower than the New Testament's own portrait of prophecy in the church.
   refs  1 Cor 14:29; 1 Thess 5:19-21
-  link  clarity-of-scripture
   link  the-lords-supper
-
-## Hermeneutic method · T2 · confident
-  hold  Grammatical-historical method establishes a passage's meaning, and the Holy Spirit illumines the reader to grasp and apply that meaning with immediacy and personal conviction, particularly in prayerful and corporate reading.
-  why   Scripture teaches that the natural mind cannot receive the things of the Spirit, so understanding Scripture rightly requires the Spirit's illumination alongside sound method, not method as a self-sufficient substitute for it.
-  vs    Treating grammatical-historical method as sufficient on its own without reference to the Spirit's role in illuminating a reader's grasp of the text.
-  refs  1 Cor 2:14
-  link  women-in-ministry
-
-## Clarity of Scripture · T2.5 · confident
-  hold  The things necessary for salvation are set down so plainly in Scripture that an ordinary person, using the ordinary means of grace, can understand them without requiring a specially authorised interpreter.
-  why   A God who commands every believer to hear and obey his word, and who gives his Spirit to ordinary believers, does not condition understanding of the gospel on access to a specialised teaching office.
-  vs    Reading that treats a specially authorised interpreter as necessary to unlock Scripture's central meaning, rather than as a help to a meaning already accessible.
-  refs  Ps 119:105; 2 Tim 3:15
-  link  hermeneutic-method
-
-## Translations · T3 · confident
-  hold  Formal and dynamic translations made from the original languages are both legitimate, no version is uniquely authorised, and a translation's suitability depends on its purpose, from close study to public reading to paraphrase.
-  why   Inspiration attaches to the original-language texts, not to any one translation of them, so faithfulness in translating from those texts is what makes a version legitimate, not adherence to a particular English rendering.
-  vs    Holding one translation as uniquely authoritative such that other faithful translations from the original languages are treated as illegitimate.
-  link  canon
 
 
 # God
@@ -51,20 +29,6 @@
   why   Scripture names Father, Son and Spirit together as God while insisting that God is one, and the creeds of 325 and 381 state that pattern in the only terms that keep both halves of it.
   vs    Accounts that secure the oneness of God by dissolving the distinction of the persons, or that secure the distinction by making the Son and the Spirit less than God.
   refs  Matt 28:19; John 1:1-3; John 10:30; 2 Cor 13:13
-
-## Open theism · T1.5 · certain
-  hold  God knows the whole of the future exhaustively and infallibly, including every free choice creatures will make, and nothing that comes to pass is a discovery to him.
-  why   God declares the end from the beginning as the mark that distinguishes him from every idol, and prophecy of free human acts across centuries requires that those acts be known before they occur.
-  vs    The view that the free future is not yet available to be known, which this position holds concedes to creatures a part of reality God does not command.
-  refs  Isa 46:9-10; Ps 139:4; Isa 42:9
-  link  divine-foreknowledge
-
-## Divine foreknowledge · T3 · confident
-  hold  God simply knows the whole future as it will actually be, without that knowledge being grounded in a decree that determines it or in a prior knowledge of what creatures would do under other circumstances.
-  why   Foreknowledge is knowledge, not causation, and a God who sees what will be does not thereby make it be; the traditions holding this read God's knowledge of the future as reading it rather than as fixing it.
-  vs    Accounts that make God's knowledge of the future depend on his having determined it, which this position holds turns foreknowledge into another name for predestination.
-  refs  Rom 8:29; 1 Pet 1:2; Isa 46:9-10
-  link  open-theism
 
 
 # Christ
@@ -97,14 +61,6 @@
   why   Isaiah 53 and Romans 3 describe an exchange in which the innocent one bears what the guilty deserved, satisfying divine justice rather than merely absorbing its effects.
   vs    Any account of the cross that does not include a real transfer of penalty from sinners to Christ, which this view judges to leave God's justice against sin unaddressed.
   refs  Isa 53:4-6; Rom 3:24-26
-  link  extent-of-the-atonement
-
-## Extent of the atonement · T2.5 · confident
-  hold  Christ's death truly satisfied for the sins of the whole world without exception, so that the extent of its provision is as wide as the extent of the gospel's free offer, and the only thing distinguishing the saved from the lost is whether a person believes.
-  why   Texts describing Christ's death as for the world or for all are taken at face value, and the universal, sincere offer of the gospel is read as grounded in a death that actually provides for everyone it is offered to.
-  vs    Restricting the design of Christ's death to the elect alone before any act of faith, which this view judges to undercut the sincerity of a gospel offer made to every hearer without exception.
-  refs  1 John 2:2; 1 Tim 2:4-6
-  link  atonement
 
 
 # Holy Spirit
@@ -116,21 +72,10 @@
   refs  1 Cor 12:4-11; 1 Cor 14:1; Acts 2:17-18
   link  sufficiency-of-scripture
 
-## Prophecy · T2 · confident
-  hold  The gift of prophecy in the local congregation today is a Spirit-prompted impression that a believer reports in their own words; it is not equal to Scripture in authority, and the congregation must weigh it, testing all things and holding fast to what is good.
-  why   Paul commands the Corinthian congregation to weigh what is prophesied rather than simply receive it, an instruction that would be needless if congregational prophecy carried Scripture's own unquestionable authority.
-  vs    Treating New Testament congregational prophecy as carrying the same unweighable authority as the prophetic word that produced Scripture, so that it necessarily ceased once the canon closed.
-  refs  1 Cor 14:29; 1 Thess 5:20-21
-  link  continuationism
-  link  sufficiency-of-scripture
-  link  canon
-  link  tongues
-
 ## Tongues · T2 · leaning
   hold  Classical Pentecostal denominations confessionally teach tongues as the necessary initial evidence of Spirit baptism; broader charismatic streams within the Pentecostal-charismatic movement hold tongues as one gift among several, not a required sign.
   refs  1 Cor 12:10; 1 Cor 12:30; 1 Cor 14:39; Acts 2:4
   link  continuationism
-  link  prophecy
   link  baptism-in-the-holy-spirit
 
 ## Healing · T2 · certain
@@ -139,7 +84,6 @@
   vs    Separating physical healing entirely from the atonement and treating it as an unrelated act of ordinary providence rather than part of the gospel's full provision.
   refs  Isa 53:4-5; Matt 8:16-17
   link  continuationism
-  link  prophecy
 
 ## Baptism in the Holy Spirit · T2.5 · certain
   hold  Baptism in the Holy Spirit is a distinct experience subsequent to conversion, given to empower witness and evidenced initially by speaking in other tongues as the Spirit gives utterance.
@@ -181,26 +125,6 @@
   refs  Rom 4:1-8; Gal 2:16; 2 Cor 5:21
   link  depravity-and-prevenient-grace
   link  regeneration-and-baptism
-  link  assurance
-
-## Sovereignty and free will · T2.5 · confident
-  hold  God's grace genuinely enables a sinner to respond to the gospel, but the will remains libertarianly free to accept or resist that grace, so that a person's response is truly their own and not determined by God's decree.
-  why   The Remonstrance and Wesley hold that grace is resistible and that a will unable to do otherwise could not be meaningfully commanded, warned, or held responsible in the way Scripture everywhere holds it.
-  vs    Grounding the certainty of a person's response in an eternal decree that determines it, which this position holds turns commands and warnings addressed to a genuinely free will into a performance for an audience already decided.
-  refs  Deut 30:19; Josh 24:15; Rev 3:20
-  link  election
-  link  perseverance-and-apostasy
-  link  depravity-and-prevenient-grace
-  link  divine-foreknowledge
-
-## Election · T2.5 · confident
-  hold  God elects to salvation those whom he foresees will freely believe the gospel and persevere in that faith, so that election responds to, rather than causes, the faith of those chosen.
-  why   The Remonstrance and Wesley read Romans 8 and 1 Peter 1 as grounding election in God's foreknowledge of who will believe, preserving both grace's initiative and human responsibility.
-  vs    Grounding election in God's will alone apart from any foreseen response, which this position holds makes God the author of unbelief in those passed over.
-  refs  Rom 8:29; 1 Pet 1:1-2
-  link  divine-foreknowledge
-  link  sovereignty-and-free-will
-  link  perseverance-and-apostasy
 
 ## Regeneration and baptism · T2.5 · confident
   hold  Regeneration occurs at the moment of Spirit-wrought faith, prior to and apart from water baptism, which is a public ordinance testifying to a new birth already given rather than its means.
@@ -208,23 +132,6 @@
   vs    Treating water baptism as the instrument or occasion of the new birth rather than a testimony to a new birth already given through faith alone.
   refs  John 1:12-13; Eph 2:8-9; Rom 10:9-10
   link  baptism
-  link  justification
-
-## Perseverance and apostasy · T3 · confident
-  hold  A believer who is truly regenerate can, through unbelief and persistent sin, finally forfeit salvation, so the New Testament's warnings against falling away describe a genuine danger rather than a hypothetical one.
-  why   Hebrews warns those who have been enlightened, tasted the heavenly gift and shared in the Holy Spirit against an apostasy from which there is no return, language read as addressed to the genuinely regenerate.
-  vs    Reading every warning against apostasy as addressed only to the merely professing, which this position holds empties the warnings of the force the text gives them.
-  refs  Heb 6:4-6; Heb 10:26-29; Ezek 18:24
-  link  assurance
-  link  sovereignty-and-free-will
-  link  justification
-
-## Assurance · T3 · confident
-  hold  Assurance of present grace is available through the Spirit's witness and the fruit of a changed life, but certainty of final salvation remains conditional on continuing in faith and obedience rather than settled in advance of that continuance.
-  why   Wesley taught an assurance of present acceptance through the Spirit's direct witness together with the indirect witness of a transformed life, while holding that a believer could still fall from that grace.
-  vs    Treating assurance of final salvation as settled once for all regardless of subsequent unbelief, which this position holds does not match the New Testament's warnings against falling away.
-  refs  Rom 8:16; 2 Pet 1:10; Heb 6:11
-  link  perseverance-and-apostasy
   link  justification
 
 
@@ -236,7 +143,6 @@
   vs    Reserving the teaching and governing eldership for men on the ground of a permanent creation-order pattern in 1 Timothy 2.
   refs  Gal 3:28; Rom 16:1-7; Acts 2:17-18
   link  church-government
-  link  hermeneutic-method
 
 ## Church government · T3 · confident
   hold  Each local congregation, governed by its own elders and members, is complete in itself under Christ and accountable to no higher ecclesiastical court.
@@ -301,17 +207,8 @@
   vs    Holding that the wicked cease to exist after judgment rather than suffering consciously without end, or that judgment is ultimately restorative rather than final.
   refs  Matt 25:46; Rev 14:11
   link  second-coming
-  link  intermediate-state
 
-## Intermediate state · T3 · certain
-  hold  At death the believer's soul departs the body and is immediately, consciously present with Christ, awaiting the future bodily resurrection at Christ's return when soul and body are reunited.
-  why   Paul describes departing the body as being at home with the Lord without any interval of unconsciousness, and Jesus promises the repentant thief that he will be with him in paradise that very day.
-  vs    Holding that the soul is unconscious between death and resurrection, or that some further purifying process intervenes before the soul is fully with Christ.
-  refs  2 Cor 5:6-8; Luke 23:43
-  link  hell
-  link  second-coming
-
-## Rapture · T4 · certain
+## Rapture · T4 · confident
   hold  The church is caught up to meet Christ in the air before a future seven-year tribulation begins, sparing the church the outpouring of God's wrath on the earth before Christ returns visibly with the church at the tribulation's end.
   why   Christ's promise to keep the church from the hour of trial and the pattern of God removing his people before judgment falls, as with Noah and Lot, point to the church's removal before the tribulation begins.
   vs    Placing the church's gathering to Christ during or after the tribulation rather than before it.
@@ -327,14 +224,6 @@
   why   Scripture presents God speaking the universe into being and calling into existence the things that do not exist, and the historic creeds confess him as maker of all things visible and invisible.
   vs    Treating matter as eternal and uncreated, or treating the universe as an emanation flowing of necessity from the divine nature rather than as a free act of will.
   refs  Gen 1:1; John 1:3; Col 1:16; Heb 11:3
-
-## Miracles and science · T2 · certain
-  hold  Miracles are real, particular acts of God within his ordinarily ordered creation, neither violations of a self-sufficient nature nor beyond the reach of a God who freely sustains the natural order he made.
-  why   Scripture presents God's miracles, culminating in the bodily resurrection of Christ, as real events within history and nature, consistent with a God who freely governs the order he continually sustains rather than a deity bound by it.
-  vs    Treating the miraculous as either scientifically impossible in principle or as merely a symbolic idiom for events that did not actually occur.
-  refs  John 2:11; Acts 2:22; 1 Cor 15:14-17
-  link  inerrancy
-  link  trinity
 
 
 # The unseen realm
@@ -410,26 +299,6 @@
   link  membership-and-discipline
 
 
-# Formation and practice
-
-## Hearing God · T2 · confident
-  hold  God speaks directly to individuals today through impressions, dreams, visions and an inward light, a genuinely revelatory address distinct from Scripture but held to carry real, personal authority for the one who receives it.
-  why   Scripture itself records God speaking to individuals through dreams, visions and an inward voice throughout redemptive history, and nothing in the text confines that pattern to a closed apostolic era.
-  vs    Treating every claim of God speaking directly to an individual as necessarily either Scripture's own settled content restated, or mere providence misread as a voice.
-  refs  Acts 2:17-18; Joel 2:28
-  link  prophecy
-  link  spiritual-disciplines
-  link  sufficiency-of-scripture
-
-## Spiritual disciplines · T3 · confident
-  hold  The believer is formed chiefly through a personal daily practice of reading Scripture and praying, ordinarily alone, sustained by individual discipline rather than by a fixed office or church calendar.
-  why   The psalmist meditates on God's word day and night as a personal practice, and evangelical devotional life has long held individual daily engagement with Scripture and prayer as the primary means of growth.
-  vs    Making a fixed liturgical office or church calendar the ordinary shape of devotional life, rather than trusting the believer's own daily discipline with Scripture and prayer.
-  refs  Ps 1:2; Ps 119:147-148
-  link  hearing-god
-  link  the-lords-supper
-
-
 # Missions and world religions
 
 ## Exclusivity of Christ · T1 · certain
@@ -437,37 +306,7 @@
   why   Peter tells the Sanhedrin there is salvation in no one else, and Paul names one mediator between God and humanity, the man Christ Jesus, without qualification or exception.
   vs    Treating the world's religions as equally valid paths to God alongside faith in Christ.
   refs  Acts 4:12; 1 Tim 2:5; John 14:6
-  link  the-unevangelised
-  link  world-religions
   link  trinity
-
-## World religions · T2 · confident
-  hold  The teaching and worship of the non-Christian religions are false and, where they involve the worship of other gods, are in fact offered to demons rather than to God.
-  why   Paul tells the Corinthians that what pagans sacrifice, they sacrifice to demons and not to God, refusing to treat pagan worship as a lesser but still valid approach to the divine.
-  vs    Treating the teaching of the non-Christian religions as containing real truth and goodness that Christian proclamation can build upon.
-  refs  1 Cor 10:20; Deut 32:17
-  link  exclusivity-of-christ
-  link  the-unevangelised
-  link  israel-and-judaism
-
-## The unevangelised · T3 · confident
-  hold  Explicit, conscious faith in Jesus Christ is necessary for salvation, so that those who die without ever hearing and believing the gospel are lost.
-  why   Paul asks how anyone can call on the one they have not believed in, and how they can believe without hearing, and how they can hear without a preacher being sent, making explicit hearing and believing the ordinary means God has appointed.
-  vs    Holding that saving faith can be exercised toward Christ by someone who has never heard of him, on the basis of the general revelation available to them.
-  refs  Rom 10:13-15; John 14:6
-  link  exclusivity-of-christ
-  link  world-religions
-  link  election
-  link  divine-foreknowledge
-
-## Israel and Judaism · T3 · confident
-  hold  The Great Commission includes Jewish people without any distinction from other peoples, so the church is to proclaim the gospel to Jewish people just as it does to everyone else, in fulfilment rather than betrayal of God's covenant with Israel.
-  why   The gospel is the power of God for salvation to everyone who believes, to the Jew first and also to the Greek, naming Jewish people as the first, not the excluded, recipients of that same gospel.
-  vs    Treating Jewish people as a people for whom explicit faith in Christ is not required, or as a people the church should decline to evangelise as it evangelises others.
-  refs  Rom 1:16; Rom 10:1; Matt 28:19-20
-  link  israel-and-the-church
-  link  exclusivity-of-christ
-  link  the-unevangelised
 
 
 # Church history and authority
@@ -484,11 +323,9 @@
   vs    Granting a creed or confession real, binding, though subordinate, authority over how Scripture is to be interpreted.
   refs  2 Tim 3:16-17
   link  sufficiency-of-scripture
-  link  clarity-of-scripture
-  link  hermeneutic-method
   link  the-creeds
 
-## Reformation solas · T1.5 · certain
+## Reformation solas · T1.5 · confident
   hold  The five solas are affirmed as a faithful, compressed summary of the gospel: salvation by grace alone, received through faith alone, on the ground of Christ alone, as taught by Scripture alone, for the glory of God alone.
   why   Each sola answers a real error the Reformers faced directly from Scripture, and together they state plainly what the gospel is and is not.
   vs    Treating any human work, merit or cooperation as a ground of justification alongside Christ's finished work, received by faith.
