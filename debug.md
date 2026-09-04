@@ -555,6 +555,27 @@ twelve tradition maps, so no existing data moved.
 needs a neutralisation step at the write, not a validation step at the read.** By the
 time the parser sees it, the damage is indistinguishable from content.
 
+### AF. `/learn`'s position cards had double the spacing they were written for — FIXED (2026-09-04)
+
+Reported as "random spaces between lines" on the learn screen. `.lp-pos` (and
+`.lp-mine`) are `display:flex; flex-direction:column; gap:8px`, and every row inside
+them is a `<p>` — `.lp-pos-label` had no margin at all, so it kept the UA's `1em`
+top *and* bottom margin, and `.lp-prose` carries `margin: 0 0 10px` for its use in
+ordinary prose elsewhere on the page. **Flex gaps do not collapse margins, they add
+to them**: a label sat at 11+8 = 19px below the paragraph above it and 11+8 = 19px
+above its own paragraph, and prose-to-next-label was 10+8+11 = 29px, against the 8px
+the card was designed around. Fixed by making the gap the only spacing authority
+inside the cards — `.lp-pos > *, .lp-mine > * { margin: 0 }`, gap tightened to 6px,
+and a 5px top margin on the label so it still reads as attached to the text under it.
+Scoped with `>` because `.lp-prose` is also used outside these cards, where its bottom
+margin is doing real work; placed after the `.lp-prose`/`.lp-hint`/`.lp-refs`
+declarations so the equal-specificity reset wins on order.
+
+**The lesson: in a gap-based flex or grid column, an element's own margin is
+double-charged.** Reset margins on the children when you adopt `gap`, or the layout
+silently means whatever the UA stylesheet says plus what you wrote.
+
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -627,3 +648,6 @@ time the parser sees it, the damage is indistinguishable from content.
    assertions, because none of them built a small map and read the resulting sentence.
    These modules are UMD and run from plain `node` (rule 14) — build the smallest real
    case and print what the person would actually see.
+17. **"Random" or uneven spacing in a `gap`-based flex/grid container is margins
+   adding to the gap, not a broken rule.** Check the children's own margins —
+   including the UA defaults on a bare `<p>` — before touching the gap (§AF).

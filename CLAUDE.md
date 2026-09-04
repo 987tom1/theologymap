@@ -959,6 +959,15 @@ the things that are easy to undo by accident:
 - **`#home-empty` is deleted.** Its third first-run offer — *start from someone
   else's map* — now lives on `#screen-intro`, which is the screen a new account
   actually lands on. Do not re-add a second empty-state home.
+- **`/learn`'s position cards let their `gap` own all vertical spacing.**
+  `.lp-pos > *, .lp-mine > * { margin: 0 }` is there because every row in those
+  cards is a `<p>` and flex gaps *add to* margins rather than collapsing them — the
+  cards were rendering at roughly double their intended spacing (`debug.md` §AF).
+  The reset is scoped with `>` on purpose: `.lp-prose` is used outside the cards
+  too, where its bottom margin is wanted, and it must stay declared *after*
+  `.lp-prose`/`.lp-hint`/`.lp-refs` to win on order. Add a row to these cards
+  without a margin of its own.
+
 - **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
   Lazy-loading the eleven non-target maps is the next performance move if the
   page gets slow. Deliberately not done yet.

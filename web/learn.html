@@ -79,9 +79,14 @@
   @media (max-width: 860px) { .lp-positions { grid-template-columns: 1fr; } }
   .lp-pos {
     background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 6px;
   }
   .lp-pos-label { font: 600 11px/1.4 var(--sans); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  /* These cards are gap-based flex columns, so the UA's 1em <p> margins stack on
+     top of the gap and double every space. Spacing is the gap's job here; the
+     label keeps a small top margin so it reads as attached to the text below it. */
+  .lp-pos > *, .lp-mine > * { margin: 0; }
+  .lp-pos > .lp-pos-label, .lp-mine > .lp-pos-label { margin-top: 5px; }
   .lp-outside { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
                 text-transform: uppercase; color: var(--muted); }
   .lp-outside-note { margin: 2px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); }
@@ -94,7 +99,7 @@
 
   .lp-mine {
     background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; max-width: 58ch;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; max-width: 58ch;
   }
   .lp-mine-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .lp-mine-actions a { font: 600 12.5px/1 var(--sans); color: var(--muted); text-decoration: none;
