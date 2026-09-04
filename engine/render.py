@@ -316,7 +316,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
      shave height off the sticky header on a phone. */
   .titlerow { display:flex; align-items:center; gap:12px; flex-wrap:nowrap; margin:0 0 3px; }
   .titlefilters { display:flex; align-items:center; gap:8px; margin-left:auto; min-width:0; }
-  .sub { color:var(--muted); font:12.5px/1.5 var(--sans); margin-bottom:11px; max-width:72ch; }
+  .sub { color:var(--muted); font:12.5px/1.5 var(--sans); margin-bottom:11px; max-width:58ch; }
   .bar { display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-family:var(--sans); }
   .views { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:7px; }
   .views button { border:0; background:transparent; color:var(--muted); cursor:pointer;
@@ -344,7 +344,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   a:focus-visible, button:focus-visible, input:focus-visible,
   summary:focus-visible, [tabindex]:focus-visible {
     outline:2px solid var(--muted); outline-offset:2px; border-radius:4px; }
-  main { padding:18px 22px 90px; max-width:1080px; }
+  main { padding:18px 22px 90px; max-width:1080px; margin-inline:auto; }
   main.wide { max-width:none; padding:16px 16px 16px; }
   .group { margin-bottom:22px; }
   .group > h2 { font:700 11px/1.3 var(--sans); text-transform:uppercase; letter-spacing:.12em;
@@ -501,6 +501,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     .btnrow button { padding:8px 12px; }
     label.tog { padding:6px 0; }
     .mapcontrols button { padding:8px 12px; }
+    .views button, .seg button, .refchip, .filtersToggle { min-height:44px; }
   }
 
   /* ---------- phone layout ---------- */
@@ -578,7 +579,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
 <body>
 <header>
   <p class="kicker">A personal systematic reference
-    <a class="editlink" href="engine/editor.html">Edit &#9998;</a>
+    <a class="editlink" id="editlink" href="engine/editor.html">Edit &#9998;</a>
   </p>
   <div class="titlerow">
     <h1>Theology Map</h1>
@@ -638,6 +639,10 @@ let studyFilter = 'all'; // all | only | hide
 document.getElementById('legend').innerHTML = D.tierOrder.map(t =>
   `<span><i class="sw" style="background:${D.tierMeta[t][1]}"></i>${t} &mdash; ${D.tierMeta[t][0]}</span>`
 ).join('');
+
+// Framed (e.g. /view's sandboxed iframe) means someone else's map: the
+// editor cannot work from inside that frame, so don't invite the tap.
+if (window.top !== window.self) document.getElementById('editlink').remove();
 
 const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const refChips = s => (s||'').split(';').map(r => r.trim()).filter(Boolean)
