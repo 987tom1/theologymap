@@ -104,6 +104,62 @@ Task 14 runs last, alone, on the main thread.
 
 ---
 
+## If the session stops mid-phase
+
+**Expect this.** This phase is larger than one usage window. Thomas is on a
+5-hour limit and will very likely hit it partway through — probably during
+Task 12, which is the heaviest. That is normal and costs nothing, because
+**every task commits its own work**. He resumes when the limit resets.
+
+**Do not resume the dead transcript.** Per `run-order.md`'s standing rule, a
+window that ends is not continued — a fresh session reads the branch and carries
+on from what the commits show landed.
+
+### How a resuming session picks up
+
+- [ ] **Step 1 — read this plan and nothing else yet.**
+
+- [ ] **Step 2 — find out what has already landed:**
+
+```bash
+git log --oneline main..phase-10
+```
+
+      Every commit message names its task's finding ids. Match them against the
+      task list above. A task whose commit is present is **done — do not redo
+      it**, and do not re-read its files "to check". The commit is the record.
+
+- [ ] **Step 3 — check for a half-finished task.** Run `git status`. Uncommitted
+      changes mean a subagent was interrupted mid-task. **Read the diff, decide
+      which steps of that task's section they cover, and finish the remaining
+      steps** — do not `git checkout .` and start the task over, and do not
+      commit a partial task under its full message. If the diff is
+      unintelligible, revert just that task's owned files (the File ownership map
+      says which) and rerun the whole task.
+
+- [ ] **Step 4 — re-derive the ordering constraint.** If Task 3's commit is
+      present, Tasks 2, 4 and 12 are unblocked. If it is not, run Task 3 first
+      regardless of what else is outstanding.
+
+- [ ] **Step 5 — dispatch the remaining tasks** at the models they name, and run
+      Task 14 last, once and only once, after all thirteen have committed.
+
+### Making resumption cheap
+
+- **A subagent that is interrupted loses nothing that matters** — its tool
+  output never entered the main thread anyway. Only its uncommitted edits are at
+  risk, and Step 3 recovers those.
+- **Never compact; restart.** Re-summarising a long thread costs more than a cold
+  session reading this plan.
+- **Task 14 depends on two things carried in commit messages** — Task 13's two
+  new hashes and Task 7's admin-copy sentence. They are in the git log, so a
+  fresh session recovers them with `git log` and does not need the session that
+  produced them.
+- If a task was interrupted **after** its verification passed but **before** its
+  commit, rerun its verification rather than trusting the earlier result.
+
+---
+
 ## Task 1 — docs, EOL, and two dead selectors
 
 **Model: Haiku.** Purely mechanical, no judgment.
