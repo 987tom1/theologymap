@@ -701,6 +701,29 @@ imports `render.slugify`. Where the fork is genuinely unavoidable — Python's `
 against JS's `editor-core.js` — the comment is the right answer. Where both copies are
 the same language and load into the same page, it never is.
 
+## Open at the end of the 2026-09-05 audit round
+
+Not bugs — state a fresh session needs. Delete each line as it is closed.
+
+1. **The editor was never click-tested after the audit.** Everything else on the live
+   site was (see CLAUDE.md's audit-round section). `engine/editor.html` in hosted mode
+   needs a signed-in user, and the round's riskiest change is there: `escapeHtml` now
+   comes from `EditorCore` rather than from three local copies, and `shared-fields.js`
+   lost its UMD wrapper. **Open a real map, look at the List and Map tabs, and check a
+   node title containing `<`, `&` or a quote.** If that renders as markup rather than
+   text, the global did not resolve — `editor.html` loads `editor-core.js` first
+   precisely so it does.
+2. **`storage-local.js` has no `load()` any more.** It only ever threw. The three
+   `.load()` call sites in `editor.html` were traced as hosted-only (one behind
+   `adapter.mode === 'hosted'`, two behind the conflict dialog, which only
+   `flushAutosave` can open). If a local-mode session ever reports "adapter.load is not
+   a function", that trace was wrong and the guard belongs back.
+3. **`_lib.py` still tries two names each for the Supabase URL and key.** Its own
+   comment says trim to the confirmed one; only the live Vercel environment shows which
+   is set, and guessing takes the site down. Read the dashboard, then cut.
+4. **The Map-view engine is still forked** between `render.py`'s template string and
+   `engine/map-view.js`. CLAUDE.md's audit-round section carries the unfork sketch.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not

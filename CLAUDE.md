@@ -1103,6 +1103,18 @@ established, beyond the diff:
   it shipped 40KB to Vercel on every deploy. This shortens the restyle gate to two
   invariants; see the phase 7 note above.
 
+**Shipped and live.** Merged fast-forward to `main` and pushed 2026-09-05
+(`cb08cea` code, `94fd056` docs); Vercel deployed it. Verified against the live site,
+signed out: `/learn`'s index and a doctrine page (25 `a.cite-link` anchors, correct
+`target`/`rel`, underlined, `--ink`), `/gallery` (counts, `relTime`, "Started from
+Thomas's map"), and `/view?name=Thomas` (the map renders through `/api/render`'s public
+`name` path, so `render.py` still produces a working map after `render_mm` came out).
+No console errors on any of them. **The editor's runtime paths are the gap**: `/edit`
+needs a signed-in user, so `EditorCore.escapeHtml`, `SharedFields.renderLinkField` and
+`MapView` were confirmed only to *load and parse*, not to run. The next session with an
+editor open should open the List and Map tabs on a real map and check a title
+containing `<`, `&` or a quote renders as text rather than markup.
+
 **Left in deliberately.** `_lib.py`'s `URL_CANDIDATES`/`KEY_CANDIDATES` still try two
 env-var names each, and the comment still says to trim once discovery succeeds — only
 the live Vercel environment shows which name is set, and guessing takes the site down.
