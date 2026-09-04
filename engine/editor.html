@@ -52,7 +52,7 @@
   .statusline .status.ok { color:var(--good); }
   .statusline .status.err { color:var(--bad); }
   .hactions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-left:auto; }
-  button { font:600 12px/1 var(--sans); border:1px solid var(--line); background:var(--panel);
+  button { font:600 12px/1 var(--sans); border:1px solid var(--field-line); background:var(--panel);
            color:var(--ink); padding:7px 12px; border-radius:6px; cursor:pointer; }
   button:hover { border-color:var(--muted); }
   button:disabled { opacity:.4; cursor:not-allowed; }
@@ -61,7 +61,7 @@
 
   .layout { display:flex; flex:1 1 auto; min-height:0; }
   .tabs { display:flex; gap:4px; padding:10px 20px 0; }
-  .tabbtn { font:600 12.5px/1 var(--sans); border:1px solid var(--line); background:var(--panel);
+  .tabbtn { font:600 12.5px/1 var(--sans); border:1px solid var(--field-line); background:var(--panel);
     color:var(--muted); padding:8px 16px; border-radius:6px 6px 0 0; border-bottom:none; cursor:pointer; }
   .tabbtn.active { color:var(--ink); background:var(--bg); font-weight:700; }
   .mapwrap { position:relative; width:100%; flex:1 1 auto; min-height:0; height:auto; overflow:hidden;
@@ -99,7 +99,7 @@
     padding:3.5px 6.5px; border-radius:4px; background:var(--chip); color:var(--muted); }
   .chip.tier { color:#fff; }
   .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:6px; }
-  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--line);
+  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
     background:var(--panel); color:var(--muted); padding:5px 9px; border-radius:6px; cursor:pointer; }
   .maphint { position:absolute; left:10px; bottom:8px; font:11px/1 var(--sans); color:var(--muted); z-index:5; }
   .mtitle-input { flex:1; border:none; background:none; padding:0; font:inherit; color:var(--ink);
@@ -118,7 +118,7 @@
   .mradio { display:inline-block; position:relative; }
   .mradio input { position:absolute; opacity:0; width:0; height:0; }
   .mradio span { display:inline-flex; align-items:center; justify-content:center; min-height:30px;
-    border:1px solid var(--line); border-radius:7px; padding:7px 9px;
+    border:1px solid var(--field-line); border-radius:7px; padding:7px 9px;
     font:600 11.5px/1 var(--sans); color:var(--muted); background:var(--panel); cursor:pointer; }
   .mradio input:checked + span { background:var(--ink); color:var(--bg); border-color:var(--ink); }
   .mradio input:focus-visible + span { outline:2px solid var(--ink); outline-offset:2px; }
@@ -164,7 +164,7 @@
   .newdomain button { width:100%; }
 
   main.form { flex:1; padding:20px 26px 60px; max-width:720px; margin-inline:auto; overflow-y:auto; }
-  .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:52ch; }
+  .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:58ch; }
   .row { margin-bottom:16px; }
   label { display:block; font:700 10.5px/1.8 var(--sans); letter-spacing:.08em;
     text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
@@ -249,7 +249,7 @@
 </div>
 
 <div class="layout" id="listLayout" style="display:none">
-  <nav class="tree" id="tree" aria-label="Domains and nodes"></nav>
+  <nav class="tree" id="tree" aria-label="Areas and beliefs"></nav>
   <main class="form" id="form">
     <p class="empty" id="emptyIntro">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
       (Chrome/Edge) lets Save write straight back to the file on disk. Uploading works in any browser
@@ -279,7 +279,7 @@
 
 <dialog id="dlgConflict">
   <h2>This map was changed somewhere else</h2>
-  <p>(another tab or window). Your unsaved changes are still here.</p>
+  <p>Another tab or window saved over it. Your unsaved changes are still here.</p>
   <div class="actions">
     <button id="conflictReload">Reload</button>
     <button id="conflictOverwrite" class="primary">Overwrite</button>
@@ -321,7 +321,7 @@
   function updateChangeIndicator() {
     const el = $('changeStatus');
     const parts = [];
-    if (editedNodes.size > 0) parts.push(editedNodes.size + ' node' + (editedNodes.size === 1 ? '' : 's') + ' edited');
+    if (editedNodes.size > 0) parts.push(editedNodes.size + ' belief' + (editedNodes.size === 1 ? '' : 's') + ' edited');
     if (createdNodes.size > 0) parts.push(createdNodes.size + ' created');
     if (deletedCount > 0) parts.push(deletedCount + ' deleted');
     el.textContent = parts.length ? parts.join(', ') : 'No changes.';
@@ -567,7 +567,7 @@
       mapLink.textContent = 'Home';
       $('emptyIntro').textContent =
         'This map is empty. Answer the questions in the wizard to fill it in, '
-        + 'or add a belief here with "+ New node".';
+        + 'or start here with "+ New area".';
 
       // Mirrors web/chrome.js's nav. editor.html cannot import chrome.js — the
       // offline tool must load from file:// with no network — so this is a
@@ -615,7 +615,7 @@
   function renderTree() {
     treeEl.innerHTML = '';
     const search = document.createElement('input');
-    search.type = 'search'; search.placeholder = 'Filter nodes…';
+    search.type = 'search'; search.placeholder = 'Filter beliefs…';
     search.addEventListener('input', () => renderTreeList(search.value.trim().toLowerCase()));
     treeEl.appendChild(search);
     renderTreeList('');
@@ -650,7 +650,7 @@
 
       const addNode = document.createElement('button');
       addNode.className = 'addbtn';
-      addNode.textContent = '+ New node in ' + domain.name;
+      addNode.textContent = '+ New belief in ' + domain.name;
       addNode.addEventListener('click', () => addNodeToDomain(di));
       det.appendChild(addNode);
 
@@ -660,7 +660,7 @@
     const nd = document.createElement('div');
     nd.className = 'newdomain';
     const ndBtn = document.createElement('button');
-    ndBtn.textContent = '+ New domain';
+    ndBtn.textContent = '+ New area';
     ndBtn.addEventListener('click', addDomain);
     nd.appendChild(ndBtn);
     wrap.appendChild(nd);
@@ -714,7 +714,7 @@
   // ------------------------------------------------------------------ form
   function renderForm() {
     if (!current) {
-      formEl.innerHTML = '<p class="empty">Pick a node on the left, or add a new one.</p>';
+      formEl.innerHTML = '<p class="empty">Pick a belief on the left, or add a new one.</p>';
       return;
     }
     const node = domains[current.domainIndex].nodes[current.nodeIndex];
@@ -730,8 +730,7 @@
 
     const tcNote = document.createElement('p');
     tcNote.className = 'tm-note';
-    tcNote.textContent = 'Tier is how much weight it carries. Confidence is how sure I am. '
-                       + 'They are two different questions.';
+    tcNote.textContent = 'Tier and confidence are two different questions.';
     formEl.appendChild(tcNote);
 
     formEl.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS],
@@ -784,7 +783,7 @@
     foot.className = 'formfoot';
     const del = document.createElement('button');
     del.className = 'danger';
-    del.textContent = 'Delete this node';
+    del.textContent = 'Delete this belief';
     del.addEventListener('click', () => confirmDeleteNode());
     foot.appendChild(del);
     const status = document.createElement('span');
@@ -874,7 +873,7 @@
   const dlgConfirm = $('dlgConfirm');
   function deleteNodeWithConfirm(domain, node, afterDelete) {
     $('dlgTitle').textContent = 'Delete "' + node.title + '"?';
-    $('dlgBody').textContent = 'This removes the node from the editor. It only leaves the file once you save.';
+    $('dlgBody').textContent = 'This removes the belief from the editor. It only leaves the file once you save.';
     $('dlgOk').textContent = 'Delete';
     dlgConfirm.showModal();
     $('dlgOk').onclick = () => {
@@ -997,7 +996,7 @@
     autosaveInFlight = true;
     setStatus('Saving…', '');
     try {
-      localStorage.setItem(draftKey(), JSON.stringify({ text, savedAt: Date.now() }));
+      localStorage.setItem(draftKey(), JSON.stringify({ text, updatedAt: saveToken }));
       const result = await adapter.save(text, saveToken, opts.force);
       saveToken = result.token;
       lastSavedText = text;
@@ -1070,8 +1069,9 @@
     let draft;
     try { draft = JSON.parse(localStorage.getItem(draftKey())); } catch { draft = null; }
     if (!draft || !draft.text || draft.text === serverText) return;
-    const serverTime = Date.parse(token);
-    if (!(draft.savedAt > serverTime)) return;
+    // Compare against the server updated_at the draft was based on, not the client
+    // clock — a device with a slow local clock must not silently miss this offer.
+    if (!draft.updatedAt || !(Date.parse(draft.updatedAt) >= Date.parse(token))) return;
     $('dlgTitle').textContent = 'Restore your local draft?';
     $('dlgBody').textContent = 'A draft saved in this browser is newer than what’s on the server (maybe a save never reached it). Restore the draft?';
     $('dlgOk').textContent = 'Restore draft';
