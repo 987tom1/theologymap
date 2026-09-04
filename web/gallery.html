@@ -40,8 +40,8 @@ mount('Gallery');
 
 const TIER_ORDER = ['T1', 'T1.5', 'T2', 'T2.5', 'T3', 'T4'];
 const TIER_COLOUR = {
-  'T1': '#7c2d3b', 'T1.5': '#8a4a24', 'T2': '#8c6a1f',
-  'T2.5': '#5f6b35', 'T3': '#2f6b63', 'T4': '#33526e'
+  'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
+  'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)'
 };
 
 function buildTierBar(counts, total) {
@@ -98,7 +98,7 @@ function buildCard(m) {
     const summary = document.createElement('p');
     summary.className = 'tm-stat';
     summary.textContent = `${total} belief${total === 1 ? '' : 's'} · `
-      + `${m.open_count} open question${m.open_count === 1 ? '' : 's'}`;
+      + `${m.open_count} unsettled`;
     a.appendChild(summary);
   }
 
@@ -128,7 +128,7 @@ function buildPrimaryCard(user) {
   h3.textContent = 'Make your own map';
   a.appendChild(h3);
   const p = document.createElement('p');
-  p.textContent = 'Sign up free and start mapping your own beliefs.';
+  p.textContent = user ? 'Continue answering questions or start from someone else's map.' : 'Sign up free and start mapping your own beliefs.';
   a.appendChild(p);
   const go = document.createElement('span');
   go.className = 'tm-go';

@@ -38,7 +38,7 @@
 <main class="tm-main">
 
   <div class="tm-prose">
-    <p>A theology map is what one person actually believes, written down and sorted
+    <p>A theology map is what you actually believe, written down and sorted
       by how much weight each belief carries.</p>
     <p>Each belief carries a confidence — certain, confident, leaning, open, or
       rejected — an ordinal band, not a percentage, and separate from whether it
@@ -51,15 +51,14 @@
       <li><strong>T4</strong> — a matter of liberty</li>
     </ul>
     <p>Half-steps (T1.5, T2.5) exist for beliefs that genuinely sit between two ranks.
-      It is not a quiz and there is no score — nothing appears in a map that its owner
+      It is not a quiz and there is no score — nothing appears in your map that you
       did not put there.</p>
   </div>
 
   <div class="tm-grid tm-firstrun" id="firstrun-grid">
-    <a class="tm-card tm-card-primary" id="make-own-tile" href="/#signin">
+    <a class="tm-card tm-card-primary" id="make-own-tile" href="#signup-form">
       <h3>Make your own map</h3>
-      <p>A name and a short PIN is the whole sign-up. Start from a blank page or
-        from someone else's map.</p>
+      <p>Answer the questions one at a time, or start from someone else's map.</p>
       <span class="tm-go">Get started &rarr;</span>
     </a>
     <a class="tm-card" href="/gallery">
@@ -93,7 +92,7 @@
         <h2>Create an account</h2>
         <p class="quiet">A name and a short PIN. Nothing else, no email.</p>
         <label>Name
-          <input type="text" name="name" required autocomplete="username">
+          <input type="text" name="name" required autocomplete="username" maxlength="60">
         </label>
         <label>PIN
           <input type="password" name="pin" required autocomplete="new-password" minlength="4" maxlength="12">
