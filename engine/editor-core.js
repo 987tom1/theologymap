@@ -110,8 +110,16 @@
     return domains;
   }
 
+  /* The file format is line-oriented and uses ' · ' / ' | ' as header
+   * separators, so a newline or a separator character typed into any field
+   * would re-parse as a second node or as a tier/confidence token. Both are
+   * neutralised here, silently. */
+  function oneLine(value) {
+    return (value || '').replace(/[\r\n]+/g, ' ').trim();
+  }
+
   function headerTokens(node) {
-    const tokens = [node.title];
+    const tokens = [oneLine(node.title).replace(/[·|]/g, ' ').replace(/\s+/g, ' ').trim()];
     if (node.tier) tokens.push(node.tier);
     if (node.confidence) tokens.push(node.confidence);
     for (const f of node.flags) {
@@ -123,13 +131,13 @@
   function serializeNode(node) {
     const lines = ['## ' + headerTokens(node).join(' · ')];
     for (const key of ['hold', 'why', 'vs', 'todo']) {
-      const val = (node[key] || '').trim();
+      const val = oneLine(node[key]);
       if (val) lines.push('  ' + key.padEnd(6) + val);
     }
-    const refs = (node.refs || '').trim();
+    const refs = oneLine(node.refs);
     if (refs) lines.push('  ' + 'refs'.padEnd(6) + refs);
     for (const l of (node.link || [])) {
-      const val = (l || '').trim();
+      const val = oneLine(l);
       if (val) lines.push('  ' + 'link'.padEnd(6) + val);
     }
     return lines.join('\n');
