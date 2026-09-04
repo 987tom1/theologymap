@@ -261,8 +261,8 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`a2ed6d2f990b4ffeff9a43de2900f844b991f0d9b8faccfadf14956c54509bf7` when written
-with `Path.write_text` on Windows (`0125f4df6710946d80b2ca03314e71823dfd9f1b450df69c7a69384981863767`
+`3c4a33ca6d01ada24a9c1d98b2d24c346824df9a4ad1b87557c58936e27c497d` when written
+with `Path.write_text` on Windows (`1b9fade5987bcfe4891f515a17a5d6437867e4a5145c1569e278ddc6af1f9253`
 LF-normalised, which is what a Linux-side or hosted-response check compares
 against). Re-run it after any change to `render.py`.
 
@@ -283,7 +283,15 @@ against). Re-run it after any change to `render.py`.
 > sticky header put the filter field and the Filters button on the `<h1>`'s own
 > row, to shorten it on a phone. The pre-round values were `ced6cabd…8fe10` /
 > `380dfefd…46598`; the `.mm`, `study-list.md` and the embedded `<script
-> id="data">` payload were all verified byte-identical across it.
+> id="data">` payload were all verified byte-identical across it. **Phase 10
+> moved them a fourth time**, under that same gate — 44px controls in the
+> generated map, no Edit link when the document is framed, and `main` centred
+> (`docs/hosting/phase-10-outcome.md`, UX9/UX15/UX27). The pre-round values were
+> `a2ed6d2f…509bf7` / `0125f4df…863767`; the `.mm`, `study-list.md` and the
+> `<script id="data">` payload (`4d8d919e…c8bd7e`) were all verified unchanged.
+> The two values above still differ because they are the same bytes with
+> different line endings; `.gitattributes` now pins the three generated files to
+> `eol=crlf` so regenerating on Linux no longer rewrites every line.
 
 Hosted users get **no verse fetching**: `documentation/verses.md` ships as a
 bundled read-only asset and `fetch_verses.py` stays local-only, because **no
@@ -725,7 +733,13 @@ things it leaves behind that are easy to undo by accident:
   tokens with the same values, by hand.** The generated map must stay one
   self-contained double-clickable file, so it cannot link the stylesheet.
   Nothing checks that they agree — change a token in one, change it in the
-  other. `--field-line` and `--note` now exist in both.
+  other. `--field-line` and `--note` now exist in both. **The tier ramp is two
+  copies, and only two, as of phase 10** (`--t1`…`--t4` plus the two
+  intermediate hexes). An earlier version of this note claimed two when there
+  were in fact five: `theme.css`, documented as their home, had none, and four
+  `web/` pages each carried their own. Phase 10 put them in `theme.css` and
+  deleted all four (X1). `render.py:67-72` keeps its copy for the
+  self-containment reason above — that one is legitimate.
 - **`--line` and `--field-line` are not interchangeable.** `--field-line` is
   for interactive control boundaries *only* (WCAG 2.1 SC 1.4.11 needs 3:1;
   `--line` on `--panel` is 1.36:1). `--line` stays the decorative divider.
@@ -915,6 +929,39 @@ knowing:
   *Scripture* doctrine answered; answering it moves the node to Scripture and
   leaves an empty `# Ethics` heading. Defensible — one belief, one slug is the
   rule `pruneLinks` and `compare-core.js` both rest on — but it is silent.
+
+### The review round of 2026-09-04
+
+Sixty-two findings off two independent reviews (`documentation/sixhatreview.md`,
+`documentation/uxreview.md`), run as fourteen file-disjoint tasks. Full account in
+`docs/hosting/phase-10-outcome.md`; new seam write-ups in `debug.md` §AC–§AE. Only
+the things that are easy to undo by accident:
+
+- **The `is_public` asymmetry in `api/render.py` is deliberate.** The `name`
+  branch checks it; the **`user_id` branch must not**. The id is a
+  save-authorising secret, and guarding it locks an owner out of their own
+  unlisted map — which is exactly what happened, silently, to every unlisted map
+  and its Export HTML until X3. `api/map.py:31-39` documents the same rule from
+  the other side. Making the two branches "consistent" reopens the bug.
+- **`--t1`…`--t4` live in `engine/theme.css`.** Four hand-copied duplicates in
+  `web/` were deleted. Do not reintroduce a tier hex literal in a `web/` file —
+  read the token. (`render.py` keeps its copy; see the phase 7 note above.)
+- **`serializeNode` neutralises newlines silently.** A newline in a field used to
+  split one belief into two nodes and strand its `refs` line. Fields are now
+  collapsed to a single line, and `·`/`|` are stripped from titles, with no
+  message to the person — Thomas's call. Verified a byte-for-byte no-op on
+  `theology-map.md` and all twelve tradition maps.
+- **`closestTradition` flags *every* tied row and no longer returns
+  `denominatorNote`.** Ties are compared on one scale (`score`, within an
+  epsilon), never on a raw-count tolerance, and every row carries its own
+  `numerator`/`denominator` for the caller to build the sentence from. The old
+  code named one tradition with full confidence on a four-way tie.
+- **`#home-empty` is deleted.** Its third first-run offer — *start from someone
+  else's map* — now lives on `#screen-intro`, which is the screen a new account
+  actually lands on. Do not re-add a second empty-state home.
+- **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
+  Lazy-loading the eleven non-target maps is the next performance move if the
+  page gets slow. Deliberately not done yet.
 
 ## Working notes
 

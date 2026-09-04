@@ -500,6 +500,61 @@ lockstep-bearing with `render.py`'s embedded Map view and must not change. Do no
 hidden pane returns.** Any layout pass that reads `offsetWidth`/`offsetHeight` is a
 candidate whenever a default tab, route or accordion state moves.
 
+### AC. No route in the app rendered an unlisted map for its own owner — three correct decisions composing into a dead end — FIXED (2026-09-04, X3)
+
+`api/map.py:31-39` deliberately does **not** guard its `user_id` read on `is_public`,
+with a comment explaining that guarding it would lock an owner out of their own unlisted
+map. `api/render.py:46` applied `is_public` to **both** branches, `user_id` included.
+And `web/landing.html`'s "My map" tile points at `/view?name=`. Each of the three is
+defensible on its own; together they mean that unlisting your map and then clicking
+"My map" beside it answers *"This map is unlisted, so it does not render by name."*
+Export HTML went with it. Neither file's own review would find this, because neither
+file is wrong.
+
+Fixed by applying the check to the `name` branch only, with a comment on both branches
+naming X3 and pointing at `api/map.py:31-39` — the guard looks like an oversight, and
+putting it back reopens the bug.
+
+**The lesson: two routes disagreeing about what one credential authorises is invisible
+from inside either route.** Ask what each caller is allowed to do with the same secret,
+not whether each route's own check is correct.
+
+### AD. `closestTradition` answered a four-way tie by naming one tradition, with full confidence — FIXED (2026-09-04, F1)
+
+The highest-severity finding in either review. Three defects composed in four lines: the
+sort ranked on `score` (a ratio) but broke ties on `numerator` (a raw count) — two
+different scales; the tie check only ever inspected `ranked[1]`, so a three- or four-way
+tie flagged at most two rows; and the tolerance was `gap <= 3` raw agreements, which
+means something entirely different on a 12-question denominator than on an 86-question
+one. On a 12-belief map — the likeliest state of any map in this church — four traditions
+score 1.000 and the gap to the fourth is 8, so **nothing** was flagged joint and
+`/compare` named Non-denominational alone. Reproduced against the real corpus from plain
+`node`.
+
+Fixed by comparing on one scale: every row within an epsilon of `ranked[0].score` is
+`joint`. `denominatorNote` was deleted with it — it described only `ranked[0]` while the
+sentence could name four.
+
+**The lesson — the review's own amendment: what number does this feature say out loud,
+and what asserts its value on realistic input?** Sixteen assertions passed throughout;
+none of them built a small map and read the sentence back.
+
+### AE. A newline typed into a belief split it into two nodes — FIXED (2026-09-04, B1)
+
+`serializeNode` wrote user text straight into a line-oriented file format. A newline in
+`hold` therefore ended the node's field block, and the real node lost its `refs` line to
+the fragment: one belief in, two nodes out. Separately, a title containing ` · ` was
+re-parsed by `headerTokens` as tier and confidence tokens. Reachable from every text
+field in the wizard and the editor, and silent — nothing validated on the way back in.
+
+Fixed at the write: `[\r\n]+` collapses to a space in every field, and `·`/`|` are
+stripped from titles. Verified byte-identical output over `theology-map.md` and all
+twelve tradition maps, so no existing data moved.
+
+**The lesson: a serializer writing user input into a format with structural characters
+needs a neutralisation step at the write, not a validation step at the read.** By the
+time the parser sees it, the damage is indistinguishable from content.
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -561,3 +616,14 @@ candidate whenever a default tab, route or accordion state moves.
    before asking a human to reproduce anything that touches the corpus or the
    node model; a `require()` on the same files the browser loads catches shape
    bugs (object identity, missing fields) directly.
+15. **When two files answer the same question about the same credential, read them
+   side by side, not one at a time.** §AC was three individually-correct decisions —
+   one route guarding a lookup, another deliberately not, and a link choosing which
+   route runs — that only failed in combination. If a file's comment explains why it
+   *doesn't* check something, grep for every other reader of that same field before
+   changing either.
+16. **A number the UI says out loud needs an assertion on realistic input, not just a
+   passing unit suite.** §AD shipped a confidently wrong answer past sixteen green
+   assertions, because none of them built a small map and read the resulting sentence.
+   These modules are UMD and run from plain `node` (rule 14) — build the smallest real
+   case and print what the person would actually see.
