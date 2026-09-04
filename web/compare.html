@@ -6,10 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  /* Tier ramp — engine/render.py's ramp exactly, per web/wizard.html line 13. */
-  :root {
-    --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
-  }
+  [hidden] { display: none !important; }
 
   h1 { font-size: 1.4em; }
   .cmp-body-wrap { display: flex; flex-direction: column; gap: 22px; max-width: 900px; }
@@ -56,7 +53,7 @@
 
   /* ---- tiering ---- */
   #cmp-tiers { margin: 0 0 22px; }
-  .cmp-tier-lead { margin: 0 0 10px; max-width: 62ch; font: 14px/1.55 var(--serif); color: var(--ink); }
+  .cmp-tier-lead { margin: 0 0 10px; max-width: 58ch; font: 14px/1.55 var(--serif); color: var(--ink); }
   .cmp-tier-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
   .cmp-tier-item {
     display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
@@ -94,8 +91,8 @@
      product. Copied rather than hoisted into theme.css: they are page-local
      text styles there too, and moving them would touch the wizard mid-phase. */
   .wz-quiet { font: 12.5px/1.5 var(--sans); color: var(--muted); margin: 0; }
-  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
-  .wz-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
+  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
+  .wz-framing { margin: 0; max-width: 58ch; color: var(--ink); font: 14px/1.55 var(--serif); }
   .cmp-row .wz-framing { margin: 0 0 10px; }
   .cmp-row a { display: inline-block; margin: 0 12px 10px 0; font: 600 12.5px/1 var(--sans); color: var(--ink);
     text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
@@ -108,7 +105,7 @@
 <div class="tm-main">
   <section id="screen-picker">
     <p class="tm-note">
-      A comparison sits my own map next to a major tradition's or another
+      A comparison sits your map next to a major tradition's or another
       member's, doctrine by doctrine. Nothing about either map changes, and no
       comparison is recorded anywhere.
     </p>
@@ -117,7 +114,6 @@
     <div id="picker-traditions"></div>
 
     <h2 class="cmp-section-h">Another member</h2>
-    <p class="tm-note">Any map that is public can be compared against from this page.</p>
     <div id="picker-members"></div>
   </section>
 

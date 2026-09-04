@@ -4,7 +4,7 @@
    No model logic lives here. engine/compare-core.js resolves both sides and
    decides every verdict, score and closest-tradition call; this file only
    fetches the two maps and the corpus, and paints what CompareCore returns.
-   Written in first person / neutral voice throughout — never second person. */
+   Written in second person throughout, per Global Constraint 8. */
 import { getUser, requireUser, apiFetch, showError } from '/web/session.js';
 import { mount } from '/web/chrome.js';
 import { loadCorpus, loadTraditionManifest } from '/web/corpus.js';
@@ -21,14 +21,14 @@ const $ = (id) => document.getElementById(id);
    theirs-own-wording, mine-unanswered, theirs-unanswered, rejected — all ten
    match this table's keys exactly, nothing to reconcile. */
 const VERDICT_TEXT = {
-  'agree':              'We say the same thing here',
+  'agree':              'You say the same thing here',
   'agree-in-substance': 'The same answer, worded differently',
-  'differ':             'We answer this differently',
-  'mine-undecided':     'I have not settled this yet',
+  'differ':             'You answer this differently',
+  'mine-undecided':     'You have not settled this yet',
   'theirs-undecided':   'Not settled on their side',
-  'mine-own-wording':   'Worded my own way — shown side by side',
+  'mine-own-wording':   'Worded your own way — shown side by side',
   'theirs-own-wording': 'Worded their own way — shown side by side',
-  'mine-unanswered':    'Not in my map yet',
+  'mine-unanswered':    'Not in your map yet',
   'theirs-unanswered':  'This tradition takes no position on it',
   'rejected':           'Recorded as considered and rejected',
 };
@@ -109,7 +109,7 @@ function diffRow(row, verdictText) {
 
   const body = el('div', 'cmp-body');
   const mineCol = el('div', 'cmp-col');
-  mineCol.appendChild(el('p', 'lab', 'Mine'));
+  mineCol.appendChild(el('p', 'lab', 'Yours'));
   mineCol.appendChild(el('p', null, holdText(row.mine)));
   const mineWhy = whyText(row.mine);
   if (mineWhy) mineCol.appendChild(el('p', 'wz-hint', mineWhy));
@@ -177,25 +177,41 @@ function renderClosest(host, closest, ownWordingCount) {
     return;
   }
 
+  // Every row where `joint` is true is tied with the top row; that is one row
+  // in the ordinary case and any number when several traditions tie. Each
+  // names its own numerator/denominator — there is no shared denominator note
+  // any more, because ties don't imply matching counts.
   const joint = closest.ranked.filter(r => r.joint);
   const named = joint.length ? joint : [closest.ranked[0]];
-  const top = closest.ranked[0];
+
+  const fraction = (r, first) => first
+    ? 'agrees with ' + r.numerator + ' of the ' + r.denominator
+      + ' questions where you both have a position'
+    : r.numerator + ' of ' + r.denominator;
 
   const line = el('p', 'cmp-closest-line');
-  if (named.length > 1) {
-    line.appendChild(document.createTextNode('A close call: '));
-    line.appendChild(el('strong', null, named.map(r => r.displayName).join(' and ')));
-    line.appendChild(document.createTextNode('—these traditions’ answers are nearest to mine. '));
+  if (named.length === 1) {
+    const r = named[0];
+    line.appendChild(document.createTextNode('This tradition’s answers are nearest to yours: '));
+    line.appendChild(el('strong', null, r.displayName));
+    line.appendChild(document.createTextNode(' (' + fraction(r, true) + ').'));
   } else {
-    line.appendChild(document.createTextNode('This tradition’s answers are nearest to mine: '));
-    line.appendChild(el('strong', null, top.displayName));
-    line.appendChild(document.createTextNode('. '));
+    line.appendChild(document.createTextNode('You are equally close to '));
+    named.forEach((r, i) => {
+      line.appendChild(el('strong', null, r.displayName));
+      line.appendChild(document.createTextNode(' (' + fraction(r, i === 0) + ')'));
+      if (i < named.length - 2) line.appendChild(document.createTextNode(', '));
+      else if (i === named.length - 2) line.appendChild(document.createTextNode(' and '));
+    });
+    line.appendChild(document.createTextNode('.'));
   }
-  line.appendChild(document.createTextNode(closest.denominatorNote + '.'));
   host.appendChild(line);
-  host.appendChild(el('p', 'wz-quiet',
-    top.excludedCount + ' doctrine' + (top.excludedCount === 1 ? '' : 's')
-    + ' excluded from that count (undecided, own wording, or unanswered on either side).'));
+
+  if (named.length === 1) {
+    host.appendChild(el('p', 'wz-quiet',
+      named[0].excludedCount + ' doctrine' + (named[0].excludedCount === 1 ? '' : 's')
+      + ' excluded from that count (undecided, own wording, or unanswered on either side).'));
+  }
 }
 
 /* Where my own tiering departs from the corpus's suggested tier — a question
@@ -212,10 +228,10 @@ function renderTiers(host, rows, theirsLabel) {
   if (!rows.length) { host.hidden = true; return; }
   host.hidden = false;
 
-  host.appendChild(el('h3', 'cmp-section-h', 'Where my tiering differs from the suggestion'));
+  host.appendChild(el('h3', 'cmp-section-h', 'Where your tiering differs from the suggestion'));
   host.appendChild(el('p', 'cmp-tier-lead',
     rows.length + ' doctrine' + (rows.length === 1 ? ' sits' : 's sit')
-    + ' at a different tier in my map than the question set suggests. That is not a '
+    + ' at a different tier in your map than the question set suggests. That is not a '
     + 'disagreement with anyone — the suggested tier is a starting point, and moving '
     + 'it is what building a map is for.'));
 
@@ -237,8 +253,8 @@ function renderTiers(host, rows, theirsLabel) {
     li.appendChild(mineP);
 
     li.appendChild(el('span', 'cmp-tier-move', r.direction === 'more-central'
-      ? 'I treat this as more central than suggested'
-      : 'I treat this as less dividing than suggested'));
+      ? 'You treat this as more central than suggested'
+      : 'You treat this as less dividing than suggested'));
 
     // Only stated when the other side actually has a tier for it, and stated
     // flatly — no verdict is attached to the gap.
@@ -396,8 +412,9 @@ async function renderResults(opts) {
     if (!entry) { showError('No such tradition: ' + traditionId); return; }
     isTradition = true;
     targetLabel = entry.display_name;
-    const md = await (await fetch('/content/traditions/' + entry.file)).text();
-    theirs = Core.parse(md);
+    const res = await fetch('/content/traditions/' + entry.file);
+    if (!res.ok) { showError('That tradition’s map could not be loaded.'); return; }
+    theirs = Core.parse(await res.text());
   } else {
     let res;
     try {
@@ -411,7 +428,7 @@ async function renderResults(opts) {
 
   $('results-heading').textContent = isTradition
     ? 'Compared with ' + targetLabel
-    : targetLabel + '’s map, side by side with mine';
+    : targetLabel + '’s map, side by side with yours';
 
   const rows = CompareCore.diff(corpus, mine, theirs);
   const verdictText = Object.assign({}, VERDICT_TEXT);
@@ -424,12 +441,18 @@ async function renderResults(opts) {
   if (isTradition) {
     const scTraditions = CompareCore.scorecardTraditions(corpus);
     const traditionMaps = {};
-    await Promise.all(scTraditions.map(async (t) => {
-      const entry = traditionList.find((x) => x.id === t.id);
-      if (!entry) return;
-      const md = await (await fetch('/content/traditions/' + entry.file)).text();
-      traditionMaps[t.id] = Core.parse(md);
-    }));
+    try {
+      await Promise.all(scTraditions.map(async (t) => {
+        const entry = traditionList.find((x) => x.id === t.id);
+        if (!entry) return;
+        const res = await fetch('/content/traditions/' + entry.file);
+        if (!res.ok) throw new Error('failed to load tradition map: ' + entry.file);
+        traditionMaps[t.id] = Core.parse(await res.text());
+      }));
+    } catch {
+      showError('The tradition maps could not all be loaded.');
+      return;
+    }
     const ownWording = rows.filter((r) => r.mine.kind === 'own-wording').length;
     renderClosest($('cmp-closest'), CompareCore.closestTradition(corpus, mine, traditionMaps), ownWording);
     renderScorecard($('sc-table-host'), $('sc-accordion-host'), corpus,
@@ -441,7 +464,7 @@ async function renderResults(opts) {
     // whatever the copy says. This omission is deliberate, not an oversight.
     const bothSettled = rows.filter((r) => r.mine.kind === 'position' && r.theirs.kind === 'position').length;
     $('cmp-framing-text').textContent =
-      'This is what our two maps say side by side. '
+      'This is what your two maps say side by side. '
       + bothSettled + ' doctrine' + (bothSettled === 1 ? '' : 's') + ' where both have settled something.';
   }
 
