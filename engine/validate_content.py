@@ -18,6 +18,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# Vercel-style sibling import, same pattern as api/render.py: makes `import
+# render` resolve to engine/render.py regardless of the caller's own cwd/sys.path.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import render  # noqa: E402
+
 TIERS = {"T1", "T1.5", "T2", "T2.5", "T3", "T4"}
 TIER_ORDER = ["T1", "T1.5", "T2", "T2.5", "T3", "T4"]
 CONFIDENCES = {"certain", "confident", "leaning", "open", "rejected"}
@@ -37,15 +42,7 @@ MAX_HOLD_CHARS = 320
 TERMINAL_PUNCTUATION = ".!?”\"')"
 
 
-def slugify(text):
-    """Byte-for-byte the algorithm in engine/editor-core.js and engine/render.py.
-
-    A drift here is the bug rule 4 exists to catch, so it cannot be approximate.
-    """
-    t = (text or "").lower().replace("&", "and")
-    t = re.sub(r"['’]", "", t)
-    t = re.sub(r"[^a-z0-9]+", "-", t)
-    return t.strip("-")
+slugify = render.slugify
 
 
 def map_domain_names():

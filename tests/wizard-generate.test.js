@@ -5,17 +5,12 @@
  * pin the schema; the real corpus is exercised by Task 8's suite.
  */
 const assert = require('assert');
+const { test } = require('node:test');
 const fs = require('fs');
 const EditorCore = require('../engine/editor-core.js');
 const WG = require('../engine/wizard-generate.js');
 
 const corpus = WG.loadCorpusSync('tests/fixtures/corpus');
-
-let failures = 0;
-function test(name, fn) {
-  try { fn(); console.log('ok -', name); }
-  catch (err) { failures++; console.log('FAIL -', name, '\n   ', err.message); }
-}
 
 test('tier order puts T1 before T3', () => {
   const ds = WG.orderedDoctrines(corpus);
@@ -413,6 +408,3 @@ test('the seed never puts a tradition in two positions without an override', () 
     }
   }
 });
-
-console.log(failures ? `\n${failures} FAILED` : '\nall passed');
-process.exit(failures ? 1 : 0);

@@ -9,8 +9,8 @@
    (window.EditorCore); the corpus loader and the stance vocabulary are
    web/corpus.js's; a citation becomes a link only through web/refs.js. */
 import { getUser, apiFetch } from '/web/session.js';
-import { mount } from '/web/chrome.js';
-import { citationUrl } from '/web/refs.js';
+import { mount, el } from '/web/chrome.js';
+import { citeLink as sharedCiteLink, sourceLine as sharedSourceLine } from '/web/refs.js';
 import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
@@ -24,13 +24,6 @@ const TIER_VAR = {
 
 /* --------------------------------------------------------------- helpers */
 
-function el(tag, cls, text) {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-}
-
 function showScreen(name) {
   for (const s of ['index', 'doctrine', 'tradition']) $('view-' + s).hidden = (s !== name);
   $('lp-notfound').hidden = true;
@@ -43,20 +36,14 @@ function notFound(message) {
 }
 
 /* Every citation on this page is a link. A real `url` wins; refs.js supplies
-   one for everything else — same contract web/wizard.js uses. */
+   one for everything else — same contract web/wizard.js uses. citeLink/
+   sourceLine themselves are shared with web/wizard.js (web/refs.js); /learn
+   passes no onFollow, since there is no in-progress answer to commit here. */
 function citeLink(text, label, citation, url) {
-  const a = el('a', null, text);
-  a.href = url || citationUrl(label, citation || '');
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  return a;
+  return sharedCiteLink(el, text, label, citation, url);
 }
-
 function sourceLine(src) {
-  const p = el('p', 'lp-hint');
-  const label = src.label + (src.citation ? ' — ' + src.citation : '');
-  p.appendChild(citeLink(label, src.label, src.citation, src.url));
-  return p;
+  return sharedSourceLine(el, 'lp-hint', src);
 }
 
 /* Deduplicated by label, first occurrence wins — design section 3.7. */

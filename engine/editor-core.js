@@ -14,9 +14,12 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
 
-  const FIELD_KEYS = ['hold', 'why', 'vs', 'todo', 'link', 'refs'];
   const TIERS = ['T1', 'T1.5', 'T2', 'T2.5', 'T3', 'T4'];
   const CONFIDENCES = ['certain', 'confident', 'leaning', 'open', 'rejected'];
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  }
 
   function slugify(text) {
     let t = (text || '').toLowerCase().replace(/&/g, 'and');
@@ -168,7 +171,7 @@
   }
 
   return {
-    FIELD_KEYS, TIERS, CONFIDENCES,
-    slugify, newNode, parse, serialize, serializeNode, allSlugs,
+    TIERS, CONFIDENCES,
+    slugify, newNode, parse, serialize, allSlugs, escapeHtml,
   };
 });

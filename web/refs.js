@@ -8,6 +8,10 @@
 //
 // Every curated base URL below was verified live with curl before being
 // added (see the task report) — a dead link is worse than plain text here.
+//
+// This file stays DOM-free and importable under plain Node (tests/refs.test.js
+// requires it directly), so citeLink/sourceLine below take `el` as a
+// parameter rather than importing it from web/chrome.js.
 
 const CURATED = [
   { aliases: ['catechism of the catholic church', 'catechism of catholic church', 'ccc'],
@@ -81,4 +85,29 @@ export function citationUrl(label, citation) {
     }
   }
   return 'https://www.google.com/search?q=' + encodeURIComponent(`${label || ''} ${citation || ''}`.trim());
+}
+
+// citeLink/sourceLine — shared by web/wizard.js and web/learn.js, which used
+// to carry byte-for-byte copies differing only in hint class name and (on the
+// wizard's side) an onFollow callback for its commit-on-click behaviour.
+//
+// Every citation on these pages is a link. A real `url` wins; citationUrl()
+// supplies one for everything else.
+export function citeLink(el, text, label, citation, url, onFollow) {
+  // .cite-link (engine/theme.css) is what makes this read as a link rather
+  // than plain prose inside .wz-hint/.wz-explain/.wz-pop/.who/.lp-prose/etc.
+  const a = el('a', 'cite-link', text);
+  a.href = url || citationUrl(label, citation || '');
+  // A new tab, always: reading a confession is a detour, not an exit.
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  if (onFollow) a.addEventListener('click', onFollow);
+  return a;
+}
+
+export function sourceLine(el, hintClass, src, onFollow) {
+  const p = el('p', hintClass);
+  const label = src.label + (src.citation ? ' — ' + src.citation : '');
+  p.appendChild(citeLink(el, label, src.label, src.citation, src.url, onFollow));
+  return p;
 }

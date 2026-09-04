@@ -90,7 +90,3 @@ class handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         error(self, 405, "method_not_allowed", "Use GET.")
-
-    do_PUT = do_POST
-    do_DELETE = do_POST
-    do_PATCH = do_POST

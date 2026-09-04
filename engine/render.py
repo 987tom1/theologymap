@@ -1,11 +1,9 @@
-"""Render theology-map.md into an interactive HTML map, a Freeplane/XMind .mm
-file, and a generated study list.
+"""Render theology-map.md into an interactive HTML map and a generated study list.
 
 Usage:  python render.py
 
 Reads   theology-map.md, documentation/verses.md
 Writes  theology-map.html
-        documentation/theology-map.mm
         documentation/study-list.md
 
 Standard library only.
@@ -944,8 +942,7 @@ document.getElementById('collapseAll').addEventListener('click', () => {
 // -------------------------------------------------------------- map view
 //
 // Two-sided balanced layout: the root sits at x=0 (centred), with domain
-// branches alternating right (side=1) / left (side=-1) — the same
-// convention render_mm() uses for the .mm export. Below MAP_TWO_SIDE_BREAK
+// branches alternating right (side=1) / left (side=-1). Below MAP_TWO_SIDE_BREAK
 // (phone widths) everything folds back to the old single-sided
 // left-to-right layout (all boxes get side=1, root's left edge at x=0)
 // since a split map doesn't have room to breathe on a narrow screen.
@@ -1332,69 +1329,6 @@ render();
 </html>
 """.replace("__DATA__", payload)
 
-
-# ----------------------------------------------------------------------------- MM
-
-
-def render_mm(nodes: list[dict]) -> str:
-    """Freeplane / XMind compatible mind map."""
-
-    def note(n: dict) -> str:
-        bits = []
-        if n["hold"]:
-            bits.append("HOLD: " + n["hold"])
-        if n["why"]:
-            bits.append("WHY: " + n["why"])
-        if n["vs"]:
-            bits.append("NOT: " + n["vs"])
-        if n["todo"]:
-            bits.append("STUDY: " + n["todo"])
-        if n["refs"]:
-            bits.append("TEXTS: " + n["refs"])
-        if not bits:
-            return ""
-        body = "".join(f"<p>{esc(b)}</p>" for b in bits)
-        return (
-            '<richcontent TYPE="NOTE"><html><head></head><body>'
-            f"{body}</body></html></richcontent>"
-        )
-
-    out = ['<map version="freeplane 1.9.0">', '<node TEXT="My Theology">']
-    domains = []
-    for n in nodes:
-        if n["domain"] not in domains:
-            domains.append(n["domain"])
-
-    for i, domain in enumerate(domains):
-        pos = "right" if i % 2 == 0 else "left"
-        out.append(f'<node TEXT="{esc(domain)}" POSITION="{pos}" FOLDED="true">')
-        for n in [x for x in nodes if x["domain"] == domain]:
-            colour = TIER_META.get(n["tier"], (None, "#57534e"))[1]
-            label = n["title"]
-            suffix = []
-            if n["tier"]:
-                suffix.append(n["tier"])
-            if n["confidence"]:
-                suffix.append(n["confidence"])
-            if "study" in n["flags"]:
-                suffix.append("study")
-            if "assumed" in n["flags"]:
-                suffix.append("inferred")
-            if suffix:
-                label += "  [" + " · ".join(suffix) + "]"
-            style = 'STYLE="fork"'
-            out.append(f'<node TEXT="{esc(label)}" COLOR="{colour}" {style}>')
-            body = note(n)
-            if body:
-                out.append(body)
-            out.append("</node>")
-        out.append("</node>")
-
-    out.append("</node>")
-    out.append("</map>")
-    return "\n".join(out)
-
-
 # ----------------------------------------------------------------------- STUDY LIST
 
 
@@ -1463,7 +1397,6 @@ def main() -> None:
     BUILD.mkdir(exist_ok=True)
     DOCS.mkdir(exist_ok=True)
     (BUILD / "theology-map.html").write_text(render_html(nodes, verses), encoding="utf-8")
-    (DOCS / "theology-map.mm").write_text(render_mm(nodes), encoding="utf-8")
     (DOCS / "study-list.md").write_text(render_study(nodes, missing_text), encoding="utf-8")
 
     study = [n for n in nodes if "study" in n["flags"]]
@@ -1476,7 +1409,7 @@ def main() -> None:
                if l not in {x["slug"] for x in nodes}]
     if missing:
         print(f"  WARNING broken links from: {sorted(set(missing))}")
-    print("wrote theology-map.html, documentation/theology-map.mm, documentation/study-list.md")
+    print("wrote theology-map.html, documentation/study-list.md")
 
 
 if __name__ == "__main__":

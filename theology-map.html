@@ -672,8 +672,7 @@ document.getElementById('collapseAll').addEventListener('click', () => {
 // -------------------------------------------------------------- map view
 //
 // Two-sided balanced layout: the root sits at x=0 (centred), with domain
-// branches alternating right (side=1) / left (side=-1) — the same
-// convention render_mm() uses for the .mm export. Below MAP_TWO_SIDE_BREAK
+// branches alternating right (side=1) / left (side=-1). Below MAP_TWO_SIDE_BREAK
 // (phone widths) everything folds back to the old single-sided
 // left-to-right layout (all boxes get side=1, root's left edge at x=0)
 // since a split map doesn't have room to breathe on a narrow screen.

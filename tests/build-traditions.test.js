@@ -10,16 +10,11 @@
  *     via scorecardTraditions().
  */
 const assert = require('assert');
+const { test } = require('node:test');
 const EditorCore = require('../engine/editor-core.js');
 const BT = require('../engine/build_traditions.js');
 
 const corpus = BT.loadCorpusSync('content/wizard');
-
-let failed = 0;
-function test(name, fn) {
-  try { fn(); console.log('ok -', name); }
-  catch (e) { failed++; console.log('FAIL -', name, '\n   ', e.message); }
-}
 
 test('a divided tradition without an override is a build error', () => {
   const broken = BT.loadCorpusSync('content/wizard');
@@ -98,5 +93,3 @@ test('rewording a hold does not change which doctrines a tradition holds', () =>
   const slugs = m => EditorCore.parse(m).flatMap(d => d.nodes).map(n => n.slug + ':' + n.tier);
   assert.deepStrictEqual(slugs(after.markdown), slugs(before.markdown));
 });
-
-process.exit(failed ? 1 : 0);

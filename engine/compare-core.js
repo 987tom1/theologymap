@@ -351,8 +351,8 @@
   }
 
   return {
-    normalise, candidates, resolvePosition, findNode,
-    scorecardTraditions, findTradition,
+    normalise,
+    scorecardTraditions,
     diff, tierDiff, findPosition, positionsInGroup,
     closestTradition, scorecard, canBeComparedAgainst,
   };

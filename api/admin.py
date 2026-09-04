@@ -6,8 +6,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _lib import (pg, q, read_json, reply, error, guard, unknown_user,  # noqa: E402
                   require_admin, snapshot_map)
 
-MAX_MARKDOWN_BYTES = 524288  # 512 KB, matches the users_markdown_len check constraint.
-
 # PostgREST answers a write with 204 No Content unless the caller asks for
 # `Prefer: return=representation`. None of the writes below need the row back,
 # so every success check here is `not in (200, 204)`, matching _delete_account's.
@@ -173,47 +171,11 @@ def _restore(self, body, admin_row):
     return error(self, 500, "server_error", "Could not restore that version.")
 
 
-def _save_map(self, body, admin_row):
-    target_id = body.get("target_id")
-    if not target_id:
-        return error(self, 400, "bad_request", "Missing target_id.")
-
-    markdown = body.get("markdown")
-    if not isinstance(markdown, str):
-        return error(self, 400, "bad_request", "Missing markdown.")
-
-    # Look the row up first: need its current markdown for the empty-save
-    # guard, and this is also how we tell "no such user" apart from anything
-    # else before we ever touch the PATCH.
-    status, rows, _ = pg("GET", f"/users?id=eq.{q(target_id)}&select=markdown")
-    if status != 200 or not rows:
-        return unknown_user(self)
-    current_markdown = rows[0]["markdown"]
-
-    if len(markdown.encode("utf-8")) > MAX_MARKDOWN_BYTES:
-        return error(self, 413, "too_large", "That map is too large to save (512 KB limit).")
-
-    force = body.get("force") is True
-    if not markdown.strip() and current_markdown.strip() and not force:
-        return error(self, 409, "would_erase",
-                     "This would erase the whole map. Confirm to continue.")
-
-    # Snapshot the stored map before replacing it (decisions.md, 2026-08-23).
-    # An admin edit is exactly the kind of whole-map replacement this exists for.
-    snapshot_map(target_id, force)
-
-    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}", {"markdown": markdown})
-    if status not in (200, 204):
-        return error(self, 500, "server_error", "Could not save the map.")
-    return reply(self, 200, {"ok": True})
-
-
 ACTIONS = {
     "list_users": _list_users,
     "delete_account": _delete_account,
     "reset_pin": _reset_pin,
     "set_visibility": _set_visibility,
-    "save_map": _save_map,
     "versions": _versions,
     "restore": _restore,
 }

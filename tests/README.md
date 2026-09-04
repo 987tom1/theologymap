@@ -3,14 +3,18 @@
 Run everything from the repo root.
 
     py engine/validate_content.py          # validates the corpus against twenty error rules
-    node tests/compare-core.test.js        # tests position comparison and normalization
-    node tests/build-traditions.test.js    # verifies tradition maps build deterministically
-    node tests/wizard-generate.test.js     # 9 checks; validates wizard question generation
-    node tests/refs.test.js                # validates scripture reference resolution and citations
+    node --test tests/*.test.js            # runs all four JS suites below via node:test
     py tests/check_tradition_maps.py       # verifies generated tradition maps match corpus
     py tests/test_validate_content.py      # the validator's own unit tests
     py api/_test_lib.py                    # tests database helper functions
     py engine/render.py                    # generates theology-map.html and documentation files
+
+The four JS suites `node --test` picks up:
+
+- `compare-core.test.js` — position comparison and normalization
+- `build-traditions.test.js` — tradition maps build deterministically
+- `wizard-generate.test.js` — wizard question generation
+- `refs.test.js` — scripture reference resolution and citations
 
 `tests/out/` is generated and gitignored.
 

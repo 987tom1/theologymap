@@ -1,18 +1,7 @@
 // tests/refs.test.js
 const assert = require('assert');
+const { test } = require('node:test');
 const { citationUrl } = require('../web/refs.js');
-
-let failed = 0;
-function test(name, fn) {
-  try {
-    fn();
-    console.log('ok -', name);
-  } catch (e) {
-    failed++;
-    console.log('FAIL -', name);
-    console.log('   ', e.message);
-  }
-}
 
 test('a curated work returns its curated host, not a google fallback', () => {
   const url = citationUrl('Catechism of the Catholic Church', '253-256');
@@ -46,5 +35,3 @@ test('empty/undefined inputs return a string and do not throw', () => {
   assert.strictEqual(typeof citationUrl(undefined, undefined), 'string');
   assert.ok(citationUrl().startsWith('https://'));
 });
-
-process.exit(failed ? 1 : 0);

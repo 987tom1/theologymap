@@ -6,7 +6,7 @@
    fetches the two maps and the corpus, and paints what CompareCore returns.
    Written in second person throughout, per Global Constraint 8. */
 import { getUser, requireUser, apiFetch, showError } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { mount, el } from '/web/chrome.js';
 import { loadCorpus, loadTraditionManifest } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
@@ -50,13 +50,6 @@ const GLYPH = {
 function collapseVerdict(verdict) {
   if (verdict === 'agree' || verdict === 'agree-in-substance' || verdict === 'differ') return verdict;
   return 'no-position';
-}
-
-function el(tag, cls, text) {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
 }
 
 /* Groups diff/scorecard rows by (tier, domain), in the order CompareCore

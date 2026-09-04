@@ -51,12 +51,6 @@ window.StorageLocal = function () {
       });
     },
 
-    async load() {
-      // Local mode never calls this — loading is button-driven via init()'s
-      // Connect/Upload handlers, which call ui.onLoaded() directly.
-      throw new Error('storage-local: load() is not used; connect or upload a file.');
-    },
-
     async save(text) {
       if (!fileHandle) throw new Error('No file connected — use "Connect theology-map.md" first.');
       const writable = await fileHandle.createWritable();

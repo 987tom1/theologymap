@@ -643,7 +643,7 @@
         const ni = domain.nodes.indexOf(node);
         const b = document.createElement('button');
         b.className = 'nodebtn' + (current && current.domainIndex === di && current.nodeIndex === ni ? ' active' : '');
-        b.innerHTML = escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
+        b.innerHTML = core.escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
         b.addEventListener('click', () => { selectNode(di, ni); });
         det.appendChild(b);
       });
@@ -956,10 +956,6 @@
       btnRender.textContent = prevLabel;
     }
   });
-
-  function escapeHtml(s) {
-    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
 
   // -------------------------------------------------------------- autosave
   // Hosted only (adapter.supportsAutosave === false for local). design §8.

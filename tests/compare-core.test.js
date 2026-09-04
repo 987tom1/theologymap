@@ -1,5 +1,6 @@
 // tests/compare-core.test.js
 const assert = require('assert');
+const { test } = require('node:test');
 const EditorCore = require('../engine/editor-core.js');
 const BT = require('../engine/build_traditions.js');
 const CC = require('../engine/compare-core.js');
@@ -9,18 +10,6 @@ const corpus = BT.loadCorpusSync('content/wizard');
 const traditionMaps = {};
 for (const t of BT.scorecardTraditions(corpus))
   traditionMaps[t.id] = EditorCore.parse(BT.buildTradition(corpus, t.id).markdown);
-
-let failed = 0;
-function test(name, fn) {
-  try {
-    fn();
-    console.log('ok -', name);
-  } catch (e) {
-    failed++;
-    console.log('FAIL -', name);
-    console.log('   ', e.message);
-  }
-}
 
 test('a tradition compared with itself agrees everywhere', () => {
   const rows = CC.diff(corpus, traditionMaps.reformed, traditionMaps.reformed);
@@ -216,5 +205,3 @@ test('tierDiff measures against the corpus, not against the other side', () => {
     assert.strictEqual(r.doctrine.suggested_tier, r.suggestedTier);
   }
 });
-
-process.exit(failed ? 1 : 0);

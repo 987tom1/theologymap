@@ -11,7 +11,6 @@ import os
 import urllib.error
 import urllib.request
 from functools import wraps
-from http.server import BaseHTTPRequestHandler
 from urllib.parse import quote
 
 # design §5. Trimmed to the single confirmed name once discovery succeeds.
@@ -259,12 +258,3 @@ def guard(fn):
             return error(self, 500, "server_error",
                          "Something went wrong handling that request.")
     return wrapper
-
-
-class handler(BaseHTTPRequestHandler):
-    """Not a route. Present so the runtime is happy either way."""
-
-    def do_GET(self):
-        error(self, 404, "not_found", "Not a route.")
-
-    do_POST = do_GET

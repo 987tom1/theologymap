@@ -24,10 +24,6 @@
   const MAP_TWO_SIDE_BREAK = 860;
   const TIER_ORDER = ['T1', 'T1.5', 'T2', 'T2.5', 'T3', 'T4'];
 
-  function escapeHtml(s) {
-    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
-
   function tierRank(n) {
     const i = TIER_ORDER.indexOf(n.tier);
     return i === -1 ? TIER_ORDER.length : i;
@@ -122,17 +118,17 @@
 
   MapView.prototype._mboxHTML = function (box) {
     if (box.type === 'root') {
-      return `<div class="mbox mbox-root" data-id="${escapeHtml(box.id)}">${escapeHtml(box.title)}</div>`;
+      return `<div class="mbox mbox-root" data-id="${window.EditorCore.escapeHtml(box.id)}">${window.EditorCore.escapeHtml(box.title)}</div>`;
     }
     if (box.type === 'domain') {
       const openState = box.children.length > 0;
-      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${escapeHtml(box.id)}">
-        <div class="mtitle"><b>${escapeHtml(box.title)}</b><span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${escapeHtml(box.title)}" title="Rename domain">&#9998;</button>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</span></div>
+      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${window.EditorCore.escapeHtml(box.id)}">
+        <div class="mtitle"><b>${window.EditorCore.escapeHtml(box.title)}</b><span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${window.EditorCore.escapeHtml(box.title)}" title="Rename domain">&#9998;</button>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</span></div>
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
     }
     if (box.type === 'addnode' || box.type === 'adddomain') {
-      return `<div class="mbox mbox-add" data-id="${escapeHtml(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
+      return `<div class="mbox mbox-add" data-id="${window.EditorCore.escapeHtml(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
     }
     throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
   };

@@ -176,16 +176,8 @@
   }
   .wz-holdfield textarea:focus, .wz-holdfield input:focus { outline: none; }
   .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
-  /* Every citation refs.js produces is a link and has to read as one: inside
-     .wz-hint it inherited var(--muted) with no underline, so it was
-     indistinguishable from the prose around it. Everywhere citeLink lands. */
-  .wz-hint a, .wz-explain a, .wz-pop a, .who dd em a {
-    color: var(--ink); text-decoration: underline;
-    text-decoration-color: var(--muted); text-underline-offset: 2px;
-  }
-  .wz-hint a:hover, .wz-explain a:hover, .wz-pop a:hover, .who dd em a:hover {
-    text-decoration-color: var(--ink);
-  }
+  /* Citation link styling (.cite-link, applied by web/refs.js's citeLink())
+     lives in engine/theme.css now — one rule instead of a copy per page. */
 
   /* tier / confidence as horizontal radio groups. Real <input type=radio>,
      visually restyled: arrow-key operation and the a11y semantics come free. */

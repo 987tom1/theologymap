@@ -61,6 +61,20 @@ input[type=text], input[type=search], select, textarea,
   max-width: 58ch;
 }
 
+/* Every citation web/refs.js's citeLink() produces carries this class, and has
+   to read as a link — plain text it inherited var(--muted) with no underline,
+   indistinguishable from the prose around it (.wz-hint/.wz-explain/.wz-pop/
+   .who in wizard.html, .lp-prose/.lp-hint/.lp-sources/.lp-who in learn.html —
+   both pages used to declare this pair of rules once each, under their own
+   six-selector prefix list). */
+.cite-link {
+  color: var(--ink); text-decoration: underline;
+  text-decoration-color: var(--muted); text-underline-offset: 2px;
+}
+.cite-link:hover {
+  text-decoration-color: var(--ink);
+}
+
 .tm-card {
   background: var(--panel);
   border: 1px solid var(--field-line);

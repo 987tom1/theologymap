@@ -71,15 +71,7 @@
 
 <script type="module">
 import { getUser } from '/web/session.js';
-import { mount, copyButton } from '/web/chrome.js';
-
-function slugify(name) {
-  return name
-    .toLowerCase()
-    .replace(/'/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+import { mount, copyButton, slugify } from '/web/chrome.js';
 
 // G3: reads the rendered page's own embedded data rather than sniffing the
 // generated markup (a `mbox-leaf` class belonging to markup phase 7 was

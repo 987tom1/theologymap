@@ -2,18 +2,8 @@
  * tab's editable tiles. Unlike editor-core.js this file DOES touch the DOM
  * on purpose; editor-core.js stays pure so it can run under Node.
  */
-(function (root, factory) {
-  if (typeof module === 'object' && module.exports) {
-    module.exports = factory();
-  } else {
-    root.SharedFields = factory();
-  }
-})(typeof self !== 'undefined' ? self : this, function () {
+(function () {
   'use strict';
-
-  function escapeHtml(s) {
-    return (s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  }
 
   /* node: the live node object (mutated in place — node.link is spliced/pushed).
    * allSlugs: array of every node slug in the file, for the <datalist>.
@@ -70,10 +60,10 @@
 
     let list = document.getElementById('slugList');
     if (!list) { list = document.createElement('datalist'); list.id = 'slugList'; document.body.appendChild(list); }
-    list.innerHTML = allSlugs.map(s => '<option value="' + escapeHtml(s) + '">').join('');
+    list.innerHTML = allSlugs.map(s => '<option value="' + window.EditorCore.escapeHtml(s) + '">').join('');
 
     return row;
   }
 
-  return { renderLinkField };
-});
+  window.SharedFields = { renderLinkField };
+})();

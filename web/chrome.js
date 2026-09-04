@@ -3,13 +3,26 @@
    its script and session.js exports no globals. */
 import { getUser, clearUser } from '/web/session.js';
 
-function el(tag, cls, text) {
+// The one el() in this codebase — /web/wizard.js, /web/learn.js and
+// /web/compare.js all import it from here rather than keeping their own copy.
+export function el(tag, cls, text) {
   const e = document.createElement(tag);
   if (cls) e.className = cls;
   if (text != null) e.textContent = text;
   return e;
 }
 function link(href, text) { const a = el('a', null, text); a.href = href; return a; }
+
+// Same algorithm as engine/editor-core.js's slugify (a UMD/global module, not
+// importable from an ES module page like /view). Kept in lockstep by hand,
+// same as the rest of that file's documented pairs.
+export function slugify(text) {
+  let t = (text || '').toLowerCase().replace(/&/g, 'and');
+  t = t.replace(/['’]/g, '');
+  t = t.replace(/[^a-z0-9]+/g, '-');
+  t = t.replace(/^-+|-+$/g, '');
+  return t;
+}
 
 // actions: optional array of already-built elements, right-aligned in the
 // header. Defaults to none so every existing caller is unchanged.

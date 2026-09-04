@@ -108,13 +108,8 @@
 
   .lp-sources { display: flex; flex-direction: column; gap: 4px; }
 
-  .lp-prose a, .lp-hint a, .lp-sources a, .lp-who dd a {
-    color: var(--ink); text-decoration: underline;
-    text-decoration-color: var(--muted); text-underline-offset: 2px;
-  }
-  .lp-prose a:hover, .lp-hint a:hover, .lp-sources a:hover, .lp-who dd a:hover {
-    text-decoration-color: var(--ink);
-  }
+  /* Citation link styling (.cite-link, applied by web/refs.js's citeLink())
+     lives in engine/theme.css now — one rule instead of a copy per page. */
 </style>
 </head>
 <body class="tm-page">

@@ -12,12 +12,12 @@
    serialising lives in engine/editor-core.js. If something here starts sorting
    doctrines or deciding what counts as answered, it is a duplicate. */
 import { getUser, apiFetch, showError } from '/web/session.js';
-import { mount } from '/web/chrome.js';
+import { mount, el } from '/web/chrome.js';
 // web/refs.js is a sibling agent's module. Contract: citationUrl(label,
 // citation) always returns a usable https URL — a curated table for the works
 // that recur, a search fallback for the long tail. There is exactly one
 // implementation of that and it is not this file.
-import { citationUrl } from '/web/refs.js';
+import { citeLink as sharedCiteLink, sourceLine as sharedSourceLine } from '/web/refs.js';
 // Phase 6: the corpus loader and the stance vocabulary moved to
 // web/corpus.js so /learn and /compare read the same two things.
 import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
@@ -85,13 +85,6 @@ let busy = false;
 
 /* --------------------------------------------------------------- utilities */
 
-function el(tag, cls, text) {
-  const e = document.createElement(tag);
-  if (cls) e.className = cls;
-  if (text != null) e.textContent = text;
-  return e;
-}
-
 function button(cls, text, onClick) {
   const b = el('button', cls, text);
   b.type = 'button';
@@ -117,31 +110,24 @@ function tradition(id) {
 
 /* Every citation the wizard shows is a link. A real `url` in the corpus wins;
    refs.js supplies one for everything else, so a printed confession is still
-   one tap from the text of it. */
+   one tap from the text of it. citeLink/sourceLine themselves are shared with
+   web/learn.js (web/refs.js); what's wizard-specific is the onFollow below. */
+// Belt as well as braces. The new tab means the wizard is not navigated away
+// from, so nothing is lost either way — but somebody who reads a source,
+// closes the laptop and comes back tomorrow should find the answer they had
+// already chosen sitting in their map. Still not awaited — following a link
+// must never wait on a round trip, and commit() reports its own failures —
+// but commit() now holds `busy` for its whole run, so this can no longer
+// interleave with the Next button's commit and have applyAnswer compute
+// `revisit` from a model the other one is halfway through rebuilding.
+const onFollow = () => { if (chosen) commit(currentAnswer()); };
+
 function citeLink(text, label, citation, url) {
-  const a = el('a', null, text);
-  a.href = url || citationUrl(label, citation || '');
-  // A new tab, always: reading a confession is a detour, not an exit, and this
-  // page holds an answer that has not been saved yet.
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  // Belt as well as braces. The new tab means the wizard is not navigated away
-  // from, so nothing is lost either way — but somebody who reads a source,
-  // closes the laptop and comes back tomorrow should find the answer they had
-  // already chosen sitting in their map. Still not awaited — following a link
-  // must never wait on a round trip, and commit() reports its own failures —
-  // but commit() now holds `busy` for its whole run, so this can no longer
-  // interleave with the Next button's commit and have applyAnswer compute
-  // `revisit` from a model the other one is halfway through rebuilding.
-  a.addEventListener('click', () => { if (chosen) commit(currentAnswer()); });
-  return a;
+  return sharedCiteLink(el, text, label, citation, url, onFollow);
 }
 
 function sourceLine(src) {
-  const p = el('p', 'wz-hint');
-  const label = src.label + (src.citation ? ' — ' + src.citation : '');
-  p.appendChild(citeLink(label, src.label, src.citation, src.url));
-  return p;
+  return sharedSourceLine(el, 'wz-hint', src, onFollow);
 }
 
 /* The Read-more body. Its own class, NOT .wz-answer: sharing a class with the
