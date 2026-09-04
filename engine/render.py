@@ -776,6 +776,10 @@ function groupKey(name) { return view + '::' + name; }
 function render() {
   const mapwrap = document.getElementById('mapwrap');
   const out = document.getElementById('out');
+  // The card views want a reading measure; the map wants the whole window, and
+  // on a wide screen (or inside /view's fullscreen frame) 1080px leaves most of
+  // it empty. `main.wide` was already defined and unset — this is its one caller.
+  document.querySelector('main').classList.toggle('wide', view === 'map');
   if (view === 'map') {
     mapwrap.classList.add('active');
     out.style.display = 'none';

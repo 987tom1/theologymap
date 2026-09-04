@@ -614,6 +614,30 @@ the framed document sizes itself in viewport units, resize the frame *within* it
 layout — grow the container, don't reposition the frame.
 
 
+### AI. One apostrophe blanked the whole Browse screen — FIXED (2026-09-04)
+
+`/gallery` rendered nothing: no cards, no skeletons, no error. `/api/gallery` was
+answering 200 with three maps the whole time. The cause was in the page's own module —
+
+```js
+p.textContent = user ? 'Continue answering questions or start from someone else's map.' : ...
+```
+
+an unescaped apostrophe inside a single-quoted string (phase 10, `fc4d7f7`). **A module
+that fails to parse never runs at all**, so not one line of the file executed — which is
+why even the loading skeletons, built at the top of the same script, never appeared. An
+empty page looked like an empty database.
+
+Nothing in the repo parsed the browser-side JavaScript, so a syntax error could reach
+production. `py tests/syntax_check.py` now `node --check`s every inline `<script>` and
+every `.js` file in `web/` and `engine/` — 28 files, and it found exactly this one.
+**Run it before any push that touches browser code.**
+
+**The lesson: "the page shows nothing" is a parse failure until proven otherwise.** Check
+that the script parses before investigating what it fetches — a broken module is silent
+in a way a broken fetch never is.
+
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -689,3 +713,6 @@ layout — grow the container, don't reposition the frame.
 17. **"Random" or uneven spacing in a `gap`-based flex/grid container is margins
    adding to the gap, not a broken rule.** Check the children's own margins —
    including the UA defaults on a bare `<p>` — before touching the gap (§AF).
+18. **A page that renders *nothing* — not even its own loading state — is a syntax
+   error in its module, not a data or network problem.** `py tests/syntax_check.py`
+   answers it in one second; check that before reading the API (§AI).

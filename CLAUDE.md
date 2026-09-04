@@ -261,8 +261,8 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`3c4a33ca6d01ada24a9c1d98b2d24c346824df9a4ad1b87557c58936e27c497d` when written
-with `Path.write_text` on Windows (`1b9fade5987bcfe4891f515a17a5d6437867e4a5145c1569e278ddc6af1f9253`
+`9a702faf81930a63d7112781cbbd9442407ab1c47384d1c39954e44e919d5fda` when written
+with `Path.write_text` on Windows (`43feab4f60aea500830c75c7a633989b5ac1b48fbad65736868b442a909ea498`
 LF-normalised, which is what a Linux-side or hosted-response check compares
 against). Re-run it after any change to `render.py`.
 
@@ -289,6 +289,12 @@ against). Re-run it after any change to `render.py`.
 > (`docs/hosting/phase-10-outcome.md`, UX9/UX15/UX27). The pre-round values were
 > `a2ed6d2f…509bf7` / `0125f4df…863767`; the `.mm`, `study-list.md` and the
 > `<script id="data">` payload (`4d8d919e…c8bd7e`) were all verified unchanged.
+> **The wide-map change of 2026-09-04 moved them a fifth time**, under the same gate:
+> `render()` now sets `main.wide` in the Map view so the map uses the whole window
+> instead of 1080px. The pre-change values were `3c4a33ca…c497d` / `1b9fade5…f9253`;
+> `documentation/theology-map.mm` (`826951f3…`), `documentation/study-list.md`
+> (`f4a30fe1…`) and the `<script id="data">` payload (`4d8d919e…`) were all verified
+> byte-identical across it, so again only presentation moved.
 > The two values above still differ because they are the same bytes with
 > different line endings; `.gitattributes` now pins the three generated files to
 > `eol=crlf` so regenerating on Linux no longer rewrites every line.
@@ -361,6 +367,12 @@ a credential.** It belongs in the owner's `localStorage` and in an admin's
 `list_users` reply, and nowhere else.
 
 `py api/_test_lib.py` is the one runnable check for `_lib.py`'s pure helpers.
+
+**`py tests/syntax_check.py` `node --check`s every inline `<script>` and every `.js`
+file under `web/` and `engine/`** (28 files). It exists because an unescaped apostrophe
+in `web/gallery.html` blanked the entire Browse screen in production — a module that
+fails to parse runs none of its lines, so the page renders nothing at all and the server
+logs stay clean (`debug.md` §AI). Run it before any push touching browser code.
 
 ### `web/` and the URL map
 
@@ -968,6 +980,11 @@ the things that are easy to undo by accident:
   `.lp-prose`/`.lp-hint`/`.lp-refs` to win on order. Add a row to these cards
   without a margin of its own.
 
+- **The rendered map's Map view sets `main.wide`** (2026-09-04), which is
+  `max-width: none` — the card views keep the 1080px reading measure, the map takes the
+  whole window. The class was already defined in `render.py` and had no caller; `render()`
+  is now it. This is what makes `/view`'s fullscreen useful on an iPad or a laptop, where
+  1080px of a 1600px window left the map boxed in.
 - **`/view` has a Fullscreen toggle** (2026-09-04). It is **not** the Fullscreen API —
   iOS Safari does not support `requestFullscreen()` on a non-video element, and a phone
   is the case it was asked for. It is `body.tm-enlarged`, which hides this page's chrome
