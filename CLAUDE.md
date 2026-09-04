@@ -974,6 +974,32 @@ the things that are easy to undo by accident:
 - **`#home-empty` is deleted.** Its third first-run offer — *start from someone
   else's map* — now lives on `#screen-intro`, which is the screen a new account
   actually lands on. Do not re-add a second empty-state home.
+- **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
+  Lazy-loading the eleven non-target maps is the next performance move if the
+  page gets slow. Deliberately not done yet.
+
+### Shipping phase 10, and the tablet round of 2026-09-04
+
+**Phase 10 had never been deployed.** Its sixteen commits sat on the local
+`phase-10` branch while production ran the pre-phase-10 build, so every phase 10
+change above — the tier-token cleanup, the unlisted-map fix, the wizard work —
+went live only on 2026-09-04, in one fast-forward merge to `main`. If a phase's
+outcome file says something shipped, check `git log origin/main` before believing
+it: **committed is not deployed**, the same way `docs/hosting/decisions.md` says
+committed is not applied for a migration.
+
+Everything below came out of using the live site on a phone and an iPad
+afterwards. Five bugs: two were reported from the phone (§AF, §AH), two were not
+viewport-related at all (§AG, §AI), and **the last two only existed on a wide
+screen**. `/view`'s iframe had been rendering at its 300px intrinsic width the
+whole time (§AJ) and the framed map's header stayed at full height above 640px —
+both read as correct on a phone, which is narrow enough that 300px and a trimmed
+header look deliberate. The 2026-08-29 round was explicitly a phone-sized pass;
+this is what that missed. **Check one wide viewport before calling a layout
+done.**
+
+Write-ups: `debug.md` §AF–§AJ.
+
 - **`/learn`'s position cards let their `gap` own all vertical spacing.**
   `.lp-pos > *, .lp-mine > * { margin: 0 }` is there because every row in those
   cards is a `<p>` and flex gaps *add to* margins rather than collapsing them — the
@@ -1018,9 +1044,18 @@ the things that are easy to undo by accident:
   out, since the frame is sandboxed without `allow-same-origin` so no key pressed inside
   it reaches the page.
 
-- **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
-  Lazy-loading the eleven non-target maps is the next performance move if the
-  page gets slow. Deliberately not done yet.
+- **`py tests/syntax_check.py` is the gate that did not exist.** An unescaped
+  apostrophe in `web/gallery.html` blanked the entire Browse screen in production
+  (`debug.md` §AI) — a module that fails to parse runs none of its lines, so the
+  page rendered nothing at all while `/api/gallery` answered 200 the whole time.
+  Nothing here parsed browser-side JS, so it shipped. Run it before any push that
+  touches `web/` or `engine/`.
+- **Scripts that edit repo files must read and write bytes.** `pathlib`'s
+  `write_text` translates `\n` to `os.linesep` on Windows, which silently
+  re-encoded three LF files to CRLF and committed 1814 insertions for a twelve-line
+  change (`debug.md` §AG). `Path.read_text(newline='')` only exists on Python 3.13+
+  and this machine is 3.11, so binary is the portable answer. **Read
+  `git diff --stat` before committing, not after.**
 
 ## Working notes
 

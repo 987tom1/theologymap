@@ -742,3 +742,10 @@ flex container, not just a centring one.
    Percentages resolve against the containing block, so the parent has no definite
    width — in a flex container, an `auto` cross-axis margin is the usual reason (§AJ).
    Check a wide viewport too: a 300px intrinsic fallback looks correct on a phone.
+20. **A build that is committed is not a build that is deployed.** Before believing
+   any screenshot contradicts the code you just read, confirm the branch you fixed is
+   the branch production serves — phase 10 sat unpushed for a fortnight while every
+   session assumed it was live. `git rev-list --left-right --count HEAD...origin/main`
+   costs a second, and the follow-up (rule 10) is to grep the served file for a string
+   **only the new build contains**: a sentinel present in both builds passes instantly
+   against the stale one and reports a success that never happened.
