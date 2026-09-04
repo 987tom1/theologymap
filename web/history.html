@@ -108,16 +108,30 @@ async function restoreVersion(user, map, v, btn) {
   if (!ok) return;
 
   btn.disabled = true;
+  // expected_updated_at is captured once at page load and goes stale the moment
+  // anything else saves the map, so a 409 here used to be permanent — the button
+  // never got a fresh token to retry with. Re-GET immediately before restoring.
+  let fresh;
+  try {
+    fresh = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+  } catch {
+    btn.disabled = false;
+    return;   // apiFetch already showed the banner
+  }
   try {
     await apiFetch('/api/map', {
       method: 'POST',
       body: {
         action: 'restore', user_id: user.id, version_id: v.id,
-        expected_updated_at: map.updated_at,
+        expected_updated_at: fresh.updated_at,
       },
     });
-  } catch {
+  } catch (err) {
     btn.disabled = false;
+    // Still conflicting even against a token fetched seconds ago means the map
+    // is actively changing elsewhere — reload so the page shows current state
+    // rather than leaving a dead button with no explanation.
+    if (err && err.code === 'conflict') location.reload();
     return;   // apiFetch already showed the banner, including the 409 conflict path
   }
   location.reload();

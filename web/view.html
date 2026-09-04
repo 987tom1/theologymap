@@ -49,6 +49,21 @@ function slugify(name) {
     .replace(/^-+|-+$/g, '');
 }
 
+// G3: reads the rendered page's own embedded data rather than sniffing the
+// generated markup (a `mbox-leaf` class belonging to markup phase 7 was
+// explicitly licensed to change) — parses the `<script id="data">` JSON
+// payload every render.py output carries and counts its nodes.
+function countNodes(html) {
+  try {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const script = doc.getElementById('data');
+    const data = JSON.parse(script.textContent);
+    return Array.isArray(data.nodes) ? data.nodes.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function actionBtn(text) {
   const b = document.createElement('button');
   b.className = 'tm-action-btn';
@@ -86,10 +101,25 @@ const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
 
 const user = getUser();
-makeMineBtn.hidden = false;
-makeMineBtn.addEventListener('click', () => {
-  location.href = user ? '/wizard' : '/#signin';
-});
+// A named member map has an owner; a tradition map does not. Only the named-map
+// case can be "your own map" or "someone else's map" (UX 11) — a signed-out
+// visitor, and anyone looking at a tradition map, keeps the plain "make my own
+// map" button pointed at the sign-up/wizard flow as before.
+const isOwner = !!user && !!name && !traditionId && user.name.toLowerCase() === name.toLowerCase();
+if (isOwner) {
+  makeMineBtn.hidden = true;
+} else if (user && name && !traditionId) {
+  makeMineBtn.textContent = 'Compare with mine';
+  makeMineBtn.hidden = false;
+  makeMineBtn.addEventListener('click', () => {
+    location.href = '/compare?name=' + encodeURIComponent(name);
+  });
+} else {
+  makeMineBtn.hidden = false;
+  makeMineBtn.addEventListener('click', () => {
+    location.href = user ? '/wizard' : '/#signin';
+  });
+}
 
 if (traditionId) {
   if (!tradition) {
@@ -150,23 +180,24 @@ if (traditionId) {
       body: JSON.stringify({ name }),
     });
     const html = res.ok ? await res.text() : '';
-    const isOwner = !!user && user.name.toLowerCase() === name.toLowerCase();
     // The home page's "My map" tile sends a signed-in user straight here. If
     // it's their own still-empty map, land on the launchpad instead of a dead
-    // "not found" — a substring check on the rendered HTML is cheap and avoids
-    // a second round trip (mbox-leaf marks a belief box; render.py emits one
-    // per node).
+    // "not found". Node count comes from the rendered page's own `<script
+    // id="data">` payload rather than substring-matching a generated CSS class
+    // (G3) — that class is markup phase 7 was explicitly licensed to change,
+    // and this way emptiness tracks the actual data, not incidental HTML.
     //
     // Deliberately gated on res.ok: /api/render 404s a map that is merely
     // UNLISTED as well as one that does not exist, and the owner can unlist
     // their own map from the home page. Redirecting on any 404 would bounce them
     // to the wizard every time they clicked "My map" — an inescapable loop off
     // their own home tile. A 404 for the owner is the unlisted case; say so instead.
-    if (isOwner && res.ok && !html.includes('mbox-leaf')) {
+    const nodeCount = res.ok ? countNodes(html) : 0;
+    if (isOwner && res.ok && nodeCount === 0) {
       location.replace('/wizard');
     } else if (!res.ok) {
       notFoundEl.textContent = isOwner
-        ? 'This map is unlisted, so it does not render by name. Relist it from the home page to share this link.'
+        ? 'Your map is unlisted, so it does not render by name. Relist it from the home page to share this link.'
         : 'Map not found.';
       notFoundEl.hidden = false;
     } else {
