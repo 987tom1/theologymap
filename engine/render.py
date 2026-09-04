@@ -504,6 +504,19 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     .views button, .seg button, .refchip, .filtersToggle { min-height:44px; }
   }
 
+  /* ---------- framed (inside /view's iframe) ---------- */
+  /* The embedding page already shows the product kicker, the map's name and the
+     nav, so repeating them inside the frame spends the one thing a framed map is
+     short of: height. Below 640px the phone query dropped these anyway, which is
+     why a framed map looked right on a phone and top-heavy on an iPad. The h1 is
+     visually hidden rather than removed so the framed document keeps a heading
+     for assistive tech. #mapwrap's height is measured in JS (sizeMap), so it
+     follows whatever this leaves behind rather than needing its own constant. */
+  html.framed .kicker, html.framed .sub, html.framed .legend { display:none; }
+  html.framed h1 { position:absolute; width:1px; height:1px; overflow:hidden;
+    clip-path:inset(50%); white-space:nowrap; }
+  html.framed header { padding:10px 16px 8px; }
+
   /* ---------- phone layout ---------- */
   @media (max-width:640px) {
     header { padding:10px 14px 8px; }
@@ -641,8 +654,12 @@ document.getElementById('legend').innerHTML = D.tierOrder.map(t =>
 ).join('');
 
 // Framed (e.g. /view's sandboxed iframe) means someone else's map: the
-// editor cannot work from inside that frame, so don't invite the tap.
-if (window.top !== window.self) document.getElementById('editlink').remove();
+// editor cannot work from inside that frame, so don't invite the tap. The
+// class drives the trimmed header above.
+if (window.top !== window.self) {
+  document.documentElement.classList.add('framed');
+  document.getElementById('editlink').remove();
+}
 
 const esc = s => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const refChips = s => (s||'').split(';').map(r => r.trim()).filter(Boolean)
@@ -773,6 +790,17 @@ let expandedGroups = new Set(); // "view::name" entries the user explicitly open
 
 function groupKey(name) { return view + '::' + name; }
 
+// The sticky header's height depends on viewport width (the phone query trims
+// it) and on whether the page is framed (the .framed rules trim it further), so
+// the map canvas measures what is actually there rather than subtracting a
+// hand-tuned constant per case. The CSS calc() stays as the no-JS fallback.
+function sizeMap() {
+  const head = document.querySelector('header');
+  const wrap = document.getElementById('mapwrap');
+  if (!head || !wrap) return;
+  wrap.style.height = Math.max(240, window.innerHeight - head.offsetHeight - 24) + 'px';
+}
+
 function render() {
   const mapwrap = document.getElementById('mapwrap');
   const out = document.getElementById('out');
@@ -783,6 +811,7 @@ function render() {
   if (view === 'map') {
     mapwrap.classList.add('active');
     out.style.display = 'none';
+    sizeMap();          // before redrawMap: it centres against the wrap's height
     redrawMap();
     return;
   }
@@ -1276,6 +1305,7 @@ document.getElementById('mapReset').addEventListener('click', () => {
 
 window.addEventListener('resize', () => {
   closePopover();
+  sizeMap();
   // Box widths are vw-clamped in CSS and re-measured from the DOM on every
   // redraw, so a resize just needs to trigger that redraw (also re-checks
   // the two-sided vs. phone single-sided breakpoint).

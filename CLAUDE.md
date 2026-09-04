@@ -261,8 +261,8 @@ and there is no bundler, no CDN import and no framework on the browser side.
 port the Map / Domain / Tier / Confidence views or the print stylesheet to JS,
 and do not copy `render.py` into `api/`.** The gate that protects this is byte
 identity: `render_markdown` on `theology-map.md` must still hash to
-`9a702faf81930a63d7112781cbbd9442407ab1c47384d1c39954e44e919d5fda` when written
-with `Path.write_text` on Windows (`43feab4f60aea500830c75c7a633989b5ac1b48fbad65736868b442a909ea498`
+`69d0c9dabd2b4eef2c3593c4d61b69530b22ecf4a705752d0652a7903a5987c7` when written
+with `Path.write_text` on Windows (`7284f25cec1c37d959b9feb4a4fcaae21e0b7f744e660cc6e3b798e51454ce10`
 LF-normalised, which is what a Linux-side or hosted-response check compares
 against). Re-run it after any change to `render.py`.
 
@@ -294,7 +294,10 @@ against). Re-run it after any change to `render.py`.
 > instead of 1080px. The pre-change values were `3c4a33ca…c497d` / `1b9fade5…f9253`;
 > `documentation/theology-map.mm` (`826951f3…`), `documentation/study-list.md`
 > (`f4a30fe1…`) and the `<script id="data">` payload (`4d8d919e…`) were all verified
-> byte-identical across it, so again only presentation moved.
+> byte-identical across it, so again only presentation moved. **The framed-header
+> change later the same day moved them a sixth time**, same gate, same three
+> invariants verified: `9a702faf…9d5fda` / `43feab4f…9ea498` were the pre-change
+> values.
 > The two values above still differ because they are the same bytes with
 > different line endings; `.gitattributes` now pins the three generated files to
 > `eol=crlf` so regenerating on Linux no longer rewrites every line.
@@ -980,6 +983,17 @@ the things that are easy to undo by accident:
   `.lp-prose`/`.lp-hint`/`.lp-refs` to win on order. Add a row to these cards
   without a margin of its own.
 
+- **A framed map trims its own header, and the map canvas measures rather than
+  subtracts** (2026-09-04). `render.py` marks `<html class="framed">` when
+  `window.top !== window.self` — the same test that already removed the Edit link —
+  and that hides the kicker, subtitle and tier legend and visually-hides the `h1`,
+  because `/view`'s own chrome already carries all four. Below 640px the phone query
+  dropped these anyway, which is why a framed map looked right on a phone and
+  top-heavy on an iPad. **`#mapwrap`'s height now comes from `sizeMap()`**, which
+  measures the header's real `offsetHeight`, so the canvas follows whatever the header
+  turns out to be instead of needing a third hand-tuned `calc(100vh - Npx)`. The CSS
+  constants stay as the no-JS fallback. `sizeMap()` runs before `redrawMap()` — that
+  order matters, since the redraw centres against the wrap's height.
 - **The rendered map's Map view sets `main.wide`** (2026-09-04), which is
   `max-width: none` — the card views keep the 1080px reading measure, the map takes the
   whole window. The class was already defined in `render.py` and had no caller; `render()`
