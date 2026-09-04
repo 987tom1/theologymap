@@ -182,22 +182,19 @@
     return WG.findPosition(corpus, positionId);
   }
 
-  /* Positions sharing an equivalence_group. The group string is only
-   * meaningful within the one doctrine that defines it (design 4.2/4.3) —
-   * this queries every doctrine's own positions, so it is scoped to
-   * whichever doctrine actually declared that group, never by wording. The
-   * safety-critical use of equivalence_group is in verdictFor above, which
-   * only ever compares two positions already resolved for the SAME
-   * doctrine in the same diff() row, so it can never cross doctrines. */
-  function positionsInGroup(corpus, group) {
+  /* Positions sharing an equivalence_group WITHIN one doctrine. The group
+   * string is only meaningful inside the doctrine that declares it (design
+   * 4.2/4.3), so the doctrine is a parameter rather than something this
+   * search infers: scanning every doctrine would let two doctrines that
+   * happened to reuse a group name answer for each other. verdictFor above
+   * only ever compares two positions resolved for the SAME doctrine in the
+   * same diff() row, so it was never reachable from there — the shape was
+   * still wrong. */
+  function positionsInGroup(corpus, doctrineId, group) {
     if (!group) return [];
-    const out = [];
-    for (const doctrine of WG.allDoctrines(corpus)) {
-      for (const position of doctrine.positions || []) {
-        if (position.equivalence_group === group) out.push(position);
-      }
-    }
-    return out;
+    const doctrine = WG.findDoctrine(corpus, doctrineId);
+    if (!doctrine) return [];
+    return (doctrine.positions || []).filter(p => p.equivalence_group === group);
   }
 
   /* Tally mine vs one tradition's map into the design 4.4 numerator/
@@ -216,10 +213,20 @@
     return { numerator: numerator, denominator: denominator };
   }
 
-  /* design 4.4. Both guards: fewer than eight resolvable doctrines (mine
+  /* design 4.4. Two guards: fewer than eight resolvable doctrines (mine
    * settled to an actual position, against ANY tradition) refuses to name a
-   * closest tradition; a gap of three or fewer between the top two flags
-   * both `joint: true`. Deliberately no tier weighting — see design 4.4. */
+   * closest tradition; and EVERY tradition tied at the top score is flagged
+   * `joint: true`, not just the runner-up. The tie is decided on the score
+   * alone — one scale — because the old test sorted on the ratio and then
+   * broke the tie on a raw agreement count, with a tolerance of three
+   * agreements that means something quite different on a 12-question
+   * denominator than on an 86-question one. On a small map four traditions
+   * commonly score 1.000; naming one of them alone is a confident wrong
+   * answer of exactly the kind this file exists to refuse.
+   * No `denominatorNote`: it described ranked[0] only, and the sentence can
+   * name several traditions. Every row carries its own numerator/denominator
+   * so the caller builds the phrase per tradition it names.
+   * Deliberately no tier weighting — see design 4.4. */
   function closestTradition(corpus, mineDomains, traditionMaps) {
     const doctrines = WG.orderedDoctrines(corpus);
     const totalDoctrines = doctrines.length;
@@ -248,16 +255,12 @@
     ranked.sort((a, b) => b.score - a.score || b.denominator - a.denominator);
 
     if (enough && ranked.length >= 2) {
-      const gap = Math.abs(ranked[0].numerator - ranked[1].numerator);
-      if (gap <= 3) { ranked[0].joint = true; ranked[1].joint = true; }
+      const top = ranked[0].score;
+      const tied = ranked.filter(r => Math.abs(r.score - top) < 1e-9);
+      if (tied.length >= 2) for (const r of tied) r.joint = true;
     }
 
-    const denominatorNote = ranked.length
-      ? 'agrees with ' + ranked[0].numerator + ' of the ' + ranked[0].denominator +
-        ' questions where both have a position'
-      : '';
-
-    return { ranked: ranked, denominatorNote: denominatorNote, enough: enough };
+    return { ranked: ranked, enough: enough };
   }
 
   /* design 4.5. Traditions only. There is deliberately NO person-vs-person

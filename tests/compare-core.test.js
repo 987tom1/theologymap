@@ -62,7 +62,7 @@ test('edited wording resolves to own-wording, not to a wrong position', () => {
 
 test('equivalence groups produce agree-in-substance, not differ', () => {
   const a = CC.findPosition(corpus, 'church.baptism/believer');
-  const others = CC.positionsInGroup(corpus, a.equivalence_group).filter(p => p.id !== a.id);
+  const others = CC.positionsInGroup(corpus, 'church.baptism', a.equivalence_group).filter(p => p.id !== a.id);
   if (others.length === 0) { console.log('  (no equivalence pair in corpus — skipped)'); return; }
   const mine   = EditorCore.parse(`# Church\n\n## Baptism · T3 · confident\n  hold  ${a.hold}\n`);
   const theirs = EditorCore.parse(`# Church\n\n## Baptism · T3 · confident\n  hold  ${others[0].hold}\n`);
@@ -74,12 +74,12 @@ test('equivalence groups produce agree-in-substance, not differ', () => {
 // really does have two pairs sharing a group, so assert one of them for real.
 test('a real equivalence pair in the corpus agrees in substance', () => {
   const pairs = [
-    { doctrineSlug: 'sufficiency-of-scripture', domain: 'Scripture', header: 'Sufficiency of Scripture', group: 'sola-scriptura' },
-    { doctrineSlug: 'hermeneutic-method', domain: 'Scripture', header: 'Hermeneutic method', group: 'grammatical-historical' },
+    { doctrineId: 'scripture.sufficiency', doctrineSlug: 'sufficiency-of-scripture', domain: 'Scripture', header: 'Sufficiency of Scripture', group: 'sola-scriptura' },
+    { doctrineId: 'scripture.hermeneutic-method', doctrineSlug: 'hermeneutic-method', domain: 'Scripture', header: 'Hermeneutic method', group: 'grammatical-historical' },
   ];
   let checked = false;
   for (const pair of pairs) {
-    const members = CC.positionsInGroup(corpus, pair.group);
+    const members = CC.positionsInGroup(corpus, pair.doctrineId, pair.group);
     if (members.length < 2) continue;
     const [a, b] = members;
     const mine   = EditorCore.parse(`# ${pair.domain}\n\n## ${pair.header} · T1 · confident\n  hold  ${a.hold}\n`);
