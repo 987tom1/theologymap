@@ -107,19 +107,19 @@ def _versions(self, body, admin_row):
     if not _lookup(target_id):
         return unknown_user(self)
 
+    # E3: this endpoint only ever computed integers from the text, so
+    # `markdown` was pulling the full body of twenty versions per user for
+    # nothing. Bytes-length needs its own count column to fix properly (a
+    # migration this phase does not do), so it's dropped below instead.
     status, versions, _ = pg(
         "GET",
-        f"/map_versions?user_id=eq.{q(target_id)}&select=id,saved_at,markdown"
+        f"/map_versions?user_id=eq.{q(target_id)}&select=id,saved_at"
         "&order=saved_at.desc",
     )
     if status != 200:
         return error(self, 500, "server_error", "Could not load versions.")
 
-    out = [
-        {"id": v["id"], "saved_at": v["saved_at"],
-         "bytes": len((v.get("markdown") or "").encode("utf-8"))}
-        for v in (versions or [])
-    ]
+    out = [{"id": v["id"], "saved_at": v["saved_at"]} for v in (versions or [])]
     return reply(self, 200, out)
 
 
@@ -127,8 +127,12 @@ def _restore(self, body, admin_row):
     """{action: "restore", target_id, version_id} -> replace that user's map
     with that version. The locked "edit/restore any map" admin power.
 
-    No expected_updated_at: admin writes here already bypass optimistic
-    concurrency, same as _save_map above.
+    E2: this now reads updated_at first and PATCHes with it as the filter,
+    exactly as api/map.py's own restore does. Without it, an admin restore
+    landing between a user's autosave reads was silently undoable seconds
+    later through the editor's own conflict-dialog force path — recoverable
+    (a force save always snapshots) but silent for both sides. Now a save
+    that lands in between gets a 409 conflict here instead.
     """
     target_id = body.get("target_id")
     if not target_id:
@@ -136,8 +140,11 @@ def _restore(self, body, admin_row):
     version_id = body.get("version_id")
     if not version_id:
         return error(self, 400, "bad_request", "Missing version_id.")
-    if not _lookup(target_id):
+
+    status, rows, _ = pg("GET", f"/users?id=eq.{q(target_id)}&select=updated_at")
+    if status != 200 or not rows:
         return unknown_user(self)
+    expected_updated_at = rows[0]["updated_at"]
 
     # The version must belong to the target — filtered on user_id AND id.
     status, versions, _ = pg(
@@ -152,11 +159,18 @@ def _restore(self, body, admin_row):
     # undo the undo, same as the self-service restore.
     snapshot_map(target_id, True)
 
-    status, _, _ = pg("PATCH", f"/users?id=eq.{q(target_id)}",
-                      {"markdown": restored_markdown})
-    if status not in (200, 204):
-        return error(self, 500, "server_error", "Could not restore that version.")
-    return reply(self, 200, {"ok": True})
+    status, patched, _ = pg(
+        "PATCH",
+        f"/users?id=eq.{q(target_id)}&updated_at=eq.{q(expected_updated_at)}"
+        "&select=updated_at",
+        {"markdown": restored_markdown},
+        headers={"Prefer": "return=representation"},
+    )
+    if status == 200 and patched:
+        return reply(self, 200, {"ok": True})
+    if status == 200 and not patched:
+        return error(self, 409, "conflict", "This map was changed somewhere else.")
+    return error(self, 500, "server_error", "Could not restore that version.")
 
 
 def _save_map(self, body, admin_row):
