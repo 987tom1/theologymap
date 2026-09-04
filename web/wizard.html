@@ -6,12 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  /* Tier ramp — engine/render.py's ramp exactly. Designed to hold white chip
-     text in both themes, so it is the one deliberate exception to reusing
-     theme.css tokens for colour. */
-  :root {
-    --t1:#7c2d3b; --t1-5:#8a4a24; --t2:#8c6a1f; --t2-5:#5f6b35; --t3:#2f6b63; --t4:#33526e;
-  }
+  /* The tier ramp (--t1 … --t4) is declared once in engine/theme.css, which
+     this page links. It is not re-declared here. */
 
   /* debug.md §Q: the browser's own `[hidden] { display:none }` is an attribute
      selector and loses to any author `display` rule on the same element — an
@@ -24,7 +20,9 @@
 
   /* ---- the question screen's own header (the launchpad uses the site nav) ---- */
   #wz-header {
-    padding: 8px 16px;
+    /* engine/theme.css:110 .tm-chrome — the same inset, so the brand block
+       does not shift when one header swaps for the other. */
+    padding: 16px 20px 12px;
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
@@ -58,7 +56,7 @@
   }
   #screen-intro h2 { font-size: 32px; max-width: 16ch; }
 
-  .wz-lead { max-width: 62ch; display: flex; flex-direction: column; gap: 10px; }
+  .wz-lead { max-width: 58ch; display: flex; flex-direction: column; gap: 10px; }
   .wz-lead p { margin: 0; }
 
   .wz-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
@@ -92,7 +90,7 @@
   .wz-qhead { display: flex; flex-direction: column; gap: 6px; }
   /* All of a doctrine's prose now lives behind the disclosure; only the
      question and the answer tiles are on the screen itself. */
-  .wz-framing { margin: 0; max-width: 62ch; color: var(--ink); font: 14px/1.55 var(--serif); }
+  .wz-framing { margin: 0; max-width: 58ch; color: var(--ink); font: 14px/1.55 var(--serif); }
   /* A real control, not a plain summary link — it is now the only way to the
      framing text, so it has to look pressable. The .wz-ghost look. */
   #q-readmore > summary {
@@ -149,18 +147,18 @@
     display: flex; flex-direction: column; gap: 8px; text-align: left;
   }
 
-  .wz-outside { margin: 0; font: 600 11.5px/1.4 var(--sans); letter-spacing: .04em;
-                text-transform: uppercase; color: var(--muted); }
-  .wz-outside-note { margin: 2px 0 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
+  /* Both clear the same 88px gutter .wz-card-h and .wz-chips reserve: this
+     block is the first thing in the card, so it sits directly under the
+     absolutely-positioned Read more button (top:8px, right:10px). */
+  .wz-outside { margin: 0; padding-right: 88px; font: 600 11.5px/1.4 var(--sans);
+                letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .wz-outside-note { margin: 2px 0 0; padding-right: 88px; font: 12.5px/1.55 var(--serif);
+                     color: var(--muted); max-width: 58ch; }
 
-  #open-answer {
-    position: relative;
-    background: var(--ink); color: var(--bg); border-radius: 9px; padding: 14px;
-    display: flex; flex-direction: column; gap: 7px; cursor: pointer;
-  }
-  #open-answer strong { font: 600 15.5px/1.3 var(--serif); }
-  #open-answer .lab { color: var(--bg); opacity: .75; }
-  #open-answer .wz-holdfield { border-color: var(--bg); }
+  /* An escape hatch, not the recommended answer: it wears the ordinary card
+     surface (.wz-card) and only adds the cursor and the open-tile spacing. */
+  #open-answer { cursor: pointer; padding: 14px; gap: 7px; }
+  #open-answer > strong { font: 600 15.5px/1.3 var(--serif); }
 
   #custom-answer { position: relative; }
 
@@ -177,7 +175,7 @@
     color: inherit; resize: vertical; font: 14.5px/1.55 var(--serif); padding: 0;
   }
   .wz-holdfield textarea:focus, .wz-holdfield input:focus { outline: none; }
-  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 62ch; }
+  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
   /* Every citation refs.js produces is a link and has to read as one: inside
      .wz-hint it inherited var(--muted) with no underline, so it was
      indistinguishable from the prose around it. Everywhere citeLink lands. */
@@ -237,7 +235,7 @@
   .wz-seg { display: block; height: 100%; }
   #home-tiercounts { margin: 0; }
 
-  #home-areas { display: flex; flex-direction: column; gap: 6px; }
+  #home-areas-list { display: flex; flex-direction: column; gap: 6px; }
   /* Two lines, auto width: name + progress, then the buttons on their own row.
      One flex row inside a flex column, so it holds at any aspect ratio. */
   .wz-area {
@@ -250,6 +248,13 @@
   .wz-area .pg { font: 12px/1.4 var(--sans); color: var(--muted); flex: none; text-align: right; }
   .wz-area .done { color: var(--ink); }
   .wz-area .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* One rhythm between launchpad blocks, in the stylesheet rather than as
+     inline margin-bottoms on three of them. A label stays close to the thing
+     it labels, so .wz-block keeps its own small gap. */
+  #screen-home .wz-screen-body, #home-full { gap: 26px; }
+  #home-full { display: flex; flex-direction: column; }
+  .wz-block { display: flex; flex-direction: column; gap: 8px; }
 
   #home-lensrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   #home-lensrow .wz-quiet { flex: 1 1 200px; }
@@ -306,12 +311,13 @@
 <main>
 <section id="screen-intro" class="wz-narrow" hidden>
   <div class="wz-screen-body">
-    <h2>Answer questions, get a map of what I believe.</h2>
+    <h2>Answer questions, get a map of what you believe.</h2>
     <div class="wz-lead">
-      <p><span id="intro-count">99</span> questions, one at a time, starting with the ones everything else rests on. Answer a dozen and that is already a real map — it can be left at any point, and nothing here is locked once it is written.</p>
+      <p><span id="intro-count">86</span> questions, one at a time, starting with the ones everything else rests on. Answer a dozen and you already have a real map — you can stop at any point, and nothing you write here is locked.</p>
     </div>
     <div class="wz-actions">
       <button id="intro-start" type="button" class="wz-primary">Start with the first question</button>
+      <button id="intro-copy" type="button" class="wz-link">Start from someone else's map</button>
       <a id="intro-byhand" href="/edit" class="wz-link">Write a belief by hand instead</a>
     </div>
   </div>
@@ -322,12 +328,11 @@
     <h2>Is there a tradition whose answers should be shown first?</h2>
     <div class="tm-note">
       This changes the order positions are shown in, and labels who holds
-      what. It never fills anything in — every answer below is mine.
+      what. It never fills anything in — every answer below is yours.
     </div>
     <div id="lens-list"></div>
     <div class="wz-actions">
-      <button id="lens-next" type="button" class="wz-primary">Done</button>
-      <span class="wz-quiet">Changeable at any point.</span>
+      <span class="wz-quiet">Pick one to carry on. Changeable at any point.</span>
     </div>
   </div>
 </section>
@@ -342,26 +347,26 @@
       </details>
     </div>
 
-    <button id="ignore-answer" type="button">
-      <strong>Ignore for now</strong>
-      <span class="wz-hint">Takes this one out of the queue without writing anything. It can still be answered later.</span>
-    </button>
+    <div id="positions"></div>
 
-    <div id="open-answer">
+    <div id="custom-answer" class="wz-card">
+      <div class="wz-card-h"><strong>My view is not one of these</strong></div>
+      <p class="wz-hint">Write it from scratch — nothing here is prefilled.</p>
+      <div id="custom-fields"></div>
+    </div>
+
+    <div id="open-answer" class="wz-card">
       <strong>I haven't worked this out yet</strong>
-      <p class="wz-hint" style="color:inherit;opacity:.85">This becomes a real entry: confidence 'open', flagged for study, with a note of what is left to settle.</p>
+      <p class="wz-hint">This becomes a real entry: confidence 'open', flagged for study.</p>
       <p class="lab">Still working out</p>
       <div class="wz-holdfield"><textarea id="open-todo" rows="3"></textarea></div>
       <div class="wz-slot"></div>
     </div>
 
-    <div id="positions"></div>
-
-    <div id="custom-answer" class="wz-card">
-      <div class="wz-card-h"><strong>My view is not one of these</strong></div>
-      <p class="wz-hint">Write it from scratch. Nothing here is prefilled, and nothing is inferred.</p>
-      <div id="custom-fields"></div>
-    </div>
+    <button id="ignore-answer" type="button">
+      <strong>Ignore for now</strong>
+      <span class="wz-hint">Nothing is written, and you can answer it later.</span>
+    </button>
 
     <details id="who" class="optional">
       <summary>Who believes what?</summary>
@@ -388,36 +393,18 @@
       <p class="lab">Tier spread</p>
       <div id="home-tierbar"></div>
       <p id="home-tiercounts" class="wz-quiet"></p>
+      <p class="wz-quiet">Tier is how much weight a belief carries — T1 essential to the
+        gospel, T2 church-defining, T3 important but not divisive, T4 a matter of liberty.
+        Confidence is a separate question: how settled it is.</p>
     </div>
 
     <div id="home-lensrow">
       <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
-      <span class="wz-quiet">Re-orders answers. Never filters, never fills anything in.</span>
-    </div>
-
-    <div id="home-empty" hidden>
-      <p class="lab" style="margin-bottom:8px">Three ways to start</p>
-      <div class="tm-grid">
-        <button id="home-start" type="button" class="tm-card tm-card-primary tm-cardlink tm-span" style="text-align:left">
-          <h3>Answer some questions</h3>
-          <p>Twenty minutes of questions and there is a first map to edit. Nothing is added that was not chosen.</p>
-          <span class="tm-go">Start →</span>
-        </button>
-        <button id="home-copy" type="button" class="tm-card tm-cardlink" style="text-align:left">
-          <h3>Start from someone else's map</h3>
-          <p>Take a copy of a map from the gallery and make it mine. It says whose it was until editing starts.</p>
-          <span class="tm-go">Browse maps →</span>
-        </button>
-        <a id="home-byhand" href="/edit" class="tm-card tm-cardlink">
-          <h3>Write a belief by hand</h3>
-          <p>Write one thing held and build from there. Good when the starting point is already known.</p>
-          <span class="tm-go">Open the editor →</span>
-        </a>
-      </div>
+      <span class="wz-quiet">Ordering only.</span>
     </div>
 
     <div id="home-full" hidden>
-      <div class="tm-grid wz-cards2" style="margin-bottom:14px">
+      <div class="tm-grid wz-cards2">
         <button id="home-carry" type="button" class="tm-card tm-card-primary tm-cardlink" style="text-align:left">
           <h3>Carry on</h3>
           <p id="home-carry-note"></p>
@@ -425,12 +412,14 @@
         </button>
         <a id="home-edit" href="/edit" class="tm-card tm-cardlink">
           <h3>Open the editor</h3>
-          <p>Rewrite anything in my own words, add texts, add beliefs the questions did not cover.</p>
+          <p>Rewrite anything in your own words, add texts, add beliefs the questions did not cover.</p>
           <span class="tm-go">Edit →</span>
         </a>
       </div>
-      <p class="lab" style="margin-bottom:8px">Areas</p>
-      <div id="home-areas-list"></div>
+      <div class="wz-block">
+        <p class="lab">Areas</p>
+        <div id="home-areas-list"></div>
+      </div>
     </div>
 
   </div>
@@ -454,6 +443,10 @@
 
 <script src="/engine/editor-core.js"></script>
 <script src="/engine/wizard-generate.js"></script>
+<!-- UMD, and it reads window.WizardGenerate at factory time, so it loads after
+     it. wizard.js needs exactly one thing from it: CompareCore.normalise, so
+     that "does this node match this position?" has one rule on both screens. -->
+<script src="/engine/compare-core.js"></script>
 <script type="module" src="/web/wizard.js"></script>
 </body>
 </html>

@@ -24,6 +24,10 @@ import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
 const Core = window.EditorCore;
+// UMD, loaded as a classic script by wizard.html. One thing is used from it —
+// normalise — so that "is this the position that produced this node?" is
+// decided by the same rule here and in compare-core.js:109.
+const CompareCore = window.CompareCore;
 const $ = (id) => document.getElementById(id);
 
 const LENS_KEY = 'tmm.wizard.tradition';
@@ -34,12 +38,27 @@ const LENS_KEY = 'tmm.wizard.tradition';
    read is. */
 const IGNORE_KEY = 'tmm.wizard.ignored';
 
-/* The tier ramp is engine/render.py's, declared as CSS variables in
-   wizard.html. Referencing the variables rather than the hexes keeps one copy
-   of the colours in this repo's CSS and none in its JS. */
+/* The tier ramp is engine/render.py's, declared as CSS variables on :root in
+   engine/theme.css, which wizard.html links. Referencing the variables rather
+   than the hexes keeps one copy of the colours in this repo's CSS and none in
+   its JS. */
 const TIER_VAR = {
   'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
   'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)',
+};
+
+/* The same six strings as engine/editor.html's TIER_GLOSS and render.py's
+   TIER_META. This is the only screen in the product where a person is asked to
+   *set* a tier, so the values carry their meaning here too — as `title`, at
+   zero screen cost. The launchpad's one-line legend (wizard.html, .wz-tier)
+   is the prose version; neither replaces the other. */
+const TIER_GLOSS = {
+  'T1': 'Essential to the gospel',
+  'T1.5': 'Near-essential',
+  'T2': 'Church-defining',
+  'T2.5': 'Strains partnership',
+  'T3': 'Important, not divisive',
+  'T4': 'Matters of liberty',
 };
 
 /* ------------------------------------------------------------------- state */
@@ -51,7 +70,11 @@ let domains = [];           // the parsed map — the model everything mutates
 let token = null;           // updated_at, the concurrency token
 let order = [];             // WG.orderedDoctrines(corpus), computed once
 let idx = 0;                // which doctrine is on screen
-let lens = '';              // tradition id, '' for "I'd rather not say"
+// tradition id; '' is the real answer "I'd rather not say", null is "not asked
+// yet". '' is falsy, so a truthiness test cannot tell the two apart and the
+// lens screen re-asked a question that had already been answered. Every "has
+// this been answered?" test here is `lens !== null`.
+let lens = null;
 let lensReturn = 'intro';   // which screen the tradition picker was opened from
 let ignored = new Set();    // slugs put aside with "Ignore for now"
 let returnTo = null;        // area id the question screen was entered from, or null
@@ -105,8 +128,11 @@ function citeLink(text, label, citation, url) {
   // Belt as well as braces. The new tab means the wizard is not navigated away
   // from, so nothing is lost either way — but somebody who reads a source,
   // closes the laptop and comes back tomorrow should find the answer they had
-  // already chosen sitting in their map. Fire-and-forget: following the link
-  // must never wait on a round trip, and commit() reports its own failures.
+  // already chosen sitting in their map. Still not awaited — following a link
+  // must never wait on a round trip, and commit() reports its own failures —
+  // but commit() now holds `busy` for its whole run, so this can no longer
+  // interleave with the Next button's commit and have applyAnswer compute
+  // `revisit` from a model the other one is halfway through rebuilding.
   a.addEventListener('click', () => { if (chosen) commit(currentAnswer()); });
   return a;
 }
@@ -120,12 +146,17 @@ function sourceLine(src) {
 
 /* The Read-more body. Its own class, NOT .wz-answer: sharing a class with the
    answer controls is what made select()'s clear-and-append duplicate the
-   controls when Read more was open (see the report / debug.md). */
-function explainer(note, sources) {
+   controls when Read more was open (see the report / debug.md).
+
+   `newTab` is set only by the doctrine-level explainer. The notice is a locked
+   condition and its wording does not change — but it used to render again in
+   every single position's popover on the same screen, which is the same
+   promise up to eight times per question. Once per question is enough. */
+function explainer(note, sources, newTab) {
   const box = el('div', 'wz-explain');
   if (note) box.appendChild(el('p', 'wz-hint', note));
   for (const s of sources || []) box.appendChild(sourceLine(s));
-  if ((sources || []).length) {
+  if (newTab && (sources || []).length) {
     box.appendChild(el('p', 'wz-quiet',
       'Sources open in a new tab, and anything answered on this screen is saved '
       + 'before the tab opens.'));
@@ -197,6 +228,9 @@ function radioGroup(values, value, ramp, label) {
     input.value = v;
     if (v === value) input.checked = true;
     const span = el('span', null, v);
+    // `ramp` is true only for the tier group, which is what makes it the
+    // identifier for "these values are tiers" here.
+    if (ramp && TIER_GLOSS[v]) label.title = TIER_GLOSS[v];
     label.appendChild(input);
     label.appendChild(span);
     input.addEventListener('change', paint);
@@ -230,7 +264,7 @@ function studyCheck() {
   check.appendChild(cb);
   const text = el('span');
   text.appendChild(el('strong', null, '#study'));
-  text.appendChild(document.createTextNode(' — I still need to work this out'));
+  text.appendChild(document.createTextNode(' — you still need to work this out'));
   check.appendChild(text);
   return { check, cb };
 }
@@ -279,11 +313,14 @@ function renderLens() {
     c.appendChild(el('strong', null, name));
     c.appendChild(el('span', null, blurb));
     if (id === lens) c.classList.add('sel');
+    // The choice is single-select and changeable at any point from a header
+    // control on every screen, so a Done press after it carried no
+    // information. Picking a card IS the answer; it advances.
     c.addEventListener('click', () => {
       lens = id;
       try { localStorage.setItem(LENS_KEY, id); } catch { /* private mode */ }
       paintLensLabels();
-      renderLens();
+      leaveLens();
     });
     return c;
   };
@@ -370,7 +407,9 @@ function whoBelievesWhat(doctrine) {
 }
 
 /* The controls that appear in a chosen card's slot: tier, confidence, #study.
-   No glosses — the two scales are explained once, on the launchpad. */
+   The tier values carry TIER_GLOSS as `title` (radioGroup): an earlier round
+   dropped the glosses on the grounds that the launchpad explains both scales,
+   and it did not explain either. It does now, and so does this. */
 function answerControls(doctrine, position, kind) {
   const box = el('div', 'wz-fields');
   const state = {};
@@ -465,7 +504,8 @@ function renderQuestionUnsafe(i) {
   const rm = $('q-readmore-body');
   rm.textContent = '';
   if (doctrine.framing) rm.appendChild(el('p', 'wz-framing', doctrine.framing));
-  rm.appendChild(explainer(doctrine.learn_note, doctrine.sources));
+  // The one place the new-tab notice renders: doctrine level, once per question.
+  rm.appendChild(explainer(doctrine.learn_note, doctrine.sources, true));
 
   const host = $('positions');
   host.textContent = '';
@@ -509,9 +549,14 @@ function renderQuestionUnsafe(i) {
     // Back re-opens a doctrine with its previous answer selected. Which
     // position produced a node is not recorded in the file — that is a
     // deliberate format decision — so it is recovered the way phase 6 recovers
-    // it: exact match on the hold sentence. No match means the person reworded
-    // it, and nothing is preselected rather than something wrong.
-    if (existing && existing.hold === position.hold) select(card, 'position', doctrine, position, area);
+    // it: match on the hold sentence, through CompareCore.normalise, which is
+    // the rule compare-core.js:109 already uses. Two rules for one question is
+    // how the wizard preselected nothing on a map /compare called a match.
+    // No match still means the person reworded it, and nothing is preselected
+    // rather than something wrong.
+    if (existing && CompareCore.normalise(existing.hold) === CompareCore.normalise(position.hold)) {
+      select(card, 'position', doctrine, position, area);
+    }
   }
 
   // ---- "I haven't worked this out yet"
@@ -637,24 +682,22 @@ function renderHome() {
   }
   $('home-tiercounts').textContent = parts.join(' · ');
 
-  const empty = nodes.length === 0;
-  $('home-empty').hidden = !empty;
-  $('home-full').hidden = empty;
-
-  if (!empty) {
-    if (remaining.length) {
-      $('home-carry').hidden = false;
-      $('home-carry-note').textContent =
-        'Next question: ' + remaining[0].node_title.toLowerCase() + '.';
-      $('home-carry').onclick = () => {
-        returnTo = null;
-        renderQuestion(orderIndexOf(remaining[0]));
-      };
-    } else {
-      $('home-carry').hidden = true;
-    }
-    renderAreas();
+  // There is no separate empty launchpad any more: the three first-run offers
+  // live on #screen-intro, which is the screen a new account actually lands
+  // on. This one always shows Carry on and the areas, with or without nodes.
+  $('home-full').hidden = false;
+  if (remaining.length) {
+    $('home-carry').hidden = false;
+    $('home-carry-note').textContent =
+      'Next question: ' + remaining[0].node_title.toLowerCase() + '.';
+    $('home-carry').onclick = () => {
+      returnTo = null;
+      renderQuestion(orderIndexOf(remaining[0]));
+    };
+  } else {
+    $('home-carry').hidden = true;
   }
+  renderAreas();
 
   paintLensLabels();
   showScreen('home');
@@ -842,8 +885,8 @@ async function openPicker() {
   const dlg = el('dialog', 'tm-picker');
   dlg.appendChild(el('h2', null, "Start from someone else's map"));
   dlg.appendChild(el('p', 'tm-note',
-    'It becomes my own copy to change however I like. Their map is not affected, '
-    + 'and the card says whose it was until I edit it.'));
+    'It becomes your own copy to change however you like. Their map is not '
+    + 'affected, and the card says whose it was until you edit it.'));
   const grid = el('div', 'tm-grid');
   dlg.appendChild(grid);
   const close = el('button', null, 'Cancel');
@@ -859,7 +902,10 @@ async function openPicker() {
     dlg.close();
     return;
   }
-  maps = (maps || []).filter(m => m.node_count > 0 && m.name !== user.name);
+  // Names are unique on lower(name), so "my own map" is a case-insensitive
+  // test — the same one web/compare.js:373 makes.
+  const mine = String(user.name || '').toLowerCase();
+  maps = (maps || []).filter(m => m.node_count > 0 && String(m.name).toLowerCase() !== mine);
   if (!maps.length) {
     grid.appendChild(el('p', 'tm-stat', 'No maps to start from yet. Try one of the other two.'));
     return;
@@ -947,6 +993,21 @@ async function postMap(markdown) {
 
 async function commit(answer) {
   if (!answer) return true;
+  // The one in-flight guard in this file, the same `busy` the copy-a-map path
+  // uses. Two commits overlapping means the second calls applyAnswer on a
+  // model the first is still rebuilding; a source-link click starting one
+  // without awaiting it is how that became reachable. A refused commit is a
+  // no-op — the caller simply does not advance, and pressing again works.
+  if (busy) return false;
+  busy = true;
+  try {
+    return await commitOnce(answer);
+  } finally {
+    busy = false;
+  }
+}
+
+async function commitOnce(answer) {
   for (let attempt = 0; attempt < 2; attempt++) {
     WG.applyAnswer(domains, corpus, answer);
     WG.pruneLinks(domains);   // every serialize, never once at the end (5.6)
@@ -1039,14 +1100,15 @@ async function main() {
   domains = Core.parse(map.markdown);
   token = map.updated_at;
 
-  try { lens = localStorage.getItem(LENS_KEY) || ''; } catch { lens = ''; }
+  // getItem returns null only when the key was never written. '' is a stored
+  // answer and must survive the read, so no `|| ''` here.
+  try { lens = localStorage.getItem(LENS_KEY); } catch { lens = null; }
   loadIgnored();
   paintLensLabels();
 
   $('intro-start').addEventListener('click', () => {
-    if (lens) startQuestions(); else openLens('intro');
+    if (lens !== null) startQuestions(); else openLens('intro');
   });
-  $('lens-next').addEventListener('click', leaveLens);
   $('wz-lens-btn').addEventListener('click', () => openLens('question'));
   $('home-lens-btn').addEventListener('click', () => openLens('home'));
   // Back and Finish here return to wherever the question screen was entered
@@ -1066,8 +1128,9 @@ async function main() {
   $('wz-finish').addEventListener('click', () =>
     advance(() => { if (returnTo) renderArea(returnTo); else renderHome(); }));
   $('area-back').addEventListener('click', renderHome);
-  $('home-start').addEventListener('click', startQuestions);
-  $('home-copy').addEventListener('click', () => { if (!busy) openPicker(); });
+  // The third of the three first-run offers. It was only ever reachable by
+  // starting the questions and abandoning them, which is not a first run.
+  $('intro-copy').addEventListener('click', () => { if (!busy) openPicker(); });
 
   if (!order.length) {
     showError('There are no questions published yet.');
