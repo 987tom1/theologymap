@@ -42,7 +42,8 @@ for `/api/render`** — the two call sites that avoid it say so in place.
 
 ### D. Every successful admin write returned 500 — PostgREST answers with 204, not 200 — FIXED (phase 1e)
 
-`api/admin.py`'s `reset_pin`, `set_visibility` and admin `save_map` checked
+`api/admin.py`'s `reset_pin`, `set_visibility` and admin `save_map` (an action
+since deleted unused, 2026-09-05) checked
 `status != 200`. **PostgREST answers a write with `204 No Content` unless the caller
 asks for `Prefer: return=representation`**, so every one of these three *succeeded*
 and then reported `500 server_error` — the worst shape of bug: the admin sees a
@@ -594,6 +595,12 @@ binary, or pass `newline=''` (`Path.read_text` only accepts `newline` on Python 
 this machine is 3.11, so binary is the portable answer). And §P's rule is a *pre-commit*
 check, not a post-mortem one — `git diff --stat` before `git commit`, every time.
 
+**It recurred on 2026-09-05**, in the ponytail audit round, in a script that deleted
+`render_mm` from `engine/render.py` — same `write_text`, same whole-file CRLF rewrite,
+this time surfacing as a 2899-line diffstat on a 63-line deletion. Caught pre-commit by
+rule 1 below, and that is the only reason it did not ship twice. Reading this entry is
+not enough; the habit that catches it is looking at `--stat` before every commit.
+
 
 ### AH. A `position: fixed` iframe does not give its document a usable `100vh` on iOS — FIXED (2026-09-04)
 
@@ -659,6 +666,40 @@ not itself.** `width: 100%` cannot be wrong on its own — it can only resolve a
 parent that has no definite width. And `margin: auto` is a *sizing* declaration inside a
 flex container, not just a centring one.
 
+
+### AK. `/view`'s export filename used a different slugify from the rest of the app — FIXED (2026-09-05, ponytail audit)
+
+`web/view.html` carried its own `slugify`, and it had **already drifted** from the
+canonical algorithm in `engine/render.py` and `engine/editor-core.js`: no `&` -> `and`
+replacement, and it stripped only the straight apostrophe, not the curly one. So a map
+belonging to someone whose name contained `&` or a typographic apostrophe exported under
+a filename that did not match the slug every other part of the app would produce for
+them. Nobody reported it — the audit found it by grepping for duplicated helpers, which
+is the only way this class of bug surfaces, because each copy is individually correct
+and the divergence only exists between them.
+
+Fixed by deleting the local copy and importing the one in `web/chrome.js`, which now
+owns the corrected algorithm. There were **four** definitions of `slugify` before the
+audit — `render.py`, `editor-core.js`, `validate_content.py`, `view.html` — and there
+are **three** after: `render.py` (Python), `editor-core.js` (the global/UMD world the
+editor loads) and `chrome.js` (the ES-module world the `web/` pages load).
+`validate_content.py` now imports `render.slugify`, and `view.html` imports
+`chrome.js`'s.
+
+**Two of those three are still a fork**, and knowingly so: `editor-core.js` cannot be
+imported by an ES module and `chrome.js` cannot be loaded by `file://`-served
+`editor.html`, so neither can own the other's copy without a build step this project
+does not have. That fork is now between two *correct* copies rather than a correct one
+and a drifted one, which is the whole of what was fixed. **If you touch one, touch
+both** — and `render.py`'s too.
+
+**The lesson: a helper copied a third time will drift, and the drift is invisible at
+every individual call site.** `validate_content.py`'s copy had a docstring saying
+"byte-for-byte the algorithm in `editor-core.js` and `render.py` — a drift here is the
+bug rule 4 exists to catch", which is a comment doing a job an import should do; it now
+imports `render.slugify`. Where the fork is genuinely unavoidable — Python's `render.py`
+against JS's `editor-core.js` — the comment is the right answer. Where both copies are
+the same language and load into the same page, it never is.
 
 ## Diagnosing a live failure
 

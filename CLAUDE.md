@@ -6,8 +6,7 @@ theological triage (*Finding the Right Hills to Die On*).
 ## The one rule
 
 **`theology-map.md` holds the content and is what you edit.**
-`theology-map.html`, `documentation/theology-map.mm` and
-`documentation/study-list.md` are generated — never hand-edit them, they are
+`theology-map.html` and `documentation/study-list.md` are generated — never hand-edit them, they are
 overwritten on every run. `documentation/verses.md` is a second source file,
 but it is mostly machine-filled (below).
 
@@ -18,8 +17,8 @@ Root holds only what a non-technical user needs to click: `theology-map.html`
 hand-edit, `theology-map.md`. Everything else is sorted into two subfolders:
 
 - `documentation/` — `README.md` (usage instructions), `verses.md` (source
-  data, mostly machine-filled), and the two secondary generated outputs
-  `theology-map.mm` / `study-list.md`.
+  data, mostly machine-filled), and the secondary generated output
+  `study-list.md`.
 - `engine/` — `render.py`, `fetch_verses.py`, `render_server.py`,
   `editor.html`, `editor-core.js`, `map-view.js`, `shared-fields.js`,
   and phase 4's `wizard-generate.js`, `validate_content.py`, `corpus_refs.py`.
@@ -86,8 +85,7 @@ py engine/fetch_verses.py   # fill any blank verse text (needs network)
 stub and fails; Python 3.11.9 is reachable only as `py`. Every brief or doc that
 says `python engine/...` means `py engine/...`.
 
-`render.py` writes `theology-map.html`, `documentation/theology-map.mm` and
-`documentation/study-list.md`. Standard library only, no installs. It prints
+`render.py` writes `theology-map.html` and `documentation/study-list.md`. Standard library only, no installs. It prints
 node counts, scripture-reference counts, and warns on broken `link` targets —
 a broken link means the slug doesn't match any node title.
 
@@ -277,8 +275,12 @@ against). Re-run it after any change to `render.py`.
 > output on purpose. What phase 7 proved instead is that only *presentation*
 > moved: `documentation/theology-map.mm` and `documentation/study-list.md` are
 > byte-identical, and the embedded `<script id="data">` payload hashes the same
-> as before. Use those three as the gate for any future restyle
-> (`docs/hosting/phase-7-outcome.md`). **The UI round of 2026-08-29 moved them a
+> as before. Use those as the gate for any future restyle
+> (`docs/hosting/phase-7-outcome.md`) — **but the gate is now two invariants, not
+> three**: the audit round of 2026-09-05 deleted `render_mm` and the `.mm` export,
+> so `documentation/study-list.md` and the embedded `<script id="data">` payload
+> are what a restyle must leave byte-identical. The `.mm` hashes recorded below
+> are history, not a check you can still run. **The UI round of 2026-08-29 moved them a
 > third time**, for the same reason and under the same gate: the rendered map's
 > sticky header put the filter field and the Filters button on the `<h1>`'s own
 > row, to shorten it on a phone. The pre-round values were `ced6cabd…8fe10` /
@@ -324,7 +326,7 @@ stay off the wire.
 | `auth.py` | `POST` `{action: "signup"\|"login", name, pin}` → `{user_id, name, is_admin}` |
 | `map.py` | `GET ?user_id=` → the map + its `updated_at` token and `is_public`, for the **owner** (and the admin console) — the id is a save-authorising secret, so this path is not guarded on `is_public` and must not be, or an owner cannot read their own unlisted map. `GET ?name=` is the **public** read path, added for phase 6's compare: it returns markdown **only** when that row's `is_public` is true, 404s otherwise, and never returns an id; `POST` saves with optimistic concurrency, or `{action: …}` for `copy_from` / `versions` / `restore` / `set_visibility` |
 | `gallery.py` | `GET` → public maps, newest first, `limit=200`: `name`, `updated_at`, the counts derived from each map on read (`node_count`, `open_count`, `tier_counts`), and `started_from` when the map is an unedited copy. **Never add `id` back** — see below — and never let `markdown` into the body; it is selected only to be counted. It imports `engine/render.py`, so it carries its own `functions.includeFiles` entry in `vercel.json` and binds `parse_text` at import time (`api/render.py` is a sibling module of the same name — see below). |
-| `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `save_map`. Every action re-verifies name+PIN server-side first. |
+| `admin.py` | `POST` — `list_users`, `delete_account`, `reset_pin`, `set_visibility`, `versions`, `restore`. Every action re-verifies name+PIN server-side first. (A `save_map` action existed until 2026-09-05 and was deleted unused — the console has always edited maps through `restore`. Do not add it back without a caller.) |
 
 House rules every route follows, because breaking one is silent:
 
@@ -376,6 +378,16 @@ file under `web/` and `engine/`** (28 files). It exists because an unescaped apo
 in `web/gallery.html` blanked the entire Browse screen in production — a module that
 fails to parse runs none of its lines, so the page renders nothing at all and the server
 logs stay clean (`debug.md` §AI). Run it before any push touching browser code.
+
+**The four JS suites run under `node:test`: `node --test tests/*.test.js`** (51 checks
+as of 2026-09-05). Each file still runs standalone (`node tests/refs.test.js`) — `test()`
+auto-runs when the file is executed directly. Pass the **glob, not the directory**:
+`node --test tests/` fails on this machine with `Cannot find module ...	ests`, a Node
+24 / Windows quirk in the runner's positional handling, and `node --test` bare works but
+discovers recursively. The full gate is that command plus `py tests/syntax_check.py`,
+`py engine/validate_content.py`, `py tests/test_validate_content.py`,
+`py api/_test_lib.py`, `py tests/check_tradition_maps.py`,
+`py tests/check_generated_map.py`.
 
 ### `web/` and the URL map
 
@@ -546,7 +558,7 @@ saved_at)`; `users.markdown` stays the head pointer, so the editor, gallery,
 render route and export are untouched and nothing reads this table yet.
 
 **Every write path to `users.markdown` calls `_lib.snapshot_map(user_id, force)`
-first** — `api/map.py`'s save and `api/admin.py`'s `save_map`. It is one
+first** — `api/map.py`'s save and `api/admin.py`'s `restore`. It is one
 PostgREST RPC to `public.snapshot_map`, and the two rules live in that SQL
 function rather than in `api/`, so the call sites cannot drift and autosave pays
 one round trip: **at most one snapshot per user per hour, but always one on a
@@ -687,17 +699,12 @@ in the page footer must travel with the text.
 | File | Purpose |
 |---|---|
 | `theology-map.html` | Four views — see below. Text filter, three-way study filter, hide-inferred toggle, expand-all / collapse-all. Theme-aware. Print stylesheet lays it out in two columns for A3. |
-| `theology-map.mm` | Freeplane / XMind. Drag-editable — this is the endgame for hand-arranging the map. Field content lands in each node's Note. |
 | `study-list.md` | Auto-generated: open questions by domain, then everything still marked `#assumed`, then any references still lacking verse text. |
-
-The `.mm` is a one-way export. Rearranging it in Freeplane will not flow back
-into `theology-map.md`, so do that only once the content is settled.
 
 ### The four HTML views
 
 - **Map** (default) — a balanced node-link tree. The root sits in the middle
-  with its 14 domains alternating right and left, matching the `.mm` export's
-  convention; each side keeps its own vertical cursor so the two pack
+  with its 14 domains alternating right and left; each side keeps its own vertical cursor so the two pack
   independently. Within each domain, leaves are ordered by tier (T1 down to
   T4, untiered last). Box widths are content-driven, not fixed: CSS sizes
   each box to its content (`width:max-content`, clamped) and the layout pass
@@ -1056,6 +1063,57 @@ Write-ups: `debug.md` §AF–§AJ.
   change (`debug.md` §AG). `Path.read_text(newline='')` only exists on Python 3.13+
   and this machine is 3.11, so binary is the portable answer. **Read
   `git diff --stat` before committing, not after.**
+
+### The ponytail audit round of 2026-09-05
+
+A whole-repo scan for over-engineering, then sixteen cuts: **125 insertions, 645
+deletions across 29 files.** No behaviour change was intended anywhere, and the full
+gate above passed after it (51/51 JS checks, 0 syntax failures, 0 validator errors, and
+`render.py` regenerating `theology-map.html` with a one-comment diff). What the round
+established, beyond the diff:
+
+- **The helpers this repo forks are `el`, `escapeHtml` and `slugify`.** All three had
+  drifted into three or four copies. They now live in one place each — `el` and
+  `slugify` exported from `web/chrome.js`, `escapeHtml` from `engine/editor-core.js`
+  (which `editor.html` loads first, so the global is there for `map-view.js` and
+  `shared-fields.js`). **Another copy of any of them is a bug in waiting**, and
+  `web/view.html`'s `slugify` proved it — see `debug.md` §AK. One fork survives on
+  purpose: `slugify` exists in both `editor-core.js` and `chrome.js`, because an ES
+  module cannot import the former and `file://`-served `editor.html` cannot load the
+  latter. Both are correct today; change one, change the other, and `render.py`'s too.
+- **`citeLink`/`sourceLine` live in `web/refs.js`**, parameterised by class name and an
+  optional `onFollow`, which is how the wizard keeps its commit-on-click without a
+  second copy of the function. `refs.js` stays DOM-free and takes `el` as an argument
+  rather than importing `chrome.js`: `tests/refs.test.js` `require()`s it under plain
+  Node, where an absolute `/web/...` import resolves against the filesystem root and
+  fails.
+- **`.cite-link` in `engine/theme.css`** replaces the forked `.wz-hint a` / `.lp-hint a`
+  rules. The class goes on the anchor inside the shared `citeLink()`, so neither page
+  needs per-container selectors.
+- **Deleted as unreachable, each verified by grep before cutting:** `api/admin.py`'s
+  `save_map` action (no caller), `api/_lib.py`'s placeholder `handler` class (a leading
+  `_` is not routed), the `do_PUT`/`do_DELETE`/`do_PATCH` aliases in `auth.py` and
+  `gallery.py` (`BaseHTTPRequestHandler` already answers 501), `storage-local.js`'s
+  `load()` (its whole body was a `throw`), `editor-core.js`'s `FIELD_KEYS`, and six
+  exports that only had internal callers. `shared-fields.js` lost its UMD wrapper —
+  it touches the DOM on purpose and nothing ever `require`d it.
+- **`engine/validate_content.py` imports `render.slugify`** instead of re-typing it.
+  Its own docstring had said drift there was the bug rule 4 exists to catch.
+- **`render_mm` and the `.mm` export are gone** — nothing in the app read the file and
+  it shipped 40KB to Vercel on every deploy. This shortens the restyle gate to two
+  invariants; see the phase 7 note above.
+
+**Left in deliberately.** `_lib.py`'s `URL_CANDIDATES`/`KEY_CANDIDATES` still try two
+env-var names each, and the comment still says to trim once discovery succeeds — only
+the live Vercel environment shows which name is set, and guessing takes the site down.
+And **the Map-view layout/pan-zoom engine is still forked**: ~390 lines inside
+`render.py`'s template string against ~430 in `engine/map-view.js`, hand-kept in
+lockstep, the largest single duplication in the repo. Unforking it means making
+`map-view.js` the one source and having `render.py` inline it with a second
+`.replace("__MAPJS__", ...)` beside `__DATA__`; the two consumers read different input
+shapes (a flat `nodes` array vs the editor's grouped `domains`), so it needs a small
+adapter and a browser to verify pan, zoom, pinch and detail-open. It is not a
+test-covered change and should get its own session.
 
 ## Working notes
 
