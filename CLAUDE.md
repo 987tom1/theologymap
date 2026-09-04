@@ -985,6 +985,12 @@ the things that are easy to undo by accident:
   whole window. The class was already defined in `render.py` and had no caller; `render()`
   is now it. This is what makes `/view`'s fullscreen useful on an iPad or a laptop, where
   1080px of a 1600px window left the map boxed in.
+- **`.tm-main` in `web/view.html` carries `width: 100%; box-sizing: border-box`, and
+  must keep it.** `/view` is the only page that makes `<body>` a flex column, and
+  `theme.css`'s `margin-inline: auto` on a flex item cancels the cross-axis stretch —
+  without an explicit width the container shrink-to-fits and the iframe collapses to its
+  300px intrinsic width, which reads as correct on a phone and is obviously broken on an
+  iPad (`debug.md` §AJ).
 - **`/view` has a Fullscreen toggle** (2026-09-04). It is **not** the Fullscreen API —
   iOS Safari does not support `requestFullscreen()` on a non-video element, and a phone
   is the case it was asked for. It is `body.tm-enlarged`, which hides this page's chrome

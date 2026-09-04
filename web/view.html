@@ -12,7 +12,17 @@
      rather than the old fixed 70vh. */
   html, body.tm-page { height: 100%; }
   body.tm-page { display: flex; flex-direction: column; }
-  .tm-main { display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; min-height: 0; }
+  /* width:100% is load-bearing. theme.css gives .tm-main `margin-inline: auto`,
+     and an auto cross-axis margin on a flex item suppresses the stretch that
+     would otherwise hand it the container's width — so it fell back to
+     shrink-to-fit. Every other page survives that because their children's
+     max-content is wide; here the only child is an iframe, a replaced element
+     whose intrinsic width is 300px, and `width:100%` against a shrink-to-fit
+     parent resolved straight back to it. The map rendered ~300px wide on an
+     iPad and merely looked right on a phone, where 300px is most of the screen.
+     /view is the one page that makes <body> a flex column, so this is local. */
+  .tm-main { display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; min-height: 0;
+             width: 100%; box-sizing: border-box; }
   #tradition-note { font-size: .92em; }
   #tradition-note p { margin: 2px 0; }
   #tradition-note .standing { color: var(--muted, #555); }

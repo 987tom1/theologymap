@@ -638,6 +638,28 @@ that the script parses before investigating what it fetches — a broken module 
 in a way a broken fetch never is.
 
 
+### AJ. The map rendered 300px wide on an iPad — an auto margin cancelled the flex stretch — FIXED (2026-09-04)
+
+`/view` showed the map in a ~300px column in the middle of a 1366px iPad window, chrome
+and all correct around it. The iframe carries `width: 100%`, so the width had to be
+coming from its parent: `engine/theme.css` gives `.tm-main` `margin-inline: auto`, and
+**an auto margin on a flex item's cross axis suppresses the stretch that would otherwise
+give it the container's width** — the item falls back to shrink-to-fit. `width: 100%`
+against a shrink-to-fit parent is circular, so the iframe resolved to its *intrinsic*
+replaced-element width, 300px.
+
+It survived review on a phone because 300px is most of a phone's width, so the frame
+looked correct there and only a wide screen exposed it. `/view` is the one page that
+makes `<body>` a flex column, which is what turned a harmless centring margin into a
+sizing rule; every other page has text and grids whose max-content fills the space
+anyway. Fixed with `width: 100%; box-sizing: border-box` on `.tm-main` in that page.
+
+**The lesson: an element that is the wrong size is asking about its containing block,
+not itself.** `width: 100%` cannot be wrong on its own — it can only resolve against a
+parent that has no definite width. And `margin: auto` is a *sizing* declaration inside a
+flex container, not just a centring one.
+
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not
@@ -716,3 +738,7 @@ in a way a broken fetch never is.
 18. **A page that renders *nothing* — not even its own loading state — is a syntax
    error in its module, not a data or network problem.** `py tests/syntax_check.py`
    answers it in one second; check that before reading the API (§AI).
+19. **A `width: 100%` element that comes out too small is a question about its parent.**
+   Percentages resolve against the containing block, so the parent has no definite
+   width — in a flex container, an `auto` cross-axis margin is the usual reason (§AJ).
+   Check a wide viewport too: a 300px intrinsic fallback looks correct on a phone.
