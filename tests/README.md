@@ -2,10 +2,15 @@
 
 Run everything from the repo root.
 
-    node tests/wizard-generate.test.js     # 9 checks; writes tests/out/prefix-*.md
-    py tests/check_generated_map.py        # reads tests/out/, needs the line above first
-    py tests/test_validate_content.py      # the validator's own gate
-    py engine/validate_content.py          # the real corpus; 0 errors, warnings expected
+    py engine/validate_content.py          # validates the corpus against twenty error rules
+    node tests/compare-core.test.js        # tests position comparison and normalization
+    node tests/build-traditions.test.js    # verifies tradition maps build deterministically
+    node tests/wizard-generate.test.js     # 9 checks; validates wizard question generation
+    node tests/refs.test.js                # validates scripture reference resolution and citations
+    py tests/check_tradition_maps.py       # verifies generated tradition maps match corpus
+    py tests/test_validate_content.py      # the validator's own unit tests
+    py api/_test_lib.py                    # tests database helper functions
+    py engine/render.py                    # generates theology-map.html and documentation files
 
 `tests/out/` is generated and gitignored.
 

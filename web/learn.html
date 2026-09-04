@@ -15,8 +15,7 @@
 
   [hidden] { display: none !important; }
 
-  main.tm-page { max-width: 900px; }
-  body.tm-page { max-width: none; }
+  body.tm-page main { max-width: 900px; }
 
   .lp-lead { max-width: 62ch; color: var(--muted); font: 14px/1.55 var(--serif); margin: 0 0 16px; }
 
@@ -73,8 +72,8 @@
   .lp-section { margin: 26px 0; }
   .lp-section h2 { font: 400 19px/1.3 var(--serif); margin: 0 0 10px; }
   .lp-section h3 { font: 600 15.5px/1.3 var(--serif); margin: 0; }
-  .lp-prose { max-width: 68ch; font: 14.5px/1.6 var(--serif); margin: 0 0 10px; }
-  .lp-hint { max-width: 68ch; font: 13px/1.55 var(--serif); color: var(--muted); margin: 4px 0; }
+  .lp-prose { max-width: 58ch; font: 14.5px/1.6 var(--serif); margin: 0 0 10px; }
+  .lp-hint { max-width: 58ch; font: 13px/1.55 var(--serif); color: var(--muted); margin: 4px 0; }
 
   .lp-positions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   @media (max-width: 860px) { .lp-positions { grid-template-columns: 1fr; } }
@@ -95,7 +94,7 @@
 
   .lp-mine {
     background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; max-width: 68ch;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; max-width: 58ch;
   }
   .lp-mine-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .lp-mine-actions a { font: 600 12.5px/1 var(--sans); color: var(--muted); text-decoration: none;

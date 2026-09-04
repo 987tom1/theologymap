@@ -38,6 +38,8 @@
 
 <div id="tmChrome"></div>
 
+<main class="tm-main">
+
 <p class="tm-note"><strong>Unlisting is not privacy.</strong> It removes a map from the
 gallery and stops it rendering by name. It does not make it unreadable to someone
 who already has its link from the editor. Delete the account if a map must go.</p>
@@ -57,6 +59,8 @@ who already has its link from the editor. Delete the account if a map must go.</
 <div id="pin-reveal" class="tm-note" hidden></div>
 
 <div id="users-list" hidden></div>
+
+</main>
 
 <script type="module">
 import { apiFetch, getUser } from '/web/session.js';
@@ -282,7 +286,7 @@ async function toggleVersions(u, tile) {
     for (const v of versions) {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.textContent = `Restore ${relTime(v.saved_at)} (${(v.bytes / 1024).toFixed(1)} KB)`;
+      btn.textContent = `Restore ${relTime(v.saved_at)}`;
       btn.addEventListener('click', async () => {
         const ok = confirm(
           `Replace ${u.name}'s map with the version from ${relTime(v.saved_at)}? `
