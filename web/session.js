@@ -14,11 +14,11 @@ export function getUser() {
 }
 
 export function setUser(u) {
-  localStorage.setItem(KEY, JSON.stringify({ id: u.id, name: u.name, is_admin: u.is_admin }));
+  try { localStorage.setItem(KEY, JSON.stringify({ id: u.id, name: u.name, is_admin: u.is_admin })); } catch { /* private mode */ }
 }
 
 export function clearUser() {
-  localStorage.removeItem(KEY);
+  try { localStorage.removeItem(KEY); } catch { /* private mode */ }
 }
 
 // Every signed-in-only page funnels through here, so the "why am I suddenly on
@@ -117,9 +117,12 @@ export function showNotice(message) {
 // On load, if a notice was stashed across a redirect (see apiFetch's unknown_user
 // handling), show it once and clear it.
 if (typeof document !== 'undefined') {
-  const pending = sessionStorage.getItem(NOTICE_KEY);
+  let pending = null;
+  try {
+    pending = sessionStorage.getItem(NOTICE_KEY);
+    if (pending) sessionStorage.removeItem(NOTICE_KEY);
+  } catch { /* private mode */ }
   if (pending) {
-    sessionStorage.removeItem(NOTICE_KEY);
     if (document.body) {
       showNotice(pending);
     } else {

@@ -33,14 +33,24 @@ export async function loadCorpus() {
     showError('The question set could not be loaded. Please try again shortly.');
     return null;
   }
+  // Phase 5 wrote all fourteen domain files, so on a hosted origin a missing
+  // one means a broken deploy, not an unwritten domain — error it. file://
+  // has no server behind it and no deploy to break, so stay tolerant there.
+  const tolerant = typeof location !== 'undefined' && location.protocol === 'file:';
+  const results = await Promise.all((manifest.domains || []).map((entry) => get(entry.file)));
   const files = {};
-  let missing = 0;
-  for (const entry of manifest.domains || []) {
-    const data = await get(entry.file);
-    // A domain phase 5 has not written yet is the normal state, not an error.
-    if (data) files[entry.id] = data; else missing++;
+  const missing = [];
+  (manifest.domains || []).forEach((entry, i) => {
+    if (results[i]) files[entry.id] = results[i]; else missing.push(entry.id);
+  });
+  if (missing.length) {
+    if (tolerant) {
+      console.info('corpus: ' + missing.length + ' domain file(s) not found; skipped.');
+    } else {
+      showError('The question set could not be loaded. Please try again shortly.');
+      return null;
+    }
   }
-  if (missing) console.info('corpus: ' + missing + ' domain file(s) not published yet; skipped.');
   return { manifest, traditions: registry, domains: files };
 }
 
