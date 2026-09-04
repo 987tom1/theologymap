@@ -404,6 +404,15 @@ def check_rules_11_to_20(ctx, errors, warnings):
         # open.hold is a "hold" field too and is not exempted - only open.todo is.
         if isinstance(open_block, dict):
             _b_voice_check(open_block.get("hold"), "open.hold", prefix, errors, True)
+            # F6: wizard-generate.js:239 writes open.hold || 'Undecided.' and
+            # compare-core.js:99 hardcodes the string 'undecided' to detect it.
+            # Nothing else ties those two together, so pin the one string both
+            # sides agree on - present-and-wrong or blank all trip this error.
+            open_hold = open_block.get("hold")
+            if open_hold is not None and open_hold != "Undecided.":
+                errors.append(
+                    f"{prefix}open.hold is {open_hold!r}, must be exactly "
+                    "'Undecided.' or absent (compare-core.js hardcodes 'undecided')")
 
         positions = doctrine.get("positions") or []
         position_ids = {p.get("id") for p in positions if isinstance(p, dict)}

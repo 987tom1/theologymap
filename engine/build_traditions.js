@@ -155,13 +155,17 @@ function corpusHash(dir) {
   return h.digest('hex');
 }
 
-function buildManifest(corpus, hash) {
+/* built: optional Map of tradition id -> buildTradition() result. main()
+ * passes the builds it already did (F8: one build per tradition, not two) —
+ * a caller with no builds on hand (tests, other scripts) may omit it and
+ * buildManifest builds each tradition itself, as before. */
+function buildManifest(corpus, hash, built) {
   return {
     schema_version: 1,
     corpus_schema_version: (corpus.manifest || {}).schema_version || null,
     corpus_sha256: hash || null,
     traditions: scorecardTraditions(corpus).map(function (t) {
-      const out = buildTradition(corpus, t.id);
+      const out = (built && built.get(t.id)) || buildTradition(corpus, t.id);
       return {
         id: t.id,
         display_name: t.display_name,
@@ -178,16 +182,18 @@ function main() {
   const corpus = WG.loadCorpusSync(CORPUS_DIR);
   fs.mkdirSync(OUT_DIR, { recursive: true });
   let nodes = 0, maps = 0;
+  const built = new Map();
 
   for (const t of scorecardTraditions(corpus)) {
     const out = buildTradition(corpus, t.id);          // throws on branch three
+    built.set(t.id, out);
     fs.writeFileSync(path.join(OUT_DIR, t.id + '.md'), out.markdown, 'utf8');
     nodes += out.nodeCount; maps++;
     console.log(t.id.padEnd(20) + String(out.nodeCount).padStart(3) +
                 ' nodes, ' + out.skipped.length + ' skipped');
   }
 
-  const manifest = buildManifest(corpus, corpusHash(CORPUS_DIR));
+  const manifest = buildManifest(corpus, corpusHash(CORPUS_DIR), built);
   fs.writeFileSync(path.join(OUT_DIR, 'manifest.json'),
     JSON.stringify(manifest, null, 2) + '\n', 'utf8');
   console.log(maps + ' tradition maps, ' + nodes + ' nodes, corpus ' +
