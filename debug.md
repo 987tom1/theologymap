@@ -576,6 +576,25 @@ double-charged.** Reset margins on the children when you adopt `gap`, or the lay
 silently means whatever the UA stylesheet says plus what you wrote.
 
 
+### AG. Python's `write_text` rewrote three whole files to CRLF, and it shipped — FIXED (2026-09-04)
+
+A twelve-line CSS edit committed as **1814 insertions and 1776 deletions**. `pathlib`'s
+`read_text` reads with universal newlines (CRLF becomes `
+` in memory) and `write_text`
+writes back with `newline=None`, which on Windows translates every `
+` to `os.linesep`
+— so a script that only touched one selector re-encoded the entire file. The repo is
+`core.autocrlf=false` and `.gitattributes` pins **only** the three generated files to
+`eol=crlf`; everything else is LF in the index, so this was a real whole-file diff, not a
+checkout artefact. It went in unnoticed because the diffstat was read after the commit,
+not before.
+
+**Any script editing a repo file on this machine must preserve bytes**: read and write in
+binary, or pass `newline=''` (`Path.read_text` only accepts `newline` on Python 3.13+;
+this machine is 3.11, so binary is the portable answer). And §P's rule is a *pre-commit*
+check, not a post-mortem one — `git diff --stat` before `git commit`, every time.
+
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not

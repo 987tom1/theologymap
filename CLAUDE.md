@@ -968,6 +968,13 @@ the things that are easy to undo by accident:
   `.lp-prose`/`.lp-hint`/`.lp-refs` to win on order. Add a row to these cards
   without a margin of its own.
 
+- **`/view` has an Enlarge toggle** (2026-09-04). It sets `position: fixed; inset: 0`
+  on the map iframe via a class — **not** the Fullscreen API, which iOS Safari does not
+  support on a non-video element, and a phone is the case it was asked for. The button
+  fixes itself to the bottom-right while enlarged because the header goes behind the
+  frame; Escape also exits, and it is the only other way out, since the frame is
+  sandboxed without `allow-same-origin` so no key pressed inside it reaches the page.
+
 - **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
   Lazy-loading the eleven non-target maps is the next performance move if the
   page gets slow. Deliberately not done yet.

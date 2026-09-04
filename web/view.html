@@ -17,6 +17,20 @@
   #tradition-note p { margin: 2px 0; }
   #tradition-note .standing { color: var(--muted, #555); }
   iframe { width: 100%; flex: 1 1 auto; min-height: 320px; border: 1px solid var(--field-line); border-radius: 6px; }
+
+  /* Enlarge: on a phone the outer chrome and the rendered map's own sticky
+     header together eat about 40% of the viewport, and the map is the point of
+     this page. A class, not the Fullscreen API — iOS Safari does not support
+     requestFullscreen() on a non-video element, which is the platform this was
+     asked for. The map keeps its own header (filter, view switcher) inside the
+     frame, so nothing becomes unreachable while enlarged. */
+  #map-frame.full { position: fixed; inset: 0; z-index: 50; border: 0; border-radius: 0; }
+  body.tm-enlarged { overflow: hidden; }
+  #full-btn.on {
+    position: fixed; z-index: 51; right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--panel); box-shadow: 0 1px 6px rgba(0,0,0,.28);
+  }
 </style>
 </head>
 <body class="tm-page">
@@ -91,14 +105,27 @@ if (traditionId) {
   } catch { tradition = null; }
 }
 
+const fullBtn = actionBtn('Enlarge');
+fullBtn.id = 'full-btn';
 const exportBtn = actionBtn('Export HTML');
 const copyBtn = actionBtn('Copy link');
 const makeMineBtn = actionBtn('Make my own map');
 const heading = tradition ? tradition.display_name
   : (traditionId ? 'Theology Map' : (name ? name + "'s map" : 'Theology Map'));
-mount(heading, [exportBtn, copyBtn, makeMineBtn]);
+mount(heading, [fullBtn, exportBtn, copyBtn, makeMineBtn]);
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
+
+function setEnlarged(on) {
+  frameEl.classList.toggle('full', on);
+  fullBtn.classList.toggle('on', on);
+  document.body.classList.toggle('tm-enlarged', on);
+  fullBtn.textContent = on ? 'Exit' : 'Enlarge';
+}
+fullBtn.addEventListener('click', () => setEnlarged(!frameEl.classList.contains('full')));
+// Escape is the only other way out: the frame is sandboxed without
+// allow-same-origin, so a key pressed inside it never reaches this document.
+addEventListener('keydown', e => { if (e.key === 'Escape') setEnlarged(false); });
 
 const user = getUser();
 // A named member map has an owner; a tradition map does not. Only the named-map
@@ -150,6 +177,7 @@ if (traditionId) {
 
       frameEl.srcdoc = html;
       frameEl.hidden = false;
+      fullBtn.hidden = false;
       exportBtn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });
@@ -204,6 +232,7 @@ if (traditionId) {
       const slug = slugify(name) || 'map';
       frameEl.srcdoc = html;
       frameEl.hidden = false;
+      fullBtn.hidden = false;
       exportBtn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });
