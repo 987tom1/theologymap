@@ -595,6 +595,25 @@ this machine is 3.11, so binary is the portable answer). And §P's rule is a *pr
 check, not a post-mortem one — `git diff --stat` before `git commit`, every time.
 
 
+### AH. A `position: fixed` iframe does not give its document a usable `100vh` on iOS — FIXED (2026-09-04)
+
+`/view`'s first Fullscreen toggle took the map iframe out of flow with `position: fixed;
+inset: 0`. The element filled the viewport correctly, but the map *inside* it rendered a
+canvas less than half the screen tall with dead space under it: the rendered page sizes
+its canvas as `#mapwrap { height: calc(100vh - 130px) }`, and iOS Safari did not resolve
+that `100vh` against the iframe's new height. The same page had sized itself correctly
+moments earlier as an ordinary in-flow flex child.
+
+Fixed by not moving the iframe at all — `body.tm-enlarged` hides this page's own chrome
+and the existing `display:flex; flex-direction:column` layout hands the frame the space.
+The layout that already worked keeps working; only the amount of column changes.
+
+**The lesson: an iframe's inner `vh` follows the iframe's used height, and taking the
+element out of flow is exactly the case where a browser may not propagate that.** If
+the framed document sizes itself in viewport units, resize the frame *within* its
+layout — grow the container, don't reposition the frame.
+
+
 ## Diagnosing a live failure
 
 1. **A diffstat wildly bigger than the change you made is a line-ending rewrite, not

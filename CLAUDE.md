@@ -968,12 +968,18 @@ the things that are easy to undo by accident:
   `.lp-prose`/`.lp-hint`/`.lp-refs` to win on order. Add a row to these cards
   without a margin of its own.
 
-- **`/view` has an Enlarge toggle** (2026-09-04). It sets `position: fixed; inset: 0`
-  on the map iframe via a class — **not** the Fullscreen API, which iOS Safari does not
-  support on a non-video element, and a phone is the case it was asked for. The button
-  fixes itself to the bottom-right while enlarged because the header goes behind the
-  frame; Escape also exits, and it is the only other way out, since the frame is
-  sandboxed without `allow-same-origin` so no key pressed inside it reaches the page.
+- **`/view` has a Fullscreen toggle** (2026-09-04). It is **not** the Fullscreen API —
+  iOS Safari does not support `requestFullscreen()` on a non-video element, and a phone
+  is the case it was asked for. It is `body.tm-enlarged`, which hides this page's chrome
+  and lets the existing flex column give the iframe the whole viewport. **It deliberately
+  does not fix-position the iframe**: the rendered map sizes its canvas with `#mapwrap {
+  height: calc(100vh - 130px) }`, and iOS Safari does not re-resolve that `100vh` against
+  a `position: fixed` iframe's new height — the first attempt shipped a map filling less
+  than half the screen with dead space beneath it (`debug.md` §AH). The button is a
+  standalone fixed element in the bottom-right, outside `mount()`'s actions row, in the
+  same spot whichever state it is in. Escape also exits, and it is the only other way
+  out, since the frame is sandboxed without `allow-same-origin` so no key pressed inside
+  it reaches the page.
 
 - **Growth marker: `/compare` still eagerly loads all 475 KB of tradition maps.**
   Lazy-loading the eleven non-target maps is the next performance move if the
