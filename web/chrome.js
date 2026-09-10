@@ -53,7 +53,7 @@ export function mount(pageTitle, actions = []) {
   const links = el('div', 'toplinks');
   links.appendChild(link('/', 'Home'));
   if (user) {
-    links.appendChild(link('/wizard', 'Wizard'));
+    links.appendChild(link('/wizard', 'Questions'));
     links.appendChild(link('/edit', 'Edit'));
   }
   links.appendChild(link('/gallery', 'Browse'));
