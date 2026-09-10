@@ -332,3 +332,29 @@ a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
 }
 
 input, textarea { caret-color: var(--ink); }
+
+/* P4 Task 1: View transitions for cross-document navigation.
+
+   The @view-transition directive enables shared-element transitions between pages
+   in this hosted app. Navigation between full pages (/, /gallery, /view, etc.)
+   will smoothly animate the chrome.
+
+   .tm-chrome carries a unique view-transition-name on every page it appears.
+   The element is unique per document because web/chrome.js's mount() replaces
+   #tmChrome with a single <header class="tm-chrome">, so the name never collides.
+
+   engine/editor.html has no .tm-chrome (its header is #editorToplinks's own
+   markup), so /edit gets @view-transition with no named group. That is the accepted
+   risk documented in the phase file: no transition for the editor's chrome.
+
+   The reduced-motion guard zeros all transitions for users with
+   prefers-reduced-motion: reduce, turning the animation into an instant swap
+   using the !important flag to win on specificity across all view-transition
+   pseudo-elements. */
+@view-transition { navigation: auto; }
+.tm-chrome { view-transition-name: tm-chrome; }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
