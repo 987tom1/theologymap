@@ -483,6 +483,13 @@ function renderQuestionUnsafe(i) {
   if (doctrine.framing) rm.appendChild(el('p', 'wz-framing', doctrine.framing));
   // The one place the new-tab notice renders: doctrine level, once per question.
   rm.appendChild(explainer(doctrine.learn_note, doctrine.sources, true));
+  // The reverse of learn.js's "Answer this question" link: the question admits
+  // Learn exists. Commits first, exactly like a source link does.
+  const more = el('a', 'cite-link', 'Read the full page on this doctrine →');
+  more.href = '/learn?doctrine=' + encodeURIComponent(doctrine.id);
+  more.target = '_blank'; more.rel = 'noopener';
+  more.addEventListener('click', onFollow);
+  rm.appendChild(more);
 
   const host = $('positions');
   host.textContent = '';
