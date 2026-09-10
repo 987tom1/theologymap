@@ -121,9 +121,25 @@ py tests/check_generated_map.py
 - **Two invariants must stay byte-identical:** `documentation/study-list.md` and the embedded
   `<script id="data">` payload (`4d8d919e…c8bd7e`). That is what proves only *presentation*
   moved.
-- The full-output hash (`9a702faf…9d5fda` CRLF / `43feab4f…9ea498` LF-normalised) may move
-  **only** in a phase licensed to change the output on purpose. **P2 is explicitly not one —
-  it must be a `:root`-only diff.**
+- The full-output hash may move **only** in a phase licensed to change the output on purpose.
+  **Current baseline, as of P2 (2026-09-10):**
+
+  | | CRLF (as written on Windows) | LF-normalised |
+  |---|---|---|
+  | **post-P2 — read against this** | `795195db…b50297` | `6c9e7a6c…c06379b` |
+  | pre-P2, for reference | `f5396e31…6db99e` | `f383b636…75bcc2` |
+
+  **Two corrections are folded into that table.** First, the value this document carried
+  before (`9a702faf…9d5fda` CRLF / `43feab4f…9ea498` LF) was **already stale before P2
+  touched anything** — `theology-map.html` last changed in `cb08cea` and neither this file nor
+  CLAUDE.md §1 was updated; regenerating on a clean tree at `9e91ebb` produced no diff and
+  hashed to the pre-P2 row above. **CLAUDE.md §1 still carries the stale pair and needs the
+  same correction.** Second, P2's own verification section demanded both a `:root`-only diff
+  *and* an unmoved full hash, which cannot both hold — adding tokens to `render.py`'s embedded
+  `:root` changes the file's bytes and therefore its hash. **The two named byte-identity
+  invariants above are the real gate**; the zero-visual-diff claim is carried by the
+  `:root`-only diff plus the three-viewport walk. P2's diff was two hunks, 72 insertions, zero
+  deletions, every line inside a `:root` block or a media query wrapping one.
 - Read `git diff --stat` **before** committing. A diffstat wildly bigger than your change is
   a line-ending rewrite; **scripts that edit repo files read and write bytes** (`pathlib`'s
   `write_text` translates `\n` to `os.linesep` on Windows; `read_text(newline='')` needs 3.13
