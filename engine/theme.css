@@ -330,3 +330,5 @@ a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
     border-color: color-mix(in oklab, var(--line) 60%, var(--panel));
   }
 }
+
+input, textarea { caret-color: var(--ink); }
