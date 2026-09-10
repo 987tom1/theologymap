@@ -126,8 +126,13 @@ py tests/check_generated_map.py
 
   | | CRLF (as written on Windows) | LF-normalised |
   |---|---|---|
-  | **post-P2 — read against this** | `795195db…b50297` | `6c9e7a6c…c06379b` |
+  | **post-P3 — read against this** | `84650d62…976146` | `ad8c2515…e220e44e` |
+  | post-P2 | `795195db…b50297` | `6c9e7a6c…c06379b` |
   | pre-P2, for reference | `f5396e31…6db99e` | `f383b636…75bcc2` |
+
+  P3 is a phase **licensed** to change the output on purpose — `color-scheme` and
+  `accent-color` change rendered appearance — so its move is expected. Only P3's Tasks 1–2
+  touch `render.py`; Tasks 3–6 do not, and the hash is unchanged from `c93d50b` onward.
 
   **Two corrections are folded into that table.** First, the value this document carried
   before (`9a702faf…9d5fda` CRLF / `43feab4f…9ea498` LF) was **already stale before P2
