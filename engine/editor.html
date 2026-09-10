@@ -78,6 +78,26 @@
   @media (prefers-reduced-motion: reduce) {
     :root { --dur-1: 1ms; --dur-2: 1ms; --dur-3: 1ms; }
   }
+  :root {
+    /* Type — seven steps against today's twenty-two. vw appears only above 15px:
+       fluid micro-type resizes into fractional pixels and looks blurry, so the
+       label and meta steps stay fixed. */
+    --fs-000: .6875rem;  /* 11px   — the ONE uppercase label register */
+    --fs-00:  .78125rem; /* 12.5px — meta, counts, timestamps (sans) */
+    --fs-0:   .875rem;   /* 14px   — secondary prose, hints */
+    --fs-1: clamp(.9375rem, .89rem + .22vw, 1rem);      /* 15 → 16 body */
+    --fs-2: clamp(1.0625rem, .99rem + .35vw, 1.1875rem);/* 17 → 19 card heading */
+    --fs-3: clamp(1.25rem, 1.10rem + .70vw, 1.5rem);    /* 20 → 24 section heading */
+    --fs-4: clamp(1.625rem, 1.32rem + 1.5vw, 2.25rem);  /* 26 → 36 screen title */
+
+    --lh-tight: 1.2;   /* --fs-3 and up */
+    --lh-snug:  1.35;  /* headings at --fs-2, chips, controls */
+    --lh-body:  1.6;   /* serif prose */
+    --lh-ui:    1.45;  /* sans UI text */
+
+    --measure: 58ch;       /* the documented prose cap — unchanged */
+    --measure-wide: 68ch;  /* lead paragraphs and notes only */
+  }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
          font:15px/1.6 var(--serif); text-rendering:optimizeLegibility;
