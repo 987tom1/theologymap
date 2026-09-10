@@ -704,7 +704,11 @@ function gotoNode(slug) {
     requestAnimationFrame(() => {
       const el = document.getElementById(target.slug);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // F2: the behavior option overrides the computed scroll-behavior, so
+        // the scroll-behavior: auto !important reduced-motion guard elsewhere
+        // in this file cannot reach it -- this needs its own guard.
+        const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
         el.classList.add('flash');
         setTimeout(() => el.classList.remove('flash'), 1500);
       }

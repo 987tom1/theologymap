@@ -126,7 +126,7 @@ py tests/check_generated_map.py
 
   | | CRLF (as written on Windows) | LF-normalised |
   |---|---|---|
-  | **post-P4 — read against this** | `27ae2c0f8025ceb248aa1eccc38c996d9b4c544e1b5458d707f8841bf427f384` | `6f7c775975e3468aaece7cb607854ef2a081b6c1b33d3c2d2f655fa8f7f057a1` |
+  | **post-P4 — read against this** | `886d64a6438eb61ecac8aec25814cc2a61144df8757758260fced94a04a7b58e` | `d448206d8864b5c18daa3d71495a3827edacac5b72d427bdb0e8e907af0e1480` |
   | post-P3 | `84650d62…976146` | `ad8c2515…e220e44e` |
   | post-P2 | `795195db…b50297` | `6c9e7a6c…c06379b` |
   | pre-P2, for reference | `f5396e31…6db99e` | `f383b636…75bcc2` |
