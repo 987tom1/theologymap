@@ -74,7 +74,7 @@ reconciliation, a regeneration or a hash check pay for it once.
 Sequencing between sessions still obeys the graph: A → B → C, and D before E. D may be pulled
 forward at any point.
 
-**Depth status.** P1 is written to full step detail and is ready to execute. P2–P11 carry
+**Depth status.** P1–P6 are written to full step detail. P7–P11 carry
 their goal, files, governing invariants, gate, acceptance criteria and model assignment;
 their step-by-step task bodies are expanded from the cited spec/assessment sections
 immediately before that phase is executed. Expand a phase file at the start of its session,
