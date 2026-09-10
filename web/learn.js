@@ -310,7 +310,9 @@ async function myOwnAnswer(doctrine) {
   }
   const actions = el('div', 'lp-mine-actions');
   const edit = el('a', null, node ? 'Edit this belief' : 'Answer this question');
-  edit.href = '/edit?open=' + encodeURIComponent(doctrine.slug);
+  edit.href = node
+    ? '/edit?open=' + encodeURIComponent(doctrine.slug)
+    : '/wizard?doctrine=' + encodeURIComponent(doctrine.id);
   actions.appendChild(edit);
   const compare = el('a', null, 'Compare this doctrine');
   compare.href = '/compare?doctrine=' + encodeURIComponent(doctrine.id);
