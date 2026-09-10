@@ -9,3 +9,6 @@ tests/out/
 
 # Claude Code session scratch (worktrees, local settings). Never shipped.
 .claude/
+
+# Subagent-driven-development scratch (ledger, briefs, review packages).
+.superpowers/
