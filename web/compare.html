@@ -87,12 +87,6 @@
   @media (max-width: 560px) { .cmp-body { grid-template-columns: 1fr; } }
   .cmp-col { display: flex; flex-direction: column; gap: 4px; }
   .cmp-col p { margin: 0; }
-  /* Three shapes borrowed from web/wizard.html so the two pages read as one
-     product. Copied rather than hoisted into theme.css: they are page-local
-     text styles there too, and moving them would touch the wizard mid-phase. */
-  .wz-quiet { font: 12.5px/1.5 var(--sans); color: var(--muted); margin: 0; }
-  .wz-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted); max-width: 58ch; }
-  .wz-framing { margin: 0; max-width: 58ch; color: var(--ink); font: 14px/1.55 var(--serif); }
   .cmp-row .wz-framing { margin: 0 0 10px; }
   .cmp-row a { display: inline-block; margin: 0 12px 10px 0; font: 600 12.5px/1 var(--sans); color: var(--ink);
     text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
