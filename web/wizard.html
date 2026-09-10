@@ -199,6 +199,13 @@
     display: block; width: 100%; box-sizing: border-box; border: none; background: none;
     color: inherit; resize: vertical; font: 14.5px/1.55 var(--serif); padding: 0;
   }
+  /* P5 task 3: an unselected position's hold, before pick() swaps it for the
+     textarea above. Same font, so materialising the field on pick does not
+     reflow the text it's already showing. No transition here on purpose —
+     the swap is instant (Ruling 1): selecting the card already Settles its
+     .wz-slot controls, and animating this at the same time would be a second
+     thing happening for one tap. */
+  .wz-hold { margin: 0; font: 14.5px/1.55 var(--serif); color: inherit; }
   /* Citation link styling (.cite-link, applied by web/refs.js's citeLink())
      lives in engine/theme.css now — one rule instead of a copy per page. */
 

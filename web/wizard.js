@@ -514,6 +514,18 @@ function renderQuestionUnsafe(i) {
 
   const host = $('positions');
   host.textContent = '';
+  // P4's .wz-slot > * Settle only fires @starting-style while the element is
+  // not yet in a *visible* tree — and #screen-question is still `hidden` at
+  // this point in the function, so a revisit's preselected controls inserted
+  // here would bake in as already-settled and just pop into view once
+  // showScreen's crossfade finishes underneath them. The fix (routed here
+  // from the P4 whole-phase review) is to record which preselect to run, not
+  // which controls to build, and apply it once the screen is actually on
+  // screen — see the deferred call after showScreen('question') below. Both
+  // preselect paths (a matched position, and the confidence==='open' branch)
+  // go through this one variable so they stay mutually exclusive exactly as
+  // they were when this was decided by whichever `select()` ran first.
+  let deferredPreselect = null;
   for (const position of orderedPositions(doctrine)) {
     const card = el('div', 'wz-card');
 
@@ -528,18 +540,37 @@ function renderQuestionUnsafe(i) {
     card.appendChild(chipRow(position));
 
     // The card's own description IS the editable field — there is no second
-    // "What I hold" box repeating the same sentence underneath.
-    const holdBox = el('div', 'wz-holdfield');
-    const area = el('textarea');
-    area.rows = 5;
-    area.value = position.hold || '';
-    holdBox.appendChild(area);
-    card.appendChild(holdBox);
+    // "What I hold" box repeating the same sentence underneath. Unselected,
+    // it is a plain paragraph, not a bordered field box — that box is what
+    // made an unpicked choice read as a form to fill in. pick() below
+    // materialises the real textarea, in place, the moment the card is
+    // actually chosen.
+    let holdEl = el('p', 'wz-hold', position.hold || '');
+    let area = null;
+    card.appendChild(holdEl);
     const pick = () => {
-      if (!chosen || chosen.position !== position) select(card, 'position', doctrine, position, area);
+      if (chosen && chosen.position === position) return;
+      if (!area) {
+        area = el('textarea');
+        area.rows = 5;
+        area.value = position.hold || '';
+        area.addEventListener('input', pick);
+        // Tab-in only — never .focus(). Autofocusing here would raise a
+        // phone's keyboard over the choice the person just made.
+        area.addEventListener('focus', pick);
+        const box = el('div', 'wz-holdfield');
+        box.appendChild(area);
+        holdEl.replaceWith(box);
+        holdEl = box;
+      }
+      select(card, 'position', doctrine, position, area);
     };
-    area.addEventListener('input', pick);
-    area.addEventListener('focus', pick);
+    // ponytail: a card that's picked and then deselected keeps its textarea
+    // rather than reverting to a <p> — reverting costs a second code path for
+    // at most one card per question, and the height this phase is measured
+    // on (the screen on arrival) is already paid down by every still-
+    // unselected position.
+    card.addEventListener('click', pick);
 
     card.appendChild(el('div', 'wz-slot'));
     const toolbox = tools(card);
@@ -548,7 +579,6 @@ function renderQuestionUnsafe(i) {
     // left edge of a phone. .wz-card is position:relative already.
     toolbox.appendChild(readMoreButton(card, position.learn_detail, position.sources));
 
-    card.addEventListener('click', pick);
     host.appendChild(card);
 
     // Back re-opens a doctrine with its previous answer selected. Which
@@ -559,8 +589,15 @@ function renderQuestionUnsafe(i) {
     // how the wizard preselected nothing on a map /compare called a match.
     // No match still means the person reworded it, and nothing is preselected
     // rather than something wrong.
+    //
+    // This must call pick(), not select() directly: pick() is what
+    // materialises the textarea (area) that select() then stores as
+    // chosen.hold, and currentAnswer() reads chosen.hold.value. Calling
+    // select() straight here — the way this line worked before this task —
+    // would leave chosen.hold null and throw on save the moment this
+    // question was revisited.
     if (existing && CompareCore.normalise(existing.hold) === CompareCore.normalise(position.hold)) {
-      select(card, 'position', doctrine, position, area);
+      deferredPreselect = pick;
     }
   }
 
@@ -578,12 +615,31 @@ function renderQuestionUnsafe(i) {
 
   buildCustom(doctrine);
 
-  if (existing && existing.confidence === 'open' && !chosen) select(open, 'open', doctrine, null, null);
+  // Mutually exclusive with a matched position exactly as before: `!chosen`
+  // used to work here because the position-loop's own select() call ran
+  // synchronously above. It's deferred now, so the flag it would have set is
+  // deferredPreselect (still decided synchronously, from corpus data, not
+  // from the DOM) rather than `chosen` itself.
+  if (existing && existing.confidence === 'open' && !deferredPreselect) deferredPreselect = pickOpen;
 
   whoBelievesWhat(doctrine);
   $('who').open = false;
   $('q-back').hidden = (idx === 0 && !returnTo);
   showScreen('question');
+
+  // Apply the deferred preselect only once the screen is actually visible.
+  // showScreen's startViewTransition path runs its paint() (the un-hide)
+  // as its own task rather than synchronously on return, so code right after
+  // showScreen() here would still run before the screen is shown. A double
+  // requestAnimationFrame reliably lands after that without changing
+  // showScreen itself: the transition's own machinery needs at least one
+  // rendering opportunity to capture the "old" frame before it invokes
+  // paint(), so two animation-frame callbacks queued after showScreen() land
+  // after paint() has already run, in every path (transitions supported or
+  // not, motion reduced or not).
+  if (deferredPreselect) {
+    requestAnimationFrame(() => requestAnimationFrame(deferredPreselect));
+  }
 }
 
 /* The manual tile's fields — What I hold, Tier, Confidence and #study shown
