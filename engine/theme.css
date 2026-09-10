@@ -196,7 +196,7 @@ details.optional > summary {
   list-style: none;
 }
 details.optional > summary::-webkit-details-marker { display: none; }
-details.optional > summary::before { content: '\25B8\00a0'; display: inline-block; transition: transform .15s ease; }
+details.optional > summary::before { content: '\25B8\00a0'; display: inline-block; transition: transform var(--dur-1) var(--ease-out); }
 details.optional[open] > summary::before { transform: rotate(90deg); }
 details.optional > summary:hover { color: var(--ink); }
 
@@ -358,6 +358,40 @@ input, textarea { caret-color: var(--ink); }
   ::view-transition-old(*),
   ::view-transition-new(*) { animation: none !important; }
 }
+
+/* P4 Task 4: Disclosures that Settle instead of snap.
+
+   interpolate-size lets a <details> animate to its natural (auto) height with
+   no JS and no measured pixel values. Plain :root, not :where(:root) — this
+   file's :where(:root) exists so editor.html's inline :root stays the owner
+   of token *values*; interpolate-size is not a token and has no second copy
+   for that inline block to own.
+
+   Selector list covers all five named disclosures: details.optional matches
+   #q-readmore (wizard.html:330), #who (:356), and buildCustom's Advanced
+   details in both the corpus-answer and open-answer branches (wizard.js,
+   el('details', 'optional')); .cmp-row and .cmp-acc are compare.html's own
+   classes. Durations and easing are P2's tokens, not the .25s ease in the
+   source assessment (constrained §4.3) — that hard-coding is superseded.
+   Where ::details-content is unsupported these rules simply drop and the
+   disclosure snaps exactly as it does today: no JS fallback.
+
+   overflow: clip risk checked: nothing absolutely positioned escapes any of
+   these five. wizard.js's readMoreButton appends .wz-pop to the card host,
+   not inside a <details>, so it is never clipped by this rule. */
+:root { interpolate-size: allow-keywords; }
+
+details.optional::details-content,
+.cmp-row::details-content,
+.cmp-acc::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition: block-size var(--dur-2) var(--ease-out),
+              content-visibility var(--dur-2) allow-discrete;
+}
+details.optional[open]::details-content,
+.cmp-row[open]::details-content,
+.cmp-acc[open]::details-content { block-size: auto; }
 
 /* P4 Task 2: The global reduced-motion guard — last rule in the file.
 
