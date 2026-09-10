@@ -11,32 +11,149 @@ correctness, not polish.
 **Model:** Sonnet. **Depends on:** P2 (needs `--e1`, `--r2`, `--dur-1`, `--ease-out`).
 **Blocks:** P4, P6.
 
+**Session:** A, behind P2. **P2's Task 8 zero-visual-diff verification must be complete and
+committed before Task 1 here starts.** P2's whole verifiability comes from nothing consuming
+the new tokens; P3 is the phase that starts consuming them, and its work must not blur that
+signal.
+
+**Line numbers quoted in this file are pre-P1 and have drifted** (`wizard.html:177` is now
+`:173`; `theme.css:118` is now `:131`). Locate every target by selector, never by line number.
+
 ---
 
 ## Tasks
 
-1. **`color-scheme: light dark`** — one declaration in all three `:root` copies. There is no
-   `color-scheme` property anywhere in this repo, only media queries, so **every native
-   control, scrollbar, caret and `<dialog>` backdrop renders light-mode on a dark page.**
-   Largest visible-quality-per-character change in the codebase.
-2. **`accent-color: var(--ink)`** on `:root` — small win 12. Fixes the browser-blue checkbox
-   at `wizard.html:201` and gives the dead `--accent` token a job in all three copies.
-3. **The state system** — B3's block into `engine/theme.css`: `:focus-visible`,
-   `.wz-holdfield:focus-within`, press feedback, hover, `:disabled` / `[aria-disabled]`,
-   `::selection`. **Delete `web/wizard.html:177`** (`.wz-holdfield textarea:focus { outline:
-   none }`). `web/admin.html:20` and `engine/editor.html:58` can then drop their local
-   `:disabled` rules.
-4. **Fix `theme.css:118`.** `.wz-radio span, .mradio span { min-height: 38px }` sits **inside
-   the `@media (pointer: coarse)` block whose whole purpose is the 44px floor** — and those
-   are tier and confidence, the most-tapped controls in the product. Raise to 44px; the
-   padding at `wizard.html:190` already allows it.
-5. **Dark-mode elevation** — B2's second half. In dark, `--line: #372f22` on
-   `--panel: #201b14` is ≈1.3:1, so **card edges are invisible and every screen flattens into
-   one brown field.** Do not raise `--line` — it would shout in the light theme's borrowed
-   rules. Give dark-mode containers `box-shadow: var(--e1)` instead.
-6. **`caret-color: var(--ink)`** on inputs and textareas — small win 18.
+### Tasks 1 + 2 — `color-scheme` and `accent-color` · **one commit**, all three `:root` copies
 
-Tasks 1+2 are one commit (both are `:root`, all three files). Tasks 3–6 are one commit each.
+Both are `:root` declarations, so both incur the three-way hand-copy. Same insertion point P2
+used: `:where(:root)` in `engine/theme.css`, plain `:root` in `engine/render.py` and
+`engine/editor.html`.
+
+- [ ] Add to the base token block in all three:
+      ```css
+      color-scheme: light dark;
+      accent-color: var(--ink);
+      ```
+- [ ] **Task 1's why:** there is no `color-scheme` property anywhere in this repo, only media
+      queries. Without it every native control, scrollbar, caret and `<dialog>` backdrop
+      renders **light-mode on a dark page**. One declaration repaints all of them. Largest
+      visible-quality-per-character change in the codebase.
+- [ ] **Task 2's why (small win 12):** fixes the browser-blue checkbox on `/wizard`
+      (`.wz-check input`) and every future one, and gives the dead `--accent` token a job.
+      `render.py` already writes `label.tog input { accent-color: var(--accent) }`; leave that
+      rule alone — `--accent` and `--ink` carry the same value in both themes, so the page-wide
+      declaration and the local one agree.
+- [ ] `py engine/render.py`. **`study-list.md` and the `<script id="data">` payload stay
+      byte-identical.** The **full output hash moves** — this is a phase licensed to change
+      the output on purpose. **Say so in the commit message.**
+- [ ] Standing gate. Commit.
+
+### Task 3 — The state system · one commit
+
+B3's block into `engine/theme.css`, plus three deletions. Transcribe the CSS verbatim.
+
+- [ ] Append to `engine/theme.css`:
+      ```css
+      /* One focus ring for the whole product. --ink reads against both grounds
+         (it is the light value in dark mode); the offset is what makes it
+         visible on an already-bordered control. */
+      :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+        border-radius: var(--r2);
+      }
+
+      /* The belief field. The ring belongs on the WRAPPER, which is the thing
+         that looks like the control. */
+      .wz-holdfield:focus-within {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+        border-color: var(--ink);
+      }
+
+      /* Press feedback, which coarse pointers get no hover substitute for today. */
+      @media (prefers-reduced-motion: no-preference) {
+        .tm-card, .wz-card, .lens, .wz-qrow, .lp-row, .tm-action-btn, .wz-ghost {
+          transition: border-color var(--dur-1) var(--ease-out),
+                      background-color var(--dur-1) var(--ease-out),
+                      box-shadow var(--dur-1) var(--ease-out);
+        }
+        :where(.tm-card, .wz-card, .lens, .wz-qrow, .lp-row, button):active {
+          scale: .995;
+          transition-duration: 60ms;
+        }
+      }
+
+      a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
+        border-color: var(--field-line);
+        background: color-mix(in oklab, var(--chip) 45%, var(--panel));
+        box-shadow: var(--e1);
+      }
+
+      :where(button, .tm-action-btn, .wz-primary, .wz-ghost):disabled,
+      [aria-disabled="true"] {
+        opacity: .45;
+        cursor: default;
+        box-shadow: none;
+      }
+
+      ::selection { background: color-mix(in oklab, var(--t2-5) 25%, transparent); }
+      ```
+- [ ] **Delete** `web/wizard.html`'s `.wz-holdfield textarea:focus, .wz-holdfield input:focus
+      { outline: none; }`. This rule is why the product's primary input has no focus indicator
+      at all — a live WCAG 2.4.7 failure, not a polish item.
+- [ ] **Delete** `web/admin.html`'s local `button:disabled { opacity: .5; cursor: default; }`
+      — the shared rule covers it.
+- [ ] **Delete** `engine/editor.html`'s local `button:disabled { opacity:.4;
+      cursor:not-allowed; }` — same. `editor.html` links `theme.css`, so this is safe from
+      `file://` too.
+- [ ] The press block stays **inside** `@media (prefers-reduced-motion: no-preference)`. Under
+      reduced motion the press feedback must be instant, not slowed.
+- [ ] Standing gate. Commit.
+
+### Task 4 — The 38px radios · one commit
+
+- [ ] In `engine/theme.css`, inside the `@media (pointer: coarse)` block, change
+      `.wz-radio span, .mradio span { min-height: 38px; }` to `44px`.
+- [ ] This rule sits inside the block whose entire purpose is the 44px floor, and it governs
+      **tier and confidence — the most-tapped controls in the product.** The padding on
+      `.wz-radio span` in `web/wizard.html` already allows 44px; no other change is needed.
+- [ ] **Measure the rendered target, do not eyeball it.**
+- [ ] Standing gate. Commit.
+
+### Task 5 — Dark-mode elevation · one commit
+
+- [ ] Append to `engine/theme.css`:
+      ```css
+      /* In dark, --line (#372f22) on --panel (#201b14) is ~1.3:1, so card edges
+         are invisible and every screen flattens into one brown field. Raising
+         --line is not the fix — it would shout in the light theme's borrowed
+         rules. Give dark containers elevation instead of relying on the edge. */
+      @media (prefers-color-scheme: dark) {
+        .tm-card, .wz-card, .lp-pos, .lp-mine, .wz-area, .cmp-row, .cmp-acc,
+        .tm-picker, .wz-stat {
+          box-shadow: var(--e1);
+          border-color: color-mix(in oklab, var(--line) 60%, var(--panel));
+        }
+      }
+      ```
+- [ ] **Do not raise `--line`.** `--line` and `--field-line` are not interchangeable and this
+      task exists *because* of that rule, not despite it.
+- [ ] `.wz-card`, `.lp-mine`, `.wz-area` and `.wz-stat` are declared in `web/` page styles,
+      not in `theme.css`. The rule still applies — `theme.css` loads for every `web/` page.
+      Do not move those declarations.
+- [ ] Standing gate. Commit.
+
+### Task 6 — `caret-color` · one commit
+
+- [ ] Append to `engine/theme.css`:
+      ```css
+      input, textarea { caret-color: var(--ink); }
+      ```
+- [ ] Small win 18. `color-scheme` (Task 1) fixes most of this; this pins it.
+- [ ] Standing gate. Commit.
+
+---
 
 ## Invariants to quote into the tasks that touch these files
 
@@ -58,7 +175,7 @@ Tasks 1+2 are one commit (both are `:root`, all three files). Tasks 3–6 are on
 ## Specificity note for Task 3
 
 The blanket `:focus-visible` uses `:where(...)` (specificity 0), so any page-local ring still
-wins. **Verify `.wz-radio input:focus-visible + span` (`wizard.html:194`) still applies** — it
+wins. **Verify `.wz-radio input:focus-visible + span` (`web/wizard.html`) still applies** — it
 does, on higher specificity, but check it rather than assume.
 
 ## Gate additions
@@ -66,7 +183,8 @@ does, on higher specificity, but check it rather than assume.
 - `render.py` is touched (Tasks 1, 2 — `:root` only). Regenerate; **`study-list.md` and the
   `<script id="data">` payload byte-identical.** `color-scheme` and `accent-color` change
   rendered appearance, so the **full output hash may move** — this is a phase licensed to
-  change the output on purpose. Say so in the commit message.
+  change the output on purpose. Say so in the commit message. Record the new hash in
+  `00-index.md` at the end of the phase.
 - `engine/theme.css` and `engine/editor.html` load from `file://`. **Open `/edit` offline.**
 
 ## Acceptance criteria
@@ -80,9 +198,8 @@ does, on higher specificity, but check it rather than assume.
 - [ ] `::selection` is warm olive, not system blue, on a drag over prose.
 - [ ] **Dark mode: card edges are visible.** `/gallery`, `/wizard` launchpad, `/learn`
       position cards, `/compare` rows. No screen is one flat brown field.
-- [ ] Native controls match the page in dark: the `<select>` on `/wizard`, the checkbox at
-      `wizard.html:201`, the caret in every textarea, the scrollbars, the picker `<dialog>`
-      backdrop.
+- [ ] Native controls match the page in dark: the `<select>` on `/wizard`, the checkbox on
+      `/wizard`, the caret in every textarea, the scrollbars, the picker `<dialog>` backdrop.
 - [ ] **Light mode re-checked.** `color-scheme` changes every form control in *both* themes.
       Walk `landing.html`'s two forms and `admin.html` in light as well.
 - [ ] **360px / 820px / 1440px, both themes, reduced-motion on.** With reduced motion the
