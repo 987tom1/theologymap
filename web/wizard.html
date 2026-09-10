@@ -39,7 +39,13 @@
 
   /* P4 task 3: Hold — these three must not move across showScreen's view
      transition. The crossfade underneath is incidental; conspicuously not
-     moving is the effect. */
+     moving is the effect.
+
+     .wz-nav is named by class, unlike the other two (named by id). A second
+     rendered element sharing a view-transition-name aborts the whole
+     transition, silently, with no console error — engine/theme.css documents
+     this carefully for .tm-chrome; this is the same warning for .wz-nav.
+     Both P5 and P6 touch the nav, which is why this matters. */
   #q-title { view-transition-name: q-title; }
   #wz-crumb { view-transition-name: q-crumb; }
   .wz-nav { view-transition-name: q-nav; }

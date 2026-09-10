@@ -73,6 +73,12 @@ let chosen = null;          // { kind, position, hold } for the doctrine on scre
 let controls = null;        // the live tier/confidence/hold/study inputs
 let chromeEl = null;        // the site nav header, once chrome.js has mounted it
 let busy = false;
+// F1: main() is async and awaits loadCorpus() over the network, so the page
+// has already painted (chrome visible, every <section> hidden) before the
+// first showScreen() ever runs. Without this flag, that first call goes
+// through startViewTransition and crossfades the whole page on arrival —
+// a staggered entrance on first paint, the thing this phase forbids by name.
+let painted = false;
 
 /* --------------------------------------------------------------- utilities */
 
@@ -270,6 +276,10 @@ function showScreen(name) {
   if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return paint();
   }
+  // No motion on first paint: the very first showScreen() of this page's
+  // life lands instantly, never crossfaded, no matter which entry path
+  // (deep link, renderHome, or the intro screen) got here first.
+  if (!painted) { painted = true; return paint(); }
   document.startViewTransition(paint);
 }
 
