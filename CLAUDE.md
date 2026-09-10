@@ -62,10 +62,18 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `9a702faf…9d5fda` as written by `Path.write_text` on Windows (CRLF)
-- `43feab4f…9ea498` LF-normalised (what a Linux-side or hosted check compares against)
+- `84650d62…976146` as written by `Path.write_text` on Windows (CRLF)
+- `ad8c2515…e220e44e` LF-normalised (what a Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
+
+**Corrected 2026-09-10.** This file previously carried `9a702faf…9d5fda` / `43feab4f…9ea498`,
+which had been **stale since `cb08cea`** — `theology-map.html` changed and neither this file nor
+the plan index was updated, so the recorded gate had not matched the repo for several commits.
+Regenerating on a clean tree hashed to `f5396e31…6db99e` (CRLF), not the recorded value. The
+pair above is post-P3 and was verified by regenerating on a clean tree. **When a licensed phase
+moves the output, update this pair in the same commit** — a gate nobody can pass is a gate the
+next session learns to ignore.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -509,6 +517,12 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
 - **`--t1`…`--t4` live in `engine/theme.css`.** Four hand-copied duplicates in `web/` were
   deleted. **Do not reintroduce a tier hex literal in a `web/` file** — read the token.
   `render.py` keeps its copy for the self-containment reason above; that one is legitimate.
+- **Every `web/*.html` page links `theme.css` BEFORE its own `<style>`; `engine/editor.html`
+  links it AFTER.** So a shared rule in `theme.css` that must beat a page-local rule needs to
+  win on **specificity**, not presence — on a tie it loses to `web/` and wins in the editor,
+  which is how the 44px coarse-pointer floor sat inert on `/wizard` for a whole phase while
+  appearing to work in `/edit`. Matters most when snapping page-local values to tokens. §10
+  has the full case.
 - **`--line` and `--field-line` are not interchangeable.** `--field-line` is for interactive
   control boundaries *only* (WCAG 2.1 SC 1.4.11 needs 3:1; `--line` on `--panel` is 1.36:1).
   `--line` stays the decorative divider.
@@ -580,7 +594,7 @@ Some duplication here is deliberate. Know which is which.
 | Fork | Status |
 |---|---|
 | `engine/render.py`'s embedded Map JS (~390 lines) vs `engine/map-view.js` (~430) | **Being resolved** — see below |
-| The token `:root` block, forked **three** ways — `engine/theme.css:9-20`, `render.py:278-297`, `engine/editor.html:18-27` | **Permanent, and currently out of step.** Both generated and `file://` files must be self-contained. Change one, change all three. `--good`/`--bad` are missing from `render.py`; `--mono`/`--shadow` from the other two; `--accent` is dead in two of three. |
+| The token `:root` block, forked **three** ways — `engine/theme.css`, `engine/render.py`, `engine/editor.html` | **Permanent, and reconciled 2026-09-10 (P2).** Both generated and `file://` files must be self-contained. Change one, change all three. The old drift (`--good`/`--bad` missing from `render.py`; `--mono`/`--shadow` from the other two) is gone, and `--accent` now has a job as `accent-color`. P2 added eight spacing steps, four radii, three elevations, three durations, three easings and seven type steps to all three. **Still nothing checks that they agree** — the reconciliation was hand-verified, not enforced. |
 | `slugify` in `editor-core.js` and `chrome.js` | **Permanent.** An ES module cannot import the former; `file://`-served `editor.html` cannot load the latter. Change one, change the other, **and `render.py`'s too**. |
 | `editor-core.js` parser vs `render.py`'s `parse()` | **Permanent lockstep, by hand.** Round-trip fidelity was verified against the live file. Touch either, re-verify both. |
 | The nav list in `chrome.js` vs `editor.html` | **Permanent lockstep, by hand.** The documented `file://` exception. |
@@ -678,10 +692,10 @@ Thomas's decisions:
    surface for a first visit, the nav is the return path for visit forty. Remember the
    `editor.html` hand-copy (§8).
 
-Known bug, not yet fixed: **`/learn`'s "Answer this question" points at `/edit?open=<slug>`**,
-but an unanswered doctrine has no node, so a first-timer lands on the raw editor's pan/zoom
-canvas with nothing open. It should point at `/wizard?doctrine=<id>`, which already exists and
-which `/compare` already uses.
+~~Known bug: `/learn`'s "Answer this question" points at `/edit?open=<slug>`~~ — **fixed in P1.**
+`web/learn.js` now routes on whether the doctrine actually has a node: `/edit?open=<slug>` when
+it does, `/wizard?doctrine=<id>` when it does not. An unanswered doctrine no longer lands a
+first-timer on the raw editor's pan/zoom canvas with nothing open.
 
 **Growth marker:** `/compare` still eagerly loads all 475 KB of tradition maps. Lazy-loading
 the eleven non-target maps is the next performance move.
@@ -694,17 +708,31 @@ high-tech register is the visual language of *computed authority*, which is the 
 product's architecture spends its whole existence refusing to be. Its one exception is the
 map's **ground plane**. Three defects it found that are live now:
 
-- **There is no `color-scheme` property anywhere in the repo**, only media queries — so every
-  native control, scrollbar, caret and `<dialog>` backdrop renders light-mode on a dark page.
-- **`web/wizard.html:177` deletes the focus outline from the belief textarea** and no
-  `:focus-within` exists anywhere. The product's primary input has no visible focus state
-  (WCAG 2.4.7). Four disabled buttons have no `:disabled` styling.
-- **`theme.css:118` sets `.wz-radio span { min-height: 38px }`** inside the block whose whole
-  purpose is a 44px coarse-pointer floor — and that is tier and confidence, the most-tapped
-  controls in the flow.
-- **`prefers-reduced-motion` is honoured in exactly one place** (`gallery.html:20`). The map's
-  280 ms `.mbox` transform transition, the only substantive motion in the product, is
-  unguarded.
+Three of the four were fixed by P3 on 2026-09-10 and are recorded here as history, because
+each is easy to reintroduce:
+
+- ~~There is no `color-scheme` property anywhere in the repo~~ — **fixed.** `color-scheme:
+  light dark` and `accent-color: var(--ink)` are in all three `:root` copies. Native controls,
+  scrollbars, carets and the `<dialog>` backdrop now follow the page in both themes.
+- ~~`web/wizard.html` deletes the focus outline from the belief textarea~~ — **fixed.** The
+  `outline: none` rule is gone and the ring lives on the wrapper, `.wz-holdfield:focus-within`,
+  which is the thing that looks like the control. `engine/theme.css` now carries one shared
+  state system — focus, hover, press, `:disabled`, `::selection` — and `web/admin.html` and
+  `engine/editor.html` dropped their local `:disabled` rules to it.
+- ~~`theme.css` sets `.wz-radio span { min-height: 38px }` inside the 44px block~~ — **fixed,
+  and the obvious fix was not enough.** Raising the value alone was **inert**: `web/wizard.html`
+  declares `.wz-radio span { min-height: 30px }` at the same specificity and links `theme.css`
+  *before* its own `<style>`, so the page-local rule won on source order. The floor is now
+  `.wz-radio input + span, .mradio input + span`, which wins on **specificity** and so cannot be
+  defeated by a page's link order. **A rule in `theme.css` that must beat a `web/` page's own
+  rule needs specificity, not just presence** — every `web/*.html` page links `theme.css` first.
+  `engine/editor.html` is the exception, linking it last, which is why `.addbtn`'s deliberate
+  34px opt-out there uses a class to beat the element-selector floor.
+- **Still live: `prefers-reduced-motion` and hard-coded durations.** P2 zeroes `--dur-1/2/3` to
+  `1ms` under `prefers-reduced-motion: reduce` in all three copies, so **any rule reading those
+  tokens is guarded by construction.** But `render.py`'s `.mbox` transition still hard-codes
+  `transform .28s ease` and is not guarded. P4 owns the blanket `*` backstop that catches
+  hard-coded durations.
 
 ---
 
