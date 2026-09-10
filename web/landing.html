@@ -37,7 +37,9 @@
 
 <main class="tm-main">
 
-  <div class="tm-prose">
+  <details class="optional" id="what-it-is" open>
+    <summary>What a theology map is</summary>
+    <div class="tm-prose">
     <p>A theology map is what you actually believe, written down and sorted
       by how much weight each belief carries.</p>
     <p>Each belief carries a confidence — certain, confident, leaning, open, or
@@ -53,7 +55,8 @@
     <p>Half-steps (T1.5, T2.5) exist for beliefs that genuinely sit between two ranks.
       It is not a quiz and there is no score — nothing appears in your map that you
       did not put there.</p>
-  </div>
+    </div>
+  </details>
 
   <div class="tm-grid tm-firstrun" id="firstrun-grid">
     <a class="tm-card tm-card-primary" id="make-own-tile" href="#signup-form">
@@ -114,6 +117,9 @@ const $ = (id) => document.getElementById(id);
 const user = getUser();
 $('signed-out').hidden = !!user;
 $('make-own-tile').href = user ? '/wizard' : '/#signin';
+// Signed out, this is the pitch and it stays open. Signed in, it is 350 words
+// above your own tiles on visit forty; one line collapses it.
+if (user) $('what-it-is').open = false;
 
 // "My map", "History" and Unlist/Relist used to live in the nav; they moved
 // here as tiles (task 3) and only exist for a signed-in visitor, so they are
@@ -146,13 +152,18 @@ if (user) {
   // answers, rather than blocking the page on it.
   const visBtn = document.createElement('button');
   visBtn.type = 'button';
-  visBtn.className = 'tm-card tm-cardlink';
+  visBtn.className = 'tm-action-btn';
   visBtn.style.textAlign = 'left';
   visBtn.disabled = true;
   const visH3 = Object.assign(document.createElement('h3'), { textContent: 'Listing status' });
   const visP = Object.assign(document.createElement('p'), { textContent: 'Checking whether your map is listed in the gallery…' });
   visBtn.append(visH3, visP);
-  grid.appendChild(visBtn);
+  // A setting, not a destination - it renders under the grid, not as its
+  // seventh card. With P6 it also lives in the overflow menu.
+  const visRow = document.createElement('p');
+  visRow.className = 'tm-quiet';
+  visRow.appendChild(visBtn);
+  $('firstrun-grid').after(visRow);
 
   let isPublic = null;
   // Unlisting is not privacy and the wording must keep saying so: it takes the
