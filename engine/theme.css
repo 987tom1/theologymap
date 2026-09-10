@@ -208,7 +208,7 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome .toplinks a { padding: 16px 0; }
   .lp-row { padding: 12px 12px; }
   .cmp-row > summary, .cmp-acc > summary { padding: 12px 0; }
-  .wz-radio span, .mradio span { min-height: 38px; }
+  .wz-radio span, .mradio span { min-height: 44px; }
 }
 
 /* Shared product chrome (web/chrome.js), mirroring engine/editor.html's header
