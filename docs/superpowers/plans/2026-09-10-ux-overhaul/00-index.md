@@ -57,6 +57,23 @@ P2 ──► P3 ──► P4 ──► P5
 P9 depends on nothing but its own risk profile and may be pulled forward. P10 is hard-blocked
 on P9.
 
+## Sessions
+
+P1 is shipped. The ten remaining phases run in five sessions. The dependency graph above is
+unchanged — this is only a grouping of phases into working sessions, so that phases sharing a
+reconciliation, a regeneration or a hash check pay for it once.
+
+| Session | Phases | Why grouped |
+|---|---|---|
+| **A** | P2 + P3 | P3's tasks 1–2 are the same three-file `:root` edit as P2. One fork reconciliation, one `render.py` regeneration, one hash check serves both. Separate commits, and P2's zero-visual-diff verification runs in full **before** any P3 task. |
+| **B** | P4 → P5 + P6 | P5 and P6 are siblings off P4 and are file-disjoint. P4 lands first, then P5 and P6. |
+| **C** | P7 + P8 | P8 depends on P7; consecutive and same surface family. |
+| **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. |
+| **E** | P10 + P11 | P10 is hard-blocked on P9; P11 closes out behind it. |
+
+Sequencing between sessions still obeys the graph: A → B → C, and D before E. D may be pulled
+forward at any point.
+
 **Depth status.** P1 is written to full step detail and is ready to execute. P2–P11 carry
 their goal, files, governing invariants, gate, acceptance criteria and model assignment;
 their step-by-step task bodies are expanded from the cited spec/assessment sections
