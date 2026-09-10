@@ -273,3 +273,48 @@ a.tm-card-primary:focus-visible { outline-color:var(--bg); }
 .tm-picker::backdrop { background:rgba(0,0,0,.45); }
 .tm-picker h2 { margin:0 0 8px; font:600 20px/1.3 var(--serif); }
 .tm-picker .tm-grid { margin:16px 0; }
+
+/* One focus ring for the whole product. --ink reads against both grounds
+   (it is the light value in dark mode); the offset is what makes it
+   visible on an already-bordered control. */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: var(--r2);
+}
+
+/* The belief field. The ring belongs on the WRAPPER, which is the thing
+   that looks like the control. */
+.wz-holdfield:focus-within {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-color: var(--ink);
+}
+
+/* Press feedback, which coarse pointers get no hover substitute for today. */
+@media (prefers-reduced-motion: no-preference) {
+  .tm-card, .wz-card, .lens, .wz-qrow, .lp-row, .tm-action-btn, .wz-ghost {
+    transition: border-color var(--dur-1) var(--ease-out),
+                background-color var(--dur-1) var(--ease-out),
+                box-shadow var(--dur-1) var(--ease-out);
+  }
+  :where(.tm-card, .wz-card, .lens, .wz-qrow, .lp-row, button):active {
+    scale: .995;
+    transition-duration: 60ms;
+  }
+}
+
+a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
+  border-color: var(--field-line);
+  background: color-mix(in oklab, var(--chip) 45%, var(--panel));
+  box-shadow: var(--e1);
+}
+
+:where(button, .tm-action-btn, .wz-primary, .wz-ghost):disabled,
+[aria-disabled="true"] {
+  opacity: .45;
+  cursor: default;
+  box-shadow: none;
+}
+
+::selection { background: color-mix(in oklab, var(--t2-5) 25%, transparent); }
