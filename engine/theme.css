@@ -48,6 +48,18 @@
   --t4:   #33526e; /* Matters of liberty */
 }
 
+:where(:root) {
+  /* Spacing — 4px base, eight steps. Gaps come from this scale or they are a bug. */
+  --s1: .25rem;   /*  4px — inside a chip */
+  --s2: .5rem;    /*  8px — between a label and its value */
+  --s3: .75rem;   /* 12px — between rows in a card */
+  --s4: 1rem;     /* 16px — card padding, gap in a grid */
+  --s5: 1.5rem;   /* 24px — between blocks */
+  --s6: 2rem;     /* 32px — between sections */
+  --s7: 3rem;     /* 48px — page top/bottom */
+  --s8: 4.5rem;   /* 72px — the one big silence, above a screen title */
+}
+
 /* Interactive control boundaries take --field-line. Decorative dividers keep
    --line. Do not merge these two. */
 input[type=text], input[type=search], select, textarea,
