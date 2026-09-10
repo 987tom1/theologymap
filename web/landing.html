@@ -29,6 +29,12 @@
      wins the specificity fight back. Load-bearing; do not remove. */
   #signed-out[hidden] { display: none; }
   .quiet { font: 13px var(--sans); color: var(--muted); }
+  /* The Listing-status control is the only .tm-action-btn carrying block children
+     (an h3 and a sentence). The shared rule in theme.css is sized for a plain-text
+     chip - nowrap, line-height 1, no descendant margin reset - which is right for
+     its other two call sites and wrong for this one. Scoped here, not there. */
+  #vis-row .tm-action-btn      { white-space: normal; line-height: 1.4; text-align: left; }
+  #vis-row .tm-action-btn > *  { margin: 0; }
 </style>
 </head>
 <body class="tm-page">
@@ -153,7 +159,6 @@ if (user) {
   const visBtn = document.createElement('button');
   visBtn.type = 'button';
   visBtn.className = 'tm-action-btn';
-  visBtn.style.textAlign = 'left';
   visBtn.disabled = true;
   const visH3 = Object.assign(document.createElement('h3'), { textContent: 'Listing status' });
   const visP = Object.assign(document.createElement('p'), { textContent: 'Checking whether your map is listed in the gallery…' });
@@ -162,6 +167,7 @@ if (user) {
   // seventh card. With P6 it also lives in the overflow menu.
   const visRow = document.createElement('p');
   visRow.className = 'tm-quiet';
+  visRow.id = 'vis-row';
   visRow.appendChild(visBtn);
   $('firstrun-grid').after(visRow);
 
