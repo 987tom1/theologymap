@@ -13,6 +13,14 @@ export function el(tag, cls, text) {
 }
 function link(href, text) { const a = el('a', null, text); a.href = href; return a; }
 
+/* The tier-name → token map, forked four ways before this (wizard.js, compare.js,
+   learn.js, gallery.html). It reads engine/theme.css's --t1…--t4 rather than a hex,
+   which is the phase-10 rule: do not reintroduce a tier hex literal in a web/ file. */
+export const TIER_VAR = {
+  'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
+  'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)',
+};
+
 // Same algorithm as engine/editor-core.js's slugify (a UMD/global module, not
 // importable from an ES module page like /view). Kept in lockstep by hand,
 // same as the rest of that file's documented pairs.

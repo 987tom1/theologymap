@@ -9,18 +9,13 @@
    (window.EditorCore); the corpus loader and the stance vocabulary are
    web/corpus.js's; a citation becomes a link only through web/refs.js. */
 import { getUser, apiFetch } from '/web/session.js';
-import { mount, el } from '/web/chrome.js';
+import { mount, el, TIER_VAR } from '/web/chrome.js';
 import { citeLink as sharedCiteLink, sourceLine as sharedSourceLine } from '/web/refs.js';
 import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
 const Core = window.EditorCore;
 const $ = (id) => document.getElementById(id);
-
-const TIER_VAR = {
-  'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
-  'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)',
-};
 
 /* --------------------------------------------------------------- helpers */
 

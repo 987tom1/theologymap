@@ -6,7 +6,7 @@
    fetches the two maps and the corpus, and paints what CompareCore returns.
    Written in second person throughout, per Global Constraint 8. */
 import { getUser, requireUser, apiFetch, showError } from '/web/session.js';
-import { mount, el } from '/web/chrome.js';
+import { mount, el, TIER_VAR } from '/web/chrome.js';
 import { loadCorpus, loadTraditionManifest } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
@@ -31,11 +31,6 @@ const VERDICT_TEXT = {
   'mine-unanswered':    'Not in your map yet',
   'theirs-unanswered':  'This tradition takes no position on it',
   'rejected':           'Recorded as considered and rejected',
-};
-
-const TIER_VAR = {
-  'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
-  'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)',
 };
 
 const GLYPH = {

@@ -12,7 +12,7 @@
    serialising lives in engine/editor-core.js. If something here starts sorting
    doctrines or deciding what counts as answered, it is a duplicate. */
 import { getUser, apiFetch, showError } from '/web/session.js';
-import { mount, el } from '/web/chrome.js';
+import { mount, el, TIER_VAR } from '/web/chrome.js';
 // web/refs.js is a sibling agent's module. Contract: citationUrl(label,
 // citation) always returns a usable https URL — a curated table for the works
 // that recur, a search fallback for the long tail. There is exactly one
@@ -37,15 +37,6 @@ const LENS_KEY = 'tmm.wizard.tradition';
    rather than throwing. Every read and write is wrapped, exactly as the lens
    read is. */
 const IGNORE_KEY = 'tmm.wizard.ignored';
-
-/* The tier ramp is engine/render.py's, declared as CSS variables on :root in
-   engine/theme.css, which wizard.html links. Referencing the variables rather
-   than the hexes keeps one copy of the colours in this repo's CSS and none in
-   its JS. */
-const TIER_VAR = {
-  'T1': 'var(--t1)', 'T1.5': 'var(--t1-5)', 'T2': 'var(--t2)',
-  'T2.5': 'var(--t2-5)', 'T3': 'var(--t3)', 'T4': 'var(--t4)',
-};
 
 /* The same six strings as engine/editor.html's TIER_GLOSS and render.py's
    TIER_META. This is the only screen in the product where a person is asked to
