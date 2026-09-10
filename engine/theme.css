@@ -353,6 +353,22 @@ input, textarea { caret-color: var(--ink); }
    specificity in the cascade — across all view-transition pseudo-elements. */
 @view-transition { navigation: auto; }
 .tm-chrome { view-transition-name: tm-chrome; }
+/* F3: put the phase's two most visible animations on the token scale instead
+   of Chrome's UA default timing. Must sit before the reduced-motion guard
+   below so that guard still wins -- on importance, a cascade stage decided
+   before specificity or source order, not because of position, but position
+   keeps the intent legible next to it. */
+::view-transition-group(*) {
+  /* Travel: an element that already exists (the header, the crumb, the nav)
+     moving to a different place in the new document. */
+  animation-duration: var(--dur-3);
+  animation-timing-function: var(--ease-move);
+}
+::view-transition-old(*), ::view-transition-new(*) {
+  /* Settle half of the pair: the old/new snapshot crossfade. */
+  animation-duration: var(--dur-2);
+  animation-timing-function: var(--ease-out);
+}
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
@@ -367,18 +383,23 @@ input, textarea { caret-color: var(--ink); }
    of token *values*; interpolate-size is not a token and has no second copy
    for that inline block to own.
 
-   Selector list covers all five named disclosures: details.optional matches
-   #q-readmore (wizard.html:330), #who (:356), and buildCustom's Advanced
-   details in both the corpus-answer and open-answer branches (wizard.js,
-   el('details', 'optional')); .cmp-row and .cmp-acc are compare.html's own
-   classes. Durations and easing are P2's tokens, not the .25s ease in the
+   Class-wide is the right root-cause call: details.optional matches every
+   details with that class, not an enumerated list. It currently reaches
+   #q-readmore (wizard.html:330), #who (:356), buildCustom's Advanced details
+   in both the corpus-answer and open-answer branches (wizard.js,
+   el('details', 'optional')), web/landing.html:46's #what-it-is (ships open
+   in the markup on the front page — safe from first-paint motion, since an
+   element open at parse time has no before-change style and so runs no
+   transition), engine/editor.html:840's field disclosure, and the leaf tile
+   built by engine/map-view.js:321. .cmp-row and .cmp-acc are compare.html's
+   own classes. Durations and easing are P2's tokens, not the .25s ease in the
    source assessment (constrained §4.3) — that hard-coding is superseded.
    Where ::details-content is unsupported these rules simply drop and the
    disclosure snaps exactly as it does today: no JS fallback.
 
    overflow: clip risk checked: nothing absolutely positioned escapes any of
-   these five. wizard.js's readMoreButton appends .wz-pop to the card host,
-   not inside a <details>, so it is never clipped by this rule. */
+   these. wizard.js's readMoreButton appends .wz-pop to the card host, not
+   inside a <details>, so it is never clipped by this rule. */
 :root { interpolate-size: allow-keywords; }
 
 details.optional::details-content,
@@ -386,12 +407,28 @@ details.optional::details-content,
 .cmp-acc::details-content {
   block-size: 0;
   overflow: clip;
+  /* F5: only block-size is overridden on [open] below, so the clip stays on
+     while the disclosure is open, and this project's single focus ring
+     (2px solid, outline-offset 2px -- 4px outside the box) gets shaved by an
+     ancestor overflow: clip. This keeps the clip's purpose while letting the
+     ring show. Affected without it: web/compare.html's .cmp-row a, the
+     wizard's Advanced field rows, and the editor's optional field rows. */
+  overflow-clip-margin: 4px;
   transition: block-size var(--dur-2) var(--ease-out),
               content-visibility var(--dur-2) allow-discrete;
 }
 details.optional[open]::details-content,
 .cmp-row[open]::details-content,
 .cmp-acc[open]::details-content { block-size: auto; }
+
+/* F4: the editor's Map view measures offsetHeight synchronously in a toggle
+   handler (map-view.js:348-350) and redraw() never re-measures, so an
+   animated disclosure is measured at its collapsed height and the tiles
+   overlap. map-view.js is frozen until P9; this opts the map's own
+   disclosure out instead. .mbox is the leaf tile's own class
+   (map-view.js:366/381) and details.optional is appended inside it via
+   _leafDetail, so this selector reaches it as a descendant. */
+.mbox details.optional::details-content { transition: none; }
 
 /* P4 Task 2: The global reduced-motion guard — last rule in the file.
 
