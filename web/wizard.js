@@ -586,13 +586,12 @@ function renderQuestionUnsafe(i) {
   showScreen('question');
 }
 
-/* The manual tile: for somebody whose position is not among the offered ones.
-   Promoted / optional exactly as phase 3 split them — What I hold, Tier,
-   Confidence and #study shown directly; Why, What I'd reject, Still working
-   out, Texts and Related behind a disclosure. */
-function buildCustom(doctrine) {
-  const card = $('custom-answer');
-  card.classList.remove('sel');
+/* The manual tile's fields — What I hold, Tier, Confidence and #study shown
+   directly; Why, What I'd reject, Still working out, Texts and Related behind
+   a disclosure (phase 3's promoted/optional split). Body unchanged from
+   before this tile became a <details>; only buildCustom below changed, to
+   call this lazily instead of unconditionally on every question render. */
+function buildCustomFields(doctrine) {
   const host = $('custom-fields');
   host.textContent = '';
 
@@ -643,14 +642,38 @@ function buildCustom(doctrine) {
   state.links = related.input;
 
   host.appendChild(wrap);
+  return state;
+}
 
+/* #custom-answer is now a <details> (P5 task 2): expanding IT is choosing it.
+   The fields cost ~400px on every one of 86 questions for the minority who
+   need this tile, so they are built on first expand rather than on every
+   question render. Re-opening a tile already built must not rebuild it — that
+   would lose what the person typed — so `state` is remembered across toggles
+   for the doctrine currently on screen (renderQuestionUnsafe rebinds this
+   whole closure per question). Closing the tile selects nothing and clears
+   nothing: select() on another card already removes .sel and empties every
+   .wz-slot, which is exactly what "nothing chosen" needs. */
+function buildCustom(doctrine) {
+  const card = $('custom-answer');
+  card.classList.remove('sel');
+  card.open = false;
+  $('custom-fields').textContent = '';
+
+  let state = null;
   const pick = () => {
     if (!chosen || chosen.kind !== 'custom') {
       select(card, 'custom', doctrine, null, state.hold, state);
     }
   };
-  card.onclick = pick;
-  state.hold.oninput = pick;
+  card.ontoggle = () => {
+    if (!card.open) return;
+    if (!state) {
+      state = buildCustomFields(doctrine);
+      state.hold.oninput = pick;
+    }
+    pick();
+  };
 }
 
 function existingNode(doctrine) {
