@@ -278,6 +278,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   :root {
     --bg: #f6f3ec; --panel: #fffdf8; --ink: #23201a; --muted: #6b6255;
     --line: #e2dbcb; --accent: #23201a; --chip: #ede6d6;
+    --good: #3d6b3d; --bad: #7c2d3b;
     /* Phase 7 adopts phase 3's two extra tokens verbatim (engine/theme.css).
        --field-line is for interactive control boundaries only: --line against
        --panel is 1.36:1 and fails WCAG 2.1 SC 1.4.11 (3:1). --note is a quiet
@@ -292,6 +293,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   @media (prefers-color-scheme: dark) {
     :root { --bg:#15120d; --panel:#201b14; --ink:#ece4d5; --muted:#a89a85;
             --line:#372f22; --accent:#ece4d5; --chip:#271f16;
+            --good:#7fbf7f; --bad:#d98a99;
             --field-line:#7d7059; --note:#2a2318;
             --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 20px -12px rgba(0,0,0,.55); }
   }
