@@ -659,6 +659,23 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     .pagefoot { max-width:none; padding:12px 0 0; font-size:9px;
       border-top:1px solid #ccc; margin-top:10px; }
   }
+
+  /* P4 Task 6: the same global reduced-motion guard as engine/theme.css
+     (P4 Task 2), hand-copied. This file has no reduced-motion coverage of
+     its own — .mbox's 280ms transition, .mchev, .group > h2 .chev and the
+     @keyframes flash :target outline are all unguarded without it — and it
+     cannot link theme.css: the generated map must stay one self-contained
+     double-clickable file, the same reason its :root token block above is
+     hand-copied rather than shared. One copy here, one in theme.css; keep
+     them identical, do not de-duplicate this into an import. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
 </head>
 <body>

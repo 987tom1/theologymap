@@ -62,8 +62,10 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `84650d62…976146` as written by `Path.write_text` on Windows (CRLF)
-- `ad8c2515…e220e44e` LF-normalised (what a Linux-side or hosted check compares against)
+- `27ae2c0f8025ceb248aa1eccc38c996d9b4c544e1b5458d707f8841bf427f384` as written by
+  `Path.write_text` on Windows (CRLF)
+- `6f7c775975e3468aaece7cb607854ef2a081b6c1b33d3c2d2f655fa8f7f057a1` LF-normalised (what a
+  Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
 
@@ -71,9 +73,13 @@ Run the full hashes yourself; the abbreviations above are for recognition only.
 which had been **stale since `cb08cea`** — `theology-map.html` changed and neither this file nor
 the plan index was updated, so the recorded gate had not matched the repo for several commits.
 Regenerating on a clean tree hashed to `f5396e31…6db99e` (CRLF), not the recorded value. The
-pair above is post-P3 and was verified by regenerating on a clean tree. **When a licensed phase
-moves the output, update this pair in the same commit** — a gate nobody can pass is a gate the
-next session learns to ignore.
+pair before this one (`84650d62…976146` CRLF / `ad8c2515…e220e44e` LF) was post-P3. **The pair
+above is post-P4** — P4 Task 6 added the reduced-motion guard to `render.py`'s own embedded
+`<style>` (it cannot link `engine/theme.css`, so it carries a hand-copied second copy of that
+guard), which is a licensed, on-purpose move of the full-output hash; `documentation/study-list.md`
+and the embedded `<script id="data">` payload stayed byte-identical, which is what proves only
+presentation moved. **When a licensed phase moves the output, update this pair in the same
+commit** — a gate nobody can pass is a gate the next session learns to ignore.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
