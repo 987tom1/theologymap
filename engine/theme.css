@@ -349,12 +349,38 @@ input, textarea { caret-color: var(--ink); }
 
    The reduced-motion guard zeros all transitions for users with
    prefers-reduced-motion: reduce, turning the animation into an instant swap
-   using the !important flag to win on specificity across all view-transition
-   pseudo-elements. */
+   using the !important flag to win on importance — evaluated before
+   specificity in the cascade — across all view-transition pseudo-elements. */
 @view-transition { navigation: auto; }
 .tm-chrome { view-transition-name: tm-chrome; }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) { animation: none !important; }
+}
+
+/* P4 Task 2: The global reduced-motion guard — last rule in the file.
+
+   This is a backstop, not the primary guarantee: P2 already zeroes
+   --dur-1/2/3 to 1ms under prefers-reduced-motion: reduce in all three :root
+   copies, so any rule reading those tokens is already guarded by
+   construction. This blanket rule exists only to catch hard-coded durations
+   (render.py's .mbox transition; Task 6 covers that file's own copy of this
+   guard, since render.py is self-contained and cannot link this stylesheet).
+   One backstop plus P2's tokens is the whole mechanism — no per-rule
+   @media (prefers-reduced-motion) anywhere in this phase, because a per-rule
+   copy is the thing that rots.
+
+   Every declaration below is !important, so it wins on importance in both
+   link orders this file ships in: web/*.html links theme.css before its own
+   <style>, engine/editor.html links it after (:289) — importance is decided
+   before specificity or source order, so this rule beats both, including
+   editor.html's .mbox transition (:151) and .mchev (:167). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
