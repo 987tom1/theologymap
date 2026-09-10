@@ -170,6 +170,22 @@
   /* the controls the controller drops into a card's answer slot */
   .wz-slot:empty { display: none; }
   .wz-slot { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+
+  /* P4 task 5: Settle. .wz-slot is empty in the markup and only gains
+     children from select(); .wz-pop does not exist until readMoreButton's
+     click handler runs. Neither is present on first paint, so
+     @starting-style cannot fire on load -- only when the controls/popover
+     are actually inserted. The border/background/shadow press-feedback
+     transition for .wz-card etc. already lives in engine/theme.css's
+     no-preference block; nothing is duplicated here. */
+  .wz-slot > *, .wz-pop {
+    opacity: 1; translate: 0 0;
+    transition: opacity var(--dur-2) var(--ease-out), translate var(--dur-2) var(--ease-out);
+  }
+  @starting-style {
+    .wz-slot > * { opacity: 0; translate: 0 -6px; }
+    .wz-pop { opacity: 0; translate: 0 -8px; }
+  }
   .wz-explain { display: flex; flex-direction: column; gap: 7px; }
   .wz-holdfield { border: 1px solid var(--field-line); border-radius: 8px;
                   background: var(--bg); color: var(--ink); padding: 9px 11px; }
