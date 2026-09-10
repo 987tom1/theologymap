@@ -318,3 +318,15 @@ a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
 }
 
 ::selection { background: color-mix(in oklab, var(--t2-5) 25%, transparent); }
+
+/* In dark, --line (#372f22) on --panel (#201b14) is ~1.3:1, so card edges
+   are invisible and every screen flattens into one brown field. Raising
+   --line is not the fix — it would shout in the light theme's borrowed
+   rules. Give dark containers elevation instead of relying on the edge. */
+@media (prefers-color-scheme: dark) {
+  .tm-card, .wz-card, .lp-pos, .lp-mine, .wz-area, .cmp-row, .cmp-acc,
+  .tm-picker, .wz-stat {
+    box-shadow: var(--e1);
+    border-color: color-mix(in oklab, var(--line) 60%, var(--panel));
+  }
+}
