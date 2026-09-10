@@ -62,6 +62,21 @@
       --e3: 0 4px 8px -4px rgb(0 0 0 / .5),  0 24px 44px -24px rgb(0 0 0 / .7);
     }
   }
+  :root {
+    /* Motion — three durations, three easings. --ease-out's control points are
+       deliberately aggressive: a hard decelerate reads as immediate and physical,
+       a gentle ease reads as floaty. */
+    --dur-1: 120ms;   /* state under the finger: hover, selection tint, press */
+    --dur-2: 200ms;   /* something appears or leaves */
+    --dur-3: 320ms;   /* something that exists moves somewhere else */
+
+    --ease-out:   cubic-bezier(.2, 0, 0, 1);    /* arriving — decelerate hard */
+    --ease-in:    cubic-bezier(.4, 0, 1, 1);    /* leaving */
+    --ease-move:  cubic-bezier(.4, 0, .2, 1);   /* moving between two on-screen places */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :root { --dur-1: 1ms; --dur-2: 1ms; --dur-3: 1ms; }
+  }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
          font: 15px/1.6 var(--serif); text-rendering:optimizeLegibility; }
