@@ -36,6 +36,13 @@
   /* The crumb sits under the brand rather than on its own row: three stacked
      rows made the header taller than the question itself on a 360px screen. */
   #wz-crumb { margin: 2px 0 0; font: 600 11.5px/1.3 var(--sans); color: var(--muted); letter-spacing: .03em; }
+
+  /* P4 task 3: Hold — these three must not move across showScreen's view
+     transition. The crossfade underneath is incidental; conspicuously not
+     moving is the effect. */
+  #q-title { view-transition-name: q-title; }
+  #wz-crumb { view-transition-name: q-crumb; }
+  .wz-nav { view-transition-name: q-nav; }
   #wz-headright { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
                   margin-left: auto; }
   .wz-ghost {

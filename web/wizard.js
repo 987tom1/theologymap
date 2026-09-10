@@ -251,15 +251,26 @@ function studyCheck() {
 const SCREENS = ['intro', 'lens', 'question', 'home', 'area'];
 
 function showScreen(name) {
-  for (const s of SCREENS) $('screen-' + s).hidden = (s !== name);
-  // One header at a time. The question screen keeps the wizard's own brand
-  // block plus the crumb and its two controls; every other screen wears the
-  // site nav, which is where "My map", the gallery and sign-out live.
-  const q = (name === 'question');
-  $('wz-header').hidden = !q;
-  if (chromeEl) chromeEl.hidden = q;
-  closePop();
-  window.scrollTo(0, 0);
+  const paint = () => {
+    for (const s of SCREENS) $('screen-' + s).hidden = (s !== name);
+    // One header at a time. The question screen keeps the wizard's own brand
+    // block plus the crumb and its two controls; every other screen wears the
+    // site nav, which is where "My map", the gallery and sign-out live.
+    const q = (name === 'question');
+    $('wz-header').hidden = !q;
+    if (chromeEl) chromeEl.hidden = q;
+    closePop();
+    window.scrollTo(0, 0);
+  };
+  // P4 task 3: same-document view transition. `chromeEl.hidden = q` above is
+  // kept exactly as-is (P6 removes it, not here — see CLAUDE.md's documented
+  // nav decision) which means .tm-chrome exists in the old snapshot but not
+  // the new one on entering a question, so the chrome fades rather than
+  // Holding. That's expected until P6; don't chase it here.
+  if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return paint();
+  }
+  document.startViewTransition(paint);
 }
 
 function lensLabel() {
