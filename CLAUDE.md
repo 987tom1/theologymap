@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `886d64a6438eb61ecac8aec25814cc2a61144df8757758260fced94a04a7b58e` as written by
+- `202194458e57879603b8573eb24b302f35087edd2824a6e6890e40d84e777402` as written by
   `Path.write_text` on Windows (CRLF)
-- `d448206d8864b5c18daa3d71495a3827edacac5b72d427bdb0e8e907af0e1480` LF-normalised (what a
+- `b780879ce8f1affb67a648ef916686257cdfa11b94ceda1d7d33c895a0ca911e` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -86,7 +86,12 @@ hash a second time, to the pair above, for the same reason: still licensed, stil
 presentation-only. Both times, `documentation/study-list.md` and the embedded
 `<script id="data">` payload stayed byte-identical, which is what proves only presentation
 moved. **When a licensed phase moves the output, update this pair in the same commit** — a
-gate nobody can pass is a gate the next session learns to ignore.
+gate nobody can pass is a gate the next session learns to ignore. **P7 Task 12 moved the pair
+a third time, to the one above** — `.node`'s radius (9px → `var(--r3)`, 12px) and the D4
+label-register reduction (six selectors losing `text-transform: uppercase` and their
+`letter-spacing`) are the licensed felt changes; `documentation/study-list.md` and the
+`<script id="data">` payload again stayed byte-identical, which is what proves only
+presentation moved this time too.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:

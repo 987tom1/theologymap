@@ -101,99 +101,108 @@
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--ink);
-         font: 15px/1.6 var(--serif); text-rendering:optimizeLegibility; }
+         font: var(--fs-1)/var(--lh-body) var(--serif); text-rendering:optimizeLegibility; }
   header { position:sticky; top:0; z-index:10; background:var(--bg);
-           border-bottom:1px solid var(--line); padding:15px 22px 11px; }
-  .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
+           border-bottom:1px solid var(--line); padding:var(--s4) var(--s5) var(--s3); }
+  .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
     text-transform:uppercase; color:var(--muted); }
   /* Was an inline style attribute on the anchor. Same look, but it can now be
      hidden by the print block and given a focus ring like every other link. */
   .kicker .editlink { float:right; color:var(--muted); text-transform:none;
     letter-spacing:0; font-weight:600; text-decoration:none; }
   .kicker .editlink:hover { color:var(--ink); }
-  h1 { margin:0; font-family:var(--serif); font-size:23px; letter-spacing:-0.01em;
+  h1 { margin:0; font-family:var(--serif); font-size:var(--fs-3); letter-spacing:-.012em;
     font-weight:600; }
   /* Title row: heading left, filter controls right. Merges what used to be
      two stacked rows (h1, then the search box inside .viewrow) into one, to
      shave height off the sticky header on a phone. */
-  .titlerow { display:flex; align-items:center; gap:12px; flex-wrap:nowrap; margin:0 0 3px; }
-  .titlefilters { display:flex; align-items:center; gap:8px; margin-left:auto; min-width:0; }
-  .sub { color:var(--muted); font:12.5px/1.5 var(--sans); margin-bottom:11px; max-width:58ch; }
-  .bar { display:flex; gap:16px; align-items:center; flex-wrap:wrap; font-family:var(--sans); }
-  .views { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:7px; }
+  .titlerow { display:flex; align-items:center; gap:var(--s3); flex-wrap:nowrap; margin:0 0 var(--s1); }
+  .titlefilters { display:flex; align-items:center; gap:var(--s2); margin-left:auto; min-width:0; }
+  .sub { color:var(--muted); font:var(--fs-00)/var(--lh-ui) var(--sans); margin-bottom:var(--s3); max-width:var(--measure); }
+  .bar { display:flex; gap:var(--s4); align-items:center; flex-wrap:wrap; font-family:var(--sans); }
+  /* .views/.seg's gap:2px and padding:3px are a segmented-control inset, not
+     a spacing step — frozen. */
+  .views { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:var(--r2); }
   .views button { border:0; background:transparent; color:var(--muted); cursor:pointer;
-    padding:5px 12px; border-radius:5px; font:600 12.5px/1 var(--sans); letter-spacing:.01em; }
+    padding:var(--s1) var(--s3); border-radius:var(--r2); font:600 var(--fs-00)/var(--lh-tight) var(--sans); letter-spacing:.01em; }
   .views button[aria-pressed="true"] { background:var(--panel); color:var(--ink);
     box-shadow:var(--shadow); }
-  .seg { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:7px; }
+  .seg { display:flex; gap:2px; background:var(--chip); padding:3px; border-radius:var(--r2); }
   .seg button { border:0; background:transparent; color:var(--muted); cursor:pointer;
-    padding:5px 10px; border-radius:5px; font:600 12px/1 var(--sans); }
+    padding:var(--s1) var(--s3); border-radius:var(--r2); font:600 var(--fs-00)/var(--lh-tight) var(--sans); }
   .seg button[aria-pressed="true"] { background:var(--panel); color:var(--ink);
     box-shadow:var(--shadow); }
   input[type=search] { border:1px solid var(--field-line); background:var(--panel); color:var(--ink);
-    padding:6px 11px; border-radius:6px; font:13px/1 var(--sans); min-width:190px; }
+    padding:var(--s2) var(--s3); border-radius:var(--r2); font:var(--fs-00)/var(--lh-tight) var(--sans); min-width:190px; }
   input[type=search]::placeholder { color:var(--muted); }
-  label.tog { font:12px/1 var(--sans); color:var(--muted); display:flex; gap:5px;
+  label.tog { font:var(--fs-00)/var(--lh-tight) var(--sans); color:var(--muted); display:flex; gap:var(--s1);
     align-items:center; cursor:pointer; }
   label.tog input { accent-color:var(--accent); }
-  .btnrow { display:flex; gap:6px; }
-  .btnrow button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
-    background:var(--panel); color:var(--muted); padding:5px 10px; border-radius:6px; cursor:pointer; }
+  .btnrow { display:flex; gap:var(--s2); }
+  .btnrow button { font:600 var(--fs-000)/var(--lh-tight) var(--sans); border:1px solid var(--field-line);
+    background:var(--panel); color:var(--muted); padding:var(--s1) var(--s3); border-radius:var(--r2); cursor:pointer; }
   .btnrow button:hover { color:var(--ink); border-color:var(--muted); }
   /* One focus treatment for every control on the page, not just .refchip.
      --muted is 5.41:1 on --bg and 5.90:1 on --panel, so it is visible in both
      themes on every surface a control sits on. */
   a:focus-visible, button:focus-visible, input:focus-visible,
   summary:focus-visible, [tabindex]:focus-visible {
-    outline:2px solid var(--muted); outline-offset:2px; border-radius:4px; }
-  main { padding:18px 22px 90px; max-width:1080px; margin-inline:auto; }
-  main.wide { max-width:none; padding:16px 16px 16px; }
-  .group { margin-bottom:22px; }
-  .group > h2 { font:700 11px/1.3 var(--sans); text-transform:uppercase; letter-spacing:.12em;
-    color:var(--muted); margin:0 0 11px; cursor:pointer; user-select:none;
-    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-    padding-bottom:8px; border-bottom:1px solid var(--line); }
+    outline:2px solid var(--muted); outline-offset:2px; border-radius:var(--r1); }
+  main { padding:var(--s4) var(--s5) var(--s8); max-width:1080px; margin-inline:auto; }
+  main.wide { max-width:none; padding:var(--s4) var(--s4) var(--s4); }
+  .group { margin-bottom:var(--s5); }
+  .group > h2 { font:600 var(--fs-000)/var(--lh-ui) var(--sans);
+    color:var(--muted); margin:0 0 var(--s3); cursor:pointer; user-select:none;
+    display:flex; align-items:center; gap:var(--s2); flex-wrap:wrap;
+    padding-bottom:var(--s2); border-bottom:1px solid var(--line); }
   .group > h2:hover { color:var(--ink); }
-  .group > h2 .chev { display:inline-block; transition:transform .15s ease; font-size:9px;
+  .group > h2 .chev { display:inline-block; transition:transform .15s ease; font-size:var(--fs-000);
     color:var(--muted); }
   .group.expanded > h2 .chev { transform:rotate(90deg); }
   .group .cardwrap { display:none; }
   .group.expanded .cardwrap { display:block; }
   /* Geometry and surface taken from theme.css's .tm-card so a card here and a
-     card in the hosted app are the same object: --panel, --field-line, 9px
-     radius, 16px/18px padding, 17px serif heading. The 3px tier rail on the
-     left edge is this view's own addition and stays. */
+     card in the hosted app are the same object: --panel, --field-line,
+     var(--r3) radius, var(--s4) padding, var(--fs-2) serif heading. The 3px
+     tier rail on the left edge is this view's own addition and stays. */
   .node { background:var(--panel); border:1px solid var(--field-line);
     border-left:3px solid var(--tier, var(--field-line));
-    border-radius:9px; padding:14px 18px 15px; margin-bottom:10px; break-inside:avoid;
+    border-radius:var(--r3); padding:var(--s4); margin-bottom:var(--s3); break-inside:avoid;
     scroll-margin-top:96px; }
   .node.assumed { border-style:dashed; }
-  .nhead { display:flex; gap:8px; align-items:baseline; flex-wrap:wrap; }
-  .ntitle { font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.3;
-    letter-spacing:-.003em; }
-  .chip { font:600 10px/1 var(--sans); letter-spacing:.05em;
-    text-transform:uppercase; padding:3.5px 6.5px; border-radius:4px;
-    background:var(--chip); color:var(--muted); }
+  .nhead { display:flex; gap:var(--s2); align-items:baseline; flex-wrap:wrap; }
+  .ntitle { font-family:var(--serif); font-weight:600; font-size:var(--fs-2); line-height:var(--lh-snug);
+    letter-spacing:-.012em; }
+  .chip { font:600 var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted);
+    /* padding is an optical value on a 1px-bordered micro-pill, not a
+       spacing step — frozen; see also .refchip below. */
+    padding:3.5px 6.5px; border-radius:var(--r1);
+    background:var(--chip); }
   .chip.tier { color:#fff; }
-  .dom { font:11.5px/1 var(--sans); color:var(--muted); }
-  .meter { display:inline-flex; align-items:center; gap:6px; }
+  .dom { font:var(--fs-000)/var(--lh-tight) var(--sans); color:var(--muted); }
+  .meter { display:inline-flex; align-items:center; gap:var(--s2); }
+  /* .track's 46x5 size and both radii below are measures on a 5px-tall bar,
+     not a spacing step — rounding to --r1 (4px) would turn it into a
+     lozenge. Frozen; left numeric. */
   .meter .track { width:46px; height:5px; border-radius:3px; background:var(--chip);
     border:1px solid var(--field-line); overflow:hidden; }
   .meter .fill { height:100%; border-radius:3px; background:var(--tier, var(--muted));
     display:block; opacity:.9; }
-  dl { margin:10px 0 0; padding-top:10px; border-top:1px solid var(--line);
-    display:grid; grid-template-columns:max-content 1fr; gap:7px 16px; align-items:baseline; }
-  dt { font:700 10px/1.8 var(--sans); letter-spacing:.08em;
-    text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+  dl { margin:var(--s3) 0 0; padding-top:var(--s3); border-top:1px solid var(--line);
+    display:grid; grid-template-columns:max-content 1fr; gap:var(--s2) var(--s4); align-items:baseline; }
+  dt { font:600 var(--fs-000)/var(--lh-ui) var(--sans);
+    color:var(--muted); white-space:nowrap; }
   /* 58ch is the prose cap from phase 3 §3. min() keeps it from overflowing a
      narrow container (a map tile, a print column) where 58ch is wider than the
      box. */
-  dd { margin:0; font:14.5px/1.6 var(--serif); max-width:min(58ch, 100%); }
+  dd { margin:0; font:var(--fs-0)/var(--lh-body) var(--serif); max-width:min(var(--measure), 100%); }
   dd.todo { color:var(--muted); font-style:italic; }
-  dd.refs, dd.rel { max-width:none; display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
-  .refchip { font:500 11px/1.5 var(--mono); letter-spacing:.01em;
+  dd.refs, dd.rel { max-width:none; display:flex; flex-wrap:wrap; gap:var(--s2); align-items:center; }
+  .refchip { font:500 var(--fs-000)/var(--lh-ui) var(--mono); letter-spacing:.01em;
     color:var(--muted); background:transparent; border:1px solid var(--field-line);
-    padding:2.5px 7px; border-radius:4px; white-space:nowrap;
+    /* padding is an optical value on a 1px-bordered micro-pill, not a
+       spacing step — frozen. */
+    padding:2.5px 7px; border-radius:var(--r1); white-space:nowrap;
     cursor:pointer; appearance:none; }
   .refchip:hover { color:var(--ink); border-color:var(--muted); }
   .refchip[aria-expanded="true"] { color:var(--ink); background:var(--chip); border-color:var(--muted); }
@@ -206,37 +215,39 @@
   .versepop { position:fixed; z-index:100; max-width:min(46ch, calc(100vw - 28px));
     background:var(--note); color:var(--ink);
     border:1px solid var(--field-line); border-left:3px solid var(--muted);
-    border-radius:0 9px 9px 0; box-shadow:var(--shadow);
-    padding:12px 16px 13px; }
-  .versepop-head { font:700 11px/1 var(--sans); letter-spacing:.04em; text-transform:uppercase;
-    color:var(--muted); margin-bottom:8px; padding-bottom:8px; border-bottom:1px solid var(--line); }
-  .versepop-body { font:14.5px/1.6 var(--serif); color:var(--ink); }
-  .versepop-empty { font:13px/1.5 var(--sans); font-style:italic; color:var(--muted); }
-  .versepop-attr { margin-top:9px; font:11px/1.4 var(--sans); color:var(--muted); }
+    border-radius:0 var(--r3) var(--r3) 0; box-shadow:var(--shadow);
+    padding:var(--s3) var(--s4) var(--s3); }
+  .versepop-head { font:600 var(--fs-000)/var(--lh-ui) var(--sans);
+    color:var(--muted); margin-bottom:var(--s2); padding-bottom:var(--s2); border-bottom:1px solid var(--line); }
+  .versepop-body { font:var(--fs-0)/var(--lh-body) var(--serif); color:var(--ink); }
+  .versepop-empty { font:var(--fs-00)/var(--lh-ui) var(--sans); font-style:italic; color:var(--muted); }
+  .versepop-attr { margin-top:var(--s2); font:var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted); }
 
-  .pagefoot { max-width:1080px; margin:0 auto; padding:18px 22px 40px;
-    font:11.5px/1.5 var(--sans); color:var(--muted); }
+  .pagefoot { max-width:1080px; margin:0 auto; padding:var(--s4) var(--s5) var(--s7);
+    font:var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted); }
   .pagefoot a { color:inherit; }
-  dd.rel a { font:11.5px/1.4 var(--sans); color:var(--muted); text-decoration:none;
-    border:1px solid var(--field-line); padding:3.5px 9px; border-radius:20px;
+  dd.rel a { font:var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted); text-decoration:none;
+    border:1px solid var(--field-line); padding:var(--s1) var(--s2); border-radius:var(--r2);
     cursor:pointer; }
   dd.rel a:hover { color:var(--ink); border-color:var(--muted); }
   .node:target { outline:2px solid var(--muted); outline-offset:3px; }
   .node.flash { animation:flash 1.4s ease; }
   @keyframes flash { 0%{outline:2px solid var(--muted);outline-offset:3px;} 100%{outline:2px solid transparent;} }
-  .legend { display:flex; gap:13px; flex-wrap:wrap; margin-top:10px;
-    font:11px/1 var(--sans); color:var(--muted); }
-  .legend span { display:flex; align-items:center; gap:6px; }
+  .legend { display:flex; gap:var(--s3); flex-wrap:wrap; margin-top:var(--s3);
+    font:var(--fs-000)/var(--lh-tight) var(--sans); color:var(--muted); }
+  .legend span { display:flex; align-items:center; gap:var(--s2); }
   /* Tier colour is never the sole channel (phase 3 §3.2, failure B). Each
      swatch is 1.87:1-3.42:1 on the dark panel on its own, so it carries a
-     --field-line border to be perceivable and always sits beside its label. */
+     --field-line border to be perceivable and always sits beside its label.
+     The 3px radius is a measure on a 10px swatch, not a spacing step, and
+     stays numeric. */
   .sw { width:10px; height:10px; border-radius:3px; display:inline-block;
     border:1px solid var(--field-line); flex:0 0 auto; }
   .empty { color:var(--muted); font-style:italic; }
 
   /* ---------- map view ---------- */
   #mapwrap { display:none; position:relative; width:100%; height:calc(100vh - 130px);
-    overflow:hidden; border:1px solid var(--line); border-radius:9px; background:var(--bg);
+    overflow:hidden; border:1px solid var(--line); border-radius:var(--r3); background:var(--bg);
     background-image:radial-gradient(var(--line) 1px, transparent 1px);
     background-size:24px 24px; cursor:grab; touch-action:none; }
   #mapwrap.dragging { cursor:grabbing; }
@@ -247,13 +258,13 @@
   #mapSvg path.edge-domain { stroke-width:1.6; opacity:.9; }
   #mapSvg path.edge-leaf { stroke-width:1.1; opacity:.75; }
   .mbox { position:absolute; left:0; top:0; background:var(--panel); border:1px solid var(--line);
-    border-radius:7px; padding:9px 12px; box-shadow:var(--shadow);
-    transition:transform .28s ease; cursor:pointer; font:13px/1.4 var(--sans);
+    border-radius:var(--r3); padding:var(--s2) var(--s3); box-shadow:var(--shadow);
+    transition:transform .28s ease; cursor:pointer; font:var(--fs-00)/var(--lh-ui) var(--sans);
     width:max-content; }
   .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
-    font-weight:700; font-size:14.5px; text-align:center; cursor:default; border-color:var(--ink); }
-  .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font-weight:700; font-size:12px;
-    letter-spacing:.03em; text-transform:uppercase; border-left:3px solid var(--muted); }
+    font-weight:700; font-size:var(--fs-0); text-align:center; cursor:default; border-color:var(--ink); }
+  .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);
+    color:var(--muted); border-left:3px solid var(--muted); }
   /* Collapsed leaf: shrink to its title/chips, clamped (150-320px) so a
      long title wraps to two lines instead of stretching the box. Expanded
      leaf (detail open): grow to a comfortable reading measure (roughly
@@ -265,33 +276,33 @@
   .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mbox-leaf.assumed { border-style:dashed; }
-  .mtitle { display:flex; align-items:center; justify-content:space-between; gap:8px; }
-  .mtitle b { font-weight:600; font-size:13.5px; }
-  .mchev { font-size:10px; color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
+  .mtitle { display:flex; align-items:center; justify-content:space-between; gap:var(--s2); }
+  .mtitle b { font-weight:600; font-size:var(--fs-0); }
+  .mchev { font-size:var(--fs-000); color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
   .mbox.mopen .mchev { transform:rotate(90deg); }
-  .mmeta { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
-  .mdetail { margin-top:9px; border-top:1px solid var(--line); padding-top:8px; }
+  .mmeta { display:flex; gap:var(--s1); flex-wrap:wrap; margin-top:var(--s2); }
+  .mdetail { margin-top:var(--s2); border-top:1px solid var(--line); padding-top:var(--s2); }
   /* A map tile is 340-560px wide, and "What I'd reject" as a max-content label
      column would eat ~100px of that. Labels stack above their values here, the
      same shape the card views take below 560px. */
-  .mdetail dl { grid-template-columns:1fr; gap:2px 0; border-top:0; padding-top:0; margin-top:0; }
-  .mdetail dt { padding-top:6px; }
+  .mdetail dl { grid-template-columns:1fr; gap:var(--s1) 0; border-top:0; padding-top:0; margin-top:0; }
+  .mdetail dt { padding-top:var(--s2); }
   .mdetail dt:first-child { padding-top:0; }
-  .mdetail dd { font-size:13.5px; }
-  .mcount { font-weight:400; color:var(--muted); font-size:11px; }
-  .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:6px; }
-  .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
-    background:var(--panel); color:var(--muted); padding:5px 9px; border-radius:6px; cursor:pointer;
+  .mdetail dd { font-size:var(--fs-0); }
+  .mcount { font-weight:400; color:var(--muted); font-size:var(--fs-000); }
+  .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:var(--s2); }
+  .mapcontrols button { font:600 var(--fs-000)/var(--lh-tight) var(--sans); border:1px solid var(--field-line);
+    background:var(--panel); color:var(--muted); padding:var(--s1) var(--s2); border-radius:var(--r2); cursor:pointer;
     box-shadow:var(--shadow); }
   .mapcontrols button:hover { color:var(--ink); }
   /* Sits over the dotted map ground, so it needs its own surface to stay
      readable rather than borrowing the page background. */
-  .maphint { position:absolute; left:10px; bottom:8px; font:11px/1.4 var(--sans);
-    color:var(--muted); z-index:5; background:var(--bg); padding:4px 8px;
-    border-radius:6px; max-width:calc(100% - 20px); }
+  .maphint { position:absolute; left:10px; bottom:8px; font:var(--fs-000)/var(--lh-ui) var(--sans);
+    color:var(--muted); z-index:5; background:var(--bg); padding:var(--s1) var(--s2);
+    border-radius:var(--r2); max-width:calc(100% - 20px); }
 
   /* ---------- header restructure: secondary filters behind a disclosure ---------- */
-  .viewrow { display:flex; gap:16px; align-items:center; flex:1 1 auto; min-width:0; }
+  .viewrow { display:flex; gap:var(--s4); align-items:center; flex:1 1 auto; min-width:0; }
   .filtersToggle { display:none; }
   .secondary { display:contents; }
 
@@ -317,39 +328,39 @@
   html.framed .kicker, html.framed .sub, html.framed .legend { display:none; }
   html.framed h1 { position:absolute; width:1px; height:1px; overflow:hidden;
     clip-path:inset(50%); white-space:nowrap; }
-  html.framed header { padding:10px 16px 8px; }
+  html.framed header { padding:var(--s3) var(--s4) var(--s2); }
 
   /* ---------- phone layout ---------- */
   @media (max-width:640px) {
-    header { padding:10px 14px 8px; }
+    header { padding:var(--s3) var(--s4) var(--s2); }
     .kicker { display:none; }
-    h1 { font-size:19px; }
+    h1 { font-size:var(--fs-2); }
     .sub { display:none; }
     .legend { display:none; }
-    .titlerow { gap:8px; }
-    .bar { gap:8px; row-gap:8px; }
-    .viewrow { gap:8px; width:100%; }
+    .titlerow { gap:var(--s2); }
+    .bar { gap:var(--s2); row-gap:var(--s2); }
+    .viewrow { gap:var(--s2); width:100%; }
     .views { overflow-x:auto; -webkit-overflow-scrolling:touch; flex:0 1 auto; scrollbar-width:thin; }
     .views button { white-space:nowrap; }
     input[type=search] { flex:1 1 auto; min-width:0; width:auto; }
-    .filtersToggle { display:inline-flex; align-items:center; gap:5px; font:600 12px/1 var(--sans);
+    .filtersToggle { display:inline-flex; align-items:center; gap:var(--s1); font:600 var(--fs-00)/var(--lh-tight) var(--sans);
       border:1px solid var(--field-line); background:var(--panel); color:var(--muted);
-      padding:7px 11px; border-radius:6px; cursor:pointer; }
+      padding:var(--s2) var(--s3); border-radius:var(--r2); cursor:pointer; }
     .filtersToggle[aria-expanded="true"] { color:var(--ink); border-color:var(--muted); }
     .secondary { display:none; width:100%; flex-direction:column; align-items:flex-start; gap:8px; }
     .secondary.open { display:flex; }
     #mapwrap { height:calc(100vh - 108px); }
-    main { padding:14px 14px 70px; }
-    .node { padding:12px 14px 13px; margin-bottom:8px; }
-    .ntitle { font-size:16px; }
-    dd { font-size:14px; }
-    .group { margin-bottom:18px; }
-    .pagefoot { padding:16px 14px 32px; }
+    main { padding:var(--s4) var(--s4) var(--s8); }
+    .node { padding:var(--s3) var(--s4) var(--s3); margin-bottom:var(--s2); }
+    .ntitle { font-size:var(--fs-1); }
+    dd { font-size:var(--fs-0); }
+    .group { margin-bottom:var(--s4); }
+    .pagefoot { padding:var(--s4) var(--s4) var(--s6); }
   }
 
   @media (max-width:560px) {
-    dl { grid-template-columns:1fr; gap:2px 0; }
-    dt { padding-top:6px; }
+    dl { grid-template-columns:1fr; gap:var(--s1) 0; }
+    dt { padding-top:var(--s2); }
     dt:first-child { padding-top:0; }
   }
 
