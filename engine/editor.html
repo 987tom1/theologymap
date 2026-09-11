@@ -613,20 +613,23 @@
       // pattern as the adapter itself, so the offline tool is unaffected.
       const { getUser, clearUser } = await import('/web/session.js');
       const toplinks = $('editorToplinks');
-      // Same one line as web/chrome.js's link(): path only, since My map's
-      // href carries a query string and Sign in's (here, Sign out's) is a
-      // fragment — keeps the two lists in lockstep on behaviour, not just
-      // content.
-      const markCurrent = (a) => {
-        if (new URL(a.href, location.origin).pathname === location.pathname) {
-          a.setAttribute('aria-current', 'page');
-        }
+      // Same rule as web/chrome.js's matchesPage(): path only, unless the
+      // item's own href carries a query string, in which case that must
+      // match too (M1). Compares the RAW href, not a.href (which the
+      // browser resolves against the full document URL) — a.href on
+      // Sign out's href="#" would resolve to this very page's own
+      // pathname and wrongly mark it current. Keeps this file's behaviour,
+      // not just its content, in lockstep with chrome.js.
+      const matchesPage = (href) => {
+        const u = new URL(href, location.origin);
+        return u.pathname === location.pathname
+          && (u.search === '' || u.search === location.search);
       };
       const navLink = (href, text) => {
         const a = document.createElement('a');
         a.href = href; a.textContent = text;
+        if (matchesPage(href)) a.setAttribute('aria-current', 'page');
         toplinks.appendChild(a);
-        markCurrent(a);
         return a;
       };
       // The hosted page is not "a form over a file on disk" — it is the person's
@@ -660,36 +663,38 @@
         // that "My map" is a tile, not a nav item — it is a nav item again,
         // per chrome.js. The *copy* stays a hand-kept copy for the reason it
         // always was: the offline tool must load from file:// with no
-        // network, so this file cannot import chrome.js.
+        // network, so this file cannot import chrome.js. This one item
+        // isn't in the [href, label] array below because it reuses this
+        // pre-existing DOM node rather than creating one — the one place
+        // this file's nav-building can't be identical in shape to
+        // chrome.js's, only in content and behaviour.
+        const mapHref = '/view?name=' + encodeURIComponent(me.name);
         const mapLink = $('editorMapLink');
-        mapLink.href = '/view?name=' + encodeURIComponent(me.name);
+        mapLink.href = mapHref;
         mapLink.removeAttribute('target');
         mapLink.removeAttribute('rel');
         mapLink.textContent = 'My map';
-        markCurrent(mapLink);
+        if (matchesPage(mapHref)) mapLink.setAttribute('aria-current', 'page');
 
         // Mirrors web/chrome.js's nav item-for-item. editor.html cannot
         // import chrome.js — the offline tool must load from file:// with no
         // network — so this is a deliberate second copy, not drift. Keep the
-        // two in step by hand. Edit, History, Compare, Listing status, Admin
-        // and Sign out move into the ⋯ popover (Task 2); this page's own
-        // Edit item there is correct, not a bug, since /edit is where we
-        // already are.
-        navLink('/wizard', 'Questions');
-        navLink('/learn', 'Learn');
-        navLink('/gallery', 'Browse');
+        // two in step by hand. Literal [href, label] pairs, kept visually
+        // identical to chrome.js's NAV array line for line, so a reorder or
+        // relabel shows up as a one-line diff in both files. Edit, History,
+        // Compare, Listing status, Admin and Sign out move into the ⋯
+        // popover (Task 2); this page's own Edit item there is correct, not
+        // a bug, since /edit is where we already are.
+        for (const [href, text] of [
+          ['/wizard', 'Questions'],
+          ['/learn', 'Learn'],
+          ['/gallery', 'Browse'],
+        ]) navLink(href, text);
 
         // The ⋯ overflow popover, built identically to web/chrome.js's
         // mount(). Zero JS beyond the Sign out handler below — light
         // dismiss, Escape and focus-return are the platform's job because
         // this is a real popover attribute, not a hand-rolled menu.
-        const moreBtn = document.createElement('button');
-        moreBtn.type = 'button';
-        moreBtn.id = 'tm-more-btn';
-        moreBtn.className = 'tm-morebtn';
-        moreBtn.setAttribute('popovertarget', 'tm-more');
-        moreBtn.setAttribute('aria-label', 'More');
-        moreBtn.textContent = '⋯';
         const more = document.createElement('div');
         more.id = 'tm-more';
         more.className = 'tm-more';
@@ -697,26 +702,64 @@
         const moreLink = (href, text) => {
           const a = document.createElement('a');
           a.href = href; a.textContent = text;
+          if (matchesPage(href)) a.setAttribute('aria-current', 'page');
           more.appendChild(a);
-          markCurrent(a);
           return a;
         };
-        // /edit marking its own Edit item here is correct, not a bug — it is
-        // where we already are.
-        moreLink('/edit', 'Edit');
-        moreLink('/history', 'History');
-        moreLink('/compare', 'Compare');
-        // Not a page: web/landing.html:158-172 already builds this button
-        // under the tile grid with id="vis-row". Nothing added to /.
-        moreLink('/#vis-row', 'Listing status');
-        if (me.is_admin) moreLink('/admin', 'Admin');
-        const out = moreLink('#', 'Sign out');
+        const MORE = [
+          // /edit marking its own Edit item here is correct, not a bug —
+          // it is where we already are.
+          ['/edit', 'Edit'],
+          ['/history', 'History'],
+          ['/compare', 'Compare'],
+          // Not a page: the id this points at is created in JS, not static
+          // markup — web/landing.html:168-172 sets visRow.id = 'vis-row'
+          // while building the signed-in tile grid. The /#vis-row deep link
+          // works because the HTML spec retries "scroll to the fragment"
+          // after the document finishes loading, and that script runs
+          // before the load event fires — but a refactor deferring the
+          // tile build past load would silently break it. Nothing added to
+          // / either way.
+          ['/#vis-row', 'Listing status'],
+        ];
+        if (me.is_admin) MORE.push(['/admin', 'Admin']);
+        let anyCurrent = false;
+        for (const [href, text] of MORE) {
+          if (matchesPage(href)) anyCurrent = true;
+          moreLink(href, text);
+        }
+        // Sign out is an action, not a destination, so — same as
+        // chrome.js — it is never run through moreLink()'s current-page
+        // match: built with document.createElement directly, and it can
+        // never set anyCurrent above.
+        const out = document.createElement('a');
+        out.href = '#'; out.textContent = 'Sign out';
         out.addEventListener('click', (e) => {
           e.preventDefault();
           clearUser();
           location.href = '/';
         });
-        toplinks.after(moreBtn, more);
+        more.appendChild(out);
+
+        const moreBtn = document.createElement('button');
+        moreBtn.type = 'button';
+        moreBtn.id = 'tm-more-btn';
+        moreBtn.className = 'tm-morebtn';
+        moreBtn.setAttribute('popovertarget', 'tm-more');
+        moreBtn.setAttribute('aria-label', 'More');
+        moreBtn.textContent = '⋯';
+        // aria-current on the items inside .tm-more is invisible while the
+        // menu is closed. Mirror it onto the button itself so the one thing
+        // aria-current exists for — showing where you are — still works
+        // when the current page lives in the overflow.
+        if (anyCurrent) moreBtn.setAttribute('aria-current', 'page');
+        // Into the nav's own flex row, not a sibling of it — a sibling
+        // <button> after a flex-display .toplinks wraps onto its own line,
+        // breaking the one-row nav this phase exists to deliver. The
+        // popover <div> itself can stay outside the flex row; it renders in
+        // the top layer regardless of DOM position.
+        toplinks.appendChild(moreBtn);
+        toplinks.after(more);
       } else {
         // Nobody signed in: load(), called later in boot(), calls
         // requireUser() and redirects to / shortly. Don't invent a

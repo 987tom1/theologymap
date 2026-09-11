@@ -11,15 +11,25 @@ export function el(tag, cls, text) {
   if (text != null) e.textContent = text;
   return e;
 }
+// Path only, unless the item's own href carries a query string — then that
+// must match too. Without this, /view?name=<anyone> reads pathname-only as
+// "/view" and "My map" marks itself current while looking at someone else's
+// map, or a generated tradition summary (M1). A fragment (Sign in's
+// /#signin, Listing status's /#vis-row) carries no search, so those still
+// match on path alone — the accepted /-page behaviour, since a raw string
+// compare against location.pathname would have matched neither kind of
+// href at all. Sign out is never run through this: it's an action, not a
+// destination, and is built with el() directly, below, same as this file
+// always did.
+function matchesPage(href) {
+  const u = new URL(href, location.origin);
+  return u.pathname === location.pathname
+    && (u.search === '' || u.search === location.search);
+}
 function link(href, text) {
   const a = el('a', null, text);
   a.href = href;
-  // Path only: My map's href carries a query string and Sign in's a
-  // fragment, and a raw string compare against location.pathname would mark
-  // neither. new URL() strips both before the comparison.
-  if (new URL(href, location.origin).pathname === location.pathname) {
-    a.setAttribute('aria-current', 'page');
-  }
+  if (matchesPage(href)) a.setAttribute('aria-current', 'page');
   return a;
 }
 
@@ -63,41 +73,55 @@ export function mount(pageTitle, actions = []) {
   // P6: My map · Questions · Learn · Browse · ⋯ signed in; Learn · Browse ·
   // Sign in signed out. History, Edit, Compare, Listing status, Admin and
   // Sign out moved into the ⋯ popover (Task 2). No Home link any more —
-  // §10's decision, not an oversight.
+  // §10's decision, not an oversight. Literal [href, label] pairs so a
+  // reorder or relabel is a one-line diff, here and in editor.html's
+  // matching array — keep the two visually identical line for line.
+  const NAV = user
+    ? [
+        // Copied from web/landing.html:148's tile href, not reimplemented:
+        // the empty-map redirect and unlisted-map message live in
+        // web/view.html and stay there.
+        ['/view?name=' + encodeURIComponent(user.name), 'My map'],
+        ['/wizard', 'Questions'],
+        ['/learn', 'Learn'],
+        ['/gallery', 'Browse'],
+      ]
+    : [
+        ['/learn', 'Learn'],
+        ['/gallery', 'Browse'],
+        ['/#signin', 'Sign in'],
+      ];
   const links = el('div', 'toplinks');
-  if (user) {
-    // Copied from web/landing.html:148's tile href, not reimplemented: the
-    // empty-map redirect and unlisted-map message live in web/view.html and
-    // stay there.
-    links.appendChild(link('/view?name=' + encodeURIComponent(user.name), 'My map'));
-    links.appendChild(link('/wizard', 'Questions'));
-  }
-  links.appendChild(link('/learn', 'Learn'));
-  links.appendChild(link('/gallery', 'Browse'));
-  if (!user) links.appendChild(link('/#signin', 'Sign in'));
-  head.appendChild(links);
+  for (const [href, text] of NAV) links.appendChild(link(href, text));
 
+  let more = null;
   if (user) {
-    // A native popover: light dismiss, Escape and focus-return are the
-    // platform's job, not ours. The one JS handler below (Sign out) is the
-    // only JS this menu needs.
-    const moreBtn = el('button', 'tm-morebtn', '⋯');
-    moreBtn.type = 'button';
-    moreBtn.id = 'tm-more-btn';
-    moreBtn.setAttribute('popovertarget', 'tm-more');
-    moreBtn.setAttribute('aria-label', 'More');
-    head.appendChild(moreBtn);
-
-    const more = el('div', 'tm-more');
+    more = el('div', 'tm-more');
     more.id = 'tm-more';
     more.setAttribute('popover', '');
-    more.appendChild(link('/edit', 'Edit'));
-    more.appendChild(link('/history', 'History'));
-    more.appendChild(link('/compare', 'Compare'));
-    // Not a page: web/landing.html:158-172 already builds this button under
-    // the tile grid with id="vis-row". Nothing added to /.
-    more.appendChild(link('/#vis-row', 'Listing status'));
-    if (user.is_admin) more.appendChild(link('/admin', 'Admin'));
+    const MORE = [
+      ['/edit', 'Edit'],
+      ['/history', 'History'],
+      ['/compare', 'Compare'],
+      // Not a page: the id this points at is created in JS, not static
+      // markup — web/landing.html:168-172 sets visRow.id = 'vis-row' while
+      // building the signed-in tile grid. The /#vis-row deep link works
+      // because the HTML spec retries "scroll to the fragment" after the
+      // document finishes loading, and that script runs before the load
+      // event fires — but a refactor deferring the tile build past load
+      // would silently break it. Nothing added to / either way.
+      ['/#vis-row', 'Listing status'],
+    ];
+    if (user.is_admin) MORE.push(['/admin', 'Admin']);
+    let anyCurrent = false;
+    for (const [href, text] of MORE) {
+      const a = link(href, text);
+      if (a.hasAttribute('aria-current')) anyCurrent = true;
+      more.appendChild(a);
+    }
+    // Sign out is an action, not a destination, so it is never run through
+    // link()'s current-page match — built with el() directly, same as
+    // always. (This is also why it can never itself set anyCurrent above.)
     const out = el('a', null, 'Sign out');
     out.href = '#';
     out.addEventListener('click', (e) => {
@@ -106,8 +130,29 @@ export function mount(pageTitle, actions = []) {
       location.href = '/';
     });
     more.appendChild(out);
-    head.appendChild(more);
+
+    // A native popover: light dismiss, Escape and focus-return are the
+    // platform's job, not ours. The Sign out handler above is the only JS
+    // this menu needs.
+    const moreBtn = el('button', 'tm-morebtn', '⋯');
+    moreBtn.type = 'button';
+    moreBtn.id = 'tm-more-btn';
+    moreBtn.setAttribute('popovertarget', 'tm-more');
+    moreBtn.setAttribute('aria-label', 'More');
+    // aria-current on the items inside .tm-more is invisible while the menu
+    // is closed. Mirror it onto the button itself so the one thing
+    // aria-current exists for — showing where you are — still works when
+    // the current page lives in the overflow.
+    if (anyCurrent) moreBtn.setAttribute('aria-current', 'page');
+    // Into the nav's own flex row, not a sibling of it — a sibling <button>
+    // after a flex-display .toplinks wraps onto its own line, breaking the
+    // one-row nav this phase exists to deliver (and adding a header row on
+    // the question screen). The popover <div> itself can stay outside the
+    // flex row; it renders in the top layer regardless of DOM position.
+    links.appendChild(moreBtn);
   }
+  head.appendChild(links);
+  if (more) head.appendChild(more);
   host.replaceWith(head);
 }
 
