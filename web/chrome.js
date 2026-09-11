@@ -50,27 +50,24 @@ export function mount(pageTitle, actions = []) {
     titleRow.appendChild(actionsRow);
   }
   head.appendChild(titleRow);
+  // P6: My map · Questions · Learn · Browse · ⋯ signed in; Learn · Browse ·
+  // Sign in signed out. History, Edit, Compare, Listing status, Admin and
+  // Sign out moved into the ⋯ popover (Task 2). No Home link any more —
+  // §10's decision, not an oversight.
   const links = el('div', 'toplinks');
-  links.appendChild(link('/', 'Home'));
   if (user) {
+    // Copied from web/landing.html:148's tile href, not reimplemented: the
+    // empty-map redirect and unlisted-map message live in web/view.html and
+    // stay there.
+    links.appendChild(link('/view?name=' + encodeURIComponent(user.name), 'My map'));
     links.appendChild(link('/wizard', 'Questions'));
-    links.appendChild(link('/edit', 'Edit'));
   }
+  links.appendChild(link('/learn', 'Learn'));
   links.appendChild(link('/gallery', 'Browse'));
-  if (user && user.is_admin) links.appendChild(link('/admin', 'Admin'));
-  if (user) {
-    const out = el('a', null, 'Sign out');
-    out.href = '#';
-    out.addEventListener('click', (e) => {
-      e.preventDefault();
-      clearUser();
-      location.href = '/';
-    });
-    links.appendChild(out);
-  } else {
-    links.appendChild(link('/#signin', 'Sign in'));
-  }
+  if (!user) links.appendChild(link('/#signin', 'Sign in'));
   head.appendChild(links);
+  // The ⋯ overflow popover (Edit, History, Compare, Listing status, Admin,
+  // Sign out) is Task 2 — added below head.appendChild(links) in that commit.
   host.replaceWith(head);
 }
 
