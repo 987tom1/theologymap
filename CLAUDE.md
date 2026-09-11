@@ -368,13 +368,31 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 **`/app` no longer exists.** Anything still redirecting to it is stale; the signed-out
 redirect is `/`.
 
-**The nav is one list in `web/chrome.js`.** Below 640px it scrolls horizontally rather than
-wrapping — that is `engine/theme.css`'s `.tm-chrome .toplinks` rule. `chrome.js` used to set
-`flexWrap` inline, and an inline style beats a media query, so that rule was dead from the
-day it was written. **Do not put the wrap styles back on the element.**
-`engine/editor.html` carries a **hand-written copy of the same list** because it cannot
-import `chrome.js` — the documented `file://` exception, kept in step by hand. Any nav
-change is two edits.
+**The nav is one list in `web/chrome.js`.** Since P6 it is **`My map · Questions · Learn ·
+Browse · ⋯`** signed in and **`Learn · Browse · Sign in`** signed out, where `⋯` is a native
+`popover` holding Edit, History, Compare, Listing status, Admin and Sign out. Below 640px the
+row scrolls horizontally rather than wrapping — that is `engine/theme.css`'s
+`.tm-chrome .toplinks` rule, and **the `⋯` button belongs inside `.toplinks`**, not beside it:
+appended as a sibling it is inline-level after a flex container and renders on its own line at
+every width, which is how P6 first shipped it. `chrome.js` used to set `flexWrap` inline, and an
+inline style beats a media query, so that rule was dead from the day it was written. **Do not put
+the wrap styles back on the element.**
+
+`engine/editor.html` carries a **hand-written copy of the same list** because it cannot import
+`chrome.js` — the documented `file://` exception, kept in step by hand. **Any nav change is
+three edits now: `chrome.js`, `engine/theme.css` and `editor.html`.** Both files hold the list as
+a literal `[href, label]` array so a reorder or relabel is a one-line diff in each; keep them
+line-for-line identical. **There is no Home item** — D6's reasoning was that Home's only job for
+a signed-in user was to be a menu of the items evicted from the nav — so `/#vis-row` is the only
+nav-borne route back to `/`. That id is created in JS during `/`'s signed-in tile build, not in
+its markup, and the deep link works only because the HTML spec retries scroll-to-fragment after
+load.
+
+**Both copies must implement the current-page match identically.** It compares the **raw** href
+against `location.pathname`, and additionally requires `search` to agree when the href carries
+one — path-only marked "My map" while you were looking at someone else's map. `Sign out` never
+goes through it: its `href="#"` resolves to the current page, which marked it as current on
+`/edit`. Two independently written copies of that one rule is how that bug arrived.
 
 `mount(pageTitle, actions = [])` takes an optional array of built elements for a
 right-aligned header actions row. `/view` is the one caller that passes any.
@@ -505,6 +523,23 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   de-duplicated union, not a replacement. **Do not reorder `prev.x ||` ahead of the
   `!== undefined` test** — `tests/wizard-generate.test.js` pins both halves precisely because
   a mutation that did so passed every other test.
+- **A handler bound inside a per-render builder, onto markup that outlives the render, must be a
+  property assignment.** `buildCustom()` runs once per question against `#custom-answer` /
+  `#custom-fields`, which are static markup — so `addEventListener` accumulates one listener per
+  question, forever, and listeners fire in registration order. P5 shipped that, and the oldest
+  surviving closure won: expanding the custom tile on question 1 and clicking it on question 5
+  bound question 1's *detached* fields, which either saved question 1's sentence under question
+  5's doctrine or, more often, made `currentAnswer()` return `null` so the answer was **silently
+  discarded while the question advanced**. `$('custom-fields').onclick = pick` — an assignment,
+  scoped to the body so collapsing the tile cannot re-select it. The position cards are rebuilt
+  every render, so `addEventListener` there is fine; the difference is what outlives the render.
+- **Nothing in the wizard's render path may be deferred past the render.** P5 briefly queued the
+  revisit preselect behind a double `requestAnimationFrame` to make an entrance animation
+  visible. Nothing scoped the callback to the question that queued it, so question N's preselect
+  could land after question N±1 had rendered and pair N±1's doctrine with N's belief text, on a
+  screen showing no selection. **Deleted, not guarded** — and the animation it existed for was
+  wrong anyway: restored controls *are* the arriving screen, and the grammar says a page arriving
+  does not Settle.
 - **`normalise` strips exactly four things** — lowercase, collapse whitespace, one trailing
   full stop, one layer of surrounding quotes — and nothing else. Any fuzzier matching reports
   a confident wrong answer where an honest `own-wording` belongs.
@@ -536,6 +571,25 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   which is how the 44px coarse-pointer floor sat inert on `/wizard` for a whole phase while
   appearing to work in `/edit`. Matters most when snapping page-local values to tokens. §10
   has the full case.
+- **A `@media` query adds nothing to specificity.** A rule inside `@media (pointer: coarse)`
+  **ties** with an unwrapped rule on the same selector and loses to it on source order if the
+  base rule is declared later in the same file. P6 shipped `.tm-more a { padding: 16px 0 }`
+  inside the coarse block *above* the base `.tm-more a { padding: var(--s2) var(--s4) }`, so the
+  44px floor was inert and touch targets were ~33px — the same failure as the `/wizard` case
+  above, one file later. **A cascade derivation is not finished until you have named the
+  declaration that actually wins.** Two review rounds passed a comment whose arithmetic described
+  a rule that never applied.
+- **`[popover]`'s UA stylesheet is `position: fixed; inset: 0; width/height: fit-content;
+  margin: auto`, and that `inset: 0` must be reset before you set anchor edges.** Overriding
+  `top`/`right` while `left: 0` survives over-constrains the box, so CSS **drops `right`** in
+  LTR and the menu lands against the page edge instead of under its button. `inset: auto` first,
+  in the anchored rule **and** in the `@supports not (position-anchor: --x)` fallback. It looks
+  redundant and it is not.
+- **A second rendered element sharing a `view-transition-name` aborts the entire transition,
+  silently, with no console error.** Four names are live: `tm-chrome` (`theme.css`), and
+  `q-title`/`q-crumb`/`q-nav` (`web/wizard.html`). `.wz-nav`'s is a **class**, so a second
+  `.wz-nav` anywhere kills every transition on the page. Since P6 the chrome and the wizard's nav
+  render simultaneously, so this is one duplicate away from a total, invisible failure.
 - **`--line` and `--field-line` are not interchangeable.** `--field-line` is for interactive
   control boundaries *only* (WCAG 2.1 SC 1.4.11 needs 3:1; `--line` on `--panel` is 1.36:1).
   `--line` stays the decorative divider.
@@ -610,7 +664,7 @@ Some duplication here is deliberate. Know which is which.
 | The token `:root` block, forked **three** ways — `engine/theme.css`, `engine/render.py`, `engine/editor.html` | **Permanent, and reconciled 2026-09-10 (P2).** Both generated and `file://` files must be self-contained. Change one, change all three. The old drift (`--good`/`--bad` missing from `render.py`; `--mono`/`--shadow` from the other two) is gone, and `--accent` now has a job as `accent-color`. P2 added eight spacing steps, four radii, three elevations, three durations, three easings and seven type steps to all three. **Still nothing checks that they agree** — the reconciliation was hand-verified, not enforced. |
 | `slugify` in `editor-core.js` and `chrome.js` | **Permanent.** An ES module cannot import the former; `file://`-served `editor.html` cannot load the latter. Change one, change the other, **and `render.py`'s too**. |
 | `editor-core.js` parser vs `render.py`'s `parse()` | **Permanent lockstep, by hand.** Round-trip fidelity was verified against the live file. Touch either, re-verify both. |
-| The nav list in `chrome.js` vs `editor.html` | **Permanent lockstep, by hand.** The documented `file://` exception. |
+| The nav list in `chrome.js` vs `editor.html` | **Permanent lockstep, by hand.** The documented `file://` exception. Since P6 it is three edits, not two — `engine/theme.css` carries the popover's styles. Both sides hold the list as a literal `[href, label]` array to keep the diff one line. |
 
 **The helpers this repo forks are `el`, `escapeHtml` and `slugify`.** They now live in one
 place each — `el` and `slugify` exported from `web/chrome.js`, `escapeHtml` from
@@ -741,11 +795,47 @@ each is easy to reintroduce:
   rule needs specificity, not just presence** — every `web/*.html` page links `theme.css` first.
   `engine/editor.html` is the exception, linking it last, which is why `.addbtn`'s deliberate
   34px opt-out there uses a class to beat the element-selector floor.
-- **Still live: `prefers-reduced-motion` and hard-coded durations.** P2 zeroes `--dur-1/2/3` to
-  `1ms` under `prefers-reduced-motion: reduce` in all three copies, so **any rule reading those
-  tokens is guarded by construction.** But `render.py`'s `.mbox` transition still hard-codes
-  `transform .28s ease` and is not guarded. P4 owns the blanket `*` backstop that catches
-  hard-coded durations.
+- ~~**Still live: `prefers-reduced-motion` and hard-coded durations.**~~ — **fixed in P4.** P2
+  zeroed `--dur-1/2/3` to `1ms` under the query in all three copies, so any rule reading those
+  tokens is guarded by construction; P4 added the blanket `*, *::before, *::after` `!important`
+  backstop as the **last rule in `engine/theme.css`** for the ones that hard-code, and a
+  hand-copied second copy as the last rule in `render.py`'s embedded stylesheet, because the
+  generated map is self-contained and cannot link the stylesheet. **Both must stay last in their
+  file.** Two holes needed closing after the fact: `/wizard` animated on **first paint**, because
+  `main()` awaits the corpus after the page has already painted and every arrival then went
+  through `startViewTransition` (a one-shot `painted` flag in `showScreen` fixes it), and
+  `render.py`'s `scrollIntoView({ behavior: 'smooth' })` overrides `scroll-behavior`, so CSS
+  could not reach it and it needed its own `matchMedia` guard.
+
+**P4, P5 and P6 shipped 2026-09-11** (session B), 25 commits on top of P1–P3.
+
+- **P4 — Motion.** Cross-document `@view-transition` with `.tm-chrome` Held; `startViewTransition`
+  around `showScreen` Holding `#q-title`/`#wz-crumb`/`.wz-nav`; `::details-content` +
+  `interpolate-size` for disclosures; `@starting-style` for injected controls; the two guards
+  above. **Four verbs and nothing else — Tint, Settle, Travel, Hold — and every duration and
+  easing reads a `--dur-*`/`--ease-*` token**, including the `::view-transition-*` pseudos, which
+  ran on the UA default until the phase review caught it. `.mbox details.optional::details-content`
+  is opted **out** of the disclosure animation on purpose: `map-view.js` measures `offsetHeight`
+  synchronously in a `toggle` handler and never re-measures, so an animated open made the tiles
+  overlap — the exact bug that handler's own comment exists to prevent.
+- **P5 — The question screen.** `.wz-nav` is `position: sticky; bottom: 0`, and its
+  `-18px`/`-36px` bleed margins are **hard-bound to `.wz-screen-body`'s `padding: 22px 18px 36px`**
+  — not on the spacing scale, and they move together or not at all. `#custom-answer` is a lazily
+  built `<details>`; unselected positions render as `<p class="wz-hold">` and swap to a textarea
+  inside `pick()`, which every path that sets `chosen` for a position must route through, or
+  `currentAnswer()`'s `chosen.hold.value` throws on a revisited question. **The honest height
+  reduction is ~25% / ~19%** (three- and six-position doctrines), carried almost entirely by the
+  collapsed custom tile: the median corpus `hold` is 213 characters and renders 5–6 lines, so
+  swapping a fixed 5-row textarea for a paragraph makes a quarter to two-thirds of positions
+  *taller*, and only the `.wz-holdfield` chrome (20px) is a guaranteed saving. The swap is still
+  right — a paragraph is the correct rendering for an unpicked choice — and **"Next reachable
+  without scrolling" is delivered by the sticky nav, not by height.**
+- **P6 — The nav (D6).** The reversal above, implemented. `wizard.js` no longer hides the chrome
+  on the question screen, so `.tm-chrome` finally Holds across a question change instead of
+  fading, and `#wz-brand` is reduced to the crumb alone because `mount('Build a map')` already
+  supplies the kicker and `h1`. `#wz-header` still toggles, so a thin crumb bar still appears and
+  disappears — **that residue is by design and is Thomas's to accept or reject**, along with the
+  missing Home item.
 
 ---
 
