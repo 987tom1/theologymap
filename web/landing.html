@@ -7,28 +7,28 @@
 <meta name="description" content="Write down what you believe, and how much weight each belief carries.">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  .tm-main { display: flex; flex-direction: column; gap: 22px; }
-  .tm-prose h2 { margin: 0 0 8px; font: 600 20px/1.3 var(--serif); }
-  .tm-prose li { margin-bottom: 6px; }
-  ul { padding-left: 20px; }
-  form { border: 1px solid var(--field-line); border-radius: 9px;
-         padding: 16px 18px; background: var(--panel); }
-  form h2 { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
-  label { display: block; margin-top: 10px; font: 600 12px/1.6 var(--sans); color: var(--muted); }
-  input { display: block; width: 100%; box-sizing: border-box; padding: 8px;
-          margin-top: 3px; font: 15px var(--sans); background: var(--panel);
-          color: var(--ink); border: 1px solid var(--field-line); border-radius: 5px; }
-  button { padding: 9px 15px; margin-top: 14px; font: 600 13px var(--sans);
+  .tm-main { display: flex; flex-direction: column; gap: var(--s5); }
+  .tm-prose h2 { margin: 0 0 var(--s2); font: 600 var(--fs-3)/var(--lh-snug) var(--serif); letter-spacing: -.012em; }
+  .tm-prose li { margin-bottom: var(--s2); }
+  ul { padding-left: var(--s5); }
+  form { border: 1px solid var(--field-line); border-radius: var(--r3);
+         padding: var(--s4); background: var(--panel); }
+  form h2 { margin: 0 0 var(--s1); font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
+  label { display: block; margin-top: var(--s3); font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+  input { display: block; width: 100%; box-sizing: border-box; padding: var(--s2);
+          margin-top: var(--s1); font: var(--fs-1) var(--sans); background: var(--panel);
+          color: var(--ink); border: 1px solid var(--field-line); border-radius: var(--r2); }
+  button { padding: var(--s3) var(--s4); margin-top: var(--s4); font: 600 var(--fs-00) var(--sans);
            background: var(--ink); color: var(--bg);
-           border: 1px solid var(--ink); border-radius: 5px; cursor: pointer; }
-  #signed-out { display: grid; gap: 14px; max-width: 780px;
+           border: 1px solid var(--ink); border-radius: var(--r2); cursor: pointer; }
+  #signed-out { display: grid; gap: var(--s4); max-width: 780px;
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   /* The display:grid rule above outranks the browser's own [hidden] rule
      (attribute selector, lower specificity), so toggling .hidden alone would
      do nothing visible — see debug.md §Q, which is exactly this bug. This
      wins the specificity fight back. Load-bearing; do not remove. */
   #signed-out[hidden] { display: none; }
-  .quiet { font: 13px var(--sans); color: var(--muted); }
+  .quiet { font: var(--fs-00) var(--sans); color: var(--muted); }
   /* The Listing-status control is the only .tm-action-btn carrying block children
      (an h3 and a sentence). The shared rule in theme.css is sized for a plain-text
      chip - nowrap, line-height 1, no descendant margin reset - which is right for
