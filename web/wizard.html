@@ -20,15 +20,15 @@
 
   /* ---- the question screen's own crumb bar (the site nav is always on screen) ---- */
   #wz-header {
-    padding: 16px 20px 12px;
+    padding: var(--s4) var(--s5) var(--s3);
     border-bottom: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: var(--s3);
     flex-wrap: wrap;
   }
-  #wz-crumb { margin: 0; font: 600 11.5px/1.3 var(--sans); color: var(--muted); letter-spacing: .03em; }
+  #wz-crumb { margin: 0; font: 600 var(--fs-000)/var(--lh-snug) var(--sans); color: var(--muted); letter-spacing: .03em; font-variant-numeric: tabular-nums; }
 
   /* P4 task 3: Hold — these three must not move across showScreen's view
      transition. The crossfade underneath is incidental; conspicuously not
@@ -42,11 +42,11 @@
   #q-title { view-transition-name: q-title; }
   #wz-crumb { view-transition-name: q-crumb; }
   .wz-nav { view-transition-name: q-nav; }
-  #wz-headright { display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  #wz-headright { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap;
                   margin-left: auto; }
   .wz-ghost {
-    font: 600 11.5px/1 var(--sans); color: var(--muted); background: transparent;
-    border: 1px solid var(--field-line); border-radius: 7px; padding: 7px 9px;
+    font: 600 var(--fs-000)/var(--lh-tight) var(--sans); color: var(--muted); background: transparent;
+    border: 1px solid var(--field-line); border-radius: var(--r2); padding: var(--s2);
     cursor: pointer;
   }
   .wz-ghost:hover { color: var(--ink); }
@@ -58,59 +58,63 @@
   .wz-narrow .wz-screen-body { max-width: 640px; padding-top: 32px; gap: 18px; }
 
   #screen-intro h2, #screen-lens h2, #screen-question h2, #screen-home h2, #screen-area h2 {
-    margin: 0; font: 400 26px/1.25 var(--serif); letter-spacing: -0.01em; max-width: 26ch;
+    margin: 0;
+    font: 400 var(--fs-3)/var(--lh-tight) var(--serif);
+    letter-spacing: -.012em;
+    max-width: 26ch;
+    text-wrap: balance;
   }
-  #screen-intro h2 { font-size: 32px; max-width: 16ch; }
+  #screen-intro h2 { font-size: var(--fs-4); max-width: 17ch; }
 
-  .wz-lead { max-width: 58ch; display: flex; flex-direction: column; gap: 10px; }
+  .wz-lead { max-width: var(--measure); display: flex; flex-direction: column; gap: var(--s3); }
   .wz-lead p { margin: 0; }
 
-  .wz-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 4px; }
+  .wz-actions { display: flex; gap: var(--s3); align-items: center; flex-wrap: wrap; margin-top: var(--s1); }
 
   .wz-primary {
     background: var(--ink); color: var(--bg); border: 1px solid var(--ink);
-    text-decoration: none; font: 600 14px/1 var(--sans); padding: 14px 24px;
-    border-radius: 8px; cursor: pointer; display: inline-block;
+    text-decoration: none; font: 600 var(--fs-0)/var(--lh-tight) var(--sans); padding: var(--s4) var(--s5);
+    border-radius: var(--r2); cursor: pointer; display: inline-block;
   }
   .wz-link {
-    font: 600 12.5px/1 var(--sans); color: var(--muted); text-decoration: none;
+    font: 600 var(--fs-00)/var(--lh-tight) var(--sans); color: var(--muted); text-decoration: none;
     background: none; border: none; border-bottom: 1px solid var(--line);
-    padding: 0 0 2px; cursor: pointer; display: inline-block;
+    padding: 0 0 var(--s1); cursor: pointer; display: inline-block;
   }
   .wz-link:hover { color: var(--ink); }
 
   /* ---- lens screen ---- */
-  #lens-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  #lens-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--s3); }
   .lens {
-    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 14px 16px; display: flex; flex-direction: column; gap: 5px;
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: var(--r3);
+    padding: var(--s4); display: flex; flex-direction: column; gap: var(--s1);
     text-align: left; cursor: pointer; width: 100%; font: inherit; color: inherit;
   }
-  .lens strong { font: 600 15px/1.3 var(--serif); }
-  .lens span { font: 12.5px/1.5 var(--serif); color: var(--muted); }
+  .lens strong { font: 600 var(--fs-1)/var(--lh-snug) var(--serif); }
+  .lens span { font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted); }
   .lens.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
   .lens-none { grid-column: 1 / -1; background: var(--bg); }
 
   /* ---- question screen ---- */
-  .wz-qhead { display: flex; flex-direction: column; gap: 6px; }
+  .wz-qhead { display: flex; flex-direction: column; gap: var(--s2); }
   /* All of a doctrine's prose now lives behind the disclosure; only the
      question and the answer tiles are on the screen itself. */
   /* A real control, not a plain summary link — it is now the only way to the
      framing text, so it has to look pressable. The .wz-ghost look. */
   #q-readmore > summary {
     display: inline-block; align-self: flex-start;
-    border: 1px solid var(--field-line); border-radius: 7px;
-    padding: 8px 11px; font: 600 12px/1.2 var(--sans); letter-spacing: .04em;
+    border: 1px solid var(--field-line); border-radius: var(--r2);
+    padding: var(--s2) var(--s3); font: 600 var(--fs-00)/var(--lh-snug) var(--sans);
   }
   #q-readmore > summary:hover { border-color: var(--ink); }
-  #q-readmore-body { padding-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+  #q-readmore-body { padding-top: var(--s2); display: flex; flex-direction: column; gap: var(--s2); }
 
-  #positions { display: flex; flex-direction: column; gap: 8px; }
+  #positions { display: flex; flex-direction: column; gap: var(--s2); }
 
   .wz-card {
     position: relative;
-    background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 12px 14px; display: flex; flex-direction: column; gap: 7px;
+    background: var(--panel); border: 1px solid var(--field-line); border-radius: var(--r3);
+    padding: var(--s3) var(--s4); display: flex; flex-direction: column; gap: var(--s2);
   }
   .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink);
                  background: var(--chip); }
@@ -118,15 +122,15 @@
      button. It is the only thing in .wz-tools now that the tick is gone, so the
      gutter is what that one button needs and no more. */
   .wz-card-h { display: flex; align-items: baseline; justify-content: space-between;
-               gap: 10px; flex-wrap: wrap; padding-right: 88px; }
-  .wz-card-h strong { font: 600 15.5px/1.3 var(--serif); }
-  .wz-chips { display: flex; gap: 5px; flex-wrap: wrap; padding-right: 88px; }
-  .tchip { font: 600 11px/1 var(--sans); letter-spacing: .02em; color: var(--muted);
-           background: var(--chip); padding: 5px 8px; border-radius: 99px; }
+               gap: var(--s2); flex-wrap: wrap; padding-right: 88px; }
+  .wz-card-h strong { font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
+  .wz-chips { display: flex; gap: var(--s1); flex-wrap: wrap; padding-right: 88px; }
+  .tchip { font: 600 var(--fs-000)/var(--lh-tight) var(--sans); color: var(--muted);
+           background: var(--chip); padding: 5px 9px 5px 8px; border-radius: var(--r-pill); }
   .wz-card.sel .tchip { background: var(--panel); }
   .tchip-lens { background: var(--ink); color: var(--bg); }
   .wz-card.sel .tchip-lens { background: var(--ink); color: var(--bg); }
-  .wz-foot { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .wz-foot { display: flex; align-items: center; gap: var(--s3); flex-wrap: wrap; }
 
   /* Selection is the .sel tint and its border, and nothing else. */
   .wz-tools { position: absolute; top: 8px; right: 10px; display: flex;
@@ -147,22 +151,22 @@
     max-height: 52vh; overflow-y: auto;
     background: var(--panel); color: var(--ink);
     border: 1px solid var(--field-line); border-radius: 9px;
-    padding: 12px 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    padding: 12px 14px; box-shadow: var(--e2);
     display: flex; flex-direction: column; gap: 8px; text-align: left;
   }
 
   /* Both clear the same 88px gutter .wz-card-h and .wz-chips reserve: this
      block is the first thing in the card, so it sits directly under the
      absolutely-positioned Read more button (top:8px, right:10px). */
-  .wz-outside { margin: 0; padding-right: 88px; font: 600 11.5px/1.4 var(--sans);
-                letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
-  .wz-outside-note { margin: 2px 0 0; padding-right: 88px; font: 12.5px/1.55 var(--serif);
-                     color: var(--muted); max-width: 58ch; }
+  .wz-outside { margin: 0; padding-right: 88px; font: 600 var(--fs-000)/var(--lh-ui) var(--sans);
+                color: var(--muted); }
+  .wz-outside-note { margin: var(--s1) 0 0; padding-right: 88px; font: var(--fs-00)/var(--lh-body) var(--serif);
+                     color: var(--muted); max-width: var(--measure); }
 
   /* An escape hatch, not the recommended answer: it wears the ordinary card
      surface (.wz-card) and only adds the cursor and the open-tile spacing. */
-  #open-answer { cursor: pointer; padding: 14px; gap: 7px; }
-  #open-answer > strong { font: 600 15.5px/1.3 var(--serif); }
+  #open-answer { cursor: pointer; padding: var(--s4); gap: var(--s2); }
+  #open-answer > strong { font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
 
   /* `class="wz-card"` gives this a `display: flex` it now shares with the
      `<details>` element P5 task 2 made it — display:flex/grid on a <details>
@@ -178,12 +182,12 @@
      hint/fields gap is restated explicitly since the flex gap no longer
      reaches them. */
   #custom-answer { position: relative; display: block; }
-  #custom-answer > .wz-hint { margin: 0 0 7px; }
-  #custom-answer > #custom-fields:not(:empty) { margin-top: 7px; }
+  #custom-answer > .wz-hint { margin: 0 0 var(--s2); }
+  #custom-answer > #custom-fields:not(:empty) { margin-top: var(--s2); }
 
   /* the controls the controller drops into a card's answer slot */
   .wz-slot:empty { display: none; }
-  .wz-slot { display: flex; flex-direction: column; gap: 9px; margin-top: 2px; }
+  .wz-slot { display: flex; flex-direction: column; gap: var(--s2); margin-top: var(--s1); }
 
   /* P4 task 5: Settle. .wz-slot is empty in the markup and only gains
      children from select(); .wz-pop does not exist until readMoreButton's
@@ -200,12 +204,12 @@
     .wz-slot > * { opacity: 0; translate: 0 -6px; }
     .wz-pop { opacity: 0; translate: 0 -8px; }
   }
-  .wz-explain { display: flex; flex-direction: column; gap: 7px; }
-  .wz-holdfield { border: 1px solid var(--field-line); border-radius: 8px;
-                  background: var(--bg); color: var(--ink); padding: 9px 11px; }
+  .wz-explain { display: flex; flex-direction: column; gap: var(--s2); }
+  .wz-holdfield { border: 1px solid var(--field-line); border-radius: var(--r2);
+                  background: var(--bg); color: var(--ink); padding: var(--s2) var(--s3); }
   .wz-holdfield textarea, .wz-holdfield input[type=text] {
     display: block; width: 100%; box-sizing: border-box; border: none; background: none;
-    color: inherit; resize: vertical; font: 14.5px/1.55 var(--serif); padding: 0;
+    color: inherit; resize: vertical; font: var(--fs-1)/var(--lh-body) var(--serif); padding: 0;
   }
   /* P5 task 3: an unselected position's hold, before pick() swaps it for the
      textarea above. Same font, so materialising the field on pick does not
@@ -213,38 +217,38 @@
      the swap is instant (Ruling 1): selecting the card already Settles its
      .wz-slot controls, and animating this at the same time would be a second
      thing happening for one tap. */
-  .wz-hold { margin: 0; font: 14.5px/1.55 var(--serif); color: inherit; }
+  .wz-hold { margin: 0; font: var(--fs-1)/var(--lh-body) var(--serif); color: inherit; }
   /* Citation link styling (.cite-link, applied by web/refs.js's citeLink())
      lives in engine/theme.css now — one rule instead of a copy per page. */
 
   /* tier / confidence as horizontal radio groups. Real <input type=radio>,
      visually restyled: arrow-key operation and the a11y semantics come free. */
-  .wz-radios { display: flex; flex-wrap: wrap; gap: 6px; }
+  .wz-radios { display: flex; flex-wrap: wrap; gap: var(--s2); }
   .wz-radio { display: inline-block; position: relative; }
   .wz-radio input { position: absolute; opacity: 0; width: 0; height: 0; }
   .wz-radio span {
     display: inline-flex; align-items: center; justify-content: center;
-    border: 1px solid var(--field-line); border-radius: 7px;
-    padding: 7px 9px; font: 600 11.5px/1 var(--sans); color: var(--muted);
+    border: 1px solid var(--field-line); border-radius: var(--r2);
+    padding: var(--s2); font: 600 var(--fs-000)/var(--lh-tight) var(--sans); color: var(--muted);
     background: var(--bg); cursor: pointer; min-height: 30px;
   }
   .wz-radio input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .wz-radio input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
 
-  .wz-controls { display: flex; flex-wrap: wrap; gap: 12px 20px; }
-  .wz-controls > div { display: flex; flex-direction: column; gap: 5px; }
+  .wz-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); }
+  .wz-controls > div { display: flex; flex-direction: column; gap: var(--s1); }
 
-  .wz-check { display: flex; gap: 9px; align-items: flex-start; font: 13.5px/1.5 var(--serif);
+  .wz-check { display: flex; gap: var(--s2); align-items: flex-start; font: var(--fs-0)/var(--lh-body) var(--serif);
               color: inherit; cursor: pointer; }
   .wz-check input { margin: 2px 0 0; flex: none; width: 16px; height: 16px; }
 
-  .wz-fields { display: flex; flex-direction: column; gap: 9px; margin-top: 8px; }
+  .wz-fields { display: flex; flex-direction: column; gap: var(--s2); margin-top: var(--s2); }
 
   /* ---- who believes what ---- */
-  #who-body { padding-top: 8px; display: flex; flex-direction: column; gap: 12px; }
-  .who { margin: 0; display: grid; grid-template-columns: 150px 1fr; gap: 7px 18px; align-items: baseline; }
-  .who dt { font: 600 13.5px/1.5 var(--serif); }
-  .who dd { margin: 0; font: 13px/1.55 var(--serif); color: var(--muted); }
+  #who-body { padding-top: var(--s2); display: flex; flex-direction: column; gap: var(--s3); }
+  .who { margin: 0; display: grid; grid-template-columns: 150px 1fr; gap: var(--s2) var(--s4); align-items: baseline; }
+  .who dt { font: 600 var(--fs-0)/var(--lh-body) var(--serif); }
+  .who dd { margin: 0; font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted); }
   .stance { color: var(--ink); }
   @media (max-width: 480px) { .who { grid-template-columns: 1fr; } }
 
@@ -286,71 +290,71 @@
   }
 
   /* ---- launchpad ---- */
-  .wz-stat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px;
+  .wz-stat { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s4);
              background: var(--panel); border: 1px solid var(--field-line);
-             border-radius: 9px; padding: 14px 16px; }
+             border-radius: var(--r3); padding: var(--s4); }
   @media (max-width: 560px) { .wz-stat { grid-template-columns: 1fr 1fr; } }
-  .wz-stat > div { display: flex; flex-direction: column; gap: 3px; }
-  .wz-stat .num { font: 400 28px/1 var(--serif); }
+  .wz-stat > div { display: flex; flex-direction: column; gap: var(--s1); }
+  .wz-stat .num { font: 400 var(--fs-4)/var(--lh-tight) var(--serif); font-variant-numeric: tabular-nums; }
   .wz-stat .lab { margin: 0; }
 
-  .wz-tier { display: flex; flex-direction: column; gap: 7px; }
-  #home-tierbar { display: flex; height: 12px; border-radius: 99px; overflow: hidden; border: 1px solid var(--line); }
+  .wz-tier { display: flex; flex-direction: column; gap: var(--s2); }
+  #home-tierbar { display: flex; height: 12px; border-radius: var(--r-pill); overflow: hidden; border: 1px solid var(--line); }
   .wz-seg { display: block; height: 100%; }
   #home-tiercounts { margin: 0; }
 
-  #home-areas-list { display: flex; flex-direction: column; gap: 6px; }
+  #home-areas-list { display: flex; flex-direction: column; gap: var(--s2); }
   /* Two lines, auto width: name + progress, then the buttons on their own row.
      One flex row inside a flex column, so it holds at any aspect ratio. */
   .wz-area {
-    display: flex; flex-direction: column; gap: 8px;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 9px 12px;
+    display: flex; flex-direction: column; gap: var(--s2);
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--r2);
+    padding: var(--s2) var(--s3);
   }
-  .wz-area .top { display: flex; align-items: baseline; gap: 10px; }
-  .wz-area .nm { font: 600 14.5px/1.3 var(--serif); flex: 1 1 auto; min-width: 0; }
-  .wz-area .pg { font: 12px/1.4 var(--sans); color: var(--muted); flex: none; text-align: right; }
+  .wz-area .top { display: flex; align-items: baseline; gap: var(--s2); }
+  .wz-area .nm { font: 600 var(--fs-1)/var(--lh-snug) var(--serif); flex: 1 1 auto; min-width: 0; }
+  .wz-area .pg { font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); flex: none; text-align: right; font-variant-numeric: tabular-nums; }
   .wz-area .done { color: var(--ink); }
-  .wz-area .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .wz-area .btns { display: flex; gap: var(--s2); flex-wrap: wrap; }
 
   /* One rhythm between launchpad blocks, in the stylesheet rather than as
      inline margin-bottoms on three of them. A label stays close to the thing
      it labels, so .wz-block keeps its own small gap. */
-  #screen-home .wz-screen-body, #home-full { gap: 26px; }
+  #screen-home .wz-screen-body, #home-full { gap: var(--s5); }
   #home-full { display: flex; flex-direction: column; }
-  .wz-block { display: flex; flex-direction: column; gap: 8px; }
+  .wz-block { display: flex; flex-direction: column; gap: var(--s2); }
 
-  #home-lensrow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  #home-lensrow { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
   #home-lensrow .wz-quiet { flex: 1 1 200px; }
 
-  .wz-qlist { display: flex; flex-direction: column; gap: 4px; }
+  .wz-qlist { display: flex; flex-direction: column; gap: var(--s1); }
   /* A row is a <button> now: it opens the question in place rather than
      navigating to /edit. Same look, plus the reset a button needs. */
   .wz-qrow {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
-    padding: 9px 12px; color: var(--ink); font: 14px/1.4 var(--serif);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--s3);
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--r2);
+    padding: var(--s2) var(--s3); color: var(--ink); font: var(--fs-0)/var(--lh-snug) var(--serif);
     min-height: 24px; width: 100%; text-align: left; cursor: pointer;
   }
   .wz-qrow:hover { border-color: var(--field-line); }
-  .wz-qrow .st { font: 600 11.5px/1 var(--sans); color: var(--muted); white-space: nowrap; }
+  .wz-qrow .st { font: 600 var(--fs-000)/var(--lh-tight) var(--sans); color: var(--muted); white-space: nowrap; }
 
   /* "Ignore for now" is a third state, not an answer: it never takes .sel, has
      no .wz-slot, and writes nothing to the map. Dashed, so it never reads as
      one of the answer tiles. */
   #ignore-answer {
-    display: flex; flex-direction: column; gap: 5px; align-items: flex-start;
-    background: var(--bg); border: 1px dashed var(--field-line); border-radius: 9px;
-    padding: 12px 14px; width: 100%; text-align: left; color: var(--ink);
+    display: flex; flex-direction: column; gap: var(--s1); align-items: flex-start;
+    background: var(--bg); border: 1px dashed var(--field-line); border-radius: var(--r3);
+    padding: var(--s3) var(--s4); width: 100%; text-align: left; color: var(--ink);
     font: inherit; cursor: pointer;
   }
   #ignore-answer:hover { border-color: var(--ink); }
-  #ignore-answer strong { font: 600 15.5px/1.3 var(--serif); }
+  #ignore-answer strong { font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
 
   /* the "Add a doctrine" panel at the foot of an area's question list */
-  #area-add-panel { display: flex; flex-direction: column; gap: 9px;
+  #area-add-panel { display: flex; flex-direction: column; gap: var(--s2);
                     background: var(--panel); border: 1px solid var(--field-line);
-                    border-radius: 9px; padding: 14px; }
+                    border-radius: var(--r3); padding: var(--s4); }
 
   .wz-cards2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 560px) { .wz-cards2 { grid-template-columns: 1fr; } }
