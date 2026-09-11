@@ -135,10 +135,10 @@ input[type=text], input[type=search], select, textarea,
 .tm-note {
   background: var(--note);
   border-left: 3px solid var(--muted);
-  padding: 10px 14px;
-  border-radius: 0 6px 6px 0;
-  font: 13px/1.55 var(--serif);
-  max-width: 58ch;
+  padding: var(--s3) var(--s4);
+  border-radius: 0 var(--r2) var(--r2) 0;
+  font: var(--fs-00)/var(--lh-body) var(--serif);
+  max-width: var(--measure);
 }
 
 /* Every citation web/refs.js's citeLink() produces carries this class, and has
@@ -158,41 +158,47 @@ input[type=text], input[type=search], select, textarea,
 .tm-card {
   background: var(--panel);
   border: 1px solid var(--field-line);
-  border-radius: 9px;
-  padding: 13px 16px;
+  border-radius: var(--r3);
+  padding: var(--s4);
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: var(--s2);
 }
-.tm-card h3 { margin: 0; font: 600 17px/1.2 var(--serif); }
-.tm-card p  { margin: 0; font: 13.5px/1.4 var(--serif); color: var(--ink); max-width: 58ch; }
-.tm-card .tm-go { margin-top: auto; font: 600 12.5px/1 var(--sans); color: var(--muted); }
+.tm-card h3 { margin: 0; font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
+.tm-card p  { margin: 0; font: var(--fs-0)/var(--lh-body) var(--serif); color: var(--ink); max-width: var(--measure); }
+.tm-card .tm-go { margin-top: auto; font: 600 var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
 .tm-card-primary {
   background: var(--ink); color: var(--bg); border-color: var(--ink);
 }
 .tm-card-primary p, .tm-card-primary .tm-go { color: var(--bg); }
 
-.tm-stat { font: 12px/1.3 var(--sans); color: var(--muted); }
+.tm-stat { font: var(--fs-00)/var(--lh-snug) var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* The product's four secondary text styles. Declared once here rather than
    copied into wizard.html, compare.html and learn.html - three near-identical
    sets was the CSS-layer expression of "pages that look alike by copying".
    Text only, no layout: engine/theme.css is loaded by the offline editor too.
    The page-local names ride along for one round; P7 renames the call sites. */
-.tm-quiet, .wz-quiet         { margin: 0; font: 12.5px/1.5 var(--sans); color: var(--muted); }
-.tm-hint, .wz-hint, .lp-hint { margin: 0; font: 12.5px/1.55 var(--serif); color: var(--muted);
-                               max-width: 58ch; }
-.tm-framing, .wz-framing     { margin: 0; font: 14px/1.55 var(--serif); color: var(--ink);
-                               max-width: 58ch; }
-.tm-lab, .lab, .lp-pos-label { margin: 0; font: 600 11px/1.4 var(--sans); letter-spacing: .04em;
-                               text-transform: uppercase; color: var(--muted); }
+.tm-quiet, .wz-quiet         { margin: 0; font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
+.tm-hint, .wz-hint, .lp-hint { margin: 0; font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted);
+                               max-width: var(--measure); }
+.tm-framing, .wz-framing     { margin: 0; font: var(--fs-0)/var(--lh-body) var(--serif); color: var(--ink);
+                               max-width: var(--measure); }
+/* D4: one uppercase register with a stated job -- everything else sentence
+   case. This was the last of six near-identical uppercase-label variants;
+   .tm-chrome .kicker below is the one that survives, deliberately, because
+   it is naming the whole page's chrome, not a field inside a card. */
+.tm-lab, .lab, .lp-pos-label { margin: 0; font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+
+/* Small win 1: let the browser pick better line breaks than "whatever fits". */
+h1, h2, h3, .tm-card h3 { text-wrap: balance; }
+p, dd, .tm-prose, .tm-hint, .tm-framing { text-wrap: pretty; }
 
 details.optional > summary {
   cursor: pointer;
-  font: 600 12px/1.6 var(--sans);
-  letter-spacing: .04em;
+  font: 600 var(--fs-00)/var(--lh-body) var(--sans);
   color: var(--muted);
-  padding: 8px 0;
+  padding: var(--s2) 0;
   list-style: none;
 }
 details.optional > summary::-webkit-details-marker { display: none; }
@@ -203,22 +209,35 @@ details.optional > summary:hover { color: var(--ink); }
 @media (pointer: coarse) {
   button, .tabbtn, select, .nodebtn, details.optional > summary { min-height: 44px; }
   .mdomain-edit, .tagchip button { min-width: 44px; min-height: 44px; }
-  /* Links are controls too. Padding rather than min-height, so an inline
-     link inside a paragraph is not turned into a block. */
-  .tm-chrome .toplinks a { padding: 16px 0; }
-  .lp-row { padding: 12px 12px; }
-  .cmp-row > summary, .cmp-acc > summary { padding: 12px 0; }
+  /* Ruling F: these three used to be a plain class / compound selector tying
+     at (0,1,0) / (0,1,1) with a later, equally-specific page-local rule --
+     the exact mechanism CLAUDE.md §10 already burned twice. Each is bumped
+     one selector to win on SPECIFICITY, not source order, so no future
+     page-side edit can defeat it again. */
+  a.lp-row { padding: var(--s3); }
+  /* (0,1,1) beats web/learn.html's .lp-row (0,1,0), padding: 10px 12px.
+     Post-fix: .lp-row .nm is 14.5px/1.4 = 20.3px line box + var(--s3)*2
+     (24px) + the row's own 1px+1px border = 46.3px, clears 44. */
+  details.cmp-row > summary { padding: var(--s3) 0; }
+  /* (0,1,2) beats web/compare.html's .cmp-row > summary (0,1,1),
+     padding: 10px 0. Post-fix: .cmp-q is 600 14.5px/1.4 = 20.3px line box
+     + 24px = 44.3px, clears 44. */
+  details.cmp-acc > summary { padding: var(--s4) 0; }
+  /* (0,1,2) beats web/compare.html's .cmp-acc > summary (0,1,1),
+     padding: 8px 0. var(--s3) (12px) was tried first and falls short here:
+     600 13.5px/1.3 = 17.55px line box + 24px = 41.55px, still under 44.
+     var(--s4) (16px) clears it: 17.55px + 32px = 49.55px. */
   .wz-radio input + span, .mradio input + span { min-height: 44px; }
 }
 
 /* Shared product chrome (web/chrome.js), mirroring engine/editor.html's header
    rules but scoped under .tm-chrome so it cannot collide with the editor's
    own header. */
-.tm-chrome { padding:16px 20px 12px; border-bottom:1px solid var(--line); }
-.tm-chrome .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
+.tm-chrome { padding:var(--s4) var(--s5) var(--s3); border-bottom:1px solid var(--line); }
+.tm-chrome .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
                       text-transform:uppercase; color:var(--muted); }
-.tm-chrome h1 { margin:0 0 3px; font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
-.tm-chrome .toplinks { margin-top:8px; display:flex; gap:14px; font:600 12px/1 var(--sans); }
+.tm-chrome h1 { margin:0 0 var(--s1); font-family:var(--serif); font-size:var(--fs-3); line-height:var(--lh-tight); letter-spacing:-.012em; }
+.tm-chrome .toplinks { margin-top:var(--s2); display:flex; gap:var(--s3); font:600 var(--fs-00)/var(--lh-ui) var(--sans); }
 .tm-chrome .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
 .tm-chrome .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
 /* Ties with .tm-chrome .toplinks a above at (0,2,1); declared after it in the
@@ -247,8 +266,9 @@ details.optional > summary:hover { color: var(--ink); }
    .toplinks a, so it gets its own font/colour/padding rather than inheriting
    link styling it was never going to get. */
 .tm-morebtn {
-  font: 600 18px/1 var(--sans); color: var(--muted); background: none;
-  border: none; padding: 0 2px; cursor: pointer; anchor-name: --tm-more-anchor;
+  font: 600 18px/1 var(--sans); /* optical: the ⋯ glyph, not a type step */
+  color: var(--muted); background: none;
+  border: none; padding: 0 var(--s1); cursor: pointer; anchor-name: --tm-more-anchor;
 }
 .tm-morebtn:hover { color: var(--ink); }
 .tm-more {
@@ -269,7 +289,7 @@ details.optional > summary:hover { color: var(--ink); }
 }
 .tm-more a {
   display: block; padding: var(--s2) var(--s4); color: var(--ink);
-  text-decoration: none; font: 600 13px/1.3 var(--sans);
+  text-decoration: none; font: 600 var(--fs-00)/var(--lh-snug) var(--sans);
 }
 .tm-more a:hover { background: var(--chip); }
 /* Firefox has no anchor positioning yet; without this the popover would
@@ -284,26 +304,42 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-more { position: fixed; inset: auto; top: var(--s4); right: var(--s4); margin: 0; }
 }
 /* C4: .tm-more a above sets padding: var(--s2) var(--s4) (8px 16px) — a
-   16.9px line box (13px/1.3) plus that padding is 32.9px, under the 44px
-   floor. This coarse-pointer override ties with it at (0,1,1) — a media
-   query adds no specificity — so SOURCE ORDER is the only thing that can
-   decide it, and it must be declared after the base rule to win. (It was
-   declared earlier, inside the general @media (pointer: coarse) block
-   above, and silently lost every time — the exact mechanism that left the
-   old 44px floor inert on /wizard for a whole phase; see CLAUDE.md §10.)
-   16px + 16.9px + 16px = 48.9px, clearing 44px with room to spare — this
-   time for real, because this declaration is the one that actually wins. */
+   16.88px line box (var(--fs-00)/var(--lh-snug) = 12.5px/1.35) plus that
+   padding is 32.88px, under the 44px floor. This coarse-pointer override
+   ties with it at (0,1,1) — a media query adds no specificity — so SOURCE
+   ORDER is the only thing that can decide it, and it must be declared
+   after the base rule to win. (It was declared earlier, inside the
+   general @media (pointer: coarse) block above, and silently lost every
+   time — the exact mechanism that left the old 44px floor inert on
+   /wizard for a whole phase; see CLAUDE.md §10.) Also restores the base
+   rule's var(--s4) (16px) horizontal inset, which the old `padding: 16px 0`
+   here used to zero, putting the menu's labels flush against the popover
+   edge on a touch device. 16px + 16.88px + 16px = 48.9px, clearing 44px
+   with room to spare — this time for real, because this declaration is
+   the one that actually wins. */
 @media (pointer: coarse) {
-  .tm-more a { padding: 16px 0; }
+  .tm-more a { padding: 16px var(--s4); }
+  /* P7 Ruling A: .tm-chrome .toplinks a used to live in the general coarse
+     block above (:203), where it tied with the base .tm-chrome .toplinks a
+     rule below (:222) at (0,2,1) each and won only because that base rule
+     sets no padding of its own — the exact fragile arrangement that just
+     bit .tm-more a above, and .wz-radio span before that (CLAUDE.md §10).
+     Moved here so it wins on SOURCE ORDER instead. .tm-chrome .toplinks is
+     now 600 var(--fs-00)/var(--lh-ui) var(--sans) (12.5px/1.45 = 18.13px
+     line box), so 16px + 18.13px + 16px = 50.1px, clearing 44px with
+     margin to spare. 16px stays a literal, not var(--s4): its job is to
+     reach 44px, and --s4 equalling 16px today is a coincidence a future
+     token change would break. */
+  .tm-chrome .toplinks a { padding: 16px 0; }
 }
 
 /* Task 1: an optional right-aligned actions row in the header, passed as
    mount()'s second argument. Wraps whenever the row doesn't fit (a 360px
    phone included) because flex-wrap does that regardless of a breakpoint. */
-.tm-chrome-titlerow { display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-.tm-chrome-actions { display:flex; gap:6px; flex-wrap:wrap; }
-.tm-action-btn { font:600 11.5px/1 var(--sans); padding:6px 9px; border:1px solid var(--field-line);
-                 border-radius:6px; background:var(--panel); color:var(--ink); cursor:pointer;
+.tm-chrome-titlerow { display:flex; align-items:flex-start; justify-content:space-between; gap:var(--s3); flex-wrap:wrap; }
+.tm-chrome-actions { display:flex; gap:var(--s2); flex-wrap:wrap; }
+.tm-action-btn { font:600 var(--fs-000)/var(--lh-ui) var(--sans); padding:var(--s2) var(--s3); border:1px solid var(--field-line);
+                 border-radius:var(--r2); background:var(--panel); color:var(--ink); cursor:pointer;
                  text-decoration:none; white-space:nowrap; }
 .tm-action-btn:hover { border-color:var(--muted); }
 
@@ -311,8 +347,8 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; }
 }
 
-body.tm-page { margin:0; background:var(--bg); color:var(--ink); font:15px/1.6 var(--serif); }
-body.tm-page main, body.tm-page .tm-main { padding:20px; max-width:1200px; margin-inline:auto; }
+body.tm-page { margin:0; background:var(--bg); color:var(--ink); font:var(--fs-1)/var(--lh-body) var(--serif); }
+body.tm-page main, body.tm-page .tm-main { padding:var(--s5); max-width:1200px; margin-inline:auto; }
 
 /* Card grid — shared by the gallery, first run and the "start from someone
    else's map" picker, so it lives here rather than in three inline blocks.
@@ -322,7 +358,7 @@ body.tm-page main, body.tm-page .tm-main { padding:20px; max-width:1200px; margi
    column at any viewport, checked at 320px and 360px — the min() clamps the
    track to the viewport itself so a bare 300px floor cannot overflow a
    narrower one. */
-.tm-grid { display:grid; gap:14px; max-width:1200px; margin-inline:auto;
+.tm-grid { display:grid; gap:var(--s4); max-width:1200px; margin-inline:auto;
            grid-template-columns:repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
 .tm-firstrun { grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); max-width:780px; margin-inline:0; }
 .tm-grid .tm-span { grid-column:1 / -1; }
@@ -334,9 +370,9 @@ a.tm-card-primary, .tm-card-primary.tm-cardlink { color:var(--bg); }
 a.tm-card:focus-visible, .tm-cardlink:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
 a.tm-card-primary:focus-visible { outline-color:var(--bg); }
 
-.tm-prose { max-width:58ch; }
-.tm-prose p { margin:0 0 12px; }
-.tm-lead { font:600 13px/1.6 var(--sans); letter-spacing:.02em; color:var(--muted); }
+.tm-prose { max-width:var(--measure); }
+.tm-prose p { margin:0 0 var(--s3); }
+.tm-lead { font:600 var(--fs-0)/var(--lh-body) var(--sans); color:var(--muted); }
 
 /* Set while a launchpad first-run card is mid-request. The real double-click
    guard is a flag in web/wizard.js (the offers moved there when web/first-run.js
@@ -344,10 +380,10 @@ a.tm-card-primary:focus-visible { outline-color:var(--bg); }
 .tm-working { opacity:.6; pointer-events:none; }
 
 .tm-picker { background:var(--panel); color:var(--ink); border:1px solid var(--field-line);
-             border-radius:9px; padding:20px; max-width:min(1100px, 92vw); }
+             border-radius:var(--r3); padding:var(--s5); max-width:min(1100px, 92vw); }
 .tm-picker::backdrop { background:rgba(0,0,0,.45); }
-.tm-picker h2 { margin:0 0 8px; font:600 20px/1.3 var(--serif); }
-.tm-picker .tm-grid { margin:16px 0; }
+.tm-picker h2 { margin:0 0 var(--s2); font:600 var(--fs-3)/var(--lh-snug) var(--serif); letter-spacing:-.012em; }
+.tm-picker .tm-grid { margin:var(--s4) 0; }
 
 /* One focus ring for the whole product. --ink reads against both grounds
    (it is the light value in dark mode); the offset is what makes it
@@ -397,12 +433,23 @@ a.tm-card:hover, .tm-cardlink:hover, .lp-row:hover, .wz-qrow:hover {
 /* In dark, --line (#372f22) on --panel (#201b14) is ~1.3:1, so card edges
    are invisible and every screen flattens into one brown field. Raising
    --line is not the fix — it would shout in the light theme's borrowed
-   rules. Give dark containers elevation instead of relying on the edge. */
+   rules. Give dark containers elevation instead of relying on the edge.
+   Routed 1: this rule used to also carry a border-color half, meant to
+   brighten these nine selectors' borders toward --panel. It only ever
+   reached two of them. Seven — .wz-card, .wz-area, .lp-pos, .lp-mine,
+   .cmp-row, .cmp-acc, .wz-stat — declare their own unconditional `border`
+   shorthand in their own page's <style>, at this same (0,1,0) specificity
+   and later in source order (every web/*.html page links this file before
+   its own <style>), so the page's border always won there and this rule
+   never reached them. The two it does reach, .tm-card and .tm-picker,
+   already border on --field-line, and mixing that toward --panel made
+   the border dimmer, not clearer — the opposite of this rule's job.
+   Deleted; box-shadow: var(--e1) is the half that actually does the work,
+   and it lands on all nine. */
 @media (prefers-color-scheme: dark) {
   .tm-card, .wz-card, .lp-pos, .lp-mine, .wz-area, .cmp-row, .cmp-acc,
   .tm-picker, .wz-stat {
     box-shadow: var(--e1);
-    border-color: color-mix(in oklab, var(--line) 60%, var(--panel));
   }
 }
 
