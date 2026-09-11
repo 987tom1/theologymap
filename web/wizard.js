@@ -517,15 +517,27 @@ function renderQuestionUnsafe(i) {
   // P4's .wz-slot > * Settle only fires @starting-style while the element is
   // not yet in a *visible* tree — and #screen-question is still `hidden` at
   // this point in the function, so a revisit's preselected controls inserted
-  // here would bake in as already-settled and just pop into view once
-  // showScreen's crossfade finishes underneath them. The fix (routed here
-  // from the P4 whole-phase review) is to record which preselect to run, not
-  // which controls to build, and apply it once the screen is actually on
-  // screen — see the deferred call after showScreen('question') below. Both
-  // preselect paths (a matched position, and the confidence==='open' branch)
-  // go through this one variable so they stay mutually exclusive exactly as
-  // they were when this was decided by whichever `select()` ran first.
-  let deferredPreselect = null;
+  // here bake in as already-settled and never visibly animate. The P4 review
+  // flagged that as a bug to fix; it was a misdiagnosis of a feature. This
+  // project's motion grammar rule 8 is "@starting-style is for insertion
+  // *after* load, not for the page arriving" — and a revisit's restored
+  // controls ARE the arriving screen: they were already there when the
+  // person looked, unlike controls that arrive because they just tapped.
+  // The screen change already carries the motion (#q-title, #wz-crumb and
+  // .wz-nav are all named view-transition groups), so animating the controls
+  // too would break rule 5, one thing at a time — the same rule that already
+  // forbids animating the hold swap below on the same tap. showScreen's own
+  // `painted` first-paint flag encodes the same instinct. So building the
+  // preselected controls into the still-hidden tree, synchronously, right
+  // here, is what correctly suppresses the Settle on a restore.
+  //
+  // A deferred version of this (queue the preselect, apply it a couple of
+  // frames after showScreen('question')) was tried and reverted: the queued
+  // callback is not scoped to the question that queued it, so a revisit
+  // immediately followed by Back/Next/a deep link — all synchronous, all
+  // able to land inside the 1-2 frame window before the callback fires —
+  // lets a stale callback write an unstated belief under the wrong doctrine,
+  // on a screen that shows no selection. Do not reintroduce a deferral here.
   for (const position of orderedPositions(doctrine)) {
     const card = el('div', 'wz-card');
 
@@ -597,7 +609,7 @@ function renderQuestionUnsafe(i) {
     // would leave chosen.hold null and throw on save the moment this
     // question was revisited.
     if (existing && CompareCore.normalise(existing.hold) === CompareCore.normalise(position.hold)) {
-      deferredPreselect = pick;
+      pick();
     }
   }
 
@@ -615,31 +627,15 @@ function renderQuestionUnsafe(i) {
 
   buildCustom(doctrine);
 
-  // Mutually exclusive with a matched position exactly as before: `!chosen`
-  // used to work here because the position-loop's own select() call ran
-  // synchronously above. It's deferred now, so the flag it would have set is
-  // deferredPreselect (still decided synchronously, from corpus data, not
-  // from the DOM) rather than `chosen` itself.
-  if (existing && existing.confidence === 'open' && !deferredPreselect) deferredPreselect = pickOpen;
+  // Mutually exclusive with a matched position: pick() above already set
+  // `chosen` synchronously if a position's hold matched, so this only fires
+  // when nothing did.
+  if (existing && existing.confidence === 'open' && !chosen) pickOpen();
 
   whoBelievesWhat(doctrine);
   $('who').open = false;
   $('q-back').hidden = (idx === 0 && !returnTo);
   showScreen('question');
-
-  // Apply the deferred preselect only once the screen is actually visible.
-  // showScreen's startViewTransition path runs its paint() (the un-hide)
-  // as its own task rather than synchronously on return, so code right after
-  // showScreen() here would still run before the screen is shown. A double
-  // requestAnimationFrame reliably lands after that without changing
-  // showScreen itself: the transition's own machinery needs at least one
-  // rendering opportunity to capture the "old" frame before it invokes
-  // paint(), so two animation-frame callbacks queued after showScreen() land
-  // after paint() has already run, in every path (transitions supported or
-  // not, motion reduced or not).
-  if (deferredPreselect) {
-    requestAnimationFrame(() => requestAnimationFrame(deferredPreselect));
-  }
 }
 
 /* The manual tile's fields — What I hold, Tier, Confidence and #study shown
