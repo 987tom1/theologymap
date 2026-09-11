@@ -280,6 +280,12 @@
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     margin: 2px -18px -36px;
     position: sticky; bottom: 0; z-index: 30;
+    /* env(safe-area-inset-bottom, 0px) is inert today -- this page's
+       viewport meta (:6) has no `viewport-fit=cover`, so the env() resolves
+       to its 0px fallback on every device. It is armed for whenever that
+       meta gains viewport-fit=cover (a page-wide change, owned by a later
+       spacing phase) and harmless until then, but on an iPhone with a home
+       indicator the sticky bar sits flush under it right now. */
     padding: var(--s3) 18px calc(var(--s3) + env(safe-area-inset-bottom, 0px));
     background: color-mix(in srgb, var(--bg) 88%, transparent);
     backdrop-filter: blur(6px);

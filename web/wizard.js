@@ -719,13 +719,26 @@ function buildCustom(doctrine) {
       select(card, 'custom', doctrine, null, state.hold, state);
     }
   };
-  // Also re-selects on a plain click, not just ontoggle/hold-input: without
-  // this, expanding the tile (selecting it) then picking a position (which
-  // deselects it, but does not close it — select() never closes a <details>)
-  // then editing the custom tile's Why/tier/confidence without touching
-  // "What I hold" never re-selects it, and Next silently saves the position
-  // instead of the edited custom answer.
-  card.addEventListener('click', pick);
+  // Also re-selects on a plain click inside the fields, not just
+  // ontoggle/hold-input: without this, expanding the tile (selecting it)
+  // then picking a position (which deselects it, but does not close it —
+  // select() never closes a <details>) then editing the custom tile's
+  // Why/tier/confidence without touching "What I hold" never re-selects it,
+  // and Next silently saves the position instead of the edited custom
+  // answer. This MUST be a property assignment (`.onclick =`) on
+  // #custom-fields, not `card.addEventListener('click', pick)` on the
+  // persistent #custom-answer <details>: buildCustom() runs on every
+  // renderQuestionUnsafe against that same persistent element, so
+  // addEventListener would add one more listener per question, forever —
+  // the earliest question's stale `pick` (closed over its own doctrine and
+  // state) would fire first on every later click and win, since it returns
+  // early once it has selected something. A property assignment is
+  // replaced, not accumulated. Scoping it to #custom-fields rather than the
+  // whole card also matters: on the card, a click on the <summary> itself —
+  // e.g. collapsing the tile back down — would re-select it too, undoing
+  // "closing it selects nothing" and stealing the selection back from
+  // whatever position was just picked.
+  $('custom-fields').onclick = pick;
   card.ontoggle = () => {
     if (!card.open) return;
     if (!state) {
