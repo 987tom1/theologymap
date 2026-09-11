@@ -71,7 +71,6 @@ let ignored = new Set();    // slugs put aside with "Ignore for now"
 let returnTo = null;        // area id the question screen was entered from, or null
 let chosen = null;          // { kind, position, hold } for the doctrine on screen
 let controls = null;        // the live tier/confidence/hold/study inputs
-let chromeEl = null;        // the site nav header, once chrome.js has mounted it
 let busy = false;
 // F1: main() is async and awaits loadCorpus() over the network, so the page
 // has already painted (chrome visible, every <section> hidden) before the
@@ -259,20 +258,14 @@ const SCREENS = ['intro', 'lens', 'question', 'home', 'area'];
 function showScreen(name) {
   const paint = () => {
     for (const s of SCREENS) $('screen-' + s).hidden = (s !== name);
-    // One header at a time. The question screen keeps the wizard's own brand
-    // block plus the crumb and its two controls; every other screen wears the
-    // site nav, which is where "My map", the gallery and sign-out live.
+    // The site nav (.tm-chrome) stays on screen everywhere, including the
+    // question screen. #wz-header is a thin crumb bar that exists only on
+    // the question screen: the crumb, the tradition control and "Finish here".
     const q = (name === 'question');
     $('wz-header').hidden = !q;
-    if (chromeEl) chromeEl.hidden = q;
     closePop();
     window.scrollTo(0, 0);
   };
-  // P4 task 3: same-document view transition. `chromeEl.hidden = q` above is
-  // kept exactly as-is (P6 removes it, not here — see CLAUDE.md's documented
-  // nav decision) which means .tm-chrome exists in the old snapshot but not
-  // the new one on entering a question, so the chrome fades rather than
-  // Holding. That's expected until P6; don't chase it here.
   if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return paint();
   }
@@ -1188,7 +1181,6 @@ async function main() {
   if (!user) { location.href = '/'; return; }
 
   mount('Build a map');
-  chromeEl = document.querySelector('header.tm-chrome');
 
   corpus = await loadCorpus();
   if (!corpus) return;
