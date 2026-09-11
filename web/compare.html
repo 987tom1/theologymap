@@ -8,39 +8,40 @@
 <style>
   [hidden] { display: none !important; }
 
-  h1 { font-size: 1.4em; }
-  .cmp-body-wrap { display: flex; flex-direction: column; gap: 22px; max-width: 900px; }
+  h1 { font-size: var(--fs-3); }
+  .cmp-body-wrap { display: flex; flex-direction: column; gap: var(--s5); max-width: 900px; }
 
   /* ---- picker ---- */
-  #picker-traditions, #picker-members { display: grid; gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 10px; }
-  .cmp-section-h { margin: 18px 0 0; font: 400 20px/1.3 var(--serif); }
+  #picker-traditions, #picker-members { display: grid; gap: var(--s3);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: var(--s2); }
+  .cmp-section-h { margin: var(--s4) 0 0; font: 400 var(--fs-3)/var(--lh-snug) var(--serif); letter-spacing: -.012em; }
 
   /* ---- results head ---- */
-  #results-heading { margin: 0; font: 400 24px/1.3 var(--serif); }
-  #cmp-framing { margin: 4px 0 0; }
+  #results-heading { margin: 0; font: 400 var(--fs-3)/var(--lh-snug) var(--serif); letter-spacing: -.012em; }
+  #cmp-framing { margin: var(--s1) 0 0; }
 
   /* ---- closest tradition ---- */
-  #cmp-closest { display: flex; flex-direction: column; gap: 6px; }
-  .cmp-closest-line { margin: 0; font: 15px/1.55 var(--serif); }
+  #cmp-closest { display: flex; flex-direction: column; gap: var(--s2); }
+  .cmp-closest-line { margin: 0; font: var(--fs-1)/var(--lh-body) var(--serif); }
 
   /* ---- scorecard ---- */
-  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: 8px; }
-  .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: 13px/1.4 var(--sans); }
-  .cmp-table th, .cmp-table td { border-bottom: 1px solid var(--line); padding: 6px 9px; text-align: center; white-space: nowrap; }
-  .cmp-table thead th { text-align: center; font: 600 11px/1.3 var(--sans); color: var(--muted); }
-  .cmp-table td.cmp-doctrine { text-align: left; font: 13.5px/1.4 var(--serif); color: var(--ink); white-space: normal; max-width: 26ch; }
-  .cmp-table tr.cmp-table-group th { text-align: left; background: var(--chip); font: 600 11.5px/1.4 var(--sans);
-    letter-spacing: .03em; color: var(--muted); padding: 5px 9px; }
+  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); }
+  .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: var(--fs-00)/var(--lh-ui) var(--sans);
+    font-variant-numeric: tabular-nums; }
+  .cmp-table th, .cmp-table td { border-bottom: 1px solid var(--line); padding: var(--s2); text-align: center; white-space: nowrap; }
+  .cmp-table thead th { text-align: center; font: 600 var(--fs-000)/var(--lh-snug) var(--sans); color: var(--muted); }
+  .cmp-table td.cmp-doctrine { text-align: left; font: var(--fs-0)/var(--lh-snug) var(--serif); color: var(--ink); white-space: normal; max-width: 26ch; }
+  .cmp-table tr.cmp-table-group th { text-align: left; background: var(--chip); font: 600 var(--fs-000)/var(--lh-ui) var(--sans);
+    color: var(--muted); padding: var(--s1) var(--s2); }
   .cmp-table td.cmp-undecided { color: var(--muted); font-style: italic; text-align: left; }
   .cmp-table td.cmp-glyph { font-size: 15px; color: var(--ink); }
-  .cmp-table tfoot th, .cmp-table tfoot td { font: 600 12px/1.3 var(--sans); border-top: 2px solid var(--field-line); border-bottom: none; }
+  .cmp-table tfoot th, .cmp-table tfoot td { font: 600 var(--fs-00)/var(--lh-snug) var(--sans); border-top: 2px solid var(--field-line); border-bottom: none; }
 
-  #sc-accordion-host { display: none; flex-direction: column; gap: 8px; }
-  .cmp-acc { background: var(--panel); border: 1px solid var(--field-line); border-radius: 8px; padding: 4px 12px; }
-  .cmp-acc > summary { cursor: pointer; padding: 8px 0; font: 600 13.5px/1.3 var(--serif); }
-  .cmp-acc-group { margin: 8px 0 2px; font: 600 11px/1.3 var(--sans); letter-spacing: .03em; color: var(--muted); }
-  .cmp-acc-row { margin: 0 0 4px; font: 13px/1.4 var(--serif); }
+  #sc-accordion-host { display: none; flex-direction: column; gap: var(--s2); }
+  .cmp-acc { background: var(--panel); border: 1px solid var(--field-line); border-radius: var(--r3); padding: var(--s1) var(--s3); }
+  .cmp-acc > summary { cursor: pointer; padding: var(--s2) 0; font: 600 var(--fs-0)/var(--lh-snug) var(--serif); }
+  .cmp-acc-group { margin: var(--s2) 0 var(--s1); font: 600 var(--fs-000)/var(--lh-snug) var(--sans); color: var(--muted); }
+  .cmp-acc-row { margin: 0 0 var(--s1); font: var(--fs-00)/var(--lh-snug) var(--serif); }
   .cmp-acc-row.cmp-grey { color: var(--muted); font-style: italic; }
 
   @media (max-width: 860px) {
@@ -49,46 +50,46 @@
   }
 
   /* ---- diff groups ---- */
-  #diff-groups { display: flex; flex-direction: column; gap: 18px; }
+  #diff-groups { display: flex; flex-direction: column; gap: var(--s4); }
 
   /* ---- tiering ---- */
-  #cmp-tiers { margin: 0 0 22px; }
-  .cmp-tier-lead { margin: 0 0 10px; max-width: 58ch; font: 14px/1.55 var(--serif); color: var(--ink); }
-  .cmp-tier-list { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  #cmp-tiers { margin: 0 0 var(--s5); }
+  .cmp-tier-lead { margin: 0 0 var(--s2); max-width: var(--measure); font: var(--fs-0)/var(--lh-body) var(--serif); color: var(--ink); }
+  .cmp-tier-list { display: flex; flex-direction: column; gap: var(--s2); margin: 0; padding: 0; list-style: none; }
   .cmp-tier-item {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
-    padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s2);
+    padding: var(--s2); border: 1px solid var(--line); border-radius: var(--r2);
     background: var(--panel);
   }
-  .cmp-tier-item .nm { font: 600 14px/1.3 var(--serif); }
+  .cmp-tier-item .nm { font: 600 var(--fs-0)/var(--lh-snug) var(--serif); }
   /* The move is stated, never coloured good or bad: a person who tiers a
      doctrine higher than the suggestion is not thereby wrong, and neither is
      one who tiers it lower. Same weight for both directions. */
-  .cmp-tier-move { font: 12.5px/1.4 var(--sans); color: var(--muted); }
+  .cmp-tier-move { font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
   .cmp-tier-pill {
-    font: 600 10.5px/1 var(--sans); color: #fff; padding: 4px 7px;
-    border-radius: 99px; white-space: nowrap;
+    font: 600 var(--fs-000)/1 var(--sans); color: #fff; padding: var(--s1) var(--s2);
+    border-radius: var(--r-pill); white-space: nowrap;
   }
-  .cmp-tier-arrow { font: 12px/1 var(--sans); color: var(--muted); }
-  .cmp-group { display: flex; flex-direction: column; gap: 8px; }
-  .cmp-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
-    border-left: 3px solid var(--muted); padding: 3px 0 3px 10px; }
-  .cmp-group-head h3 { margin: 0; font: 600 14px/1.3 var(--sans); letter-spacing: .02em; }
-  .cmp-count { font: 12px/1.3 var(--sans); color: var(--muted); }
+  .cmp-tier-arrow { font: var(--fs-00)/1 var(--sans); color: var(--muted); }
+  .cmp-group { display: flex; flex-direction: column; gap: var(--s2); }
+  .cmp-group-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2);
+    border-left: 3px solid var(--muted); padding: var(--s1) 0 var(--s1) var(--s2); }
+  .cmp-group-head h3 { margin: 0; font: 600 var(--fs-0)/var(--lh-snug) var(--sans); }
+  .cmp-count { font: var(--fs-00)/var(--lh-snug) var(--sans); color: var(--muted); }
 
-  .cmp-row { background: var(--panel); border: 1px solid var(--field-line); border-radius: 9px; padding: 4px 14px; }
-  .cmp-row > summary { cursor: pointer; padding: 10px 0; display: flex; align-items: baseline;
-    justify-content: space-between; gap: 14px; flex-wrap: wrap; list-style: none; }
+  .cmp-row { background: var(--panel); border: 1px solid var(--field-line); border-radius: var(--r3); padding: var(--s1) var(--s4); }
+  .cmp-row > summary { cursor: pointer; padding: var(--s2) 0; display: flex; align-items: baseline;
+    justify-content: space-between; gap: var(--s4); flex-wrap: wrap; list-style: none; }
   .cmp-row > summary::-webkit-details-marker { display: none; }
-  .cmp-q { font: 600 14.5px/1.4 var(--serif); flex: 1 1 240px; }
-  .cmp-verdict { font: 12.5px/1.3 var(--sans); color: var(--muted); white-space: nowrap; }
+  .cmp-q { font: 600 var(--fs-1)/var(--lh-snug) var(--serif); flex: 1 1 240px; }
+  .cmp-verdict { font: var(--fs-00)/var(--lh-snug) var(--sans); color: var(--muted); white-space: nowrap; }
 
-  .cmp-body { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 4px 0 12px; }
+  .cmp-body { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); padding: var(--s1) 0 var(--s3); }
   @media (max-width: 560px) { .cmp-body { grid-template-columns: 1fr; } }
-  .cmp-col { display: flex; flex-direction: column; gap: 4px; }
+  .cmp-col { display: flex; flex-direction: column; gap: var(--s1); }
   .cmp-col p { margin: 0; }
-  .cmp-row .wz-framing { margin: 0 0 10px; }
-  .cmp-row a { display: inline-block; margin: 0 12px 10px 0; font: 600 12.5px/1 var(--sans); color: var(--ink);
+  .cmp-row .wz-framing { margin: 0 0 var(--s2); }
+  .cmp-row a { display: inline-block; margin: 0 var(--s3) var(--s2) 0; font: 600 var(--fs-00)/1 var(--sans); color: var(--ink);
     text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 2px; }
 </style>
 </head>
