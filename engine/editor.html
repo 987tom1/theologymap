@@ -655,6 +655,44 @@
       navLink('/wizard', 'Questions');
       navLink('/learn', 'Learn');
       navLink('/gallery', 'Browse');
+
+      // The ⋯ overflow popover, built identically to web/chrome.js's mount().
+      // Zero JS beyond the Sign out handler below — light dismiss, Escape and
+      // focus-return are the platform's job because this is a real popover
+      // attribute, not a hand-rolled menu.
+      const moreBtn = document.createElement('button');
+      moreBtn.type = 'button';
+      moreBtn.id = 'tm-more-btn';
+      moreBtn.className = 'tm-morebtn';
+      moreBtn.setAttribute('popovertarget', 'tm-more');
+      moreBtn.setAttribute('aria-label', 'More');
+      moreBtn.textContent = '⋯';
+      const more = document.createElement('div');
+      more.id = 'tm-more';
+      more.className = 'tm-more';
+      more.setAttribute('popover', '');
+      const moreLink = (href, text) => {
+        const a = document.createElement('a');
+        a.href = href; a.textContent = text;
+        more.appendChild(a);
+        return a;
+      };
+      // /edit marking its own Edit item here is correct, not a bug — it is
+      // where we already are.
+      moreLink('/edit', 'Edit');
+      moreLink('/history', 'History');
+      moreLink('/compare', 'Compare');
+      // Not a page: web/landing.html:158-172 already builds this button under
+      // the tile grid with id="vis-row". Nothing added to /.
+      moreLink('/#vis-row', 'Listing status');
+      if (me && me.is_admin) moreLink('/admin', 'Admin');
+      const out = moreLink('#', 'Sign out');
+      out.addEventListener('click', (e) => {
+        e.preventDefault();
+        clearUser();
+        location.href = '/';
+      });
+      toplinks.after(moreBtn, more);
     } else {
       adapter = StorageLocal();
     }

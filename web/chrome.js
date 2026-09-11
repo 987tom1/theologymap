@@ -66,8 +66,38 @@ export function mount(pageTitle, actions = []) {
   links.appendChild(link('/gallery', 'Browse'));
   if (!user) links.appendChild(link('/#signin', 'Sign in'));
   head.appendChild(links);
-  // The ⋯ overflow popover (Edit, History, Compare, Listing status, Admin,
-  // Sign out) is Task 2 — added below head.appendChild(links) in that commit.
+
+  if (user) {
+    // A native popover: light dismiss, Escape and focus-return are the
+    // platform's job, not ours. The one JS handler below (Sign out) is the
+    // only JS this menu needs.
+    const moreBtn = el('button', 'tm-morebtn', '⋯');
+    moreBtn.type = 'button';
+    moreBtn.id = 'tm-more-btn';
+    moreBtn.setAttribute('popovertarget', 'tm-more');
+    moreBtn.setAttribute('aria-label', 'More');
+    head.appendChild(moreBtn);
+
+    const more = el('div', 'tm-more');
+    more.id = 'tm-more';
+    more.setAttribute('popover', '');
+    more.appendChild(link('/edit', 'Edit'));
+    more.appendChild(link('/history', 'History'));
+    more.appendChild(link('/compare', 'Compare'));
+    // Not a page: web/landing.html:158-172 already builds this button under
+    // the tile grid with id="vis-row". Nothing added to /.
+    more.appendChild(link('/#vis-row', 'Listing status'));
+    if (user.is_admin) more.appendChild(link('/admin', 'Admin'));
+    const out = el('a', null, 'Sign out');
+    out.href = '#';
+    out.addEventListener('click', (e) => {
+      e.preventDefault();
+      clearUser();
+      location.href = '/';
+    });
+    more.appendChild(out);
+    head.appendChild(more);
+  }
   host.replaceWith(head);
 }
 
