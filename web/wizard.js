@@ -714,10 +714,18 @@ function buildCustom(doctrine) {
 
   let state = null;
   const pick = () => {
+    if (!state) return;   // fields not built yet: nothing to select
     if (!chosen || chosen.kind !== 'custom') {
       select(card, 'custom', doctrine, null, state.hold, state);
     }
   };
+  // Also re-selects on a plain click, not just ontoggle/hold-input: without
+  // this, expanding the tile (selecting it) then picking a position (which
+  // deselects it, but does not close it — select() never closes a <details>)
+  // then editing the custom tile's Why/tier/confidence without touching
+  // "What I hold" never re-selects it, and Next silently saves the position
+  // instead of the edited custom answer.
+  card.addEventListener('click', pick);
   card.ontoggle = () => {
     if (!card.open) return;
     if (!state) {

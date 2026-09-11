@@ -171,7 +171,22 @@
   #open-answer { cursor: pointer; padding: 14px; gap: 7px; }
   #open-answer > strong { font: 600 15.5px/1.3 var(--serif); }
 
-  #custom-answer { position: relative; }
+  /* `class="wz-card"` gives this a `display: flex` it now shares with the
+     `<details>` element P5 task 2 made it — display:flex/grid on a <details>
+     is the well-known "closed content stays visible" bug where
+     ::details-content is unsupported (benign here only because #custom-fields
+     is empty until first expand, so what would leak is the hint line, not
+     400px of fields). Where ::details-content IS supported, the body is
+     re-parented into that pseudo-element (block layout), so .wz-card's own
+     `gap: 7px` no longer separates .wz-hint from #custom-fields either way.
+     `#custom-answer` is an ID selector, so it outranks `.wz-card` on
+     specificity and can override both problems here: `display: block`
+     degrades correctly with or without ::details-content support, and the
+     hint/fields gap is restated explicitly since the flex gap no longer
+     reaches them. */
+  #custom-answer { position: relative; display: block; }
+  #custom-answer > .wz-hint { margin: 0 0 7px; }
+  #custom-answer > #custom-fields:not(:empty) { margin-top: 7px; }
 
   /* the controls the controller drops into a card's answer slot */
   .wz-slot:empty { display: none; }
@@ -249,7 +264,18 @@
      popover still covers the nav. The -18px/-36px in margin are NOT snapped
      to the --s* scale: they cancel .wz-screen-body's own
      `padding: 22px 18px 36px` (:62) so the bar bleeds to the body edge, and
-     they must equal that padding exactly -- retune only together with it. */
+     they must equal that padding exactly -- retune only together with it.
+
+     Task 1's commit message credited both nav buttons clearing the 44px
+     coarse-pointer floor to "their own 14px vertical padding" -- true for
+     #q-next (.wz-primary, padding: 14px 24px) but not for #q-back, which is
+     .wz-link with padding: 0 0 2px. Both still clear 44px under
+     `pointer: coarse`, but by a mechanism that derivation never named:
+     engine/theme.css's `@media (pointer: coarse) { button, ... { min-height:
+     44px } }` (its element selector, grouped with .tabbtn/select/.nodebtn/
+     details.optional > summary), unopposed here because this page declares
+     no `button {}` rule of its own at all (checked: zero matches) that
+     could win on source order the way the old .wz-radio floor did. */
   .wz-nav {
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
     margin: 2px -18px -36px;
