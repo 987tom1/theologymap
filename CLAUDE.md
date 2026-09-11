@@ -382,16 +382,20 @@ the wrap styles back on the element.**
 `chrome.js` — the documented `file://` exception, kept in step by hand. **Any nav change is
 three edits now: `chrome.js`, `engine/theme.css` and `editor.html`.** Both files hold the list as
 a literal `[href, label]` array so a reorder or relabel is a one-line diff in each; keep them
-line-for-line identical. **There is no Home item** — D6's reasoning was that Home's only job for
-a signed-in user was to be a menu of the items evicted from the nav — so `/#vis-row` is the only
-nav-borne route back to `/`. That id is created in JS during `/`'s signed-in tile build, not in
-its markup, and the deep link works only because the HTML spec retries scroll-to-fragment after
-load.
+line-for-line identical. **Home is the first item in the `⋯` menu, not in the visible row.**
+D6's target list omitted it entirely, on the grounds that Home's only job for a signed-in user
+was to be a menu of the items evicted from the nav; **Thomas rejected that on 2026-09-11** — `/`
+is a real destination and the nav needed a route to it — and the overflow is where a genuine but
+occasional return path belongs, so the visible budget stays at four. `Listing status` points at
+`/#vis-row`, whose id is created in JS during `/`'s signed-in tile build rather than in its
+markup; that deep link works only because the HTML spec retries scroll-to-fragment after load.
 
 **Both copies must implement the current-page match identically.** It compares the **raw** href
 against `location.pathname`, and additionally requires `search` to agree when the href carries
-one — path-only marked "My map" while you were looking at someone else's map. `Sign out` never
-goes through it: its `href="#"` resolves to the current page, which marked it as current on
+one — path-only marked "My map" while you were looking at someone else's map. **An href carrying a fragment never
+marks the page current** — it points at a region, not a destination — which is what keeps Home
+(`/`) and Listing status (`/#vis-row`) from both claiming `/`, and stops `Sign in`'s `/#signin`
+claiming it signed out. `Sign out` never goes through the match at all: its `href="#"` resolves to the current page, which marked it as current on
 `/edit`. Two independently written copies of that one rule is how that bug arrived.
 
 `mount(pageTitle, actions = [])` takes an optional array of built elements for a
@@ -834,8 +838,8 @@ each is easy to reintroduce:
   on the question screen, so `.tm-chrome` finally Holds across a question change instead of
   fading, and `#wz-brand` is reduced to the crumb alone because `mount('Build a map')` already
   supplies the kicker and `h1`. `#wz-header` still toggles, so a thin crumb bar still appears and
-  disappears — **that residue is by design and is Thomas's to accept or reject**, along with the
-  missing Home item.
+  disappears — **that residue is by design; Thomas accepted it on 2026-09-11** on the grounds
+  that `.tm-chrome`, the half the spec names, no longer moves at all.
 
 ---
 

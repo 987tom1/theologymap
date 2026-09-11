@@ -14,15 +14,17 @@ export function el(tag, cls, text) {
 // Path only, unless the item's own href carries a query string — then that
 // must match too. Without this, /view?name=<anyone> reads pathname-only as
 // "/view" and "My map" marks itself current while looking at someone else's
-// map, or a generated tradition summary (M1). A fragment (Sign in's
-// /#signin, Listing status's /#vis-row) carries no search, so those still
-// match on path alone — the accepted /-page behaviour, since a raw string
-// compare against location.pathname would have matched neither kind of
-// href at all. Sign out is never run through this: it's an action, not a
-// destination, and is built with el() directly, below, same as this file
-// always did.
+// map, or a generated tradition summary (M1).
+//
+// An href carrying a FRAGMENT never marks the page current: it points at a
+// region, not a destination. That is the same reason Sign out's href="#" is
+// kept out of here entirely. It also settles what would otherwise be two
+// current items on /, now that Home is in the overflow — Home ('/') and
+// Listing status ('/#vis-row') both live at that pathname, and only one of
+// them is the page. Sign in's /#signin stops marking / for the same reason.
 function matchesPage(href) {
   const u = new URL(href, location.origin);
+  if (u.hash) return false;
   return u.pathname === location.pathname
     && (u.search === '' || u.search === location.search);
 }
@@ -100,6 +102,11 @@ export function mount(pageTitle, actions = []) {
     more.id = 'tm-more';
     more.setAttribute('popover', '');
     const MORE = [
+      // Home is in the overflow, not the visible row: D6's budget is four
+      // visible items, and / is a genuine destination a signed-in user
+      // reaches occasionally — which is exactly what this menu is for.
+      // Without it the nav had no route back to / at all.
+      ['/', 'Home'],
       ['/edit', 'Edit'],
       ['/history', 'History'],
       ['/compare', 'Compare'],

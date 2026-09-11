@@ -199,7 +199,14 @@ Nothing in P6 depends on a `theme.css` rule beating a `web/` page on presence.
       already lives. That element already carries the id; **add nothing to `/`.**
       Its copy does not change: **Unlist, never Hide.** `is_public` controls listing, not
       secrecy, and the wording must not imply otherwise.
-- [ ] **Ruling on "Home".** D6's list has no Home item, on its own count 3 ("Home's only job
+- [x] **RESOLVED 2026-09-11 — Thomas rejected the no-Home reading.** `['/', 'Home']` is the
+      **first item in the `⋯` menu**: the visible budget stays at four, and the overflow is
+      exactly where a genuine but occasional return path belongs. That collided with
+      `Listing status` (`/#vis-row`) for `aria-current` on `/`, fixed generally — **an href
+      carrying a fragment never marks the page current**, since it points at a region rather
+      than a destination, which also stops `/#signin` claiming `/` signed out. Both lockstep
+      copies changed. Original ruling, superseded, kept for the argument:
+- [ ] ~~**Ruling on "Home".**~~ D6's list has no Home item, on its own count 3 ("Home's only job
       for a signed-in user is to be a menu of the items evicted from the nav"). `/#vis-row` is
       therefore the only route back to `/` from the nav, and `/` is still reachable that way,
       from the browser's own controls, and from `/`-hosted links. This is faithful to the spec.
