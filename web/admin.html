@@ -6,31 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  h1 { font-size: 1.4em; }
-  #creds { margin-bottom: 24px; max-width: 320px; }
-  #creds h2 { margin: 0 0 8px; font: 600 17px/1.3 var(--serif); }
-  label { display: block; margin-top: 8px; font: 12.5px/1.4 var(--sans); color: var(--muted); }
-  input { display: block; width: 100%; box-sizing: border-box; padding: 6px 8px; margin-top: 2px;
+  h1 { font-size: var(--fs-3); }
+  #creds { margin-bottom: var(--s5); max-width: 320px; }
+  #creds h2 { margin: 0 0 var(--s2); font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
+  label { display: block; margin-top: var(--s2); font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+  input { display: block; width: 100%; box-sizing: border-box; padding: var(--s2); margin-top: var(--s1);
           background: var(--panel); color: var(--ink); border: 1px solid var(--field-line);
-          border-radius: 5px; font: 14px/1.4 var(--sans); }
-  button { margin-top: 12px; padding: 8px 14px; border: 1px solid var(--field-line);
-           border-radius: 6px; background: var(--panel); color: var(--ink); font: 13px/1 var(--sans);
+          border-radius: var(--r2); font: var(--fs-0)/var(--lh-ui) var(--sans); }
+  button { margin-top: var(--s3); padding: var(--s2) var(--s4); border: 1px solid var(--field-line);
+           border-radius: var(--r2); background: var(--panel); color: var(--ink); font: 600 var(--fs-00)/1 var(--sans);
            cursor: pointer; }
   button:hover { border-color: var(--ink); }
 
-  #users-list { display: grid; gap: 14px; margin-top: 8px;
+  #users-list { display: grid; gap: var(--s4); margin-top: var(--s2);
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-  .user-tile h3 { margin: 0 0 4px; font: 600 17px/1.3 var(--serif); }
-  .user-meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px;
-               font: 13px/1.5 var(--sans); margin-bottom: 4px; }
+  .user-tile h3 { margin: 0 0 var(--s1); font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
+  .user-meta { display: grid; grid-template-columns: auto 1fr; gap: var(--s1) var(--s3);
+               font: var(--fs-00)/var(--lh-ui) var(--sans); margin-bottom: var(--s1); font-variant-numeric: tabular-nums; }
   .meta-label { color: var(--muted); font-weight: 600; }
-  .user-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .user-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s2); }
   .user-actions button { margin-top: 0; min-height: 44px; min-width: 44px; }
 
   .versions-panel { grid-column: 1 / -1; }
   .versions-panel .user-actions { margin-top: 0; }
 
-  #pin-reveal.tm-note { margin-top: 12px; }
+  #pin-reveal.tm-note { margin-top: var(--s3); }
 </style>
 </head>
 <body class="tm-page">

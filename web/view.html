@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/engine/theme.css">
 <style>
-  h1 { font-size: 1.4em; }
+  h1 { font-size: var(--fs-3); }
   /* The action buttons live in the header now (mount()'s actions row), which
      frees the body for the iframe — fill the rest of the viewport with it
      rather than the old fixed 70vh. */
@@ -21,12 +21,12 @@
      parent resolved straight back to it. The map rendered ~300px wide on an
      iPad and merely looked right on a phone, where 300px is most of the screen.
      /view is the one page that makes <body> a flex column, so this is local. */
-  .tm-main { display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto; min-height: 0;
+  .tm-main { display: flex; flex-direction: column; gap: var(--s3); flex: 1 1 auto; min-height: 0;
              width: 100%; box-sizing: border-box; }
-  #tradition-note { font-size: .92em; }
-  #tradition-note p { margin: 2px 0; }
+  #tradition-note { font-size: var(--fs-0); }
+  #tradition-note p { margin: var(--s1) 0; }
   #tradition-note .standing { color: var(--muted, #555); }
-  iframe { width: 100%; flex: 1 1 auto; min-height: 320px; border: 1px solid var(--field-line); border-radius: 6px; }
+  iframe { width: 100%; flex: 1 1 auto; min-height: 320px; border: 1px solid var(--field-line); border-radius: var(--r2); }
 
   /* Fullscreen: on a phone this page's chrome and the rendered map's own sticky
      header together eat about 40% of the viewport, and the map is the point of
@@ -47,7 +47,7 @@
   #full-btn {
     position: fixed; z-index: 51; right: 12px;
     bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    background: var(--panel); box-shadow: 0 1px 6px rgba(0,0,0,.28);
+    background: var(--panel); box-shadow: var(--e2);
   }
 </style>
 </head>
