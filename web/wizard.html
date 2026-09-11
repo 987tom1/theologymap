@@ -182,7 +182,7 @@
      hint/fields gap is restated explicitly since the flex gap no longer
      reaches them. */
   #custom-answer { position: relative; display: block; }
-  #custom-answer > .wz-hint { margin: 0 0 var(--s2); }
+  #custom-answer > .tm-hint { margin: 0 0 var(--s2); }
   #custom-answer > #custom-fields:not(:empty) { margin-top: var(--s2); }
 
   /* the controls the controller drops into a card's answer slot */
@@ -296,7 +296,7 @@
   @media (max-width: 560px) { .wz-stat { grid-template-columns: 1fr 1fr; } }
   .wz-stat > div { display: flex; flex-direction: column; gap: var(--s1); }
   .wz-stat .num { font: 400 var(--fs-4)/var(--lh-tight) var(--serif); font-variant-numeric: tabular-nums; }
-  .wz-stat .lab { margin: 0; }
+  .wz-stat .tm-lab { margin: 0; }
 
   .wz-tier { display: flex; flex-direction: column; gap: var(--s2); }
   #home-tierbar { display: flex; height: 12px; border-radius: var(--r-pill); overflow: hidden; border: 1px solid var(--line); }
@@ -325,7 +325,7 @@
   .wz-block { display: flex; flex-direction: column; gap: var(--s2); }
 
   #home-lensrow { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
-  #home-lensrow .wz-quiet { flex: 1 1 200px; }
+  #home-lensrow .tm-quiet { flex: 1 1 200px; }
 
   .wz-qlist { display: flex; flex-direction: column; gap: var(--s1); }
   /* A row is a <button> now: it opens the question in place rather than
@@ -398,7 +398,7 @@
     </div>
     <div id="lens-list"></div>
     <div class="wz-actions">
-      <span class="wz-quiet">Pick one to carry on. Changeable at any point.</span>
+      <span class="tm-quiet">Pick one to carry on. Changeable at any point.</span>
     </div>
   </div>
 </section>
@@ -417,21 +417,21 @@
 
     <details id="custom-answer" class="wz-card optional">
       <summary><strong>My view is not one of these</strong></summary>
-      <p class="wz-hint">Write it from scratch — nothing here is prefilled.</p>
+      <p class="tm-hint">Write it from scratch — nothing here is prefilled.</p>
       <div id="custom-fields"></div>
     </details>
 
     <div id="open-answer" class="wz-card">
       <strong>I haven't worked this out yet</strong>
-      <p class="wz-hint">This becomes a real entry: confidence 'open', flagged for study.</p>
-      <p class="lab">Still working out</p>
+      <p class="tm-hint">This becomes a real entry: confidence 'open', flagged for study.</p>
+      <p class="tm-lab">Still working out</p>
       <div class="wz-holdfield"><textarea id="open-todo" rows="3"></textarea></div>
       <div class="wz-slot"></div>
     </div>
 
     <button id="ignore-answer" type="button">
       <strong>Ignore for now</strong>
-      <span class="wz-hint">Nothing is written, and you can answer it later.</span>
+      <span class="tm-hint">Nothing is written, and you can answer it later.</span>
     </button>
 
     <details id="who" class="optional">
@@ -449,24 +449,24 @@
 <section id="screen-home" hidden>
   <div class="wz-screen-body">
     <div class="wz-stat">
-      <div><span id="home-beliefs" class="num"></span><span class="lab">beliefs written</span></div>
-      <div><span id="home-areas" class="num"></span><span class="lab">areas covered</span></div>
-      <div><span id="home-open" class="num"></span><span class="lab">still open, flagged #study</span></div>
-      <div><span id="home-remaining" class="num"></span><span class="lab">questions not yet asked</span></div>
+      <div><span id="home-beliefs" class="num"></span><span class="tm-lab">beliefs written</span></div>
+      <div><span id="home-areas" class="num"></span><span class="tm-lab">areas covered</span></div>
+      <div><span id="home-open" class="num"></span><span class="tm-lab">still open, flagged #study</span></div>
+      <div><span id="home-remaining" class="num"></span><span class="tm-lab">questions not yet asked</span></div>
     </div>
 
     <div class="wz-tier">
-      <p class="lab">Tier spread</p>
+      <p class="tm-lab">Tier spread</p>
       <div id="home-tierbar"></div>
-      <p id="home-tiercounts" class="wz-quiet"></p>
-      <p class="wz-quiet">Tier is how much weight a belief carries — T1 essential to the
+      <p id="home-tiercounts" class="tm-quiet"></p>
+      <p class="tm-quiet">Tier is how much weight a belief carries — T1 essential to the
         gospel, T2 church-defining, T3 important but not divisive, T4 a matter of liberty.
         Confidence is a separate question: how settled it is.</p>
     </div>
 
     <div id="home-lensrow">
       <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
-      <span class="wz-quiet">Ordering only.</span>
+      <span class="tm-quiet">Ordering only.</span>
     </div>
 
     <div id="home-full" hidden>
@@ -483,7 +483,7 @@
         </a>
       </div>
       <div class="wz-block">
-        <p class="lab">Areas</p>
+        <p class="tm-lab">Areas</p>
         <div id="home-areas-list"></div>
       </div>
     </div>
@@ -494,7 +494,7 @@
 <section id="screen-area" hidden>
   <div class="wz-screen-body">
     <h2 id="area-title"></h2>
-    <p id="area-sub" class="wz-quiet"></p>
+    <p id="area-sub" class="tm-quiet"></p>
     <div id="area-list" class="wz-qlist"></div>
     <div class="wz-actions">
       <button id="area-add" type="button" class="wz-ghost">Add a doctrine</button>

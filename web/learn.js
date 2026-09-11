@@ -38,7 +38,7 @@ function citeLink(text, label, citation, url) {
   return sharedCiteLink(el, text, label, citation, url);
 }
 function sourceLine(src) {
-  return sharedSourceLine(el, 'lp-hint', src);
+  return sharedSourceLine(el, 'tm-hint', src);
 }
 
 /* Deduplicated by label, first occurrence wins — design section 3.7. */
@@ -85,7 +85,7 @@ function tierChip(tier) {
 function tierNote(doctrine) {
   if (!doctrine.tier_note) return null;
   const box = el('div', 'lp-tiernote');
-  box.appendChild(el('span', 'lab', 'Suggested tier ' + (doctrine.suggested_tier || '') + ' — why'));
+  box.appendChild(el('span', 'tm-lab', 'Suggested tier ' + (doctrine.suggested_tier || '') + ' — why'));
   box.appendChild(el('p', null, doctrine.tier_note));
   return box;
 }
@@ -186,23 +186,23 @@ function positionCard(doctrine, position) {
   card.appendChild(el('h3', null, position.label));
   if (position.hold) card.appendChild(el('p', 'lp-prose', position.hold));
   if (position.why) {
-    card.appendChild(el('p', 'lp-pos-label', 'Why'));
+    card.appendChild(el('p', 'tm-lab', 'Why'));
     card.appendChild(el('p', 'lp-prose', position.why));
   }
   if (position.vs) {
-    card.appendChild(el('p', 'lp-pos-label', 'What it rejects'));
+    card.appendChild(el('p', 'tm-lab', 'What it rejects'));
     card.appendChild(el('p', 'lp-prose', position.vs));
   }
   if (position.learn_detail) {
-    card.appendChild(el('p', 'lp-pos-label', 'More'));
+    card.appendChild(el('p', 'tm-lab', 'More'));
     card.appendChild(el('p', 'lp-prose', position.learn_detail));
   }
   if (position.refs) {
-    card.appendChild(el('p', 'lp-pos-label', 'Texts'));
+    card.appendChild(el('p', 'tm-lab', 'Texts'));
     card.appendChild(refPills(position.refs));
   }
   if ((position.sources || []).length) {
-    card.appendChild(el('p', 'lp-pos-label', 'Sources'));
+    card.appendChild(el('p', 'tm-lab', 'Sources'));
     const box = el('div', 'lp-sources');
     for (const s of position.sources) box.appendChild(sourceLine(s));
     card.appendChild(box);
@@ -296,10 +296,10 @@ async function myOwnAnswer(doctrine) {
     box.appendChild(el('p', 'lp-prose', 'Not yet in the map.'));
   } else {
     box.appendChild(el('p', 'lp-prose', node.hold || '(no hold recorded)'));
-    if (node.why) { box.appendChild(el('p', 'lp-pos-label', 'Why')); box.appendChild(el('p', 'lp-prose', node.why)); }
-    if (node.vs) { box.appendChild(el('p', 'lp-pos-label', "What it rejects")); box.appendChild(el('p', 'lp-prose', node.vs)); }
-    if (node.todo) { box.appendChild(el('p', 'lp-pos-label', 'Still working out')); box.appendChild(el('p', 'lp-prose', node.todo)); }
-    const meta = el('p', 'lp-hint');
+    if (node.why) { box.appendChild(el('p', 'tm-lab', 'Why')); box.appendChild(el('p', 'lp-prose', node.why)); }
+    if (node.vs) { box.appendChild(el('p', 'tm-lab', "What it rejects")); box.appendChild(el('p', 'lp-prose', node.vs)); }
+    if (node.todo) { box.appendChild(el('p', 'tm-lab', 'Still working out')); box.appendChild(el('p', 'lp-prose', node.todo)); }
+    const meta = el('p', 'tm-hint');
     meta.textContent = [node.tier, node.confidence].filter(Boolean).join(' · ');
     if (meta.textContent) box.appendChild(meta);
   }
@@ -426,11 +426,11 @@ function renderTradition(corpus, t) {
       card.appendChild(h3);
       if (row.hold) card.appendChild(el('p', 'lp-prose', row.hold));
       if (row.stanceText) {
-        card.appendChild(el('p', 'lp-hint',
+        card.appendChild(el('p', 'tm-hint',
           row.stanceText.charAt(0).toUpperCase() + row.stanceText.slice(1) + '.'));
       }
       if (row.citation) {
-        const p = el('p', 'lp-hint');
+        const p = el('p', 'tm-hint');
         p.appendChild(citeLink(row.citation, row.citation, row.citation, null));
         card.appendChild(p);
       }

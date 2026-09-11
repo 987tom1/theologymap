@@ -88,7 +88,7 @@ function button(cls, text, onClick) {
   return b;
 }
 
-function labelled(text) { return el('p', 'lab', text); }
+function labelled(text) { return el('p', 'tm-lab', text); }
 
 function loadIgnored() {
   try { ignored = new Set(JSON.parse(localStorage.getItem(IGNORE_KEY)) || []); }
@@ -123,7 +123,7 @@ function citeLink(text, label, citation, url) {
 }
 
 function sourceLine(src) {
-  return sharedSourceLine(el, 'wz-hint', src, onFollow);
+  return sharedSourceLine(el, 'tm-hint', src, onFollow);
 }
 
 /* The Read-more body. Its own class, NOT .wz-answer: sharing a class with the
@@ -136,14 +136,14 @@ function sourceLine(src) {
    promise up to eight times per question. Once per question is enough. */
 function explainer(note, sources, newTab) {
   const box = el('div', 'wz-explain');
-  if (note) box.appendChild(el('p', 'wz-hint', note));
+  if (note) box.appendChild(el('p', 'tm-hint', note));
   for (const s of sources || []) box.appendChild(sourceLine(s));
   if (newTab && (sources || []).length) {
-    box.appendChild(el('p', 'wz-quiet',
+    box.appendChild(el('p', 'tm-quiet',
       'Sources open in a new tab, and anything answered on this screen is saved '
       + 'before the tab opens.'));
   }
-  if (!box.childNodes.length) box.appendChild(el('p', 'wz-hint', 'No further notes on this one yet.'));
+  if (!box.childNodes.length) box.appendChild(el('p', 'tm-hint', 'No further notes on this one yet.'));
   return box;
 }
 
@@ -392,7 +392,7 @@ function whoBelievesWhat(doctrine) {
     }
   }
   body.appendChild(dl);
-  body.appendChild(el('p', 'wz-quiet',
+  body.appendChild(el('p', 'tm-quiet',
     'Chips and stances describe who holds what. They are not a ranking, and '
     + 'they are not a recommendation.'));
 }
@@ -421,7 +421,7 @@ function answerControls(doctrine, position, kind) {
   if (kind === 'open') {
     // "I don't know" is a first-class answer and its confidence is the whole
     // point of it, so it is stated rather than offered (decisions.md).
-    confCell.appendChild(el('p', 'wz-hint', 'open'));
+    confCell.appendChild(el('p', 'tm-hint', 'open'));
     state.todo = $('open-todo');
   } else {
     const conf = radioGroup(Core.CONFIDENCES,
@@ -494,7 +494,7 @@ function renderQuestionUnsafe(i) {
   $('q-readmore').open = false;
   const rm = $('q-readmore-body');
   rm.textContent = '';
-  if (doctrine.framing) rm.appendChild(el('p', 'wz-framing', doctrine.framing));
+  if (doctrine.framing) rm.appendChild(el('p', 'tm-framing', doctrine.framing));
   // The one place the new-tab notice renders: doctrine level, once per question.
   rm.appendChild(explainer(doctrine.learn_note, doctrine.sources, true));
   // The reverse of learn.js's "Answer this question" link: the question admits

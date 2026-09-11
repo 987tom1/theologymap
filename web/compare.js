@@ -97,21 +97,21 @@ function diffRow(row, verdictText) {
 
   const body = el('div', 'cmp-body');
   const mineCol = el('div', 'cmp-col');
-  mineCol.appendChild(el('p', 'lab', 'Yours'));
+  mineCol.appendChild(el('p', 'tm-lab', 'Yours'));
   mineCol.appendChild(el('p', null, holdText(row.mine)));
   const mineWhy = whyText(row.mine);
-  if (mineWhy) mineCol.appendChild(el('p', 'wz-hint', mineWhy));
+  if (mineWhy) mineCol.appendChild(el('p', 'tm-hint', mineWhy));
   body.appendChild(mineCol);
 
   const theirsCol = el('div', 'cmp-col');
-  theirsCol.appendChild(el('p', 'lab', 'Theirs'));
+  theirsCol.appendChild(el('p', 'tm-lab', 'Theirs'));
   theirsCol.appendChild(el('p', null, holdText(row.theirs)));
   const theirsWhy = whyText(row.theirs);
-  if (theirsWhy) theirsCol.appendChild(el('p', 'wz-hint', theirsWhy));
+  if (theirsWhy) theirsCol.appendChild(el('p', 'tm-hint', theirsWhy));
   body.appendChild(theirsCol);
   details.appendChild(body);
 
-  if (row.doctrine.framing) details.appendChild(el('p', 'wz-framing', row.doctrine.framing));
+  if (row.doctrine.framing) details.appendChild(el('p', 'tm-framing', row.doctrine.framing));
 
   const learnLink = el('a', null, 'Read this on Learn');
   learnLink.href = '/learn?doctrine=' + encodeURIComponent(row.doctrine.id);
@@ -196,7 +196,7 @@ function renderClosest(host, closest, ownWordingCount) {
   host.appendChild(line);
 
   if (named.length === 1) {
-    host.appendChild(el('p', 'wz-quiet',
+    host.appendChild(el('p', 'tm-quiet',
       named[0].excludedCount + ' doctrine' + (named[0].excludedCount === 1 ? '' : 's')
       + ' excluded from that count (undecided, own wording, or unanswered on either side).'));
   }
@@ -376,7 +376,7 @@ async function renderPicker(traditionList, user) {
     CompareCore.canBeComparedAgainst(Object.assign({}, row, { is_public: true }))
     && row.name.toLowerCase() !== user.name.toLowerCase());
   if (!comparable.length) {
-    mHost.appendChild(el('p', 'wz-quiet', 'No other public maps to compare against yet.'));
+    mHost.appendChild(el('p', 'tm-quiet', 'No other public maps to compare against yet.'));
   }
   for (const m of comparable) {
     mHost.appendChild(traditionCard({ display_name: m.name, node_count: m.node_count },

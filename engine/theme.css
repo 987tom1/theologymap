@@ -177,18 +177,17 @@ input[type=text], input[type=search], select, textarea,
 /* The product's four secondary text styles. Declared once here rather than
    copied into wizard.html, compare.html and learn.html - three near-identical
    sets was the CSS-layer expression of "pages that look alike by copying".
-   Text only, no layout: engine/theme.css is loaded by the offline editor too.
-   The page-local names ride along for one round; P7 renames the call sites. */
-.tm-quiet, .wz-quiet         { margin: 0; font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
-.tm-hint, .wz-hint, .lp-hint { margin: 0; font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted);
-                               max-width: var(--measure); }
-.tm-framing, .wz-framing     { margin: 0; font: var(--fs-0)/var(--lh-body) var(--serif); color: var(--ink);
-                               max-width: var(--measure); }
+   Text only, no layout: engine/theme.css is loaded by the offline editor too. */
+.tm-quiet   { margin: 0; font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
+.tm-hint    { margin: 0; font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted);
+              max-width: var(--measure); }
+.tm-framing { margin: 0; font: var(--fs-0)/var(--lh-body) var(--serif); color: var(--ink);
+              max-width: var(--measure); }
 /* D4: one uppercase register with a stated job -- everything else sentence
    case. This was the last of six near-identical uppercase-label variants;
    .tm-chrome .kicker below is the one that survives, deliberately, because
    it is naming the whole page's chrome, not a field inside a card. */
-.tm-lab, .lab, .lp-pos-label { margin: 0; font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+.tm-lab { margin: 0; font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
 
 /* Small win 1: let the browser pick better line breaks than "whatever fits". */
 h1, h2, h3, .tm-card h3 { text-wrap: balance; }
