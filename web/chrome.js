@@ -11,7 +11,17 @@ export function el(tag, cls, text) {
   if (text != null) e.textContent = text;
   return e;
 }
-function link(href, text) { const a = el('a', null, text); a.href = href; return a; }
+function link(href, text) {
+  const a = el('a', null, text);
+  a.href = href;
+  // Path only: My map's href carries a query string and Sign in's a
+  // fragment, and a raw string compare against location.pathname would mark
+  // neither. new URL() strips both before the comparison.
+  if (new URL(href, location.origin).pathname === location.pathname) {
+    a.setAttribute('aria-current', 'page');
+  }
+  return a;
+}
 
 /* The tier-name → token map, forked four ways before this (wizard.js, compare.js,
    learn.js, gallery.html). It reads engine/theme.css's --t1…--t4 rather than a hex,

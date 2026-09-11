@@ -226,6 +226,15 @@ details.optional > summary:hover { color: var(--ink); }
 .tm-chrome .toplinks { margin-top:8px; display:flex; gap:14px; font:600 12px/1 var(--sans); }
 .tm-chrome .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
 .tm-chrome .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
+/* Ties with .tm-chrome .toplinks a above at (0,2,1); declared after it in the
+   same file so it wins the tie on source order. Unprefixed on purpose — a
+   .tm-chrome-scoped version would also beat editor.html's local
+   .toplinks a ((0,1,1)) on specificity alone, but the editor's header has no
+   .tm-chrome ancestor, so it would never apply there. One selector serves
+   both surfaces. Only the colour changes: :222's rule already puts a
+   transparent 1px border-bottom on every nav link, so the marker moves with
+   no layout shift. */
+.toplinks a[aria-current] { color: var(--ink); border-bottom-color: var(--ink); }
 
 /* The ⋯ overflow popover. Scoped on its own class names, with no .tm-chrome
    ancestor, on purpose: web/'s header carries .tm-chrome, the editor's does
