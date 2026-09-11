@@ -640,71 +640,91 @@
       $('editorTitle').textContent = 'My map';
       $('editorSub').textContent =
         'Every belief here is mine to edit. Changes save automatically.';
-      // The local tool's "Open the map ↗" becomes the nav's leading "My map"
-      // link, reusing the element already in the markup rather than inserting
-      // one before it. §10 reverses the 2026-08-29 call that "My map" is a
-      // tile, not a nav item — it is a nav item again, per chrome.js. The
-      // *copy* stays a hand-kept copy for the reason it always was: the
-      // offline tool must load from file:// with no network, so this file
-      // cannot import chrome.js.
-      const mapLink = $('editorMapLink');
-      mapLink.href = '/view?name=' + encodeURIComponent(me.name);
-      mapLink.removeAttribute('target');
-      mapLink.removeAttribute('rel');
-      mapLink.textContent = 'My map';
-      markCurrent(mapLink);
       $('emptyIntro').textContent =
         'This map is empty. Answer the questions in the wizard to fill it in, '
         + 'or start here with "+ New area".';
 
-      // Mirrors web/chrome.js's nav item-for-item. editor.html cannot import
-      // chrome.js — the offline tool must load from file:// with no network —
-      // so this is a deliberate second copy, not drift. Keep the two in step
-      // by hand. Edit, History, Compare, Listing status, Admin and Sign out
-      // move into the ⋯ popover (Task 2); this page's own Edit item there is
-      // correct, not a bug, since /edit is where we already are.
-      navLink('/wizard', 'Questions');
-      navLink('/learn', 'Learn');
-      navLink('/gallery', 'Browse');
+      // Guard on me being present, as the code this replaced did (it only
+      // ever dereferenced user inside "if (me && me.is_admin)"). getUser()
+      // is null for a signed-out visitor — a stale tab, cleared
+      // localStorage, or a direct link to /edit — and nothing before this
+      // point redirects them: createHostedAdapter()'s requireUser() redirect
+      // lives inside load(), which boot() only reaches later. Without this
+      // guard, me.name below throws, boot().catch() swallows it, and the
+      // person sees "The editor could not start" instead of the clean
+      // redirect to / they used to get.
+      if (me) {
+        // The local tool's "Open the map ↗" becomes the nav's leading
+        // "My map" link, reusing the element already in the markup rather
+        // than inserting one before it. §10 reverses the 2026-08-29 call
+        // that "My map" is a tile, not a nav item — it is a nav item again,
+        // per chrome.js. The *copy* stays a hand-kept copy for the reason it
+        // always was: the offline tool must load from file:// with no
+        // network, so this file cannot import chrome.js.
+        const mapLink = $('editorMapLink');
+        mapLink.href = '/view?name=' + encodeURIComponent(me.name);
+        mapLink.removeAttribute('target');
+        mapLink.removeAttribute('rel');
+        mapLink.textContent = 'My map';
+        markCurrent(mapLink);
 
-      // The ⋯ overflow popover, built identically to web/chrome.js's mount().
-      // Zero JS beyond the Sign out handler below — light dismiss, Escape and
-      // focus-return are the platform's job because this is a real popover
-      // attribute, not a hand-rolled menu.
-      const moreBtn = document.createElement('button');
-      moreBtn.type = 'button';
-      moreBtn.id = 'tm-more-btn';
-      moreBtn.className = 'tm-morebtn';
-      moreBtn.setAttribute('popovertarget', 'tm-more');
-      moreBtn.setAttribute('aria-label', 'More');
-      moreBtn.textContent = '⋯';
-      const more = document.createElement('div');
-      more.id = 'tm-more';
-      more.className = 'tm-more';
-      more.setAttribute('popover', '');
-      const moreLink = (href, text) => {
-        const a = document.createElement('a');
-        a.href = href; a.textContent = text;
-        more.appendChild(a);
-        markCurrent(a);
-        return a;
-      };
-      // /edit marking its own Edit item here is correct, not a bug — it is
-      // where we already are.
-      moreLink('/edit', 'Edit');
-      moreLink('/history', 'History');
-      moreLink('/compare', 'Compare');
-      // Not a page: web/landing.html:158-172 already builds this button under
-      // the tile grid with id="vis-row". Nothing added to /.
-      moreLink('/#vis-row', 'Listing status');
-      if (me && me.is_admin) moreLink('/admin', 'Admin');
-      const out = moreLink('#', 'Sign out');
-      out.addEventListener('click', (e) => {
-        e.preventDefault();
-        clearUser();
-        location.href = '/';
-      });
-      toplinks.after(moreBtn, more);
+        // Mirrors web/chrome.js's nav item-for-item. editor.html cannot
+        // import chrome.js — the offline tool must load from file:// with no
+        // network — so this is a deliberate second copy, not drift. Keep the
+        // two in step by hand. Edit, History, Compare, Listing status, Admin
+        // and Sign out move into the ⋯ popover (Task 2); this page's own
+        // Edit item there is correct, not a bug, since /edit is where we
+        // already are.
+        navLink('/wizard', 'Questions');
+        navLink('/learn', 'Learn');
+        navLink('/gallery', 'Browse');
+
+        // The ⋯ overflow popover, built identically to web/chrome.js's
+        // mount(). Zero JS beyond the Sign out handler below — light
+        // dismiss, Escape and focus-return are the platform's job because
+        // this is a real popover attribute, not a hand-rolled menu.
+        const moreBtn = document.createElement('button');
+        moreBtn.type = 'button';
+        moreBtn.id = 'tm-more-btn';
+        moreBtn.className = 'tm-morebtn';
+        moreBtn.setAttribute('popovertarget', 'tm-more');
+        moreBtn.setAttribute('aria-label', 'More');
+        moreBtn.textContent = '⋯';
+        const more = document.createElement('div');
+        more.id = 'tm-more';
+        more.className = 'tm-more';
+        more.setAttribute('popover', '');
+        const moreLink = (href, text) => {
+          const a = document.createElement('a');
+          a.href = href; a.textContent = text;
+          more.appendChild(a);
+          markCurrent(a);
+          return a;
+        };
+        // /edit marking its own Edit item here is correct, not a bug — it is
+        // where we already are.
+        moreLink('/edit', 'Edit');
+        moreLink('/history', 'History');
+        moreLink('/compare', 'Compare');
+        // Not a page: web/landing.html:158-172 already builds this button
+        // under the tile grid with id="vis-row". Nothing added to /.
+        moreLink('/#vis-row', 'Listing status');
+        if (me.is_admin) moreLink('/admin', 'Admin');
+        const out = moreLink('#', 'Sign out');
+        out.addEventListener('click', (e) => {
+          e.preventDefault();
+          clearUser();
+          location.href = '/';
+        });
+        toplinks.after(moreBtn, more);
+      } else {
+        // Nobody signed in: load(), called later in boot(), calls
+        // requireUser() and redirects to / shortly. Don't invent a
+        // signed-out editor nav, and don't leave the file:// tool's
+        // "Open the map ↗" wording stranded on a hosted page while that
+        // redirect is in flight — hide the stub instead of rewriting it.
+        $('editorMapLink').hidden = true;
+      }
     } else {
       adapter = StorageLocal();
     }

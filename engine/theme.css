@@ -207,9 +207,11 @@ details.optional > summary:hover { color: var(--ink); }
      link inside a paragraph is not turned into a block. */
   .tm-chrome .toplinks a { padding: 16px 0; }
   /* .tm-chrome .toplinks a's 16px top+bottom padding plus its 12px line-height
-     text is 44px; the popover's own links share that font (12px/1) but ship
-     no padding of their own, so they need the same 16px explicitly — the
-     nav's rule does not reach them (no .toplinks ancestor). */
+     text is 44px. The popover's own links are a different font — 13px/1.3,
+     16.9px tall — and ship no padding of their own, so they need the same
+     16px explicitly: the nav's rule does not reach them (no .toplinks
+     ancestor). 16px + 16.9px + 16px = 48.9px, clearing 44px with room to
+     spare. */
   .tm-more a { padding: 16px 0; }
   .lp-row { padding: 12px 12px; }
   .cmp-row > summary, .cmp-acc > summary { padding: 12px 0; }
