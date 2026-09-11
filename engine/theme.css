@@ -214,18 +214,28 @@ details.optional > summary:hover { color: var(--ink); }
      one selector to win on SPECIFICITY, not source order, so no future
      page-side edit can defeat it again. */
   a.lp-row { padding: var(--s3); }
-  /* (0,1,1) beats web/learn.html's .lp-row (0,1,0), padding: 10px 12px.
-     Post-fix: .lp-row .nm is 14.5px/1.4 = 20.3px line box + var(--s3)*2
-     (24px) + the row's own 1px+1px border = 46.3px, clears 44. */
+  /* (0,1,1) beats web/learn.html's .lp-row (0,1,0). Re-derived after P7
+     Task 4 re-tokenised that page: the row's tallest child is .lp-tier
+     (600 11px/1 + 5px padding = 21px), just over .lp-row .nm's
+     var(--fs-1)/var(--lh-snug) = 20.3px at 360px. 21 + var(--s3)*2 (24px)
+     + the row's own 1px+1px border = 47px, clears 44. */
   details.cmp-row > summary { padding: var(--s3) 0; }
-  /* (0,1,2) beats web/compare.html's .cmp-row > summary (0,1,1),
-     padding: 10px 0. Post-fix: .cmp-q is 600 14.5px/1.4 = 20.3px line box
-     + 24px = 44.3px, clears 44. */
+  /* (0,1,2) beats web/compare.html's .cmp-row > summary (0,1,1).
+     Re-derived after P7 Task 5 re-tokenised that page: .cmp-q is now
+     600 var(--fs-1)/var(--lh-snug). --fs-1 is fluid, so the WORST case is
+     the narrowest viewport: at 360px it resolves to 15.03px, x1.35 =
+     20.29px line box, + var(--s3)*2 (24px) = 44.29px. That clears 44 by
+     less than a third of a pixel, and the margin comes from a fluid token
+     declared in THIS file. Widen --lh-snug or shrink --fs-1 and this
+     touch target silently drops below the WCAG floor. It is comfortable
+     everywhere else (45.6px once --fs-1 saturates at 16px). */
   details.cmp-acc > summary { padding: var(--s4) 0; }
-  /* (0,1,2) beats web/compare.html's .cmp-acc > summary (0,1,1),
-     padding: 8px 0. var(--s3) (12px) was tried first and falls short here:
-     600 13.5px/1.3 = 17.55px line box + 24px = 41.55px, still under 44.
-     var(--s4) (16px) clears it: 17.55px + 32px = 49.55px. */
+  /* (0,1,2) beats web/compare.html's .cmp-acc > summary (0,1,1).
+     Re-derived after P7 Task 5: the summary is 600 var(--fs-0)/var(--lh-snug)
+     = 14 x 1.35 = 18.9px line box. var(--s3) (12px) still falls short --
+     18.9 + 24 = 42.9px, under 44 -- so var(--s4) is the step that clears
+     it: 18.9 + 32 = 50.9px. The conclusion is unchanged from Task 1's, but
+     the numbers it was argued from no longer existed. */
   .wz-radio input + span, .mradio input + span { min-height: 44px; }
 }
 
