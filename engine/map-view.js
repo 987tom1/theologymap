@@ -1,13 +1,21 @@
-/* map-view.js — hand-ported copy of the Map-view layout/pan/zoom engine
- * embedded in render.py's generated theology-map.html (buildMapTree,
- * mboxHTML, redrawMap, and the pan/zoom pointer-event handlers). Kept in
- * lockstep with render.py by hand, same convention as editor-core.js
- * mirrors render.py's parse() — if you touch the Map view in render.py,
- * re-verify this file matches.
+/* map-view.js — THE Map-view layout/pan/zoom engine. One source, two consumers.
  *
- * Unlike render.py's version (which reads a flat array of all nodes
- * grouped by a `.domain` string), this version reads the editor's
- * `domains` array directly — already grouped by real domain.
+ * Until P9 (2026-09-12) this file was a hand-ported copy of ~390 lines living
+ * inside render.py's template string, the two kept in lockstep by hand. That
+ * fork is gone: render.py now reads this file at import time and inlines it
+ * into the generated theology-map.html beside the data payload. Edit the map
+ * engine here and nowhere else.
+ *
+ * The two consumers differ in three ways, all of them options rather than
+ * forks:
+ *   - input shape. The generated map holds a flat array of nodes carrying a
+ *     `.domain` string; the editor holds them already grouped. MapView.
+ *     groupByDomain adapts the former to the latter.
+ *   - the leaf body. Read-only leaves are a <dl> built from render.py's own
+ *     detailRows(), which it shares with its card views; editable leaves are
+ *     DOM-built controls. `opts.leafHTML` injects the former.
+ *   - chrome. Rename, add-node and add-domain exist only in the editor;
+ *     `opts.readonly` turns them off.
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
@@ -85,9 +93,21 @@
     this.onAddDomain = opts.onAddDomain || function () {};
     this.onRenameDomain = opts.onRenameDomain || function () {};
 
+    // The read-only consumer (render.py's generated map). readonly drops the
+    // editing chrome and routes leaves through leafHTML; escapeHtml is injected
+    // rather than reached through window.EditorCore, which exists only in the
+    // editor -- a local copy here would be a fourth copy of a helper that is
+    // documented as living in exactly one place (CLAUDE.md, known forks).
+    // forceOpen lets a consumer override a manually-collapsed domain, which is
+    // how the generated map auto-expands areas holding a search match.
+    this.readonly = !!opts.readonly;
+    this.leafHTML = opts.leafHTML || null;
+    this.escapeHtml = opts.escapeHtml || function (s) { return window.EditorCore.escapeHtml(s); };
+    this.forceOpen = opts.forceOpen || function () { return false; };
+
     container.innerHTML =
       '<div class="mapcontrols"><button type="button" class="map-reset">Reset view</button></div>' +
-      '<div class="maphint">Drag/swipe to pan &middot; scroll or pinch to zoom &middot; tap a leaf to expand</div>' +
+      '<div class="maphint">Drag/swipe to pan &middot; scroll or pinch to zoom &middot; tap a box to expand</div>' +
       '<div class="map-panzoom"><svg class="map-svg"></svg><div class="map-boxes"></div></div>';
     this.wrap = container;
     this.panzoomEl = container.querySelector('.map-panzoom');
@@ -114,16 +134,20 @@
     domains.forEach(domain => {
       const members = sortByTier(domain.nodes);
       const id = 'domain:' + domain.name;
-      const isOpen = !this.mapManualCollapsed.has(id);
+      const isOpen = !this.mapManualCollapsed.has(id) || this.forceOpen(domain);
       const side = nextSide();
       const dom = { id, type: 'domain', title: domain.name, depth: 1, side, total: members.length, children: [] };
       if (isOpen) {
         dom.children = members.map(n => this._leafBox(n, 2, side));
-        dom.children.push({ id: 'addnode:' + domain.name, type: 'addnode', title: '+ New node', depth: 2, side, domainName: domain.name, children: [] });
+        if (!this.readonly) {
+          dom.children.push({ id: 'addnode:' + domain.name, type: 'addnode', title: '+ New node', depth: 2, side, domainName: domain.name, children: [] });
+        }
       }
       root.children.push(dom);
     });
-    root.children.push({ id: 'adddomain', type: 'adddomain', title: '+ New domain', depth: 1, side: nextSide(), children: [] });
+    if (!this.readonly) {
+      root.children.push({ id: 'adddomain', type: 'adddomain', title: '+ New domain', depth: 1, side: nextSide(), children: [] });
+    }
     return root;
   };
 
@@ -138,19 +162,31 @@
   }
 
   MapView.prototype._mboxHTML = function (box) {
+    const esc = this.escapeHtml;
     if (box.type === 'root') {
-      return `<div class="mbox mbox-root" data-id="${window.EditorCore.escapeHtml(box.id)}">${window.EditorCore.escapeHtml(box.title)}</div>`;
+      return `<div class="mbox mbox-root" data-id="${esc(box.id)}">${esc(box.title)}</div>`;
     }
     if (box.type === 'domain') {
       const openState = box.children.length > 0;
-      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${window.EditorCore.escapeHtml(box.id)}">
-        <div class="mtitle"><b>${window.EditorCore.escapeHtml(box.title)}</b><span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${window.EditorCore.escapeHtml(box.title)}" title="Rename domain">&#9998;</button>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</span></div>
+      const chev = box.total ? '<span class="mchev">&#9656;</span>' : '';
+      // The read-only map has nothing to rename, so it emits the bare chevron
+      // the generated page has always emitted rather than an actions wrapper
+      // holding a button it would never show.
+      const actions = this.readonly ? chev
+        : `<span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${esc(box.title)}" title="Rename domain">&#9998;</button>${chev}</span>`;
+      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${esc(box.id)}">
+        <div class="mtitle"><b>${esc(box.title)}</b>${actions}</div>
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
     }
     if (box.type === 'addnode' || box.type === 'adddomain') {
-      return `<div class="mbox mbox-add" data-id="${window.EditorCore.escapeHtml(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
+      return `<div class="mbox mbox-add" data-id="${esc(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
     }
+    // A read-only leaf is a string the consumer builds -- render.py's is a <dl>
+    // from the same detailRows() its card views use. An editable leaf is not a
+    // string at all: it is DOM built by _mountLeaf/_updateLeaf so that focus and
+    // in-progress keystrokes survive a redraw.
+    if (this.leafHTML) return this.leafHTML(box.node, this.mapDetailOpen.has(box.id));
     throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
   };
 
@@ -440,7 +476,10 @@
     }
     list.forEach(box => {
       let el = this.mapEls.get(box.id);
-      if (box.type === 'leaf') {
+      // A read-only leaf is plain markup and takes the generic string path
+      // below with every other box type; only an editable leaf needs the
+      // mount/update pair that preserves focus across a redraw.
+      if (box.type === 'leaf' && !this.readonly) {
         if (!el) {
           el = this._mountLeaf(box);
           this.boxesEl.appendChild(el);
@@ -538,6 +577,23 @@
       this.needsCenter = false;
     }
     this._applyPanZoom();
+  };
+
+  // Expand-all / collapse-all drive the map from the page's own buttons. They
+  // are methods rather than exposed Sets so no caller has to know how a leaf id
+  // is encoded -- it is a private per-node token, not the slug it once was.
+  MapView.prototype.expandAll = function () {
+    this.mapManualCollapsed = new Set();
+    flatten(this._buildTree(), []).forEach(box => {
+      if (box.type === 'leaf') this.mapDetailOpen.add(box.id);
+    });
+    this.redraw();
+  };
+
+  MapView.prototype.collapseAll = function () {
+    this.mapDetailOpen.clear();
+    this.mapManualCollapsed = new Set(this._domainIds());
+    this.redraw();
   };
 
   // Called after a node is deleted elsewhere (e.g. from the List tab, or the
