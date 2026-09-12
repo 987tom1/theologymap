@@ -117,7 +117,17 @@
 
     this._bindClicks();
     this._bindPanZoom();
-    window.addEventListener('resize', () => this.redraw());
+    // A redraw while the container is display:none measures every box as 0x0
+    // and lays the whole tree on top of itself at the origin. It self-heals on
+    // the next visible redraw, so it was never visible -- it was just a full
+    // layout pass thrown away on every resize, in whichever view was showing.
+    // offsetParent is null exactly when an ancestor is display:none, which is
+    // how both consumers hide the map (the generated page's #mapwrap, the
+    // editor's map tab).
+    window.addEventListener('resize', () => {
+      if (this.wrap.offsetParent === null) return;
+      this.redraw();
+    });
   }
 
   MapView.prototype._domainIds = function () {
@@ -247,31 +257,15 @@
     return wrap;
   };
 
-  // Copied from render.py's TIER_META / CONF_META. Kept beside the editable-leaf
-  // functions rather than at the top of the factory so this phase's diff stays
-  // inside the three functions render.py has no counterpart for (design 6.2).
-  const TIER_GLOSS = {
-    'T1': 'Essential to the gospel',
-    'T1.5': 'Near-essential',
-    'T2': 'Church-defining',
-    'T2.5': 'Strains partnership',
-    'T3': 'Important, not divisive',
-    'T4': 'Matters of liberty',
-  };
-  const CONF_GLOSS = {
-    'certain': 'Settled. I would teach and defend this.',
-    'confident': 'Held with good reason, open to sharpening.',
-    'leaning': 'A working position, not yet settled.',
-    'open': 'Genuinely undecided.',
-    'rejected': 'Considered and rejected.',
-  };
-
   // Every editable control for an open leaf is built by _leafDetail below, in
   // the same order as the wizard's doctrine editor (What I hold, Tier,
   // Confidence, #study, then the optional disclosure), so the meta row has
-  // nothing of its own left to draw. It still has to hand _mountLeaf a node --
-  // that function is lockstep-bearing and must not change -- and an empty
-  // fragment appends nothing.
+  // nothing of its own left to draw.
+  //
+  // It must still return SOMETHING for _mountLeaf/_updateLeaf to append, and an
+  // empty fragment appends nothing. Those two builders append meta before
+  // detail, so "tidying" this back into returning a .mmeta div re-orders every
+  // open tile -- that is why it looks pointless and is not.
   MapView.prototype._leafMetaEditable = function () {
     return document.createDocumentFragment();
   };
@@ -284,8 +278,8 @@
     // Nothing inside an open tile should collapse it. _bindClicks exempts
     // inputs and a handful of class names, and the radio chips below are
     // <span>s inside <label>s, which it would not recognise -- so the panel
-    // stops the click here rather than growing that exemption list inside a
-    // lockstep-bearing function.
+    // stops the click here rather than growing that exemption list to cover
+    // every control this function may ever add.
     wrap.addEventListener('click', e => e.stopPropagation());
 
     function field(labelText, value, onInput) {
@@ -309,7 +303,7 @@
     // operation and the radiogroup semantics come from the platform rather
     // than from us. The group name is keyed on this tile's own stable leaf id,
     // so two tiles open at once never share a group.
-    function radios(labelText, values, value, gloss, ramp, onPick) {
+    function radios(labelText, values, value, glossOf, ramp, onPick) {
       const cell = document.createElement('div');
       const lab = document.createElement('p');
       lab.className = 'mlab';
@@ -333,7 +327,7 @@
       values.forEach(v => {
         const item = document.createElement('label');
         item.className = 'mradio';
-        item.title = gloss[v] || '';
+        item.title = glossOf(v) || '';
         const input = document.createElement('input');
         input.type = 'radio'; input.name = name; input.value = v;
         if (v === value) input.checked = true;
@@ -356,9 +350,12 @@
 
     const controls = document.createElement('div');
     controls.className = 'mcontrols';
-    controls.appendChild(radios('Tier', core.TIERS, n.tier, TIER_GLOSS, true,
+    // The gloss each chip shows on hover is already in the meta the consumer
+    // passed in: tierMeta is [gloss, colour], confMeta is [percent, gloss].
+    // They used to be hand-copied from render.py's TIER_META / CONF_META here.
+    controls.appendChild(radios('Tier', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
       v => { n.tier = v; self.onFieldChange(n); self.redraw(); }));
-    controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, CONF_GLOSS, false,
+    controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
       v => { n.confidence = v; self.onFieldChange(n); }));
     wrap.appendChild(controls);
 
@@ -584,11 +581,15 @@
   // Expand-all / collapse-all drive the map from the page's own buttons. They
   // are methods rather than exposed Sets so no caller has to know how a leaf id
   // is encoded -- it is a private per-node token, not the slug it once was.
-  MapView.prototype.expandAll = function () {
+  //
+  // expandAll takes the caller's OWN full node list rather than reading the
+  // tree, because the tree is built from getDomains(), which the generated map
+  // filters by the live search box. Expanding only what the tree holds would
+  // leave every belief the filter excluded collapsed once the filter is
+  // cleared -- which is not what this button did before the two copies merged.
+  MapView.prototype.expandAll = function (nodes) {
     this.mapManualCollapsed = new Set();
-    flatten(this._buildTree(), []).forEach(box => {
-      if (box.type === 'leaf') this.mapDetailOpen.add(box.id);
-    });
+    (nodes || []).forEach(n => this.mapDetailOpen.add(stableLeafId(n)));
     this.redraw();
   };
 
@@ -614,8 +615,8 @@
       if (e.target.closest('.refchip') || e.target.closest('.versepop')) return;
       const editBtn = e.target.closest('.mdomain-edit');
       if (editBtn) { self.onRenameDomain(editBtn.dataset.domain); return; }
-      // Task 4 adds interactive form controls (inputs/selects/textareas) inside
-      // expanded leaves — clicks on those must not toggle the tile shut.
+      // An expanded leaf carries interactive form controls
+      // (inputs/selects/textareas) -- clicks on those must not toggle it shut.
       if (e.target.closest('input, select, textarea, .tagchip, .addtag, button.danger')) return;
       const box = e.target.closest('.mbox');
       if (!box) return;

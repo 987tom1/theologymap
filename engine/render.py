@@ -1034,7 +1034,9 @@ document.getElementById('filtersToggle').addEventListener('click', () => {
 
 document.getElementById('expandAll').addEventListener('click', () => {
   if (view === 'map') {
-    mapView.expandAll();
+    // The full node list, not the filtered tree: expand-all opens every belief
+    // in the map, including ones a live search is currently hiding.
+    mapView.expandAll(all);
     return;
   }
   document.querySelectorAll('#out .group').forEach(sec => expandedGroups.add(sec.dataset.key));
@@ -1110,10 +1112,13 @@ window.addEventListener('resize', () => {
   // redraw, so a resize just needs to trigger that redraw (also re-checks
   // the two-sided vs. phone single-sided breakpoint).
   //
-  // MapView binds its own resize->redraw as well, and it may run first, at the
-  // wrap's stale height. This handler is what keeps sizeMap() ahead of the
-  // redraw that lands, and what stops a redraw while the map is hidden behind a
-  // card view, where every box measures 0x0.
+  // MapView binds its own resize->redraw too, and being bound first it runs
+  // first -- at the wrap's height before sizeMap() has corrected it. So this
+  // handler is not the only redraw on a resize; it is the one that lands last,
+  // and therefore the one that decides the final layout. That ordering is what
+  // keeps sizeMap() ahead of the measurement that counts. MapView skips its own
+  // redraw entirely while the map is hidden, so a resize on a card view costs
+  // nothing.
   if (view === 'map') mapView.redraw();
 });
 

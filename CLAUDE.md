@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `8c3200ea2cf62d193ae9bdd9876d4d926537acf1f3fd73aaf4c805e769d6351b` as written by
+- `c5f5bc06782715f686533d13b33b688bb805ca6528d90449290ee598105d28e4` as written by
   `Path.write_text` on Windows (CRLF)
-- `b9bef7881a4265b2d92275e0a02bed5b922827ad79b1fdb411443ef5ec316546` LF-normalised (what a
+- `83b1117a17935497696b4e079c3b905e3222c6ec86b05861c76c1a08d6f74cd9` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -750,6 +750,11 @@ What replaced the fork is four options, supplied by `render.py` only — the edi
 | `leafHTML(n, open, id)` | the read-only leaf body. **`id` is the engine's box id and must land in `data-id`** — a leaf labelled with its slug toggles a key the view does not hold |
 | `escapeHtml` | injected, because `window.EditorCore` exists only in the editor and a local copy here would be a fourth copy of a one-place helper |
 | `forceOpen(domain)` | overrides a manually-collapsed domain — the generated map's search auto-expand |
+
+**`expandAll(nodes)` takes the caller's own full node list**, and must keep doing so. Reading
+the tree instead would expand only what the live search filter currently shows, leaving every
+other belief collapsed once the filter is cleared — which is not what that button did when the
+generated map owned its own copy of this code.
 
 **Three things about it are easy to undo and must not be:**
 
