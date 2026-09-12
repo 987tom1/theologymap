@@ -375,10 +375,10 @@ async function renderPicker(traditionList, user) {
   $('screen-results').hidden = true;
 
   const tHost = $('picker-traditions');
-  clearSkel(tHost);          // clears the skeleton main() painted, not a race: renderPicker only ever runs after that skeleton has stopped changing
+  clearSkel(tHost);          // clears the skeleton main() painted, or a previous render's cards — renderPicker is re-entrant now that route() can call it more than once per document
   for (const t of traditionList) {
     tHost.appendChild(traditionCard(t,
-      () => { location.href = '/compare?tradition=' + encodeURIComponent(t.id); }));
+      () => navigate('/compare?tradition=' + encodeURIComponent(t.id))));
   }
 
   const mHost = $('picker-members');
@@ -398,7 +398,7 @@ async function renderPicker(traditionList, user) {
   }
   for (const m of comparable) {
     mHost.appendChild(traditionCard({ display_name: m.name, node_count: m.node_count },
-      () => { location.href = '/compare?name=' + encodeURIComponent(m.name); }));
+      () => navigate('/compare?name=' + encodeURIComponent(m.name))));
   }
 }
 
@@ -487,24 +487,52 @@ async function renderResults(opts) {
   }
 }
 
+/* Module-scope state, set once by main() before the first route() and never
+   re-fetched afterwards — that is the whole point of this task. A fourth
+   cached value (Task 3's traditionMaps) slots in here the same way. */
+let corpus, traditionList, user, changeBtn;
+
+/* The one place that decides picker vs. results from a URLSearchParams and
+   renders it, closing over the module-scope state above rather than
+   re-fetching it. Called once by main() for the initial load, then again by
+   every internal navigation (navigate(), below) and by popstate — none of
+   which repaint Task 1's skeleton, because that is painted exactly once, in
+   main(), before route() first runs. */
+async function route(params) {
+  const traditionId = params.get('tradition');
+  const memberName = params.get('name');
+  const doctrineParam = params.get('doctrine');
+  if (!traditionId && !memberName) {
+    changeBtn.hidden = true;   // renderResults sets it false; route is the only path back to the picker, so it is the one place that must set it back
+    await renderPicker(traditionList, user);
+    return;
+  }
+  await renderResults({ corpus, traditionList, traditionId, memberName, doctrineParam, user, changeBtn });
+}
+
+/* pushState + route, replacing the old location.href-to-self reload. popstate
+   does not fire for the pushState that created the entry, so every internal
+   link goes through this rather than relying on the popstate handler alone. */
+function navigate(url) {
+  history.pushState(null, '', url);
+  route(new URLSearchParams(location.search));
+}
+
 async function main() {
-  const user = requireUser('Sign in first — comparing needs an account.');
+  user = requireUser('Sign in first — comparing needs an account.');
   if (!user) return;
 
-  const changeBtn = el('button', 'tm-action-btn', 'Change comparison');
+  changeBtn = el('button', 'tm-action-btn', 'Change comparison');
   changeBtn.type = 'button';
   changeBtn.hidden = true;
-  changeBtn.addEventListener('click', () => { location.href = '/compare'; });
+  changeBtn.addEventListener('click', () => navigate('/compare'));
   mount('Compare', [changeBtn]);
 
   // Decide the branch from the URL before the first await, so a cold
   // /compare?tradition=<id> skeletons where *results* will land, not in the
   // picker a plain /compare would show.
   const params = new URLSearchParams(location.search);
-  const traditionId = params.get('tradition');
-  const memberName = params.get('name');
-  const doctrineParam = params.get('doctrine');
-  const isResultsLoad = !!(traditionId || memberName);
+  const isResultsLoad = !!(params.get('tradition') || params.get('name'));
 
   // Paint the skeleton now, before either corpus/tradition-manifest fetch —
   // cleared on every exit path below: both early returns here, and inside
@@ -519,18 +547,18 @@ async function main() {
   }
   paintSkel(skelHost);
 
-  const corpus = await loadCorpus();
+  corpus = await loadCorpus();
   if (!corpus) { clearSkel(skelHost); return; }
   const tm = await loadTraditionManifest();
   if (!tm) { clearSkel(skelHost); showError('The tradition list could not be loaded.'); return; }
-  const traditionList = tm.traditions || [];
+  traditionList = tm.traditions || [];
 
-  if (!isResultsLoad) {
-    await renderPicker(traditionList, user);
-    return;
-  }
+  // popstate does not fire for a pushState we just made ourselves, only for
+  // Back/Forward, so this and navigate()'s direct call are both needed —
+  // neither alone covers every transition.
+  window.addEventListener('popstate', () => route(new URLSearchParams(location.search)));
 
-  await renderResults({ corpus, traditionList, traditionId, memberName, doctrineParam, user, changeBtn });
+  await route(params);
 }
 
 main();
