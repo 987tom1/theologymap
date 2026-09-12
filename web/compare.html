@@ -38,6 +38,10 @@
   .cmp-closest-line { margin: 0; font: var(--fs-1)/var(--lh-body) var(--serif); }
 
   /* ---- scorecard ---- */
+  /* Task 3's button/skeleton host. Flex column so paintSkel's three stacked
+     .tm-skel cards get the same gap #cmp-closest and #diff-groups already
+     give them, and align-items so the button doesn't stretch full width. */
+  #sc-load-host { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s3); margin: 0 0 var(--s3); }
   #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); }
   .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: var(--fs-00)/var(--lh-ui) var(--sans);
     font-variant-numeric: tabular-nums; }
@@ -136,6 +140,11 @@
 
       <div id="cmp-scorecard" hidden>
         <h3 class="cmp-section-h" style="font-size:16px">The all-traditions scorecard</h3>
+        <!-- P8 Task 3: the "Show the all-traditions scorecard" button (or,
+             on failure, the same button again for a retry) lives here. Empty
+             once traditionMaps has loaded (cache hit or a successful fetch),
+             since the trigger is only needed once. -->
+        <div id="sc-load-host"></div>
         <div id="sc-table-wrap"><div id="sc-table-host"></div></div>
         <div id="sc-accordion-host"></div>
       </div>

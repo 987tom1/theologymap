@@ -361,6 +361,102 @@ function clearSkel(host) {
   host.setAttribute('aria-busy', 'false');
 }
 
+/* P8 Task 3 — lazy tradition maps.
+   engine/compare-core.js:230-264 (closestTradition) and :271-298 (scorecard)
+   both key off scorecardTraditions() (:52-56) and both index traditionMaps
+   by every scored tradition's id — there is no subset of the twelve that
+   serves one and not the other. closestTradition's line sits ABOVE the
+   scorecard and was the phase file's unexamined assumption ("the scorecard
+   is the only consumer of the eleven non-target maps"): false, per this
+   file's own report. Showing an honest closest-tradition line from a
+   partial set is not on offer — an incomplete tally is exactly the
+   "confident wrong answer" CLAUDE.md's ties/normalise invariants exist to
+   refuse — so BOTH closestTradition and the scorecard wait behind the one
+   button task-3-brief.md rules for (a real fetch of a few-hundred-KB
+   payload needs a button's retry/disable/skeleton semantics; a mere
+   re-render would not). See task-3-report.md for the full byte accounting.
+
+   traditionMaps itself does not depend on which tradition is the target —
+   it is the same twelve files either way — so it is cached once, at module
+   scope, for the life of the page: the SECOND tradition a person compares
+   against (same visit, no reload) renders instantly with no further fetch
+   and no second button. */
+async function loadTraditionMaps(seedId, seedDomains) {
+  if (traditionMaps) return traditionMaps;             // same twelve regardless of target — see comment above
+  const scTraditions = CompareCore.scorecardTraditions(corpus);
+  const maps = {};
+  if (seedId && seedDomains) maps[seedId] = seedDomains; // the target's own map is already fetched at :402-405ish for the diff itself — don't fetch it twice
+  await Promise.all(scTraditions.map(async (t) => {
+    if (maps[t.id]) return;
+    const entry = traditionList.find((x) => x.id === t.id);
+    if (!entry) return;
+    const res = await fetch('/content/traditions/' + entry.file);
+    if (!res.ok) throw new Error('failed to load tradition map: ' + entry.file);
+    maps[t.id] = Core.parse(await res.text());
+  }));
+  traditionMaps = maps;   // only cache a COMPLETE set — a partial map must never look like the real thing
+  return traditionMaps;
+}
+
+/* Owns #cmp-closest and #cmp-scorecard's gated content for the tradition
+   branch. Three states: a cache hit (already loaded this page, from this
+   target or an earlier one) renders immediately; a cold state shows the
+   button task-3-brief.md rules for; a failed fetch shows the shared error
+   banner and puts the SAME button back so the person can retry — the old
+   Promise.all's catch used to re-hide #cmp-closest/#cmp-scorecard here, but
+   that would hide the retry button too, so this version does not: the two
+   panes stay visible, showing the not-yet-loaded placeholder and an active
+   retry button, and the banner alone carries the failure. */
+async function setupScorecard({ mine, ownWording, targetTraditionId, targetDomains }) {
+  const closestHost = $('cmp-closest');
+  const scTableHost = $('sc-table-host');
+  const scAccHost = $('sc-accordion-host');
+  const loadHost = $('sc-load-host');
+  closestHost.hidden = false;
+
+  function showButton() {
+    loadHost.hidden = false;
+    loadHost.textContent = '';
+    closestHost.textContent = '';
+    closestHost.appendChild(el('p', 'tm-quiet',
+      'Shown once the full tradition-by-tradition comparison is loaded below.'));
+    const btn = el('button', 'tm-action-btn', 'Show the all-traditions scorecard');
+    btn.type = 'button';
+    btn.addEventListener('click', run);
+    loadHost.appendChild(btn);
+  }
+
+  async function run() {
+    const btn = loadHost.querySelector('button');
+    if (btn) btn.disabled = true;   // engine/theme.css's :disabled rule — the double-tap guard task-3-brief.md asks for
+    paintSkel(closestHost);
+    paintSkel(scTableHost);
+    try {
+      const maps = await loadTraditionMaps(targetTraditionId, targetDomains);
+      clearSkel(closestHost);
+      clearSkel(scTableHost);
+      renderClosest(closestHost, CompareCore.closestTradition(corpus, mine, maps), ownWording);
+      renderScorecard(scTableHost, scAccHost, corpus, CompareCore.scorecard(corpus, mine, maps));
+      loadHost.hidden = true;
+    } catch {
+      clearSkel(closestHost);
+      clearSkel(scTableHost);
+      showError('The tradition maps could not all be loaded.');
+      showButton();   // put the trigger back so the person can retry
+    }
+  }
+
+  if (traditionMaps) {
+    loadHost.hidden = true;
+    clearSkel(closestHost);
+    clearSkel(scTableHost);
+    renderClosest(closestHost, CompareCore.closestTradition(corpus, mine, traditionMaps), ownWording);
+    renderScorecard(scTableHost, scAccHost, corpus, CompareCore.scorecard(corpus, mine, traditionMaps));
+    return;
+  }
+  showButton();
+}
+
 function traditionCard(entry, onPick) {
   const b = el('button', 'tm-card tm-cardlink');
   b.type = 'button';
@@ -453,27 +549,14 @@ async function renderResults(opts) {
   $('cmp-framing').hidden = isTradition;
 
   if (isTradition) {
-    const scTraditions = CompareCore.scorecardTraditions(corpus);
-    const traditionMaps = {};
-    try {
-      await Promise.all(scTraditions.map(async (t) => {
-        const entry = traditionList.find((x) => x.id === t.id);
-        if (!entry) return;
-        const res = await fetch('/content/traditions/' + entry.file);
-        if (!res.ok) throw new Error('failed to load tradition map: ' + entry.file);
-        traditionMaps[t.id] = Core.parse(await res.text());
-      }));
-    } catch {
-      clearSkel($('diff-groups'));
-      $('cmp-closest').hidden = true;
-      $('cmp-scorecard').hidden = true;
-      showError('The tradition maps could not all be loaded.');
-      return;
-    }
+    // P8 Task 3: the twelve-map fetch that used to block here is now
+    // deferred behind setupScorecard's button (or served from cache) — see
+    // that function's header comment for why closestTradition moved with
+    // it instead of staying eager. `theirs` (the target's own map, already
+    // fetched above) seeds the cache so the target's file is never fetched
+    // twice.
     const ownWording = rows.filter((r) => r.mine.kind === 'own-wording').length;
-    renderClosest($('cmp-closest'), CompareCore.closestTradition(corpus, mine, traditionMaps), ownWording);
-    renderScorecard($('sc-table-host'), $('sc-accordion-host'), corpus,
-      CompareCore.scorecard(corpus, mine, traditionMaps));
+    await setupScorecard({ mine, ownWording, targetTraditionId: traditionId, targetDomains: theirs });
   } else {
     // design §4.6: person-to-person comparison ships the per-doctrine diff
     // only. No scorecard, no closest-tradition summary, no score attached to
@@ -497,9 +580,15 @@ async function renderResults(opts) {
 }
 
 /* Module-scope state, set once by main() before the first route() and never
-   re-fetched afterwards — that is the whole point of this task. A fourth
-   cached value (Task 3's traditionMaps) slots in here the same way. */
-let corpus, traditionList, user, changeBtn;
+   re-fetched afterwards — that is the whole point of this task. traditionMaps
+   is the fourth cached value, Task 3's: unlike the other three it starts
+   null and is filled in lazily (loadTraditionMaps, above) on first use
+   rather than by main(), because whether it is ever needed at all depends
+   on whether the person taps the scorecard button — but once filled it is
+   never re-fetched, same as the other three, because it is the same twelve
+   maps regardless of which tradition is the target (verified in
+   task-3-report.md). */
+let corpus, traditionList, user, changeBtn, traditionMaps = null;
 
 /* The one place that decides picker vs. results from a URLSearchParams and
    renders it, closing over the module-scope state above rather than
@@ -510,32 +599,45 @@ let corpus, traditionList, user, changeBtn;
    fills #picker-traditions synchronously from the traditionList already in
    memory, so it never repaints Task 1's skeleton — renderPicker's own
    clearSkel(tHost) is enough. The results branch is NOT synchronous from
-   memory: /api/map?user_id=, the target tradition/member map, and (on the
-   tradition branch) all twelve scorecard maps are fetched fresh over the
-   network on every single results transition, corpus/traditionList caching
-   notwithstanding. renderClosest, renderTiers, renderScorecard and
-   renderDiffGroups all clear their own hosts on the SUCCESS path already —
-   the gap this closes is every early return in renderResults that happens
-   BEFORE those helpers run: a throw/404 on the caller's own map, an unknown
-   tradition, or a failed tradition/member fetch — all of which are before
-   renderResults writes #cmp-closest / #cmp-scorecard / #cmp-framing's
-   `hidden` flags from `isTradition`, so those panes are still at whatever
-   the PREVIOUS comparison left them and would otherwise show its stale
-   content. route() clears the content of all four panes (closest, scorecard,
-   tiers, framing) and re-hides them here, before handing off, so none of
-   those early returns can leave the previous result visible or an empty
-   box stranded on screen.
+   memory: /api/map?user_id= and the target tradition/member map are fetched
+   fresh over the network on every single results transition, corpus/
+   traditionList caching notwithstanding. (Since P8 Task 3, the twelve
+   scorecard maps are NOT fetched on every transition any more — see
+   setupScorecard's and loadTraditionMaps's header comments — but that
+   fetch, when it does happen, is not synchronous with renderResults either,
+   for the same reason spelled out below.) renderClosest, renderTiers,
+   renderScorecard and renderDiffGroups all clear their own hosts on the
+   SUCCESS path already — the gap this closes is every early return in
+   renderResults that happens BEFORE those helpers run: a throw/404 on the
+   caller's own map, an unknown tradition, or a failed tradition/member
+   fetch — all of which are before renderResults writes #cmp-closest /
+   #cmp-scorecard / #cmp-framing's `hidden` flags from `isTradition`, so
+   those panes are still at whatever the PREVIOUS comparison left them and
+   would otherwise show its stale content. route() clears the content of
+   all four panes (closest, scorecard, tiers, framing) — including
+   #sc-load-host, Task 3's button/placeholder host — and re-hides them here,
+   before handing off, so none of those early returns can leave the
+   previous result visible or an empty box stranded on screen.
 
-   One more early return sits AFTER that `hidden`-flags write: the twelve-map
-   scorecard Promise.all, which only runs once isTradition has already set
-   #cmp-closest / #cmp-scorecard back to visible. route()'s upfront hide
-   cannot reach that case — it runs before renderResults is even called — so
-   that Promise.all's own catch re-hides those same two panes itself,
-   alongside its clearSkel($('diff-groups')). #cmp-tiers and #cmp-framing
-   need no such second guard: renderTiers is the only thing that ever
-   un-hides #cmp-tiers and it runs after every early return above (including
-   the scorecard one), and #cmp-framing is only shown on the member branch,
-   which the scorecard fetch never reaches. */
+   Nothing analogous is needed AFTER that `hidden`-flags write any more.
+   Before Task 3, the twelve-map scorecard Promise.all ran synchronously
+   right there and its own catch had to re-hide #cmp-closest/#cmp-scorecard
+   a second time, because route()'s upfront hide (above) runs before
+   renderResults is even called and so cannot reach a failure that happens
+   after it. Task 3 moved that fetch behind setupScorecard's button (or a
+   module-scope cache hit): renderResults calls setupScorecard and returns
+   without waiting on a click, so by the time any fetch failure could occur
+   route() has already moved on to the next navigation, or the person is
+   still looking at the very setupScorecard-painted state (placeholder +
+   button, or a skeleton) that failure needs to fall back to — setupScorecard
+   handles its own failure entirely (clearSkel, showError, put the button
+   back for a retry) and deliberately does NOT re-hide #cmp-closest or
+   #cmp-scorecard, because the retry button lives inside #cmp-scorecard and
+   hiding it would hide the only way back. #cmp-tiers and #cmp-framing still
+   need no such guard at all: renderTiers is the only thing that ever
+   un-hides #cmp-tiers and it runs after every early return above, and
+   #cmp-framing is only shown on the member branch, which never touches
+   traditionMaps. */
 async function route(params) {
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
@@ -551,6 +653,7 @@ async function route(params) {
   $('cmp-scorecard').hidden = true;
   $('sc-table-host').textContent = '';
   $('sc-accordion-host').textContent = '';
+  $('sc-load-host').textContent = '';
   $('cmp-framing').hidden = true;
   $('cmp-framing-text').textContent = '';
   $('cmp-tiers').textContent = '';
