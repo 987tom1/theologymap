@@ -40,7 +40,7 @@ do not propose a rewrite.** The assessment lane licensed to propose one recommen
 | [P5](P5-question-screen.md) | The question screen | Sonnet, spec quoted | P4 |
 | [P6](P6-nav.md) | The nav (D6) | Sonnet, spec quoted | P3, P4 |
 | [P7](P7-type-and-spacing.md) | Type and spacing | **SHIPPED 2026-09-12** — Sonnet for theme.css/wizard/compare/learn/editor/rename/render.py, Haiku for the four small pages (batched) and the audit | P6 |
-| [P8](P8-compare.md) | Compare | Sonnet, spec quoted | P7 |
+| [P8](P8-compare.md) | Compare | **SHIPPED 2026-09-12** — Sonnet for all three tasks, Opus for the per-task review of task 2 and the whole-phase review | P7 |
 | [P9](P9-map-unfork.md) | **The map-view unfork · the pivot** | **Opus / main session, own session, nothing else in it** | — (own risk profile) |
 | [P10](P10-map-substrate.md) | The map itself | Opus for `_applyPanZoom`; Sonnet for the CSS steps | **P9 (hard block)** |
 | [P11](P11-commit-moment.md) | The commit moment, and cleanup | Sonnet / Haiku | P8, P10 |
@@ -67,7 +67,7 @@ reconciliation, a regeneration or a hash check pay for it once.
 |---|---|---|
 | **A** | P2 + P3 | P3's tasks 1–2 are the same three-file `:root` edit as P2. One fork reconciliation, one `render.py` regeneration, one hash check serves both. Separate commits, and P2's zero-visual-diff verification runs in full **before** any P3 task. |
 | **B** | P4 → P5 + P6 | P5 and P6 are siblings off P4 and are file-disjoint. P4 lands first, then P5 and P6. |
-| **C** | P7 + P8 | P8 depends on P7; consecutive and same surface family. **P7 shipped 2026-09-12** (9 commits, `bc9014b..446d667`); P8 not started. |
+| **C** | P7 + P8 | P8 depends on P7; consecutive and same surface family. **P7 shipped 2026-09-12** (9 commits, `bc9014b..446d667`); **P8 shipped 2026-09-12** (11 commits, `5cd3906..3fcc5d5`). Session C is closed. |
 | **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. |
 | **E** | P10 + P11 | P10 is hard-blocked on P9; P11 closes out behind it. |
 

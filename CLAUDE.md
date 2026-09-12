@@ -667,6 +667,34 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   worse than plain text.** 249 of the corpus's 569 sources carry a real `url`, which wins;
   the curated table and the Google-search fallback cover the rest. No `held_by` citation
   carries a `url`, the schema having no place for one. `tests/refs.test.js` is the gate.
+- **A skeleton is cleared on *throw* exits, not just `return` exits.** `apiFetch` **throws**
+  on every failure but the `unknown_user` redirect, and `web/corpus.js`'s bare `fetch` calls
+  **reject** on a dropped connection rather than returning `null` — so guarding only the
+  `if (!x) return` paths leaves `main()` rejecting unhandled with `aria-busy="true"` and the
+  pulse running forever. P8 shipped that on four sites and its own comments claimed every exit
+  path was covered. Both pages now net it at the **entry points** — `main()`, and `route()`'s
+  other two callers — not at each call site. **A page that pulses forever is worse than the
+  blank page it replaced**: it actively says it is still loading.
+- **`/compare`'s `route()` removes `#tm-banner` at the top of every route.** Before `pushState`
+  every transition reloaded the document, which cleared `web/session.js`'s banner for free.
+  Nothing else removes it, so a failed comparison's error would otherwise sit above the next
+  successful one describing nothing. `session.js` still owns the element; `route()` only
+  removes it.
+- **`renderResults` and `renderPicker` are re-entrant.** They ran once per document until P8.
+  Every host either writes must clear before it fills, and `route()` clears each result pane's
+  content **and** re-hides it before handing off — `renderResults` writes those `hidden` flags
+  only once it holds both maps, well after its early returns. Three review rounds went into
+  this: the visible failure is the *previous* comparison's scorecard sitting under the *new*
+  tradition's heading.
+- **`content/traditions/manifest.json` is generated and nothing checks it is current.**
+  `engine/build_traditions.js` emits it from the same `in_scorecard` filter
+  `engine/compare-core.js` reads, so the two agree *whenever the manifest was regenerated after
+  the corpus last changed*. Flip a tradition's `in_scorecard` in
+  `content/wizard/traditions.json` without re-running `node engine/build_traditions.js` and
+  `/compare` silently drops that column — `loadTraditionMaps`' `if (!entry) return;` skips it
+  and caches the short set as good for the whole visit. `tests/check_tradition_maps.py` does
+  **not** gate this; it parses the generated `.md` files. It is a convention, like
+  `superseded_holds`, not a guarantee.
 
 ---
 
