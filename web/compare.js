@@ -431,16 +431,26 @@ async function setupScorecard({ mine, ownWording, targetTraditionId, targetDomai
     if (btn) btn.disabled = true;   // engine/theme.css's :disabled rule — the double-tap guard task-3-brief.md asks for
     paintSkel(closestHost);
     paintSkel(scTableHost);
+    // #sc-table-wrap/#sc-table-host and #sc-accordion-host are the same
+    // ≥861px/≤860px swap Task 1 never had to think about (web/compare.html's
+    // @media (max-width: 860px) block) — exactly one of the two is actually
+    // on screen at any width, but which one flips at the breakpoint, so both
+    // need the skeleton or the pane a phone/tablet person can see (the
+    // accordion, below 861px) shows nothing at all while the invisible one
+    // (the table) pulses uselessly behind display:none.
+    paintSkel(scAccHost);
     try {
       const maps = await loadTraditionMaps(targetTraditionId, targetDomains);
       clearSkel(closestHost);
       clearSkel(scTableHost);
+      clearSkel(scAccHost);   // renderScorecard clears scAccHost's cards on success but never touches aria-busy — this call is what actually clears it
       renderClosest(closestHost, CompareCore.closestTradition(corpus, mine, maps), ownWording);
       renderScorecard(scTableHost, scAccHost, corpus, CompareCore.scorecard(corpus, mine, maps));
       loadHost.hidden = true;
     } catch {
       clearSkel(closestHost);
       clearSkel(scTableHost);
+      clearSkel(scAccHost);
       showError('The tradition maps could not all be loaded.');
       showButton();   // put the trigger back so the person can retry
     }
