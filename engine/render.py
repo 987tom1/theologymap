@@ -22,6 +22,20 @@ DOCS = ROOT / "documentation"
 SRC = ROOT / "theology-map.md"
 VERSES = DOCS / "verses.md"
 BUILD = ROOT
+MAP_VIEW = ROOT / "engine" / "map-view.js"
+
+# The Map view's layout/pan/zoom engine lives in engine/map-view.js and is
+# inlined into the generated page below, so the editor and the generated map run
+# the same code instead of two hand-synced copies of it.
+#
+# Read at IMPORT time, deliberately. This makes the renderer depend on a second
+# file on disk, and on Vercel that dependency is satisfied only by vercel.json's
+# includeFiles. debug.md rule 18: a route importing render.py that comes back
+# with plausible zeros rather than an error may be bound to the wrong same-named
+# module, and a missing bundle is the same class of silent failure. Failing here
+# turns it into a 500 on the first request instead of a map that renders its
+# chrome and no boxes.
+MAP_VIEW_JS = MAP_VIEW.read_text(encoding="utf-8")
 
 VERSES_HEADER = """<!--
 verses.md — scripture text for the Theology Map's verse popovers.
@@ -200,8 +214,9 @@ def parse_verses(path: Path) -> "OrderedDict[str, str]":
 def render_markdown(markdown_text: str, verses: "OrderedDict[str, str]") -> str:
     """The whole hosted render path: markdown string in, HTML string out.
 
-    Pure. Reads nothing, writes nothing, needs no ROOT. This is the function
-    api/render.py calls.
+    Pure per call: reads nothing, writes nothing, needs no ROOT. (The module
+    itself reads engine/map-view.js once at import — see MAP_VIEW_JS.) This is
+    the function api/render.py calls.
     """
     return render_html(parse_text(markdown_text), verses)
 
@@ -522,11 +537,11 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     background-size:24px 24px; cursor:grab; touch-action:none; }
   #mapwrap.dragging { cursor:grabbing; }
   #mapwrap.active { display:block; }
-  #mapPanZoom { position:absolute; left:0; top:0; transform-origin:0 0; }
-  #mapSvg { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }
-  #mapSvg path { fill:none; stroke:var(--line); stroke-width:1.4; }
-  #mapSvg path.edge-domain { stroke-width:1.6; opacity:.9; }
-  #mapSvg path.edge-leaf { stroke-width:1.1; opacity:.75; }
+  .map-panzoom { position:absolute; left:0; top:0; transform-origin:0 0; }
+  .map-svg { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }
+  .map-svg path { fill:none; stroke:var(--line); stroke-width:1.4; }
+  .map-svg path.edge-domain { stroke-width:1.6; opacity:.9; }
+  .map-svg path.edge-leaf { stroke-width:1.1; opacity:.75; }
   .mbox { position:absolute; left:0; top:0; background:var(--panel); border:1px solid var(--line);
     border-radius:var(--r3); padding:var(--s2) var(--s3); box-shadow:var(--shadow);
     transition:transform .28s ease; cursor:pointer; font:var(--fs-00)/var(--lh-ui) var(--sans);
@@ -729,20 +744,13 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   <div class="legend" id="legend"></div>
 </header>
 <main id="out"></main>
-<div id="mapwrap" class="active">
-  <div class="mapcontrols">
-    <button id="mapReset" type="button">Reset view</button>
-  </div>
-  <div class="maphint">Drag/swipe to pan &middot; scroll or pinch to zoom &middot; tap a box to expand</div>
-  <div id="mapPanZoom">
-    <svg id="mapSvg"></svg>
-    <div id="mapBoxes"></div>
-  </div>
-</div>
+<!-- MapView fills this: controls, hint, pan/zoom layer, svg and boxes. -->
+<div id="mapwrap" class="active"></div>
 <footer class="pagefoot">Scripture quoted by permission. Quotations designated (NET) are from the
   NET Bible&reg; copyright &copy;1996-2017 by Biblical Studies Press, L.L.C.
   <a href="http://netbible.com" target="_blank" rel="noopener">netbible.com</a> All rights reserved.</footer>
 <script id="data" type="application/json">__DATA__</script>
+<script>__MAPJS__</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const all = D.nodes;
@@ -911,8 +919,8 @@ function render() {
   if (view === 'map') {
     mapwrap.classList.add('active');
     out.style.display = 'none';
-    sizeMap();          // before redrawMap: it centres against the wrap's height
-    redrawMap();
+    sizeMap();          // before the redraw: it centres against the wrap's height
+    mapView.redraw();
     return;
   }
   mapwrap.classList.remove('active');
@@ -1026,9 +1034,7 @@ document.getElementById('filtersToggle').addEventListener('click', () => {
 
 document.getElementById('expandAll').addEventListener('click', () => {
   if (view === 'map') {
-    mapManualCollapsed.clear();
-    all.forEach(n => mapDetailOpen.add(n.slug));
-    redrawMap();
+    mapView.expandAll();
     return;
   }
   document.querySelectorAll('#out .group').forEach(sec => expandedGroups.add(sec.dataset.key));
@@ -1036,9 +1042,7 @@ document.getElementById('expandAll').addEventListener('click', () => {
 });
 document.getElementById('collapseAll').addEventListener('click', () => {
   if (view === 'map') {
-    mapDetailOpen.clear();
-    mapManualCollapsed = new Set(domainIds());
-    redrawMap();
+    mapView.collapseAll();
     return;
   }
   document.querySelectorAll('#out .group').forEach(sec => expandedGroups.delete(sec.dataset.key));
@@ -1047,91 +1051,36 @@ document.getElementById('collapseAll').addEventListener('click', () => {
 
 // -------------------------------------------------------------- map view
 //
-// Two-sided balanced layout: the root sits at x=0 (centred), with domain
-// branches alternating right (side=1) / left (side=-1). Below MAP_TWO_SIDE_BREAK
-// (phone widths) everything folds back to the old single-sided
-// left-to-right layout (all boxes get side=1, root's left edge at x=0)
-// since a split map doesn't have room to breathe on a narrow screen.
-// Box widths are no longer fixed constants — CSS sizes each box to its
-// content (width:max-content, clamped by min/max-width per box type/state
-// in the stylesheet) and the layout pass below measures the result from the
-// live DOM via offsetWidth, the same way it already measures heights via
-// offsetHeight. Only the gaps between columns stay as constants.
-const GAP_Y = 14;
-const DOMAIN_GAP = 60, LEAF_GAP = 70;
-// The stagger applied to every second leaf must NOT derive from that box's
-// own measured width: a box roughly doubles in width when its detail opens,
-// so a width-derived offset would double too and the box would visibly jump
-// outward on expand instead of staying put. A constant keeps a box's x
-// stable across expand/collapse.
-const STAGGER_X = 110;
-const MAP_TWO_SIDE_BREAK = 860;
-let panX = 0, panY = 0, zoom = 1;
-let needsCenter = true; // recompute pan on next redraw so the root lands mid-viewport
-let mapManualCollapsed = null; // Set of collapsible domain ids that are closed
-let mapDetailOpen = new Set();  // leaf slugs whose detail panel is open
-let mapEls = new Map(); // id -> DOM element, persisted across redraws for CSS transitions
+// The layout/pan/zoom engine is engine/map-view.js, inlined above this script
+// as MapView. It used to exist twice -- ~390 lines here against ~430 there,
+// hand-kept in lockstep -- which was the largest duplication in the repo.
+//
+// What is left here is only what this consumer does differently from the
+// editor: its input is a flat node array rather than grouped domains, its
+// leaves are read-only <dl> rows from the same detailRows() the card views use,
+// and its areas auto-expand while a search filter is live.
 
-function domainNames() {
-  const seen = [];
-  all.forEach(n => { if (!seen.includes(n.domain)) seen.push(n.domain); });
-  return seen;
-}
-function domainIds() {
-  return domainNames().map(d => 'domain:' + d);
-}
-if (!mapManualCollapsed) mapManualCollapsed = new Set(domainIds());
-
-function buildMapTree() {
+// The engine wants domains grouped; `all` is flat. Group over EVERY node and
+// filter inside each area -- never the reverse. An area whose nodes all fail
+// the current filter still shows its box reading "0 nodes", which is what this
+// map has always done; grouping a pre-filtered list would delete the box.
+function mapDomains() {
   const q = document.getElementById('q').value.trim().toLowerCase();
-  const twoSided = window.innerWidth >= MAP_TWO_SIDE_BREAK;
-  const root = { id: 'root', type: 'root', title: 'My Theology', depth: 0, side: 0, twoSided, children: [] };
-  let idx = 0;
-  const nextSide = () => { const s = (twoSided && idx % 2 === 1) ? -1 : 1; idx++; return s; };
-  domainNames().forEach(dname => {
-    const members = sortByTier(all.filter(n => n.domain === dname && passesFilters(n, q)));
-    const id = 'domain:' + dname;
-    const hasMatches = q && members.length > 0;
-    const isOpen = !mapManualCollapsed.has(id) || hasMatches;
-    const side = nextSide();
-    const dom = { id, type:'domain', title: dname, depth: 1, side, total: members.length, children: [] };
-    if (isOpen) {
-      dom.children = members.map(n => leafBox(n, 2, side));
-    }
-    root.children.push(dom);
-  });
-  return root;
+  return MapView.groupByDomain(all).map(d => ({
+    name: d.name,
+    nodes: d.nodes.filter(n => passesFilters(n, q)),
+  }));
 }
 
-function leafBox(n, depth, side) {
-  return { id: n.slug, type:'leaf', title: n.title, depth, side, node: n, children: [] };
-}
-
-function flatten(tree, acc) {
-  acc.push(tree);
-  tree.children.forEach(c => flatten(c, acc));
-  return acc;
-}
-
-function mboxHTML(box) {
-  if (box.type === 'root') {
-    return `<div class="mbox mbox-root" data-id="${esc(box.id)}">${esc(box.title)}</div>`;
-  }
-  if (box.type === 'domain') {
-    const openState = box.children.length > 0;
-    return `<div class="mbox mbox-domain${openState?' mopen':''}" data-id="${esc(box.id)}">
-      <div class="mtitle"><b>${esc(box.title)}</b>${box.total ? '<span class="mchev">&#9656;</span>' : ''}</div>
-      <div class="mmeta"><span class="mcount">${box.total} node${box.total===1?'':'s'}</span></div>
-    </div>`;
-  }
-  // leaf
-  const n = box.node;
-  const open = mapDetailOpen.has(n.slug);
+// The read-only leaf: the same markup this file has always emitted for one.
+// `id` is the engine's own box id and must be what lands in data-id -- the
+// click handler toggles on it.
+function mapLeafHTML(n, open, id) {
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
   const rows = detailRows(n);
   return `<div class="mbox mbox-leaf${open?' mopen':''}${n.flags.includes('assumed')?' assumed':''}"
-      data-id="${esc(box.id)}" style="--tier:${tier?tier[1]:'var(--line)'}">
+      data-id="${esc(id)}" style="--tier:${tier?tier[1]:'var(--line)'}">
     <div class="mtitle"><b>${esc(n.title)}</b><span class="mchev">&#9656;</span></div>
     <div class="mmeta">
       ${tier?`<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>`:''}
@@ -1142,268 +1091,16 @@ function mboxHTML(box) {
   </div>`;
 }
 
-function redrawMap() {
-  const tree = buildMapTree();
-  const list = flatten(tree, []);
-  const liveIds = new Set(list.map(b => b.id));
-  const boxesEl = document.getElementById('mapBoxes');
-
-  // remove stale elements
-  for (const [id, el] of [...mapEls.entries()]) {
-    if (!liveIds.has(id)) { el.remove(); mapEls.delete(id); }
-  }
-  // create/update elements — a pure write pass. Content, classes and (via
-  // CSS) width are all settled here but nothing is measured yet, so this
-  // loop never forces a synchronous layout.
-  list.forEach(box => {
-    let el = mapEls.get(box.id);
-    if (!el) {
-      const tmp = document.createElement('div');
-      tmp.innerHTML = mboxHTML(box);
-      el = tmp.firstElementChild;
-      boxesEl.appendChild(el);
-      mapEls.set(box.id, el);
-    } else {
-      const tmp = document.createElement('div');
-      tmp.innerHTML = mboxHTML(box);
-      const fresh = tmp.firstElementChild;
-      el.className = fresh.className;
-      el.innerHTML = fresh.innerHTML;
-    }
-    box.el = el;
-  });
-
-  // Measure once, in its own pass, after every box has its final content —
-  // batching these reads separately from the writes above (and before any
-  // positioning writes below) avoids interleaved read/write layout thrash.
-  // Width is no longer a shared constant: each box is sized by CSS
-  // (width:max-content, clamped per box type/state) and read back here via
-  // offsetWidth, the same way offsetHeight already drives row heights.
-  list.forEach(box => {
-    box.h = box.el.offsetHeight;
-    box.w = box.el.offsetWidth;
-  });
-
-  // layout: x is derived per-branch from each box's own measured width —
-  // a domain's leaf column begins after that *specific* domain box's edge
-  // plus a fixed gap, not a shared column constant, so branches with wider
-  // or narrower boxes don't force every other branch to match. y is an
-  // independent top-down cursor per side so left and right each pack
-  // tightly instead of one side inheriting the other's spacing. Root x is
-  // fixed at 0 (or its left edge at 0 in single-sided fallback); leaves
-  // stagger every second box outward by the fixed STAGGER_X (right on the
-  // right side, left on the left side) so neighbouring boxes interlock.
-  const rootL = tree.twoSided ? -tree.w / 2 : 0;
-  const rootR = tree.twoSided ? tree.w / 2 : tree.w;
-
-  function assignX(box, parent) {
-    if (box.type === 'root') {
-      box.x = rootL;
-    } else if (box.type === 'domain') {
-      box.x = box.side === 1 ? rootR + DOMAIN_GAP : rootL - DOMAIN_GAP - box.w;
-    } else {
-      // leaf: column anchored off this leaf's own domain parent's measured
-      // edge, then mirrored — on the left side a box extends leftward, so
-      // its x (left edge) has to be pulled back by its own measured width.
-      box.x = box.side === 1
-        ? parent.x + parent.w + LEAF_GAP
-        : parent.x - LEAF_GAP - box.w;
-    }
-    box.children.forEach(c => assignX(c, box));
-  }
-  assignX(tree, null);
-
-  let cursorRight = 0, cursorLeft = 0;
-  function assignY(box) {
-    if (!box.children.length) {
-      if (box.side === -1) { box.y = cursorLeft; cursorLeft += box.h + GAP_Y; }
-      else { box.y = cursorRight; cursorRight += box.h + GAP_Y; }
-      return;
-    }
-    box.children.forEach(assignY);
-    box.children.forEach((c, i) => {
-      if (c.type === 'leaf' && i % 2 === 1) c.x += c.side === 1 ? STAGGER_X : -STAGGER_X;
-    });
-    if (box.type === 'domain') {
-      const first = box.children[0], last = box.children[box.children.length - 1];
-      box.y = (first.y + first.h / 2 + last.y + last.h / 2) / 2 - box.h / 2;
-    }
-  }
-  assignY(tree);
-  // root sits vertically centred relative to the whole tree (both sides)
-  {
-    let minY = Infinity, maxY = -Infinity;
-    tree.children.forEach(dom => {
-      minY = Math.min(minY, dom.y);
-      maxY = Math.max(maxY, dom.y + dom.h);
-    });
-    if (minY === Infinity) { minY = 0; maxY = tree.h; }
-    tree.y = (minY + maxY) / 2 - tree.h / 2;
-  }
-
-  list.forEach(box => {
-    box.el.style.transform = `translate(${box.x}px, ${box.y}px)`;
-  });
-
-  // connectors: a right-side edge leaves the parent's right edge and
-  // terminates on the child's left edge; a left-side edge is the mirror —
-  // parent's left edge to the child's right edge — bezier controls mirrored.
-  const svg = document.getElementById('mapSvg');
-  let paths = '';
-  function edges(box) {
-    box.children.forEach(c => {
-      const y1 = box.y + box.h / 2, y2 = c.y + c.h / 2;
-      let x1, x2;
-      if (c.side === 1) { x1 = box.x + box.w; x2 = c.x; }
-      else { x1 = box.x; x2 = c.x + c.w; }
-      const mx = (x1 + x2) / 2;
-      const edgeClass = c.depth === 1 ? 'edge-domain' : 'edge-leaf';
-      paths += `<path class="${edgeClass}" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"></path>`;
-      edges(c);
-    });
-  }
-  edges(tree);
-  svg.innerHTML = paths;
-
-  let minX = 0, maxX = 0, minY = 0, maxY = 0;
-  list.forEach(b => {
-    minX = Math.min(minX, b.x); maxX = Math.max(maxX, b.x + b.w);
-    minY = Math.min(minY, b.y); maxY = Math.max(maxY, b.y + b.h);
-  });
-  svg.setAttribute('width', maxX - minX + 40);
-  svg.setAttribute('height', maxY - minY + 40);
-
-  // on first paint (and after "reset view") centre the root in the viewport
-  if (needsCenter) {
-    const rect = document.getElementById('mapwrap').getBoundingClientRect();
-    zoom = 1;
-    panX = rect.width / 2 - (tree.x + tree.w / 2);
-    panY = rect.height / 2 - (tree.y + tree.h / 2);
-    needsCenter = false;
-  }
-
-  applyPanZoom();
-}
-
-function applyPanZoom() {
-  document.getElementById('mapPanZoom').style.transform =
-    `translate(${panX}px, ${panY}px) scale(${zoom})`;
-}
-
-document.getElementById('mapBoxes').addEventListener('click', e => {
-  // A verse pill lives inside a leaf box, and this listener sits on an
-  // ancestor of it — so it runs BEFORE the document-level .refchip handler.
-  // Without this bail-out the box toggles shut, redrawMap() tears the pill
-  // out of the DOM, and the popover then measures a detached element and
-  // lands at 0,0. Let the pill (and its popover) own their own clicks.
-  if (e.target.closest('.refchip') || e.target.closest('.versepop')) return;
-  const box = e.target.closest('.mbox');
-  if (!box) return;
-  const id = box.dataset.id;
-  if (id === 'root') return;
-  if (id.startsWith('domain:')) {
-    if (mapManualCollapsed.has(id)) mapManualCollapsed.delete(id); else mapManualCollapsed.add(id);
-  } else {
-    if (mapDetailOpen.has(id)) mapDetailOpen.delete(id); else mapDetailOpen.add(id);
-  }
-  redrawMap();
-});
-
-// pan + zoom — unified pointer events so mouse drag and one-finger touch
-// drag share one code path; a second touch pointer switches to pinch-zoom
-// anchored on the pinch midpoint. A small movement threshold keeps a tap
-// on the background from being mistaken for the start of a drag (taps that
-// land on a box are ignored here entirely and reach the .mbox click
-// handler below untouched).
-(function () {
-  const wrap = document.getElementById('mapwrap');
-  const DRAG_THRESHOLD = 6;
-  const pointers = new Map(); // pointerId -> {x,y}
-  let dragging = false, moved = false;
-  let startX = 0, startY = 0, lastX = 0, lastY = 0;
-  let pinchStartDist = 0, pinchStartZoom = 1;
-
-  function zoomAt(mx, my, newZoom) {
-    newZoom = Math.min(2.5, Math.max(0.3, newZoom));
-    const cx = (mx - panX) / zoom, cy = (my - panY) / zoom;
-    panX = mx - cx * newZoom;
-    panY = my - cy * newZoom;
-    zoom = newZoom;
-  }
-
-  function pinchGeometry() {
-    const pts = [...pointers.values()];
-    return {
-      dist: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y),
-      mx: (pts[0].x + pts[1].x) / 2,
-      my: (pts[0].y + pts[1].y) / 2,
-    };
-  }
-
-  wrap.addEventListener('pointerdown', e => {
-    if (e.target.closest('.mbox') || e.target.closest('.mapcontrols')) return;
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-    try { wrap.setPointerCapture(e.pointerId); } catch (err) {}
-    if (pointers.size === 1) {
-      dragging = true; moved = false;
-      startX = lastX = e.clientX; startY = lastY = e.clientY;
-      wrap.classList.add('dragging');
-    } else if (pointers.size === 2) {
-      dragging = false;
-      const g = pinchGeometry();
-      pinchStartDist = g.dist;
-      pinchStartZoom = zoom;
-    }
-  });
-
-  wrap.addEventListener('pointermove', e => {
-    if (!pointers.has(e.pointerId)) return;
-    pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
-
-    if (pointers.size >= 2) {
-      if (pinchStartDist <= 0) return;
-      const rect = wrap.getBoundingClientRect();
-      const g = pinchGeometry();
-      const newZoom = pinchStartZoom * (g.dist / pinchStartDist);
-      zoomAt(g.mx - rect.left, g.my - rect.top, newZoom);
-      applyPanZoom();
-      return;
-    }
-
-    if (!dragging) return;
-    if (!moved && Math.hypot(e.clientX - startX, e.clientY - startY) < DRAG_THRESHOLD) return;
-    moved = true;
-    panX += e.clientX - lastX; panY += e.clientY - lastY;
-    lastX = e.clientX; lastY = e.clientY;
-    applyPanZoom();
-  });
-
-  function endPointer(e) {
-    pointers.delete(e.pointerId);
-    if (pointers.size < 2) pinchStartDist = 0;
-    if (pointers.size === 0) {
-      dragging = false; wrap.classList.remove('dragging');
-    } else if (pointers.size === 1) {
-      const [[, p]] = pointers;
-      dragging = true; moved = true; lastX = p.x; lastY = p.y;
-    }
-  }
-  wrap.addEventListener('pointerup', endPointer);
-  wrap.addEventListener('pointercancel', endPointer);
-
-  wrap.addEventListener('wheel', e => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.1 : 0.1;
-    if (Math.min(2.5, Math.max(0.3, zoom + delta)) === zoom) return;
-    const rect = wrap.getBoundingClientRect();
-    zoomAt(e.clientX - rect.left, e.clientY - rect.top, zoom + delta);
-    applyPanZoom();
-  }, { passive: false });
-})();
-
-document.getElementById('mapReset').addEventListener('click', () => {
-  needsCenter = true;
-  redrawMap();
+const mapView = new MapView(document.getElementById('mapwrap'), {
+  readonly: true,
+  escapeHtml: esc,
+  tierMeta: D.tierMeta,
+  confMeta: D.confMeta,
+  getDomains: mapDomains,
+  leafHTML: mapLeafHTML,
+  // A live search expands every area holding a match without disturbing the
+  // stored collapse state, the same way the card views auto-expand a group.
+  forceOpen: d => !!document.getElementById('q').value.trim() && d.nodes.length > 0,
 });
 
 window.addEventListener('resize', () => {
@@ -1412,7 +1109,12 @@ window.addEventListener('resize', () => {
   // Box widths are vw-clamped in CSS and re-measured from the DOM on every
   // redraw, so a resize just needs to trigger that redraw (also re-checks
   // the two-sided vs. phone single-sided breakpoint).
-  if (view === 'map') redrawMap();
+  //
+  // MapView binds its own resize->redraw as well, and it may run first, at the
+  // wrap's stale height. This handler is what keeps sizeMap() ahead of the
+  // redraw that lands, and what stops a redraw while the map is hidden behind a
+  // card view, where every box measures 0x0.
+  if (view === 'map') mapView.redraw();
 });
 
 // -------------------------------------------------------------- print
@@ -1433,7 +1135,10 @@ render();
 </script>
 </body>
 </html>
-""".replace("__DATA__", payload)
+""".replace("__MAPJS__", MAP_VIEW_JS).replace("__DATA__", payload)
+    # __MAPJS__ first, then __DATA__, and the order is load-bearing: a person's
+    # markdown containing the literal __MAPJS__ would otherwise be substituted
+    # into on the second pass. Reversed, whatever they wrote stays inert.
 
 # ----------------------------------------------------------------------- STUDY LIST
 

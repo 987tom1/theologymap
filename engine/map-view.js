@@ -186,7 +186,9 @@
     // from the same detailRows() its card views use. An editable leaf is not a
     // string at all: it is DOM built by _mountLeaf/_updateLeaf so that focus and
     // in-progress keystrokes survive a redraw.
-    if (this.leafHTML) return this.leafHTML(box.node, this.mapDetailOpen.has(box.id));
+    // The id is handed over because _bindClicks toggles on data-id: a leaf that
+    // labelled itself with its slug would toggle a key the view does not hold.
+    if (this.leafHTML) return this.leafHTML(box.node, this.mapDetailOpen.has(box.id), box.id);
     throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
   };
 

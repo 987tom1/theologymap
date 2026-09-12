@@ -12,8 +12,8 @@
     { "source": "/compare", "destination": "/web/compare.html" }
   ],
   "functions": {
-    "api/render.py": { "includeFiles": "{engine/render.py,documentation/verses.md}" },
-    "api/gallery.py": { "includeFiles": "{engine/render.py}" },
-    "api/map.py": { "includeFiles": "{engine/render.py}" }
+    "api/render.py": { "includeFiles": "{engine/render.py,engine/map-view.js,documentation/verses.md}" },
+    "api/gallery.py": { "includeFiles": "{engine/render.py,engine/map-view.js}" },
+    "api/map.py": { "includeFiles": "{engine/render.py,engine/map-view.js}" }
   }
 }
