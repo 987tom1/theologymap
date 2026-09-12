@@ -511,14 +511,22 @@ let corpus, traditionList, user, changeBtn;
    memory: /api/map?user_id=, the target tradition/member map, and (on the
    tradition branch) all twelve scorecard maps are fetched fresh over the
    network on every single results transition, corpus/traditionList caching
-   notwithstanding. Left alone, that gap between "results screen already
-   visible" and "new data has arrived" would show the PREVIOUS result's
-   heading, closest-tradition sentence, scorecard and tiers — a complete,
-   plausible, wrong page — for the duration of the load, and permanently if a
-   fetch fails after renderResults has already un-hidden those panes but
-   before it re-renders them. So the results branch clears every content host
-   renderResults doesn't already clear-then-fill for itself, and repaints
-   #diff-groups' skeleton, before handing off. */
+   notwithstanding. renderClosest, renderTiers, renderScorecard and
+   renderDiffGroups all clear their own hosts on the SUCCESS path already —
+   the gap is every early return in renderResults BEFORE those helpers run
+   (a throw/404 on the caller's own map, an unknown tradition, a failed
+   tradition/member fetch, a failed scorecard Promise.all). Those returns
+   leave the previous comparison's rendered content sitting there, and
+   #cmp-closest / #cmp-scorecard / #cmp-framing's `hidden` flags sitting at
+   whatever the previous comparison set them to (renderResults only writes
+   them once it already has both maps, well after those early returns; tiers
+   has no toggle at all beyond what renderTiers itself sets from row count).
+   So before handing off, route() clears every one of those content hosts,
+   re-hides the panes whose visibility renderResults/renderTiers otherwise
+   only ever grants on success, and repaints #diff-groups' skeleton — closing
+   both the "previous result still fully visible" case and the milder
+   "empty box left visible" case, for every early return, not just the ones
+   already covered by clearSkel($('diff-groups')) inside renderResults. */
 async function route(params) {
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
@@ -530,10 +538,14 @@ async function route(params) {
   }
   $('results-heading').textContent = '';
   $('cmp-closest').textContent = '';
-  $('cmp-tiers').textContent = '';
+  $('cmp-closest').hidden = true;
+  $('cmp-scorecard').hidden = true;
   $('sc-table-host').textContent = '';
   $('sc-accordion-host').textContent = '';
+  $('cmp-framing').hidden = true;
   $('cmp-framing-text').textContent = '';
+  $('cmp-tiers').textContent = '';
+  $('cmp-tiers').hidden = true;
   paintSkel($('diff-groups'));   // idempotent — see paintSkel's own comment — so a cold ?tradition= load (which main() already skeletoned) does not double up
   await renderResults({ corpus, traditionList, traditionId, memberName, doctrineParam, user, changeBtn });
 }
