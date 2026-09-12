@@ -680,6 +680,7 @@ Some duplication here is deliberate. Know which is which.
 | The token `:root` block, forked **three** ways — `engine/theme.css`, `engine/render.py`, `engine/editor.html` | **Permanent, and reconciled 2026-09-10 (P2).** Both generated and `file://` files must be self-contained. Change one, change all three. The old drift (`--good`/`--bad` missing from `render.py`; `--mono`/`--shadow` from the other two) is gone, and `--accent` now has a job as `accent-color`. P2 added eight spacing steps, four radii, three elevations, three durations, three easings and seven type steps to all three. **Still nothing checks that they agree** — the reconciliation was hand-verified, not enforced. |
 | `slugify` in `editor-core.js` and `chrome.js` | **Permanent.** An ES module cannot import the former; `file://`-served `editor.html` cannot load the latter. Change one, change the other, **and `render.py`'s too**. |
 | `editor-core.js` parser vs `render.py`'s `parse()` | **Permanent lockstep, by hand.** Round-trip fidelity was verified against the live file. Touch either, re-verify both. |
+| `engine/editor.html`'s **header styling** vs `.tm-chrome` | **No longer a fork — resolved by divergence 2026-09-12.** `theme.css` used to claim it mirrored the editor's header rules. P7 moved `.tm-chrome` onto the type and spacing scales and deliberately left `editor.html` alone, and Thomas ruled the offline tool keeps its own visual language. **Do not re-sync them.** This is separate from the row below, which is still live. |
 | The nav list in `chrome.js` vs `editor.html` | **Permanent lockstep, by hand.** The documented `file://` exception. Since P6 it is three edits, not two — `engine/theme.css` carries the popover's styles. Both sides hold the list as a literal `[href, label]` array to keep the diff one line. |
 
 **The helpers this repo forks are `el`, `escapeHtml` and `slugify`.** They now live in one
@@ -876,15 +877,23 @@ the `vw` term of a token declared in a different file. **A one-step change to `-
 `--lh-snug` drops a touch target under the WCAG floor silently.** Derived in
 `engine/theme.css` beside the rule.
 
-Parked for P11 by the whole-phase review: `letter-spacing` was edited on ~12 selectors
-despite being on the phase's own never-snap list; `engine/editor.html`'s header no longer
-matches the `.tm-chrome` rules it is documented as mirroring, because P7 scoped that file to
-D4 only; `render.py`'s `dd.rel a` went from a 20px pill to `var(--r2)`, the one place a pill
-became a rounded rectangle; and `.tm-lead`, `.tm-working`, `.tm-span` and `.chip-select` in
-`theme.css` have no call site anywhere (all four were already dead before P7).
+**Four questions the whole-phase review raised, all decided by Thomas on 2026-09-12:**
 
-**Not yet walked in a browser.** Every P7 check was arithmetic and cascade order; no agent
-could see a rendered page.
+- **The 44px margin on `/compare` stands as documented.** It passes at every width and the
+  derivation now sits beside the rule. Not widened — that would be a visual change to the
+  diff rows' rhythm with no acceptance criterion behind it.
+- **`engine/editor.html`'s header is independent**, not drifted. See §8.
+- **The `-.012em` tracking stays**, on the large serif headings and off the small chips. It
+  exceeded P7's own stated scope, but it is what design-modern-feel B1 asks for, and B1 notes
+  only two rules in the repo were doing it before.
+- **P7 ships unwalked, by decision.** Its criteria are greppable and green; nobody has seen a
+  rendered page. If a layout problem surfaces during P8, check whether it is P7's before
+  blaming the new code.
+
+Still genuinely open for P11: `render.py`'s `dd.rel a` went from a 20px pill to `var(--r2)`,
+the one place in the phase a pill became a rounded rectangle; and `.tm-lead`, `.tm-working`,
+`.tm-span` and `.chip-select` in `theme.css` have no call site anywhere (all four were
+already dead before P7, and P7 spent a substitution re-tokenising the first).
 
 ---
 

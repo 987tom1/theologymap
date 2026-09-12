@@ -239,9 +239,18 @@ details.optional > summary:hover { color: var(--ink); }
   .wz-radio input + span, .mradio input + span { min-height: 44px; }
 }
 
-/* Shared product chrome (web/chrome.js), mirroring engine/editor.html's header
-   rules but scoped under .tm-chrome so it cannot collide with the editor's
-   own header. */
+/* Shared product chrome (web/chrome.js), scoped under .tm-chrome so it cannot
+   collide with the editor's own header.
+
+   This used to say it mirrored engine/editor.html's header rules. It no longer
+   does, and that is now deliberate: Thomas ruled on 2026-09-12 that the offline
+   file:// tool keeps its own visual language. P7 moved these rules onto the type
+   and spacing scales and left editor.html's header where it was. Do NOT re-sync
+   the two - it was a hand-kept mirror that nothing enforced and that drifted
+   silently the first time a phase touched one side.
+
+   The NAV LIST in chrome.js and editor.html is a different thing and is still a
+   permanent hand-kept lockstep. See CLAUDE.md section 8. */
 .tm-chrome { padding:var(--s4) var(--s5) var(--s3); border-bottom:1px solid var(--line); }
 .tm-chrome .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
                       text-transform:uppercase; color:var(--muted); }
