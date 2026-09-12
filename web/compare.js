@@ -361,6 +361,36 @@ function clearSkel(host) {
   host.setAttribute('aria-busy', 'false');
 }
 
+/* The one net for every entry point's awaited fetch chain. apiFetch throws
+   on every failure but the unknown_user redirect and shows the shared
+   #tm-banner itself before it does — but loadCorpus()'s and
+   loadTraditionManifest()'s bare fetch() calls, and the bare fetch() at
+   :534ish for a tradition's own map, reject on a dropped connection with no
+   banner at all, and none of those four sites (this file's :534/:712,
+   wizard.js's :1212/:1218) had a catch of their own. Without this, any of
+   them left whichever skeleton was live pulsing forever with aria-busy still
+   "true" — the loop the motion rule allows, made permanent.
+   Attached at every entry point — main() below and, in compare.js, route()'s
+   two other callers (navigate, popstate) — rather than at each of the four
+   call sites: one guard where every path already routes through beats four
+   scattered try/catches. Clears every skeleton host this page owns (cheap
+   and harmless if a given one was never painted) rather than tracking which
+   one was live. Shows the fallback banner only if apiFetch hasn't already
+   put one up — checking the DOM, not the error's shape, is what makes that
+   check correct for both apiFetch's two failure modes (network-catch throws
+   a plain Error with no `.status`; !res.ok throws one with `.status`) as
+   well as for a bare fetch() rejection, which carries neither and shows
+   nothing on its own. console.error always runs, so a genuine programming
+   error still leaves a trace instead of just going quiet behind a banner. */
+function reportFatal(err) {
+  console.error(err);
+  clearSkel($('diff-groups'));
+  clearSkel($('picker-traditions'));
+  if (!document.getElementById('tm-banner')) {
+    showError('Something went wrong loading this page. Try reloading.');
+  }
+}
+
 /* P8 Task 3 — lazy tradition maps.
    engine/compare-core.js:230-264 (closestTradition) and :271-298 (scorecard)
    both key off scorecardTraditions() (:52-56) and both index traditionMaps
@@ -385,7 +415,7 @@ async function loadTraditionMaps(seedId, seedDomains) {
   if (traditionMaps) return traditionMaps;             // same twelve regardless of target — see comment above
   const scTraditions = CompareCore.scorecardTraditions(corpus);
   const maps = {};
-  if (seedId && seedDomains) maps[seedId] = seedDomains; // the target's own map is already fetched at :402-405ish for the diff itself — don't fetch it twice
+  if (seedId && seedDomains) maps[seedId] = seedDomains; // the target's own map is already fetched at :534 for the diff itself — don't fetch it twice
   await Promise.all(scTraditions.map(async (t) => {
     if (maps[t.id]) return;
     const entry = traditionList.find((x) => x.id === t.id);
@@ -394,7 +424,14 @@ async function loadTraditionMaps(seedId, seedDomains) {
     if (!res.ok) throw new Error('failed to load tradition map: ' + entry.file);
     maps[t.id] = Core.parse(await res.text());
   }));
-  traditionMaps = maps;   // only cache a COMPLETE set — a partial map must never look like the real thing
+  // Cached once no fetch failed — NOT once every registered scorecard
+  // tradition is actually present. `if (!entry) return;` above silently
+  // omits any scorecard tradition missing from traditionList, and this line
+  // still caches whatever came back as good for the rest of the visit. That
+  // is pre-existing (the identical line lived in the old inline loop) and
+  // gated by tests/check_tradition_maps.py, so it holds in practice today —
+  // but this comment must not promise a guarantee the code doesn't make.
+  traditionMaps = maps;
   return traditionMaps;
 }
 
@@ -412,7 +449,9 @@ async function setupScorecard({ mine, ownWording, targetTraditionId, targetDomai
   const scTableHost = $('sc-table-host');
   const scAccHost = $('sc-accordion-host');
   const loadHost = $('sc-load-host');
-  closestHost.hidden = false;
+  // No closestHost.hidden = false here: renderResults:557 already set it
+  // from isTradition before calling this function, and setupScorecard is
+  // only ever reached from that branch — so it is always already false.
 
   function showButton() {
     loadHost.hidden = false;
@@ -649,6 +688,16 @@ let corpus, traditionList, user, changeBtn, traditionMaps = null;
    #cmp-framing is only shown on the member branch, which never touches
    traditionMaps. */
 async function route(params) {
+  // Before pushState, every /compare transition reloaded the document, which
+  // cleared web/session.js's #tm-banner for free. pushState doesn't, and
+  // nothing else removes it, so a failure banner from one comparison ("No
+  // such tradition: retired-id") would otherwise still be sitting above a
+  // perfectly good result after "Change comparison" picked a real one.
+  // web/session.js owns the element; this only removes it, at the top of
+  // every route, before anything below has a chance to render.
+  const banner = document.getElementById('tm-banner');
+  if (banner) banner.remove();
+
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
   const doctrineParam = params.get('doctrine');
@@ -677,7 +726,7 @@ async function route(params) {
    link goes through this rather than relying on the popstate handler alone. */
 function navigate(url) {
   history.pushState(null, '', url);
-  route(new URLSearchParams(location.search));
+  route(new URLSearchParams(location.search)).catch(reportFatal);
 }
 
 async function main() {
@@ -709,18 +758,28 @@ async function main() {
   }
   paintSkel(skelHost);
 
-  corpus = await loadCorpus();
-  if (!corpus) { clearSkel(skelHost); return; }
-  const tm = await loadTraditionManifest();
-  if (!tm) { clearSkel(skelHost); showError('The tradition list could not be loaded.'); return; }
-  traditionList = tm.traditions || [];
+  // Wraps every awaited call below, including route(params) at the end: see
+  // reportFatal's comment. loadCorpus()/loadTraditionManifest() are the
+  // bare-fetch sites the review named (:712 for loadCorpus here); a rejected
+  // route(params) is the same failure reaching this function from renderResults'
+  // own bare fetch (:534) on a cold ?tradition=/?name= load.
+  try {
+    corpus = await loadCorpus();
+    if (!corpus) { clearSkel(skelHost); return; }
+    const tm = await loadTraditionManifest();
+    if (!tm) { clearSkel(skelHost); showError('The tradition list could not be loaded.'); return; }
+    traditionList = tm.traditions || [];
 
-  // popstate does not fire for a pushState we just made ourselves, only for
-  // Back/Forward, so this and navigate()'s direct call are both needed —
-  // neither alone covers every transition.
-  window.addEventListener('popstate', () => route(new URLSearchParams(location.search)));
+    // popstate does not fire for a pushState we just made ourselves, only for
+    // Back/Forward, so this and navigate()'s direct call are both needed —
+    // neither alone covers every transition.
+    window.addEventListener('popstate', () =>
+      route(new URLSearchParams(location.search)).catch(reportFatal));
 
-  await route(params);
+    await route(params);
+  } catch (err) {
+    reportFatal(err);
+  }
 }
 
 main();

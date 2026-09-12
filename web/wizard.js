@@ -112,6 +112,27 @@ function clearSkel(host) {
   host.hidden = true;
 }
 
+/* The one net for main()'s two awaited fetches. apiFetch throws on every
+   failure but the unknown_user redirect and shows the shared #tm-banner
+   itself before it does; loadCorpus()'s bare fetch() calls reject on a
+   dropped connection with no banner at all. Before this, either rejection
+   left main() rejecting unhandled and #wz-skel pulsing forever with
+   aria-busy still "true" — the loop the motion rule allows, made permanent.
+   Shows the fallback banner only if apiFetch hasn't already put one up:
+   checking the DOM, not the error's shape, is what makes that correct for
+   both of apiFetch's failure modes (one throws with `.status` set, its
+   network-catch throws a plain Error without it) as well as for a bare
+   fetch() rejection, which carries neither and shows nothing on its own.
+   console.error always runs, so a genuine programming error still leaves a
+   trace instead of just going quiet behind a banner. */
+function reportFatal(err) {
+  console.error(err);
+  clearSkel($('wz-skel'));
+  if (!document.getElementById('tm-banner')) {
+    showError('Something went wrong loading this page. Try reloading.');
+  }
+}
+
 function loadIgnored() {
   try { ignored = new Set(JSON.parse(localStorage.getItem(IGNORE_KEY)) || []); }
   catch { ignored = new Set(); }
@@ -1209,16 +1230,26 @@ async function main() {
   const skelHost = $('wz-skel');
   paintSkel(skelHost);
 
-  corpus = await loadCorpus();
-  if (!corpus) { clearSkel(skelHost); return; }
-  traditions = corpus.traditions.traditions || [];
-  order = WG.orderedDoctrines(corpus);
-  $('intro-count').textContent = String(order.length);
+  // Wraps both awaited fetches: apiFetch rejects on every failure but
+  // unknown_user, and loadCorpus()'s bare fetch() rejects on a dropped
+  // connection — neither was caught here before, so either left #wz-skel
+  // pulsing forever behind whatever banner (or nothing) the failure put up.
+  // See reportFatal's comment.
+  try {
+    corpus = await loadCorpus();
+    if (!corpus) { clearSkel(skelHost); return; }
+    traditions = corpus.traditions.traditions || [];
+    order = WG.orderedDoctrines(corpus);
+    $('intro-count').textContent = String(order.length);
 
-  const map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
-  if (!map) { clearSkel(skelHost); return; }
-  domains = Core.parse(map.markdown);
-  token = map.updated_at;
+    const map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+    if (!map) { clearSkel(skelHost); return; }
+    domains = Core.parse(map.markdown);
+    token = map.updated_at;
+  } catch (err) {
+    reportFatal(err);
+    return;
+  }
   // Every path below is a synchronous call into renderQuestion / renderHome /
   // showScreen('intro') — clear once here, before any of them, rather than
   // guard each call site separately.

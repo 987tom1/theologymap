@@ -38,13 +38,22 @@
   .cmp-closest-line { margin: 0; font: var(--fs-1)/var(--lh-body) var(--serif); }
 
   /* ---- scorecard ---- */
-  /* Task 3's button/skeleton host. Flex column so paintSkel's three stacked
-     .tm-skel cards get the same gap #cmp-closest and #diff-groups already
-     give them, and align-items so the button doesn't stretch full width. */
-  #sc-load-host { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s3); margin: 0 0 var(--s3); }
-  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); }
+  /* Task 3's button/skeleton host. #sc-load-host only ever holds one button
+     (the "Show..." trigger, or the same button again for a retry) —
+     paintSkel is never called on it (compare.js's run() paints #cmp-closest,
+     #sc-table-host and #sc-accordion-host only). align-items stops that one
+     button stretching full width; flex-direction/gap would only matter for
+     more than one child, so they're dropped rather than kept dead. */
+  #sc-load-host { display: flex; align-items: flex-start; margin: 0 0 var(--s3); }
+  /* The border lives on the table, not the wrap: #sc-table-host is empty
+     whenever #sc-load-host's button is showing (cold state, or after a
+     failed fetch) or before the corpus/manifest loads at all, and a border
+     on the wrap painted regardless, as a ~2px rounded hairline sitting under
+     the button at every width the media query below doesn't hide it. A
+     border on .cmp-table only ever appears once a table exists to carry it. */
+  #sc-table-wrap { overflow-x: auto; }
   .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: var(--fs-00)/var(--lh-ui) var(--sans);
-    font-variant-numeric: tabular-nums; }
+    font-variant-numeric: tabular-nums; border: 1px solid var(--field-line); border-radius: var(--r3); }
   .cmp-table th, .cmp-table td { border-bottom: 1px solid var(--line); padding: var(--s2); text-align: center; white-space: nowrap; }
   .cmp-table thead th { text-align: center; font: 600 var(--fs-000)/var(--lh-snug) var(--sans); color: var(--muted); }
   .cmp-table td.cmp-doctrine { text-align: left; font: var(--fs-0)/var(--lh-snug) var(--serif); color: var(--ink); white-space: normal; max-width: 26ch; }
@@ -141,9 +150,15 @@
       <div id="cmp-scorecard" hidden>
         <h3 class="cmp-section-h" style="font-size:16px">The all-traditions scorecard</h3>
         <!-- P8 Task 3: the "Show the all-traditions scorecard" button (or,
-             on failure, the same button again for a retry) lives here. Empty
-             once traditionMaps has loaded (cache hit or a successful fetch),
-             since the trigger is only needed once. -->
+             on failure, the same button again for a retry) lives here. A
+             cache hit empties it (compare.js's setupScorecard, its
+             loadHost.hidden = true branch does clear textContent first). A
+             successful fetch instead just HIDES it (loadHost.hidden = true
+             in run(), compare.js:449ish) and leaves the disabled button in
+             the DOM — it isn't emptied until the next route() clears
+             #sc-load-host's content outright. Hidden is not the same as
+             empty; don't assume this div is empty just because it's out of
+             sight. -->
         <div id="sc-load-host"></div>
         <div id="sc-table-wrap"><div id="sc-table-host"></div></div>
         <div id="sc-accordion-host"></div>
