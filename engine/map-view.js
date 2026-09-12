@@ -33,6 +33,27 @@
     return list.slice().sort((a, b) => tierRank(a) - tierRank(b));
   }
 
+  // The generated map holds a flat array of nodes each carrying a `.domain`
+  // string; the editor holds them already grouped. This is the adapter between
+  // the two, and the only shape difference between the two consumers.
+  // Order is first appearance, which is the order the source file lists the
+  // domains in and therefore the order the map's branches have always taken.
+  //
+  // It deliberately does NOT filter: the generated map builds its domain list
+  // from every node and filters only the members, so a search matching nothing
+  // in an area still shows that area's box reading "0 nodes". A caller that
+  // pre-filters would silently drop empty areas instead.
+  function groupByDomain(nodes) {
+    const order = [];
+    const byName = new Map();
+    (nodes || []).forEach(n => {
+      const name = n.domain;
+      if (!byName.has(name)) { byName.set(name, []); order.push(name); }
+      byName.get(name).push(n);
+    });
+    return order.map(name => ({ name, nodes: byName.get(name) }));
+  }
+
   // Leaf boxes are keyed by a stable per-node id, not by n.slug — slug
   // changes the moment a title is edited, and using it as the DOM-element
   // cache key / "which tile is expanded" key meant renaming an open tile
@@ -644,6 +665,8 @@
       self._applyPanZoom();
     }, { passive: false });
   };
+
+  MapView.groupByDomain = groupByDomain;
 
   return MapView;
 });
