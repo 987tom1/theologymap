@@ -45,15 +45,23 @@
      button stretching full width; flex-direction/gap would only matter for
      more than one child, so they're dropped rather than kept dead. */
   #sc-load-host { display: flex; align-items: flex-start; margin: 0 0 var(--s3); }
-  /* The border lives on the table, not the wrap: #sc-table-host is empty
-     whenever #sc-load-host's button is showing (cold state, or after a
-     failed fetch) or before the corpus/manifest loads at all, and a border
-     on the wrap painted regardless, as a ~2px rounded hairline sitting under
-     the button at every width the media query below doesn't hide it. A
-     border on .cmp-table only ever appears once a table exists to carry it. */
-  #sc-table-wrap { overflow-x: auto; }
+  /* The border frames the scroll container, not the table: .cmp-table sets
+     border-collapse: collapse, and border-radius has no effect on a table in
+     the collapsing border model (Chrome/Firefox/Safari all ignore it), so a
+     radius can only ever show on the wrap. The wrap also has to carry the
+     border itself, not just the radius — it's what clips the table's corners
+     and what stays put as the frame when the table (13 columns, ~1500-1700px)
+     scrolls sideways inside it; a border painted by the table would scroll
+     out of view with the content instead of framing it.
+     #sc-table-host is empty whenever #sc-load-host's button is showing (cold
+     state, or after a failed fetch) or before the corpus/manifest loads at
+     all — :not(:has(table)) is what keeps the wrap's border from painting an
+     empty hairline under the button in those states; #sc-table-wrap itself
+     is never :empty, since it always holds #sc-table-host. */
+  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); }
+  #sc-table-wrap:not(:has(table)) { border: 0; }
   .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: var(--fs-00)/var(--lh-ui) var(--sans);
-    font-variant-numeric: tabular-nums; border: 1px solid var(--field-line); border-radius: var(--r3); }
+    font-variant-numeric: tabular-nums; }
   .cmp-table th, .cmp-table td { border-bottom: 1px solid var(--line); padding: var(--s2); text-align: center; white-space: nowrap; }
   .cmp-table thead th { text-align: center; font: 600 var(--fs-000)/var(--lh-snug) var(--sans); color: var(--muted); }
   .cmp-table td.cmp-doctrine { text-align: left; font: var(--fs-0)/var(--lh-snug) var(--serif); color: var(--ink); white-space: normal; max-width: 26ch; }
@@ -150,15 +158,17 @@
       <div id="cmp-scorecard" hidden>
         <h3 class="cmp-section-h" style="font-size:16px">The all-traditions scorecard</h3>
         <!-- P8 Task 3: the "Show the all-traditions scorecard" button (or,
-             on failure, the same button again for a retry) lives here. A
-             cache hit empties it (compare.js's setupScorecard, its
-             loadHost.hidden = true branch does clear textContent first). A
-             successful fetch instead just HIDES it (loadHost.hidden = true
-             in run(), compare.js:449ish) and leaves the disabled button in
-             the DOM — it isn't emptied until the next route() clears
-             #sc-load-host's content outright. Hidden is not the same as
-             empty; don't assume this div is empty just because it's out of
-             sight. -->
+             on failure, the same button again for a retry) lives here. It is
+             empty at render time only because compare.js's route() clears
+             #sc-load-host's content outright before calling renderResults —
+             setupScorecard's cache-hit branch (a repeat comparison this same
+             visit) sets loadHost.hidden = true but does NOT clear
+             textContent, and neither does its run() function on a
+             successful fetch: run() also just HIDES the host
+             (loadHost.hidden = true) and leaves the disabled button in the
+             DOM, not emptied until the next route() call. Hidden is not the
+             same as empty; don't assume this div is empty just because it's
+             out of sight. -->
         <div id="sc-load-host"></div>
         <div id="sc-table-wrap"><div id="sc-table-host"></div></div>
         <div id="sc-accordion-host"></div>

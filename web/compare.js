@@ -364,10 +364,10 @@ function clearSkel(host) {
 /* The one net for every entry point's awaited fetch chain. apiFetch throws
    on every failure but the unknown_user redirect and shows the shared
    #tm-banner itself before it does — but loadCorpus()'s and
-   loadTraditionManifest()'s bare fetch() calls, and the bare fetch() at
-   :534ish for a tradition's own map, reject on a dropped connection with no
-   banner at all, and none of those four sites (this file's :534/:712,
-   wizard.js's :1212/:1218) had a catch of their own. Without this, any of
+   loadTraditionManifest()'s bare fetch() calls, and renderResults' own bare
+   fetch for a tradition's own map, reject on a dropped connection with no
+   banner at all, and none of those four sites (this file's renderResults and
+   main, wizard.js's :1212/:1218) had a catch of their own. Without this, any of
    them left whichever skeleton was live pulsing forever with aria-busy still
    "true" — the loop the motion rule allows, made permanent.
    Attached at every entry point — main() below and, in compare.js, route()'s
@@ -415,7 +415,7 @@ async function loadTraditionMaps(seedId, seedDomains) {
   if (traditionMaps) return traditionMaps;             // same twelve regardless of target — see comment above
   const scTraditions = CompareCore.scorecardTraditions(corpus);
   const maps = {};
-  if (seedId && seedDomains) maps[seedId] = seedDomains; // the target's own map is already fetched at :534 for the diff itself — don't fetch it twice
+  if (seedId && seedDomains) maps[seedId] = seedDomains; // the target's own map is already fetched by renderResults for the diff itself — don't fetch it twice
   await Promise.all(scTraditions.map(async (t) => {
     if (maps[t.id]) return;
     const entry = traditionList.find((x) => x.id === t.id);
@@ -428,9 +428,21 @@ async function loadTraditionMaps(seedId, seedDomains) {
   // tradition is actually present. `if (!entry) return;` above silently
   // omits any scorecard tradition missing from traditionList, and this line
   // still caches whatever came back as good for the rest of the visit. That
-  // is pre-existing (the identical line lived in the old inline loop) and
-  // gated by tests/check_tradition_maps.py, so it holds in practice today —
-  // but this comment must not promise a guarantee the code doesn't make.
+  // is pre-existing (the identical line lived in the old inline loop).
+  // tests/check_tradition_maps.py does NOT gate this — it parses the
+  // generated .md files and checks links/hold presence, and never compares
+  // scorecardTraditions(corpus) against traditionList. Nothing in the test
+  // suite gates it either: build_traditions.js's buildManifest generates
+  // content/traditions/manifest.json (what becomes traditionList here) from
+  // the same in_scorecard filter engine/compare-core.js reads, so the two
+  // sets agree whenever the manifest was regenerated after the corpus last
+  // changed — but nothing checks that it was. Flipping a tradition's
+  // in_scorecard flag in content/wizard/traditions.json without re-running
+  // `node engine/build_traditions.js` leaves manifest.json stale and this
+  // line silently omitting that tradition, same as any other generated file
+  // whose source moved on without it (CLAUDE.md §3's own warning). It is on
+  // whoever edits the corpus, exactly like the superseded_holds convention —
+  // not a guarantee the code or the test suite makes.
   traditionMaps = maps;
   return traditionMaps;
 }
@@ -449,9 +461,9 @@ async function setupScorecard({ mine, ownWording, targetTraditionId, targetDomai
   const scTableHost = $('sc-table-host');
   const scAccHost = $('sc-accordion-host');
   const loadHost = $('sc-load-host');
-  // No closestHost.hidden = false here: renderResults:557 already set it
-  // from isTradition before calling this function, and setupScorecard is
-  // only ever reached from that branch — so it is always already false.
+  // No closestHost.hidden = false here: renderResults already set it from
+  // isTradition before calling this function, and setupScorecard is only
+  // ever reached from that branch — so it is always already false.
 
   function showButton() {
     loadHost.hidden = false;
@@ -760,9 +772,10 @@ async function main() {
 
   // Wraps every awaited call below, including route(params) at the end: see
   // reportFatal's comment. loadCorpus()/loadTraditionManifest() are the
-  // bare-fetch sites the review named (:712 for loadCorpus here); a rejected
-  // route(params) is the same failure reaching this function from renderResults'
-  // own bare fetch (:534) on a cold ?tradition=/?name= load.
+  // bare-fetch sites the review named (main's own loadCorpus call here); a
+  // rejected route(params) is the same failure reaching this function from
+  // renderResults' own bare fetch for a tradition's own map, on a cold
+  // ?tradition=/?name= load.
   try {
     corpus = await loadCorpus();
     if (!corpus) { clearSkel(skelHost); return; }
