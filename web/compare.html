@@ -11,6 +11,19 @@
   h1 { font-size: var(--fs-3); }
   .cmp-body-wrap { display: flex; flex-direction: column; gap: var(--s5); max-width: 900px; }
 
+  /* Loading skeleton, copied verbatim from web/gallery.html:15-23 (P8 task 1
+     ruling: not promoted to engine/theme.css — shared with the offline
+     editor, no skeletons there. Three-way duplication reported to P11.) */
+  .tm-skel { border-color: var(--line); }
+  .tm-skel span { display: block; height: 11px; border-radius: 3px; background: var(--chip); }
+  .tm-skel span:first-child { height: 17px; width: 45%; }
+  .tm-skel span:nth-child(2) { height: 6px; }
+  .tm-skel span:last-child { width: 60%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tm-skel { animation: tm-pulse 1.4s ease-in-out infinite; }
+    @keyframes tm-pulse { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+  }
+
   /* ---- picker ---- */
   #picker-traditions, #picker-members { display: grid; gap: var(--s3);
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: var(--s2); }

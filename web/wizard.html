@@ -16,6 +16,21 @@
      `#id[hidden]` overrides that the next screen would have to remember. */
   [hidden] { display: none !important; }
 
+  /* Loading skeleton, copied verbatim from web/gallery.html:15-23 (P8 task 1
+     ruling: not promoted to engine/theme.css — shared with the offline
+     editor, no skeletons there. Three-way duplication reported to P11.) */
+  .tm-skel { border-color: var(--line); }
+  .tm-skel span { display: block; height: 11px; border-radius: 3px; background: var(--chip); }
+  .tm-skel span:first-child { height: 17px; width: 45%; }
+  .tm-skel span:nth-child(2) { height: 6px; }
+  .tm-skel span:last-child { width: 60%; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tm-skel { animation: tm-pulse 1.4s ease-in-out infinite; }
+    @keyframes tm-pulse { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+  }
+  #wz-skel { display: grid; gap: var(--s3); grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    padding: var(--s5) var(--s4); max-width: 900px; margin: 0 auto; }
+
   body.wz main { padding: 0; max-width: none; }
 
   /* ---- the question screen's own crumb bar (the site nav is always on screen) ---- */
@@ -375,6 +390,7 @@
 </header>
 
 <main>
+<div id="wz-skel" hidden></div>
 <section id="screen-intro" class="wz-narrow" hidden>
   <div class="wz-screen-body">
     <h2>Answer questions, get a map of what you believe.</h2>

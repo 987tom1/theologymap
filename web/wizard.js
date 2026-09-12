@@ -90,6 +90,28 @@ function button(cls, text, onClick) {
 
 function labelled(text) { return el('p', 'tm-lab', text); }
 
+/* The house skeleton, verbatim from web/gallery.html:139-146: three
+   decoration cards plus aria-busy, cleared before the page's first
+   showScreen() and on both early returns in main() (see task-1-report.md).
+   web/gallery.html:15-23 carries the matching CSS, duplicated here (finding
+   routed to P11). #wz-skel is a direct child of <main>, never inside a
+   [hidden] section, so it is visible the instant main() paints it. */
+function paintSkel(host) {
+  host.hidden = false;
+  for (let i = 0; i < 3; i++) {
+    const s = el('div', 'tm-card tm-skel');
+    s.setAttribute('aria-hidden', 'true');
+    for (let j = 0; j < 4; j++) s.appendChild(el('span'));
+    host.appendChild(s);
+  }
+  host.setAttribute('aria-busy', 'true');
+}
+function clearSkel(host) {
+  host.textContent = '';          // never leave a skeleton pretending to load
+  host.setAttribute('aria-busy', 'false');
+  host.hidden = true;
+}
+
 function loadIgnored() {
   try { ignored = new Set(JSON.parse(localStorage.getItem(IGNORE_KEY)) || []); }
   catch { ignored = new Set(); }
@@ -1182,16 +1204,25 @@ async function main() {
 
   mount('Build a map');
 
+  // Painted before either network await below, cleared before the first
+  // showScreen() and on both early returns.
+  const skelHost = $('wz-skel');
+  paintSkel(skelHost);
+
   corpus = await loadCorpus();
-  if (!corpus) return;
+  if (!corpus) { clearSkel(skelHost); return; }
   traditions = corpus.traditions.traditions || [];
   order = WG.orderedDoctrines(corpus);
   $('intro-count').textContent = String(order.length);
 
   const map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
-  if (!map) return;
+  if (!map) { clearSkel(skelHost); return; }
   domains = Core.parse(map.markdown);
   token = map.updated_at;
+  // Every path below is a synchronous call into renderQuestion / renderHome /
+  // showScreen('intro') — clear once here, before any of them, rather than
+  // guard each call site separately.
+  clearSkel(skelHost);
 
   // getItem returns null only when the key was never written. '' is a stored
   // answer and must survive the read, so no `|| ''` here.

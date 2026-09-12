@@ -131,7 +131,7 @@ function diffRow(row, verdictText) {
    CompareCore's own tier/domain/doctrine order, exactly like the diff
    itself, and only carry text, not colour, as their verdict signal. */
 function renderDiffGroups(host, corpus, rows, verdictText) {
-  host.textContent = '';
+  clearSkel(host);
   for (const group of groupRows(corpus, rows)) {
     const section = el('section', 'cmp-group');
     section.appendChild(groupHeading(group.tier, group.domain, group.rows.length));
@@ -342,6 +342,24 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
   }
 }
 
+/* The house skeleton, verbatim from web/gallery.html:139-146: three decoration
+   cards plus aria-busy, cleared on every exit path (success and failure
+   alike) by clearSkel. web/gallery.html:15-23 carries the matching CSS,
+   duplicated here (finding routed to P11, see task-1-report.md). */
+function paintSkel(host) {
+  for (let i = 0; i < 3; i++) {
+    const s = el('div', 'tm-card tm-skel');
+    s.setAttribute('aria-hidden', 'true');
+    for (let j = 0; j < 4; j++) s.appendChild(el('span'));
+    host.appendChild(s);
+  }
+  host.setAttribute('aria-busy', 'true');
+}
+function clearSkel(host) {
+  host.textContent = '';          // never leave a skeleton pretending to load
+  host.setAttribute('aria-busy', 'false');
+}
+
 function traditionCard(entry, onPick) {
   const b = el('button', 'tm-card tm-cardlink');
   b.type = 'button';
@@ -357,7 +375,7 @@ async function renderPicker(traditionList, user) {
   $('screen-results').hidden = true;
 
   const tHost = $('picker-traditions');
-  tHost.textContent = '';
+  clearSkel(tHost);          // clears the skeleton main() painted, not a race: renderPicker only ever runs after that skeleton has stopped changing
   for (const t of traditionList) {
     tHost.appendChild(traditionCard(t,
       () => { location.href = '/compare?tradition=' + encodeURIComponent(t.id); }));
@@ -391,23 +409,24 @@ async function renderResults(opts) {
   changeBtn.hidden = false;
 
   const mineRaw = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
-  if (!mineRaw) return;
+  if (!mineRaw) { clearSkel($('diff-groups')); return; }
   const mine = Core.parse(mineRaw.markdown);
 
   let theirs, targetLabel, isTradition = false;
   if (traditionId) {
     const entry = traditionList.find(t => t.id === traditionId);
-    if (!entry) { showError('No such tradition: ' + traditionId); return; }
+    if (!entry) { clearSkel($('diff-groups')); showError('No such tradition: ' + traditionId); return; }
     isTradition = true;
     targetLabel = entry.display_name;
     const res = await fetch('/content/traditions/' + entry.file);
-    if (!res.ok) { showError('That tradition’s map could not be loaded.'); return; }
+    if (!res.ok) { clearSkel($('diff-groups')); showError('That tradition’s map could not be loaded.'); return; }
     theirs = Core.parse(await res.text());
   } else {
     let res;
     try {
       res = await apiFetch('/api/map?name=' + encodeURIComponent(memberName));
     } catch {
+      clearSkel($('diff-groups'));
       return; // apiFetch has already shown the error (404 means not public)
     }
     targetLabel = memberName;
@@ -438,6 +457,7 @@ async function renderResults(opts) {
         traditionMaps[t.id] = Core.parse(await res.text());
       }));
     } catch {
+      clearSkel($('diff-groups'));
       showError('The tradition maps could not all be loaded.');
       return;
     }
@@ -477,18 +497,35 @@ async function main() {
   changeBtn.addEventListener('click', () => { location.href = '/compare'; });
   mount('Compare', [changeBtn]);
 
-  const corpus = await loadCorpus();
-  if (!corpus) return;
-  const tm = await loadTraditionManifest();
-  if (!tm) { showError('The tradition list could not be loaded.'); return; }
-  const traditionList = tm.traditions || [];
-
+  // Decide the branch from the URL before the first await, so a cold
+  // /compare?tradition=<id> skeletons where *results* will land, not in the
+  // picker a plain /compare would show.
   const params = new URLSearchParams(location.search);
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
   const doctrineParam = params.get('doctrine');
+  const isResultsLoad = !!(traditionId || memberName);
 
-  if (!traditionId && !memberName) {
+  // Paint the skeleton now, before either corpus/tradition-manifest fetch —
+  // cleared on every exit path below: both early returns here, and inside
+  // renderPicker / renderResults on their own exits (see task-1-report.md).
+  let skelHost;
+  if (isResultsLoad) {
+    $('screen-picker').hidden = true;
+    $('screen-results').hidden = false;
+    skelHost = $('diff-groups');
+  } else {
+    skelHost = $('picker-traditions');
+  }
+  paintSkel(skelHost);
+
+  const corpus = await loadCorpus();
+  if (!corpus) { clearSkel(skelHost); return; }
+  const tm = await loadTraditionManifest();
+  if (!tm) { clearSkel(skelHost); showError('The tradition list could not be loaded.'); return; }
+  const traditionList = tm.traditions || [];
+
+  if (!isResultsLoad) {
     await renderPicker(traditionList, user);
     return;
   }
