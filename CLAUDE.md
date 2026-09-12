@@ -580,6 +580,13 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   which is how the 44px coarse-pointer floor sat inert on `/wizard` for a whole phase while
   appearing to work in `/edit`. Matters most when snapping page-local values to tokens. §10
   has the full case.
+- **One uppercase register, and it is `.kicker`.** D4 (P7) reduced six label registers to
+  one. `.kicker` keeps `text-transform: uppercase` and `letter-spacing: .16em`; every other
+  label is sentence case at `600 var(--fs-000)/var(--lh-ui) var(--sans)` in `var(--muted)`.
+  Three declarations exist — `theme.css`, `render.py`, `editor.html` — because of the
+  permanent three-way fork, not because there are three registers. **Adding a seventh
+  uppercase label is how the "generated" look comes back**; the design review named six
+  registers as the single loudest tell in the sheet.
 - **A `@media` query adds nothing to specificity.** A rule inside `@media (pointer: coarse)`
   **ties** with an unwrapped rule on the same selector and loses to it on source order if the
   base rule is declared later in the same file. P6 shipped `.tm-more a { padding: 16px 0 }`
@@ -845,6 +852,39 @@ each is easy to reintroduce:
   supplies the kicker and `h1`. `#wz-header` still toggles, so a thin crumb bar still appears and
   disappears — **that residue is by design; Thomas accepted it on 2026-09-11** on the grounds
   that `.tm-chrome`, the half the spec names, no longer moves at all.
+
+**P7 shipped 2026-09-12** (session C), nine commits. **Type and spacing** — every `gap`,
+`padding`, `margin`, `border-radius` and `font` shorthand in `engine/theme.css`, all eight
+`web/` pages and `render.py`'s embedded stylesheet now reads a token. `.node` and `.tm-card`
+share a radius again (9px → `var(--r3)`), which is the change the design review named as the
+one that would be felt. **D4 landed: one uppercase register.** `grep -rn "text-transform:
+*uppercase" web/ engine/` returns exactly three hits, all `.kicker` — one each in
+`theme.css`, `render.py` and `editor.html`, which is the permanent three-way fork, not three
+registers. Zero in `web/`. P1 Task 5's deferred rename finished: `.wz-quiet`/`.wz-hint`/
+`.lp-hint`/`.wz-framing`/`.lab`/`.lp-pos-label` became four `.tm-*` names across ~41 call
+sites in seven files, and the alias selectors are gone.
+
+**Three more inert coarse-pointer floors were found and fixed** — `.lp-row`,
+`.cmp-row > summary` and `.cmp-acc > summary` each tied with a later page-local rule and
+lost, leaving targets at ~42.3, ~40.3 and ~33.6px. All three now win on **specificity**
+(`a.lp-row`, `details.cmp-row > summary`, `details.cmp-acc > summary`), so no page-side edit
+can defeat them again. That is the fourth, fifth and sixth instance of this one bug.
+
+**`/compare`'s row summaries clear 44px by 0.29px at 360px** — `.cmp-q`'s
+`var(--fs-1)/var(--lh-snug)` line box plus `var(--s3)` padding — and the margin depends on
+the `vw` term of a token declared in a different file. **A one-step change to `--fs-1` or
+`--lh-snug` drops a touch target under the WCAG floor silently.** Derived in
+`engine/theme.css` beside the rule.
+
+Parked for P11 by the whole-phase review: `letter-spacing` was edited on ~12 selectors
+despite being on the phase's own never-snap list; `engine/editor.html`'s header no longer
+matches the `.tm-chrome` rules it is documented as mirroring, because P7 scoped that file to
+D4 only; `render.py`'s `dd.rel a` went from a 20px pill to `var(--r2)`, the one place a pill
+became a rounded rectangle; and `.tm-lead`, `.tm-working`, `.tm-span` and `.chip-select` in
+`theme.css` have no call site anywhere (all four were already dead before P7).
+
+**Not yet walked in a browser.** Every P7 check was arithmetic and cascade order; no agent
+could see a rendered page.
 
 ---
 
