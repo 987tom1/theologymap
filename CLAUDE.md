@@ -781,8 +781,20 @@ Thomas's decisions:
 it does, `/wizard?doctrine=<id>` when it does not. An unanswered doctrine no longer lands a
 first-timer on the raw editor's pan/zoom canvas with nothing open.
 
-**Growth marker:** `/compare` still eagerly loads all 475 KB of tradition maps. Lazy-loading
-the eleven non-target maps is the next performance move.
+~~**Growth marker:** `/compare` still eagerly loads all 475 KB of tradition maps. Lazy-loading
+the eleven non-target maps is the next performance move.~~ — **closed by P8 on 2026-09-12.**
+Both halves of that sentence were wrong. The twelve maps are **408,501 bytes**, not 475 KB, and
+the old code fetched the target's own file **twice** — once for the diff, once again inside the
+scorecard's `Promise.all`. And it is **all twelve** that had to move, not "the eleven non-target"
+ones: `CompareCore.closestTradition` (`engine/compare-core.js:230-264`) tallies **every** scorecard
+tradition exactly as `scorecard` does, so the closest-tradition line is a second consumer of the
+same full set, not a free rider on the target's map. **Deferring the scorecard alone would have
+saved zero bytes.** Both consumers now sit behind one explicit "Show the all-traditions
+scorecard" button — not an `IntersectionObserver`, because a scroll must never start a 400 KB
+download — and the set is cached at module scope for the visit, since the twelve files are the
+same twelve whichever tradition is the target. Eager bytes on first paint: **~416-464 KB down to
+7,759-55,197**, the target's own map alone. **The cost is that the closest-tradition line is no
+longer on the first screen** — it arrives on the same tap as the scorecard.
 
 The design review (`documentation/design-modern-feel.md`) recommends **evolving the
 paper-and-ink language rather than shifting to a next-gen register**, on the grounds that
