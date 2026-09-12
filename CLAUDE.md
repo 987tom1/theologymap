@@ -787,7 +787,7 @@ down. Read the dashboard, then cut.
 Run all of it before any push:
 
 ```
-node --test tests/*.test.js          # 51 checks across four JS suites
+node --test tests/*.test.js          # 57 checks across five JS suites
 py tests/syntax_check.py             # node --check every inline <script> and .js under web/ and engine/
 py engine/validate_content.py        # corpus: 20 error rules, 4 warnings, coverage matrix
 py tests/test_validate_content.py
