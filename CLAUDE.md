@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `202194458e57879603b8573eb24b302f35087edd2824a6e6890e40d84e777402` as written by
+- `8c3200ea2cf62d193ae9bdd9876d4d926537acf1f3fd73aaf4c805e769d6351b` as written by
   `Path.write_text` on Windows (CRLF)
-- `b780879ce8f1affb67a648ef916686257cdfa11b94ceda1d7d33c895a0ca911e` LF-normalised (what a
+- `b9bef7881a4265b2d92275e0a02bed5b922827ad79b1fdb411443ef5ec316546` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -87,11 +87,19 @@ presentation-only. Both times, `documentation/study-list.md` and the embedded
 `<script id="data">` payload stayed byte-identical, which is what proves only presentation
 moved. **When a licensed phase moves the output, update this pair in the same commit** — a
 gate nobody can pass is a gate the next session learns to ignore. **P7 Task 12 moved the pair
-a third time, to the one above** — `.node`'s radius (9px → `var(--r3)`, 12px) and the D4
-label-register reduction (six selectors losing `text-transform: uppercase` and their
-`letter-spacing`) are the licensed felt changes; `documentation/study-list.md` and the
-`<script id="data">` payload again stayed byte-identical, which is what proves only
-presentation moved this time too.
+a third time**, to `20219445…777402` (CRLF) / `b780879c…da911e` (LF) — `.node`'s radius
+(9px → `var(--r3)`, 12px) and the D4 label-register reduction (six selectors losing
+`text-transform: uppercase` and their `letter-spacing`) are the licensed felt changes;
+`documentation/study-list.md` and the `<script id="data">` payload again stayed
+byte-identical, which is what proves only presentation moved this time too.
+
+**P9 moved it a fourth time, to the pair above, and for a different reason than the other
+three: not presentation, but the engine itself.** The Map view's ~390 embedded lines were
+deleted and `engine/map-view.js` is now inlined in their place (§8), so the embedded script
+is a different string. The same two invariants held —
+`documentation/study-list.md` (`f4a30fe1…9f3df7`) and the `<script id="data">` payload
+(`4d8d919e…c8bd7e`) — which is what proves the *content* did not move even though nearly a
+thousand lines of the file did.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -704,7 +712,7 @@ Some duplication here is deliberate. Know which is which.
 
 | Fork | Status |
 |---|---|
-| `engine/render.py`'s embedded Map JS (~390 lines) vs `engine/map-view.js` (~430) | **Being resolved** — see below |
+| `engine/render.py`'s embedded Map JS (~390 lines) vs `engine/map-view.js` (~430) | **RESOLVED 2026-09-12 (P9).** Not a fork any more — see below. |
 | The token `:root` block, forked **three** ways — `engine/theme.css`, `engine/render.py`, `engine/editor.html` | **Permanent, and reconciled 2026-09-10 (P2).** Both generated and `file://` files must be self-contained. Change one, change all three. The old drift (`--good`/`--bad` missing from `render.py`; `--mono`/`--shadow` from the other two) is gone, and `--accent` now has a job as `accent-color`. P2 added eight spacing steps, four radii, three elevations, three durations, three easings and seven type steps to all three. **Still nothing checks that they agree** — the reconciliation was hand-verified, not enforced. |
 | `slugify` in `editor-core.js` and `chrome.js` | **Permanent.** An ES module cannot import the former; `file://`-served `editor.html` cannot load the latter. Change one, change the other, **and `render.py`'s too**. |
 | `editor-core.js` parser vs `render.py`'s `parse()` | **Permanent lockstep, by hand.** Round-trip fidelity was verified against the live file. Touch either, re-verify both. |
@@ -721,27 +729,47 @@ place each — `el` and `slugify` exported from `web/chrome.js`, `escapeHtml` fr
 `chrome.js`: `tests/refs.test.js` `require()`s it under plain Node, where an absolute
 `/web/...` import resolves against the filesystem root and fails.
 
-### The map-view unfork — decided work
+### The map-view unfork — done, and the lockstep gate is retired
 
-The largest duplication in the repo, hand-kept in lockstep. **Decided 2026-09-10 to resolve
-it** (see §10). The sketch: make `map-view.js` the one source and have `render.py` inline it
-with a second `.replace("__MAPJS__", …)` beside `__DATA__`. The two consumers read different
-input shapes — a flat `nodes` array vs the editor's grouped `domains` — so it needs a small
-adapter, and a browser to verify pan, zoom, pinch and detail-open. **Not a test-covered
-change. It gets its own session.**
+**Resolved by P9 on 2026-09-12.** `engine/map-view.js` is now the **one** source of the Map
+view's layout/pan/zoom engine. `render.py` reads it at import time (`MAP_VIEW_JS`) and inlines
+it into the generated page with `.replace("__MAPJS__", …)` beside `__DATA__`. The ~390
+embedded lines are deleted.
 
-**Until it lands, the lockstep rule is precise.** Only three functions —
-`_leafHeaderEditable`, `_leafMetaEditable`, `_leafDetail` — have no counterpart in
-`render.py`'s embedded view and are the only ones a hosted-UI phase may touch.
-`_leafHeaderReadonly`, `_leafMetaReadonly`, `_mboxHTML`, `redraw`, `assignX`, `assignY`,
-`edges`, `_bindPanZoom` and `MAP_TWO_SIDE_BREAK = 860` are lockstep-bearing and must not
-change. The merge gate is `git diff -U0 main -- engine/map-view.js | grep '^@@'` showing hunks
-in those three functions and nowhere else. Anything wanting a new public method on `MapView`
-should drive it from `editor.html` instead — see `applyOpenParam()`.
-**`_leafMetaEditable` deliberately returns an empty `DocumentFragment`**: `_mountLeaf` /
-`_updateLeaf` append meta before detail, so moving every editable control into `_leafDetail`
-is how an open tile gets the wizard's field order without touching those two lockstep-bearing
-builders. Anyone "tidying" it back into returning a `.mmeta` div will re-order the tile.
+**The lockstep gate is gone with it.** The old rule — only `_leafHeaderEditable`,
+`_leafMetaEditable` and `_leafDetail` may be touched, merge-gated on
+`git diff -U0 main -- engine/map-view.js | grep '^@@'` — was armed because a second copy had
+to be hand-carried. There is no second copy. **Edit the map engine in `map-view.js` and
+nowhere else**; it is ordinary code now, and both consumers get the change.
+
+What replaced the fork is four options, supplied by `render.py` only — the editor passes none:
+
+| Option | Job |
+|---|---|
+| `readonly` | drops the ✎ rename, `+ New node` and `+ New domain` chrome, and routes leaves through `leafHTML` |
+| `leafHTML(n, open, id)` | the read-only leaf body. **`id` is the engine's box id and must land in `data-id`** — a leaf labelled with its slug toggles a key the view does not hold |
+| `escapeHtml` | injected, because `window.EditorCore` exists only in the editor and a local copy here would be a fourth copy of a one-place helper |
+| `forceOpen(domain)` | overrides a manually-collapsed domain — the generated map's search auto-expand |
+
+**Three things about it are easy to undo and must not be:**
+
+- **`_leafMetaEditable` deliberately returns an empty `DocumentFragment`**: `_mountLeaf` /
+  `_updateLeaf` append meta before detail, so moving every editable control into `_leafDetail`
+  is how an open tile gets the wizard's field order. Anyone "tidying" it back into returning a
+  `.mmeta` div will re-order the tile. (The gate is retired; this reason never depended on it.)
+- **Leaf ids are a per-node WeakMap token, not the slug.** The generated map used to key on
+  `n.slug`; a slug changes the moment a title is edited, which silently collapsed an open tile
+  on the next redraw. `editor.html`'s `applyOpenParam()` depends on the `leaf` id prefix.
+- **`render.py`'s `mapDomains()` groups over every node and filters inside each area**, never
+  the reverse. An area whose nodes all fail the live search filter must still show its box
+  reading "0 nodes"; grouping a pre-filtered list deletes the box instead.
+  `MapView.groupByDomain` is deliberately a dumb grouper for that reason, and
+  `tests/map-view.test.js` pins it — including a read of the real `<script id="data">` payload
+  that prints the fourteen area labels a person actually sees.
+
+`render.py` now **depends on a second file on disk**, so `vercel.json` bundles
+`engine/map-view.js` for every function importing `render`, and the read is at **import**
+time so a missing bundle is a 500 rather than a map with no boxes (debug.md rule 18).
 
 **Left in deliberately:** `_lib.py`'s `URL_CANDIDATES`/`KEY_CANDIDATES` still try two env-var
 names each. Only the live Vercel environment shows which is set, and guessing takes the site
@@ -893,6 +921,17 @@ each is easy to reintroduce:
   supplies the kicker and `h1`. `#wz-header` still toggles, so a thin crumb bar still appears and
   disappears — **that residue is by design; Thomas accepted it on 2026-09-11** on the grounds
   that `.tm-chrome`, the half the spec names, no longer moves at all.
+
+**P9 shipped 2026-09-12** (session D), four commits — **the pivot**. The map-view fork is
+gone: `engine/map-view.js` is the one source and `render.py` inlines it at render time from a
+file it reads at import. ~390 embedded lines deleted, `render.py` down 367 lines net. The
+engine gained four options (`readonly`, `leafHTML`, `escapeHtml`, `forceOpen`) and two methods
+(`expandAll`, `collapseAll`) so the generated read-only map and the editor share one
+implementation instead of two hand-synced ones; the editor passes none of the four and is
+unchanged. `MapView.groupByDomain` is the flat-to-grouped adapter, and
+`tests/map-view.test.js` is the one test this phase could have (debug.md rule 21), including a
+rule-22 read of the real data payload. **The lockstep gate is retired** — see §8 — which
+unblocks P10.
 
 **P7 shipped 2026-09-12** (session C), nine commits. **Type and spacing** — every `gap`,
 `padding`, `margin`, `border-radius` and `font` shorthand in `engine/theme.css`, all eight

@@ -141,6 +141,7 @@ Not bugs — state a fresh session needs. Delete each line as it is closed.
 3. **`_lib.py` still tries two names each for the Supabase URL and key.** Its own
    comment says trim to the confirmed one; only the live Vercel environment shows which
    is set, and guessing takes the site down. Read the dashboard, then cut.
-4. **The Map-view engine is still forked** between `render.py`'s template string and
-   `engine/map-view.js`. Unforking it is now decided work — see `CLAUDE.md`
-   § *Known forks, and the one being resolved*.
+4. ~~**The Map-view engine is still forked**~~ — **closed by P9 on 2026-09-12.**
+   `engine/map-view.js` is the one source and `render.py` inlines it. The lockstep gate that
+   restricted edits to three functions is retired with it: edit the map engine there and
+   nowhere else. See `CLAUDE.md` § *Known forks*.

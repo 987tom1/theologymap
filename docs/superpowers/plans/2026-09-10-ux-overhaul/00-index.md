@@ -41,7 +41,7 @@ do not propose a rewrite.** The assessment lane licensed to propose one recommen
 | [P6](P6-nav.md) | The nav (D6) | Sonnet, spec quoted | P3, P4 |
 | [P7](P7-type-and-spacing.md) | Type and spacing | **SHIPPED 2026-09-12** — Sonnet for theme.css/wizard/compare/learn/editor/rename/render.py, Haiku for the four small pages (batched) and the audit | P6 |
 | [P8](P8-compare.md) | Compare | **SHIPPED 2026-09-12** — Sonnet for all three tasks, Opus for the per-task review of task 2 and the whole-phase review | P7 |
-| [P9](P9-map-unfork.md) | **The map-view unfork · the pivot** | **Opus / main session, own session, nothing else in it** | — (own risk profile) |
+| [P9](P9-map-unfork.md) | **The map-view unfork · the pivot** | **SHIPPED 2026-09-12** — Opus / main session, own session, nothing else in it | — (own risk profile) |
 | [P10](P10-map-substrate.md) | The map itself | Opus for `_applyPanZoom`; Sonnet for the CSS steps | **P9 (hard block)** |
 | [P11](P11-commit-moment.md) | The commit moment, and cleanup | Sonnet / Haiku | P8, P10 |
 
@@ -68,7 +68,7 @@ reconciliation, a regeneration or a hash check pay for it once.
 | **A** | P2 + P3 | P3's tasks 1–2 are the same three-file `:root` edit as P2. One fork reconciliation, one `render.py` regeneration, one hash check serves both. Separate commits, and P2's zero-visual-diff verification runs in full **before** any P3 task. |
 | **B** | P4 → P5 + P6 | P5 and P6 are siblings off P4 and are file-disjoint. P4 lands first, then P5 and P6. |
 | **C** | P7 + P8 | P8 depends on P7; consecutive and same surface family. **P7 shipped 2026-09-12** (9 commits, `bc9014b..446d667`); **P8 shipped 2026-09-12** (11 commits, `5cd3906..3fcc5d5`). Session C is closed. |
-| **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. |
+| **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. **P9 shipped 2026-09-12** (4 commits, `c58e9df..`). Session D is closed. |
 | **E** | P10 + P11 | P10 is hard-blocked on P9; P11 closes out behind it. |
 
 Sequencing between sessions still obeys the graph: A → B → C, and D before E. D may be pulled
@@ -126,7 +126,8 @@ py tests/check_generated_map.py
 
   | | CRLF (as written on Windows) | LF-normalised |
   |---|---|---|
-  | **post-P7 — read against this** | `202194458e57879603b8573eb24b302f35087edd2824a6e6890e40d84e777402` | `b780879ce8f1affb67a648ef916686257cdfa11b94ceda1d7d33c895a0ca911e` |
+  | **post-P9 — read against this** | `8c3200ea2cf62d193ae9bdd9876d4d926537acf1f3fd73aaf4c805e769d6351b` | `b9bef7881a4265b2d92275e0a02bed5b922827ad79b1fdb411443ef5ec316546` |
+  | post-P7 | `20219445…777402` | `b780879c…da911e` |
   | post-P4 | `886d64a6438eb61ecac8aec25814cc2a61144df8757758260fced94a04a7b58e` | `d448206d8864b5c18daa3d71495a3827edacac5b72d427bdb0e8e907af0e1480` |
   | post-P3 | `84650d62…976146` | `ad8c2515…e220e44e` |
   | post-P2 | `795195db…b50297` | `6c9e7a6c…c06379b` |
@@ -260,19 +261,17 @@ data never animates its value; nothing loops except the skeleton, and only while
 `aria-busy="true"`; one thing at a time; movement beats colour; keystrokes never animate;
 **no motion on first paint** — a staggered entrance on page load is the generated-UI signature.
 
-### The map-view lockstep gate — armed until P9 lands
+### The map-view lockstep gate — RETIRED 2026-09-12 by P9
 
-Only `_leafHeaderEditable`, `_leafMetaEditable` and `_leafDetail` may be touched in
-`engine/map-view.js`. `_leafHeaderReadonly`, `_leafMetaReadonly`, `_mboxHTML`, `redraw`,
-`assignX`, `assignY`, `edges`, `_bindPanZoom` and `MAP_TWO_SIDE_BREAK = 860` are
-lockstep-bearing and must not change. The merge gate is:
+`engine/map-view.js` is now the one source of the Map engine and `engine/render.py` inlines
+it, so there is no second copy to hand-carry a change to. **The gate is gone: edit the map
+engine in `map-view.js`, and nowhere else.** P10 is unblocked and may touch `_applyPanZoom`,
+`redraw`, `edges` and the rest directly.
 
-```
-git diff -U0 main -- engine/map-view.js | grep '^@@'
-```
-
-showing hunks in those three functions and nowhere else. **Every phase before P9 is bound by
-this.**
+Two things the gate used to protect stand on their own reasons and must not be undone:
+`_leafMetaEditable` still returns an empty `DocumentFragment` (or the open tile re-orders),
+and leaf ids are a per-node WeakMap token rather than the slug (or renaming an open tile
+collapses it). CLAUDE.md §8 carries both.
 
 ---
 
