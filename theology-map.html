@@ -584,13 +584,18 @@
 
     this._bindClicks();
     this._bindPanZoom();
-    // A redraw while the container is display:none measures every box as 0x0
-    // and lays the whole tree on top of itself at the origin. It self-heals on
-    // the next visible redraw, so it was never visible -- it was just a full
-    // layout pass thrown away on every resize, in whichever view was showing.
-    // offsetParent is null exactly when an ancestor is display:none, which is
-    // how both consumers hide the map (the generated page's #mapwrap, the
-    // editor's map tab).
+    // A redraw while the map is hidden measures every box as 0x0 and lays the
+    // whole tree on top of itself at the origin. It self-heals on the next
+    // visible redraw, so it was never visible -- it was just a full layout pass
+    // thrown away on every resize, in whichever view was showing.
+    //
+    // offsetParent is null when the element or an ancestor is display:none,
+    // which is how both consumers hide the map: the generated page takes
+    // .active off #mapwrap, the editor sets display:none on the tab pane above
+    // its container. It is ALSO null for a position:fixed element, for <body>,
+    // and for a detached node -- none of which either wrap is. Give the map a
+    // fixed-position wrap and this guard turns into "never redraw on resize",
+    // silently; test it rather than assuming.
     window.addEventListener('resize', () => {
       if (this.wrap.offsetParent === null) return;
       this.redraw();

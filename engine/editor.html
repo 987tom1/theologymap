@@ -446,8 +446,8 @@
       // would centre the tree on a zero-sized rect, leaving the first real view
       // parked off-centre. List is now the default tab, so the map's first
       // draw is nearly always a hidden one -- re-arm the centring the first
-      // time it is actually on screen. Driven from here, not from map-view.js,
-      // for the usual lockstep reason.
+      // time it is actually on screen. Driven from here because this file owns
+      // which tab is showing; map-view.js cannot know a tab changed.
       if (!mapShown) { mapShown = true; mapView.needsCenter = true; }
       mapView.redraw();
     }
@@ -551,13 +551,13 @@
   // /edit?open=my-first-belief lands you on that belief with the title
   // selected, so "Write my first belief" does not hand back a wall of map.
   //
-  // Deliberately driven from OUTSIDE map-view.js. That file is in hand-
-  // maintained lockstep with render.py's embedded Map view, and phase 3's
-  // merge gate allows hunks in exactly three functions, none of which is a
-  // public "open this leaf" method. Its per-leaf ids are private to the
-  // module, so we reach them the way the user would: expand the area,
-  // redraw, then find the mounted tile by title. One-shot -- consumed on the
-  // first load so a later local Connect does not re-open it.
+  // Deliberately driven from OUTSIDE map-view.js. Its per-leaf ids are a
+  // private per-node token, so there is nothing to look a slug up against from
+  // here -- we reach the tile the way the user would: expand the area, redraw,
+  // then find the mounted tile by its title. (Until P9 there was a second
+  // reason, a lockstep gate on map-view.js. That gate is retired; this one
+  // still stands.) One-shot -- consumed on the first load so a later local
+  // Connect does not re-open it.
   let pendingOpenSlug = new URLSearchParams(location.search).get('open');
 
   function applyOpenParam() {
