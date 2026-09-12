@@ -347,6 +347,7 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
    alike) by clearSkel. web/gallery.html:15-23 carries the matching CSS,
    duplicated here (finding routed to P11, see task-1-report.md). */
 function paintSkel(host) {
+  host.textContent = '';    // idempotent: a second paint (route()'s results branch, after main()'s cold-load paint) replaces rather than adds three more cards
   for (let i = 0; i < 3; i++) {
     const s = el('div', 'tm-card tm-skel');
     s.setAttribute('aria-hidden', 'true');
@@ -408,7 +409,13 @@ async function renderResults(opts) {
   $('screen-results').hidden = false;
   changeBtn.hidden = false;
 
-  const mineRaw = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+  let mineRaw;
+  try {
+    mineRaw = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
+  } catch {
+    clearSkel($('diff-groups'));
+    return; // apiFetch has already shown the error banner
+  }
   if (!mineRaw) { clearSkel($('diff-groups')); return; }
   const mine = Core.parse(mineRaw.markdown);
 
@@ -495,9 +502,23 @@ let corpus, traditionList, user, changeBtn;
 /* The one place that decides picker vs. results from a URLSearchParams and
    renders it, closing over the module-scope state above rather than
    re-fetching it. Called once by main() for the initial load, then again by
-   every internal navigation (navigate(), below) and by popstate — none of
-   which repaint Task 1's skeleton, because that is painted exactly once, in
-   main(), before route() first runs. */
+   every internal navigation (navigate(), below) and by popstate.
+
+   The two branches differ in what "re-entrant" needs: the picker branch
+   fills #picker-traditions synchronously from the traditionList already in
+   memory, so it never repaints Task 1's skeleton — renderPicker's own
+   clearSkel(tHost) is enough. The results branch is NOT synchronous from
+   memory: /api/map?user_id=, the target tradition/member map, and (on the
+   tradition branch) all twelve scorecard maps are fetched fresh over the
+   network on every single results transition, corpus/traditionList caching
+   notwithstanding. Left alone, that gap between "results screen already
+   visible" and "new data has arrived" would show the PREVIOUS result's
+   heading, closest-tradition sentence, scorecard and tiers — a complete,
+   plausible, wrong page — for the duration of the load, and permanently if a
+   fetch fails after renderResults has already un-hidden those panes but
+   before it re-renders them. So the results branch clears every content host
+   renderResults doesn't already clear-then-fill for itself, and repaints
+   #diff-groups' skeleton, before handing off. */
 async function route(params) {
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
@@ -507,6 +528,13 @@ async function route(params) {
     await renderPicker(traditionList, user);
     return;
   }
+  $('results-heading').textContent = '';
+  $('cmp-closest').textContent = '';
+  $('cmp-tiers').textContent = '';
+  $('sc-table-host').textContent = '';
+  $('sc-accordion-host').textContent = '';
+  $('cmp-framing-text').textContent = '';
+  paintSkel($('diff-groups'));   // idempotent — see paintSkel's own comment — so a cold ?tradition= load (which main() already skeletoned) does not double up
   await renderResults({ corpus, traditionList, traditionId, memberName, doctrineParam, user, changeBtn });
 }
 
