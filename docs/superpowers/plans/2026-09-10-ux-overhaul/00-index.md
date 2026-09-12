@@ -68,7 +68,7 @@ reconciliation, a regeneration or a hash check pay for it once.
 | **A** | P2 + P3 | P3's tasks 1–2 are the same three-file `:root` edit as P2. One fork reconciliation, one `render.py` regeneration, one hash check serves both. Separate commits, and P2's zero-visual-diff verification runs in full **before** any P3 task. |
 | **B** | P4 → P5 + P6 | P5 and P6 are siblings off P4 and are file-disjoint. P4 lands first, then P5 and P6. |
 | **C** | P7 + P8 | P8 depends on P7; consecutive and same surface family. **P7 shipped 2026-09-12** (9 commits, `bc9014b..446d667`); **P8 shipped 2026-09-12** (11 commits, `5cd3906..3fcc5d5`). Session C is closed. |
-| **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. **P9 shipped 2026-09-12** (4 commits, `c58e9df..`). Session D is closed. |
+| **D** | P9 alone | The unfork. Opus, own session, nothing else in it — the phase file is emphatic and correct. **P9 shipped 2026-09-12/13** (7 commits, `c58e9df..525fb35`, including two review-fix waves). Session D is closed for code. **P9's browser walk has NOT been done** — its acceptance table is the outstanding item; the walk sheet is in the phase workspace. |
 | **E** | P10 + P11 | P10 is hard-blocked on P9; P11 closes out behind it. |
 
 Sequencing between sessions still obeys the graph: A → B → C, and D before E. D may be pulled
