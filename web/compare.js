@@ -465,6 +465,8 @@ async function renderResults(opts) {
       }));
     } catch {
       clearSkel($('diff-groups'));
+      $('cmp-closest').hidden = true;
+      $('cmp-scorecard').hidden = true;
       showError('The tradition maps could not all be loaded.');
       return;
     }
@@ -513,20 +515,27 @@ let corpus, traditionList, user, changeBtn;
    network on every single results transition, corpus/traditionList caching
    notwithstanding. renderClosest, renderTiers, renderScorecard and
    renderDiffGroups all clear their own hosts on the SUCCESS path already —
-   the gap is every early return in renderResults BEFORE those helpers run
-   (a throw/404 on the caller's own map, an unknown tradition, a failed
-   tradition/member fetch, a failed scorecard Promise.all). Those returns
-   leave the previous comparison's rendered content sitting there, and
-   #cmp-closest / #cmp-scorecard / #cmp-framing's `hidden` flags sitting at
-   whatever the previous comparison set them to (renderResults only writes
-   them once it already has both maps, well after those early returns; tiers
-   has no toggle at all beyond what renderTiers itself sets from row count).
-   So before handing off, route() clears every one of those content hosts,
-   re-hides the panes whose visibility renderResults/renderTiers otherwise
-   only ever grants on success, and repaints #diff-groups' skeleton — closing
-   both the "previous result still fully visible" case and the milder
-   "empty box left visible" case, for every early return, not just the ones
-   already covered by clearSkel($('diff-groups')) inside renderResults. */
+   the gap this closes is every early return in renderResults that happens
+   BEFORE those helpers run: a throw/404 on the caller's own map, an unknown
+   tradition, or a failed tradition/member fetch — all of which are before
+   renderResults writes #cmp-closest / #cmp-scorecard / #cmp-framing's
+   `hidden` flags from `isTradition`, so those panes are still at whatever
+   the PREVIOUS comparison left them and would otherwise show its stale
+   content. route() clears the content of all four panes (closest, scorecard,
+   tiers, framing) and re-hides them here, before handing off, so none of
+   those early returns can leave the previous result visible or an empty
+   box stranded on screen.
+
+   One more early return sits AFTER that `hidden`-flags write: the twelve-map
+   scorecard Promise.all, which only runs once isTradition has already set
+   #cmp-closest / #cmp-scorecard back to visible. route()'s upfront hide
+   cannot reach that case — it runs before renderResults is even called — so
+   that Promise.all's own catch re-hides those same two panes itself,
+   alongside its clearSkel($('diff-groups')). #cmp-tiers and #cmp-framing
+   need no such second guard: renderTiers is the only thing that ever
+   un-hides #cmp-tiers and it runs after every early return above (including
+   the scorecard one), and #cmp-framing is only shown on the member branch,
+   which the scorecard fetch never reaches. */
 async function route(params) {
   const traditionId = params.get('tradition');
   const memberName = params.get('name');
