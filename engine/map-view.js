@@ -473,6 +473,7 @@
   };
 
   MapView.prototype.redraw = function () {
+    const self = this;
     const tree = this._buildTree();
     const list = flatten(tree, []);
     const liveIds = new Set(list.map(b => b.id));
@@ -552,6 +553,10 @@
     list.forEach(box => { box.el.style.transform = `translate(${box.x}px, ${box.y}px)`; });
 
     let paths = '';
+    // Leaf edges carry the child's tier at low opacity so the ramp reads as
+    // structure -- zooming out shows warm edges clustering on one side of
+    // the map and cool on the other. Domain edges stay --line (the CSS
+    // rule), since the triage shape is a leaf-level signal.
     function edges(box) {
       box.children.forEach(c => {
         const y1 = box.y + box.h / 2, y2 = c.y + c.h / 2;
@@ -560,7 +565,12 @@
         else { x1 = box.x; x2 = c.x + c.w; }
         const mx = (x1 + x2) / 2;
         const edgeClass = c.depth === 1 ? 'edge-domain' : 'edge-leaf';
-        paths += `<path class="${edgeClass}" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"></path>`;
+        let style = '';
+        if (c.type === 'leaf') {
+          const tier = c.node.tier ? self.tierMeta[c.node.tier] : null;
+          style = ` style="stroke:${tier ? tier[1] : 'var(--line)'};opacity:.45"`;
+        }
+        paths += `<path class="${edgeClass}"${style} d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}"></path>`;
         edges(c);
       });
     }
