@@ -78,6 +78,15 @@ let busy = false;
 // through startViewTransition and crossfades the whole page on arrival —
 // a staggered entrance on first paint, the thing this phase forbids by name.
 let painted = false;
+// Set for the duration of commitAndAdvance()'s own startViewTransition() call
+// (and cleared in a finally, so a thrown fn cannot leave it stuck). Per the
+// View Transitions spec, starting a second startViewTransition() while one is
+// still active on the document skips the active one immediately, with no
+// animation and no error — and every fn commitAndAdvance() wraps ends by
+// calling showScreen(), which would otherwise start exactly that second,
+// nested transition. showScreen() checks this flag and skips its own call
+// when set, so the outer transition is the one that survives and plays.
+let inTransition = false;
 
 /* --------------------------------------------------------------- utilities */
 
@@ -316,6 +325,12 @@ function showScreen(name) {
   // life lands instantly, never crossfaded, no matter which entry path
   // (deep link, renderHome, or the intro screen) got here first.
   if (!painted) { painted = true; return paint(); }
+  // commitAndAdvance() may already have an outer startViewTransition() active
+  // around the fn that called us (renderHome/renderQuestion/renderArea, each
+  // of which ends by calling showScreen()). Starting a second, nested
+  // startViewTransition() here would skip that outer one immediately with no
+  // animation, so defer to it and just paint.
+  if (inTransition) return paint();
   document.startViewTransition(paint);
 }
 
@@ -1186,15 +1201,25 @@ async function commitOnce(answer) {
   return false;
 }
 
-// Wraps a commit's post-save callback in a view transition so the launchpad's
-// tier bar (renderHome()'s persistent per-tier .wz-seg elements) animates its
-// width when the callback lands back on the home screen. Bails to a plain
-// call under prefers-reduced-motion or without transition support — see
+// Wraps a commit's post-save callback (renderHome/renderQuestion/renderArea)
+// in a view transition so the launchpad's tier bar (renderHome()'s persistent
+// per-tier .wz-seg elements, whose flex-basis this transition Travels) is
+// captured alongside whatever screen fn lands on. fn always ends by calling
+// showScreen(), which would otherwise start its own, nested
+// startViewTransition() — the inTransition flag tells showScreen() to skip
+// that and just paint, so this outer transition is the one that actually
+// plays and spans both the tier-bar mutation and the screen swap. Bails to a
+// plain call under prefers-reduced-motion or without transition support — see
 // CLAUDE.md's motion-vocabulary invariant (Travel/Hold, nothing else moves).
 function commitAndAdvance(fn) {
   if (!document.startViewTransition ||
       matchMedia('(prefers-reduced-motion: reduce)').matches) return fn();
-  document.startViewTransition(fn);
+  inTransition = true;
+  try {
+    document.startViewTransition(fn);
+  } finally {
+    inTransition = false;
+  }
 }
 
 async function advance(then) {
