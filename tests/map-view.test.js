@@ -10,7 +10,7 @@ const path = require('path');
 const { test } = require('node:test');
 const MapView = require('../engine/map-view.js');
 
-const { groupByDomain } = MapView;
+const { groupByDomain, traverseKey } = MapView;
 
 const n = (domain, title) => ({ domain, title, slug: title.toLowerCase().replace(/\W+/g, '-') });
 
@@ -67,4 +67,50 @@ test('the real map groups into area boxes whose counts reconcile', () => {
   assert.ok(groups.every(d => d.nodes.length > 0), 'a real area rendered as an empty box');
   assert.deepStrictEqual(groups.map(d => d.name), [...new Set(nodes.map(x => x.domain))],
     'box order departed from the order the source file lists the areas in');
+});
+
+// Keyboard traversal: right/left move between depths (child/parent), up/down
+// move between siblings, no wraparound, and the root (no tabindex) is never
+// a traversal target. traverseKey is the pure half -- _bindKeyboard only
+// adds the DOM lookup and .focus() call around it.
+const box = (id, type, children) => ({ id, type, children: children || [] });
+
+test('ArrowRight moves from a domain to its first child', () => {
+  const leaf1 = box('leaf1', 'leaf');
+  const leaf2 = box('leaf2', 'leaf');
+  const domain = box('domain:A', 'domain', [leaf1, leaf2]);
+  const root = box('root', 'root', [domain]);
+  const list = [root, domain, leaf1, leaf2];
+  assert.strictEqual(traverseKey(list, 'domain:A', 'ArrowRight'), leaf1);
+});
+
+test('ArrowDown/ArrowUp move between siblings with no wraparound', () => {
+  const leaf1 = box('leaf1', 'leaf');
+  const leaf2 = box('leaf2', 'leaf');
+  const domain = box('domain:A', 'domain', [leaf1, leaf2]);
+  const root = box('root', 'root', [domain]);
+  const list = [root, domain, leaf1, leaf2];
+  assert.strictEqual(traverseKey(list, 'leaf1', 'ArrowDown'), leaf2);
+  assert.strictEqual(traverseKey(list, 'leaf2', 'ArrowUp'), leaf1);
+  assert.strictEqual(traverseKey(list, 'leaf1', 'ArrowUp'), null);
+  assert.strictEqual(traverseKey(list, 'leaf2', 'ArrowDown'), null);
+});
+
+test('ArrowLeft moves from a leaf back to its domain, and stops there', () => {
+  const leaf1 = box('leaf1', 'leaf');
+  const domain = box('domain:A', 'domain', [leaf1]);
+  const root = box('root', 'root', [domain]);
+  const list = [root, domain, leaf1];
+  assert.strictEqual(traverseKey(list, 'leaf1', 'ArrowLeft'), domain);
+  assert.strictEqual(traverseKey(list, 'domain:A', 'ArrowLeft'), null,
+    'the root has no tabindex and must never be a traversal target');
+});
+
+test('an unknown id or a leaf with no children is a no-op', () => {
+  const leaf1 = box('leaf1', 'leaf');
+  const domain = box('domain:A', 'domain', [leaf1]);
+  const root = box('root', 'root', [domain]);
+  const list = [root, domain, leaf1];
+  assert.strictEqual(traverseKey(list, 'nope', 'ArrowRight'), null);
+  assert.strictEqual(traverseKey(list, 'leaf1', 'ArrowRight'), null);
 });

@@ -117,6 +117,7 @@
 
     this._bindClicks();
     this._bindPanZoom();
+    this._bindKeyboard();
     // A redraw while the map is hidden measures every box as 0x0 and lays the
     // whole tree on top of itself at the origin. It self-heals on the next
     // visible redraw, so it was never visible -- it was just a full layout pass
@@ -189,7 +190,7 @@
       // holding a button it would never show.
       const actions = this.readonly ? chev
         : `<span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${esc(box.title)}" title="Rename domain">&#9998;</button>${chev}</span>`;
-      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${esc(box.id)}">
+      return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${esc(box.id)}" tabindex="0">
         <div class="mtitle"><b>${esc(box.title)}</b>${actions}</div>
         <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
@@ -426,6 +427,7 @@
     const el = document.createElement('div');
     el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
     el.dataset.id = box.id;
+    el.tabIndex = 0;
     el.dataset.open = open ? '1' : '';
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
@@ -580,6 +582,12 @@
       this.panY = rect.height / 2 - (tree.y + tree.h / 2);
       this.needsCenter = false;
     }
+    // Boxes carry .children but no back-reference to their parent. Stashing
+    // the flat list here (rather than a separate parent-map nothing else
+    // needs) lets the keyboard handler look a box up by id, and find its
+    // parent by walking the list for whoever's .children holds it, without
+    // rebuilding the tree.
+    this._lastList = list;
     this._applyPanZoom();
   };
 
@@ -651,6 +659,55 @@
         self.onLeafToggle(id, self.mapDetailOpen.has(id));
       }
       self.redraw();
+    });
+  };
+
+  function parentOf(list, box) {
+    return list.find(b => b.children.indexOf(box) !== -1) || null;
+  }
+
+  // The pure half of arrow-key traversal: given the flat box list redraw()
+  // stashes, the focused box's id, and an arrow key, return the box that
+  // should receive focus (or null for a no-op). Exported so it is testable
+  // under plain node -- _bindKeyboard is the DOM-touching half, and does
+  // nothing but call this and .focus() the result.
+  function traverseKey(list, currentId, key) {
+    const current = list.find(b => b.id === currentId);
+    if (!current) return null;
+
+    if (key === 'ArrowRight') return current.children[0] || null;
+
+    if (key === 'ArrowLeft') {
+      const parent = parentOf(list, current);
+      // The root box carries no tabindex, so there's nothing to focus when
+      // a top-level domain's "parent" is the root.
+      return (parent && parent.type !== 'root') ? parent : null;
+    }
+
+    const parent = parentOf(list, current);
+    if (!parent) return null;
+    const i = parent.children.indexOf(current);
+    const j = key === 'ArrowDown' ? i + 1 : i - 1;
+    return (j >= 0 && j < parent.children.length) ? parent.children[j] : null;
+  }
+
+  // Arrow-key traversal moves focus only -- it never opens/closes a tile or
+  // triggers a click, so it never calls redraw(). Delegated on boxesEl like
+  // _bindClicks, keyed off the same data-id, but reading this._lastList
+  // (stashed by redraw) rather than the DOM to find parent/siblings.
+  MapView.prototype._bindKeyboard = function () {
+    const self = this;
+    const ARROWS = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
+    this.boxesEl.addEventListener('keydown', e => {
+      if (ARROWS.indexOf(e.key) === -1) return;
+      const boxEl = e.target.closest('.mbox');
+      if (!boxEl) return;
+      e.preventDefault();
+
+      const target = traverseKey(self._lastList || [], boxEl.dataset.id, e.key);
+      if (!target) return;
+      const el = self.mapEls.get(target.id);
+      if (el) el.focus();
     });
   };
 
@@ -742,6 +799,7 @@
   };
 
   MapView.groupByDomain = groupByDomain;
+  MapView.traverseKey = traverseKey;
 
   return MapView;
 });

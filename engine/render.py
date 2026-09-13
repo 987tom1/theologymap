@@ -567,7 +567,8 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     border-left:3px solid var(--tier, var(--line));
     background: color-mix(in oklab, var(--tier, var(--panel)) 7%, var(--panel));
   }
-  .mbox-leaf.mopen { border-color:var(--field-line); border-left-color:var(--tier, var(--field-line)); }
+  .mbox-leaf.mopen { border-color:var(--field-line); border-left-color:var(--tier, var(--field-line));
+    box-shadow: var(--e2), inset 0 0 0 2px var(--ink); }
   .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mbox-leaf.assumed { border-style:dashed; }
@@ -1096,7 +1097,7 @@ function mapLeafHTML(n, open, id) {
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
   const rows = detailRows(n);
   return `<div class="mbox mbox-leaf${open?' mopen':''}${n.flags.includes('assumed')?' assumed':''}"
-      data-id="${esc(id)}" style="--tier:${tier?tier[1]:'var(--line)'}">
+      data-id="${esc(id)}" tabindex="0" style="--tier:${tier?tier[1]:'var(--line)'}">
     <div class="mtitle"><b>${esc(n.title)}</b><span class="mchev">&#9656;</span></div>
     <div class="mmeta">
       ${tier?`<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>`:''}
