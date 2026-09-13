@@ -130,7 +130,8 @@ py tests/check_generated_map.py
 
   | | CRLF (as written on Windows) | LF-normalised |
   |---|---|---|
-  | **post-P10 fix wave — read against this** | `9dab7680b474165316bf699d5d1afcc75b17be0a0d6d4d5c20bceb2cf2d8b54b` | `3a973831b3982f1d66545b1c3bf8a09e808f9c919db212467f54166917cc49da` |
+  | **P11 Task 2 — read against this** | `fb53c031bff67968016adf6180a7670dbed709e66503c11d3a17bede8b2fcbae` | `ba9a94ab81dedd6db76d2e26364b609b00d9e284c71f1b959347e6fcd6c4bbd6` |
+  | post-P10 fix wave | `9dab7680b474165316bf699d5d1afcc75b17be0a0d6d4d5c20bceb2cf2d8b54b` | `3a973831b3982f1d66545b1c3bf8a09e808f9c919db212467f54166917cc49da` |
   | post-P10 (pre-fix-wave) | `25c4317264116dbeb1b4ebbe4e89879b6132023efc7d14e2620fa9252cb78527` | `98b5b05b93e3c0214d12d4ab5b35304dd133f219016b8f0c550570896ffdba71` |
   | post-P9 | `3b6b23cc196d3a7f6c2e68c5ac12c10e9479c0f6bc742aa4a893a0f1bebbfd6c` | `20dceabf54ff3f9d9bb6fcfd530fe739df0f7d494369ba96bbc317aa45ec0d91` |
   | post-P7 | `20219445…777402` | `b780879c…da911e` |

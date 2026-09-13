@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `9dab7680b474165316bf699d5d1afcc75b17be0a0d6d4d5c20bceb2cf2d8b54b` as written by
+- `fb53c031bff67968016adf6180a7670dbed709e66503c11d3a17bede8b2fcbae` as written by
   `Path.write_text` on Windows (CRLF)
-- `3a973831b3982f1d66545b1c3bf8a09e808f9c919db212467f54166917cc49da` LF-normalised (what a
+- `ba9a94ab81dedd6db76d2e26364b609b00d9e284c71f1b959347e6fcd6c4bbd6` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -121,6 +121,15 @@ wave landed, and nobody updated it again afterward until an independent review c
 staleness. Exactly the "a gate nobody can pass is a gate the next session learns to ignore"
 failure this section already warns about once; update this pair **in the commit that moves
 it**, not in a follow-up.
+
+**P11 Task 2 moved it an eighth time, to the pair above.** The map's newly-added-node tile now
+Settles in (`.mbox.mbox-enter` + `@starting-style`, opacity/scale) instead of appearing
+instantly — a licensed, felt change to the map's presentation, even though this read-only
+generated consumer never actually applies the class (`onAddNode` is never passed here, so
+`_pendingEnterId` is never set; the CSS is carried only because `.mbox`'s base rule is itself
+duplicated in this file). The same two invariants held: `documentation/study-list.md` and the
+`<script id="data">` payload (`4d8d919e…c8bd7e`), unchanged — proving the map's *content* did
+not move even though inert presentation CSS/JS did.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
