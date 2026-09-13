@@ -114,21 +114,42 @@ dragging feel like syrup.
 
 ## Acceptance criteria
 
-- [ ] **The grid moves with your finger and its cells grow as you zoom.** This is the phase's
-      headline; if it does not read that way, nothing else in P10 matters.
-- [ ] **The ground reads as recessed and every tile still reads as paper.** Hold the seam rule
+- [x] **The grid moves with your finger and its cells grow as you zoom.** This is the phase's
+      headline; if it does not read that way, nothing else in P10 matters. Code-reviewed three
+      times (whole-phase, fix-wave re-review, independent); live on `/thomas` — confirmed via
+      browser automation and the user's own screenshot.
+- [x] **The ground reads as recessed and every tile still reads as paper.** Hold the seam rule
       up against the finished screen. No depth, glow or gradient behind anyone's words.
-- [ ] Edges are hairlines at 0.3× and at 2.5×.
-- [ ] Below ~0.55× zoom the map is a legible overview of tier-tinted shapes; above it, detail
-      returns. No flicker at the threshold.
-- [ ] **The map is operable from a keyboard.** Tab reaches leaf and domain boxes; arrows
-      traverse; focus and selection are visibly different marks.
+      Verified in the CSS itself (flat `color-mix` tint, two-stop vignette, no gradient) across
+      three review passes, and visually on the live dark-theme screenshot.
+- [x] Edges are hairlines at 0.3× and at 2.5×. `vector-effect: non-scaling-stroke` verified in
+      the CSS; **not manually exercised at the exact zoom extremes** — flagging rather than
+      over-claiming.
+- [x] Below ~0.55× zoom the map is a legible overview of tier-tinted shapes; above it, detail
+      returns. No flicker at the threshold. Verified in the CSS (`@property --zoom` + `clamp()`
+      on `.mmeta`, `--dur-2` transition); **the threshold itself not manually watched for
+      flicker**.
+- [x] **The map is operable from a keyboard.** Tab reaches leaf and domain boxes; arrows
+      traverse; focus and selection are visibly different marks. Verified in code across three
+      review passes, including the fix wave that stopped arrow keys from hijacking an open
+      tile's own form controls.
 - [ ] **Pan, zoom, pinch and detail-open re-verified by hand at 360px / 820px / 1440px**,
       both themes, reduced-motion on. **820px is the single-sided fallback** — the grid
-      coupling must be right there too.
+      coupling must be right there too. **Not done.** The user tested live on the deployed
+      site (dark theme, phone width) and reported it looking right, but the full three-viewport
+      × both-theme × reduced-motion sweep was explicitly skipped by choice ("don't want to
+      test locally"). Open item — worth a full pass before trusting this row completely.
 - [ ] Verified on **all three consumers**: `theology-map.html` from `file://`, `/thomas`
-      framed in `/view`, and `/edit`'s Map tab.
-- [ ] `prefers-reduced-motion: reduce` — the map is completely still. Reset view snaps rather
-      than Travels; the detail fade is instant.
-- [ ] `#mapwrap`'s height still comes from `sizeMap()`; the framed header still trims;
-      `/view`'s Fullscreen still works on iOS.
+      framed in `/view`, and `/edit`'s Map tab. **Partial.** `/thomas` verified live (browser
+      automation + user's own live test). **`theology-map.html` from `file://` and `/edit`'s
+      Map tab were not checked** — skipped by the user's explicit choice to test only the live
+      site. Open item.
+- [x] `prefers-reduced-motion: reduce` — the map is completely still. Reset view snaps rather
+      than Travels; the detail fade is instant. All new transitions read `--dur-1/2/3`, already
+      zeroed to 1ms under reduced-motion by a prior phase; verified in code, not manually
+      toggled this phase.
+- [x] `#mapwrap`'s height still comes from `sizeMap()`; the framed header still trims;
+      `/view`'s Fullscreen still works on iOS. Verified untouched in code across three review
+      passes. **Fullscreen itself had a real, pre-existing bug** (found live: the header never
+      actually hid because the CSS targeted an id `chrome.js`'s `mount()` replaces) — fixed in
+      this phase's fix wave even though it predates P10.
