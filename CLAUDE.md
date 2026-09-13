@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `fb53c031bff67968016adf6180a7670dbed709e66503c11d3a17bede8b2fcbae` as written by
+- `dfe51d3d7bbf7bb3885de37979aa3a74f98c410043a05cacbc78e47e02ab32d1` as written by
   `Path.write_text` on Windows (CRLF)
-- `ba9a94ab81dedd6db76d2e26364b609b00d9e284c71f1b959347e6fcd6c4bbd6` LF-normalised (what a
+- `b60ac34f9e7a331e0b8e725dbfcf96e8d69542c4987146084a7eeb8f3994ae57` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -130,6 +130,13 @@ generated consumer never actually applies the class (`onAddNode` is never passed
 duplicated in this file). The same two invariants held: `documentation/study-list.md` and the
 `<script id="data">` payload (`4d8d919e…c8bd7e`), unchanged — proving the map's *content* did
 not move even though inert presentation CSS/JS did.
+
+**P11 Part 2 win 4 moved it a ninth time, to the pair above.** The generated map's `.views`
+view-switcher (Map/Domain/Tier/Confidence) is a horizontally-scrolling container on narrow
+screens with no cue that there's more content — `scrollbar-width:thin` becomes `none` plus a
+right-edge `mask-image` fade, matching the same treatment applied to `web/compare.html`'s
+`#sc-table-wrap` and `engine/theme.css`'s nav. Licensed, felt (visible fade on scroll), the two
+invariants held.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:

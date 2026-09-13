@@ -58,7 +58,7 @@
      all — :not(:has(table)) is what keeps the wrap's border from painting an
      empty hairline under the button in those states; #sc-table-wrap itself
      is never :empty, since it always holds #sc-table-host. */
-  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); }
+  #sc-table-wrap { overflow-x: auto; border: 1px solid var(--field-line); border-radius: var(--r3); scrollbar-width: none; mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent); }
   #sc-table-wrap:not(:has(table)) { border: 0; }
   .cmp-table { border-collapse: collapse; width: 100%; min-width: 560px; font: var(--fs-00)/var(--lh-ui) var(--sans);
     font-variant-numeric: tabular-nums; }

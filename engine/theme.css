@@ -362,7 +362,7 @@ details.optional > summary:hover { color: var(--ink); }
 .tm-action-btn:hover { border-color:var(--muted); }
 
 @media (max-width: 640px) {
-  .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; }
+  .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent); }
 }
 
 body.tm-page { margin:0; background:var(--bg); color:var(--ink); font:var(--fs-1)/var(--lh-body) var(--serif); }
