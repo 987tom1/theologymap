@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `25c4317264116dbeb1b4ebbe4e89879b6132023efc7d14e2620fa9252cb78527` as written by
+- `9dab7680b474165316bf699d5d1afcc75b17be0a0d6d4d5c20bceb2cf2d8b54b` as written by
   `Path.write_text` on Windows (CRLF)
-- `98b5b05b93e3c0214d12d4ab5b35304dd133f219016b8f0c550570896ffdba71` LF-normalised (what a
+- `3a973831b3982f1d66545b1c3bf8a09e808f9c919db212467f54166917cc49da` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -110,6 +110,18 @@ same two invariants held at every one of those commits:
 (`4d8d919e…c8bd7e`), unchanged throughout — proving the map's *content* never moved even
 though its rendering did, seven times over.
 
+**P10's own whole-phase review and its fix wave moved it a sixth and seventh time.** A fix
+wave found three defects in what P10 shipped (an arrow-key/form-control conflict, a
+dark-theme vignette that inverted into a highlight, and a focus call that could desync the
+grid from a scroll) — the first two fix commits (`b768ce0`, then a trivial-polish commit)
+each regenerated `render.py`'s output and moved the hash again, to the pair above. The two
+invariants held at both of those commits too. **This pair was briefly wrong in this file for
+several commits** — the phase's own doc-bookkeeping commit updated it once, before the fix
+wave landed, and nobody updated it again afterward until an independent review caught the
+staleness. Exactly the "a gate nobody can pass is a gate the next session learns to ignore"
+failure this section already warns about once; update this pair **in the commit that moves
+it**, not in a follow-up.
+
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
 `documentation/study-list.md`, and the embedded `<script id="data">` payload
@@ -117,7 +129,7 @@ then the gate becomes **two invariants that must stay byte-identical**:
 invariant until `render_mm` was deleted; those hashes are history now.
 
 Regenerate with `py engine/render.py`. **Never hand-edit a generated file to make a hash
-match.** The gate has moved five times, each for a documented reason —
+match.** The gate has moved seven times, each for a documented reason —
 `documentation/changelog.md`.
 
 `.gitattributes` pins the generated files to `eol=crlf` so regenerating on Linux does not
