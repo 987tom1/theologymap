@@ -553,6 +553,17 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     border-radius:var(--r3); padding:var(--s3) var(--s4); box-shadow:var(--e1);
     transition:transform .28s ease; cursor:pointer; font:var(--fs-00)/var(--lh-ui) var(--sans);
     width:max-content; }
+  /* Settle: the one leaf map-view.js's _pendingEnterId mechanism tags on
+     mount, for the tile a person just added via "+ New node". Never applied
+     on this read-only consumer, which passes no onAddNode -- kept here only
+     because .mbox's base rule is duplicated in this file (see class doc). */
+  .mbox.mbox-enter {
+    opacity: 1; scale: 1;
+    transition: opacity var(--dur-2) var(--ease-out), scale var(--dur-2) var(--ease-out);
+  }
+  @starting-style {
+    .mbox.mbox-enter { opacity: 0; scale: .96; }
+  }
   .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
     font-weight:700; font-size:var(--fs-0); text-align:center; cursor:default; border-color:var(--ink); }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);

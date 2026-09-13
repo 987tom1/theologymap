@@ -150,6 +150,17 @@
   .mbox { position:absolute; left:0; top:0; background:var(--panel); border:1px solid var(--line);
     border-radius:7px; padding:9px 12px; transition:transform .28s ease; cursor:pointer;
     font:13px/1.4 var(--sans); width:max-content; }
+  /* Settle: the one leaf map-view.js's _pendingEnterId mechanism tags on
+     mount, for the tile a person just added via "+ New node". Identical to
+     the copy in render.py's embedded stylesheet -- .mbox is duplicated
+     across both files, see class doc. */
+  .mbox.mbox-enter {
+    opacity: 1; scale: 1;
+    transition: opacity var(--dur-2) var(--ease-out), scale var(--dur-2) var(--ease-out);
+  }
+  @starting-style {
+    .mbox.mbox-enter { opacity: 0; scale: .96; }
+  }
   .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
     font-weight:700; font-size:14.5px; text-align:center; cursor:default; border-color:var(--ink); }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);

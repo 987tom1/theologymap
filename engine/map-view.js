@@ -84,6 +84,10 @@
     this.mapDetailOpen = new Set();
     this.mapManualCollapsed = null; // Set, initialised lazily once domain names are known
     this.mapEls = new Map();
+    // One-shot id of a leaf just created via the addnode click handler, so
+    // redraw()'s mount branch can Settle exactly that tile in and nothing
+    // else -- see _bindClicks and redraw below.
+    this._pendingEnterId = null;
     this.panX = 0; this.panY = 0; this.zoom = 1;
     this.needsCenter = true;
     this.getAllSlugs = opts.getAllSlugs || function () { return []; };
@@ -489,6 +493,11 @@
       if (box.type === 'leaf' && !this.readonly) {
         if (!el) {
           el = this._mountLeaf(box);
+          // Settle only the one leaf _bindClicks' addnode branch just
+          // created -- every other fresh mount (initial page load, a
+          // cleared search filter revealing previously-excluded boxes) must
+          // stay motionless, per the "no motion on first paint" rule.
+          if (box.id === this._pendingEnterId) el.classList.add('mbox-enter');
           this.boxesEl.appendChild(el);
           this.mapEls.set(box.id, el);
         } else {
@@ -512,6 +521,9 @@
       }
       box.el = el;
     });
+    // Single-use: cleared whether or not it matched a box this pass, so a
+    // later redraw (resize, another toggle) never re-applies mbox-enter.
+    this._pendingEnterId = null;
 
     list.forEach(box => { box.h = box.el.offsetHeight; box.w = box.el.offsetWidth; });
 
@@ -661,7 +673,10 @@
       } else if (id.startsWith('addnode:')) {
         const domainName = id.slice('addnode:'.length);
         const node = self.onAddNode(domainName);
-        if (node) self.mapDetailOpen.add(stableLeafId(node));
+        if (node) {
+          self.mapDetailOpen.add(stableLeafId(node));
+          self._pendingEnterId = stableLeafId(node);
+        }
       } else if (id === 'adddomain') {
         self.onAddDomain();
       } else {
