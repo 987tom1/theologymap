@@ -57,7 +57,7 @@ Each is independently shippable. Batch file-disjointly.
 | 17 | **`field-sizing: content`** on `.wz-holdfield textarea` and the map's detail textareas — native auto-grow, replacing `map-view.js:246`'s `autosize()`. **Keep the JS as fallback until support is everywhere.** | `theme.css`, `map-view.js` |
 | 19 | **The `:target` guard.** `render.py:420-422` animates an outline over 1.4s with **no `prefers-reduced-motion` guard**. Wrap it, or replace with a persistent `:target` outline plus a `--dur-2` fade-in. | `render.py` |
 | 20 | **Dark `--note`.** `#2a2318` on `#15120d` is ~1.5:1. **Do not raise it — state in the sheet why the left rule is not optional in dark**, because it is the first thing a future round will try to simplify away. | `theme.css` (comment + rule) |
-| 21 | **`.mbox` tab stop.** *(P10 does this. If P10 landed, tick it.)* | — |
+| 21 | ~~**`.mbox` tab stop.**~~ **Done by P10** (2026-09-13) — `tabindex="0"` on leaf and domain boxes, arrow-key traversal, focus/selection marks. Nothing left to do here. | — |
 | 22 | **Anchor positioning replaces `wizard.html:117`'s four hand-copied `padding-right: 88px` gutters** (`:117, 119, 153, 155`). `anchor-name` on `.wz-tools` + `position-area`, or a two-column grid on `.wz-card`. Not urgent — it is the tell that the layout has a hand-tuned constant where it should have a mechanism. | `wizard.html` |
 
 ## Invariants — quote per task
@@ -65,9 +65,9 @@ Each is independently shippable. Batch file-disjointly.
 > **The quiet-surface rule** (`render.py:283-285`): a quiet surface must never appear without
 > a rule and a label. `theme.css:55-62` complies. → win 20.
 
-> **Only `_leafHeaderEditable`, `_leafMetaEditable` and `_leafDetail` may be touched** in
-> `engine/map-view.js` … → win 17, **unless P9 has landed**, in which case the gate is retired
-> and `map-view.js` is the single source. Check which world you are in before editing it.
+> **The lockstep gate is retired (P9 landed 2026-09-12).** `engine/map-view.js` is the single
+> source for both consumers — edit it freely, there is no second copy to hand-carry a change
+> to. → win 17 (`field-sizing: content` on the map's detail textareas) may touch it directly.
 
 > **`#home-empty` is deleted.** Do not re-add a second empty-state home. → win 11 touches
 > `gallery.html`'s empty state, which is a **different** thing. Do not let it grow into a
