@@ -104,7 +104,8 @@ thousand lines of the file did.
 **P10 moved it a fifth time, to the pair above** — the grid-coupling, tier tint, `--zoom`
 detail fade, substrate vignette, keyboard traversal/selection mark and leaf-edge tinting are
 all licensed, felt changes to the map's presentation and behaviour, spread across seven
-commits (`bb5a29c..1dea3d6`). The same two invariants held at every one of those commits:
+commits (`bb5a29c^..1dea3d6` — `^` because the two-dot form excludes its left endpoint). The
+same two invariants held at every one of those commits:
 `documentation/study-list.md` (`f4a30fe1…9f3df7`) and the `<script id="data">` payload
 (`4d8d919e…c8bd7e`), unchanged throughout — proving the map's *content* never moved even
 though its rendering did, seven times over.
@@ -116,7 +117,7 @@ then the gate becomes **two invariants that must stay byte-identical**:
 invariant until `render_mm` was deleted; those hashes are history now.
 
 Regenerate with `py engine/render.py`. **Never hand-edit a generated file to make a hash
-match.** The gate has moved six times, each for a documented reason —
+match.** The gate has moved five times, each for a documented reason —
 `documentation/changelog.md`.
 
 `.gitattributes` pins the generated files to `eol=crlf` so regenerating on Linux does not
