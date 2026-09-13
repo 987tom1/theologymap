@@ -633,7 +633,7 @@
     this.panzoomEl.style.transform = t;
     this.panzoomEl.style.setProperty('--zoom', this.zoom);
     // The grid used to be painted on this.wrap, which never transforms, while
-    // #mapPanZoom scaled and translated inside it -- so panning slid tiles
+    // .map-panzoom scaled and translated inside it -- so panning slid tiles
     // across a stationary grid and zooming grew them over a fixed one.
     // Coupling backgroundSize/backgroundPosition to the same transform makes
     // the grid the surface: it moves with the drag and its cells grow with

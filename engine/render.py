@@ -569,8 +569,8 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     background: color-mix(in oklab, var(--tier, var(--panel)) 7%, var(--panel));
   }
   .mbox-leaf.mopen { border-color:var(--field-line); border-left-color:var(--tier, var(--field-line));
-    box-shadow: var(--e2), inset 0 0 0 2px var(--ink); }
-  .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
+    box-shadow: var(--e2), inset 0 0 0 2px var(--ink);
+    min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mbox-leaf.assumed { border-style:dashed; }
   .mtitle { display:flex; align-items:center; justify-content:space-between; gap:var(--s2); }
