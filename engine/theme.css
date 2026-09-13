@@ -134,6 +134,11 @@ input[type=text], input[type=search], select, textarea,
 
 .tm-note {
   background: var(--note);
+  /* .tm-note is never used without a rule and a label beside it, because --note
+     alone is not perceivable: in dark mode it is #2a2318 against the #15120d page
+     background, roughly 1.5:1 contrast, nowhere near readable. Raising --note's
+     value would defeat the whole point of it being a quiet surface, so the
+     border-left carries all the perceivability. Not optional in dark. */
   border-left: 3px solid var(--muted);
   padding: var(--s3) var(--s4);
   border-radius: 0 var(--r2) var(--r2) 0;
