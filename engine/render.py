@@ -533,11 +533,16 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   /* ---------- map view ---------- */
   @property --zoom { syntax: '<number>'; inherits: true; initial-value: 1; }
   #mapwrap { display:none; position:relative; width:100%; height:calc(100vh - 130px);
-    overflow:hidden; border:1px solid var(--line); border-radius:var(--r3); background:var(--bg);
+    overflow:hidden; border:1px solid var(--line); border-radius:var(--r3);
+    background-color: color-mix(in oklab, var(--ink) 4%, var(--bg));
+    box-shadow: inset 0 1px 3px color-mix(in oklab, var(--ink) 12%, transparent);
     background-image:radial-gradient(var(--line) 1px, transparent 1px);
     background-size:24px 24px; cursor:grab; touch-action:none; }
   #mapwrap.dragging { cursor:grabbing; }
   #mapwrap.active { display:block; }
+  @media (prefers-color-scheme: dark) {
+    #mapwrap { background-color: color-mix(in oklab, #000 35%, var(--bg)); }
+  }
   .map-panzoom { position:absolute; left:0; top:0; transform-origin:0 0; }
   .map-svg { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }
   .map-svg path { fill:none; stroke:var(--line); stroke-width:1.4; vector-effect: non-scaling-stroke; }
