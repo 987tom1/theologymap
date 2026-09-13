@@ -541,7 +541,8 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   #mapwrap.dragging { cursor:grabbing; }
   #mapwrap.active { display:block; }
   @media (prefers-color-scheme: dark) {
-    #mapwrap { background-color: color-mix(in oklab, #000 35%, var(--bg)); }
+    #mapwrap { background-color: color-mix(in oklab, #000 35%, var(--bg));
+               box-shadow: inset 0 1px 3px rgb(0 0 0 / .5); }
   }
   .map-panzoom { position:absolute; left:0; top:0; transform-origin:0 0; }
   .map-svg { position:absolute; left:0; top:0; overflow:visible; pointer-events:none; }

@@ -712,12 +712,15 @@
       if (ARROWS.indexOf(e.key) === -1) return;
       const boxEl = e.target.closest('.mbox');
       if (!boxEl) return;
+      // mirrors the control exemption in _bindClicks above, narrowed to what
+      // arrow keys mean something to natively
+      if (e.target.closest('input, select, textarea')) return;
       e.preventDefault();
 
       const target = traverseKey(self._lastList || [], boxEl.dataset.id, e.key);
       if (!target) return;
       const el = self.mapEls.get(target.id);
-      if (el) el.focus();
+      if (el) el.focus({ preventScroll: true });
     });
   };
 
