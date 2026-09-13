@@ -316,6 +316,8 @@
   .wz-tier { display: flex; flex-direction: column; gap: var(--s2); }
   #home-tierbar { display: flex; height: 12px; border-radius: var(--r-pill); overflow: hidden; border: 1px solid var(--line); }
   .wz-seg { display: block; height: 100%; }
+  #home-tierbar { view-transition-name: tierbar; }
+  #home-tierbar .wz-seg { transition: width var(--dur-3) var(--ease-move); }
   #home-tiercounts { margin: 0; }
 
   #home-areas-list { display: flex; flex-direction: column; gap: var(--s2); }

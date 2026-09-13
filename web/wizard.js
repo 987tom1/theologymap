@@ -795,6 +795,13 @@ function existingNode(doctrine) {
 
 /* -------------------------------------------------------------- launchpad */
 
+// One <span class="wz-seg"> per WG.TIER_ORDER tier, built once and reused by
+// every renderHome() call. commitAndAdvance()'s view transition can only
+// animate a box's width/flex if the same element persists across the
+// update — a fresh element each render has no "before" value to transition
+// from, so these must not be cleared and recreated.
+let tierSegs = null;
+
 function renderHome() {
   const nodes = domains.reduce((a, d) => a.concat(d.nodes), []);
   $('home-beliefs').textContent = String(nodes.length);
@@ -806,16 +813,22 @@ function renderHome() {
   $('home-remaining').textContent = String(remaining.length);
 
   const bar = $('home-tierbar');
-  bar.textContent = '';
+  if (!tierSegs) {
+    tierSegs = {};
+    for (const tier of WG.TIER_ORDER) {
+      const seg = el('span', 'wz-seg');
+      seg.style.background = TIER_VAR[tier];
+      bar.appendChild(seg);
+      tierSegs[tier] = seg;
+    }
+  }
   const parts = [];
   for (const tier of WG.TIER_ORDER) {
     const count = nodes.filter(n => n.tier === tier).length;
-    if (!count) continue;
-    const seg = el('span', 'wz-seg');
-    seg.style.flex = String(count);
-    seg.style.background = TIER_VAR[tier];
-    bar.appendChild(seg);
-    parts.push(tier + ' ' + count);
+    const seg = tierSegs[tier];
+    seg.style.flex = count ? String(count) : '0';
+    seg.style.display = count ? '' : 'none';
+    if (count) parts.push(tier + ' ' + count);
   }
   $('home-tiercounts').textContent = parts.join(' · ');
 
@@ -1173,12 +1186,23 @@ async function commitOnce(answer) {
   return false;
 }
 
+// Wraps a commit's post-save callback in a view transition so the launchpad's
+// tier bar (renderHome()'s persistent per-tier .wz-seg elements) animates its
+// width when the callback lands back on the home screen. Bails to a plain
+// call under prefers-reduced-motion or without transition support — see
+// CLAUDE.md's motion-vocabulary invariant (Travel/Hold, nothing else moves).
+function commitAndAdvance(fn) {
+  if (!document.startViewTransition ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches) return fn();
+  document.startViewTransition(fn);
+}
+
 async function advance(then) {
   const btn = $('q-next');
   btn.disabled = true;
   const ok = await commit(currentAnswer());
   btn.disabled = false;
-  if (ok) then();
+  if (ok) commitAndAdvance(then);
 }
 
 /* ------------------------------------------------------------------- start */
