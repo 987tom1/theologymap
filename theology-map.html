@@ -246,6 +246,7 @@
   .empty { color:var(--muted); font-style:italic; }
 
   /* ---------- map view ---------- */
+  @property --zoom { syntax: '<number>'; inherits: true; initial-value: 1; }
   #mapwrap { display:none; position:relative; width:100%; height:calc(100vh - 130px);
     overflow:hidden; border:1px solid var(--line); border-radius:var(--r3); background:var(--bg);
     background-image:radial-gradient(var(--line) 1px, transparent 1px);
@@ -284,7 +285,11 @@
   .mtitle b { font-weight:600; font-size:var(--fs-0); }
   .mchev { font-size:var(--fs-000); color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
   .mbox.mopen .mchev { transform:rotate(90deg); }
-  .mmeta { display:flex; gap:var(--s1); flex-wrap:wrap; margin-top:var(--s2); }
+  .mmeta {
+    display:flex; gap:var(--s1); flex-wrap:wrap; margin-top:var(--s2);
+    opacity: clamp(0, calc((var(--zoom) - .55) * 4), 1);
+    transition: opacity var(--dur-2) var(--ease-out);
+  }
   .mdetail { margin-top:var(--s2); border-top:1px solid var(--line); padding-top:var(--s2); }
   /* A map tile is 340-560px wide, and "What I'd reject" as a max-content label
      column would eat ~100px of that. Labels stack above their values here, the
