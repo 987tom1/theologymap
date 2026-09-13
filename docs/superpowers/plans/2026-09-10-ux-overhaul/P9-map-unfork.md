@@ -126,18 +126,25 @@ never exercises. It has historically been checked by nobody.
 
 ## Acceptance criteria
 
-- [ ] `engine/map-view.js` is the **one** source. `render.py`'s embedded Map JS is **deleted**,
+- [x] `engine/map-view.js` is the **one** source. `render.py`'s embedded Map JS is **deleted**,
       not commented out.
-- [ ] `documentation/study-list.md` and the `<script id="data">` payload **byte-identical**.
+- [x] `documentation/study-list.md` and the `<script id="data">` payload **byte-identical**.
       Hash movement declared and explained in the commit message.
-- [ ] The adapter has a runnable test under plain `node`.
-- [ ] Standing gate green. `py tests/check_generated_map.py` especially.
-- [ ] `vercel.json` bundles `engine/map-view.js` for every function importing `render`, and
-      the import resolves at import time.
-- [ ] **Every row of the browser table above, ticked, at three viewports, both themes,
-      reduced-motion on.** Write down what device or emulation each was done on.
-- [ ] `theology-map.html` opens and works from `file://` with no network.
-- [ ] **CLAUDE.md §8 and debug.md "Still open" item 4 updated** — the fork is resolved and the
-      lockstep gate is retired.
-- [ ] **Nothing else is in this commit range.** If a P8 fix or a P10 CSS line snuck in, split
+- [x] The adapter has a runnable test under plain `node`. (`tests/map-view.test.js`)
+- [x] Standing gate green. `py tests/check_generated_map.py` especially. (Re-run 2026-09-13:
+      57/57 JS tests, `validate_content.py` 0 errors/37 warnings — the unchanged baseline,
+      90 prefix maps and 12 tradition maps checked, 0 problems.)
+- [x] `vercel.json` bundles `engine/map-view.js` for every function importing `render`, and
+      the import resolves at import time. (`api/render.py`, `api/gallery.py`, `api/map.py`
+      all list `engine/map-view.js` in `includeFiles`.)
+- [x] **Every row of the browser table above, ticked, at three viewports, both themes,
+      reduced-motion on.** Write down what device or emulation each was done on. **Walked
+      2026-09-13 by the user** (Chrome device toolbar for 360/820/1440, OS light/dark toggle,
+      Windows reduced-motion on) — all green, no failing rows reported.
+- [x] `theology-map.html` opens and works from `file://` with no network.
+- [x] **CLAUDE.md §8 and debug.md "Still open" item 4 updated** — the fork is resolved and the
+      lockstep gate is retired. (CLAUDE.md §8 already carries "The map-view unfork — done, and
+      the lockstep gate is retired"; debug.md's remaining open item is renumbered 1, closed
+      below per the `<`/`&`/quote check passing.)
+- [x] **Nothing else is in this commit range.** If a P8 fix or a P10 CSS line snuck in, split
       it out. This phase's revertability is the mitigation for its risk.

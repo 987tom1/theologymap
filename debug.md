@@ -127,21 +127,14 @@ write-up in `documentation/debug-archive.md`.
 
 Not bugs — state a fresh session needs. Delete each line as it is closed.
 
-1. **The editor was never click-tested after the 2026-09-05 audit.** Everything else on
-   the live site was. `engine/editor.html` in hosted mode needs a signed-in user, and
-   the round's riskiest change is there: `escapeHtml` now comes from `EditorCore`
-   rather than three local copies, and `shared-fields.js` lost its UMD wrapper.
-   **Open a real map, look at the List and Map tabs, and check a node title containing
-   `<`, `&` or a quote.** If that renders as markup rather than text, the global did
-   not resolve — `editor.html` loads `editor-core.js` first precisely so it does.
-2. **`storage-local.js` has no `load()` any more.** It only ever threw. The three
+1. **`storage-local.js` has no `load()` any more.** It only ever threw. The three
    `.load()` call sites in `editor.html` were traced as hosted-only. If a local-mode
    session ever reports "adapter.load is not a function", that trace was wrong and the
    guard belongs back.
-3. **`_lib.py` still tries two names each for the Supabase URL and key.** Its own
+2. **`_lib.py` still tries two names each for the Supabase URL and key.** Its own
    comment says trim to the confirmed one; only the live Vercel environment shows which
    is set, and guessing takes the site down. Read the dashboard, then cut.
-4. ~~**The Map-view engine is still forked**~~ — **closed by P9 on 2026-09-12.**
+3. ~~**The Map-view engine is still forked**~~ — **closed by P9 on 2026-09-12.**
    `engine/map-view.js` is the one source and `render.py` inlines it. The lockstep gate that
    restricted edits to three functions is retired with it: edit the map engine there and
    nowhere else. See `CLAUDE.md` § *Known forks*.
