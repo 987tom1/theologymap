@@ -78,14 +78,17 @@ let busy = false;
 // through startViewTransition and crossfades the whole page on arrival —
 // a staggered entrance on first paint, the thing this phase forbids by name.
 let painted = false;
-// Set for the duration of commitAndAdvance()'s own startViewTransition() call
-// (and cleared in a finally, so a thrown fn cannot leave it stuck). Per the
-// View Transitions spec, starting a second startViewTransition() while one is
-// still active on the document skips the active one immediately, with no
-// animation and no error — and every fn commitAndAdvance() wraps ends by
-// calling showScreen(), which would otherwise start exactly that second,
-// nested transition. showScreen() checks this flag and skips its own call
-// when set, so the outer transition is the one that survives and plays.
+// Set before commitAndAdvance() calls startViewTransition(), and cleared in
+// a finally around fn() itself inside the callback that startViewTransition()
+// invokes (not around the outer startViewTransition() call, which returns
+// before that callback runs — see commitAndAdvance()) — so a thrown fn
+// cannot leave it stuck. Per the View Transitions spec, starting a second
+// startViewTransition() while one is still active on the document skips the
+// active one immediately, with no animation and no error — and every fn
+// commitAndAdvance() wraps ends by calling showScreen(), which would
+// otherwise start exactly that second, nested transition. showScreen()
+// checks this flag and skips its own call when set, so the outer transition
+// is the one that survives and plays.
 let inTransition = false;
 
 /* --------------------------------------------------------------- utilities */
@@ -1211,15 +1214,25 @@ async function commitOnce(answer) {
 // plays and spans both the tier-bar mutation and the screen swap. Bails to a
 // plain call under prefers-reduced-motion or without transition support — see
 // CLAUDE.md's motion-vocabulary invariant (Travel/Hold, nothing else moves).
+//
+// startViewTransition() does not invoke its callback synchronously — the
+// browser queues a task to snapshot old state first, then calls back later,
+// after startViewTransition() has already returned here. So inTransition is
+// set before that call rather than around it, and cleared from inside the
+// wrapped callback (in a finally around fn() itself) once fn has actually
+// run, not when the outer call returns — that's the only way the flag is
+// still true at the moment fn's showScreen() call checks it.
 function commitAndAdvance(fn) {
   if (!document.startViewTransition ||
       matchMedia('(prefers-reduced-motion: reduce)').matches) return fn();
   inTransition = true;
-  try {
-    document.startViewTransition(fn);
-  } finally {
-    inTransition = false;
-  }
+  document.startViewTransition(() => {
+    try {
+      fn();
+    } finally {
+      inTransition = false;
+    }
+  });
 }
 
 async function advance(then) {
