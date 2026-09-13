@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `3b6b23cc196d3a7f6c2e68c5ac12c10e9479c0f6bc742aa4a893a0f1bebbfd6c` as written by
+- `25c4317264116dbeb1b4ebbe4e89879b6132023efc7d14e2620fa9252cb78527` as written by
   `Path.write_text` on Windows (CRLF)
-- `20dceabf54ff3f9d9bb6fcfd530fe739df0f7d494369ba96bbc317aa45ec0d91` LF-normalised (what a
+- `98b5b05b93e3c0214d12d4ab5b35304dd133f219016b8f0c550570896ffdba71` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -100,6 +100,14 @@ is a different string. The same two invariants held —
 `documentation/study-list.md` (`f4a30fe1…9f3df7`) and the `<script id="data">` payload
 (`4d8d919e…c8bd7e`) — which is what proves the *content* did not move even though nearly a
 thousand lines of the file did.
+
+**P10 moved it a fifth time, to the pair above** — the grid-coupling, tier tint, `--zoom`
+detail fade, substrate vignette, keyboard traversal/selection mark and leaf-edge tinting are
+all licensed, felt changes to the map's presentation and behaviour, spread across seven
+commits (`bb5a29c..1dea3d6`). The same two invariants held at every one of those commits:
+`documentation/study-list.md` (`f4a30fe1…9f3df7`) and the `<script id="data">` payload
+(`4d8d919e…c8bd7e`), unchanged throughout — proving the map's *content* never moved even
+though its rendering did, seven times over.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
