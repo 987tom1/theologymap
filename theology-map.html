@@ -1078,7 +1078,18 @@
   };
 
   MapView.prototype._applyPanZoom = function () {
-    this.panzoomEl.style.transform = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
+    const t = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
+    this.panzoomEl.style.transform = t;
+    this.panzoomEl.style.setProperty('--zoom', this.zoom);
+    // The grid used to be painted on this.wrap, which never transforms, while
+    // #mapPanZoom scaled and translated inside it -- so panning slid tiles
+    // across a stationary grid and zooming grew them over a fixed one.
+    // Coupling backgroundSize/backgroundPosition to the same transform makes
+    // the grid the surface: it moves with the drag and its cells grow with
+    // zoom, rather than reading as a texture painted behind a scaled <div>.
+    const g = 24 * this.zoom;
+    this.wrap.style.backgroundSize = `${g}px ${g}px`;
+    this.wrap.style.backgroundPosition = `${this.panX}px ${this.panY}px`;
   };
 
   MapView.prototype._bindClicks = function () {
