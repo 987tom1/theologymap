@@ -840,6 +840,27 @@ function renderHome() {
       tierSegs[tier] = seg;
     }
   }
+
+  // #home-tierbar sits inside #screen-home, which the browser's own
+  // [hidden] { display: none !important } rule keeps un-rendered whenever
+  // the question screen is up — which is every single time commitAndAdvance()
+  // calls this function, since that is the only path that reaches here.
+  // startViewTransition() snapshots "old" state at the moment it is called,
+  // before this function's body has run at all, so a display:none element
+  // has no box to snapshot no matter what order this function's OWN
+  // statements run in — the tier bar can never get a usable old/new pair out
+  // of the view-transition mechanism itself. What DOES work: showScreen()
+  // reveals the bar here, BEFORE its segments' flex values change, and the
+  // forced layout read commits that reveal (at the segments' still-unchanged,
+  // pre-this-answer flex values) to the render tree before the mutation
+  // below runs — giving the plain CSS `transition: flex` on .wz-seg (which
+  // works entirely independently of the view transition) a real, rendered
+  // "before" value to animate from. Moving this earlier is the fix; the
+  // segments' own persistence (tierSegs, above) was necessary but not
+  // sufficient.
+  showScreen('home');
+  void bar.getBoundingClientRect();
+
   const parts = [];
   for (const tier of WG.TIER_ORDER) {
     const count = nodes.filter(n => n.tier === tier).length;
@@ -868,7 +889,6 @@ function renderHome() {
   renderAreas();
 
   paintLensLabels();
-  showScreen('home');
 }
 
 /* Two lines per area — name and progress, then the buttons — so a long area
