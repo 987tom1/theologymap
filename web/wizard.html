@@ -143,8 +143,15 @@
      there, so .wz-tools only needs `grid-row: 1` (below) to sit at the
      top-right corner -- no span required. `:not(.wz-tools)` also covers
      children added later (wizard.js's holdEl.replaceWith(box)) without
-     enumerating classes by name. */
-  .wz-card > :not(.wz-tools) { grid-column: 1; }
+     enumerating classes by name. .wz-pop (below) is also excluded: it is
+     appended as a direct child of .wz-card at runtime, and per the grid
+     spec, an absolutely-positioned item with grid-column pinned but
+     grid-row left auto gets its horizontal containing block narrowed to
+     just that column -- breaking .wz-pop's "pinned to both of the card's
+     own edges" contract (see its own comment below). Excluding it here
+     leaves both its axes auto, so it keeps sizing against the full card
+     as it did before this rule existed. */
+  .wz-card > :not(.wz-tools):not(.wz-pop) { grid-column: 1; }
   .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink);
                  background: var(--chip); }
   .wz-card-h { display: flex; align-items: baseline; justify-content: space-between;
