@@ -132,6 +132,13 @@ input[type=text], input[type=search], select, textarea,
   border-color: var(--field-line);
 }
 
+/* Native auto-grow where supported, alongside map-view.js's autosize() JS
+   fallback (kept, not removed, until field-sizing support is everywhere) --
+   an unsupporting browser ignores this and keeps the JS-driven height. Both
+   converge on the same scrollHeight-based result, so there is no visible
+   conflict where both are active. */
+.mfield textarea { field-sizing: content; }
+
 .tm-note {
   background: var(--note);
   /* .tm-note is never used without a rule and a label beside it, because --note

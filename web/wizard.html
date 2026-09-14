@@ -247,6 +247,12 @@
     display: block; width: 100%; box-sizing: border-box; border: none; background: none;
     color: inherit; resize: vertical; font: var(--fs-1)/var(--lh-body) var(--serif); padding: 0;
   }
+  /* Native auto-grow where supported; the browser ignores an unknown value,
+     so unsupporting browsers keep the fixed-rows textarea + resize:vertical
+     above untouched -- no @supports fallback needed for that half. There is
+     no JS autosize() on this field to keep in step (unlike map-view.js's
+     .mfield textarea, which does have one). */
+  .wz-holdfield textarea { field-sizing: content; }
   /* P5 task 3: an unselected position's hold, before pick() swaps it for the
      textarea above. Same font, so materialising the field on pick does not
      reflow the text it's already showing. No transition here on purpose —
