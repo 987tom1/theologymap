@@ -83,19 +83,45 @@ Each is independently shippable. Batch file-disjointly.
 
 ## Acceptance criteria
 
-- [ ] **Answering a question visibly advances the tier bar by one belief, and nothing else
-      moves.** One thing at a time — that is the rule and this is the test of it.
-- [ ] `#home-tiercounts` still reads the counts aloud. The bar is not the accessible channel.
-- [ ] **`prefers-reduced-motion: reduce`: the commit beat does not animate**, and the
-      `:target` flash in the generated map does not either. Win 19 closes the last unguarded
-      animation in the repo.
-- [ ] Every horizontally scrolling container has a visible cue at 360px.
-- [ ] `/gallery` on an empty instance offers an action, not a full stop.
-- [ ] The Listing-status control reads as loading while it is loading.
-- [ ] `field-sizing` auto-grow works where supported and the JS fallback still works where it
-      is not. **Test both** — disable the CSS feature or check a browser without it.
-- [ ] The four 88px gutters are gone and `.wz-tools` still does not overlap the flow content
-      at **360px, 820px and 1440px**. This one is a layout change wearing a cleanup's clothes;
-      check it at all three widths and both themes.
-- [ ] Standing gate green; `study-list.md` and the data payload byte-identical.
-- [ ] **360px / 820px / 1440px, both themes, reduced-motion on**, every touched surface.
+Ticked where verified in-session (real headless Chromium pixel/geometry checks, or direct code
+reading — noted per item); left open where only a live-site check by a human can close them.
+This session had no working `file://`/Chrome-extension browser tooling, so verification ran
+against real headless Chromium repros built to match the shipped code, plus two independent
+code reviews (a whole-phase review and a fresh-context second opinion) — not against the
+actual deployed pages in a real browser window.
+
+- [x] **Answering a question visibly advances the tier bar by one belief, and nothing else
+      moves.** Verified with pixel-level screenshot sampling in real headless Chromium, using
+      the project's actual `::view-transition-group`/`::view-transition-old`/`::view-transition-new`
+      CSS rules: the segment boundary visibly progresses across ~15 frames before settling,
+      not an instant jump. Not verified: the live deployed site, by eye.
+- [x] `#home-tiercounts` still reads the counts aloud. Unchanged code path, confirmed by
+      reading — the bar remains presentation-only.
+- [x] **`prefers-reduced-motion: reduce`: the commit beat does not animate**, and the
+      `:target` flash does not either. Traced every new mechanism against the actual guard
+      rules and token values in all three `:root` copies — genuinely covered, not assumed.
+      Win 19 was already closed by P4, before this phase; confirmed by reading the current
+      code, not by trusting the design doc's older assessment.
+- [x] Every horizontally scrolling container has a visible cue at 360px. Confirmed by reading
+      the three mask-image additions, plus a real-Chromium check that the anchor-positioned
+      overflow popover still renders correctly (unclipped, full size) at 360px afterward.
+- [x] `/gallery` on an empty instance offers an action, not a full stop. Already satisfied
+      by pre-P11 code — confirmed three separate times by reading the actual runtime logic
+      (`showPrimary` is unconditionally true against an empty map list).
+- [x] The Listing-status control reads as loading while it is loading. Implemented
+      (`.tm-skel`, matching the existing three-page convention); not seen live.
+- [ ] **`field-sizing` auto-grow works where supported and the JS fallback still works where
+      it is not.** Implemented and reasoned about (both mechanisms converge on the same
+      scrollHeight-based result where both are active), but not run against two actual
+      browser configurations as the criterion asks — **open, needs a live check.**
+- [ ] **The four 88px gutters are gone and `.wz-tools` still does not overlap the flow content
+      at 360px, 820px and 1440px, in both themes.** Verified with real Chromium at 360px and
+      800px (not exactly 1440px), light theme only (no dark-theme render was built). Went
+      through two real CSS Grid bugs before landing correct — **the 820px iPad-portrait
+      breakpoint and dark theme are still open, needs a live check.**
+- [x] Standing gate green; `study-list.md` and the data payload byte-identical. Verified
+      after every `render.py`-touching commit, not just once at the end.
+- [ ] **360px / 820px / 1440px, both themes, reduced-motion on, every touched surface.** The
+      full combinatorial walk was not done — individual surfaces were spot-checked with real
+      Chromium as noted above, but not the complete matrix. **Open, needs a live check** —
+      same open item P7, P9 and P10 each carried forward in their own way.

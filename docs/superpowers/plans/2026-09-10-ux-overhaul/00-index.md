@@ -73,7 +73,13 @@ reconciliation, a regeneration or a hash check pay for it once.
 2026-09-13** (grid coupling, tier tint, `--zoom` fade, vignette, keyboard traversal, edge
 tint; 12 commits, `bb5a29c..87d96e9`, including a whole-phase review, one fix wave and an
 independent second review). **`/thomas` verified live; `theology-map.html` from `file://` and
-`/edit`'s Map tab were not** — skipped by choice, open item. P11 may proceed. |
+`/edit`'s Map tab were not** — skipped by choice, open item. **P11 shipped 2026-09-14**
+(the tier-bar answer-commit beat, the map's node-Settle extension, and the residual small
+wins; 17 commits, `a8fd246..e480ed6`, including a whole-phase review, two fix waves and an
+independent second review). Session E is closed. Verification was live-deploy against the
+real Vercel site rather than local `file://`/browser tools (unavailable this session); the
+live-site visual checklist for the motion beats was handed to the human partner rather than
+walked in-session — see the phase file's own acceptance table for what that checklist covers. |
 
 Sequencing between sessions still obeys the graph: A → B → C, and D before E. D may be pulled
 forward at any point.
