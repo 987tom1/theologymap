@@ -195,13 +195,14 @@
 
   /* An escape hatch, not the recommended answer: it wears the ordinary card
      surface (.wz-card) and only adds the cursor and the open-tile spacing.
-     #open-answer never contains .wz-tools, but .wz-card's base display is now
-     `grid` with two columns (see .wz-card above) -- without this override its
-     children (strong, hint, label, holdfield, .wz-slot) would auto-place into
-     column 2 before advancing rows, the same fix #custom-answer already needed
-     for an unrelated <details> reason (below). */
-  #open-answer { cursor: pointer; padding: var(--s4); gap: var(--s2);
-                 display: flex; flex-direction: column; }
+     #open-answer never contains .wz-tools or .wz-pop, so every one of its
+     children (strong, hint, label, holdfield, .wz-slot) matches .wz-card's
+     `> :not(.wz-tools):not(.wz-pop) { grid-column: 1 }` pin above and
+     auto-places into successive rows of that one column -- ordinary top-to-
+     bottom stacking, with no display override needed here (unlike
+     #custom-answer below, which overrides display for an unrelated
+     <details> reason). */
+  #open-answer { cursor: pointer; padding: var(--s4); gap: var(--s2); }
   #open-answer > strong { font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
 
   /* `class="wz-card"` gives this a `display: grid` it now shares with the
