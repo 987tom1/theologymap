@@ -409,7 +409,11 @@ a.tm-card-primary:focus-visible { outline-color:var(--bg); }
    and /app were deleted); this is only the visible half of it. */
 .tm-working { opacity:.6; pointer-events:none; cursor: progress; }
 
-.wz-pop, nav.tree { scrollbar-color: var(--field-line) transparent; }
+/* .wz-pop (web/wizard.html's Read-more popover), nav.tree (engine/editor.html's
+   sidebar tree) and main.form (the editor's List-tab form pane) are the
+   vertically-scrolling containers win 4's mask-fade treatment doesn't reach
+   -- a tinted scrollbar is the lighter cue that fits them. */
+.wz-pop, nav.tree, main.form { scrollbar-color: var(--field-line) transparent; }
 
 .tm-picker { background:var(--panel); color:var(--ink); border:1px solid var(--field-line);
              border-radius:var(--r3); padding:var(--s5); max-width:min(1100px, 92vw); }

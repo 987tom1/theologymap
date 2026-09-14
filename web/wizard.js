@@ -1225,15 +1225,20 @@ async function commitOnce(answer) {
 }
 
 // Wraps a commit's post-save callback (renderHome/renderQuestion/renderArea)
-// in a view transition so the launchpad's tier bar (renderHome()'s persistent
-// per-tier .wz-seg elements, whose flex-basis this transition Travels) is
-// captured alongside whatever screen fn lands on. fn always ends by calling
-// showScreen(), which would otherwise start its own, nested
-// startViewTransition() — the inTransition flag tells showScreen() to skip
-// that and just paint, so this outer transition is the one that actually
-// plays and spans both the tier-bar mutation and the screen swap. Bails to a
-// plain call under prefers-reduced-motion or without transition support — see
-// CLAUDE.md's motion-vocabulary invariant (Travel/Hold, nothing else moves).
+// in a view transition so P4's existing named groups (#q-title/#wz-crumb/
+// .wz-nav/.tm-chrome) still Hold across whichever screen fn lands on. The
+// launchpad tier bar's own Travel does NOT come from this view transition —
+// #home-tierbar lives inside #screen-home, which is display:none at the
+// moment this function is called (the question screen is always up here),
+// so it has no old snapshot for the view-transition mechanism to diff
+// against no matter what fn does internally. Its animation is a plain CSS
+// `transition: flex` instead, driven by renderHome()'s own reveal-then-
+// mutate ordering (see the comment there) — independent of everything below.
+// fn always ends by calling showScreen(), which would otherwise start its
+// own, nested startViewTransition() — the inTransition flag tells
+// showScreen() to skip that and just paint, so this outer transition is the
+// only one that runs. Bails to a plain call under prefers-reduced-motion or
+// without transition support — see CLAUDE.md's motion-vocabulary invariant.
 //
 // startViewTransition() does not invoke its callback synchronously — the
 // browser queues a task to snapshot old state first, then calls back later,
@@ -1246,13 +1251,16 @@ function commitAndAdvance(fn) {
   if (!document.startViewTransition ||
       matchMedia('(prefers-reduced-motion: reduce)').matches) return fn();
   inTransition = true;
-  document.startViewTransition(() => {
+  const transition = document.startViewTransition(() => {
     try {
       fn();
     } finally {
       inTransition = false;
     }
   });
+  // Nothing here awaits the transition, so a throwing fn would otherwise
+  // reject updateCallbackDone as an unhandled rejection.
+  transition.updateCallbackDone.catch(() => {});
 }
 
 async function advance(then) {

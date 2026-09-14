@@ -647,8 +647,9 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   in the anchored rule **and** in the `@supports not (position-anchor: --x)` fallback. It looks
   redundant and it is not.
 - **A second rendered element sharing a `view-transition-name` aborts the entire transition,
-  silently, with no console error.** Four names are live: `tm-chrome` (`theme.css`), and
-  `q-title`/`q-crumb`/`q-nav` (`web/wizard.html`). `.wz-nav`'s is a **class**, so a second
+  silently, with no console error.** Five names are live: `tm-chrome` (`theme.css`),
+  `q-title`/`q-crumb`/`q-nav` (`web/wizard.html`), and `tierbar` (`web/wizard.html`, P11 —
+  `#home-tierbar`, always a singleton element). `.wz-nav`'s is a **class**, so a second
   `.wz-nav` anywhere kills every transition on the page. Since P6 the chrome and the wizard's nav
   render simultaneously, so this is one duplicate away from a total, invisible failure.
 - **`--line` and `--field-line` are not interchangeable.** `--field-line` is for interactive
@@ -1011,10 +1012,14 @@ the `vw` term of a token declared in a different file. **A one-step change to `-
   rendered page. If a layout problem surfaces during P8, check whether it is P7's before
   blaming the new code.
 
-Still genuinely open for P11: `render.py`'s `dd.rel a` went from a 20px pill to `var(--r2)`,
-the one place in the phase a pill became a rounded rectangle; and `.tm-lead`, `.tm-working`,
-`.tm-span` and `.chip-select` in `theme.css` have no call site anywhere (all four were
-already dead before P7, and P7 spent a substitution re-tokenising the first).
+Left over from P7, not part of P11's brief: `render.py`'s `dd.rel a` went from a 20px pill to
+`var(--r2)`, the one place in the phase a pill became a rounded rectangle; and `.tm-lead`,
+`.tm-span` and `.chip-select` in `theme.css` still have no call site anywhere (all three were
+already dead before P7, and P7 spent a substitution re-tokenising `.tm-lead`). **P11 gave
+`.tm-working` a `cursor: progress` (small win 14) without resolving its own dead-code status**
+— it stays on this list too, ready for whenever a call site exists. None of these four were
+ever in P11's scope; they are recorded here so the next phase to touch this file doesn't read
+their absence from P11 as an oversight.
 
 ---
 
