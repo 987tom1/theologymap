@@ -831,7 +831,8 @@ function renderHome() {
   $('home-remaining').textContent = String(remaining.length);
 
   const bar = $('home-tierbar');
-  if (!tierSegs) {
+  const firstTierRender = !tierSegs;
+  if (firstTierRender) {
     tierSegs = {};
     for (const tier of WG.TIER_ORDER) {
       const seg = el('span', 'wz-seg');
@@ -858,8 +859,17 @@ function renderHome() {
   // "before" value to animate from. Moving this earlier is the fix; the
   // segments' own persistence (tierSegs, above) was necessary but not
   // sufficient.
+  //
+  // Skip the forced read on firstTierRender: with no prior flex value there
+  // is nothing to hold a before-change style at, so the reflow would just
+  // capture the segments' brand-new, still-zero layout and the loop below
+  // would then transition FROM zero — a fill-in animation on this bar's
+  // first-ever appearance, which is motion on first paint by another name
+  // (rule 8) even though it is reached via a user action rather than page
+  // load. No reflow, no before-change style, no transition — the segments
+  // simply appear already at their real widths, same as before this task.
   showScreen('home');
-  void bar.getBoundingClientRect();
+  if (!firstTierRender) void bar.getBoundingClientRect();
 
   const parts = [];
   for (const tier of WG.TIER_ORDER) {
@@ -1259,8 +1269,11 @@ function commitAndAdvance(fn) {
     }
   });
   // Nothing here awaits the transition, so a throwing fn would otherwise
-  // reject updateCallbackDone as an unhandled rejection.
-  transition.updateCallbackDone.catch(() => {});
+  // reject updateCallbackDone as an unhandled rejection. Logged, not
+  // swallowed silently — showScreen()'s own startViewTransition call has
+  // the same unguarded shape and is left as-is, since it has no caller-
+  // supplied fn that can throw for reasons outside this file.
+  transition.updateCallbackDone.catch(err => console.error('commitAndAdvance failed', err));
 }
 
 async function advance(then) {
