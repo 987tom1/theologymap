@@ -420,7 +420,7 @@ redirect is `/`.
 
 **The nav is one list in `web/chrome.js`.** Since P6 it is **`My map · Questions · Learn ·
 Browse · ⋯`** signed in and **`Learn · Browse · Sign in`** signed out, where `⋯` is a native
-`popover` holding Edit, History, Compare, Listing status, Admin and Sign out. Below 640px the
+`popover` holding Edit, History, Compare, Admin and Sign out. Below 640px the
 row scrolls horizontally rather than wrapping — that is `engine/theme.css`'s
 `.tm-chrome .toplinks` rule, and **the `⋯` button belongs inside `.toplinks`**, not beside it:
 appended as a sibling it is inline-level after a flex container and renders on its own line at
@@ -436,16 +436,20 @@ line-for-line identical. **Home is the first item in the `⋯` menu, not in the 
 D6's target list omitted it entirely, on the grounds that Home's only job for a signed-in user
 was to be a menu of the items evicted from the nav; **Thomas rejected that on 2026-09-11** — `/`
 is a real destination and the nav needed a route to it — and the overflow is where a genuine but
-occasional return path belongs, so the visible budget stays at four. `Listing status` points at
-`/#vis-row`, whose id is created in JS during `/`'s signed-in tile build rather than in its
-markup; that deep link works only because the HTML spec retries scroll-to-fragment after load.
+occasional return path belongs, so the visible budget stays at four.
+
+**`Listing status` (`/#vis-row`) was removed from the `⋯` menu on 2026-09-18** — the nav deep
+link only, not the control. `web/landing.html` still builds `#vis-row` and its Unlist/Relist
+button in JS during `/`'s signed-in tile build, and that is untouched and fully functional.
+**Do not re-add the nav entry**; it was a shortcut to a control one screen away, and its id
+exists only because a JS-built tile happens to set it.
 
 **Both copies must implement the current-page match identically.** It compares the **raw** href
 against `location.pathname`, and additionally requires `search` to agree when the href carries
 one — path-only marked "My map" while you were looking at someone else's map. **An href carrying a fragment never
-marks the page current** — it points at a region, not a destination — which is what keeps Home
-(`/`) and Listing status (`/#vis-row`) from both claiming `/`, and stops `Sign in`'s `/#signin`
-claiming it signed out. `Sign out` never goes through the match at all: its `href="#"` resolves to the current page, which marked it as current on
+marks the page current** — it points at a region, not a destination — which used to keep Home
+(`/`) and Listing status (`/#vis-row`) from both claiming `/`, and still stops `Sign in`'s
+`/#signin` claiming it signed out. `Sign out` never goes through the match at all: its `href="#"` resolves to the current page, which marked it as current on
 `/edit`. Two independently written copies of that one rule is how that bug arrived.
 
 `mount(pageTitle, actions = [])` takes an optional array of built elements for a
@@ -865,7 +869,8 @@ Thomas's decisions:
 2. **Accounts stay required before the question flow.** An anonymous start was proposed and
    declined; a name and PIN are cheap and every map stays real and saved.
 3. **The nav becomes `My map · Questions · Learn · Browse · ⋯`** — four visible items plus a
-   native `popover` overflow (Edit, History, Compare, Listing status, Admin, Sign out).
+   native `popover` overflow (Edit, History, Compare, Admin, Sign out — `Listing status` was
+   in it until 2026-09-18; see §6).
    **This reverses the 2026-08-29 decision** that "My map", History, Unlist/Relist, Learn and
    Compare are tiles on `/` and not nav links, on the grounds that its premise — "six nav
    items is what fits a phone" — is already false in this codebase's own CSS

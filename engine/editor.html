@@ -702,7 +702,7 @@
         // two in step by hand. Literal [href, label] pairs, kept visually
         // identical to chrome.js's NAV array line for line, so a reorder or
         // relabel shows up as a one-line diff in both files. Edit, History,
-        // Compare, Listing status, Admin and Sign out move into the ⋯
+        // Compare, Admin and Sign out move into the ⋯
         // popover (Task 2); this page's own Edit item there is correct, not
         // a bug, since /edit is where we already are.
         for (const [href, text] of [
@@ -737,15 +737,10 @@
           ['/edit', 'Edit'],
           ['/history', 'History'],
           ['/compare', 'Compare'],
-          // Not a page: the id this points at is created in JS, not static
-          // markup — web/landing.html:168-172 sets visRow.id = 'vis-row'
-          // while building the signed-in tile grid. The /#vis-row deep link
-          // works because the HTML spec retries "scroll to the fragment"
-          // after the document finishes loading, and that script runs
-          // before the load event fires — but a refactor deferring the
-          // tile build past load would silently break it. Nothing added to
-          // / either way.
-          ['/#vis-row', 'Listing status'],
+          // No 'Listing status' /#vis-row entry any more — the nav shortcut
+          // is gone, the Unlist/Relist control it deep-linked to is
+          // untouched and still on / (web/landing.html's #vis-row). Removed
+          // from the matching array in web/chrome.js in the same commit.
         ];
         if (me.is_admin) MORE.push(['/admin', 'Admin']);
         let anyCurrent = false;

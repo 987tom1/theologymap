@@ -18,10 +18,11 @@ export function el(tag, cls, text) {
 //
 // An href carrying a FRAGMENT never marks the page current: it points at a
 // region, not a destination. That is the same reason Sign out's href="#" is
-// kept out of here entirely. It also settles what would otherwise be two
-// current items on /, now that Home is in the overflow — Home ('/') and
-// Listing status ('/#vis-row') both live at that pathname, and only one of
-// them is the page. Sign in's /#signin stops marking / for the same reason.
+// kept out of here entirely. Sign in's /#signin stops marking / for the
+// same reason. (It used to have a second job: keeping Home ('/') and
+// Listing status ('/#vis-row') from both claiming / while both sat in the
+// overflow. Listing status is gone, so only Sign in exercises it now — the
+// rule stands on its own terms and stays.)
 function matchesPage(href) {
   const u = new URL(href, location.origin);
   if (u.hash) return false;
@@ -73,7 +74,7 @@ export function mount(pageTitle, actions = []) {
   }
   head.appendChild(titleRow);
   // P6: My map · Questions · Learn · Browse · ⋯ signed in; Learn · Browse ·
-  // Sign in signed out. History, Edit, Compare, Listing status, Admin and
+  // Sign in signed out. History, Edit, Compare, Admin and
   // Sign out moved into the ⋯ popover (Task 2). No Home link any more —
   // §10's decision, not an oversight. Literal [href, label] pairs so a
   // reorder or relabel is a one-line diff, here and in editor.html's
@@ -110,14 +111,10 @@ export function mount(pageTitle, actions = []) {
       ['/edit', 'Edit'],
       ['/history', 'History'],
       ['/compare', 'Compare'],
-      // Not a page: the id this points at is created in JS, not static
-      // markup — web/landing.html:168-172 sets visRow.id = 'vis-row' while
-      // building the signed-in tile grid. The /#vis-row deep link works
-      // because the HTML spec retries "scroll to the fragment" after the
-      // document finishes loading, and that script runs before the load
-      // event fires — but a refactor deferring the tile build past load
-      // would silently break it. Nothing added to / either way.
-      ['/#vis-row', 'Listing status'],
+      // No 'Listing status' /#vis-row entry any more — the nav shortcut is
+      // gone, the Unlist/Relist control it deep-linked to is untouched and
+      // still on / (web/landing.html's #vis-row). Removed from the matching
+      // array in engine/editor.html in the same commit.
     ];
     if (user.is_admin) MORE.push(['/admin', 'Admin']);
     let anyCurrent = false;
