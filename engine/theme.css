@@ -385,6 +385,25 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome .toplinks a { padding: 16px 0; }
 }
 
+/* Laptop and wider: one type step up, var(--fs-00) (12.5px) to var(--fs-0)
+   (14px). The nav had no responsive variant at all and read undersized on a
+   big screen. Modest on purpose — this is chrome, not content, so it is one
+   step and only the size; weight, family and line-height stay put.
+
+   860px is WIDE_NAV, the same number web/chrome.js and engine/editor.html
+   use to decide whether Browse is in the row or the ⋯ menu, so the row
+   gains its fifth item and its larger type at one width rather than two.
+   Ties with the base .tm-chrome .toplinks rule at (0,2,0) — a media query
+   adds nothing — so it wins only by being declared after it, here. Do not
+   move it above that rule.
+
+   The 44px coarse-pointer floor derived above gets safer, not tighter:
+   var(--fs-0)/var(--lh-ui) is a 20.3px line box, so 16 + 20.3 + 16 = 52.3px
+   on a touch device wide enough to match this query. */
+@media (min-width: 860px) {
+  .tm-chrome .toplinks { font-size: var(--fs-0); }
+}
+
 /* Task 1: an optional right-aligned actions row in the header, passed as
    mount()'s second argument. Wraps whenever the row doesn't fit (a 360px
    phone included) because flex-wrap does that regardless of a breakpoint. */
