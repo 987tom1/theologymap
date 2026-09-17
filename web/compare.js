@@ -259,6 +259,22 @@ function renderTiers(host, rows, theirsLabel) {
   host.appendChild(list);
 }
 
+/* A column's denominator is 0 exactly when this map never resolves to
+   `kind: 'position'` against that tradition — the same "own wording, not
+   wizard-standard wording" case renderClosest's own guard already explains
+   (see its comment above). Printed bare, "0 of 0" reads as "agrees with
+   nothing"; this names the reason instead, in the same short/long split the
+   table's glyph cells already use (a compact cell plus a `title` for the
+   full sentence on hover). */
+function totalText(t) {
+  return t.denominator > 0 ? (t.numerator + ' of ' + t.denominator) : 'own wording only';
+}
+function totalTitle(t) {
+  return t.denominator > 0 ? '' :
+    'No doctrines here matched the question set’s standard wording, so there is nothing to count — ' +
+    'this map states its beliefs in its own words.';
+}
+
 /* design 4.5: traditions-only table, my own undecided rows shown as one
    greyed row across every column, column totals repeating the 4.4 fraction. */
 function renderScorecard(tableHost, accHost, corpus, sc) {
@@ -308,7 +324,10 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
   const totalTr = el('tr');
   totalTr.appendChild(el('th', null, 'Agrees'));
   for (const t of sc.totals) {
-    totalTr.appendChild(el('td', null, t.numerator + ' of ' + t.denominator));
+    const td = el('td', null, totalText(t));
+    const title = totalTitle(t);
+    if (title) td.title = title;
+    totalTr.appendChild(td);
   }
   tfoot.appendChild(totalTr);
   table.appendChild(tfoot);
@@ -319,7 +338,7 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
     const total = sc.totals.find(t => t.traditionId === col.traditionId);
     const det = el('details', 'cmp-acc');
     det.appendChild(el('summary', null,
-      col.displayName + (total ? ' — ' + total.numerator + ' of ' + total.denominator : '')));
+      col.displayName + (total ? ' — ' + totalText(total) : '')));
     let ct = null, cd = null;
     for (const row of sc.rows) {
       const tier = row.doctrine.suggested_tier || 'Untiered';
