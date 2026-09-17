@@ -87,7 +87,7 @@ function whyText(resolved) {
   return (resolved.node && resolved.node.why) || '';
 }
 
-function diffRow(row, verdictText) {
+function diffRow(row, verdictText, theirsLabel) {
   const details = el('details', 'cmp-row');
   details.dataset.doctrineId = row.doctrine.id;
   const summary = el('summary');
@@ -97,14 +97,14 @@ function diffRow(row, verdictText) {
 
   const body = el('div', 'cmp-body');
   const mineCol = el('div', 'cmp-col');
-  mineCol.appendChild(el('p', 'tm-lab', 'Yours'));
+  mineCol.appendChild(el('p', 'tm-lab', 'You'));
   mineCol.appendChild(el('p', null, holdText(row.mine)));
   const mineWhy = whyText(row.mine);
   if (mineWhy) mineCol.appendChild(el('p', 'tm-hint', mineWhy));
   body.appendChild(mineCol);
 
   const theirsCol = el('div', 'cmp-col');
-  theirsCol.appendChild(el('p', 'tm-lab', 'Theirs'));
+  theirsCol.appendChild(el('p', 'tm-lab', theirsLabel || 'Theirs'));
   theirsCol.appendChild(el('p', null, holdText(row.theirs)));
   const theirsWhy = whyText(row.theirs);
   if (theirsWhy) theirsCol.appendChild(el('p', 'tm-hint', theirsWhy));
@@ -130,12 +130,12 @@ function diffRow(row, verdictText) {
 /* Differences are never sorted first and never coloured — the rows print in
    CompareCore's own tier/domain/doctrine order, exactly like the diff
    itself, and only carry text, not colour, as their verdict signal. */
-function renderDiffGroups(host, corpus, rows, verdictText) {
+function renderDiffGroups(host, corpus, rows, verdictText, theirsLabel) {
   clearSkel(host);
   for (const group of groupRows(corpus, rows)) {
     const section = el('section', 'cmp-group');
     section.appendChild(groupHeading(group.tier, group.domain, group.rows.length));
-    for (const row of group.rows) section.appendChild(diffRow(row, verdictText));
+    for (const row of group.rows) section.appendChild(diffRow(row, verdictText, theirsLabel));
     host.appendChild(section);
   }
 }
