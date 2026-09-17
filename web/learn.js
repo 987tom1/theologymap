@@ -6,12 +6,13 @@
    Static fetch plus rendering only — no model logic lives here. Ordering,
    tier ranking and doctrine lookup are engine/wizard-generate.js's
    (window.WizardGenerate); parsing a saved map is engine/editor-core.js's
-   (window.EditorCore); the corpus loader and the stance vocabulary are
-   web/corpus.js's; a citation becomes a link only through web/refs.js. */
+   (window.EditorCore); the corpus loader, the verse loader and the stance
+   vocabulary are web/corpus.js's; a citation becomes a link only through
+   web/refs.js. */
 import { getUser, apiFetch } from '/web/session.js';
 import { mount, el, TIER_VAR } from '/web/chrome.js';
 import { citeLink as sharedCiteLink, sourceLine as sharedSourceLine } from '/web/refs.js';
-import { loadCorpus, STANCE_TEXT } from '/web/corpus.js';
+import { loadCorpus, loadVerses, STANCE_TEXT } from '/web/corpus.js';
 
 const WG = window.WizardGenerate;
 const Core = window.EditorCore;
@@ -55,15 +56,65 @@ function dedupeSources(lists) {
   return out;
 }
 
+/* Opens the one shared #versepop dialog (markup in learn.html) on the NET text
+   for `ref`. Content is replaced per click rather than one popup built per
+   chip.
+   ponytail: render.py carries the anchored-position version of this popup
+   (positionPopover / openPopoverFor, ~line 815) — a div pinned under the chip
+   it was opened from. Not ported: a native modal <dialog> gives the focus
+   trap, Escape and the backdrop for free, and that positioning math is the
+   only part of it that would have had to be rewritten. Swap in the anchored
+   version here if the modal ever feels too heavy for one verse. */
+async function openVerse(ref) {
+  const dlg = $('versepop');
+  const body = $('versepop-text');
+  const attr = $('versepop-attr');
+  $('versepop-ref').textContent = ref;
+  body.textContent = 'Loading…';
+  body.classList.add('is-quiet');
+  attr.hidden = true;
+  // showModal() throws InvalidStateError on an already-open dialog, which a
+  // second chip clicked while the first fetch is in flight would otherwise do.
+  if (!dlg.open) dlg.showModal();
+
+  let data = null;
+  try {
+    data = await loadVerses();
+  } catch {
+    // Handled below as "could not be loaded" — deliberately NOT as "not yet
+    // added to verses.md", which is a claim about the data, not the network.
+  }
+  // The fetch may have settled after another chip replaced the dialog's
+  // contents; that click owns the dialog now.
+  if ($('versepop-ref').textContent !== ref) return;
+
+  const text = data ? String((data.verses || {})[ref] || '').trim() : '';
+  if (text) {
+    body.textContent = text;
+    body.classList.remove('is-quiet');
+    attr.textContent = '(' + (data.translation || 'NET') + ')';
+    attr.hidden = false;
+  } else {
+    body.textContent = data
+      ? 'Not yet added to verses.md'
+      : 'Verse text could not be loaded.';
+  }
+}
+
 /* `refs` is a semicolon-separated string of scripture references (the same
-   format theology-map.md's own `refs` field uses). Nothing here fetches or
-   invents verse text — the corpus has no client-reachable copy of
-   verses.md (it is bundled server-side for /api/render only), so a plain
-   pill with the reference and no text is the honest rendering. */
+   format theology-map.md's own `refs` field uses). Each is a <button>, not a
+   <span>: since content/verses.json exists there IS a client-reachable copy of
+   verses.md's text now, so a chip can show the verse rather than only name it.
+   A button because it does something — keyboard and AT get that for free. */
 function refPills(refsStr) {
   const box = el('div', 'lp-refs');
   const refs = String(refsStr || '').split(';').map(s => s.trim()).filter(Boolean);
-  for (const r of refs) box.appendChild(el('span', 'lp-refchip', r));
+  for (const r of refs) {
+    const chip = el('button', 'lp-refchip', r);
+    chip.type = 'button';
+    chip.addEventListener('click', () => openVerse(r));
+    box.appendChild(chip);
+  }
   return box;
 }
 
