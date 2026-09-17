@@ -113,7 +113,12 @@
             text-transform:uppercase; color:var(--muted); }
   h1 { margin:0 0 3px; font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
   .sub { color:var(--muted); font:12.5px/1.4 var(--sans); }
-  .toplinks { margin-top:8px; display:flex; gap:14px; font:600 12px/1 var(--sans); }
+  /* This header keeps its own visual language (CLAUDE.md §8) — but the font
+     here was 600 12px/1, a 12px line box against the ⋯ button's 18px one, so
+     the glyph sat visibly off the labels. The tokens are the same ones this
+     file's own :root declares; align-items:center absorbs whatever line-box
+     difference is left, same as theme.css's .tm-chrome .toplinks. */
+  .toplinks { margin-top:8px; display:flex; align-items:center; gap:14px; font:600 var(--fs-00)/var(--lh-ui) var(--sans); }
   .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
   .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
 

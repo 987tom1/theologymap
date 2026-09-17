@@ -267,7 +267,12 @@ details.optional > summary:hover { color: var(--ink); }
 .tm-chrome .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
                       text-transform:uppercase; color:var(--muted); }
 .tm-chrome h1 { margin:0 0 var(--s1); font-family:var(--serif); font-size:var(--fs-3); line-height:var(--lh-tight); letter-spacing:-.012em; }
-.tm-chrome .toplinks { margin-top:var(--s2); display:flex; gap:var(--s3); font:600 var(--fs-00)/var(--lh-ui) var(--sans); }
+/* align-items:center, not the flex default `stretch`: .tm-morebtn is a <button>
+   with its own font (600 18px/1) and so its own line box (18px) against the
+   links' var(--fs-00)/var(--lh-ui) (18.13px). Stretched, those two differ by
+   .13px at the top and the ⋯ sits a hair high; centred, any line-box
+   difference splits evenly and the glyph reads as level with the labels. */
+.tm-chrome .toplinks { margin-top:var(--s2); display:flex; align-items:center; gap:var(--s3); font:600 var(--fs-00)/var(--lh-ui) var(--sans); }
 .tm-chrome .toplinks a { color:var(--muted); text-decoration:none; border-bottom:1px solid transparent; }
 .tm-chrome .toplinks a:hover { color:var(--ink); border-color:var(--muted); }
 /* Ties with .tm-chrome .toplinks a above at (0,2,1); declared after it in the
