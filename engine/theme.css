@@ -322,8 +322,14 @@ details.optional > summary:hover { color: var(--ink); }
   border: 1px solid var(--field-line); border-radius: var(--r3);
   background: var(--panel); box-shadow: var(--e3);
 }
+/* padding was var(--s2) var(--s4) (8px 16px) unconditionally, which is a
+   32.88px row on a mouse or trackpad against the visible nav's 18.13px —
+   the menu read as a different, chunkier control than the row it hangs off.
+   var(--s1) var(--s3) (4px 12px) puts it at 24.88px, near the nav's scale
+   while keeping a row you can hit. The touch floor is NOT this rule's job:
+   the @media (pointer: coarse) override below still raises it to 48.9px. */
 .tm-more a {
-  display: block; padding: var(--s2) var(--s4); color: var(--ink);
+  display: block; padding: var(--s1) var(--s3); color: var(--ink);
   text-decoration: none; font: 600 var(--fs-00)/var(--lh-snug) var(--sans);
 }
 .tm-more a:hover { background: var(--chip); }
@@ -338,18 +344,20 @@ details.optional > summary:hover { color: var(--ink); }
 @supports not (position-anchor: --x) {
   .tm-more { position: fixed; inset: auto; top: var(--s4); right: var(--s4); margin: 0; }
 }
-/* C4: .tm-more a above sets padding: var(--s2) var(--s4) (8px 16px) — a
+/* C4: .tm-more a above sets padding: var(--s1) var(--s3) (4px 12px) — a
    16.88px line box (var(--fs-00)/var(--lh-snug) = 12.5px/1.35) plus that
-   padding is 32.88px, under the 44px floor. This coarse-pointer override
+   padding is 24.88px, under the 44px floor. This coarse-pointer override
    ties with it at (0,1,1) — a media query adds no specificity — so SOURCE
    ORDER is the only thing that can decide it, and it must be declared
    after the base rule to win. (It was declared earlier, inside the
    general @media (pointer: coarse) block above, and silently lost every
    time — the exact mechanism that left the old 44px floor inert on
-   /wizard for a whole phase; see CLAUDE.md §10.) Also restores the base
-   rule's var(--s4) (16px) horizontal inset, which the old `padding: 16px 0`
-   here used to zero, putting the menu's labels flush against the popover
-   edge on a touch device. 16px + 16.88px + 16px = 48.9px, clearing 44px
+   /wizard for a whole phase; see CLAUDE.md §10.) It also sets its own
+   var(--s4) (16px) horizontal inset rather than inheriting the base rule's
+   — the old `padding: 16px 0` here zeroed it, putting the menu's labels
+   flush against the popover edge on a touch device, and the base rule is
+   now var(--s3), which is a desktop measure, not a thumb one.
+   16px + 16.88px + 16px = 48.9px, clearing 44px
    with room to spare — this time for real, because this declaration is
    the one that actually wins. */
 @media (pointer: coarse) {
