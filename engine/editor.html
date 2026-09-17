@@ -192,6 +192,16 @@
   .mapcontrols button { font:600 11.5px/1 var(--sans); border:1px solid var(--field-line);
     background:var(--panel); color:var(--muted); padding:5px 9px; border-radius:6px; cursor:pointer; }
   .maphint { position:absolute; left:10px; bottom:8px; font:11px/1 var(--sans); color:var(--muted); z-index:5; }
+  /* Fullscreen (Map tab only) — ported from web/view.html's #full-btn: a
+     body-class toggle, not the Fullscreen API (iOS Safari has no
+     requestFullscreen() on a non-video element). Standalone fixed button on
+     <body>, this file has no mount()/actions row to route it through.
+     Hiding header+.tabs lets .mapLayout's flex:1 1 auto claim the freed
+     space on its own — no fixed-position/100vh trick needed here, unlike
+     /view's iframe case, because .mapwrap is a plain block this page already
+     sizes with flexbox rather than a hard-coded vh. */
+  #full-btn { position:fixed; z-index:51; right:12px; bottom:12px; background:var(--panel); box-shadow:var(--e2); }
+  body.editor-enlarged header, body.editor-enlarged .tabs { display:none; }
   .mtitle-input { flex:1; border:none; background:none; padding:0; font:inherit; color:var(--ink);
     font-family:var(--serif); font-weight:600; font-size:13.5px; border-bottom:1px solid transparent; }
   .mtitle-input:focus { border-bottom-color:var(--muted); }
@@ -451,12 +461,33 @@
     setTab(btn.dataset.tab);
   });
 
+  // Fullscreen button: standalone fixed element on <body>, shown only while
+  // the Map tab is active — doesn't make sense on List, which has no
+  // pan/zoom canvas to enlarge.
+  const fullBtn = document.createElement('button');
+  fullBtn.type = 'button';
+  fullBtn.id = 'full-btn';
+  fullBtn.textContent = 'Fullscreen';
+  fullBtn.hidden = true;
+  document.body.appendChild(fullBtn);
+  function setEnlarged(on) {
+    document.body.classList.toggle('editor-enlarged', on);
+    fullBtn.textContent = on ? 'Exit' : 'Fullscreen';
+    if (mapView) mapView.redraw();
+  }
+  fullBtn.addEventListener('click', () => setEnlarged(!document.body.classList.contains('editor-enlarged')));
+  // Escape is the other way out, same as /view — there's no sandboxed frame
+  // here to block the keydown, but it's the expected fullscreen convention.
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') setEnlarged(false); });
+
   let mapShown = false;
   function setTab(tab) {
     activeTab = tab;
     [...tabsEl.querySelectorAll('.tabbtn')].forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     mapLayoutEl.style.display = tab === 'map' ? 'flex' : 'none';
     listLayoutEl.style.display = tab === 'list' ? 'flex' : 'none';
+    fullBtn.hidden = tab !== 'map';
+    if (tab !== 'map' && document.body.classList.contains('editor-enlarged')) setEnlarged(false);
     if (tab === 'map' && mapView) {
       // A redraw while .mapwrap is display:none measures every box as 0x0 and
       // would centre the tree on a zero-sized rect, leaving the first real view
