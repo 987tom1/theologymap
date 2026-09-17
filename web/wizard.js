@@ -343,7 +343,6 @@ function lensLabel() {
 }
 
 function paintLensLabels() {
-  $('wz-lens-btn').textContent = lensLabel();
   $('home-lens-btn').textContent = lensLabel();
 }
 
@@ -1367,7 +1366,6 @@ async function main() {
   $('intro-start').addEventListener('click', () => {
     if (lens !== null) startQuestions(); else openLens('intro');
   });
-  $('wz-lens-btn').addEventListener('click', () => openLens('question'));
   $('home-lens-btn').addEventListener('click', () => openLens('home'));
   // Back and Finish here return to wherever the question screen was entered
   // from: the area's question list when a row opened it, the launchpad
