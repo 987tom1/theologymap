@@ -54,6 +54,27 @@ export async function loadCorpus() {
   return { manifest, traditions: registry, domains: files };
 }
 
+/* documentation/verses.md's scripture text, as content/verses.json — generated
+   by `py engine/render.py`. Returns { translation, verses: { ref: text } }.
+
+   Cached as the PROMISE, not the result, so two chips clicked before the first
+   fetch settles share one request. It is ~210 KB, so nothing loads it on page
+   render: the first verse popup pays for it and every later one is free.
+
+   A failed load clears the cache and rethrows rather than resolving to an empty
+   set. Caching a failure would turn "the network dropped" into "not yet added
+   to verses.md" for the rest of the visit, which is a lie about the data. The
+   caller says which of the two it is showing. */
+let versesPromise = null;
+export function loadVerses() {
+  if (!versesPromise) {
+    versesPromise = fetch('/content/verses.json')
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error('verses.json ' + res.status))))
+      .catch((err) => { versesPromise = null; throw err; });
+  }
+  return versesPromise;
+}
+
 /* The generated tradition maps' provenance file. Carries display_name, file,
    node_count and skipped per tradition — so a coverage floor can be applied
    without reloading and re-deriving anything. */

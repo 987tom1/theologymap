@@ -55,9 +55,28 @@
   .lp-refchip {
     font: 500 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted);
     background: transparent; border: 1px solid var(--field-line);
-    padding: 2.5px 7px; /* optical on a 1px-bordered micro-pill — not a scale step, see P7 task-4 report */
-    border-radius: var(--r1); white-space: nowrap;
+    /* 2.5px was the optical value while these were inert <span>s (P7 task-4
+       report). They are <button>s now, so the box has to clear WCAG 2.2 SC
+       2.5.8's 24px floor: 11px * 1.45 = 15.95 + 2 * var(--s1) + 2px border
+       = 25.95px. The gap between chips is only var(--s1), so the spacing
+       exception is not available here — the target itself must be big. */
+    padding: var(--s1) 7px;
+    border-radius: var(--r1); white-space: nowrap; margin: 0;
   }
+  button.lp-refchip { cursor: pointer; }
+  button.lp-refchip:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ---- verse popup ---- */
+  .lp-versepop {
+    background: var(--panel); color: var(--ink); border: 1px solid var(--field-line);
+    border-radius: var(--r3); padding: var(--s4); max-width: min(46ch, calc(100vw - var(--s5)));
+  }
+  .lp-versepop::backdrop { background: rgba(0, 0, 0, .45); }
+  .lp-versepop h2 { margin: 0 0 var(--s2); font: 600 var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+  #versepop-text { margin: 0; font: var(--fs-0)/var(--lh-body) var(--serif); }
+  #versepop-text.is-quiet { font-family: var(--sans); font-size: var(--fs-00); font-style: italic; color: var(--muted); }
+  .lp-versepop-attr { margin: var(--s2) 0 0; font: var(--fs-000)/var(--lh-ui) var(--sans); color: var(--muted); }
+  .lp-versepop form { margin: var(--s4) 0 0; }
 
   /* ---- doctrine page ---- */
   .lp-back { display: inline-block; margin-bottom: var(--s3); font: 600 var(--fs-00)/1 var(--sans);
@@ -136,6 +155,17 @@
 <p id="lp-notfound" hidden>Not found.</p>
 
 </main>
+
+<!-- One shared verse popup for every reference chip on the page; learn.js
+     replaces its contents per click. A native modal <dialog> supplies the
+     focus trap, Escape and the backdrop, and method="dialog" closes the
+     button with no JS at all. -->
+<dialog id="versepop" class="lp-versepop" aria-labelledby="versepop-ref">
+  <h2 id="versepop-ref"></h2>
+  <p id="versepop-text"></p>
+  <p id="versepop-attr" class="lp-versepop-attr" hidden></p>
+  <form method="dialog"><button class="tm-action-btn">Close</button></form>
+</dialog>
 
 <script src="/engine/editor-core.js"></script>
 <script src="/engine/wizard-generate.js"></script>
