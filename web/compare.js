@@ -172,22 +172,19 @@ function renderClosest(host, closest, ownWordingCount) {
   const joint = closest.ranked.filter(r => r.joint);
   const named = joint.length ? joint : [closest.ranked[0]];
 
-  const fraction = (r, first) => first
-    ? 'agrees with ' + r.numerator + ' of the ' + r.denominator
-      + ' questions where you both have a position'
-    : r.numerator + ' of ' + r.denominator;
+  const fraction = (r) => r.numerator + ' of ' + r.denominator;
 
   const line = el('p', 'cmp-closest-line');
   if (named.length === 1) {
     const r = named[0];
-    line.appendChild(document.createTextNode('This tradition’s answers are nearest to yours: '));
+    line.appendChild(document.createTextNode('Nearest to yours: '));
     line.appendChild(el('strong', null, r.displayName));
-    line.appendChild(document.createTextNode(' (' + fraction(r, true) + ').'));
+    line.appendChild(document.createTextNode(' — agrees on ' + fraction(r) + ' shared positions.'));
   } else {
-    line.appendChild(document.createTextNode('You are equally close to '));
+    line.appendChild(document.createTextNode('Equally close: '));
     named.forEach((r, i) => {
       line.appendChild(el('strong', null, r.displayName));
-      line.appendChild(document.createTextNode(' (' + fraction(r, i === 0) + ')'));
+      line.appendChild(document.createTextNode(' (' + fraction(r) + ')'));
       if (i < named.length - 2) line.appendChild(document.createTextNode(', '));
       else if (i === named.length - 2) line.appendChild(document.createTextNode(' and '));
     });
@@ -198,7 +195,7 @@ function renderClosest(host, closest, ownWordingCount) {
   if (named.length === 1) {
     host.appendChild(el('p', 'tm-quiet',
       named[0].excludedCount + ' doctrine' + (named[0].excludedCount === 1 ? '' : 's')
-      + ' excluded from that count (undecided, own wording, or unanswered on either side).'));
+      + ' not counted (undecided, own wording, or unanswered on either side).'));
   }
 }
 
@@ -644,14 +641,13 @@ async function renderResults(opts) {
     // whatever the copy says. This omission is deliberate, not an oversight.
     const bothSettled = rows.filter((r) => r.mine.kind === 'position' && r.theirs.kind === 'position').length;
     $('cmp-framing-text').textContent =
-      'This is what your two maps say side by side. '
-      + bothSettled + ' doctrine' + (bothSettled === 1 ? '' : 's') + ' where both have settled something.';
+      bothSettled + ' doctrine' + (bothSettled === 1 ? '' : 's') + ' where you both have a settled position.';
   }
 
   renderTiers($('cmp-tiers'), CompareCore.tierDiff(corpus, mine, theirs),
     isTradition ? targetLabel : targetLabel + "'s map");
 
-  renderDiffGroups($('diff-groups'), corpus, rows, verdictText);
+  renderDiffGroups($('diff-groups'), corpus, rows, verdictText, targetLabel);
 
   if (doctrineParam) {
     const target = document.querySelector('[data-doctrine-id="' + CSS.escape(doctrineParam) + '"]');
