@@ -669,6 +669,13 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   LTR and the menu lands against the page edge instead of under its button. `inset: auto` first,
   in the anchored rule **and** in the `@supports not (position-anchor: --x)` fallback. It looks
   redundant and it is not.
+- **That `@supports` fallback's `top`/`right` are only a resting place; JS positions it.** Pinned
+  to the viewport corner it read as a stray panel on any laptop under Safari or Firefox. Both nav
+  copies set `top`/`right` inline from the `⋯` button's `getBoundingClientRect()` on the popover's
+  `beforetoggle`, gated on `CSS.supports('position-anchor: --x')` — **the JS mirror of the CSS
+  `@supports`, so an engine with anchor support runs none of it and stays on pure CSS.** The
+  fallback's `margin: var(--s2) 0 0` is what supplies the gap under the button, which is why it
+  is not `margin: 0`.
 - **A second rendered element sharing a `view-transition-name` aborts the entire transition,
   silently, with no console error.** Five names are live: `tm-chrome` (`theme.css`),
   `q-title`/`q-crumb`/`q-nav` (`web/wizard.html`), and `tierbar` (`web/wizard.html`, P11 —

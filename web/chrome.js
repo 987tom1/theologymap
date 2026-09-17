@@ -194,6 +194,22 @@ export function mount(pageTitle, actions = []) {
     };
     placeBrowse();
     wide.addEventListener('change', placeBrowse);
+
+    // theme.css's @supports not (position-anchor: --x) fallback pins the
+    // menu to the viewport's top-right corner, which on a laptop is a long
+    // way from the ⋯ it belongs to — it reads as a stray panel. Same gate,
+    // in JS, so an engine that HAS anchor positioning never runs a line of
+    // this and keeps the pure-CSS anchoring. The fallback is position:
+    // fixed, so getBoundingClientRect()'s viewport coordinates are already
+    // the right coordinate space, and the rule's margin supplies the gap.
+    if (!CSS.supports('position-anchor: --x')) {
+      more.addEventListener('beforetoggle', (e) => {
+        if (e.newState !== 'open') return;
+        const r = moreBtn.getBoundingClientRect();
+        more.style.top = r.bottom + 'px';
+        more.style.right = (innerWidth - r.right) + 'px';
+      });
+    }
   }
   head.appendChild(links);
   if (more) head.appendChild(more);

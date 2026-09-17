@@ -333,16 +333,25 @@ details.optional > summary:hover { color: var(--ink); }
   text-decoration: none; font: 600 var(--fs-00)/var(--lh-snug) var(--sans);
 }
 .tm-more a:hover { background: var(--chip); }
-/* Firefox has no anchor positioning yet; without this the popover would
-   render wherever the UA default top-layer placement lands it, which is
-   effectively unreachable. Page-corner fallback, not a mitigation of the
-   anchored case above — both branches ship. Same inset: auto reset as
-   above and for the same reason: the UA's left: 0 would otherwise survive
-   alongside this fixed rule's own right, putting the fallback box in the
-   top-LEFT corner (over the kicker and h1) instead of the top-right one
-   it's written to target. */
+/* Safari and Firefox have no anchor positioning yet; without this the
+   popover would render wherever the UA default top-layer placement lands
+   it, which is effectively unreachable. Not a mitigation of the anchored
+   case above — both branches ship. Same inset: auto reset as above and for
+   the same reason: the UA's left: 0 would otherwise survive alongside this
+   fixed rule's own right, putting the fallback box in the top-LEFT corner
+   (over the kicker and h1) instead of the top-right one it targets.
+
+   The top/right values here are only the pre-open resting place. Pinning
+   the menu to the viewport corner is what made it read as disjointed from
+   its ⋯ button on a wide screen, so chrome.js and editor.html both set
+   top/right inline from the button's own getBoundingClientRect() when the
+   menu opens, gated on CSS.supports('position-anchor: --x') — the JS
+   mirror of this very @supports. An engine WITH anchor support never runs
+   that code and stays on pure CSS. margin is var(--s2) 0 0, not 0, so the
+   JS can set top to the button's bottom edge and get the same 8px gap the
+   anchored rule above already has. */
 @supports not (position-anchor: --x) {
-  .tm-more { position: fixed; inset: auto; top: var(--s4); right: var(--s4); margin: 0; }
+  .tm-more { position: fixed; inset: auto; top: var(--s4); right: var(--s4); margin: var(--s2) 0 0; }
 }
 /* C4: .tm-more a above sets padding: var(--s1) var(--s3) (4px 12px) — a
    16.88px line box (var(--fs-00)/var(--lh-snug) = 12.5px/1.35) plus that
