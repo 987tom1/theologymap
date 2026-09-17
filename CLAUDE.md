@@ -1068,6 +1068,72 @@ already dead before P7, and P7 spent a substitution re-tokenising `.tm-lead`). *
 ever in P11's scope; they are recorded here so the next phase to touch this file doesn't read
 their absence from P11 as an oversight.
 
+**P12 shipped 2026-09-18**, six sequential phases from a single bug/improvement list, each
+gated on the full test suite and pushed to `main` on its own. None touched `render_markdown`'s
+output — the byte-identity pair is still P11's.
+
+- **Nav.** The ⋯ button now shares `align-items: center` with the visible links, and
+  `engine/editor.html`'s hand-copied `.toplinks` moved off a literal `12px/1` onto the shared
+  tokens — the worst of the three-way fork's drift, closed. The ⋯ menu's row padding came off
+  its unconditional 8px floor; it only reaches the 44px touch target under
+  `@media (pointer: coarse)` now. **Listing status is gone from the overflow — Home took the
+  freed slot as a genuinely new fifth visible item**: `Home · My map · Questions · Learn ·
+  Browse · ⋯`, with `Browse` folding back into the overflow below an 860px breakpoint
+  (`WIDE_NAV` in `chrome.js`, mirrored by hand in `editor.html`, `ponytail:`-marked — the number
+  is a judgement call about "comfortably fits," not a hard fitting limit; the five labels
+  actually fit from phone width up, per the 640px scroll fallback already handling anything
+  narrower). **This reverses the 2026-09-11 decision** (§10, D6) that kept Home in the overflow
+  only — Thomas asked for it back in the visible row on 2026-09-18. Safari's missing
+  `position-anchor` support, which pinned the ⋯ menu to the viewport's corner instead of the
+  button, now gets a JS fallback (`getBoundingClientRect()` on `beforetoggle`) gated on
+  `CSS.supports('position-anchor: --x')`, so anchor-capable engines run none of it. See
+  `debug.md` rule 24.
+- **Admin.** The PIN-skip-on-return-visit behaviour reported as missing was already correct
+  (`sessionStorage` read-back on `init()`, verified end to end — no bug, no commit). The account
+  tiles got the requested revamp: Visibility and Admin lead the meta rows now, Size and
+  Last-updated stack onto their own line below 640px, and the action buttons dropped the
+  blanket `min-height/width: 44px` — the sitewide `@media (pointer: coarse)` button rule still
+  protects a touch visitor, so only the everyday mouse case shrank.
+- **Wizard.** The in-question "Shown first" control (`#wz-lens-btn`) is gone — the Home Screen's
+  own copy (`#home-lens-btn`) was always the real one, same `localStorage` key. `#q-readmore`'s
+  blank strip was a `<details>` missing the `align-self: flex-start` its own `<summary>` already
+  had. "+N more" tradition chips expand in place on click now — the only place in the app that
+  ever truncated a denomination list this way; nowhere else needed the matching fix.
+- **Editor.** `engine/map-view.js` was read, not touched, per §8's own warning against tempting
+  edits there. The List tab gained a sticky Back/Next bar walking `domains[].nodes[]` in array
+  order (disables, doesn't wrap, at either end — a linear list, not a ring). The Map tab got
+  `/view`'s `body.tm-enlarged` fullscreen pattern, reimplemented locally as `body.editor-enlarged`
+  since `editor.html` can't import `view.html`'s JS (the documented `file://` exception).
+- **Learn — the substantial one.** `content/verses.json` is a new generated file (§2), written
+  by `render.py`'s `main()` alongside its other writes, reusing the already-loaded `verses` dict
+  — never re-parsed, never touching `render_markdown`. LF-written like `content/traditions/`'s
+  JSON, so it needs no `.gitattributes` pin. It ships the whole 482-entry `verses.md` (§3
+  now documents why that number is bigger than Thomas's own 156 cited references). `/learn`'s
+  reference chips are `<button>`s now, opening one shared `<dialog id="versepop">`
+  populated per click via `web/corpus.js`'s new `loadVerses()` (cached-promise, cleared on
+  fetch failure so a dropped connection is never remembered as "no text"). This is a **deliberate
+  simplification** against `render.py`'s existing anchored-popover version — `ponytail:`-marked
+  in the code for whichever future session wants the fancier positioning. The doctrine page
+  reordered (Key texts before History and terms), collapsed History-and-terms and Sources behind
+  `<details>` (Key texts, the new contested section, positions, who-holds-what and my-answer stay
+  expanded — they're what people came for), and replaced the per-position `orthodoxyMarker()`
+  with one doctrine-level "Where this is contested" section, omitted entirely when nothing on a
+  doctrine is flagged. **The underlying `orthodoxy`/`orthodoxy_note` corpus fields and their
+  `validate_content.py` rules are unchanged — only where they render moved.** The positions grid
+  goes to three columns at 1280px, deliberately bleeding past the page's own 900px reading
+  measure (`margin-inline: -140px`) because three columns inside that measure would be 289px
+  each — too narrow for the card content.
+- **Compare.** `.cmp-body-wrap` centers at laptop widths now — it was the one page capping an
+  inner wrapper without `margin: auto`. The all-traditions scorecard's bare "0 of 0" — correct,
+  not a bug, for a hand-authored map like Thomas's own `theology-map.md`, where `tally()`'s
+  exact-wording match legitimately has nothing to count — now reads "own wording only" with the
+  fuller explanation on hover, in the same voice `renderClosest` already used for the identical
+  case. "Theirs" became the actual name or tradition; "Yours" became "You." The page-level
+  summary block — already first in DOM order, so the original report's "should be first" was
+  already true — gained a one-line subtitle and tighter framing/closest-tradition copy, checked
+  against `closestTradition`'s real return shape so the tie- and denominator-caveats survived
+  the rewrite.
+
 ---
 
 ## 11. Content working notes

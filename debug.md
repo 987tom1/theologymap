@@ -122,6 +122,15 @@ write-up in `documentation/debug-archive.md`.
     drifted.** Only a change that alters the output *on purpose* may move it, and only
     by regenerating with `py engine/render.py` — never by hand. Current values and the
     two surviving invariants are in `CLAUDE.md`.
+24. **A `@supports not (position-anchor: ...)` fallback that pins to the viewport's
+    corner, not the trigger element, is what "menu renders on the wrong side of the
+    screen" looks like on an engine without CSS anchor positioning** (Safari, at least
+    as of this writing). Found in `web/chrome.js`'s ⋯ popover, 2026-09-18: the fallback
+    was `position: fixed; top/right: var(--s4)` — anchored to the viewport, not the
+    button. Fixed with a JS `getBoundingClientRect()` fallback on the button's own
+    toggle, gated on `CSS.supports('position-anchor: --x')` so anchor-capable engines
+    run none of it. Check any other `[popover]`/`position-anchor` element the same way
+    before trusting it on a laptop.
 
 ## Still open
 
