@@ -25,12 +25,21 @@
                font: var(--fs-00)/var(--lh-ui) var(--sans); margin-bottom: var(--s1); font-variant-numeric: tabular-nums; }
   .meta-label { color: var(--muted); font-weight: 600; }
   .user-actions { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s2); }
-  .user-actions button { margin-top: 0; min-height: 44px; min-width: 44px; }
+  /* Dense management tiles, not primary touch nav — no 44px coarse-pointer
+     floor here. theme.css's global `button { min-height: 44px }` under
+     @media (pointer: coarse) still applies on a touchscreen (its selector
+     specificity is lower than this one, but this rule sets no min-height, so
+     there is nothing to lose to); this only shrinks the mouse/desktop case. */
+  .user-actions button { margin-top: 0; padding: var(--s2) var(--s3); }
 
   .versions-panel { grid-column: 1 / -1; }
   .versions-panel .user-actions { margin-top: 0; }
 
   #pin-reveal.tm-note { margin-top: var(--s3); }
+
+  @media (max-width: 640px) {
+    .meta-row-wide { grid-column: 1 / -1; }
+  }
 </style>
 </head>
 <body class="tm-page">
@@ -150,9 +159,9 @@ async function loadUsers() {
   list.hidden = false;
 }
 
-function metaRow(container, label, value) {
+function metaRow(container, label, value, wide) {
   const row = document.createElement('div');
-  row.className = 'meta-row';
+  row.className = wide ? 'meta-row meta-row-wide' : 'meta-row';
   const l = document.createElement('span');
   l.className = 'meta-label';
   l.textContent = label;
@@ -176,10 +185,10 @@ function renderList(users) {
     const meta = document.createElement('div');
     meta.className = 'user-meta';
     const updated = u.updated_at ? new Date(u.updated_at).toLocaleString() : '';
-    metaRow(meta, 'Last updated', updated);
-    metaRow(meta, 'Size', `${u.markdown_length} chars`);
     metaRow(meta, 'Visibility', u.is_public ? 'Public' : 'Hidden');
     metaRow(meta, 'Admin', u.is_admin ? 'Yes' : '');
+    metaRow(meta, 'Size', `${u.markdown_length} chars`, true);
+    metaRow(meta, 'Last updated', updated, true);
     tile.appendChild(meta);
 
     const actions = document.createElement('div');
