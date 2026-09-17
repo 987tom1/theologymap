@@ -288,6 +288,14 @@
   .formfoot .status.ok { color:var(--good); }
   .formfoot .status.err { color:var(--bad); }
 
+  /* List-tab Back/Next: sticks to the bottom of main.form's own scroll area,
+     same idea as the wizard's .wz-nav (position: sticky; bottom: 0) but in
+     this file's own tokens/background — deliberately not the bleed-to-edge
+     margin hack .wz-nav uses, which is hard-bound to a different parent's
+     padding (CLAUDE.md §10 P5 notes). */
+  .listnav { position:sticky; bottom:0; display:flex; justify-content:space-between;
+    gap:10px; margin-top:24px; padding:12px 0; background:var(--bg); border-top:1px solid var(--line); }
+
   dialog { border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink);
     padding:18px 20px; max-width:520px; font:14px/1.5 var(--serif); }
   dialog::backdrop { background:rgba(0,0,0,.35); }
@@ -963,6 +971,28 @@
     treeEl.appendChild(drawer);
   }
 
+  // Flattened domains[].nodes[] traversal for the List tab's Back/Next bar:
+  // domain 0 node 0, domain 0 node 1, ..., domain 1 node 0, ... Skips empty
+  // domains rather than materialising the whole flat array. Disables at
+  // both ends (returns null) rather than wrapping — a linear list, not a
+  // carousel.
+  function flatNext(pos) {
+    const { domainIndex: di, nodeIndex: ni } = pos;
+    if (ni + 1 < domains[di].nodes.length) return { domainIndex: di, nodeIndex: ni + 1 };
+    for (let d = di + 1; d < domains.length; d++) {
+      if (domains[d].nodes.length) return { domainIndex: d, nodeIndex: 0 };
+    }
+    return null;
+  }
+  function flatPrev(pos) {
+    const { domainIndex: di, nodeIndex: ni } = pos;
+    if (ni > 0) return { domainIndex: di, nodeIndex: ni - 1 };
+    for (let d = di - 1; d >= 0; d--) {
+      if (domains[d].nodes.length) return { domainIndex: d, nodeIndex: domains[d].nodes.length - 1 };
+    }
+    return null;
+  }
+
   function selectNode(di, ni) {
     current = { domainIndex: di, nodeIndex: ni };
     renderTreeList('');
@@ -1072,6 +1102,32 @@
     status.id = 'formStatus';
     foot.appendChild(status);
     formEl.appendChild(foot);
+
+    const navBar = document.createElement('div');
+    navBar.className = 'listnav';
+    const prevPos = flatPrev(current), nextPos = flatNext(current);
+    const backBtn = document.createElement('button');
+    backBtn.type = 'button';
+    backBtn.textContent = 'Back';
+    backBtn.disabled = !prevPos;
+    backBtn.addEventListener('click', () => {
+      if (!prevPos) return;
+      selectNode(prevPos.domainIndex, prevPos.nodeIndex);
+      formEl.scrollTop = 0;
+    });
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'primary';
+    nextBtn.textContent = 'Next';
+    nextBtn.disabled = !nextPos;
+    nextBtn.addEventListener('click', () => {
+      if (!nextPos) return;
+      selectNode(nextPos.domainIndex, nextPos.nodeIndex);
+      formEl.scrollTop = 0;
+    });
+    navBar.appendChild(backBtn);
+    navBar.appendChild(nextBtn);
+    formEl.appendChild(navBar);
   }
 
   function fieldRow(labelText, inputEl) {
