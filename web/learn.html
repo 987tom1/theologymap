@@ -104,6 +104,23 @@
 
   .lp-positions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); }
   @media (max-width: 860px) { .lp-positions { grid-template-columns: 1fr; } }
+  /* Three columns, and the grid bleeds out of the 900px reading measure to get
+     them. Three columns INSIDE the measure would be (900 - 2 x var(--s4)) / 3 =
+     289px, and a position card is a heading plus one to four paragraphs of
+     var(--fs-1) serif — about 33 characters a line at that width. The bleed
+     makes them 382px instead.
+
+     -140px each side is HAND-BOUND to `body.tm-page main`'s max-width: 900px at
+     the top of this file (nothing here is box-sizing: border-box, so that 900 is
+     the content box and main's own var(--s5) padding sits outside it). They move
+     together or not at all. 1280 is the narrowest viewport where the bled grid
+     still clears a var(--s5) gutter: (1280 - 948) / 2 - 140 = 26px.
+
+     Only this grid. "Who holds what" keeps the measure deliberately — it is a
+     <dl> of prose, and 900px is already at the top of a comfortable line. */
+  @media (min-width: 1280px) {
+    .lp-positions { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: -140px; }
+  }
   .lp-pos {
     background: var(--panel); border: 1px solid var(--field-line); border-radius: var(--r3);
     padding: var(--s4); display: flex; flex-direction: column; gap: var(--s2);
