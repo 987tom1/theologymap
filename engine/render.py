@@ -5,6 +5,7 @@ Usage:  python render.py
 Reads   theology-map.md, documentation/verses.md
 Writes  theology-map.html
         documentation/study-list.md
+        content/verses.json
 
 Standard library only.
 """
@@ -21,6 +22,7 @@ ROOT = Path(__file__).parent.parent
 DOCS = ROOT / "documentation"
 SRC = ROOT / "theology-map.md"
 VERSES = DOCS / "verses.md"
+VERSES_JSON = ROOT / "content" / "verses.json"
 BUILD = ROOT
 MAP_VIEW = ROOT / "engine" / "map-view.js"
 
@@ -247,6 +249,34 @@ def sync_verses(nodes: list[dict]) -> "OrderedDict[str, str]":
 
     VERSES.write_text(text, encoding="utf-8")
     return verses
+
+
+def write_verses_json(verses: "OrderedDict[str, str]") -> None:
+    """Write content/verses.json — the browser-reachable copy of verses.md's text.
+
+    The generated single-file map carries its verses inside its own `<script
+    id="data">` payload, so nothing in web/ could reach them; /learn's verse
+    popups read this file instead. Generated, never hand-edited, refreshed on
+    every `py engine/render.py` — the same standing as content/traditions/.
+
+    Blank entries are dropped rather than shipped as empty strings: a reference
+    with no text is the "Not yet added to verses.md" case, and a missing key
+    says that as well as an empty one while keeping the file smaller.
+
+    Written as BYTES with LF, like content/traditions/*.json. Path.write_text
+    would translate to os.linesep and check in a CRLF file that a Linux-side
+    regeneration would rewrite whole (debug.md rule 20). The translation is a
+    file-level constant, not a per-entry field: verses.md's parser yields only
+    a string per reference, and CLAUDE.md §3 requires the NET attribution to
+    travel with the text — so it travels here, once.
+    """
+    payload = {
+        "translation": "NET",
+        "verses": {ref: text for ref, text in verses.items() if text.strip()},
+    }
+    VERSES_JSON.parent.mkdir(exist_ok=True)
+    VERSES_JSON.write_bytes(
+        (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
 
 
 def esc(text: str) -> str:
@@ -1241,6 +1271,7 @@ def main() -> None:
     DOCS.mkdir(exist_ok=True)
     (BUILD / "theology-map.html").write_text(render_html(nodes, verses), encoding="utf-8")
     (DOCS / "study-list.md").write_text(render_study(nodes, missing_text), encoding="utf-8")
+    write_verses_json(verses)
 
     study = [n for n in nodes if "study" in n["flags"]]
     assumed = [n for n in nodes if "assumed" in n["flags"]]
@@ -1252,7 +1283,7 @@ def main() -> None:
                if l not in {x["slug"] for x in nodes}]
     if missing:
         print(f"  WARNING broken links from: {sorted(set(missing))}")
-    print("wrote theology-map.html, documentation/study-list.md")
+    print("wrote theology-map.html, documentation/study-list.md, content/verses.json")
 
 
 if __name__ == "__main__":
