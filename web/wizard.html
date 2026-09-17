@@ -160,7 +160,13 @@
   .wz-card-h strong { font: 600 var(--fs-2)/var(--lh-snug) var(--serif); }
   .wz-chips { display: flex; gap: var(--s1); flex-wrap: wrap; }
   .tchip { font: 600 var(--fs-000)/var(--lh-tight) var(--sans); color: var(--muted);
-           background: var(--chip); padding: 5px 9px 5px 8px; border-radius: var(--r-pill); }
+           background: var(--chip); padding: 5px 9px 5px 8px; border-radius: var(--r-pill);
+           border: none; margin: 0; }
+  /* The "+N more" trigger is a <button>, not a plain <span> chip — reset the
+     UA button chrome above, add pointer only here (the non-interactive chips
+     stay a plain span with no cursor change). */
+  button.tchip { cursor: pointer; }
+  button.tchip:hover { color: var(--ink); }
   .wz-card.sel .tchip { background: var(--panel); }
   .tchip-lens { background: var(--ink); color: var(--bg); }
   .wz-card.sel .tchip-lens { background: var(--ink); color: var(--bg); }

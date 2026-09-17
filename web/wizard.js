@@ -407,6 +407,10 @@ function orderedPositions(doctrine) {
   }).map(x => x.p);
 }
 
+function chip(id) {
+  return el('span', 'tchip' + (id === lens ? ' tchip-lens' : ''), tradition(id).short_name);
+}
+
 function chipRow(position) {
   const row = el('div', 'wz-chips');
   const ids = (position.held_by || []).map(h => h.tradition)
@@ -415,12 +419,16 @@ function chipRow(position) {
   // at a glance where their own tradition sits. It is a label, not a ranking.
   ids.sort((a, b) => (b === lens ? 1 : 0) - (a === lens ? 1 : 0));
   const shown = ids.slice(0, 4);
-  for (const id of shown) {
-    row.appendChild(el('span', 'tchip' + (id === lens ? ' tchip-lens' : ''),
-      tradition(id).short_name));
-  }
-  if (ids.length > shown.length) {
-    row.appendChild(el('span', 'tchip', '+' + (ids.length - shown.length) + ' more'));
+  for (const id of shown) row.appendChild(chip(id));
+  const rest = ids.slice(shown.length);
+  if (rest.length) {
+    const more = el('button', 'tchip', '+' + rest.length + ' more');
+    more.type = 'button';
+    more.addEventListener('click', () => {
+      for (const id of rest) row.insertBefore(chip(id), more);
+      more.remove();
+    });
+    row.appendChild(more);
   }
   return row;
 }
