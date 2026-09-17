@@ -221,7 +221,10 @@ from titles, with no message to the person — Thomas's call.
 
 `render.py` **syncs the reference list** (appends empty stubs, never overwrites or
 reorders). `fetch_verses.py` **fills the text** from the NET Bible endpoint
-(`labs.bible.org/api/`), blanks only unless `--all`. All 156 references have text.
+(`labs.bible.org/api/`), blanks only unless `--all`. All 156 references have text — and
+`verses.md` holds **482** entries in all, because `engine/corpus_refs.py` appends the wizard
+corpus's references too (423 of them, all filled). `content/verses.json` ships that whole set,
+which is why `/learn` can show verse text for a corpus reference `theology-map.md` never cites.
 
 - **Never write verse text from memory.** Subtly wrong text in a theology reference is
   worse than a visible blank. Fetch it or leave it empty.
@@ -690,6 +693,13 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
 - **`--line` and `--field-line` are not interchangeable.** `--field-line` is for interactive
   control boundaries *only* (WCAG 2.1 SC 1.4.11 needs 3:1; `--line` on `--panel` is 1.36:1).
   `--line` stays the decorative divider.
+- **`/learn`'s three-column positions grid bleeds `-140px` each side, hand-bound to that
+  page's own `body.tm-page main { max-width: 900px }`.** Nothing in this repo sets
+  `box-sizing: border-box`, so that 900 is the content box and `main`'s `var(--s5)` padding
+  sits outside it; the `1280px` breakpoint is the narrowest viewport where the bled grid still
+  clears a `var(--s5)` gutter. **Change the measure and the bleed moves with it**, the same
+  hand-binding `.wz-nav`'s `-18px`/`-36px` has to `.wz-screen-body`'s padding. Only
+  `.lp-positions` bleeds — "Who holds what" is prose and keeps the measure.
 - **`/learn`'s position cards let their `gap` own all vertical spacing.**
   `.lp-pos > *, .lp-mine > * { margin: 0 }` exists because every row is a `<p>` and flex gaps
   *add to* margins rather than collapsing them. The reset is scoped with `>` on purpose and
