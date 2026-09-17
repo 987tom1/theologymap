@@ -55,6 +55,23 @@ export function slugify(text) {
   return t;
 }
 
+/* The signed-in nav's visible budget: five items plus ⋯ at this width and
+   up, four plus ⋯ below it (Browse drops into the overflow). engine/theme.css
+   reads the same number for the nav's laptop type step, and engine/editor.html
+   hand-copies it — three edits, as ever.
+
+   Why 860: not because five labels stop fitting. At 600 var(--fs-00) the five
+   are roughly 35 + 52 + 66 + 38 + 48px, plus a ~26px button, five var(--s3)
+   gaps (60px) and .tm-chrome's var(--s5) side padding (48px) — about 373px,
+   and ~400px once the laptop type step lands. Everything fits from a phone up;
+   theme.css's 640px horizontal-scroll fallback is the width where things stop
+   fitting. "Comfortably" is the actual criterion and it is a judgement, so
+   this reuses 860px — already in theme.css as the Map view's phone fallback —
+   rather than inventing a number.
+   ponytail: hand-picked from an existing breakpoint, not a measured ceiling.
+   If the nav ever grows a sixth label, measure it rather than nudging this. */
+const WIDE_NAV = '(min-width: 860px)';
+
 // actions: optional array of already-built elements, right-aligned in the
 // header. Defaults to none so every existing caller is unchanged.
 export function mount(pageTitle, actions = []) {
@@ -73,21 +90,28 @@ export function mount(pageTitle, actions = []) {
     titleRow.appendChild(actionsRow);
   }
   head.appendChild(titleRow);
-  // P6: My map · Questions · Learn · Browse · ⋯ signed in; Learn · Browse ·
-  // Sign in signed out. History, Edit, Compare, Admin and
-  // Sign out moved into the ⋯ popover (Task 2). No Home link any more —
-  // §10's decision, not an oversight. Literal [href, label] pairs so a
-  // reorder or relabel is a one-line diff, here and in editor.html's
-  // matching array — keep the two visually identical line for line.
+  // Home · My map · Questions · Learn · Browse · ⋯ signed in at WIDE_NAV and
+  // up; Home · My map · Questions · Learn · ⋯ below it, with Browse in the
+  // overflow. Learn · Browse · Sign in signed out, unaffected. History,
+  // Edit, Compare, Admin and Sign out live in the ⋯ popover (Task 2).
+  // Literal [href, label] pairs so a reorder or relabel is a one-line diff,
+  // here and in editor.html's matching array — keep the two visually
+  // identical line for line.
   const NAV = user
     ? [
+        // Home moved out of the ⋯ overflow into the visible row on
+        // 2026-09-18. It is never in both places and never in neither:
+        // the visible row always carries it, and Browse is the item that
+        // moves instead (see placeBrowse below).
+        ['/', 'Home'],
         // Copied from web/landing.html:148's tile href, not reimplemented:
         // the empty-map redirect and unlisted-map message live in
         // web/view.html and stay there.
         ['/view?name=' + encodeURIComponent(user.name), 'My map'],
         ['/wizard', 'Questions'],
         ['/learn', 'Learn'],
-        ['/gallery', 'Browse'],
+        // Browse is NOT here: it is built below and placed into either this
+        // row or the ⋯ menu depending on WIDE_NAV.
       ]
     : [
         ['/learn', 'Learn'],
@@ -103,11 +127,9 @@ export function mount(pageTitle, actions = []) {
     more.id = 'tm-more';
     more.setAttribute('popover', '');
     const MORE = [
-      // Home is in the overflow, not the visible row: D6's budget is four
-      // visible items, and / is a genuine destination a signed-in user
-      // reaches occasionally — which is exactly what this menu is for.
-      // Without it the nav had no route back to / at all.
-      ['/', 'Home'],
+      // No Home entry: it is in the visible row now (see NAV above).
+      // Browse is inserted at the top of this menu by placeBrowse below
+      // when the viewport is narrower than WIDE_NAV.
       ['/edit', 'Edit'],
       ['/history', 'History'],
       ['/compare', 'Compare'],
@@ -143,17 +165,35 @@ export function mount(pageTitle, actions = []) {
     moreBtn.id = 'tm-more-btn';
     moreBtn.setAttribute('popovertarget', 'tm-more');
     moreBtn.setAttribute('aria-label', 'More');
-    // aria-current on the items inside .tm-more is invisible while the menu
-    // is closed. Mirror it onto the button itself so the one thing
-    // aria-current exists for — showing where you are — still works when
-    // the current page lives in the overflow.
-    if (anyCurrent) moreBtn.setAttribute('aria-current', 'page');
     // Into the nav's own flex row, not a sibling of it — a sibling <button>
     // after a flex-display .toplinks wraps onto its own line, breaking the
     // one-row nav this phase exists to deliver (and adding a header row on
     // the question screen). The popover <div> itself can stay outside the
     // flex row; it renders in the top layer regardless of DOM position.
     links.appendChild(moreBtn);
+
+    // Browse is the item that moves. Being "in the overflow" is a different
+    // DOM parent, not a hidden element, so this is a matchMedia listener and
+    // not a CSS media query — but it moves ONE already-built node between
+    // two parents rather than re-rendering the header, so aria-current and
+    // every other bit of its state come along for free.
+    const browse = link('/gallery', 'Browse');
+    const browseCurrent = browse.hasAttribute('aria-current');
+    const wide = matchMedia(WIDE_NAV);
+    const placeBrowse = () => {
+      if (wide.matches) links.insertBefore(browse, moreBtn);
+      else more.insertBefore(browse, more.firstChild);
+      // aria-current on the items inside .tm-more is invisible while the
+      // menu is closed. Mirror it onto the button itself so the one thing
+      // aria-current exists for — showing where you are — still works when
+      // the current page lives in the overflow. Browse is part of that sum
+      // only while it is actually in the menu, hence the recompute here
+      // rather than a one-shot at build time.
+      if (anyCurrent || (!wide.matches && browseCurrent)) moreBtn.setAttribute('aria-current', 'page');
+      else moreBtn.removeAttribute('aria-current');
+    };
+    placeBrowse();
+    wide.addEventListener('change', placeBrowse);
   }
   head.appendChild(links);
   if (more) head.appendChild(more);

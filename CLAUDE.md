@@ -418,8 +418,10 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 **`/app` no longer exists.** Anything still redirecting to it is stale; the signed-out
 redirect is `/`.
 
-**The nav is one list in `web/chrome.js`.** Since P6 it is **`My map · Questions · Learn ·
-Browse · ⋯`** signed in and **`Learn · Browse · Sign in`** signed out, where `⋯` is a native
+**The nav is one list in `web/chrome.js`.** Since 2026-09-18 it is **`Home · My map ·
+Questions · Learn · Browse · ⋯`** signed in at **860px and up**, **`Home · My map · Questions ·
+Learn · ⋯`** below that (Browse moves into the overflow), and **`Learn · Browse · Sign in`**
+signed out at every width, where `⋯` is a native
 `popover` holding Edit, History, Compare, Admin and Sign out. Below 640px the
 row scrolls horizontally rather than wrapping — that is `engine/theme.css`'s
 `.tm-chrome .toplinks` rule, and **the `⋯` button belongs inside `.toplinks`**, not beside it:
@@ -432,11 +434,28 @@ the wrap styles back on the element.**
 `chrome.js` — the documented `file://` exception, kept in step by hand. **Any nav change is
 three edits now: `chrome.js`, `engine/theme.css` and `editor.html`.** Both files hold the list as
 a literal `[href, label]` array so a reorder or relabel is a one-line diff in each; keep them
-line-for-line identical. **Home is the first item in the `⋯` menu, not in the visible row.**
-D6's target list omitted it entirely, on the grounds that Home's only job for a signed-in user
-was to be a menu of the items evicted from the nav; **Thomas rejected that on 2026-09-11** — `/`
-is a real destination and the nav needed a route to it — and the overflow is where a genuine but
-occasional return path belongs, so the visible budget stays at four.
+line-for-line identical. Two signed-in items are deliberately **not** in either array: **Home**
+(`editor.html` prepends it, because its "My map" is a pre-existing markup node that is already
+the row's first child) and **Browse** (built separately, because it moves).
+
+**Home is the first item in the visible row, and Browse is the item that moves.** Home was the
+first item in the `⋯` menu from P6 until 2026-09-18 — D6 omitted it entirely, **Thomas rejected
+that on 2026-09-11** because `/` is a real destination, and it went to the overflow. It is in
+the visible row now, by his decision, and **Browse takes the overflow slot below 860px** so the
+visible budget is still four there and five above. **Home is always in exactly one place — the
+visible row — and Browse in exactly one, never both and never neither.**
+
+**860px is `WIDE_NAV`, hand-copied three ways**: `web/chrome.js`'s `const WIDE_NAV`,
+`engine/editor.html`'s local copy of it, and `engine/theme.css`'s `@media (min-width: 860px)`
+nav type step. It is **not** the width at which five labels stop fitting — they fit from a phone
+up (~373px for the whole row, ~400px at the laptop type step); 640px is the width where things
+stop fitting and that is the horizontal-scroll fallback. 860 is a *comfort* judgement, reusing
+the number theme.css already carries for the Map view's phone fallback rather than inventing
+one. Being "in the overflow" is a **different DOM parent**, not a hidden element, so this is a
+`matchMedia` listener, not a CSS media query — but it **moves one already-built node between two
+parents** rather than re-rendering the header, which is why `aria-current` survives the move for
+free. The `⋯` button's mirrored `aria-current` is recomputed on each move, because Browse
+counts towards it only while it is actually in the menu.
 
 **`Listing status` (`/#vis-row`) was removed from the `⋯` menu on 2026-09-18** — the nav deep
 link only, not the control. `web/landing.html` still builds `#vis-row` and its Unlist/Relist
@@ -870,7 +889,8 @@ Thomas's decisions:
    declined; a name and PIN are cheap and every map stays real and saved.
 3. **The nav becomes `My map · Questions · Learn · Browse · ⋯`** — four visible items plus a
    native `popover` overflow (Edit, History, Compare, Admin, Sign out — `Listing status` was
-   in it until 2026-09-18; see §6).
+   in it until 2026-09-18; see §6). **Superseded 2026-09-18**: Home joined the visible row and
+   Browse became width-dependent. §6 has the current list.
    **This reverses the 2026-08-29 decision** that "My map", History, Unlist/Relist, Learn and
    Compare are tiles on `/` and not nav links, on the grounds that its premise — "six nav
    items is what fits a phone" — is already false in this codebase's own CSS

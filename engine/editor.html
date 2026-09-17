@@ -705,10 +705,15 @@
         // Compare, Admin and Sign out move into the ⋯
         // popover (Task 2); this page's own Edit item there is correct, not
         // a bug, since /edit is where we already are.
+        // Home leads the row, matching chrome.js's NAV line 1. Prepended
+        // rather than listed in the array below because navLink() appends
+        // and 'My map' is a pre-existing markup node already sitting first.
+        toplinks.prepend(navLink('/', 'Home'));
         for (const [href, text] of [
           ['/wizard', 'Questions'],
           ['/learn', 'Learn'],
-          ['/gallery', 'Browse'],
+          // Browse is NOT here: it is built after the ⋯ button and placed
+          // into either this row or the ⋯ menu depending on WIDE_NAV.
         ]) navLink(href, text);
 
         // The ⋯ overflow popover, built identically to web/chrome.js's
@@ -727,11 +732,9 @@
           return a;
         };
         const MORE = [
-          // Home is in the overflow, not the visible row: D6's budget is
-          // four visible items, and / is a genuine destination a signed-in
-          // user reaches occasionally — which is what this menu is for.
-          // Without it the nav had no route back to / at all.
-          ['/', 'Home'],
+          // No Home entry: it is in the visible row now (prepended above).
+          // Browse is inserted at the top of this menu by placeBrowse below
+          // when the viewport is narrower than WIDE_NAV.
           // /edit marking its own Edit item here is correct, not a bug —
           // it is where we already are.
           ['/edit', 'Edit'],
@@ -768,11 +771,6 @@
         moreBtn.setAttribute('popovertarget', 'tm-more');
         moreBtn.setAttribute('aria-label', 'More');
         moreBtn.textContent = '⋯';
-        // aria-current on the items inside .tm-more is invisible while the
-        // menu is closed. Mirror it onto the button itself so the one thing
-        // aria-current exists for — showing where you are — still works
-        // when the current page lives in the overflow.
-        if (anyCurrent) moreBtn.setAttribute('aria-current', 'page');
         // Into the nav's own flex row, not a sibling of it — a sibling
         // <button> after a flex-display .toplinks wraps onto its own line,
         // breaking the one-row nav this phase exists to deliver. The
@@ -780,6 +778,32 @@
         // the top layer regardless of DOM position.
         toplinks.appendChild(moreBtn);
         toplinks.after(more);
+
+        // Browse is the item that moves, same as chrome.js's placeBrowse.
+        // WIDE_NAV is hand-copied from web/chrome.js and must stay the same
+        // number as theme.css's nav media query — the usual three edits.
+        // Being "in the overflow" is a different DOM parent, not a hidden
+        // element, so this is matchMedia rather than a CSS query; it moves
+        // one already-built node between two parents, not a re-render.
+        const WIDE_NAV = '(min-width: 860px)';
+        const browse = document.createElement('a');
+        browse.href = '/gallery'; browse.textContent = 'Browse';
+        const browseCurrent = matchesPage('/gallery');
+        if (browseCurrent) browse.setAttribute('aria-current', 'page');
+        const wide = matchMedia(WIDE_NAV);
+        const placeBrowse = () => {
+          if (wide.matches) toplinks.insertBefore(browse, moreBtn);
+          else more.insertBefore(browse, more.firstChild);
+          // aria-current on the items inside .tm-more is invisible while
+          // the menu is closed. Mirror it onto the button itself so the one
+          // thing aria-current exists for — showing where you are — still
+          // works when the current page lives in the overflow. Browse
+          // counts towards that only while it is actually in the menu.
+          if (anyCurrent || (!wide.matches && browseCurrent)) moreBtn.setAttribute('aria-current', 'page');
+          else moreBtn.removeAttribute('aria-current');
+        };
+        placeBrowse();
+        wide.addEventListener('change', placeBrowse);
       } else {
         // Nobody signed in: load(), called later in boot(), calls
         // requireUser() and redirects to / shortly. Don't invent a
