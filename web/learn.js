@@ -218,22 +218,14 @@ function renderIndex(corpus) {
 
 /* ----------------------------------------------------------- doctrine page */
 
-function orthodoxyMarker(position) {
-  // Only `contested` and `outside` ever carry an orthodoxy_note in the
-  // corpus (verified against every domain file) — `historic` is the
-  // unremarked default and gets no marker at all.
-  if (!position.orthodoxy_note) return null;
-  const box = el('div');
-  const label = position.orthodoxy === 'outside' ? 'Outside the historic creeds' : 'Contested';
-  box.appendChild(el('p', 'lp-outside', label));
-  box.appendChild(el('p', 'lp-outside-note', position.orthodoxy_note));
-  return box;
-}
-
+/* The per-position `orthodoxy` / `orthodoxy_note` marker used to render here,
+   as the first thing inside each card. It is now one doctrine-level section
+   ahead of the cards — see contestedSection(). The corpus fields and
+   validate_content.py's rules for them are unchanged; only the rendering
+   moved, so a reader sees which positions are contested in one place rather
+   than having to read every card to find out. */
 function positionCard(doctrine, position) {
   const card = el('div', 'lp-pos');
-  const marker = orthodoxyMarker(position);
-  if (marker) card.appendChild(marker);
   card.appendChild(el('h3', null, position.label));
   if (position.hold) card.appendChild(el('p', 'lp-prose', position.hold));
   if (position.why) {
@@ -367,6 +359,48 @@ async function myOwnAnswer(doctrine) {
   return box;
 }
 
+/* A .lp-section that starts collapsed — <details> with no `open`. Only
+   "History and terms" and "Sources" use it: background and bibliography, not
+   what someone opened the page for. The <h2> stays inside the <summary> so the
+   page's heading outline is exactly what it was before, and details/summary is
+   already this repo's disclosure pattern (web/compare.js's .cmp-row,
+   .cmp-acc). */
+function foldSection(title) {
+  const sec = el('details', 'lp-section lp-fold');
+  const summary = el('summary');
+  summary.appendChild(el('h2', null, title));
+  sec.appendChild(summary);
+  return sec;
+}
+
+/* Every position on this doctrine the corpus marks `contested` or `outside`,
+   gathered into one doctrine-level section instead of a line inside each card.
+   Same data orthodoxyMarker() used to render per card — the fields and their
+   validation are unchanged, only where they surface.
+
+   Returns null when no position carries one, so the section is omitted rather
+   than rendered empty — the same rule "History and terms" follows. Only those
+   two values ever carry an orthodoxy_note in the corpus; `historic` is the
+   unremarked default. */
+function contestedSection(positions) {
+  const flagged = positions.filter(p => p.orthodoxy === 'contested' || p.orthodoxy === 'outside');
+  if (!flagged.length) return null;
+
+  const sec = el('div', 'lp-section');
+  sec.appendChild(el('h2', null, 'Where this is contested'));
+  const dl = el('dl', 'lp-contested');
+  for (const p of flagged) {
+    dl.appendChild(el('dt', null, p.label));
+    const dd = el('dd');
+    dd.appendChild(el('span', 'lp-outside',
+      p.orthodoxy === 'outside' ? 'Outside the historic creeds.' : 'Contested.'));
+    if (p.orthodoxy_note) dd.appendChild(document.createTextNode(' ' + p.orthodoxy_note));
+    dl.appendChild(dd);
+  }
+  sec.appendChild(dl);
+  return sec;
+}
+
 async function renderDoctrine(corpus, doctrine) {
   const host = $('lp-doctrine-body');
   host.textContent = '';
@@ -379,15 +413,8 @@ async function renderDoctrine(corpus, doctrine) {
   const tn = tierNote(doctrine);
   if (tn) host.appendChild(tn);
 
-  // 2. learn_note, if present.
-  if (doctrine.learn_note) {
-    const sec = el('div', 'lp-section');
-    sec.appendChild(el('h2', null, 'History and terms'));
-    sec.appendChild(el('p', 'lp-prose', doctrine.learn_note));
-    host.appendChild(sec);
-  }
-
-  // 3. key texts.
+  // 2. key texts — ahead of History and terms: the texts are the doctrine
+  // itself, the history is background on it.
   if (doctrine.refs) {
     const sec = el('div', 'lp-section');
     sec.appendChild(el('h2', null, 'Key texts'));
@@ -395,8 +422,21 @@ async function renderDoctrine(corpus, doctrine) {
     host.appendChild(sec);
   }
 
-  // 4. the positions, side by side.
+  // 3. learn_note, if present — collapsed by default.
+  if (doctrine.learn_note) {
+    const sec = foldSection('History and terms');
+    sec.appendChild(el('p', 'lp-prose', doctrine.learn_note));
+    host.appendChild(sec);
+  }
+
   const positions = orderedPositions(doctrine);
+
+  // 3b. where the doctrine is contested, gathered from the positions, ahead of
+  // the cards themselves.
+  const contested = contestedSection(positions);
+  if (contested) host.appendChild(contested);
+
+  // 4. the positions, side by side.
   const posSec = el('div', 'lp-section');
   posSec.appendChild(el('h2', null, 'The positions'));
   const grid = el('div', 'lp-positions');
@@ -422,8 +462,7 @@ async function renderDoctrine(corpus, doctrine) {
   // 7. sources — the doctrine's, then every position's, deduplicated.
   const sources = dedupeSources([doctrine.sources, ...positions.map(p => p.sources)]);
   if (sources.length) {
-    const srcSec = el('div', 'lp-section');
-    srcSec.appendChild(el('h2', null, 'Sources'));
+    const srcSec = foldSection('Sources');
     const box = el('div', 'lp-sources');
     for (const s of sources) box.appendChild(sourceLine(s));
     srcSec.appendChild(box);
