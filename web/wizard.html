@@ -151,8 +151,16 @@
      just that column -- breaking .wz-pop's "pinned to both of the card's
      own edges" contract (see its own comment below). Excluding it here
      leaves both its axes auto, so it keeps sizing against the full card
-     as it did before this rule existed. */
-  .wz-card > :not(.wz-tools):not(.wz-pop) { grid-column: 1; }
+     as it did before this rule existed.
+
+     Only .wz-card-h shares row 1 with .wz-tools, so it is the only child
+     that actually needs column 1's narrower 1fr track -- pinning every
+     other row to that same track left the hold paragraph (and the chip
+     row, and the textarea .pick() swaps in) wrapping at roughly two-thirds
+     of the card's width for the sake of a tools column that row has
+     nothing in. Everything else spans both columns instead. */
+  .wz-card > .wz-card-h { grid-column: 1; }
+  .wz-card > :not(.wz-card-h):not(.wz-tools):not(.wz-pop) { grid-column: 1 / -1; }
   .wz-card.sel { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink);
                  background: var(--chip); }
   .wz-card-h { display: flex; align-items: baseline; justify-content: space-between;
