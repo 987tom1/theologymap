@@ -402,6 +402,17 @@ details.optional > summary:hover { color: var(--ink); }
    on a touch device wide enough to match this query. */
 @media (min-width: 860px) {
   .tm-chrome .toplinks { font-size: var(--fs-0); }
+  /* .tm-morebtn's line box is hard-pinned to 18px (font: 600 18px/1 — an
+     optical size, not a type step, unprefixed above so editor.html's own
+     .toplinks shares it) so it no longer tracks the row once the row's own
+     line box grows with the type step above: var(--fs-0)/var(--lh-ui) =
+     20.3px vs the button's fixed 18px. align-items:center still centres
+     each box, but a 2.3px-taller neighbour reads as the ⋯ sitting a couple
+     px high. Scoped to .tm-chrome, not bare .tm-morebtn: editor.html's own
+     .toplinks has no matching font-size bump at this width (§8, the header
+     styling fork stays unsynced), so its row's line box is still 18.13px
+     and must not get this override. */
+  .tm-chrome .tm-morebtn { line-height: 20.3px; }
 }
 
 /* Task 1: an optional right-aligned actions row in the header, passed as
