@@ -359,14 +359,17 @@ async function myOwnAnswer(doctrine) {
   return box;
 }
 
-/* A .lp-section that starts collapsed — <details> with no `open`. Only
-   "History and terms" and "Sources" use it: background and bibliography, not
-   what someone opened the page for. The <h2> stays inside the <summary> so the
-   page's heading outline is exactly what it was before, and details/summary is
-   already this repo's disclosure pattern (web/compare.js's .cmp-row,
-   .cmp-acc). */
-function foldSection(title) {
+/* A .lp-section as a <details>, open by default unless `open` is false.
+   "History and terms", "Sources" and "Who holds what" stay collapsed:
+   background and bibliography, not what someone opened the page for.
+   "Where this is contested" and "The positions" pass open:true — still
+   what people came for, just foldable now. The <h2> stays inside the
+   <summary> so the page's heading outline is unchanged either way, and
+   details/summary is already this repo's disclosure pattern (web/compare.js's
+   .cmp-row, .cmp-acc). */
+function foldSection(title, open = false) {
   const sec = el('details', 'lp-section lp-fold');
+  if (open) sec.open = true;
   const summary = el('summary');
   summary.appendChild(el('h2', null, title));
   sec.appendChild(summary);
@@ -386,8 +389,7 @@ function contestedSection(positions) {
   const flagged = positions.filter(p => p.orthodoxy === 'contested' || p.orthodoxy === 'outside');
   if (!flagged.length) return null;
 
-  const sec = el('div', 'lp-section');
-  sec.appendChild(el('h2', null, 'Where this is contested'));
+  const sec = foldSection('Where this is contested', true);
   const dl = el('dl', 'lp-contested');
   for (const p of flagged) {
     dl.appendChild(el('dt', null, p.label));
@@ -431,26 +433,26 @@ async function renderDoctrine(corpus, doctrine) {
 
   const positions = orderedPositions(doctrine);
 
-  // 3b. where the doctrine is contested, gathered from the positions, ahead of
-  // the cards themselves.
+  // 4. who holds what — right below History and terms, collapsed by
+  // default: background on who already holds each stance, not what someone
+  // opened the page for.
+  const whoSec = foldSection('Who holds what');
+  whoSec.appendChild(whoHoldsWhat(corpus, doctrine, positions));
+  host.appendChild(whoSec);
+
+  // 5. where the doctrine is contested, gathered from the positions, ahead of
+  // the cards themselves. Collapsible now, expanded by default.
   const contested = contestedSection(positions);
   if (contested) host.appendChild(contested);
 
-  // 4. the positions, side by side.
-  const posSec = el('div', 'lp-section');
-  posSec.appendChild(el('h2', null, 'The positions'));
+  // 6. the positions, side by side. Collapsible now, expanded by default.
+  const posSec = foldSection('The positions', true);
   const grid = el('div', 'lp-positions');
   for (const position of positions) grid.appendChild(positionCard(doctrine, position));
   posSec.appendChild(grid);
   host.appendChild(posSec);
 
-  // 5. who holds what.
-  const whoSec = el('div', 'lp-section');
-  whoSec.appendChild(el('h2', null, 'Who holds what'));
-  whoSec.appendChild(whoHoldsWhat(corpus, doctrine, positions));
-  host.appendChild(whoSec);
-
-  // 6. my own answer, if signed in.
+  // 7. my own answer, if signed in.
   const mine = await myOwnAnswer(doctrine);
   if (mine) {
     const mineSec = el('div', 'lp-section');
@@ -459,7 +461,7 @@ async function renderDoctrine(corpus, doctrine) {
     host.appendChild(mineSec);
   }
 
-  // 7. sources — the doctrine's, then every position's, deduplicated.
+  // 8. sources — the doctrine's, then every position's, deduplicated.
   const sources = dedupeSources([doctrine.sources, ...positions.map(p => p.sources)]);
   if (sources.length) {
     const srcSec = foldSection('Sources');
