@@ -222,3 +222,34 @@ Each phase ships on its own: full test gate (§9), commit per task, push to `mai
 - Drawn dashed curves to related beliefs on the canvas — Related is a list in the panel.
 - Minimap — the existing Reset view button covers "where am I".
 - Compare colour layer on `/view` — its own spec.
+
+---
+
+## Addendum 2026-09-23 — map-first chrome (phase 1.5), approved by Thomas
+
+**Why.** Phase 1 worked in `/view`'s Fullscreen and was unusable outside it. Measured at
+390×664: `/view`'s chrome (~215px) + the framed map's own header (~119px) + frame border,
+padding and footer (~40px) left the canvas **279px**; a 60% sheet left ~110px of map.
+Fullscreen was a workaround for the chrome, and the panel exposed it. Root cause is the
+stacked chrome, not the panel.
+
+**Decision.** Kill Fullscreen (`/view` and `/edit`). Make the map screens map-first at
+**640px and below**; desktop is unchanged apart from Fullscreen going.
+
+- **Generated page header** (`/thomas`, and inside `/view`'s frame), ≤640px: one row —
+  the view switcher and a `Filters` toggle. The `h1` is visually hidden (the tab title and
+  `/view`'s chrome carry it); the search field moves inside the Filters disclosure, and the
+  toggle shows a dot while a search is live. `#mapwrap` loses its border/radius and the
+  24px bottom allowance, so the canvas runs to the frame's edge.
+- **Site chrome in compact mode** (`mount(title, actions, { compact: true })`, `/view`
+  only), ≤640px: kicker hidden, title on one truncated line beside a `⋯` disclosure
+  button; the actions row and the nav row are hidden until `⋯` opens them, in place. Nav
+  folds into `⋯` **on map screens only** (Thomas, 2026-09-23); every other page is
+  unchanged. `.tm-main` loses its padding and gap, the iframe its border and radius. The
+  tradition note keeps its standing line and Learn link, drops the intro paragraph.
+- **Editor header**, ≤640px: `h1` and the change status on one line beside the same `⋯`
+  disclosure, which holds the file status, nav and file actions. Map/List tabs unchanged.
+- A disclosure, not a popover: nothing moves between DOM parents, and the signed-in
+  `⋯` popover keeps working inside it.
+
+**Target:** canvas ≥ 520px at 390×664 in `/view` without Fullscreen.
