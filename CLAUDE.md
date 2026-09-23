@@ -352,8 +352,17 @@ by branching inside `editor.html`.**
 
 Two tabs, both editing the same live in-memory model:
 
-- **List** (default) — the structured form: pick a node in the sidebar tree, edit fields,
-  add/delete nodes and domains.
+- **List** (default) — one centred column (760px) at every width: the search field, then the
+  outline of areas and belief rows. **The selected belief's form renders inline, directly under
+  its row** — the one persistent `#form` element is moved there by `renderTreeList()`, not
+  rebuilt elsewhere. `+ New belief in <area>` ends each area, `+ New area` ends the list; the
+  sticky Back/Next bar opens the neighbour's form inline and scrolls it to the top. There is no
+  sidebar and no "All beliefs" drawer. **`touch()` never calls `renderTreeList()`**: it patches
+  the edited belief's row (title, tier tag) in place through `rowFor`. A rebuild moves the
+  form, and moving the element that holds the focused field drops focus mid-keystroke, so the
+  outline is rebuilt only on structural change — select, add, delete, area rename, search. The
+  selected belief always survives the search filter, so its open form never vanishes.
+  `setTab('list')` re-renders that form, the mirror of `refreshPanel()` below.
 - **Map** — the same node-link layout and the same detail panel as the read-only Map view;
   here the panel holds the editable controls for the selected belief. Each domain box has
   a ✎ to rename in place. `setTab('map')` calls `mapView.refreshPanel()` because the List
