@@ -28,26 +28,23 @@
   #tradition-note .standing { color: var(--muted, #555); }
   iframe { width: 100%; flex: 1 1 auto; min-height: 320px; border: 1px solid var(--field-line); border-radius: var(--r2); }
 
-  /* Fullscreen: on a phone this page's chrome and the rendered map's own sticky
-     header together eat about 40% of the viewport, and the map is the point of
-     this page. A class, not the Fullscreen API — iOS Safari does not support
-     requestFullscreen() on a non-video element, which is the platform this was
-     asked for.
-
-     It works by removing this page's chrome, NOT by taking the iframe out of
-     flow. The rendered map sizes its canvas with `#mapwrap { height: calc(100vh
-     - 130px) }`, and inside a `position: fixed` iframe iOS Safari does not
-     resolve that 100vh against the iframe's new height — the canvas came out
-     less than half the screen with dead space under it. The flex column above
-     already sizes the frame correctly; fullscreen just gives it the whole
-     column. Do not "simplify" this back to a fixed iframe. */
-  body.tm-enlarged .tm-chrome, body.tm-enlarged #tradition-note { display: none; }
-  body.tm-enlarged .tm-main { padding: 0; gap: 0; max-width: none; }
-  body.tm-enlarged iframe { border: 0; border-radius: 0; }
-  #full-btn {
-    position: fixed; z-index: 51; right: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-    background: var(--panel); box-shadow: var(--e2);
+  /* Map-first (phase 1.5). Fullscreen is gone: it existed because this page's
+     chrome and the framed map's own header together left the canvas ~40% of a
+     phone, and the detail panel made that unusable outside it. Below 640px the
+     chrome is compact (mount's { compact: true }), the frame loses its border
+     and this column its padding, so the canvas gets the height instead. The
+     frame still sizes by the flex column above -- do not make it position:
+     fixed; iOS Safari does not re-resolve the inner 100vh against a fixed
+     frame's height. */
+  @media (max-width: 640px) {
+    body.tm-page .tm-main { padding: 0; gap: 0; }
+    iframe { border: 0; border-radius: 0; }
+    /* The standing line stays -- it is what stops a generated summary reading
+       as a person's map. The intro and the Learn link go: Learn is in the ⋯
+       nav, and the canvas needs the height. */
+    #tradition-note { padding: var(--s1) var(--s4); font-size: var(--fs-00); }
+    #tradition-note p { margin: 0; }
+    #tradition-intro, #tradition-learn { display: none; }
   }
 </style>
 </head>
@@ -115,27 +112,14 @@ if (traditionId) {
   } catch { tradition = null; }
 }
 
-const fullBtn = actionBtn('Fullscreen');
-fullBtn.id = 'full-btn';
-document.body.appendChild(fullBtn);
 const exportBtn = actionBtn('Export HTML');
 const copyBtn = actionBtn('Copy link');
 const makeMineBtn = actionBtn('Make my own map');
 const heading = tradition ? tradition.display_name
   : (traditionId ? 'Theology Map' : (name ? name + "'s map" : 'Theology Map'));
-mount(heading, [exportBtn, copyBtn, makeMineBtn]);
+mount(heading, [exportBtn, copyBtn, makeMineBtn], { compact: true });
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
-
-function setEnlarged(on) {
-  document.body.classList.toggle('tm-enlarged', on);
-  fullBtn.textContent = on ? 'Exit' : 'Fullscreen';
-}
-fullBtn.addEventListener('click', () =>
-  setEnlarged(!document.body.classList.contains('tm-enlarged')));
-// Escape is the only other way out: the frame is sandboxed without
-// allow-same-origin, so a key pressed inside it never reaches this document.
-addEventListener('keydown', e => { if (e.key === 'Escape') setEnlarged(false); });
 
 const user = getUser();
 // A named member map has an owner; a tradition map does not. Only the named-map
@@ -187,7 +171,6 @@ if (traditionId) {
 
       frameEl.srcdoc = html;
       frameEl.hidden = false;
-      fullBtn.hidden = false;
       exportBtn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });
@@ -242,7 +225,6 @@ if (traditionId) {
       const slug = slugify(name) || 'map';
       frameEl.srcdoc = html;
       frameEl.hidden = false;
-      fullBtn.hidden = false;
       exportBtn.hidden = false;
       exportBtn.addEventListener('click', () => {
         const blob = new Blob([html], { type: 'text/html' });

@@ -429,6 +429,27 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent); }
 }
 
+/* Compact chrome -- mount(title, actions, { compact: true }), the map screens
+   only (phase 1.5). Below 640px the kicker goes, the title truncates onto one
+   line beside a ⋯ disclosure, and the actions and nav rows stay hidden until
+   it is opened. Every selector here is (0,1,1) or more and sits after the base
+   .tm-chrome rules, so it wins on both counts. */
+.tm-menubtn { display:none; }
+@media (max-width: 640px) {
+  .tm-chrome--compact { padding:var(--s2) var(--s4); }
+  .tm-chrome--compact .kicker { display:none; }
+  .tm-chrome--compact .tm-chrome-titlerow { align-items:center; gap:var(--s2); }
+  .tm-chrome--compact .tm-chrome-titlerow > div:first-child { flex:1 1 0; min-width:0; }
+  .tm-chrome--compact h1 { margin:0; font-size:var(--fs-1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tm-chrome--compact .tm-menubtn { display:inline-flex; align-items:center; justify-content:center;
+    min-width:44px; min-height:44px; font:600 18px/1 var(--sans); color:var(--muted);
+    background:var(--panel); border:1px solid var(--field-line); border-radius:var(--r2); cursor:pointer; }
+  .tm-chrome--compact .tm-menubtn[aria-expanded="true"] { color:var(--ink); border-color:var(--muted); }
+  .tm-chrome--compact:not(.menu-open) .tm-chrome-actions,
+  .tm-chrome--compact:not(.menu-open) .toplinks { display:none; }
+  .tm-chrome--compact.menu-open .tm-chrome-actions { flex-basis:100%; }
+}
+
 body.tm-page { margin:0; background:var(--bg); color:var(--ink); font:var(--fs-1)/var(--lh-body) var(--serif); }
 body.tm-page main, body.tm-page .tm-main { padding:var(--s5); max-width:1200px; margin-inline:auto; }
 

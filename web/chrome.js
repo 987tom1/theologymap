@@ -74,7 +74,11 @@ const WIDE_NAV = '(min-width: 860px)';
 
 // actions: optional array of already-built elements, right-aligned in the
 // header. Defaults to none so every existing caller is unchanged.
-export function mount(pageTitle, actions = []) {
+// opts.compact: the map screens' map-first header (phase 1.5). Below 640px
+// the title shares one line with a ⋯ disclosure that shows the actions row
+// and the nav in place (engine/theme.css, .tm-chrome--compact). Only /view
+// passes it: the nav folds away on map screens and nowhere else.
+export function mount(pageTitle, actions = [], opts = {}) {
   const host = document.getElementById('tmChrome');
   if (!host) return;
   const user = getUser();
@@ -84,6 +88,20 @@ export function mount(pageTitle, actions = []) {
   titleCol.appendChild(el('p', 'kicker', 'Theology Map'));
   titleCol.appendChild(el('h1', null, pageTitle));
   titleRow.appendChild(titleCol);
+  if (opts.compact) {
+    head.classList.add('tm-chrome--compact');
+    // A disclosure, not a popover: nothing moves between DOM parents, so the
+    // signed-in ⋯ popover inside the nav keeps working unchanged inside it.
+    const menuBtn = el('button', 'tm-menubtn', '⋯');
+    menuBtn.type = 'button';
+    menuBtn.setAttribute('aria-label', 'Menu');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.addEventListener('click', () => {
+      const open = head.classList.toggle('menu-open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    titleRow.appendChild(menuBtn);
+  }
   if (actions.length) {
     const actionsRow = el('div', 'tm-chrome-actions');
     for (const a of actions) actionsRow.appendChild(a);
