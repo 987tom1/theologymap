@@ -114,3 +114,29 @@ test('an unknown id or a leaf with no children is a no-op', () => {
   assert.strictEqual(traverseKey(list, 'nope', 'ArrowRight'), null);
   assert.strictEqual(traverseKey(list, 'leaf1', 'ArrowRight'), null);
 });
+
+// revealPan: how far to pan so the selected tile sits clear of the detail
+// panel. A bottom sheet shrinks view.bottom; a side panel shrinks view.right.
+const { revealPan } = MapView;
+const VIEW = { left: 0, top: 0, right: 400, bottom: 800 };
+
+test('revealPan: a tile already inside the view does not move', () => {
+  assert.deepStrictEqual(revealPan({ x: 50, y: 50, w: 100, h: 40 }, VIEW, 16), { dx: 0, dy: 0 });
+});
+test('revealPan: a tile off the left edge pans right to the margin', () => {
+  assert.deepStrictEqual(revealPan({ x: -120, y: 50, w: 100, h: 40 }, VIEW, 16), { dx: 136, dy: 0 });
+});
+test('revealPan: a tile off the right edge pans left to the margin', () => {
+  assert.deepStrictEqual(revealPan({ x: 350, y: 50, w: 100, h: 40 }, VIEW, 16), { dx: -66, dy: 0 });
+});
+test('revealPan: a tile under a bottom sheet pans up above it', () => {
+  const sheet = { left: 0, top: 0, right: 400, bottom: 480 };
+  assert.deepStrictEqual(revealPan({ x: 50, y: 600, w: 100, h: 40 }, sheet, 16), { dx: 0, dy: -176 });
+});
+test('revealPan: a tile under a side panel pans left clear of it', () => {
+  const side = { left: 0, top: 0, right: 600, bottom: 800 };
+  assert.deepStrictEqual(revealPan({ x: 700, y: 50, w: 200, h: 40 }, side, 16), { dx: -316, dy: 0 });
+});
+test('revealPan: a tile bigger than the view aligns its top-left', () => {
+  assert.deepStrictEqual(revealPan({ x: 100, y: 100, w: 900, h: 900 }, VIEW, 16), { dx: -84, dy: -84 });
+});

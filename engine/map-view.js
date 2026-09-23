@@ -716,6 +716,23 @@
     return (j >= 0 && j < parent.children.length) ? parent.children[j] : null;
   }
 
+  // The pure half of "reveal the selected tile": how far to pan so a tile sits
+  // inside the visible part of the map -- the wrap minus whatever the detail
+  // panel covers -- with `margin` to spare. Pans the least distance; a tile too
+  // big to fit aligns its top-left, since that is where its title is.
+  function revealAxis(pos, size, lo, hi, m) {
+    if (size > hi - lo - 2 * m) return lo + m - pos;
+    if (pos < lo + m) return lo + m - pos;
+    if (pos + size > hi - m) return hi - m - (pos + size);
+    return 0;
+  }
+  function revealPan(tile, view, margin) {
+    return {
+      dx: revealAxis(tile.x, tile.w, view.left, view.right, margin),
+      dy: revealAxis(tile.y, tile.h, view.top, view.bottom, margin),
+    };
+  }
+
   // Arrow-key traversal moves focus only -- it never opens/closes a tile or
   // triggers a click, so it never calls redraw(). Delegated on boxesEl like
   // _bindClicks, keyed off the same data-id, but reading this._lastList
@@ -828,6 +845,7 @@
 
   MapView.groupByDomain = groupByDomain;
   MapView.traverseKey = traverseKey;
+  MapView.revealPan = revealPan;
 
   return MapView;
 });
