@@ -541,10 +541,17 @@
   MapView.prototype.refreshPanel = function () { this._renderPanel(); };
 
   MapView.prototype._select = function (id, node) {
+    // A Related link inside the panel selects another belief, which rebuilds
+    // the panel and destroys the focused link -- focus would fall to <body>,
+    // outside this map's Escape and arrow-key handlers. Land it on the newly
+    // selected tile instead.
+    const focusWasInPanel = this.panel.contains(document.activeElement);
     this.selectedId = id; this.selectedNode = node;
     this.redraw();
     this._renderPanel();
     this._reveal();
+    const el = focusWasInPanel && this.mapEls.get(id);
+    if (el) el.focus({ preventScroll: true });
   };
 
   MapView.prototype._deselect = function (returnFocus) {
