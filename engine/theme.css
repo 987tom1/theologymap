@@ -263,7 +263,15 @@ details.optional > summary:hover { color: var(--ink); }
 
    The NAV LIST in chrome.js and editor.html is a different thing and is still a
    permanent hand-kept lockstep. See CLAUDE.md section 8. */
-.tm-chrome { padding:var(--s4) var(--s5) var(--s3); border-bottom:1px solid var(--line); }
+/* The header's content shares the page's column. body.tm-page main is a
+   1200px content box centred with var(--s5) padding, so its content starts at
+   max(--s5, (100% - 1200px) / 2); the chrome's inline padding is that same
+   expression. Before this the header hugged the viewport edge while the page
+   floated in a centred column, and a wide screen read as two unrelated pieces.
+   A page with a narrower main (/learn's 900px) lines up with the 1200px column,
+   not its own. */
+.tm-chrome { padding:var(--s4) var(--s5) var(--s3); border-bottom:1px solid var(--line);
+             padding-inline:max(var(--s5), calc((100% - 1200px) / 2)); }
 .tm-chrome .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
                       text-transform:uppercase; color:var(--muted); }
 .tm-chrome h1 { margin:0 0 var(--s1); font-family:var(--serif); font-size:var(--fs-3); line-height:var(--lh-tight); letter-spacing:-.012em; }
@@ -304,6 +312,9 @@ details.optional > summary:hover { color: var(--ink); }
   font: 600 18px/1 var(--sans); /* optical: the ⋯ glyph, not a type step */
   color: var(--muted); background: none;
   border: none; padding: 0 var(--s1); cursor: pointer; anchor-name: --tm-more-anchor;
+  /* web/landing.html styles every bare button with margin-top: var(--s4); in a
+     centred flex row that pushed the ⋯ 8px below the nav labels on / only. */
+  margin: 0;
 }
 .tm-morebtn:hover { color: var(--ink); }
 .tm-more {
@@ -441,7 +452,7 @@ details.optional > summary:hover { color: var(--ink); }
   .tm-chrome--compact .tm-chrome-titlerow { align-items:center; gap:var(--s2); }
   .tm-chrome--compact .tm-chrome-titlerow > div:first-child { flex:1 1 0; min-width:0; }
   .tm-chrome--compact h1 { margin:0; font-size:var(--fs-1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .tm-chrome--compact .tm-menubtn { display:inline-flex; align-items:center; justify-content:center;
+  .tm-chrome--compact .tm-menubtn { margin:0; display:inline-flex; align-items:center; justify-content:center;
     min-width:44px; min-height:44px; font:600 18px/1 var(--sans); color:var(--muted);
     background:var(--panel); border:1px solid var(--field-line); border-radius:var(--r2); cursor:pointer; }
   .tm-chrome--compact .tm-menubtn[aria-expanded="true"] { color:var(--ink); border-color:var(--muted); }
@@ -456,14 +467,20 @@ body.tm-page main, body.tm-page .tm-main { padding:var(--s5); max-width:1200px; 
 /* Card grid — shared by the gallery, first run and the "start from someone
    else's map" picker, so it lives here rather than in three inline blocks.
    auto-fill for the gallery (many cards, fill the row); the first-run block
-   uses auto-fit and a narrower cap so its two cards sit side by side on a wide
-   screen instead of shrinking into a four-track row. Both collapse to one
+   uses auto-fit so its cards stretch across the whole column instead of
+   leaving empty tracks -- three across at the 1200px column, two, then one. It
+   used to be capped at 780px and pinned left, which left a wide screen's home
+   page two columns of cards and a blank right half. Both collapse to one
    column at any viewport, checked at 320px and 360px — the min() clamps the
    track to the viewport itself so a bare 300px floor cannot overflow a
    narrower one. */
 .tm-grid { display:grid; gap:var(--s4); max-width:1200px; margin-inline:auto;
            grid-template-columns:repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
-.tm-firstrun { grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); max-width:780px; margin-inline:0; }
+/* margin-inline:0 is load-bearing: landing's <main> is a flex column, and
+   .tm-grid's margin-inline:auto on a flex item cancels the cross-axis stretch,
+   so the grid fell back to its max-content width -- two 300px tracks, 685px
+   wide on a 390px phone. Same trap as /view's iframe (CLAUDE.md section 7). */
+.tm-firstrun { grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); margin-inline:0; }
 .tm-grid .tm-span { grid-column:1 / -1; }
 
 /* A whole card that is itself the control — an <a> in the gallery, a
