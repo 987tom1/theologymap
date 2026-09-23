@@ -257,15 +257,23 @@
   .mbox-add { background:var(--ink); color:var(--bg); border-color:var(--ink);
     font:600 12px/1 var(--sans); text-align:center; cursor:pointer; }
   .mbox-add:hover { opacity:.85; }
-  nav.tree { width:290px; flex:none; border-right:1px solid var(--line);
-             padding:14px 10px; overflow-y:auto; min-height:0; max-height:none; }
-  nav.tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
+  /* The List tab is one column at every width (phase 3): the search field,
+     then the outline, with the selected belief's form inline under its row.
+     The page itself scrolls (body is min-height, not height), so .listnav's
+     sticky bottom is the viewport's. The padding centres a 760px column and
+     never drops under a 16px gutter. */
+  .tree { flex:1; min-width:0; padding:14px max(16px, calc((100% - 760px) / 2)) 60px; }
+  .tree input[type=search] { width:100%; border:1px solid var(--line); background:var(--panel);
     color:var(--ink); padding:6px 10px; border-radius:6px; font:13px/1 var(--sans); margin-bottom:10px; }
-  .domain summary, .treedrawer > summary { cursor:pointer; font:600 var(--fs-000)/var(--lh-ui) var(--sans);
+  .domain > summary { cursor:pointer; font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); padding:6px 8px; border-radius:5px; list-style:none; }
-  .domain summary::-webkit-details-marker, .treedrawer > summary::-webkit-details-marker { display:none; }
-  .domain summary:hover, .treedrawer > summary:hover { color:var(--ink); background:var(--chip); }
-  .domain[open] summary { color:var(--ink); }
+  /* Child combinators: the inline form's details.optional sits inside .domain. */
+  .domain > summary::-webkit-details-marker { display:none; }
+  .domain > summary:hover { color:var(--ink); background:var(--chip); }
+  .domain[open] > summary { color:var(--ink); }
+  /* No min-height here on purpose: on touch, theme.css's
+     @media (pointer:coarse) { .nodebtn { min-height:44px } } is what wins --
+     same (0,1,0) specificity, and theme.css is linked after this <style>. */
   .nodebtn { display:flex; align-items:center; width:100%; text-align:left; background:none; border:none;
     font:13.5px/1.4 var(--serif); color:var(--ink); padding:6px 10px 6px 18px; border-radius:5px;
     cursor:pointer; }
@@ -285,7 +293,10 @@
   .newdomain { margin:12px 8px 4px; }
   .newdomain button { width:100%; }
 
-  main.form { flex:1; padding:20px 26px 60px; max-width:720px; margin-inline:auto; overflow-y:auto; }
+  /* Inline under its row; the rule on the left ties it to that row. Before a
+     map loads, and with nothing selected, #form sits bare above the outline. */
+  .domain .form { margin:2px 0 14px 18px; padding:14px 0 0 16px; border-left:2px solid var(--ink); }
+  .tree > .form { margin:4px 8px 12px; }
   .empty { color:var(--muted); font:14px/1.6 var(--serif); max-width:58ch; }
   .row { margin-bottom:16px; }
   label { display:block; font:600 var(--fs-000)/var(--lh-ui) var(--sans);
@@ -311,7 +322,8 @@
   .formfoot .status.ok { color:var(--good); }
   .formfoot .status.err { color:var(--bad); }
 
-  /* List-tab Back/Next: sticks to the bottom of main.form's own scroll area,
+  /* List-tab Back/Next: sticks to the bottom of the viewport while the form
+     is on screen,
      same idea as the wizard's .wz-nav (position: sticky; bottom: 0) but in
      this file's own tokens/background — deliberately not the bleed-to-edge
      margin hack .wz-nav uses, which is hard-bound to a different parent's
@@ -326,8 +338,6 @@
   dialog .actions { display:flex; gap:8px; justify-content:flex-end; margin-top:16px; }
 
   .previewbox textarea { width:100%; height:320px; font:12px/1.5 ui-monospace, Consolas, monospace; }
-
-  @media (max-width:900px) and (min-width:641px) { nav.tree { width:240px; } }
 
   @media (max-width:640px) {
     header .kicker, header .sub { display:none; }
@@ -346,9 +356,7 @@
     .tabs { padding:8px 12px 0; }
     .tabbtn { flex:1; }
     .layout { flex-direction:column; }
-    nav.tree { width:auto; border-right:none; border-bottom:1px solid var(--line);
-               max-height:45vh; padding:10px 12px; }
-    main.form { padding:16px 14px 48px; }
+    .domain .form { margin-left:4px; padding-left:12px; }
   }
 </style>
 <link rel="stylesheet" href="theme.css">
@@ -389,12 +397,13 @@
 </div>
 
 <div class="layout" id="listLayout" style="display:none">
-  <nav class="tree" id="tree" aria-label="Areas and beliefs"></nav>
-  <main class="form" id="form">
+  <div class="tree" id="tree">
+  <div class="form" id="form">
     <p class="empty" id="emptyIntro">Connect or upload <code>theology-map.md</code> above to start editing. Connecting
       (Chrome/Edge) lets Save write straight back to the file on disk. Uploading works in any browser
       but Save only copies the text — you'll paste it into the file yourself.</p>
-  </main>
+  </div>
+  </div>
 </div>
 
 <dialog id="dlgConfirm">
@@ -530,6 +539,9 @@
       // keystroke would write back.
       mapView.refreshPanel();
     }
+    // The mirror of refreshPanel(): the Map panel edits the same node objects,
+    // and touch() only patches the row, so the inline form is rebuilt here.
+    if (tab === 'list' && current) renderForm();
   }
 
   function ensureMapView() {
@@ -563,11 +575,19 @@
 
   function confirmDeleteNodeFromMap(node) {
     const domain = domains.find(d => d.nodes.includes(node));
+    // The List tab's selection is by index, and the splice shifts every later
+    // index in that area -- re-find the selected belief (or drop it if it was
+    // this one) before the List re-renders against it.
+    const cur = currentNode();
     deleteNodeWithConfirm(domain, node, () => {
       dirty = true;
+      current = cur && cur !== node
+        ? { domainIndex: current.domainIndex, nodeIndex: domains[current.domainIndex].nodes.indexOf(cur) }
+        : null;
       mapView.forgetNode(node);
       mapView.redraw();
-      renderTreeList('');
+      renderTreeList();
+      renderForm();
     });
   }
 
@@ -579,7 +599,7 @@
     dirty = true;
     createdNodes.add(node);
     updateChangeIndicator();
-    renderTreeList('');
+    renderTreeList();
     return node;
   }
 
@@ -907,23 +927,42 @@
   }
 
   // ------------------------------------------------------------- tree/nav
+  let searchEl = null;
   function renderTree() {
     treeEl.innerHTML = '';
-    const search = document.createElement('input');
-    search.type = 'search'; search.placeholder = 'Filter beliefs…';
-    search.addEventListener('input', () => renderTreeList(search.value.trim().toLowerCase()));
-    treeEl.appendChild(search);
-    renderTreeList('');
+    searchEl = document.createElement('input');
+    searchEl.type = 'search'; searchEl.placeholder = 'Filter beliefs…';
+    searchEl.addEventListener('input', () => renderTreeList());
+    treeEl.appendChild(searchEl);
+    renderTreeList();
   }
 
-  function renderTreeList(filter) {
-    const old = treeEl.querySelector('.treedrawer');
+  function currentNode() {
+    return current ? domains[current.domainIndex].nodes[current.nodeIndex] : null;
+  }
+
+  function rowHTML(node) {
+    return core.escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
+  }
+
+  // The outline, with formEl moved in under the selected row. Structural
+  // changes only (select, add, delete, area rename, search): it moves formEl,
+  // and moving the element that holds the focused field drops focus, so
+  // touch() patches one row through rowFor instead of calling this. The filter
+  // is read from the search field, and the selected belief always survives it
+  // -- a new "Untitled" or a retitled row must not vanish with its open form.
+  let rowFor = new Map();
+  function renderTreeList() {
+    const filter = searchEl ? searchEl.value.trim().toLowerCase() : '';
+    const cur = currentNode();
+    const old = treeEl.querySelector('.treelist');
     if (old) old.remove();
+    rowFor = new Map();
     const wrap = document.createElement('div');
     wrap.className = 'treelist';
 
     domains.forEach((domain, di) => {
-      const matches = domain.nodes.filter(n =>
+      const matches = domain.nodes.filter(n => n === cur ||
         !filter || (n.title + ' ' + (n.hold||'')).toLowerCase().includes(filter));
       if (filter && matches.length === 0) return;
 
@@ -938,9 +977,11 @@
         const ni = domain.nodes.indexOf(node);
         const b = document.createElement('button');
         b.className = 'nodebtn' + (current && current.domainIndex === di && current.nodeIndex === ni ? ' active' : '');
-        b.innerHTML = core.escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
-        b.addEventListener('click', () => { selectNode(di, ni); });
+        b.innerHTML = rowHTML(node);
+        b.addEventListener('click', () => selectAndReveal({ domainIndex: di, nodeIndex: ni }, 'nearest'));
         det.appendChild(b);
+        rowFor.set(node, b);
+        if (node === cur) det.appendChild(formEl);
       });
 
       const addNode = document.createElement('button');
@@ -960,22 +1001,8 @@
     nd.appendChild(ndBtn);
     wrap.appendChild(nd);
 
-    const totalNodes = domains.reduce((sum, d) => sum + d.nodes.length, 0);
-    const drawer = document.createElement('details');
-    drawer.className = 'treedrawer';
-    // The tree is rebuilt from scratch on every touch() AND on every search
-    // keystroke, so the open state is carried across from the outgoing element
-    // rather than held in a variable or re-derived from the media query. Deriving
-    // it every time would slam the drawer shut under the user mid-search on a
-    // phone; holding it in a variable would drift from the DOM. First build has
-    // no predecessor, so that is where the phone/desktop default applies.
-    drawer.open = old ? old.open : !window.matchMedia('(max-width:640px)').matches;
-    const drawerSummary = document.createElement('summary');
-    drawerSummary.textContent = 'All beliefs (' + totalNodes + ')';
-    drawer.appendChild(drawerSummary);
-    drawer.appendChild(wrap);
-
-    treeEl.appendChild(drawer);
+    if (!cur) treeEl.appendChild(formEl);   // empty state: above the outline
+    treeEl.appendChild(wrap);
   }
 
   // Flattened domains[].nodes[] traversal for the List tab's Back/Next bar:
@@ -1002,12 +1029,17 @@
 
   function selectNode(di, ni) {
     current = { domainIndex: di, nodeIndex: ni };
-    renderTreeList('');
+    renderTreeList();
     renderForm();
-    if (window.matchMedia('(max-width:640px)').matches) {
-      const drawer = treeEl.querySelector('.treedrawer');
-      if (drawer) drawer.open = false;
-    }
+  }
+
+  // Closing the old inline form can pull the chosen row up out of view (it was
+  // below that form), so every row pick re-reveals it: 'nearest' for a click,
+  // a no-op when it is still on screen; 'start' for Back/Next, so the
+  // neighbour's form reads from the top.
+  function selectAndReveal(pos, block = 'start') {
+    selectNode(pos.domainIndex, pos.nodeIndex);
+    treeEl.querySelector('.nodebtn.active').scrollIntoView({ block });
   }
 
   function addDomain() {
@@ -1026,12 +1058,13 @@
     createdNodes.add(node);
     updateChangeIndicator();
     selectNode(di, domains[di].nodes.length - 1);
+    formEl.querySelector('input[type=text]').focus();
   }
 
   // ------------------------------------------------------------------ form
   function renderForm() {
     if (!current) {
-      formEl.innerHTML = '<p class="empty">Pick a belief on the left, or add a new one.</p>';
+      formEl.innerHTML = '<p class="empty">Pick a belief, or add a new one.</p>';
       return;
     }
     const node = domains[current.domainIndex].nodes[current.nodeIndex];
@@ -1118,9 +1151,7 @@
     backBtn.textContent = 'Back';
     backBtn.disabled = !prevPos;
     backBtn.addEventListener('click', () => {
-      if (!prevPos) return;
-      selectNode(prevPos.domainIndex, prevPos.nodeIndex);
-      formEl.scrollTop = 0;
+      if (prevPos) selectAndReveal(prevPos);
     });
     const nextBtn = document.createElement('button');
     nextBtn.type = 'button';
@@ -1128,9 +1159,7 @@
     nextBtn.textContent = 'Next';
     nextBtn.disabled = !nextPos;
     nextBtn.addEventListener('click', () => {
-      if (!nextPos) return;
-      selectNode(nextPos.domainIndex, nextPos.nodeIndex);
-      formEl.scrollTop = 0;
+      if (nextPos) selectAndReveal(nextPos);
     });
     navBar.appendChild(backBtn);
     navBar.appendChild(nextBtn);
@@ -1208,7 +1237,10 @@
     if (node && !createdNodes.has(node)) editedNodes.add(node);
     const status = document.getElementById('formStatus');
     if (status) { status.textContent = 'Unsaved changes in the editor.'; status.className = 'status'; }
-    renderTreeList('');
+    // Patch this belief's row in place -- never renderTreeList(), which moves
+    // the inline form and would drop focus on every keystroke.
+    const row = rowFor.get(node);
+    if (row) row.innerHTML = rowHTML(node);
     updateChangeIndicator();
   }
 
