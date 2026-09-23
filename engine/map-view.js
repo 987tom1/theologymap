@@ -11,9 +11,10 @@
  *   - input shape. The generated map holds a flat array of nodes carrying a
  *     `.domain` string; the editor holds them already grouped. MapView.
  *     groupByDomain adapts the former to the latter.
- *   - the leaf body. Read-only leaves are a <dl> built from render.py's own
- *     detailRows(), which it shares with its card views; editable leaves are
- *     DOM-built controls. `opts.leafHTML` injects the former.
+ *   - the detail panel's body. A selected belief's detail shows in
+ *     .map-panel, never inside its tile. Read-only, it is a <dl> built from
+ *     render.py's own detailRows(), shared with its card views and injected as
+ *     `opts.panelHTML`; in the editor it is DOM-built controls.
  *   - chrome. Rename, add-node and add-domain exist only in the editor;
  *     `opts.readonly` turns them off.
  */
@@ -79,14 +80,15 @@
     this.getDomains = opts.getDomains;
     this.tierMeta = opts.tierMeta;
     this.confMeta = opts.confMeta;
-    this.onLeafToggle = opts.onLeafToggle || function () {};
-
-    this.mapDetailOpen = new Set();
+    // One selected leaf, or none. A belief never expands inside the canvas any
+    // more: its detail is shown in .map-panel, beside the map, at every width.
+    this.selectedId = null;
+    this.selectedNode = null;
     this.mapManualCollapsed = null; // Set, initialised lazily once domain names are known
     this.mapEls = new Map();
     // One-shot id of a leaf just created via the addnode click handler, so
     // redraw()'s mount branch can Settle exactly that tile in and nothing
-    // else -- see _bindClicks and redraw below.
+    // else -- see _activate and redraw below.
     this._pendingEnterId = null;
     this.panX = 0; this.panY = 0; this.zoom = 1;
     this.needsCenter = true;
@@ -106,22 +108,29 @@
     // how the generated map auto-expands areas holding a search match.
     this.readonly = !!opts.readonly;
     this.leafHTML = opts.leafHTML || null;
+    this.panelHTML = opts.panelHTML || null;
     this.escapeHtml = opts.escapeHtml || function (s) { return window.EditorCore.escapeHtml(s); };
     this.forceOpen = opts.forceOpen || function () { return false; };
 
     container.innerHTML =
       '<div class="mapcontrols"><button type="button" class="map-reset">Reset view</button></div>' +
-      '<div class="maphint">Drag/swipe to pan &middot; scroll or pinch to zoom &middot; tap a box to expand</div>' +
-      '<div class="map-panzoom"><svg class="map-svg"></svg><div class="map-boxes"></div></div>';
+      '<div class="maphint">Drag to pan &middot; pinch or scroll to zoom &middot; tap a belief to read it</div>' +
+      '<div class="map-panzoom"><svg class="map-svg"></svg><div class="map-boxes"></div></div>' +
+      '<aside class="map-panel" role="region" hidden><div class="mp-head"><div class="mp-title"></div>' +
+      '<button type="button" class="mp-close" aria-label="Close">&times;</button></div><div class="mp-body"></div></aside>';
     this.wrap = container;
     this.panzoomEl = container.querySelector('.map-panzoom');
     this.svgEl = container.querySelector('.map-svg');
     this.boxesEl = container.querySelector('.map-boxes');
+    this.panel = container.querySelector('.map-panel');
+    this.panelTitle = container.querySelector('.mp-title');
+    this.panelBody = container.querySelector('.mp-body');
     container.querySelector('.map-reset').addEventListener('click', () => { this.needsCenter = true; this.redraw(); });
 
     this._bindClicks();
     this._bindPanZoom();
     this._bindKeyboard();
+    this._bindPanel();
     // A redraw while the map is hidden measures every box as 0x0 and lays the
     // whole tree on top of itself at the origin. It self-heals on the next
     // visible redraw, so it was never visible -- it was just a full layout pass
@@ -202,53 +211,30 @@
     if (box.type === 'addnode' || box.type === 'adddomain') {
       return `<div class="mbox mbox-add" data-id="${esc(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
     }
-    // A read-only leaf is a string the consumer builds -- render.py's is a <dl>
-    // from the same detailRows() its card views use. An editable leaf is not a
-    // string at all: it is DOM built by _mountLeaf/_updateLeaf so that focus and
-    // in-progress keystrokes survive a redraw.
-    // The id is handed over because _bindClicks toggles on data-id: a leaf that
-    // labelled itself with its slug would toggle a key the view does not hold.
-    if (this.leafHTML) return this.leafHTML(box.node, this.mapDetailOpen.has(box.id), box.id);
-    throw new Error('_mboxHTML should never be called for a leaf box — leaves are built via _mountLeaf/_updateLeaf');
+    // Every leaf is a string now, in both consumers: render.py supplies its own
+    // (a read-only tile carrying the `assumed` class), the editor takes the
+    // default. The id is handed over because _bindClicks keys on data-id: a
+    // leaf that labelled itself with its slug would select a key the view does
+    // not hold.
+    return this.leafHTML ? this.leafHTML(box.node, box.id) : this._leafTileHTML(box.node, box.id);
   };
 
-  // Closed leaves render exactly like the read-only public map view — plain
-  // title + chips — so a domain that's merely expanded still "looks like
-  // the regular map view" until a doctrine itself is dropped down. Only an
-  // open leaf shows editable controls.
-  MapView.prototype._leafHeaderReadonly = function (n) {
-    const wrap = document.createElement('div');
-    wrap.className = 'mtitle';
-    const b = document.createElement('b');
-    b.textContent = n.title;
-    wrap.appendChild(b);
-    const chev = document.createElement('span');
-    chev.className = 'mchev'; chev.innerHTML = '&#9656;';
-    wrap.appendChild(chev);
-    return wrap;
-  };
-
-  MapView.prototype._leafMetaReadonly = function (n) {
-    const wrap = document.createElement('div');
-    wrap.className = 'mmeta';
+  MapView.prototype._chipsHTML = function (n) {
+    const esc = this.escapeHtml;
     const tier = n.tier ? this.tierMeta[n.tier] : null;
-    const conf = n.confidence ? this.confMeta[n.confidence] : null;
-    if (tier) {
-      const chip = document.createElement('span');
-      chip.className = 'chip tier'; chip.style.background = tier[1]; chip.textContent = n.tier;
-      wrap.appendChild(chip);
-    }
-    if (conf) {
-      const chip = document.createElement('span');
-      chip.className = 'chip'; chip.textContent = n.confidence;
-      wrap.appendChild(chip);
-    }
-    if (n.flags.includes('study')) {
-      const chip = document.createElement('span');
-      chip.className = 'chip'; chip.textContent = 'study';
-      wrap.appendChild(chip);
-    }
-    return wrap;
+    return (tier ? `<span class="chip tier" style="background:${tier[1]}">${esc(n.tier)}</span>` : '') +
+      (n.confidence && this.confMeta[n.confidence] ? `<span class="chip">${esc(n.confidence)}</span>` : '') +
+      (n.flags.includes('study') ? '<span class="chip">study</span>' : '');
+  };
+
+  // Every leaf is a closed tile -- title and chips -- in both consumers. Its
+  // detail lives in .map-panel, so a tile never changes size on a click and
+  // never holds a focusable control a redraw could clobber.
+  MapView.prototype._leafTileHTML = function (n, id) {
+    const esc = this.escapeHtml;
+    const tier = n.tier ? this.tierMeta[n.tier] : null;
+    return `<div class="mbox mbox-leaf" data-id="${esc(id)}" tabindex="0" style="--tier:${tier ? tier[1] : 'var(--line)'}">` +
+      `<div class="mtitle"><b>${esc(n.title)}</b></div><div class="mmeta">${this._chipsHTML(n)}</div></div>`;
   };
 
   MapView.prototype._leafHeaderEditable = function (n) {
@@ -258,26 +244,12 @@
     wrap.className = 'mtitle';
     const title = document.createElement('input');
     title.type = 'text'; title.value = n.title; title.className = 'mtitle-input';
-    title.addEventListener('input', () => { n.title = title.value; n.slug = core.slugify(title.value); self.onFieldChange(n); });
-    title.addEventListener('click', e => e.stopPropagation());
+    title.setAttribute('aria-label', 'Belief');
+    // redraw() so the closed tile shows the new title; the panel itself is
+    // never rebuilt by a redraw, so this input keeps focus and caret.
+    title.addEventListener('input', () => { n.title = title.value; n.slug = core.slugify(title.value); self.onFieldChange(n); self.redraw(); });
     wrap.appendChild(title);
-    const chev = document.createElement('span');
-    chev.className = 'mchev'; chev.innerHTML = '&#9656;';
-    wrap.appendChild(chev);
     return wrap;
-  };
-
-  // Every editable control for an open leaf is built by _leafDetail below, in
-  // the same order as the wizard's doctrine editor (What I hold, Tier,
-  // Confidence, #study, then the optional disclosure), so the meta row has
-  // nothing of its own left to draw.
-  //
-  // It must still return SOMETHING for _mountLeaf/_updateLeaf to append, and an
-  // empty fragment appends nothing. Those two builders append meta before
-  // detail, so "tidying" this back into returning a .mmeta div re-orders every
-  // open tile -- that is why it looks pointless and is not.
-  MapView.prototype._leafMetaEditable = function () {
-    return document.createDocumentFragment();
   };
 
   MapView.prototype._leafDetail = function (n) {
@@ -285,12 +257,6 @@
     const self = this;
     const wrap = document.createElement('div');
     wrap.className = 'mdetail';
-    // Nothing inside an open tile should collapse it. _bindClicks exempts
-    // inputs and a handful of class names, and the radio chips below are
-    // <span>s inside <label>s, which it would not recognise -- so the panel
-    // stops the click here rather than growing that exemption list to cover
-    // every control this function may ever add.
-    wrap.addEventListener('click', e => e.stopPropagation());
 
     function field(labelText, value, onInput) {
       const row = document.createElement('div');
@@ -312,7 +278,7 @@
     // .wz-radios: real <input type=radio> visually restyled, so arrow-key
     // operation and the radiogroup semantics come from the platform rather
     // than from us. The group name is keyed on this tile's own stable leaf id,
-    // so two tiles open at once never share a group.
+    // so a group never outlives or collides with another belief's.
     function radios(labelText, values, value, glossOf, ramp, onPick) {
       const cell = document.createElement('div');
       const lab = document.createElement('p');
@@ -366,7 +332,7 @@
     controls.appendChild(radios('Tier', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
       v => { n.tier = v; self.onFieldChange(n); self.redraw(); }));
     controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
-      v => { n.confidence = v; self.onFieldChange(n); }));
+      v => { n.confidence = v; self.onFieldChange(n); self.redraw(); }));
     wrap.appendChild(controls);
 
     [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
@@ -377,6 +343,7 @@
       cb.addEventListener('change', () => {
         n.flags = cb.checked ? [...new Set([...n.flags, flag])] : n.flags.filter(f => f !== flag);
         self.onFieldChange(n);
+        self.redraw();   // the tile shows a study chip
       });
       lab.appendChild(cb);
       lab.appendChild(document.createTextNode(label));
@@ -411,69 +378,15 @@
 
     // Existing content is never hidden behind a disclosure someone has to find.
     opt.open = !!(n.why || n.vs || n.todo || n.refs || (n.link && n.link.length));
-    // A <details> changes its own height after the layout pass measured the tile.
-    // Without this, opening the section makes tiles overlap (design 6.3).
-    opt.addEventListener('toggle', () => { self.redraw(); });
     wrap.appendChild(opt);
 
     const del = document.createElement('button');
     del.type = 'button'; del.className = 'danger mdelete';
-    del.textContent = 'Delete this node';
-    del.addEventListener('click', e => { e.stopPropagation(); self.onDeleteNode(n); });
+    del.textContent = 'Delete this belief';
+    del.addEventListener('click', () => { self.onDeleteNode(n); });
     wrap.appendChild(del);
 
     return wrap;
-  };
-
-  MapView.prototype._mountLeaf = function (box) {
-    const n = box.node;
-    const open = this.mapDetailOpen.has(box.id);
-    const el = document.createElement('div');
-    el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
-    el.dataset.id = box.id;
-    el.tabIndex = 0;
-    el.dataset.open = open ? '1' : '';
-    const tier = n.tier ? this.tierMeta[n.tier] : null;
-    el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
-    el.appendChild(open ? this._leafHeaderEditable(n) : this._leafHeaderReadonly(n));
-    el.appendChild(open ? this._leafMetaEditable(n) : this._leafMetaReadonly(n));
-    if (open) el.appendChild(this._leafDetail(n));
-    return el;
-  };
-
-  MapView.prototype._updateLeaf = function (el, box) {
-    const n = box.node;
-    const open = this.mapDetailOpen.has(box.id);
-    const wasOpen = el.dataset.open === '1';
-    el.className = 'mbox mbox-leaf' + (open ? ' mopen' : '');
-    const tier = n.tier ? this.tierMeta[n.tier] : null;
-    el.style.setProperty('--tier', tier ? tier[1] : 'var(--line)');
-    el.dataset.open = open ? '1' : '';
-
-    if (!open) {
-      // Closed tiles have no focusable controls, so it's safe — and keeps
-      // them in sync with edits made elsewhere (e.g. the List tab) — to
-      // simply rebuild them on every redraw.
-      el.innerHTML = '';
-      el.appendChild(this._leafHeaderReadonly(n));
-      el.appendChild(this._leafMetaReadonly(n));
-      return;
-    }
-
-    if (!wasOpen) {
-      el.innerHTML = '';
-      el.appendChild(this._leafHeaderEditable(n));
-      el.appendChild(this._leafMetaEditable(n));
-      el.appendChild(this._leafDetail(n));
-      return;
-    }
-
-    // Already open and staying open — leave header/meta/detail controls
-    // alone so an in-progress keystroke in a focused field is never
-    // clobbered by a redraw triggered from elsewhere (e.g. resizing the
-    // window, or editing a different node).
-    const hasDetail = !!el.querySelector('.mdetail');
-    if (!hasDetail) el.appendChild(this._leafDetail(n));
   };
 
   MapView.prototype.redraw = function () {
@@ -485,31 +398,20 @@
     for (const [id, el] of [...this.mapEls.entries()]) {
       if (!liveIds.has(id)) { el.remove(); this.mapEls.delete(id); }
     }
+    // A live search or a collapsed area can take the selected tile off the map;
+    // a panel describing a belief nobody can see is worse than no panel.
+    if (this.selectedId && !liveIds.has(this.selectedId)) this._clearSelection();
     list.forEach(box => {
       let el = this.mapEls.get(box.id);
-      // A read-only leaf is plain markup and takes the generic string path
-      // below with every other box type; only an editable leaf needs the
-      // mount/update pair that preserves focus across a redraw.
-      if (box.type === 'leaf' && !this.readonly) {
-        if (!el) {
-          el = this._mountLeaf(box);
-          // Settle only the one leaf _bindClicks' addnode branch just
-          // created -- every other fresh mount (initial page load, a
-          // cleared search filter revealing previously-excluded boxes) must
-          // stay motionless, per the "no motion on first paint" rule.
-          if (box.id === this._pendingEnterId) el.classList.add('mbox-enter');
-          this.boxesEl.appendChild(el);
-          this.mapEls.set(box.id, el);
-        } else {
-          this._updateLeaf(el, box);
-        }
-        box.el = el;
-        return;
-      }
       if (!el) {
         const tmp = document.createElement('div');
         tmp.innerHTML = this._mboxHTML(box);
         el = tmp.firstElementChild;
+        // Settle only the one leaf _activate's addnode branch just created --
+        // every other fresh mount (initial page load, a cleared search filter
+        // revealing previously-excluded boxes) must stay motionless, per the
+        // "no motion on first paint" rule.
+        if (box.id === this._pendingEnterId) el.classList.add('mbox-enter');
         this.boxesEl.appendChild(el);
         this.mapEls.set(box.id, el);
       } else {
@@ -518,7 +420,10 @@
         const fresh = tmp.firstElementChild;
         el.className = fresh.className;
         el.innerHTML = fresh.innerHTML;
+        // An editor tile's --tier follows a tier change made in the panel.
+        el.style.cssText = fresh.style.cssText;
       }
+      el.classList.toggle('msel', box.id === this.selectedId);
       box.el = el;
     });
     // Single-use: cleared whether or not it matched a box this pass, so a
@@ -578,7 +483,9 @@
         const mx = (x1 + x2) / 2;
         const edgeClass = c.depth === 1 ? 'edge-domain' : 'edge-leaf';
         let style = '';
-        if (c.type === 'leaf') {
+        if (c.type === 'leaf' && c.id === self.selectedId) {
+          style = ' style="stroke:var(--ink);opacity:1"';
+        } else if (c.type === 'leaf') {
           const tier = c.node.tier ? self.tierMeta[c.node.tier] : null;
           style = ` style="stroke:${tier ? tier[1] : 'var(--line)'};opacity:.45"`;
         }
@@ -613,31 +520,114 @@
     this._applyPanZoom();
   };
 
-  // Expand-all / collapse-all drive the map from the page's own buttons. They
-  // are methods rather than exposed Sets so no caller has to know how a leaf id
-  // is encoded -- it is a private per-node token, not the slug it once was.
-  //
-  // expandAll takes the caller's OWN full node list rather than reading the
-  // tree, because the tree is built from getDomains(), which the generated map
-  // filters by the live search box. Expanding only what the tree holds would
-  // leave every belief the filter excluded collapsed once the filter is
-  // cleared -- which is not what this button did before the two copies merged.
-  MapView.prototype.expandAll = function (nodes) {
+  // ---------------------------------------------------------- selection
+  // select(node) takes the node object, not an id: leaf ids are a private
+  // per-node token, so a consumer that knows a slug looks the node up itself
+  // and hands it over. Returns false when the node is not on the map as drawn
+  // (a live search hides it) -- the caller decides what to do instead.
+  MapView.prototype.select = function (node) {
+    const domain = this.getDomains().find(d => d.nodes.indexOf(node) !== -1);
+    if (!domain) return false;
+    if (!this.mapManualCollapsed) this.mapManualCollapsed = new Set(this._domainIds());
+    this.mapManualCollapsed.delete('domain:' + domain.name);
+    this._select(stableLeafId(node), node);
+    return true;
+  };
+
+  MapView.prototype.deselect = function () { this._deselect(false); };
+
+  // Rebuild the panel from the node as it is now -- for a consumer whose other
+  // surface (the editor's List tab) may have edited it while the map was hidden.
+  MapView.prototype.refreshPanel = function () { this._renderPanel(); };
+
+  MapView.prototype._select = function (id, node) {
+    this.selectedId = id; this.selectedNode = node;
+    this.redraw();
+    this._renderPanel();
+    this._reveal();
+  };
+
+  MapView.prototype._deselect = function (returnFocus) {
+    const id = this.selectedId;
+    if (!id) return;
+    this._clearSelection();
+    this.redraw();
+    const el = returnFocus && this.mapEls.get(id);
+    if (el) el.focus({ preventScroll: true });
+  };
+
+  MapView.prototype._clearSelection = function () {
+    this.selectedId = null; this.selectedNode = null;
+    this._renderPanel();
+  };
+
+  // Built on selection change only, never from redraw(): a redraw (a resize, a
+  // tier change re-sorting tiles) must not clobber a focused field's caret.
+  MapView.prototype._renderPanel = function () {
+    const n = this.selectedNode;
+    this.panel.hidden = !n;
+    this.container.classList.toggle('has-panel', !!n);
+    this.panelTitle.innerHTML = '';
+    this.panelBody.innerHTML = '';
+    if (!n) return;
+    this.panel.setAttribute('aria-label', n.title || 'Belief');
+    if (this.readonly) {
+      this.panelTitle.innerHTML = `<b>${this.escapeHtml(n.title)}</b><div class="mmeta">${this._chipsHTML(n)}</div>`;
+      this.panelBody.innerHTML = this.panelHTML ? this.panelHTML(n) : '';
+    } else {
+      this.panelTitle.appendChild(this._leafHeaderEditable(n));
+      this.panelBody.appendChild(this._leafDetail(n));
+    }
+    this.panel.scrollTop = 0;
+  };
+
+  // Pan (never zoom) the least distance that puts the selected tile inside the
+  // part of the map the panel does not cover. Uses the layout numbers, not the
+  // tile's DOM rect, because .mbox transitions its transform for 280ms.
+  MapView.prototype._reveal = function () {
+    const box = (this._lastList || []).find(b => b.id === this.selectedId);
+    if (!box) return;
+    const w = this.wrap.getBoundingClientRect();
+    const view = { left: 0, top: 0, right: w.width, bottom: w.height };
+    if (!this.panel.hidden) {
+      const p = this.panel.getBoundingClientRect();
+      // Docking is CSS's decision (side panel or bottom sheet); read it back
+      // rather than re-deciding it here from the window width.
+      if (p.left > w.left + 1) view.right = p.left - w.left; else view.bottom = p.top - w.top;
+    }
+    const z = this.zoom;
+    const d = revealPan({ x: this.panX + box.x * z, y: this.panY + box.y * z, w: box.w * z, h: box.h * z }, view, 16);
+    if (!d.dx && !d.dy) return;
+    this.panX += d.dx; this.panY += d.dy;
+    this._applyPanZoom();
+  };
+
+  MapView.prototype._bindPanel = function () {
+    this.panel.querySelector('.mp-close').addEventListener('click', () => this._deselect(true));
+    this.container.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && this.selectedId) this._deselect(true);
+    });
+  };
+
+  // Expand-all / collapse-all drive the map from the page's own buttons.
+  // expandAll opens every AREA: only one belief is ever open now -- in the
+  // panel -- so there is no "every belief" to open. `nodes` (the caller's full
+  // node list) is still accepted so neither caller has to change.
+  MapView.prototype.expandAll = function () {
     this.mapManualCollapsed = new Set();
-    (nodes || []).forEach(n => this.mapDetailOpen.add(stableLeafId(n)));
     this.redraw();
   };
 
   MapView.prototype.collapseAll = function () {
-    this.mapDetailOpen.clear();
+    this._clearSelection();
     this.mapManualCollapsed = new Set(this._domainIds());
     this.redraw();
   };
 
   // Called after a node is deleted elsewhere (e.g. from the List tab, or the
-  // shared confirm dialog) so its stale "expanded" state doesn't linger.
+  // shared confirm dialog) so the panel does not keep describing it.
   MapView.prototype.forgetNode = function (node) {
-    this.mapDetailOpen.delete(stableLeafId(node));
+    if (this.selectedId === stableLeafId(node)) this._clearSelection();
   };
 
   MapView.prototype._applyPanZoom = function () {
@@ -658,33 +648,38 @@
   MapView.prototype._bindClicks = function () {
     const self = this;
     this.boxesEl.addEventListener('click', e => {
-      if (e.target.closest('.refchip') || e.target.closest('.versepop')) return;
       const editBtn = e.target.closest('.mdomain-edit');
       if (editBtn) { self.onRenameDomain(editBtn.dataset.domain); return; }
-      // An expanded leaf carries interactive form controls
-      // (inputs/selects/textareas) -- clicks on those must not toggle it shut.
-      if (e.target.closest('input, select, textarea, .tagchip, .addtag, button.danger')) return;
       const box = e.target.closest('.mbox');
-      if (!box) return;
-      const id = box.dataset.id;
-      if (id === 'root') return;
-      if (id.startsWith('domain:')) {
-        if (self.mapManualCollapsed.has(id)) self.mapManualCollapsed.delete(id); else self.mapManualCollapsed.add(id);
-      } else if (id.startsWith('addnode:')) {
-        const domainName = id.slice('addnode:'.length);
-        const node = self.onAddNode(domainName);
-        if (node) {
-          self.mapDetailOpen.add(stableLeafId(node));
-          self._pendingEnterId = stableLeafId(node);
-        }
-      } else if (id === 'adddomain') {
-        self.onAddDomain();
-      } else {
-        if (self.mapDetailOpen.has(id)) self.mapDetailOpen.delete(id); else self.mapDetailOpen.add(id);
-        self.onLeafToggle(id, self.mapDetailOpen.has(id));
-      }
-      self.redraw();
+      if (box) self._activate(box.dataset.id, false);
     });
+  };
+
+  // One entry point for a click and for Enter/Space on a focused box.
+  MapView.prototype._activate = function (id, viaKeyboard) {
+    if (id === 'root') return;
+    if (id.startsWith('domain:')) {
+      if (this.mapManualCollapsed.has(id)) this.mapManualCollapsed.delete(id); else this.mapManualCollapsed.add(id);
+      this.redraw();
+      return;
+    }
+    if (id.startsWith('addnode:')) {
+      const node = this.onAddNode(id.slice('addnode:'.length));
+      if (!node) return;
+      this._pendingEnterId = stableLeafId(node);
+      this._select(stableLeafId(node), node);
+      const input = this.panel.querySelector('.mtitle-input');
+      if (input) { input.focus(); input.select(); }
+      return;
+    }
+    if (id === 'adddomain') { this.onAddDomain(); this.redraw(); return; }
+    if (id === this.selectedId) { this._deselect(viaKeyboard); return; }
+    const box = (this._lastList || []).find(b => b.id === id);
+    if (!box || !box.node) return;
+    this._select(id, box.node);
+    // The panel follows every tile in DOM order; without this, Tab would walk
+    // the whole map to reach it.
+    if (viaKeyboard) this.panel.querySelector('.mp-close').focus();
   };
 
   function parentOf(list, box) {
@@ -741,6 +736,11 @@
     const self = this;
     const ARROWS = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'];
     this.boxesEl.addEventListener('keydown', e => {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('mbox')) {
+        e.preventDefault();
+        self._activate(e.target.dataset.id, true);
+        return;
+      }
       if (ARROWS.indexOf(e.key) === -1) return;
       const boxEl = e.target.closest('.mbox');
       if (!boxEl) return;
@@ -783,7 +783,7 @@
     }
 
     wrap.addEventListener('pointerdown', e => {
-      if (e.target.closest('.mbox') || e.target.closest('.mapcontrols')) return;
+      if (e.target.closest('.mbox, .mapcontrols, .map-panel')) return;
       pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
       try { wrap.setPointerCapture(e.pointerId); } catch (err) {}
       if (pointers.size === 1) {
@@ -834,6 +834,8 @@
     wrap.addEventListener('pointercancel', endPointer);
 
     wrap.addEventListener('wheel', e => {
+      // Inside the panel a wheel scrolls the panel, natively.
+      if (e.target.closest('.map-panel')) return;
       e.preventDefault();
       const delta = e.deltaY > 0 ? -0.1 : 0.1;
       if (Math.min(2.5, Math.max(0.3, self.zoom + delta)) === self.zoom) return;
