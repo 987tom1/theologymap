@@ -420,8 +420,11 @@
         const fresh = tmp.firstElementChild;
         el.className = fresh.className;
         el.innerHTML = fresh.innerHTML;
-        // An editor tile's --tier follows a tier change made in the panel.
-        el.style.cssText = fresh.style.cssText;
+        // An editor tile's --tier follows a tier change made in the panel. Copy
+        // only that property: replacing the whole inline style would strip the
+        // tile's transform, and .mbox transitions transform -- every tile would
+        // fly in from the origin on every redraw.
+        el.style.setProperty('--tier', fresh.style.getPropertyValue('--tier'));
       }
       el.classList.toggle('msel', box.id === this.selectedId);
       box.el = el;
