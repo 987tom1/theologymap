@@ -82,8 +82,9 @@ write-up in `documentation/debug-archive.md`.
     `auto` cross-axis margin cancels the stretch and leaves no definite width. (§AJ)
 15. **`position: fixed` does not give an iframe's document a usable `100vh` on iOS.**
     Safari does not re-resolve the inner `100vh` against the frame's new height.
-    `/view`'s fullscreen is a class on `<body>`, not the Fullscreen API, for this
-    reason and because iOS Safari has no `requestFullscreen()` on a non-video element. (§AH)
+    `/view`'s old fullscreen was a class on `<body>`, not the Fullscreen API, for this
+    reason and because iOS Safari has no `requestFullscreen()` on a non-video element; it
+    was removed in phase 1.5 in favour of map-first chrome. (§AH)
 
 ### Modules, builds and the toolchain
 

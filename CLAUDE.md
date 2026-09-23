@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `6c7926890f46819b543de871b60060a510865260603a52e4c090d38f989d70c1` as written by
+- `94510759b1519b06ce8b69ad1f019d11731c3c9a00b1da0fda7ca6d098973564` as written by
   `Path.write_text` on Windows (CRLF)
-- `ed1e656af28d248e45c064337c6558a8677beee8567c13a0f42101cec3a8c1fe` LF-normalised (what a
+- `072d503ff25a6ebdebfd7796ad96f8d4797f3a9a5fd86fc244b5a220aec63a26` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -142,7 +142,10 @@ invariants held.
 inside the map: `.mbox-leaf.mopen`/`.mdetail` gave way to the `.map-panel` detail panel (right-hand
 from 641px, a bottom sheet below), `mapLeafHTML` lost its open branch and `mapPanelHTML` joined it
 (`docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`). Licensed, felt;
-`documentation/study-list.md` and the `<script id="data">` payload unchanged.
+`documentation/study-list.md` and the `<script id="data">` payload unchanged. **Phase 1.5
+moved it again, to the pair above:** the map-first phone header (one grid row, search inside
+Filters) and a `ResizeObserver` that re-sizes the canvas when the header changes height.
+Same two invariants held.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -294,9 +297,14 @@ Expand-all and collapse-all drive both. Printing force-switches to Domain, every
 expanded, then restores. The print stylesheet is A3 (`@page { size: A3; margin: 12mm }`) and
 tier chips carry `print-color-adjust:exact`.
 
-**Phone (below 640px):** view switcher and search on the top row; study filter,
-hide-inferred and expand/collapse behind a "Filters" disclosure; kicker, subtitle and tier
-legend hidden. Card field labels stack below 560px. Pan and pinch use pointer events with a
+**Phone (below 640px) — map-first, phase 1.5:** the header is **one row**, the view switcher
+and a "Filters" toggle (a CSS grid over the existing markup via `display:contents` — no node
+moves). The `h1` is visually hidden; **search lives inside the Filters disclosure** with study
+filter, hide-inferred and expand/collapse, and the toggle shows a dot while a search is live.
+Kicker, subtitle and tier legend hidden. `#mapwrap` loses its border and `sizeMap()` its 24px
+allowance, and **a `ResizeObserver` on the header calls `sizeMap()`** — without it the canvas
+kept the height it was given while Filters was open, and every phone search left the map a
+third shorter. Card field labels stack below 560px. Pan and pinch use pointer events with a
 6px threshold so a tap still registers as a tap.
 
 **Design language.** Warm paper-and-ink palette in both themes, serif for content and sans
@@ -494,8 +502,14 @@ marks the page current** — it points at a region, not a destination — which 
 `/#signin` claiming it signed out. `Sign out` never goes through the match at all: its `href="#"` resolves to the current page, which marked it as current on
 `/edit`. Two independently written copies of that one rule is how that bug arrived.
 
-`mount(pageTitle, actions = [])` takes an optional array of built elements for a
-right-aligned header actions row. `/view` is the one caller that passes any.
+`mount(pageTitle, actions = [], opts = {})` takes an optional array of built elements for a
+right-aligned header actions row. `/view` is the one caller that passes any, and the one that
+passes `{ compact: true }`: below 640px the kicker goes, the title truncates beside a `⋯`
+**disclosure** (`.tm-menubtn`, `aria-expanded`, toggling `.menu-open`), and the actions and nav
+rows stay hidden until it opens. A disclosure, not a popover — nothing moves between DOM
+parents, so the signed-in `⋯` popover keeps working inside it. **The nav folds away on map
+screens only** (Thomas, 2026-09-23); no other page passes `compact`. `engine/editor.html` has
+the same shape by hand (`#editorMenuBtn`, `header.menu-open`).
 
 **`web/corpus.js` is the one browser-side corpus loader.** `/wizard`, `/learn` and
 `/compare` all import `loadCorpus()` and `STANCE_TEXT` from it. A fourth page fetching
@@ -744,11 +758,11 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   wrap's height.
 - **The Map view sets `main.wide`** (`max-width: none`); the card views keep the 1080px
   reading measure.
-- **`/view`'s Fullscreen is not the Fullscreen API.** iOS Safari has no `requestFullscreen()`
-  on a non-video element. It is `body.tm-enlarged`. **It deliberately does not fix-position
-  the iframe** — iOS Safari does not re-resolve the inner `100vh` against a fixed frame's new
-  height. The button is a standalone fixed element outside `mount()`'s actions row; Escape is
-  the only other way out, since the frame is sandboxed without `allow-same-origin`.
+- **There is no Fullscreen any more** (`/view` or `/edit`; removed in phase 1.5, 2026-09-23).
+  It existed because the chrome left a phone's canvas ~279px, and the detail panel made that
+  unusable outside it; the map-first header and compact chrome fix the cause instead. **Do
+  not bring it back as a fixed-position iframe** — iOS Safari does not re-resolve the inner
+  `100vh` against a fixed frame's new height; the frame sizes by `/view`'s flex column.
 
 ### Behaviour that is silent and deliberate
 
