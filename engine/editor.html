@@ -281,6 +281,11 @@
   .nodebtn.active { background:var(--ink); color:var(--bg); }
   .nodebtn .tag { font:600 9.5px/1 var(--sans); color:var(--muted); margin-left:6px; }
   .nodebtn.active .tag { color:var(--bg); opacity:.7; }
+  /* Tier/Confidence groupings only: the belief's area, on its own line
+     (the reader's cards do the same with .dom). */
+  .nodebtn:has(.dom) { flex-wrap:wrap; }
+  .nodebtn .dom { flex-basis:100%; font:var(--fs-000)/var(--lh-tight) var(--sans); color:var(--muted); margin-top:2px; }
+  .nodebtn.active .dom { color:var(--bg); opacity:.7; }
   /* Sits directly under the last belief in its area. min-height beats
      theme.css's 44px coarse-pointer floor on specificity (class over element),
      deliberately: 34px is still a comfortable thumb target and 44 left a hole
@@ -354,7 +359,7 @@
     .hactions { margin-left:0; gap:6px; }
     .hactions button { padding:6px 9px; font-size:11.5px; }
     .tabs { padding:8px 12px 0; }
-    .tabbtn { flex:1; }
+    .tabbtn { flex:1; padding-left:4px; padding-right:4px; }
     .layout { flex-direction:column; }
     .domain .form { margin-left:4px; padding-left:12px; }
   }
@@ -389,7 +394,9 @@
 
 <div class="tabs" id="tabs" style="display:none">
   <button type="button" class="tabbtn" data-tab="map">Map</button>
-  <button type="button" class="tabbtn active" data-tab="list">List</button>
+  <button type="button" class="tabbtn active" data-tab="list">Domain</button>
+  <button type="button" class="tabbtn" data-tab="tier">Tier</button>
+  <button type="button" class="tabbtn" data-tab="confidence">Confidence</button>
 </div>
 
 <div class="layout" id="mapLayout" style="display:none">
@@ -523,7 +530,7 @@
     activeTab = tab;
     [...tabsEl.querySelectorAll('.tabbtn')].forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     mapLayoutEl.style.display = tab === 'map' ? 'flex' : 'none';
-    listLayoutEl.style.display = tab === 'list' ? 'flex' : 'none';
+    listLayoutEl.style.display = tab === 'map' ? 'none' : 'flex';
     if (tab === 'map' && mapView) {
       // A redraw while .mapwrap is display:none measures every box as 0x0 and
       // would centre the tree on a zero-sized rect, leaving the first real view
@@ -539,9 +546,11 @@
       // keystroke would write back.
       mapView.refreshPanel();
     }
-    // The mirror of refreshPanel(): the Map panel edits the same node objects,
-    // and touch() only patches the row, so the inline form is rebuilt here.
-    if (tab === 'list' && current) renderForm();
+    // Domain ('list'), Tier and Confidence are one outline grouped three
+    // ways, so a switch between them regroups. And the mirror of
+    // refreshPanel(): the Map panel edits the same node objects, and touch()
+    // only patches the row, so the inline form is rebuilt here.
+    if (tab !== 'map' && domains) { renderTreeList(); if (current) renderForm(); }
   }
 
   function ensureMapView() {
@@ -942,7 +951,31 @@
   }
 
   function rowHTML(node) {
-    return core.escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '');
+    return core.escapeHtml(node.title) + (node.tier ? '<span class="tag">' + node.tier + '</span>' : '')
+      + (activeTab === 'list' ? '' : '<span class="dom">' + core.escapeHtml(node.domain) + '</span>');
+  }
+
+  // The group a belief sits in under the Tier / Confidence outline (null =
+  // Untiered / Unmarked); undefined in Domain, where the form cannot move a
+  // belief between areas. touch()
+  // compares it with the group its row was drawn in (rowGroup) to spot a
+  // regroup.
+  function groupOf(node) {
+    return activeTab === 'tier' ? node.tier || null
+      : activeTab === 'confidence' ? node.confidence || null : undefined;
+  }
+
+  // Same orders and labels as the reader's Tier / Confidence views.
+  const CONF_ORDER = ['open', 'leaning', 'confident', 'certain', 'rejected'];
+  function outlineGroups() {
+    const all = [];
+    domains.forEach((d, di) => d.nodes.forEach((node, ni) => all.push({ node, di, ni })));
+    const by = (keys, label, none) => [
+      ...keys.map(k => ({ label: label(k), items: all.filter(x => groupOf(x.node) === k) })),
+      { label: none, items: all.filter(x => groupOf(x.node) === null) }];
+    if (activeTab === 'tier') return by(core.TIERS, t => t + ' \u2014 ' + TIER_GLOSS[t], 'Untiered');
+    if (activeTab === 'confidence') return by(CONF_ORDER, c => c[0].toUpperCase() + c.slice(1), 'Unmarked');
+    return domains.map((d, di) => ({ label: d.name, di, items: d.nodes.map((node, ni) => ({ node, di, ni })) }));
   }
 
   // The outline, with formEl moved in under the selected row. Structural
@@ -951,48 +984,54 @@
   // touch() patches one row through rowFor instead of calling this. The filter
   // is read from the search field, and the selected belief always survives it
   // -- a new "Untitled" or a retitled row must not vanish with its open form.
-  let rowFor = new Map();
+  let rowFor = new Map(), rowGroup = new Map();
   function renderTreeList() {
     const filter = searchEl ? searchEl.value.trim().toLowerCase() : '';
     const cur = currentNode();
     const old = treeEl.querySelector('.treelist');
     if (old) old.remove();
-    rowFor = new Map();
+    rowFor = new Map(); rowGroup = new Map();
     const wrap = document.createElement('div');
     wrap.className = 'treelist';
+    const byDomain = activeTab === 'list';
 
-    domains.forEach((domain, di) => {
-      const matches = domain.nodes.filter(n => n === cur ||
+    outlineGroups().forEach((group) => {
+      const matches = group.items.filter(({ node: n }) => n === cur ||
         !filter || (n.title + ' ' + (n.hold||'')).toLowerCase().includes(filter));
-      if (filter && matches.length === 0) return;
+      // An empty area still shows (it takes + New belief); an empty tier or
+      // confidence group has nothing to offer.
+      if ((filter || !byDomain) && matches.length === 0) return;
 
       const det = document.createElement('details');
       det.className = 'domain';
-      det.open = !!filter || (current && current.domainIndex === di);
+      det.open = !!filter || matches.some(x => x.node === cur);
       const sum = document.createElement('summary');
-      sum.textContent = domain.name + ' (' + domain.nodes.length + ')';
+      sum.textContent = group.label + ' (' + group.items.length + ')';
       det.appendChild(sum);
 
-      matches.forEach((node) => {
-        const ni = domain.nodes.indexOf(node);
+      matches.forEach(({ node, di, ni }) => {
         const b = document.createElement('button');
-        b.className = 'nodebtn' + (current && current.domainIndex === di && current.nodeIndex === ni ? ' active' : '');
+        b.className = 'nodebtn' + (node === cur ? ' active' : '');
         b.innerHTML = rowHTML(node);
         b.addEventListener('click', () => selectAndReveal({ domainIndex: di, nodeIndex: ni }, 'nearest'));
         det.appendChild(b);
         rowFor.set(node, b);
+        rowGroup.set(node, groupOf(node));
         if (node === cur) det.appendChild(formEl);
       });
 
-      const addNode = document.createElement('button');
-      addNode.className = 'addbtn';
-      addNode.textContent = '+ New belief in ' + domain.name;
-      addNode.addEventListener('click', () => addNodeToDomain(di));
-      det.appendChild(addNode);
+      if (byDomain) {
+        const addNode = document.createElement('button');
+        addNode.className = 'addbtn';
+        addNode.textContent = '+ New belief in ' + group.label;
+        addNode.addEventListener('click', () => addNodeToDomain(group.di));
+        det.appendChild(addNode);
+      }
 
       wrap.appendChild(det);
     });
 
+    if (byDomain) {
     const nd = document.createElement('div');
     nd.className = 'newdomain';
     const ndBtn = document.createElement('button');
@@ -1000,31 +1039,28 @@
     ndBtn.addEventListener('click', addDomain);
     nd.appendChild(ndBtn);
     wrap.appendChild(nd);
+    }
 
     if (!cur) treeEl.appendChild(formEl);   // empty state: above the outline
     treeEl.appendChild(wrap);
+    syncListNav();
   }
 
-  // Flattened domains[].nodes[] traversal for the List tab's Back/Next bar:
-  // domain 0 node 0, domain 0 node 1, ..., domain 1 node 0, ... Skips empty
-  // domains rather than materialising the whole flat array. Disables at
-  // both ends (returns null) rather than wrapping — a linear list, not a
-  // carousel.
-  function flatNext(pos) {
-    const { domainIndex: di, nodeIndex: ni } = pos;
-    if (ni + 1 < domains[di].nodes.length) return { domainIndex: di, nodeIndex: ni + 1 };
-    for (let d = di + 1; d < domains.length; d++) {
-      if (domains[d].nodes.length) return { domainIndex: d, nodeIndex: 0 };
-    }
-    return null;
+  // Back/Next walk every belief in the order the current grouping shows them
+  // (ignoring the search filter, as before). Null at both ends rather than
+  // wrapping -- a linear list, not a carousel. Read at click time, and
+  // syncListNav() re-arms the disabled states after every rebuild, because a
+  // regroup changes the neighbours under an open form.
+  function neighbour(step) {
+    if (!current) return null;
+    const flat = outlineGroups().flatMap(g => g.items);
+    const i = flat.findIndex(x => x.di === current.domainIndex && x.ni === current.nodeIndex);
+    const x = i < 0 ? null : flat[i + step];
+    return x ? { domainIndex: x.di, nodeIndex: x.ni } : null;
   }
-  function flatPrev(pos) {
-    const { domainIndex: di, nodeIndex: ni } = pos;
-    if (ni > 0) return { domainIndex: di, nodeIndex: ni - 1 };
-    for (let d = di - 1; d >= 0; d--) {
-      if (domains[d].nodes.length) return { domainIndex: d, nodeIndex: domains[d].nodes.length - 1 };
-    }
-    return null;
+  function syncListNav() {
+    const [back, next] = formEl.querySelectorAll('.listnav button');
+    if (back) { back.disabled = !neighbour(-1); next.disabled = !neighbour(1); }
   }
 
   function selectNode(di, ni) {
@@ -1145,25 +1181,25 @@
 
     const navBar = document.createElement('div');
     navBar.className = 'listnav';
-    const prevPos = flatPrev(current), nextPos = flatNext(current);
     const backBtn = document.createElement('button');
     backBtn.type = 'button';
     backBtn.textContent = 'Back';
-    backBtn.disabled = !prevPos;
     backBtn.addEventListener('click', () => {
-      if (prevPos) selectAndReveal(prevPos);
+      const pos = neighbour(-1);
+      if (pos) selectAndReveal(pos);
     });
     const nextBtn = document.createElement('button');
     nextBtn.type = 'button';
     nextBtn.className = 'primary';
     nextBtn.textContent = 'Next';
-    nextBtn.disabled = !nextPos;
     nextBtn.addEventListener('click', () => {
-      if (nextPos) selectAndReveal(nextPos);
+      const pos = neighbour(1);
+      if (pos) selectAndReveal(pos);
     });
     navBar.appendChild(backBtn);
     navBar.appendChild(nextBtn);
     formEl.appendChild(navBar);
+    syncListNav();
   }
 
   function fieldRow(labelText, inputEl) {
@@ -1241,6 +1277,16 @@
     // the inline form and would drop focus on every keystroke.
     const row = rowFor.get(node);
     if (row) row.innerHTML = rowHTML(node);
+    // The one exception: a tier change under Tier (or confidence under
+    // Confidence) moves the row to another group -- structural, so rebuild.
+    // Title/hold typing never lands here; groupOf() ignores those fields.
+    // renderTreeList() moves the same formEl without re-rendering it, but
+    // moving the node that holds focus drops it (Chromium), so hand it back.
+    if (row && activeTab !== 'map' && groupOf(node) !== rowGroup.get(node)) {
+      const focused = document.activeElement;
+      renderTreeList();
+      if (formEl.contains(focused) && document.activeElement !== focused) focused.focus();
+    }
     updateChangeIndicator();
   }
 
