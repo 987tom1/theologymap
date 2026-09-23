@@ -170,9 +170,9 @@
     font-weight:700; font-size:14.5px; text-align:center; cursor:default; border-color:var(--ink); }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); border-left:3px solid var(--muted); }
-  .mbox-leaf { min-width:150px; max-width:min(320px, 86vw); border-left:3px solid var(--tier, var(--line)); cursor:default; }
-  .mbox-leaf .mtitle { cursor:pointer; }
-  .mbox-leaf.mopen { min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
+  .mbox-leaf { min-width:150px; max-width:min(320px, 86vw); border-left:3px solid var(--tier, var(--line)); }
+  .mbox-leaf.msel { border-color:var(--ink); border-left-color:var(--tier, var(--ink));
+    box-shadow: var(--e2), inset 0 0 0 1px var(--ink); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mtitle { display:flex; align-items:center; justify-content:space-between; gap:8px; }
   .mtitle b { font-weight:600; font-size:13.5px; }
@@ -183,7 +183,6 @@
   .mchev { font-size:10px; color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
   .mbox.mopen .mchev { transform:rotate(90deg); }
   .mmeta { display:flex; gap:5px; flex-wrap:wrap; margin-top:6px; }
-  .mdetail { margin-top:8px; border-top:1px solid var(--line); padding-top:7px; }
   .mcount { font-weight:400; color:var(--muted); font-size:11px; }
   .chip { font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     padding:3.5px 6.5px; border-radius:4px; background:var(--chip); color:var(--muted); }
@@ -209,7 +208,7 @@
      editor (.wz-controls / .wz-radios / .wz-radio / .wz-check) but in this
      file's own tokens. Real radios, restyled: the arrow-key behaviour and the
      radiogroup semantics come from the platform. Everything wraps, so the
-     groups stay inside .mbox-leaf.mopen's max-width on a 360px phone. */
+     groups stay inside the detail panel on a 360px phone. */
   .mcontrols { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:10px; }
   .mcontrols > div { display:flex; flex-direction:column; gap:5px; min-width:0; }
   .mlab { margin:0; font:600 var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted); }
@@ -231,6 +230,34 @@
     background:var(--panel); color:var(--ink); padding:6px 8px; border-radius:5px;
     font:13px/1.5 var(--serif); resize:none; overflow:hidden; }
   .mdelete { margin-top:10px; font-size:11.5px; padding:5px 9px; }
+  /* ---------- map detail panel (map-view.js .map-panel) ----------
+     Same shape as the copy in render.py's embedded stylesheet -- the map's
+     CSS is forked between the two files. A selected belief's editable
+     controls live here, never inside its tile: right-hand panel from 641px,
+     bottom sheet below. A scroll container of its own, so .mapwrap's
+     touch-action:none stops at it. */
+  .map-panel { position:absolute; z-index:6; top:0; right:0; bottom:0; width:min(400px, 40%);
+    overflow-y:auto; overscroll-behavior:contain; touch-action:pan-y; cursor:auto;
+    background:var(--panel); border-left:1px solid var(--line); box-shadow:var(--e3);
+    padding:var(--s4); font:var(--fs-00)/var(--lh-ui) var(--sans); }
+  .mp-head { display:flex; align-items:flex-start; gap:var(--s2); }
+  .mp-title { flex:1; min-width:0; }
+  .map-panel .mtitle-input { font-size:17px; }
+  .mp-close { flex:none; border:1px solid var(--field-line); background:var(--panel); color:var(--muted);
+    border-radius:var(--r2); padding:var(--s1) var(--s2); font:600 var(--fs-0)/1 var(--sans); cursor:pointer; }
+  .mp-close:hover { color:var(--ink); }
+  .has-panel .maphint { display:none; }
+  @media (min-width:641px) { .has-panel .mapcontrols { right:calc(min(400px, 40%) + 10px); } }
+  @media (max-width:640px) {
+    .map-panel { top:auto; left:0; width:auto; max-height:60%; border-left:0; border-top:1px solid var(--line);
+      border-radius:var(--r3) var(--r3) 0 0; padding-top:var(--s2);
+      padding-bottom:calc(var(--s4) + env(safe-area-inset-bottom, 0px)); }
+    .map-panel::before { content:""; display:block; width:36px; height:4px; border-radius:var(--r-pill);
+      background:var(--line); margin:0 auto var(--s2); }
+    /* iOS Safari zooms the page when a focused field's text is under 16px. */
+    .map-panel textarea, .map-panel input[type=text] { font-size:16px; }
+  }
+  @media (pointer:coarse) { button.mp-close { min-width:44px; min-height:44px; } }
   .mbox-add { background:var(--ink); color:var(--bg); border-color:var(--ink);
     font:600 12px/1 var(--sans); text-align:center; cursor:pointer; }
   .mbox-add:hover { opacity:.85; }
@@ -505,6 +532,11 @@
       // which tab is showing; map-view.js cannot know a tab changed.
       if (!mapShown) { mapShown = true; mapView.needsCenter = true; }
       mapView.redraw();
+      // The List tab edits the same node objects while the map is hidden. The
+      // panel is never rebuilt by a redraw (that is what keeps a caret alive),
+      // so rebuild it here -- otherwise it shows stale values that the next
+      // keystroke would write back.
+      mapView.refreshPanel();
     }
   }
 
@@ -603,42 +635,25 @@
 
   // ------------------------------------------------------- ?open=<slug>
   // The deep-link contract first run and (later) the wizard hand back:
-  // /edit?open=my-first-belief lands you on that belief with the title
-  // selected, so "Write my first belief" does not hand back a wall of map.
+  // /edit?open=my-first-belief lands you on that belief, open in the Map tab's
+  // detail panel with its title selected, so "Write my first belief" does not
+  // hand back a wall of map.
   //
-  // Deliberately driven from OUTSIDE map-view.js. Its per-leaf ids are a
-  // private per-node token, so there is nothing to look a slug up against from
-  // here -- we reach the tile the way the user would: expand the area, redraw,
-  // then find the mounted tile by its title. (Until P9 there was a second
-  // reason, a lockstep gate on map-view.js. That gate is retired; this one
-  // still stands.) One-shot -- consumed on the first load so a later local
-  // Connect does not re-open it.
+  // MapView.select() takes the node object, so the engine's per-leaf ids stay
+  // private and nothing here has to find a tile by its title. One-shot --
+  // consumed on the first load so a later local Connect does not re-open it.
   let pendingOpenSlug = new URLSearchParams(location.search).get('open');
 
   function applyOpenParam() {
     const slug = pendingOpenSlug;
     pendingOpenSlug = null;
     if (!slug || !domains) return;
-    let node = null, domainName = null;
-    for (const d of domains) {
-      for (const n of d.nodes) if (n.slug === slug) { node = n; domainName = d.name; }
-    }
+    let node = null;
+    for (const d of domains) for (const n of d.nodes) if (n.slug === slug) node = n;
     if (!node) return;              // stale bookmark: silently ignored, never an error
-    const mv = ensureMapView();
-    mv.redraw();                    // initialises the collapsed-domain set
-    mv.mapManualCollapsed.delete('domain:' + domainName);
-    mv.redraw();                    // the area's tiles are mounted now
-    for (const [id, elem] of mv.mapEls) {
-      if (!id.startsWith('leaf')) continue;
-      const b = elem.querySelector('.mtitle b, .mtitle-input');
-      const label = b && (b.value !== undefined ? b.value : b.textContent);
-      if (label !== node.title) continue;
-      mv.mapDetailOpen.add(id);
-      mv.redraw();
-      const input = mv.mapEls.get(id).querySelector('.mtitle-input');
-      if (input) { input.focus(); input.select(); }
-      return;
-    }
+    if (!ensureMapView().select(node)) return;
+    const input = mapContainerEl.querySelector('.map-panel .mtitle-input');
+    if (input) { input.focus(); input.select(); }
   }
 
   // ---------------------------------------------------------- adapter / boot
