@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `94510759b1519b06ce8b69ad1f019d11731c3c9a00b1da0fda7ca6d098973564` as written by
+- `a776eb4ddf6e452e9686408faa5fdfe7273d5b6f34d40c64d00991d2edad3b9a` as written by
   `Path.write_text` on Windows (CRLF)
-- `072d503ff25a6ebdebfd7796ad96f8d4797f3a9a5fd86fc244b5a220aec63a26` LF-normalised (what a
+- `c480bd3398c819161dd17bf181c411fdc2e492a829142765353e1306f0b05506` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -146,6 +146,12 @@ from 641px, a bottom sheet below), `mapLeafHTML` lost its open branch and `mapPa
 moved it again, to the pair above:** the map-first phone header (one grid row, search inside
 Filters) and a `ResizeObserver` that re-sizes the canvas when the header changes height.
 Same two invariants held.
+
+**Phone map phase 2 moved it again, to the pair above:** the Domain / Tier / Confidence views
+became the outline — each belief a compact row button on a branch line that opens its detail
+in place (`expandedBeliefs`), a tier-mix strip on each Domain group header, and print now
+opening everything through a `printing` flag instead of writing into `expandedGroups`.
+Licensed, felt; `documentation/study-list.md` and the `<script id="data">` payload unchanged.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -290,11 +296,23 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
   (opening its area); only a live search hiding the target falls back to the Domain view.
   **Expand all on the Map view opens every area**, not every belief. Spec and plan:
   `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
-- **Domain / Tier / Confidence** — grouped card lists, collapsed by default. An active text
-  filter auto-expands any group holding a match without disturbing stored collapse state.
+- **Domain / Tier / Confidence** — the outline (phone map phase 2, option A). Groups are
+  collapsed by default; inside an open group each belief is one compact row — a real
+  `<button class="nrow" aria-expanded>` inside `<article class="node" id="<slug>">`, so `id`
+  anchors and `:target` still work — carrying tier chip, title, confidence word, study chip
+  and (Tier/Confidence views only) the area. Rows sit on a branch line (CSS only: the group
+  body's `border-left` plus a `::before` tick per row). Tapping a row opens that belief's
+  detail in place, as the card it used to be; open state is `expandedBeliefs` (slugs, shared
+  across the three views) beside `expandedGroups`, and survives re-renders. Each **Domain**
+  group header carries a 4px tier-mix strip (proportions, colours from `D.tierMeta`), open or
+  closed. A live search opens every group and belief it shows without writing to either
+  set. Expand all / Collapse all open or close groups **and** beliefs; a Related link opens
+  its target's group and belief, scrolls and flashes. Rows are 44px under `(pointer:coarse)`
+  via `button.nrow` (specificity, §7).
 
-Expand-all and collapse-all drive both. Printing force-switches to Domain, everything
-expanded, then restores. The print stylesheet is A3 (`@page { size: A3; margin: 12mm }`) and
+Expand-all and collapse-all drive both. Printing force-switches to Domain with every group
+and belief open (a `printing` flag render() reads — the stored sets are never touched), then
+restores. The print stylesheet is A3 (`@page { size: A3; margin: 12mm }`) and
 tier chips carry `print-color-adjust:exact`.
 
 **Phone (below 640px) — map-first, phase 1.5:** the header is **one row**, the view switcher

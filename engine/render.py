@@ -475,19 +475,43 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     color:var(--muted); }
   .group.expanded > h2 .chev { transform:rotate(90deg); }
   .group .cardwrap { display:none; }
-  .group.expanded .cardwrap { display:block; }
-  /* Geometry and surface taken from theme.css's .tm-card so a card here and a
-     card in the hosted app are the same object: --panel, --field-line,
-     var(--r3) radius, var(--s4) padding, var(--fs-2) serif heading. The 3px
-     tier rail on the left edge is this view's own addition and stays. */
-  .node { background:var(--panel); border:1px solid var(--field-line);
-    border-left:3px solid var(--tier, var(--field-line));
-    border-radius:var(--r3); padding:var(--s4); margin-bottom:var(--s3); break-inside:avoid;
-    scroll-margin-top:96px; }
-  .node.assumed { border-style:dashed; }
-  .nhead { display:flex; gap:var(--s2); align-items:baseline; flex-wrap:wrap; }
-  .ntitle { font-family:var(--serif); font-weight:600; font-size:var(--fs-2); line-height:var(--lh-snug);
-    letter-spacing:-.012em; }
+  /* The outline (phone map phase 2, option A): the group body is a branch
+     line -- a border-left under the chevron -- and each belief a row on it,
+     with a short tick (button.nrow::before) joining the two. */
+  .group.expanded .cardwrap { display:block; margin-left:var(--s1); padding-left:var(--s3);
+    border-left:1px solid var(--line); }
+  /* Tier mix: the Domain view's group header carries a 4px bar of its tiers'
+     proportions, open or closed. Decorative summary -- every row repeats its
+     own chip -- so aria-hidden in the markup. */
+  .tiermix { display:flex; width:clamp(48px, 18%, 120px); height:4px; margin-left:auto;
+    border-radius:var(--r-pill); overflow:hidden; background:var(--line); }
+  .tiermix i { display:block; height:100%; }
+  /* A closed belief is a row; an open one is the card it used to be --
+     --panel, --field-line, var(--r3), the 3px tier rail -- so the detail reads
+     as the same object as theme.css's .tm-card. The border is always there
+     (transparent when closed) so opening shifts nothing sideways. */
+  .node { position:relative; border:1px solid transparent; border-left-width:3px;
+    border-radius:var(--r3); margin-bottom:var(--s1); scroll-margin-top:96px; }
+  .node.open { background:var(--panel); border-color:var(--field-line);
+    border-left-color:var(--tier, var(--field-line)); margin-bottom:var(--s3); break-inside:avoid; }
+  /* The sub-heading's promise: a dashed border marks an inferred belief. */
+  .node.assumed { border-style:dashed; border-color:var(--field-line); }
+  .node.assumed.open { border-left-color:var(--tier, var(--field-line)); }
+  .nrow { position:relative; display:flex; align-items:baseline; gap:var(--s1) var(--s2); flex-wrap:wrap;
+    width:100%; margin:0; padding:var(--s2) var(--s3); border:0; border-radius:var(--r2);
+    background:transparent; color:inherit; font:inherit; text-align:left; cursor:pointer; }
+  .nrow:hover { background:var(--chip); }
+  .node.open .nrow:hover { background:transparent; }
+  .nrow::before { content:""; position:absolute; top:50%; width:var(--s3);
+    left:calc(-1 * var(--s3) - 3px); border-top:1px solid var(--line); }
+  .nrow .chip.tier, .nrow .tierslot { flex:none; min-width:3.75em; text-align:center; }
+  .nrow .tierslot { background:transparent; }
+  .ntitle { flex:1 1 8em; min-width:0; font-family:var(--serif); font-weight:600; font-size:var(--fs-1);
+    line-height:var(--lh-snug); letter-spacing:-.012em; }
+  .nmeta { display:flex; gap:var(--s2); align-items:baseline; flex-wrap:wrap; }
+  .conf { font:var(--fs-00)/var(--lh-ui) var(--sans); color:var(--muted); }
+  .node > dl, .node > .empty { margin:0 var(--s3) var(--s3); }
+  .node:not(.open) > dl, .node:not(.open) > .empty { display:none; }
   .chip { font:600 var(--fs-000)/var(--lh-ui) var(--sans); color:var(--muted);
     /* padding is an optical value on a 1px-bordered micro-pill, not a
        spacing step — frozen; see also .refchip below. */
@@ -495,14 +519,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     background:var(--chip); }
   .chip.tier { color:#fff; }
   .dom { font:var(--fs-000)/var(--lh-tight) var(--sans); color:var(--muted); }
-  .meter { display:inline-flex; align-items:center; gap:var(--s2); }
-  /* .track's 46x5 size and both radii below are measures on a 5px-tall bar,
-     not a spacing step — rounding to --r1 (4px) would turn it into a
-     lozenge. Frozen; left numeric. */
-  .meter .track { width:46px; height:5px; border-radius:3px; background:var(--chip);
-    border:1px solid var(--field-line); overflow:hidden; }
-  .meter .fill { height:100%; border-radius:3px; background:var(--tier, var(--muted));
-    display:block; opacity:.9; }
   dl { margin:var(--s3) 0 0; padding-top:var(--s3); border-top:1px solid var(--line);
     display:grid; grid-template-columns:max-content 1fr; gap:var(--s2) var(--s4); align-items:baseline; }
   dt { font:600 var(--fs-000)/var(--lh-ui) var(--sans);
@@ -674,6 +690,8 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     label.tog { padding:6px 0; }
     .mapcontrols button { padding:8px 12px; }
     .views button, .seg button, .refchip, .filtersToggle { min-height:44px; }
+    /* button.nrow outranks the base .nrow on specificity, not source order (§7). */
+    button.nrow { min-height:44px; align-items:center; }
     button.mp-close { min-width:44px; min-height:44px; }
   }
 
@@ -711,8 +729,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     .secondary.open { display:flex; }
     #mapwrap { height:calc(100vh - 108px); }
     main { padding:var(--s4) var(--s4) var(--s8); }
-    .node { padding:var(--s3) var(--s4) var(--s3); margin-bottom:var(--s2); }
-    .ntitle { font-size:var(--fs-1); }
+    .nrow { padding:var(--s2); }
     dd { font-size:var(--fs-0); }
     .group { margin-bottom:var(--s4); }
     .pagefoot { padding:var(--s4) var(--s4) var(--s6); }
@@ -758,19 +775,22 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     main { max-width:none; padding:8px 0 0; columns:2; column-gap:20px; }
     /* Tier chips are white text on a dark fill and the confidence meter is a
        bare colour bar; browsers drop background colours in print by default,
-       which would render the chip white-on-white and the meter blank. These
+       which would render the chip white-on-white and the tier mix blank. These
        three are the only places colour carries meaning on paper. */
-    .chip.tier, .meter .fill, .sw {
+    .chip.tier, .tiermix i, .sw {
       -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-    .node { break-inside:avoid; padding:9px 12px 10px; margin-bottom:8px;
-      border-color:#bbb; border-left-width:3px; box-shadow:none; }
+    .node { break-inside:avoid; margin-bottom:8px; box-shadow:none; }
+    .node.open { border-color:#bbb; border-left-color:var(--tier, #bbb); }
+    .node > dl, .node > .empty { display:grid !important; }
+    .nrow { padding:6px 9px; }
+    .nrow::before { display:none; }
     /* A group heading stranded at the foot of a column is the one thing a
        two-column print gets wrong on its own. */
     .group { break-inside:auto; margin-bottom:14px; }
     .group > h2 { break-after:avoid; border-bottom-color:#999; }
     dl { padding-top:7px; margin-top:7px; border-top-color:#ccc; }
     .refchip, dd.rel a { border-color:#bbb; cursor:default; }
-    .group .cardwrap { display:block !important; }
+    .group .cardwrap { display:block !important; border-left:0; padding-left:0; margin-left:0; }
     .group > h2 .chev { display:none; }
     .versepop { display:none !important; }
     /* The NET attribution must travel with the text — it is a licence
@@ -969,28 +989,46 @@ const detailRows = n => {
 const relatedRow = n => n.link.length ? `<dt>Related</dt><dd class="rel">${n.link.map(l =>
   `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</dd>` : '';
 
-function card(n) {
+// One belief in the outline: a row button (tier chip, title, confidence word,
+// study chip, and the area in the Tier/Confidence views), with its detail in
+// place below it. `open` is decided by render(), which owns the state.
+function card(n, open) {
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
   const rows = detailRows(n);
   const related = relatedRow(n);
   if (related) rows.push(related);
-  return `<article class="node${n.flags.includes('assumed')?' assumed':''}" id="${n.slug}"
+  return `<article class="node${n.flags.includes('assumed')?' assumed':''}${open?' open':''}" id="${n.slug}"
       style="--tier:${tier?tier[1]:'var(--line)'}">
-    <div class="nhead">
+    <button type="button" class="nrow" aria-expanded="${open}">
+      ${tier?`<span class="chip tier" style="background:${tier[1]}" title="${esc(tier[0])}">${n.tier}</span>`
+        :'<span class="chip tierslot"></span>'}
       <span class="ntitle">${esc(n.title)}</span>
-      ${tier?`<span class="chip tier" style="background:${tier[1]}" title="${esc(tier[0])}">${n.tier}</span>`:''}
-      ${conf?`<span class="meter" title="${esc(conf[1])}"><span class="track"><span class="fill"
-          style="width:${conf[0]}%"></span></span><span class="chip">${n.confidence}</span></span>`:''}
-      ${n.flags.includes('study')?'<span class="chip">study</span>':''}
-      ${view!=='domain'&&n.domain?`<span class="dom">${esc(n.domain)}</span>`:''}
-    </div>
-    ${rows.length?`<dl>${rows.join('')}</dl>`:''}
+      <span class="nmeta">
+        ${conf?`<span class="conf" title="${esc(conf[1])}">${n.confidence}</span>`:''}
+        ${n.flags.includes('study')?'<span class="chip">study</span>':''}
+        ${view!=='domain'&&n.domain?`<span class="dom">${esc(n.domain)}</span>`:''}
+      </span>
+    </button>
+    ${rows.length?`<dl>${rows.join('')}</dl>`:'<p class="empty">Nothing written beyond the title yet.</p>'}
   </article>`;
+}
+
+// The Domain view's tier-mix strip: one segment per tier present, sized by
+// count, in the tier colours from D.tierMeta; untiered beliefs show as the
+// track colour.
+function tierMix(ns) {
+  const segs = D.tierOrder.map(t => [D.tierMeta[t][1], ns.filter(n => n.tier === t).length])
+    .concat([['var(--line)', ns.filter(n => !n.tier).length]])
+    .filter(([, c]) => c);
+  return `<span class="tiermix" aria-hidden="true">${segs.map(([bg, c]) =>
+    `<i style="flex:${c};background:${bg}"></i>`).join('')}</span>`;
 }
 
 // -------------------------------------------------------------- list views
 let expandedGroups = new Set(); // "view::name" entries the user explicitly opened
+let expandedBeliefs = new Set(); // slugs the user explicitly opened, in any list view
+let printing = false; // beforeprint..afterprint: everything open, stored state untouched
 
 function groupKey(name) { return view + '::' + name; }
 
@@ -1047,11 +1085,14 @@ function render() {
   const html = groups.filter(([,ns]) => ns.length)
     .map(([name, ns]) => {
       const key = groupKey(name);
-      const isExpanded = expandedGroups.has(key) || (q && ns.length > 0);
+      // A live search opens every group and belief it shows (each one is a
+      // match), without writing to the stored sets -- clear it and the
+      // outline is as the reader left it.
+      const isExpanded = printing || expandedGroups.has(key) || (q && ns.length > 0);
       return `<section class="group${isExpanded?' expanded':''}" data-key="${esc(key)}">
         <h2 aria-expanded="${isExpanded}"><span class="chev">&#9656;</span>${esc(name)}
-          <span class="mcount">(${ns.length})</span></h2>
-        <div class="cardwrap">${ns.map(card).join('')}</div>
+          <span class="mcount">(${ns.length})</span>${view === 'domain' ? tierMix(ns) : ''}</h2>
+        <div class="cardwrap">${ns.map(n => card(n, !!(printing || q || expandedBeliefs.has(n.slug)))).join('')}</div>
       </section>`;
     })
     .join('');
@@ -1067,6 +1108,15 @@ document.getElementById('out').addEventListener('click', e => {
     if (nowExpanded) expandedGroups.add(key); else expandedGroups.delete(key);
     sec.classList.toggle('expanded', nowExpanded);
     h2.setAttribute('aria-expanded', String(nowExpanded));
+    return;
+  }
+  const row = e.target.closest('button.nrow');
+  if (row) {
+    const node = row.closest('.node');
+    const nowOpen = !node.classList.contains('open');
+    if (nowOpen) expandedBeliefs.add(node.id); else expandedBeliefs.delete(node.id);
+    node.classList.toggle('open', nowOpen);
+    row.setAttribute('aria-expanded', String(nowOpen));
     return;
   }
   const a = e.target.closest('a[data-goto]');
@@ -1085,12 +1135,13 @@ function gotoNode(slug) {
     if (mapView.select(target)) return;
     switchView('domain');
   }
-  // make sure its group is expanded, then scroll + flash
+  // make sure its group and the belief itself are open, then scroll + flash
   requestAnimationFrame(() => {
     const groupName = view === 'domain' ? target.domain
       : view === 'tier' ? (target.tier ? `${target.tier} — ${D.tierMeta[target.tier][0]}` : 'Untiered')
       : (target.confidence || 'unmarked');
     expandedGroups.add(groupKey(groupName));
+    expandedBeliefs.add(target.slug);
     render();
     requestAnimationFrame(() => {
       const el = document.getElementById(target.slug);
@@ -1142,6 +1193,7 @@ document.getElementById('expandAll').addEventListener('click', () => {
     return;
   }
   document.querySelectorAll('#out .group').forEach(sec => expandedGroups.add(sec.dataset.key));
+  document.querySelectorAll('#out .node').forEach(n => expandedBeliefs.add(n.id));
   render();
 });
 document.getElementById('collapseAll').addEventListener('click', () => {
@@ -1150,6 +1202,7 @@ document.getElementById('collapseAll').addEventListener('click', () => {
     return;
   }
   document.querySelectorAll('#out .group').forEach(sec => expandedGroups.delete(sec.dataset.key));
+  document.querySelectorAll('#out .node').forEach(n => expandedBeliefs.delete(n.id));
   render();
 });
 
@@ -1245,16 +1298,18 @@ window.addEventListener('resize', () => {
 
 // -------------------------------------------------------------- print
 let preprintView = null;
+// Every group and belief prints open via the `printing` flag render() reads,
+// so the stored open sets are never written and afterprint restores exactly.
 window.addEventListener('beforeprint', () => {
   preprintView = view;
+  printing = true;
   switchView('domain');
-  document.querySelectorAll('#out .group').forEach(sec => sec.classList.add('expanded'));
-  expandedGroups = new Set([...expandedGroups, ...[...document.querySelectorAll('#out .group')].map(s => s.dataset.key)]);
   render();
-  document.querySelectorAll('#out .group').forEach(sec => sec.classList.add('expanded'));
 });
 window.addEventListener('afterprint', () => {
-  if (preprintView) { switchView(preprintView); render(); preprintView = null; }
+  printing = false;
+  if (preprintView) { switchView(preprintView); preprintView = null; }
+  render();
 });
 
 render();
