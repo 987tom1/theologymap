@@ -598,22 +598,19 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     font-weight:700; font-size:var(--fs-0); text-align:center; cursor:default; border-color:var(--ink); }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); border-left:3px solid var(--muted); }
-  /* Collapsed leaf: shrink to its title/chips, clamped (150-320px) so a
-     long title wraps to two lines instead of stretching the box. Expanded
-     leaf (detail open): grow to a comfortable reading measure (roughly
-     340-560px, ~45-70ch at this font size), hard-capped at 560px so
-     paragraphs don't read as one long line. Both clamps fall back to a
-     viewport-relative max on narrow/phone widths so nothing can overflow. */
+  /* A leaf is always a closed tile now -- title and chips, clamped (150-320px)
+     so a long title wraps to two lines instead of stretching the box, with a
+     viewport-relative max so nothing overflows a phone. Its detail is in
+     .map-panel, never in the tile. */
   .mbox-leaf {
     min-width:150px; max-width:min(320px, 86vw);
     border-left:3px solid var(--tier, var(--line));
     background: color-mix(in oklab, var(--tier, var(--panel)) 7%, var(--panel));
   }
-  .mbox-leaf.mopen { border-color:var(--field-line); border-left-color:var(--tier, var(--field-line));
-    box-shadow: var(--e2), inset 0 0 0 2px var(--ink);
-    min-width:min(340px, 80vw); max-width:min(560px, 92vw); }
   .mbox-leaf .mtitle b { font-family:var(--serif); font-weight:600; }
   .mbox-leaf.assumed { border-style:dashed; }
+  .mbox-leaf.msel { border-color:var(--ink); border-left-color:var(--tier, var(--ink));
+    box-shadow: var(--e2), inset 0 0 0 1px var(--ink); }
   .mtitle { display:flex; align-items:center; justify-content:space-between; gap:var(--s2); }
   .mtitle b { font-weight:600; font-size:var(--fs-0); }
   .mchev { font-size:var(--fs-000); color:var(--muted); transition:transform .15s ease; flex:0 0 auto; }
@@ -623,14 +620,6 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     opacity: clamp(0, calc((var(--zoom) - .55) * 4), 1);
     transition: opacity var(--dur-2) var(--ease-out);
   }
-  .mdetail { margin-top:var(--s2); border-top:1px solid var(--line); padding-top:var(--s2); }
-  /* A map tile is 340-560px wide, and "What I'd reject" as a max-content label
-     column would eat ~100px of that. Labels stack above their values here, the
-     same shape the card views take below 560px. */
-  .mdetail dl { grid-template-columns:1fr; gap:var(--s1) 0; border-top:0; padding-top:0; margin-top:0; }
-  .mdetail dt { padding-top:var(--s2); }
-  .mdetail dt:first-child { padding-top:0; }
-  .mdetail dd { font-size:var(--fs-0); }
   .mcount { font-weight:400; color:var(--muted); font-size:var(--fs-000); }
   .mapcontrols { position:absolute; right:10px; top:10px; z-index:5; display:flex; gap:var(--s2); }
   .mapcontrols button { font:600 var(--fs-000)/var(--lh-tight) var(--sans); border:1px solid var(--field-line);
@@ -642,6 +631,34 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   .maphint { position:absolute; left:10px; bottom:8px; font:var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); z-index:5; background:var(--bg); padding:var(--s1) var(--s2);
     border-radius:var(--r2); max-width:calc(100% - 20px); }
+
+  /* ---------- map detail panel (map-view.js .map-panel) ----------
+     A belief's detail, beside the canvas rather than inside it: right-hand
+     panel from 641px, bottom sheet below. Sits outside .map-panzoom so it
+     neither pans nor zooms, and is a scroll container of its own so
+     #mapwrap's touch-action:none stops at it. Duplicated in editor.html. */
+  .map-panel { position:absolute; z-index:6; top:0; right:0; bottom:0; width:min(400px, 40%);
+    overflow-y:auto; overscroll-behavior:contain; touch-action:pan-y; cursor:auto;
+    background:var(--panel); border-left:1px solid var(--line); box-shadow:var(--e3);
+    padding:var(--s4); font:var(--fs-00)/var(--lh-ui) var(--sans); }
+  .mp-head { display:flex; align-items:flex-start; gap:var(--s2); }
+  .mp-title { flex:1; min-width:0; }
+  .mp-title b { font:600 var(--fs-1)/var(--lh-snug) var(--serif); }
+  .mp-close { flex:none; border:1px solid var(--field-line); background:var(--panel); color:var(--muted);
+    border-radius:var(--r2); padding:var(--s1) var(--s2); font:600 var(--fs-0)/1 var(--sans); cursor:pointer; }
+  .mp-close:hover { color:var(--ink); }
+  .mp-body dl { grid-template-columns:1fr; gap:var(--s1) 0; }
+  .mp-body dt { padding-top:var(--s2); }
+  .mp-body dt:first-child { padding-top:0; }
+  .has-panel .maphint { display:none; }
+  @media (min-width:641px) { .has-panel .mapcontrols { right:calc(min(400px, 40%) + 10px); } }
+  @media (max-width:640px) {
+    .map-panel { top:auto; left:0; width:auto; max-height:60%; border-left:0; border-top:1px solid var(--line);
+      border-radius:var(--r3) var(--r3) 0 0; padding-top:var(--s2);
+      padding-bottom:calc(var(--s4) + env(safe-area-inset-bottom, 0px)); }
+    .map-panel::before { content:""; display:block; width:36px; height:4px; border-radius:var(--r-pill);
+      background:var(--line); margin:0 auto var(--s2); }
+  }
 
   /* ---------- header restructure: secondary filters behind a disclosure ---------- */
   .viewrow { display:flex; gap:var(--s4); align-items:center; flex:1 1 auto; min-width:0; }
@@ -657,6 +674,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
     label.tog { padding:6px 0; }
     .mapcontrols button { padding:8px 12px; }
     .views button, .seg button, .refchip, .filtersToggle { min-height:44px; }
+    button.mp-close { min-width:44px; min-height:44px; }
   }
 
   /* ---------- framed (inside /view's iframe) ---------- */
@@ -929,13 +947,16 @@ const detailRows = n => {
   if (n.refs) rows.push(`<dt>Texts</dt><dd class="refs">${refChips(n.refs)}</dd>`);
   return rows;
 };
+// The Related row, shared by the card views and the map's detail panel.
+const relatedRow = n => n.link.length ? `<dt>Related</dt><dd class="rel">${n.link.map(l =>
+  `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</dd>` : '';
 
 function card(n) {
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
   const rows = detailRows(n);
-  if (n.link.length) rows.push(`<dt>Related</dt><dd class="rel">${n.link.map(l =>
-    `<a href="#" data-goto="${esc(l)}">${esc((all.find(x=>x.slug===l)||{title:l}).title)}</a>`).join('')}</dd>`);
+  const related = relatedRow(n);
+  if (related) rows.push(related);
   return `<article class="node${n.flags.includes('assumed')?' assumed':''}" id="${n.slug}"
       style="--tier:${tier?tier[1]:'var(--line)'}">
     <div class="nhead">
@@ -1038,6 +1059,9 @@ function gotoNode(slug) {
   const target = all.find(x => x.slug === slug);
   if (!target) return;
   if (view === 'map') {
+    // A Related link on the map selects its target on the map. Only when a
+    // live search hides the target does it fall back to the card view.
+    if (mapView.select(target)) return;
     switchView('domain');
   }
   // make sure its group is expanded, then scroll + flash
@@ -1131,23 +1155,28 @@ function mapDomains() {
   }));
 }
 
-// The read-only leaf: the same markup this file has always emitted for one.
+// The read-only leaf: a closed tile, title and chips. Its detail is never in
+// the tile -- it goes to the map's detail panel (mapPanelHTML below).
 // `id` is the engine's own box id and must be what lands in data-id -- the
-// click handler toggles on it.
-function mapLeafHTML(n, open, id) {
+// click handler selects on it.
+function mapLeafHTML(n, id) {
   const tier = n.tier ? D.tierMeta[n.tier] : null;
   const conf = n.confidence ? D.confMeta[n.confidence] : null;
-  const rows = detailRows(n);
-  return `<div class="mbox mbox-leaf${open?' mopen':''}${n.flags.includes('assumed')?' assumed':''}"
+  return `<div class="mbox mbox-leaf${n.flags.includes('assumed')?' assumed':''}"
       data-id="${esc(id)}" tabindex="0" style="--tier:${tier?tier[1]:'var(--line)'}">
-    <div class="mtitle"><b>${esc(n.title)}</b><span class="mchev">&#9656;</span></div>
+    <div class="mtitle"><b>${esc(n.title)}</b></div>
     <div class="mmeta">
       ${tier?`<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>`:''}
       ${conf?`<span class="chip">${n.confidence}</span>`:''}
       ${n.flags.includes('study')?'<span class="chip">study</span>':''}
     </div>
-    ${open && rows.length ? `<div class="mdetail"><dl>${rows.join('')}</dl></div>` : ''}
   </div>`;
+}
+
+// The map's detail panel body: the same rows a card shows.
+function mapPanelHTML(n) {
+  const rows = detailRows(n).join('') + relatedRow(n);
+  return rows ? `<dl>${rows}</dl>` : '<p class="empty">Nothing written beyond the title yet.</p>';
 }
 
 const mapView = new MapView(document.getElementById('mapwrap'), {
@@ -1157,9 +1186,17 @@ const mapView = new MapView(document.getElementById('mapwrap'), {
   confMeta: D.confMeta,
   getDomains: mapDomains,
   leafHTML: mapLeafHTML,
+  panelHTML: mapPanelHTML,
   // A live search expands every area holding a match without disturbing the
   // stored collapse state, the same way the card views auto-expand a group.
   forceOpen: d => !!document.getElementById('q').value.trim() && d.nodes.length > 0,
+});
+
+// Related links inside the map's detail panel. The #out handler only sees the
+// card views.
+document.getElementById('mapwrap').addEventListener('click', e => {
+  const a = e.target.closest('.map-panel a[data-goto]');
+  if (a) { e.preventDefault(); gotoNode(a.dataset.goto); }
 });
 
 window.addEventListener('resize', () => {

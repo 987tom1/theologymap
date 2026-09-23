@@ -62,9 +62,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `dfe51d3d7bbf7bb3885de37979aa3a74f98c410043a05cacbc78e47e02ab32d1` as written by
+- `4d6bcce57116f7873d50490db42059a237d8186a0d9182ff54f216fdbf2f7b2f` as written by
   `Path.write_text` on Windows (CRLF)
-- `b60ac34f9e7a331e0b8e725dbfcf96e8d69542c4987146084a7eeb8f3994ae57` LF-normalised (what a
+- `c08f9c319fa992e56bbc0cb8e6ce2b30c681b58d0f03a95c6e5ae95396b6b083` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -137,6 +137,12 @@ screens with no cue that there's more content — `scrollbar-width:thin` becomes
 right-edge `mask-image` fade, matching the same treatment applied to `web/compare.html`'s
 `#sc-table-wrap` and `engine/theme.css`'s nav. Licensed, felt (visible fade on scroll), the two
 invariants held.
+
+**Phone map phase 1 moved it a tenth time, to the pair above.** Beliefs no longer expand
+inside the map: `.mbox-leaf.mopen`/`.mdetail` gave way to the `.map-panel` detail panel (right-hand
+from 641px, a bottom sheet below), `mapLeafHTML` lost its open branch and `mapPanelHTML` joined it
+(`docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`). Licensed, felt;
+`documentation/study-list.md` and the `<script id="data">` payload unchanged.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
