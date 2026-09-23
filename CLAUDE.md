@@ -275,11 +275,18 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
 - **Map** (default) — a balanced node-link tree. Root centred, 14 domains alternating
   right and left, each side keeping its own vertical cursor. Within a domain, leaves order
   by tier (T1→T4, untiered last). Box widths are content-driven: CSS sizes each to content
-  (`width:max-content`, clamped), the layout pass measures via `offsetWidth`. Collapsed
-  leaves ~150–320px; an expanded leaf's detail panel ~340–560px; domain boxes ~140–240px.
-  Every second leaf staggers outward by half its measured width. Drag/swipe to pan, wheel
-  or pinch to zoom (cursor-anchored, 0.3–2.5x). Below 860px it falls back to single-sided
-  left-to-right.
+  (`width:max-content`, clamped), the layout pass measures via `offsetWidth`. Leaves
+  ~150–320px; domain boxes ~140–240px. Every second leaf staggers outward by half its
+  measured width. Drag/swipe to pan, wheel or pinch to zoom (cursor-anchored, 0.3–2.5x).
+  Below 860px it falls back to single-sided left-to-right.
+  **A belief never expands inside the canvas** (phone map phase 1, 2026-09-23). Tapping a
+  leaf selects it — inked tile, inked edge — and shows its detail in `.map-panel`: a
+  right-hand panel from 641px, a bottom sheet (max 60% of the map) at 640px and below. One
+  belief at a time; tap it again, Close or Escape to deselect; tapping empty canvas does
+  not (a pan starts there). A Related link in the panel selects its target on the map
+  (opening its area); only a live search hiding the target falls back to the Domain view.
+  **Expand all on the Map view opens every area**, not every belief. Spec and plan:
+  `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
 - **Domain / Tier / Confidence** — grouped card lists, collapsed by default. An active text
   filter auto-expands any group holding a match without disturbing stored collapse state.
 
@@ -321,12 +328,14 @@ Two tabs, both editing the same live in-memory model:
 
 - **List** (default) — the structured form: pick a node in the sidebar tree, edit fields,
   add/delete nodes and domains.
-- **Map** — the same node-link layout. Collapsed leaves render exactly like the read-only
-  Map view; only an open leaf switches to editable controls. Each domain box has a ✎ to
-  rename in place.
+- **Map** — the same node-link layout and the same detail panel as the read-only Map view;
+  here the panel holds the editable controls for the selected belief. Each domain box has
+  a ✎ to rename in place. `setTab('map')` calls `mapView.refreshPanel()` because the List
+  tab edits the same node objects while the map is hidden.
 
-`/edit?open=<slug>` expands the area, opens the tile and selects the title — and is the one
-thing that opens on **Map**, because `applyOpenParam()` only knows how to drive `MapView`.
+`/edit?open=<slug>` selects that belief with `MapView.select(node)` (which opens its area)
+and selects the title in the panel — and is the one thing that opens on **Map**, because
+`applyOpenParam()` only knows how to drive `MapView`.
 **An unresolvable slug is ignored silently**; a stale bookmark must never be an error.
 
 **Promoted vs optional fields.** Both surfaces show **What I hold**, **Tier** and
@@ -836,24 +845,28 @@ What replaced the fork is four options, supplied by `render.py` only — the edi
 | Option | Job |
 |---|---|
 | `readonly` | drops the ✎ rename, `+ New node` and `+ New domain` chrome, and routes leaves through `leafHTML` |
-| `leafHTML(n, open, id)` | the read-only leaf body. **`id` is the engine's box id and must land in `data-id`** — a leaf labelled with its slug toggles a key the view does not hold |
+| `leafHTML(n, id)` | the read-only closed tile. **`id` is the engine's box id and must land in `data-id`** — a leaf labelled with its slug selects a key the view does not hold |
+| `panelHTML(n)` | the read-only detail panel's body — `render.py`'s `mapPanelHTML`, the same `detailRows()` + `relatedRow()` a card shows |
+
+And three methods: **`select(node)`** (takes the node object, opens its area, returns
+`false` when a live search hides it), `deselect()`, and **`refreshPanel()`**.
 | `escapeHtml` | injected, because `window.EditorCore` exists only in the editor and a local copy here would be a fourth copy of a one-place helper |
 | `forceOpen(domain)` | overrides a manually-collapsed domain — the generated map's search auto-expand |
 
-**`expandAll(nodes)` takes the caller's own full node list**, and must keep doing so. Reading
-the tree instead would expand only what the live search filter currently shows, leaving every
-other belief collapsed once the filter is cleared — which is not what that button did when the
-generated map owned its own copy of this code.
+**`expandAll(nodes)` opens every area** since phone map phase 1 — only one belief is ever
+open, in the panel. It still accepts the caller's node list so neither caller changed.
 
 **Three things about it are easy to undo and must not be:**
 
-- **`_leafMetaEditable` deliberately returns an empty `DocumentFragment`**: `_mountLeaf` /
-  `_updateLeaf` append meta before detail, so moving every editable control into `_leafDetail`
-  is how an open tile gets the wizard's field order. Anyone "tidying" it back into returning a
-  `.mmeta` div will re-order the tile. (The gate is retired; this reason never depended on it.)
+- **The panel body is built on selection change, never in `redraw()`.** Tiles are closed
+  strings rebuilt on every redraw; the panel is not, which is what keeps a caret alive while
+  a title edit or tier change redraws the map. `refreshPanel()` exists for the one case that
+  needs a rebuild (the editor's tab switch). Rebuilding the panel from `redraw()` drops focus
+  mid-keystroke. (This replaced P9's `_leafMetaEditable`/`_mountLeaf`/`_updateLeaf`
+  focus-preservation machinery, which existed only because tiles used to hold controls.)
 - **Leaf ids are a per-node WeakMap token, not the slug.** The generated map used to key on
   `n.slug`; a slug changes the moment a title is edited, which silently collapsed an open tile
-  on the next redraw. `editor.html`'s `applyOpenParam()` depends on the `leaf` id prefix.
+  on the next redraw. Consumers never see the id: they pass the node to `select()`.
 - **`render.py`'s `mapDomains()` groups over every node and filters inside each area**, never
   the reverse. An area whose nodes all fail the live search filter must still show its box
   reading "0 nodes"; grouping a pre-filtered list deletes the box instead.
