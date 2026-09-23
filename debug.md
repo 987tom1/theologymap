@@ -17,7 +17,7 @@ was individually correct against its own brief. **Check the joins, not the parts
 
 ## Diagnosing a live failure
 
-Twenty-three rules, each earned by a real bug. The `§` reference points at the
+Twenty-nine rules, each earned by a real bug. The `§` reference points at the
 write-up in `documentation/debug-archive.md`.
 
 ### Before you believe the symptom
@@ -132,6 +132,38 @@ write-up in `documentation/debug-archive.md`.
     toggle, gated on `CSS.supports('position-anchor: --x')` so anchor-capable engines
     run none of it. Check any other `[popover]`/`position-anchor` element the same way
     before trusting it on a laptop.
+
+### Map-first phases (2026-09-23)
+
+No archive write-ups; the commits carry the detail.
+
+25. **Rebuilding DOM that contains the focused element drops focus to `<body>`.** Hit
+    twice: a Related link inside the map's detail panel reselected, the panel rebuilt,
+    and Escape/arrow keys stopped working (`c8674a5`); and the editor's `touch()` rebuilt
+    the whole List on every keystroke, which once the form sat inline threw away the
+    caret and the typed text. The pattern: build a panel on selection change only,
+    update a row in place on an edit, and if a structural rebuild must move a focused
+    node, restore focus to the same element afterwards.
+26. **`el.style.cssText = …` replaces every inline property, including `transform`.**
+    `.mbox` transitions `transform`, so a redraw that copied a fresh tile's whole style
+    made every tile fly in from the origin (`64891ad`). Set the one property you mean
+    (`style.setProperty('--tier', …)`).
+27. **Anything that changes a header's height must re-size what was sized from it.**
+    `sizeMap()` ran on render and window resize only; opening the phone Filters
+    disclosure grew the header, a search re-rendered, and closing it left the canvas a
+    third short. A `ResizeObserver` on the header is the fix; a `resize` listener never
+    fires for it.
+28. **A page-local bare element rule leaks into shared components that do not reset
+    it.** `web/landing.html` gives every `button` a `margin-top`; the shared ⋯ button
+    did not reset margin, so on `/` alone it sat 8px below the nav labels. Shared
+    components reset the box properties a page might set.
+29. **What a headless check cannot see, it passes.** `document.getAnimations()` did not
+    report the flying-tiles transition, so a check built on it passed against the bug;
+    a `MutationObserver` with `attributeOldValue: true` on the tile's `style` caught the
+    intermediate state. Prove a new check against the broken code before trusting it.
+    Tooling note: the Chrome extension cannot reach this machine's localhost —
+    Playwright (Chromium; installed under Project 11.1's `node_modules`) against
+    `py engine/render_server.py` at `127.0.0.1:8420` is what works.
 
 ## Still open
 

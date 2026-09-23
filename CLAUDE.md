@@ -350,19 +350,27 @@ Interface: `{ mode, supportsAutosave, init(ui), load(), save(text, token, force)
 render(text), beaconFlush(text, token), buttons }`. **Add a mode by adding an adapter, not
 by branching inside `editor.html`.**
 
-Two tabs, both editing the same live in-memory model:
+Four views — **Map · Domain · Tier · Confidence** (2026-09-23, matching the reader's switcher) — all editing the same live in-memory model:
 
-- **List** (default) — one centred column (760px) at every width: the search field, then the
+- **Domain** (default; still `data-tab="list"` internally) — one centred column (760px) at every width: the search field, then the
   outline of areas and belief rows. **The selected belief's form renders inline, directly under
   its row** — the one persistent `#form` element is moved there by `renderTreeList()`, not
   rebuilt elsewhere. `+ New belief in <area>` ends each area, `+ New area` ends the list; the
   sticky Back/Next bar opens the neighbour's form inline and scrolls it to the top. There is no
-  sidebar and no "All beliefs" drawer. **`touch()` never calls `renderTreeList()`**: it patches
-  the edited belief's row (title, tier tag) in place through `rowFor`. A rebuild moves the
+  sidebar and no "All beliefs" drawer. **`touch()` patches the edited belief's row (title, tier
+  tag) in place through `rowFor`** and calls `renderTreeList()` in exactly one case, below. A rebuild moves the
   form, and moving the element that holds the focused field drops focus mid-keystroke, so the
   outline is rebuilt only on structural change — select, add, delete, area rename, search. The
   selected belief always survives the search filter, so its open form never vanishes.
   `setTab('list')` re-renders that form, the mirror of `refreshPanel()` below.
+- **Tier / Confidence** — the same outline and inline form grouped by `outlineGroups()` (tier
+  order then Untiered; open → rejected then Unmarked), each row showing its area in `.dom`, empty
+  groups hidden, no `+ New belief`/`+ New area` (a new belief needs an area — use Domain).
+  Back/Next walk `outlineGroups()` at click time; `syncListNav()` re-arms them after a rebuild.
+  **The one time `touch()` rebuilds:** when `groupOf(node)` differs from `rowGroup` — a tier
+  changed under Tier, a confidence under Confidence. `renderTreeList()` moves the same `formEl`
+  without re-rendering it, then re-`focus()`es the control that was focused if the move dropped
+  it. Title and hold typing never change the group, so they never rebuild.
 - **Map** — the same node-link layout and the same detail panel as the read-only Map view;
   here the panel holds the editable controls for the selected belief. Each domain box has
   a ✎ to rename in place. `setTab('map')` calls `mapView.refreshPanel()` because the List
@@ -537,6 +545,14 @@ rows stay hidden until it opens. A disclosure, not a popover — nothing moves b
 parents, so the signed-in `⋯` popover keeps working inside it. **The nav folds away on map
 screens only** (Thomas, 2026-09-23); no other page passes `compact`. `engine/editor.html` has
 the same shape by hand (`#editorMenuBtn`, `header.menu-open`).
+
+**The header shares the page's column** (2026-09-23). `.tm-chrome`'s inline padding is
+`max(var(--s5), calc((100% - 1200px) / 2))` — the left edge of `body.tm-page main`'s 1200px
+content box — so on a wide screen the header and the content start at the same x. Change
+main's measure and this moves with it; `/learn`'s narrower 900px main lines up with the
+1200px column, not its own. The home page's `.tm-firstrun` grid fills that column (three,
+two, one across); its `margin-inline:0` is load-bearing (a flex-column item with an auto
+cross-axis margin stops stretching — the `/view` iframe trap below, again).
 
 **`web/corpus.js` is the one browser-side corpus loader.** `/wizard`, `/learn` and
 `/compare` all import `loadCorpus()` and `STANCE_TEXT` from it. A fourth page fetching
