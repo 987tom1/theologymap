@@ -46,9 +46,9 @@ wheel, keyboard traversal or selection counts as interaction and stops re-homing
   pulses forever is worse than a blank one).
 - **Not found:** the heading reads "Map not found", not "<name>'s map". Keep the `/view`
   owner-404 rule (§7 Access control) intact.
-- **Tier legend** visible on `/view` (the framed map hides its own on the premise that
-  `/view` carries one; it does not). Reads `--t1`…`--t4` tokens, no hex literals. Hidden on
-  phone, matching the framed page's phone rule.
+- **Tier legend** visible on `/view`: the framed map stops hiding its own legend
+  (`html.framed .legend`), since `/view` carries none. No second legend is built. Still hidden
+  at ≤640px by the generated page's existing phone rule.
 - **No nested scrollbar** at desktop: the framed page's content (header, map, NET footer) fits
   the frame. The NET attribution must stay visible (§3 verses rule).
 
