@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `91e9bd4e1d3980172251aa1e69a3385c5506501cf19dbd6e8430d693f2c94fe7` as written by
+- `a281053c37ccef7058bf1f08b40d5fd381827e0cdac1498874897243bb4568a5` as written by
   `Path.write_text` on Windows (CRLF)
-- `1228192ab437c946051b3bc139db5d7dfd1e8b7b06bf41cc6c3b401fe3579eb2` LF-normalised (what a
+- `b261f543c7ab8a4aaa6ab95d152e3185531d3e059c7184c4a0590dd0ba468213` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -172,6 +172,10 @@ carries no legend of its own and the framed map had none at all; and `sizeMap()`
 subtracts the `.pagefoot` footer's height (plus its top margin) from the wrap height on
 screens wider than 640px, so the NET attribution fits inside the frame instead of pushing the
 page into a nested scrollbar. Licensed, felt; the two invariants held —
+`documentation/study-list.md` and the `<script id="data">` payload (`4d8d919e…c8bd7e`)
+unchanged. **The final-review fix wave moved it again, to the pair above:** `select(node)`
+now sets `_touched` only after the `!domain` guard, so a lookup miss no longer latches the
+camera as touched. Licensed, felt; the two invariants held —
 `documentation/study-list.md` and the `<script id="data">` payload (`4d8d919e…c8bd7e`)
 unchanged.
 
@@ -495,8 +499,8 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 
 | URL | Serves |
 |---|---|
-| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. Every signed-out redirect — Get started, `/wizard`, `/compare`, `/history` — lands on `/#signin`, which shows the reason beside the form and focuses Create account. |
-| `/thomas` | redirects (302) to `/view?name=Thomas` — one hosted way to view a map; `theology-map.html` stays the offline file |
+| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. A `requireUser` redirect (`/wizard`, `/compare`, `/history` while signed out) lands on `/#signin` with the reason shown beside the form, focused on Create account. The nav's plain "Sign in" link is also `/#signin` but carries no stashed reason, so it hides the note and focuses Sign in instead — a returning member should not type into Create account. The "Get started" tiles and buttons land on `/#signup`, which always shows the pitch and focuses Create account. |
+| `/thomas` | redirects (307, temporary) to `/view?name=Thomas` — one hosted way to view a map; `theology-map.html` stays the offline file |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
 | `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id; names are unique on `lower(name)`. |
