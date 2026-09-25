@@ -182,7 +182,7 @@ then the gate becomes **two invariants that must stay byte-identical**:
 invariant until `render_mm` was deleted; those hashes are history now.
 
 Regenerate with `py engine/render.py`. **Never hand-edit a generated file to make a hash
-match.** The gate has moved seven times, each for a documented reason —
+match.** The gate has moved many times, each for a documented reason above and in
 `documentation/changelog.md`.
 
 `.gitattributes` pins the generated files to `eol=crlf` so regenerating on Linux does not

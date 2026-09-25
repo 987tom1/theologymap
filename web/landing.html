@@ -136,13 +136,34 @@ mount('Theology Map');
 const $ = (id) => document.getElementById(id);
 const user = getUser();
 $('signed-out').hidden = !!user;
-$('make-own-tile').href = user ? '/wizard' : '/#signin';
-// Every signed-out route into the app ends here: Get started, /wizard,
-// /compare and /history. Show why, at the form, and put the cursor in it.
+$('make-own-tile').href = user ? '/wizard' : '/#signup';
+// Two arrival fragments, one handler. /#signin is requireUser's redirect
+// target: a stashed notice means "you were bounced here" (show it, land on
+// Create account, unchanged); no stashed notice means the nav's plain "Sign
+// in" link (hide the note, land on Sign in instead — a returning member
+// should not type their existing name into Create account). /#signup is the
+// "Get started" tiles' own destination and always shows the pitch.
 function arriveAtSignin() {
-  if (user || location.hash !== '#signin') return;
+  if (user) return;
+  const hash = location.hash;
+  if (hash !== '#signin' && hash !== '#signup') return;
   const note = $('signin-note');
-  note.textContent = takeNotice() || 'Create an account to build your map — a name and a PIN.';
+  if (hash === '#signin') {
+    const notice = takeNotice();
+    if (notice) {
+      note.textContent = notice;
+      note.hidden = false;
+      $('signin').scrollIntoView({ block: 'start' });
+      $('signup-form').elements.name.focus({ preventScroll: true });
+    } else {
+      note.hidden = true;
+      $('signin').scrollIntoView({ block: 'start' });
+      $('login-form').elements.name.focus({ preventScroll: true });
+    }
+    return;
+  }
+  // #signup
+  note.textContent = 'Create an account to build your map — a name and a PIN.';
   note.hidden = false;
   $('signin').scrollIntoView({ block: 'start' });
   $('signup-form').elements.name.focus({ preventScroll: true });
