@@ -495,7 +495,7 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 
 | URL | Serves |
 |---|---|
-| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. |
+| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. Every signed-out redirect — Get started, `/wizard`, `/compare`, `/history` — lands on `/#signin`, which shows the reason beside the form and focuses Create account. |
 | `/thomas` | `theology-map.html` — Thomas's own map |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
@@ -586,10 +586,14 @@ cross-axis margin stops stretching — the `/view` iframe trap below, again).
 
 **`web/session.js` is the only module that touches `localStorage` for the signed-in user**
 (key `theologymap:user`). One way to get the current user: `getUser()` / `requireUser(why)`.
-`apiFetch()` is JSON-in/JSON-out and shows the shared error banner itself — **it is the wrong
-tool for `/api/render`**, which replies `text/html`; those two call sites use plain `fetch()`
-+ `res.text()`. **The Error `apiFetch` throws carries `.code` and `.status`** — a caller that
-must branch on *why* a call failed matches on the code, never the message.
+`requireUser` redirects a signed-out visitor to `/#signin` and stashes `why` for the landing
+page to show beside the form; `takeNotice()` reads and clears that stash (the landing page's
+`arriveAtSignin()` is the one caller — the on-load banner skips itself on `/#signin` so the
+notice is not shown twice). `apiFetch()` is JSON-in/JSON-out and shows the shared error banner
+itself — **it is the wrong tool for `/api/render`**, which replies `text/html`; those two call
+sites use plain `fetch()` + `res.text()`. **The Error `apiFetch` throws carries `.code` and
+`.status`** — a caller that must branch on *why* a call failed matches on the code, never the
+message.
 
 `storage-hosted.js` deliberately does **not** use `apiFetch` for `/api/map`: on a 404
 `unknown_user`, `apiFetch` clears the session and redirects, which must never happen

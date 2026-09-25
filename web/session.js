@@ -27,10 +27,20 @@ export function requireUser(why = 'Sign in first — that page needs an account.
   const u = getUser();
   if (!u) {
     stashNotice(why);
-    window.location.href = '/';
+    window.location.href = '/#signin';
     return null;
   }
   return u;
+}
+
+// The landing page shows a redirect's reason beside the sign-in form rather
+// than as a banner above the fold; it takes the notice itself.
+export function takeNotice() {
+  try {
+    const m = sessionStorage.getItem(NOTICE_KEY);
+    sessionStorage.removeItem(NOTICE_KEY);
+    return m;
+  } catch { return null; }
 }
 
 // JSON in, JSON out. It is the right call for every route that replies with
@@ -116,7 +126,7 @@ export function showNotice(message) {
 
 // On load, if a notice was stashed across a redirect (see apiFetch's unknown_user
 // handling), show it once and clear it.
-if (typeof document !== 'undefined') {
+if (typeof document !== 'undefined' && !(location.pathname === '/' && location.hash === '#signin')) {
   let pending = null;
   try {
     pending = sessionStorage.getItem(NOTICE_KEY);

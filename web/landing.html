@@ -28,6 +28,9 @@
      do nothing visible — see debug.md §Q, which is exactly this bug. This
      wins the specificity fight back. Load-bearing; do not remove. */
   #signed-out[hidden] { display: none; }
+  #signin-note { padding: var(--s3) var(--s4); margin-bottom: var(--s4); max-width: 780px;
+                 border-left: 3px solid var(--ink); background: var(--panel);
+                 font: var(--fs-00) var(--sans); }
   .quiet { font: var(--fs-00) var(--sans); color: var(--muted); }
   /* The Listing-status control is the only .tm-action-btn carrying block children
      (an h3 and a sentence). The shared rule in theme.css is sized for a plain-text
@@ -95,6 +98,7 @@
   </div>
 
   <div id="signin">
+    <p id="signin-note" role="status" hidden></p>
     <div id="signed-out" hidden>
       <form id="login-form">
         <h2>Sign in</h2>
@@ -124,7 +128,7 @@
 </main>
 
 <script type="module">
-import { getUser, setUser, apiFetch } from '/web/session.js';
+import { getUser, setUser, apiFetch, takeNotice } from '/web/session.js';
 import { mount } from '/web/chrome.js';
 
 mount('Theology Map');
@@ -133,6 +137,18 @@ const $ = (id) => document.getElementById(id);
 const user = getUser();
 $('signed-out').hidden = !!user;
 $('make-own-tile').href = user ? '/wizard' : '/#signin';
+// Every signed-out route into the app ends here: Get started, /wizard,
+// /compare and /history. Show why, at the form, and put the cursor in it.
+function arriveAtSignin() {
+  if (user || location.hash !== '#signin') return;
+  const note = $('signin-note');
+  note.textContent = takeNotice() || 'Create an account to build your map — a name and a PIN.';
+  note.hidden = false;
+  $('signin').scrollIntoView({ block: 'start' });
+  $('signup-form').elements.name.focus({ preventScroll: true });
+}
+arriveAtSignin();
+window.addEventListener('hashchange', arriveAtSignin);
 // Signed out, this is the pitch and it stays open. Signed in, it is 350 words
 // above your own tiles on visit forty; one line collapses it.
 if (user) $('what-it-is').open = false;

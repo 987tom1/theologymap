@@ -11,7 +11,7 @@
    engine/wizard-generate.js, which is pure and tested from the command line;
    serialising lives in engine/editor-core.js. If something here starts sorting
    doctrines or deciding what counts as answered, it is a duplicate. */
-import { getUser, apiFetch, showError } from '/web/session.js';
+import { requireUser, apiFetch, showError } from '/web/session.js';
 import { mount, el, TIER_VAR } from '/web/chrome.js';
 // web/refs.js is a sibling agent's module. Contract: citationUrl(label,
 // citation) always returns a usable https URL — a curated table for the works
@@ -1329,9 +1329,9 @@ function ignoreCurrent() {
 }
 
 async function main() {
-  user = getUser();
-  // /app is gone; the landing page carries sign-in now.
-  if (!user) { location.href = '/'; return; }
+  // Accounts come before the question flow (CLAUDE.md §10); say why, at the form.
+  user = requireUser('Create an account to build your map — a name and a PIN.');
+  if (!user) return;
 
   mount('Build a map');
 
