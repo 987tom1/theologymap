@@ -140,3 +140,16 @@ test('revealPan: a tile under a side panel pans left clear of it', () => {
 test('revealPan: a tile bigger than the view aligns its top-left', () => {
   assert.deepStrictEqual(revealPan({ x: 100, y: 100, w: 900, h: 900 }, VIEW, 16), { dx: -84, dy: -84 });
 });
+
+// homePan: where the first paint and Reset view put the map.
+const { homePan } = MapView;
+
+test('two-sided home centres the root on both axes', () => {
+  const root = { x: -60, y: 100, w: 120, h: 40 };
+  assert.deepStrictEqual(homePan(root, { width: 1000, height: 600 }, true, 16), { panX: 500, panY: 180 });
+});
+
+test('single-sided home pins the root to the left margin, centred vertically', () => {
+  const root = { x: 0, y: 100, w: 120, h: 40 };
+  assert.deepStrictEqual(homePan(root, { width: 390, height: 700 }, false, 16), { panX: 16, panY: 230 });
+});

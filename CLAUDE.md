@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `a776eb4ddf6e452e9686408faa5fdfe7273d5b6f34d40c64d00991d2edad3b9a` as written by
+- `0a82606c067e4f6554f08c1974ba52f6a27c7416c72f5767a3767edd0a80c1a5` as written by
   `Path.write_text` on Windows (CRLF)
-- `c480bd3398c819161dd17bf181c411fdc2e492a829142765353e1306f0b05506` LF-normalised (what a
+- `4051870d954571d20b06289afdb96644b43a1b8c970e7961c9a9d2e5b65df1be` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -153,6 +153,16 @@ became the outline — each belief a compact row button on a branch line that op
 in place (`expandedBeliefs`), a tier-mix strip on each Domain group header, and print now
 opening everything through a `printing` flag instead of writing into `expandedGroups`.
 Licensed, felt; `documentation/study-list.md` and the `<script id="data">` payload unchanged.
+
+**Six-hat fixes Task 1 moved it again, to the pair above.** The Map view's camera: `homePan`
+replaces `redraw()`'s inline centring so a single-sided (phone) tree pins the root 16px from
+the left instead of centring it off-screen; a `_touched` flag stops re-homing once the person
+pans, zooms or taps, and a wrap `ResizeObserver` re-homes an untouched map through the size
+settling `/view`'s iframe and `sizeMap()` do after first paint, which used to leave the desktop
+map clipped until Reset view; opening an area by tap now pans its first three beliefs into view
+(`_revealArea`); and a drag no longer selects page text. Licensed, felt; the two invariants
+held — `documentation/study-list.md` and the `<script id="data">` payload
+(`4d8d919e…c8bd7e`) unchanged.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -295,8 +305,11 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
   belief at a time; tap it again, Close or Escape to deselect; tapping empty canvas does
   not (a pan starts there). A Related link in the panel selects its target on the map
   (opening its area); only a live search hiding the target falls back to the Domain view.
-  **Expand all on the Map view opens every area**, not every belief. Spec and plan:
-  `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
+  **Expand all on the Map view opens every area**, not every belief. The first paint and
+  Reset view put the root centred when two-sided and 16px from the left when single-sided
+  (`MapView.homePan`); until the person pans, zooms or taps, a size change re-homes it.
+  Opening an area by tap pans its first three beliefs into view (`_revealArea`). Spec and
+  plan: `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
 - **Domain / Tier / Confidence** — the outline (phone map phase 2, option A). Groups are
   collapsed by default; inside an open group each belief is one compact row — a real
   `<button class="nrow" aria-expanded>` inside `<article class="node" id="<slug>">`, so `id`

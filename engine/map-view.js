@@ -92,6 +92,7 @@
     this._pendingEnterId = null;
     this.panX = 0; this.panY = 0; this.zoom = 1;
     this.needsCenter = true;
+    this._touched = false;
     this.getAllSlugs = opts.getAllSlugs || function () { return []; };
     this.onFieldChange = opts.onFieldChange || function () {};
     this.onDeleteNode = opts.onDeleteNode || function () {};
@@ -125,7 +126,7 @@
     this.panel = container.querySelector('.map-panel');
     this.panelTitle = container.querySelector('.mp-title');
     this.panelBody = container.querySelector('.mp-body');
-    container.querySelector('.map-reset').addEventListener('click', () => { this.needsCenter = true; this.redraw(); });
+    container.querySelector('.map-reset').addEventListener('click', () => { this._touched = false; this.needsCenter = true; this.redraw(); });
 
     this._bindClicks();
     this._bindPanZoom();
@@ -145,8 +146,24 @@
     // silently; test it rather than assuming.
     window.addEventListener('resize', () => {
       if (this.wrap.offsetParent === null) return;
+      if (!this._touched) this.needsCenter = true;
       this.redraw();
     });
+    // Until the person pans, zooms or taps, the map's first frame is not final:
+    // /view's iframe and sizeMap() settle the wrap's size after the first
+    // redraw, which left the desktop map opening clipped until Reset view.
+    // Re-home on every size change until then; never after.
+    if (window.ResizeObserver) {
+      let lastW = 0, lastH = 0;
+      new ResizeObserver(() => {
+        if (this._touched || this.wrap.offsetParent === null) return;
+        const r = this.wrap.getBoundingClientRect();
+        if (r.width === lastW && r.height === lastH) return;
+        lastW = r.width; lastH = r.height;
+        this.needsCenter = true;
+        this.redraw();
+      }).observe(this.wrap);
+    }
   }
 
   MapView.prototype._domainIds = function () {
@@ -509,9 +526,10 @@
 
     if (this.needsCenter) {
       const rect = this.wrap.getBoundingClientRect();
+      const home = homePan(tree, rect, tree.twoSided, 16);
       this.zoom = 1;
-      this.panX = rect.width / 2 - (tree.x + tree.w / 2);
-      this.panY = rect.height / 2 - (tree.y + tree.h / 2);
+      this.panX = home.panX;
+      this.panY = home.panY;
       this.needsCenter = false;
     }
     // Boxes carry .children but no back-reference to their parent. Stashing
@@ -612,6 +630,27 @@
     this._applyPanZoom();
   };
 
+  // Opening an area on a phone put its beliefs past the right edge. Pan (never
+  // zoom) the least distance that shows the area box and its first three
+  // beliefs; a span too big to fit aligns its top-left. Layout numbers, not DOM
+  // rects, for the same transition reason as _reveal.
+  MapView.prototype._revealArea = function (id) {
+    const box = (this._lastList || []).find(b => b.id === id);
+    if (!box) return;
+    const shown = [box].concat(box.children.slice(0, 3));
+    const x0 = Math.min.apply(null, shown.map(b => b.x));
+    const y0 = Math.min.apply(null, shown.map(b => b.y));
+    const x1 = Math.max.apply(null, shown.map(b => b.x + b.w));
+    const y1 = Math.max.apply(null, shown.map(b => b.y + b.h));
+    const w = this.wrap.getBoundingClientRect();
+    const z = this.zoom;
+    const d = revealPan({ x: this.panX + x0 * z, y: this.panY + y0 * z, w: (x1 - x0) * z, h: (y1 - y0) * z },
+      { left: 0, top: 0, right: w.width, bottom: w.height }, 16);
+    if (!d.dx && !d.dy) return;
+    this.panX += d.dx; this.panY += d.dy;
+    this._applyPanZoom();
+  };
+
   MapView.prototype._bindPanel = function () {
     this.panel.querySelector('.mp-close').addEventListener('click', () => this._deselect(true));
     this.container.addEventListener('keydown', e => {
@@ -668,9 +707,12 @@
   // One entry point for a click and for Enter/Space on a focused box.
   MapView.prototype._activate = function (id, viaKeyboard) {
     if (id === 'root') return;
+    this._touched = true;
     if (id.startsWith('domain:')) {
-      if (this.mapManualCollapsed.has(id)) this.mapManualCollapsed.delete(id); else this.mapManualCollapsed.add(id);
+      const opening = this.mapManualCollapsed.has(id);
+      if (opening) this.mapManualCollapsed.delete(id); else this.mapManualCollapsed.add(id);
       this.redraw();
+      if (opening) this._revealArea(id);
       return;
     }
     if (id.startsWith('addnode:')) {
@@ -738,6 +780,18 @@
     };
   }
 
+  // Where the first paint and Reset view put the map. Two-sided: the root
+  // centred, areas either side. Single-sided (below MAP_TWO_SIDE_BREAK) every
+  // area runs to the right of the root, so centring the root pushed all of
+  // them past the right edge of a phone -- pin the root `margin` px from the
+  // left instead. Vertical centring is the same in both.
+  function homePan(root, rect, twoSided, margin) {
+    return {
+      panX: twoSided ? rect.width / 2 - (root.x + root.w / 2) : margin - root.x,
+      panY: rect.height / 2 - (root.y + root.h / 2),
+    };
+  }
+
   // Arrow-key traversal moves focus only -- it never opens/closes a tile or
   // triggers a click, so it never calls redraw(). Delegated on boxesEl like
   // _bindClicks, keyed off the same data-id, but reading this._lastList
@@ -762,7 +816,7 @@
       const target = traverseKey(self._lastList || [], boxEl.dataset.id, e.key);
       if (!target) return;
       const el = self.mapEls.get(target.id);
-      if (el) el.focus({ preventScroll: true });
+      if (el) { self._touched = true; el.focus({ preventScroll: true }); }
     });
   };
 
@@ -800,6 +854,7 @@
         dragging = true; moved = false;
         startX = lastX = e.clientX; startY = lastY = e.clientY;
         wrap.classList.add('dragging');
+        wrap.style.userSelect = 'none';
       } else if (pointers.size === 2) {
         dragging = false;
         const g = pinchGeometry();
@@ -817,6 +872,7 @@
         const rect = wrap.getBoundingClientRect();
         const g = pinchGeometry();
         const newZoom = pinchStartZoom * (g.dist / pinchStartDist);
+        self._touched = true;
         zoomAt(g.mx - rect.left, g.my - rect.top, newZoom);
         self._applyPanZoom();
         return;
@@ -825,6 +881,7 @@
       if (!dragging) return;
       if (!moved && Math.hypot(e.clientX - startX, e.clientY - startY) < DRAG_THRESHOLD) return;
       moved = true;
+      self._touched = true;
       self.panX += e.clientX - lastX; self.panY += e.clientY - lastY;
       lastX = e.clientX; lastY = e.clientY;
       self._applyPanZoom();
@@ -835,6 +892,7 @@
       if (pointers.size < 2) pinchStartDist = 0;
       if (pointers.size === 0) {
         dragging = false; wrap.classList.remove('dragging');
+        wrap.style.userSelect = '';
       } else if (pointers.size === 1) {
         const [[, p]] = pointers;
         dragging = true; moved = true; lastX = p.x; lastY = p.y;
@@ -850,6 +908,7 @@
       const delta = e.deltaY > 0 ? -0.1 : 0.1;
       if (Math.min(2.5, Math.max(0.3, self.zoom + delta)) === self.zoom) return;
       const rect = wrap.getBoundingClientRect();
+      self._touched = true;
       zoomAt(e.clientX - rect.left, e.clientY - rect.top, self.zoom + delta);
       self._applyPanZoom();
     }, { passive: false });
@@ -858,6 +917,7 @@
   MapView.groupByDomain = groupByDomain;
   MapView.traverseKey = traverseKey;
   MapView.revealPan = revealPan;
+  MapView.homePan = homePan;
 
   return MapView;
 });
