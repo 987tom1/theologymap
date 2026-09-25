@@ -39,6 +39,10 @@
   @media (max-width: 640px) {
     body.tm-page .tm-main { padding: 0; gap: 0; }
     iframe { border: 0; border-radius: 0; }
+    /* .tm-main's padding is zeroed above for the canvas; #loading isn't the
+       canvas and needs its own so "Loading map…" doesn't sit flush against
+       the screen edge. */
+    #loading { padding: var(--s3) var(--s4); }
     /* The standing line stays -- it is what stops a generated summary reading
        as a person's map. The intro and the Learn link go: Learn is in the ⋯
        nav, and the canvas needs the height. */
