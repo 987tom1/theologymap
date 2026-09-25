@@ -547,6 +547,9 @@
   // and hands it over. Returns false when the node is not on the map as drawn
   // (a live search hides it) -- the caller decides what to do instead.
   MapView.prototype.select = function (node) {
+    // A consumer that selects a belief has placed the camera on purpose --
+    // the ResizeObserver must not undo _reveal's pan on its next callback.
+    this._touched = true;
     const domain = this.getDomains().find(d => d.nodes.indexOf(node) !== -1);
     if (!domain) return false;
     if (!this.mapManualCollapsed) this.mapManualCollapsed = new Set(this._domainIds());

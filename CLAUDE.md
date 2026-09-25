@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `0a82606c067e4f6554f08c1974ba52f6a27c7416c72f5767a3767edd0a80c1a5` as written by
+- `f9de75851d08198f277927833aae1431f067393de60b99b74b3f6dc4a37df7ab` as written by
   `Path.write_text` on Windows (CRLF)
-- `4051870d954571d20b06289afdb96644b43a1b8c970e7961c9a9d2e5b65df1be` LF-normalised (what a
+- `b026852e773b5903e0ee0eeaad86fe16b9abcd5d2caa8bcee4224b4c911278e3` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -162,7 +162,11 @@ settling `/view`'s iframe and `sizeMap()` do after first paint, which used to le
 map clipped until Reset view; opening an area by tap now pans its first three beliefs into view
 (`_revealArea`); and a drag no longer selects page text. Licensed, felt; the two invariants
 held — `documentation/study-list.md` and the `<script id="data">` payload
-(`4d8d919e…c8bd7e`) unchanged.
+(`4d8d919e…c8bd7e`) unchanged. **Fix round 1 moved it a second time, to the pair above:**
+`select(node)` now also sets `_touched`, because a consumer that programmatically selects a
+belief (`/edit?open=<slug>`) has placed the camera on purpose — without this the same
+`ResizeObserver` that fixed the desktop clip undid `select()`'s reveal pan on its first
+callback. Same two invariants held.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -307,9 +311,10 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
   (opening its area); only a live search hiding the target falls back to the Domain view.
   **Expand all on the Map view opens every area**, not every belief. The first paint and
   Reset view put the root centred when two-sided and 16px from the left when single-sided
-  (`MapView.homePan`); until the person pans, zooms or taps, a size change re-homes it.
-  Opening an area by tap pans its first three beliefs into view (`_revealArea`). Spec and
-  plan: `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
+  (`MapView.homePan`); until the person pans, zooms, taps or a caller calls `select()`, a
+  size change re-homes it. Opening an area by tap pans its first three beliefs into view
+  (`_revealArea`). Spec and plan:
+  `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
 - **Domain / Tier / Confidence** — the outline (phone map phase 2, option A). Groups are
   collapsed by default; inside an open group each belief is one compact row — a real
   `<button class="nrow" aria-expanded>` inside `<article class="node" id="<slug>">`, so `id`
