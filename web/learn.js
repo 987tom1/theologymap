@@ -226,6 +226,7 @@ function renderIndex(corpus) {
    than having to read every card to find out. */
 function positionCard(doctrine, position) {
   const card = el('div', 'lp-pos');
+  card.id = 'pos-' + position.id;
   card.appendChild(el('h3', null, position.label));
   if (position.hold) card.appendChild(el('p', 'lp-prose', position.hold));
   if (position.why) {
@@ -447,6 +448,21 @@ async function renderDoctrine(corpus, doctrine) {
 
   // 6. the positions, side by side. Collapsible now, expanded by default.
   const posSec = foldSection('The positions', true);
+  // Long doctrines stack their cards on a phone; a row of jumps saves the scroll.
+  if (positions.length >= 3) {
+    const jump = el('nav', 'lp-jump');
+    jump.setAttribute('aria-label', 'Jump to a position');
+    for (const p of positions) {
+      const a = el('a', null, p.label);
+      a.href = '#pos-' + p.id;
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('pos-' + p.id).scrollIntoView({ block: 'start' });
+      });
+      jump.appendChild(a);
+    }
+    posSec.appendChild(jump);
+  }
   const grid = el('div', 'lp-positions');
   for (const position of positions) grid.appendChild(positionCard(doctrine, position));
   posSec.appendChild(grid);

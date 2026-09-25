@@ -102,6 +102,8 @@
   .lp-contested dd { margin: 0; font: var(--fs-00)/var(--lh-body) var(--serif); color: var(--muted); }
   @media (max-width: 480px) { .lp-contested { grid-template-columns: 1fr; } }
 
+  .lp-jump { display: flex; flex-wrap: wrap; gap: var(--s2); margin: 0 0 var(--s3); font: var(--fs-00)/var(--lh-ui) var(--sans); }
+  .lp-jump a { padding: var(--s1) var(--s2); border: 1px solid var(--field-line); border-radius: var(--r2); color: var(--ink); text-decoration: none; }
   .lp-positions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); }
   @media (max-width: 860px) { .lp-positions { grid-template-columns: 1fr; } }
   /* Three columns, and the grid bleeds out of the 900px reading measure to get

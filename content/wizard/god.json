@@ -10,7 +10,7 @@
       "order": 1,
       "kind": "settled",
       "question": "How is the one God related to Father, Son and Holy Spirit?",
-      "framing": "This is one of the few questions in the map where the historic church speaks with a single voice, and the wizard says so rather than staging a false choice. The Nicene-Constantinopolitan Creed of 381 confesses one God in three eternally distinct persons, of one being, and every communion represented here recites or affirms it. The live questions that remain sit downstream of that confession, not inside it: how the persons are ordered, and how the Spirit's procession is described. A position that dissolves the distinction of persons, or makes the Son a creature, falls outside the creed rather than inside the debate.",
+      "framing": "This is one of the few questions in the map where the historic church speaks with a single voice, and this site says so rather than staging a false choice. The Nicene-Constantinopolitan Creed of 381 confesses one God in three eternally distinct persons, of one being, and every communion represented here recites or affirms it. The live questions that remain sit downstream of that confession, not inside it: how the persons are ordered, and how the Spirit's procession is described. A position that dissolves the distinction of persons, or makes the Son a creature, falls outside the creed rather than inside the debate.",
       "suggested_tier": "T1",
       "tier_note": "The identity of God is the first-tier question by any reckoning: nothing else in the map can be stated without it.",
       "refs": "Matt 28:19; John 1:1-3; 2 Cor 13:13; John 15:26",
@@ -649,7 +649,7 @@
           "citation": "Articles of Religion (1784), Article 1; Thomas Jay Oord, The Uncontrolling Love of God (2015)"
         }
       },
-      "learn_note": "The two options here are not symmetrical in status: one is the confessional position of every historic communion and the other is a modern proposal that has become common in practice. The wizard lists them side by side because both are genuinely held, but the `held_by` entries carry the difference and should be read.",
+      "learn_note": "The two options here are not symmetrical in status: one is the confessional position of every historic communion and the other is a modern proposal that has become common in practice. This site lists them side by side because both are genuinely held, but the `held_by` entries carry the difference and should be read.",
       "sources": [
         {
           "label": "All That Is In God",

@@ -1,7 +1,6 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/web/landing.html" },
-    { "source": "/thomas", "destination": "/theology-map.html" },
     { "source": "/edit", "destination": "/engine/editor.html?mode=hosted" },
     { "source": "/gallery", "destination": "/web/gallery.html" },
     { "source": "/history", "destination": "/web/history.html" },
@@ -10,6 +9,9 @@
     { "source": "/wizard", "destination": "/web/wizard.html" },
     { "source": "/learn", "destination": "/web/learn.html" },
     { "source": "/compare", "destination": "/web/compare.html" }
+  ],
+  "redirects": [
+    { "source": "/thomas", "destination": "/view?name=Thomas", "permanent": false }
   ],
   "functions": {
     "api/render.py": { "includeFiles": "{engine/render.py,engine/map-view.js,documentation/verses.md}" },

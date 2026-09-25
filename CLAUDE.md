@@ -496,7 +496,7 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 | URL | Serves |
 |---|---|
 | `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. Every signed-out redirect — Get started, `/wizard`, `/compare`, `/history` — lands on `/#signin`, which shows the reason beside the form and focuses Create account. |
-| `/thomas` | `theology-map.html` — Thomas's own map |
+| `/thomas` | redirects (302) to `/view?name=Thomas` — one hosted way to view a map; `theology-map.html` stays the offline file |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
 | `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id; names are unique on `lower(name)`. |
