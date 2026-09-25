@@ -701,9 +701,11 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
      short of: height. Below 640px the phone query dropped these anyway, which is
      why a framed map looked right on a phone and top-heavy on an iPad. The h1 is
      visually hidden rather than removed so the framed document keeps a heading
-     for assistive tech. #mapwrap's height is measured in JS (sizeMap), so it
-     follows whatever this leaves behind rather than needing its own constant. */
-  html.framed .kicker, html.framed .sub, html.framed .legend { display:none; }
+     for assistive tech. The tier legend stays -- /view's own chrome carries no
+     legend of its own, so hiding it here left the framed map with none at all.
+     #mapwrap's height is measured in JS (sizeMap), so it follows whatever this
+     leaves behind rather than needing its own constant. */
+  html.framed .kicker, html.framed .sub { display:none; }
   html.framed h1 { position:absolute; width:1px; height:1px; overflow:hidden;
     clip-path:inset(50%); white-space:nowrap; }
   html.framed header { padding:var(--s3) var(--s4) var(--s2); }
@@ -1041,8 +1043,13 @@ function sizeMap() {
   const wrap = document.getElementById('mapwrap');
   if (!head || !wrap) return;
   // Below 640px the canvas runs to the frame's edge (map-first, phase 1.5);
-  // wider screens keep the 24px breathing room under the bordered canvas.
-  const allowance = matchMedia('(max-width:640px)').matches ? 0 : 24;
+  // wider screens keep the 24px breathing room under the bordered canvas, and
+  // leave room for the NET footer so the page -- and /view's iframe -- never
+  // scrolls behind the map.
+  const wide = !matchMedia('(max-width:640px)').matches;
+  const foot = wide ? document.querySelector('.pagefoot') : null;
+  const footH = foot ? foot.offsetHeight + parseFloat(getComputedStyle(foot).marginTop || 0) : 0;
+  const allowance = wide ? 24 + footH : 0;
   wrap.style.height = Math.max(240, window.innerHeight - head.offsetHeight - allowance) + 'px';
 }
 

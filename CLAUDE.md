@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `f9de75851d08198f277927833aae1431f067393de60b99b74b3f6dc4a37df7ab` as written by
+- `91e9bd4e1d3980172251aa1e69a3385c5506501cf19dbd6e8430d693f2c94fe7` as written by
   `Path.write_text` on Windows (CRLF)
-- `b026852e773b5903e0ee0eeaad86fe16b9abcd5d2caa8bcee4224b4c911278e3` LF-normalised (what a
+- `1228192ab437c946051b3bc139db5d7dfd1e8b7b06bf41cc6c3b401fe3579eb2` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -166,7 +166,14 @@ held — `documentation/study-list.md` and the `<script id="data">` payload
 `select(node)` now also sets `_touched`, because a consumer that programmatically selects a
 belief (`/edit?open=<slug>`) has placed the camera on purpose — without this the same
 `ResizeObserver` that fixed the desktop clip undid `select()`'s reveal pan on its first
-callback. Same two invariants held.
+callback. Same two invariants held. **Six-hat fixes Task 2 moved it a third time, to the pair
+above:** `html.framed .legend` no longer hides the tier key, because `/view`'s own chrome
+carries no legend of its own and the framed map had none at all; and `sizeMap()` now
+subtracts the `.pagefoot` footer's height (plus its top margin) from the wrap height on
+screens wider than 640px, so the NET attribution fits inside the frame instead of pushing the
+page into a nested scrollbar. Licensed, felt; the two invariants held —
+`documentation/study-list.md` and the `<script id="data">` payload (`4d8d919e…c8bd7e`)
+unchanged.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -812,12 +819,15 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
 
 - **A framed map trims its own header.** `render.py` marks `<html class="framed">` when
   `window.top !== window.self` — the same test that removes the Edit link — hiding the
-  kicker, subtitle and tier legend and visually-hiding the `h1`, because `/view`'s own chrome
-  carries all four.
+  kicker and subtitle and visually-hiding the `h1`, because `/view`'s own chrome carries all
+  three. **The tier legend stays** (since six-hat fixes Task 2), because `/view` carries no
+  legend of its own — hiding it there left the framed map with none at all.
 - **`#mapwrap`'s height comes from `sizeMap()`**, which measures the header's real
   `offsetHeight` rather than a hand-tuned `calc(100vh - Npx)`. The CSS constants stay as the
   no-JS fallback. **`sizeMap()` runs before `redrawMap()`** — the redraw centres against the
-  wrap's height.
+  wrap's height. On screens wider than 640px it also subtracts the `.pagefoot` footer's
+  height (plus its top margin), so the NET attribution fits inside the frame instead of
+  forcing a nested scrollbar.
 - **The Map view sets `main.wide`** (`max-width: none`); the card views keep the 1080px
   reading measure.
 - **There is no Fullscreen any more** (`/view` or `/edit`; removed in phase 1.5, 2026-09-23).
