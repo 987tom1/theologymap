@@ -59,6 +59,7 @@
     <p><a id="tradition-learn" href="/learn">Read these doctrines side by side on Learn</a></p>
   </div>
   <p id="not-found" hidden>Map not found.</p>
+  <p id="loading" class="tm-quiet" role="status">Loading map…</p>
   <!-- No allow-same-origin: a srcdoc frame inherits this page's origin, so with it a
        script smuggled into someone else's map could read our localStorage session
        (phase 2, B2). The rendered map uses no storage, cookies or same-origin API,
@@ -120,6 +121,17 @@ const heading = tradition ? tradition.display_name
 mount(heading, [exportBtn, copyBtn, makeMineBtn], { compact: true });
 const notFoundEl = document.getElementById('not-found');
 const frameEl = document.getElementById('map-frame');
+const loadingEl = document.getElementById('loading');
+const tmMain = document.querySelector('.tm-main');
+tmMain.setAttribute('aria-busy', 'true');
+// Cleared on every exit, including throws: a page that says "loading" forever
+// is worse than the blank box it replaced (CLAUDE.md §7).
+function doneLoading() { loadingEl.remove(); tmMain.removeAttribute('aria-busy'); }
+function notFoundHeading() {
+  const h1 = document.querySelector('#tmChrome h1');
+  if (h1) h1.textContent = 'Map not found';
+  document.title = 'Theology Map — Map not found';
+}
 
 const user = getUser();
 // A named member map has an owner; a tradition map does not. Only the named-map
@@ -142,8 +154,10 @@ if (isOwner) {
   });
 }
 
+try {
 if (traditionId) {
   if (!tradition) {
+    notFoundHeading();
     notFoundEl.textContent = 'No such tradition: ' + traditionId;
     notFoundEl.hidden = false;
   } else {
@@ -185,11 +199,13 @@ if (traditionId) {
       copyButton(copyBtn, () =>
         new URL('/view?tradition=' + encodeURIComponent(traditionId), location.origin).href);
     } catch {
+      notFoundHeading();
       notFoundEl.textContent = 'This tradition map could not be loaded.';
       notFoundEl.hidden = false;
     }
   }
 } else if (!name) {
+  notFoundHeading();
   notFoundEl.hidden = false;
 } else {
   try {
@@ -217,6 +233,7 @@ if (traditionId) {
     if (isOwner && res.ok && nodeCount === 0) {
       location.replace('/wizard');
     } else if (!res.ok) {
+      if (!isOwner) notFoundHeading();
       notFoundEl.textContent = isOwner
         ? 'Your map is unlisted, so it does not render by name. Relist it from the home page to share this link.'
         : 'Map not found.';
@@ -243,8 +260,12 @@ if (traditionId) {
         new URL('/view?name=' + encodeURIComponent(name), location.origin).href);
     }
   } catch {
+    notFoundHeading();
     notFoundEl.hidden = false;
   }
+}
+} finally {
+  doneLoading();
 }
 </script>
 
