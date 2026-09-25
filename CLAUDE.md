@@ -21,6 +21,7 @@ on every run. `documentation/verses.md` is a second source file, but mostly mach
 | `documentation/debug-archive.md` | The 37 full bug write-ups (§A–§AK). | When a `debug.md` rule is not enough |
 | `docs/hosting/phase-*-outcome.md` | Per-phase accounts. | Phase archaeology |
 | `documentation/ux-firstprinciples-*.md`, `design-modern-feel.md` | The 2026-09 assessments. | Before UI work |
+| `documentation/compare-matching-notes.md` | Parked investigation: why `/compare` marks Thomas's own map mostly "own-wording," and options for loosening it without breaking the exact-match invariant. | Before touching `compare-core.js`'s matching, or resuming that work |
 
 Restructured 2026-09-10: chronology moved out of this file. Pre-restructure version is
 `git show 4e78bda:CLAUDE.md`.
