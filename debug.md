@@ -164,6 +164,14 @@ No archive write-ups; the commits carry the detail.
     Tooling note: the Chrome extension cannot reach this machine's localhost —
     Playwright (Chromium; installed under Project 11.1's `node_modules`) against
     `py engine/render_server.py` at `127.0.0.1:8420` is what works.
+30. **Check `document.visibilityState` before believing a Chrome-extension walk.** With
+    the Chrome window hidden, screenshots time out ("renderer may be frozen") and
+    `/view`'s sandboxed map frame neither paints nor takes input, while page JS runs
+    normally — it reads exactly like a hung map. Two six-hat-review (2026-09-25)
+    "bugs" were this, plus harness artefacts: the `ViewTransition … InvalidStateError`
+    seen on `/view` and `/thomas` came from `document.write`-ing an iframe wrapper and
+    does not occur on ordinary navigation. A same-origin `<iframe style="width:390px">`
+    wrapper is still a good phone-width check for everything else.
 
 ## Still open
 
