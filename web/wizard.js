@@ -37,6 +37,8 @@ const LENS_KEY = 'tmm.wizard.tradition';
    rather than throwing. Every read and write is wrapped, exactly as the lens
    read is. */
 const IGNORE_KEY = 'tmm.wizard.ignored';
+/* Light / Medium / Heavy (WG.LEVELS). A preference like the lens: this browser only. */
+const LEVEL_KEY = 'tmm.wizard.level';
 
 /* The same six strings as engine/editor.html's TIER_GLOSS and render.py's
    TIER_META. This is the only screen in the product where a person is asked to
@@ -59,13 +61,14 @@ let corpus = null;
 let traditions = [];        // the registry, as a flat array
 let domains = [];           // the parsed map — the model everything mutates
 let token = null;           // updated_at, the concurrency token
-let order = [];             // WG.orderedDoctrines(corpus), computed once
+let order = [];             // WG.orderedDoctrines of the level's view
 let idx = 0;                // which doctrine is on screen
 // tradition id; '' is the real answer "I'd rather not say", null is "not asked
 // yet". '' is falsy, so a truthiness test cannot tell the two apart and the
 // lens screen re-asked a question that had already been answered. Every "has
 // this been answered?" test here is `lens !== null`.
 let lens = null;
+let level = 'heavy';
 let lensReturn = 'intro';   // which screen the tradition picker was opened from
 let ignored = new Set();    // slugs put aside with "Ignore for now"
 let returnTo = null;        // area id the question screen was entered from, or null
@@ -913,7 +916,7 @@ function renderHome() {
 function renderAreas() {
   const host = $('home-areas-list');
   host.textContent = '';
-  for (const area of WG.domainProgress(domains, corpus, ignored)) {
+  for (const area of WG.domainProgress(domains, view(), ignored)) {
     if (!area.total) continue;   // a manifest area with no questions published
     const row = el('div', 'wz-area');
 
@@ -952,7 +955,7 @@ const STATUS_TEXT = {
    takes an area ID rather than an area object because progress moves under it:
    answering a question and coming back must re-read the counts. */
 function renderArea(areaId) {
-  const area = WG.domainProgress(domains, corpus, ignored).find(a => a.id === areaId);
+  const area = WG.domainProgress(domains, view(), ignored).find(a => a.id === areaId);
   if (!area) { renderHome(); return; }
   $('area-title').textContent = area.name;
   $('area-sub').textContent =
@@ -1303,10 +1306,44 @@ function orderIndexOf(doctrine) {
   return order.findIndex(d => d.slug === doctrine.slug);
 }
 
+function view() { return WG.levelCorpus(corpus, level, domains); }
+
+// A member who already has answers and no stored level keeps the full set
+// they had before levels existed; a first-timer starts on Light.
+function initialLevel() {
+  let stored = null;
+  try { stored = localStorage.getItem(LEVEL_KEY); } catch { /* private mode */ }
+  if (stored === 'light' || stored === 'medium' || stored === 'heavy') return stored;
+  return WG.answeredSlugs(domains).size ? 'heavy' : 'light';
+}
+
+function applyLevel(v) {
+  level = v;
+  try { localStorage.setItem(LEVEL_KEY, v); } catch { /* private mode */ }
+  order = WG.orderedDoctrines(view());
+  $('intro-count').textContent = String(order.length);
+  for (const s of document.querySelectorAll('.wz-level')) s.value = v;
+}
+
+// The question on screen stays if the new level still holds it; otherwise
+// move to the level's next question (or the launchpad when none is left).
+function onLevelChange(v) {
+  const cur = $('screen-question').hidden ? null : order[idx];
+  applyLevel(v);
+  if (cur) {
+    const i = orderIndexOf(cur);
+    if (i >= 0) {
+      idx = i;
+      $('wz-crumb').textContent =
+        WG.domainName(corpus, cur) + ' · question ' + (idx + 1) + ' of ' + order.length;
+    } else startQuestions();
+  } else if (!$('screen-home').hidden) renderHome();
+}
+
 function startQuestions() {
   let next;
   try {
-    next = WG.nextDoctrine(domains, corpus, ignored);
+    next = WG.nextDoctrine(domains, view(), ignored);
   } catch (err) {
     console.error('startQuestions failed', err);
     showError('Could not load the question set. Try reloading the page — '
@@ -1322,7 +1359,7 @@ function startQuestions() {
 function ignoreCurrent() {
   ignored.add(order[idx].slug);
   saveIgnored();
-  const next = WG.nextDoctrine(domains, corpus, ignored);
+  const next = WG.nextDoctrine(domains, view(), ignored);
   if (next) renderQuestion(orderIndexOf(next));
   else if (returnTo) renderArea(returnTo);
   else renderHome();
@@ -1349,8 +1386,6 @@ async function main() {
     corpus = await loadCorpus();
     if (!corpus) { clearSkel(skelHost); return; }
     traditions = corpus.traditions.traditions || [];
-    order = WG.orderedDoctrines(corpus);
-    $('intro-count').textContent = String(order.length);
 
     const map = await apiFetch('/api/map?user_id=' + encodeURIComponent(user.id));
     if (!map) { clearSkel(skelHost); return; }
@@ -1364,6 +1399,9 @@ async function main() {
   // showScreen('intro') — clear once here, before any of them, rather than
   // guard each call site separately.
   clearSkel(skelHost);
+
+  applyLevel(initialLevel());
+  for (const s of document.querySelectorAll('.wz-level')) s.onchange = () => onLevelChange(s.value);
 
   // getItem returns null only when the key was never written. '' is a stored
   // answer and must survive the read, so no `|| ''` here.
@@ -1410,7 +1448,14 @@ async function main() {
   // fall through to the normal landing when it names nothing.
   const wanted = new URLSearchParams(location.search).get('doctrine');
   if (wanted) {
-    const at = order.findIndex(d => d.id === wanted);
+    let at = order.findIndex(d => d.id === wanted);
+    // ponytail: a link from /learn or /compare to a question outside the level
+    // widens this visit's order to the full set, unpersisted; the selects keep
+    // showing the stored level until the person changes it.
+    if (at < 0 && WG.findDoctrine(corpus, wanted)) {
+      order = WG.orderedDoctrines(corpus);
+      at = order.findIndex(d => d.id === wanted);
+    }
     if (at >= 0) { renderQuestion(at); return; }
   }
 

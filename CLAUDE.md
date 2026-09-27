@@ -898,6 +898,11 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   and caches the short set as good for the whole visit. `tests/check_tradition_maps.py` does
   **not** gate this; it parses the generated `.md` files. It is a convention, like
   `superseded_holds`, not a guarantee.
+- **Question levels** (`WG.LEVELS`, `localStorage['tmm.wizard.level']`). They narrow what is
+  asked, never what was answered (`levelCorpus` keeps answered slugs). A member with answers
+  and no stored level defaults to Heavy. A `?doctrine=` link outside the level widens that
+  visit only. Changing the ids is a code change pinned by `tests/wizard-generate.test.js`,
+  not a corpus edit.
 
 ---
 

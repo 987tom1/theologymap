@@ -441,3 +441,8 @@ Two "bugs" seen during the live walk were not bugs: a hidden Chrome window makes
 screenshots time out and the sandboxed `/view` frame stop painting, and the `ViewTransition`
 exceptions came from the test harness. `debug.md` rule 30.
 
+**2026-09-28:** `/wizard` gained a Light / Medium / Heavy question-level switch
+(`63b6d12`, `WG.LEVELS`/`WG.levelCorpus` in the generator; the `.wz-level` select on the
+intro, launchpad and question screen in `web/wizard.js`/`wizard.html`) — a level narrows
+what is asked, never what was answered.
+
