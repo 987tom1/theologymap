@@ -411,3 +411,33 @@ shapes (a flat `nodes` array vs the editor's grouped `domains`), so it needs a s
 adapter and a browser to verify pan, zoom, pinch and detail-open. It is not a
 test-covered change and should get its own session.
 
+### The six-hat review round of 2026-09-25 to 2026-09-27
+
+A six-hat browser review of the live site at desktop (1568px) and phone (390px) found the
+failures clustered at the entry points: a shared map link opened on a phone showed every
+area past the right edge; the desktop map opened clipped until Reset view; `/view` had no
+loading state and titled a missing map "<name>'s map"; signed-out visitors were bounced to
+`/` with the reason in a banner above the fold (or, from `/wizard`, no reason at all);
+`/thomas` was a second viewer with no site chrome; `/learn` corpus copy said "the wizard".
+
+Spec `docs/superpowers/specs/2026-09-25-six-hat-fixes-design.md`, plan
+`docs/superpowers/plans/2026-09-25-six-hat-fixes.md`, executed subagent-per-task with a
+review after each and a whole-branch review at the end (`ebe1a56..62d3d5e`). What shipped:
+`MapView.homePan` (root 16px from the left on a single-sided map), re-home on size change
+until the person touches the map, `_revealArea` on tap-open, no text selection on drag;
+the framed map keeps its tier legend and fits the NET footer; `/view` loading line and
+"Map not found" heading; `requireUser` lands on `/#signin` with the reason beside the form,
+`/#signup` for Get started; `/thomas` 307s to `/view?name=Thomas`; jump links on doctrines
+with three or more positions. Reviews caught three real bugs before shipping: the new
+`ResizeObserver` undoing `/edit?open=` reveals (so `select()` counts as a touch), a heading
+selector that could never match (`mount()` replaces `#tmChrome`), and the nav's plain
+"Sign in" landing returning members on Create account.
+
+The 2026-09-27 follow-up (`a156427`): no leaf stagger on a single-sided map (it pushed every
+second belief off a phone screen), area boxes read "N beliefs" and the editor's add tiles
+"+ New belief"/"+ New area", and the gallery's Make-your-own card links `/#signup`.
+
+Two "bugs" seen during the live walk were not bugs: a hidden Chrome window makes
+screenshots time out and the sandboxed `/view` frame stop painting, and the `ViewTransition`
+exceptions came from the test harness. `debug.md` rule 30.
+

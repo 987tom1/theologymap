@@ -1250,6 +1250,20 @@ output — the byte-identity pair is still P11's.
   against `closestTradition`'s real return shape so the tie- and denominator-caveats survived
   the rewrite.
 
+**Six-hat fixes shipped 2026-09-25, follow-up 2026-09-27.** Entry-point fixes from a
+live review: phone map home position and area reveal, desktop re-home until touched, `/view`
+loading and not-found, signed-out redirects to `/#signin` (reason beside the form) and
+`/#signup`, `/thomas` redirect, Learn jump links, "beliefs"/"area" copy on the map. Narrative
+in `documentation/changelog.md`. **Still open from that round:**
+
+- **Thomas to unlist Test1 and test2 in `/admin`** — they sit in the public gallery beside
+  his real map (Test1 is a clone of it). Needs the admin PIN, so no session can do it.
+- **Dragging and zooming inside `/view`'s frame was not verified live** — the walk ran with
+  the Chrome window hidden (`debug.md` rule 30). Unframed, both work. Check with Chrome in
+  front before assuming.
+- **At 100% the two-sided desktop tree is taller than the framed canvas**, so the top and
+  bottom areas open slightly clipped. A fit-to-height home zoom would fix it; not decided.
+
 ---
 
 ## 11. Content working notes
