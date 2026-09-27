@@ -115,6 +115,54 @@
     return x instanceof Set ? x : new Set(x || []);
   }
 
+  /* Question levels (Thomas, 2026-09-28): areas, cumulative. Light is four
+   * areas (Scripture, God, Christ, Salvation) less two technical questions;
+   * Medium adds six areas less their most specialist questions; Heavy is
+   * everything and has no entry. Hard-coded ids, not a corpus field, so the
+   * corpus files stay untouched — tests/wizard-generate.test.js pins every id
+   * against the real corpus. */
+  const LIGHT = [
+    'scripture.inerrancy', 'scripture.canon', 'scripture.sufficiency', 'scripture.clarity',
+    'scripture.hermeneutic-method', 'scripture.translations',
+    'god.trinity', 'god.eternal-generation', 'god.classical-theism', 'god.time',
+    'god.open-theism', 'god.divine-foreknowledge',
+    'christ.deity-and-humanity', 'christ.virgin-birth', 'christ.bodily-resurrection',
+    'christ.impeccability', 'christ.atonement', 'christ.extent-of-the-atonement',
+    'salvation.sovereignty-and-free-will', 'salvation.election', 'salvation.perseverance-and-apostasy',
+    'salvation.assurance', 'salvation.lordship-salvation', 'salvation.justification',
+    'salvation.regeneration-and-baptism',
+  ];
+  const MEDIUM = LIGHT.concat([
+    'god.efs-ess', 'christ.divine-power',
+    'holy-spirit.baptism-in-the-holy-spirit', 'holy-spirit.continuationism', 'holy-spirit.prophecy',
+    'holy-spirit.tongues', 'holy-spirit.healing',
+    'humanity-and-sin.image-of-god', 'humanity-and-sin.historical-adam', 'humanity-and-sin.original-sin',
+    'humanity-and-sin.depravity-and-prevenient-grace', 'humanity-and-sin.age-of-accountability',
+    'church.women-in-ministry', 'church.church-government', 'church.baptism', 'church.lords-supper',
+    'last-things.second-coming', 'last-things.millennium', 'last-things.israel-and-the-church',
+    'last-things.intermediate-state', 'last-things.hell', 'last-things.new-creation',
+    'ethics.marriage-and-sexuality', 'ethics.divorce-and-remarriage', 'ethics.abortion',
+    'ethics.prosperity-teaching', 'ethics.war-and-violence',
+    'missions-and-world-religions.exclusivity-of-christ', 'missions-and-world-religions.the-unevangelised',
+    'missions-and-world-religions.world-religions',
+  ]);
+  const LEVELS = { light: new Set(LIGHT), medium: new Set(MEDIUM) };
+
+  /* The corpus as one level sees it. A doctrine whose slug is already on the
+   * map always stays: a level narrows what is asked, never what was answered. */
+  function levelCorpus(corpus, level, domains) {
+    const keep = LEVELS[level];
+    if (!keep) return corpus;
+    const answered = answeredSlugs(domains || []);
+    const out = {};
+    for (const [id, file] of Object.entries(corpus.domains || {})) {
+      out[id] = Object.assign({}, file, {
+        doctrines: (file.doctrines || []).filter(d => keep.has(d.id) || answered.has(d.slug)),
+      });
+    }
+    return Object.assign({}, corpus, { domains: out });
+  }
+
   /* Per-area progress, in corpus manifest order — what the wizard's launchpad
    * lists and what its per-area question list screen renders. Model logic, so
    * it lives here and not in web/wizard.js: the UI only paints the rows.
@@ -355,5 +403,6 @@
     loadCorpusSync, orderedDoctrines, allDoctrines,
     findDoctrine, findPosition, domainName,
     applyAnswer, addManualNode, pruneLinks, answeredSlugs, nextDoctrine, domainProgress,
+    LEVELS, levelCorpus,
   };
 });

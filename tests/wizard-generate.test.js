@@ -99,6 +99,31 @@ test('a doctrine already in the map is not answered again', () => {
   assert.ok(domains[0].nodes[0].hold.startsWith('Scripture is without error'));
 });
 
+test('levels: every id exists, light 25, medium 55 and a superset, heavy is everything', () => {
+  const real = WG.loadCorpusSync('content/wizard');
+  const ids = new Set(WG.orderedDoctrines(real).map(d => d.id));
+  for (const lv of ['light', 'medium']) {
+    for (const id of WG.LEVELS[lv]) assert.ok(ids.has(id), lv + ' names unknown doctrine ' + id);
+  }
+  assert.strictEqual(WG.LEVELS.light.size, 25);
+  assert.strictEqual(WG.LEVELS.medium.size, 55);
+  for (const id of WG.LEVELS.light) assert.ok(WG.LEVELS.medium.has(id), 'medium lacks ' + id);
+  const none = EditorCore.parse('');
+  assert.strictEqual(WG.orderedDoctrines(WG.levelCorpus(real, 'light', none)).length, 25);
+  assert.strictEqual(WG.orderedDoctrines(WG.levelCorpus(real, 'medium', none)).length, 55);
+  assert.strictEqual(WG.levelCorpus(real, 'heavy', none), real);
+});
+
+test('levels: an answered question outside the level stays visible', () => {
+  const real = WG.loadCorpusSync('content/wizard');
+  const rapture = WG.findDoctrine(real, 'last-things.rapture');   // heavy-only
+  assert.ok(!WG.LEVELS.medium.has(rapture.id));
+  const domains = EditorCore.parse('# Last things\n\n## ' + rapture.node_title + ' · T4 · open\n');
+  const slugs = WG.orderedDoctrines(WG.levelCorpus(real, 'light', domains)).map(d => d.slug);
+  assert.ok(slugs.includes(rapture.slug), 'answered heavy-only doctrine was hidden');
+  assert.strictEqual(slugs.length, 26);
+});
+
 test('answered doctrines are detected from slugs already in the map', () => {
   const domains = EditorCore.parse(fs.readFileSync('tests/fixtures/partial.md', 'utf8'));
   assert.ok(WG.answeredSlugs(domains).has('inerrancy'));
