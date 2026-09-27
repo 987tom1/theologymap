@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `a281053c37ccef7058bf1f08b40d5fd381827e0cdac1498874897243bb4568a5` as written by
+- `0f135b8b2a2e50ea15138feff87c9152c2ccef22f07f2a7998c3ae5d84492550` as written by
   `Path.write_text` on Windows (CRLF)
-- `b261f543c7ab8a4aaa6ab95d152e3185531d3e059c7184c4a0590dd0ba468213` LF-normalised (what a
+- `23d7634d4362053b7fb937e91b436c1c9acbfe8e2557485264c82a8501b47f85` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -177,7 +177,10 @@ unchanged. **The final-review fix wave moved it again, to the pair above:** `sel
 now sets `_touched` only after the `!domain` guard, so a lookup miss no longer latches the
 camera as touched. Licensed, felt; the two invariants held —
 `documentation/study-list.md` and the `<script id="data">` payload (`4d8d919e…c8bd7e`)
-unchanged.
+unchanged. **The 2026-09-27 follow-up moved it again, to the pair above:** the leaf stagger
+runs only on a two-sided map (on a phone it pushed every second belief off-screen), and the
+area count and editor add-tiles read "N beliefs", "+ New belief", "+ New area" instead of
+"nodes"/"node"/"domain" (§4 copy rule). Same two invariants held.
 
 A phase **licensed to change the output on purpose** (a restyle) may move them — but
 then the gate becomes **two invariants that must stay byte-identical**:
@@ -311,8 +314,8 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
   right and left, each side keeping its own vertical cursor. Within a domain, leaves order
   by tier (T1→T4, untiered last). Box widths are content-driven: CSS sizes each to content
   (`width:max-content`, clamped), the layout pass measures via `offsetWidth`. Leaves
-  ~150–320px; domain boxes ~140–240px. Every second leaf staggers outward by half its
-  measured width. Drag/swipe to pan, wheel or pinch to zoom (cursor-anchored, 0.3–2.5x).
+  ~150–320px; domain boxes ~140–240px. Every second leaf staggers outward (`STAGGER_X`, 110px) —
+  two-sided only; a single-sided phone map keeps its beliefs in one column. Drag/swipe to pan, wheel or pinch to zoom (cursor-anchored, 0.3–2.5x).
   Below 860px it falls back to single-sided left-to-right.
   **A belief never expands inside the canvas** (phone map phase 1, 2026-09-23). Tapping a
   leaf selects it — inked tile, inked edge — and shows its detail in `.map-panel`: a
@@ -938,7 +941,7 @@ What replaced the fork is four options, supplied by `render.py` only — the edi
 
 | Option | Job |
 |---|---|
-| `readonly` | drops the ✎ rename, `+ New node` and `+ New domain` chrome, and routes leaves through `leafHTML` |
+| `readonly` | drops the ✎ rename, `+ New belief` and `+ New area` chrome, and routes leaves through `leafHTML` |
 | `leafHTML(n, id)` | the read-only closed tile. **`id` is the engine's box id and must land in `data-id`** — a leaf labelled with its slug selects a key the view does not hold |
 | `panelHTML(n)` | the read-only detail panel's body — `render.py`'s `mapPanelHTML`, the same `detailRows()` + `relatedRow()` a card shows |
 
@@ -963,7 +966,7 @@ open, in the panel. It still accepts the caller's node list so neither caller ch
   on the next redraw. Consumers never see the id: they pass the node to `select()`.
 - **`render.py`'s `mapDomains()` groups over every node and filters inside each area**, never
   the reverse. An area whose nodes all fail the live search filter must still show its box
-  reading "0 nodes"; grouping a pre-filtered list deletes the box instead.
+  reading "0 beliefs"; grouping a pre-filtered list deletes the box instead.
   `MapView.groupByDomain` is deliberately a dumb grouper for that reason, and
   `tests/map-view.test.js` pins it — including a read of the real `<script id="data">` payload
   that prints the fourteen area labels a person actually sees.

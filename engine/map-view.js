@@ -50,7 +50,7 @@
   //
   // It deliberately does NOT filter: the generated map builds its domain list
   // from every node and filters only the members, so a search matching nothing
-  // in an area still shows that area's box reading "0 nodes". A caller that
+  // in an area still shows that area's box reading "0 beliefs". A caller that
   // pre-filters would silently drop empty areas instead.
   function groupByDomain(nodes) {
     const order = [];
@@ -186,13 +186,13 @@
       if (isOpen) {
         dom.children = members.map(n => this._leafBox(n, 2, side));
         if (!this.readonly) {
-          dom.children.push({ id: 'addnode:' + domain.name, type: 'addnode', title: '+ New node', depth: 2, side, domainName: domain.name, children: [] });
+          dom.children.push({ id: 'addnode:' + domain.name, type: 'addnode', title: '+ New belief', depth: 2, side, domainName: domain.name, children: [] });
         }
       }
       root.children.push(dom);
     });
     if (!this.readonly) {
-      root.children.push({ id: 'adddomain', type: 'adddomain', title: '+ New domain', depth: 1, side: nextSide(), children: [] });
+      root.children.push({ id: 'adddomain', type: 'adddomain', title: '+ New area', depth: 1, side: nextSide(), children: [] });
     }
     return root;
   };
@@ -222,11 +222,11 @@
         : `<span class="mtitle-actions"><button type="button" class="mdomain-edit" data-domain="${esc(box.title)}" title="Rename domain">&#9998;</button>${chev}</span>`;
       return `<div class="mbox mbox-domain${openState ? ' mopen' : ''}" data-id="${esc(box.id)}" tabindex="0">
         <div class="mtitle"><b>${esc(box.title)}</b>${actions}</div>
-        <div class="mmeta"><span class="mcount">${box.total} node${box.total === 1 ? '' : 's'}</span></div>
+        <div class="mmeta"><span class="mcount">${box.total} belief${box.total === 1 ? '' : 's'}</span></div>
       </div>`;
     }
     if (box.type === 'addnode' || box.type === 'adddomain') {
-      return `<div class="mbox mbox-add" data-id="${esc(box.id)}">+ ${box.type === 'addnode' ? 'New node' : 'New domain'}</div>`;
+      return `<div class="mbox mbox-add" data-id="${esc(box.id)}">+ ${box.type === 'addnode' ? 'New belief' : 'New area'}</div>`;
     }
     // Every leaf is a string now, in both consumers: render.py supplies its own
     // (a read-only tile carrying the `assumed` class), the editor takes the
@@ -472,7 +472,9 @@
       }
       box.children.forEach(assignY);
       box.children.forEach((c, i) => {
-        if (c.type === 'leaf' && i % 2 === 1) c.x += c.side === 1 ? STAGGER_X : -STAGGER_X;
+        // Two-sided only: on a single-sided (phone) map the stagger pushed every
+        // second belief past the right edge of the screen.
+        if (tree.twoSided && c.type === 'leaf' && i % 2 === 1) c.x += c.side === 1 ? STAGGER_X : -STAGGER_X;
       });
       if (box.type === 'domain') {
         const first = box.children[0], last = box.children[box.children.length - 1];
