@@ -831,6 +831,7 @@ function existingNode(doctrine) {
 let tierSegs = null;
 
 function renderHome() {
+  order = WG.orderedDoctrines(view());
   const nodes = domains.reduce((a, d) => a.concat(d.nodes), []);
   $('home-beliefs').textContent = String(nodes.length);
   $('home-areas').textContent = String(domains.length);
@@ -955,6 +956,7 @@ const STATUS_TEXT = {
    takes an area ID rather than an area object because progress moves under it:
    answering a question and coming back must re-read the counts. */
 function renderArea(areaId) {
+  order = WG.orderedDoctrines(view());
   const area = WG.domainProgress(domains, view(), ignored).find(a => a.id === areaId);
   if (!area) { renderHome(); return; }
   $('area-title').textContent = area.name;
