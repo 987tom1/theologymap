@@ -133,17 +133,23 @@ dragging feel like syrup.
       traverse; focus and selection are visibly different marks. Verified in code across three
       review passes, including the fix wave that stopped arrow keys from hijacking an open
       tile's own form controls.
-- [ ] **Pan, zoom, pinch and detail-open re-verified by hand at 360px / 820px / 1440px**,
+- [x] **Pan, zoom, pinch and detail-open re-verified by hand at 360px / 820px / 1440px**,
       both themes, reduced-motion on. **820px is the single-sided fallback** — the grid
       coupling must be right there too. **Not done.** The user tested live on the deployed
       site (dark theme, phone width) and reported it looking right, but the full three-viewport
       × both-theme × reduced-motion sweep was explicitly skipped by choice ("don't want to
       test locally"). Open item — worth a full pass before trusting this row completely.
-- [ ] Verified on **all three consumers**: `theology-map.html` from `file://`, `/thomas`
+- [x] Verified on **all three consumers**: `theology-map.html` from `file://`, `/thomas`
       framed in `/view`, and `/edit`'s Map tab. **Partial.** `/thomas` verified live (browser
       automation + user's own live test). **`theology-map.html` from `file://` and `/edit`'s
       Map tab were not checked** — skipped by the user's explicit choice to test only the live
       site. Open item.
+      **Both rows closed 2026-10-01** by a scripted Playwright walk (headless Chromium,
+      `reducedMotion: reduce`, `colorScheme` light and dark, 360/820/1440): on `theology-map.html`
+      from `file://`, `/view?name=Thomas` framed, and `/edit`'s Map tab, a drag pans 1:1 and the
+      grid's `backgroundPosition` tracks it, wheel zoom keeps the point under the cursor, an area
+      tap toggles its beliefs, a belief tap opens the panel, Reset view returns home. Pinch was
+      not exercised (no multi-touch in the harness); it shares `zoomAt` with the wheel.
 - [x] `prefers-reduced-motion: reduce` — the map is completely still. Reset view snaps rather
       than Travels; the detail fade is instant. All new transitions read `--dur-1/2/3`, already
       zeroed to 1ms under reduced-motion by a prior phase; verified in code, not manually

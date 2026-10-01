@@ -446,3 +446,6 @@ exceptions came from the test harness. `debug.md` rule 30.
 intro, launchpad and question screen in `web/wizard.js`/`wizard.html`) — a level narrows
 what is asked, never what was answered.
 
+**2026-10-01:** the two-sided map's home view zooms to fit the tree's height (0.6–1×), so `/view`'s
+desktop frame no longer opens with the top and bottom areas clipped. The P10 three-consumer walk
+that had been skipped was run (Playwright, all green), and four dead `theme.css` classes were deleted.
