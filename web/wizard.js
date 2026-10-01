@@ -622,14 +622,13 @@ function renderQuestionUnsafe(i) {
   for (const position of orderedPositions(doctrine)) {
     const card = el('div', 'wz-card');
 
-    if (position.orthodoxy === 'outside') {
-      card.appendChild(el('p', 'wz-outside', 'Outside the historic creeds'));
-      card.appendChild(el('p', 'wz-outside-note', position.orthodoxy_note || ''));
-    }
-
     const head = el('div', 'wz-card-h');
     head.appendChild(el('strong', null, position.label));
     card.appendChild(head);
+    // The flag sits under the title, never above it: above, it took the grid's
+    // first row from the Read more button and the note read as detached from
+    // the position it describes. The note itself follows the hold text.
+    if (position.orthodoxy === 'outside') card.appendChild(el('p', 'wz-outside', 'Outside the historic creeds'));
     // Who holds it lives in Read more; only the chosen tradition's own chip
     // stays on the card, since picking one is asking to see exactly that.
     if (lens && (position.held_by || []).some(h => h.tradition === lens)) {
@@ -647,6 +646,7 @@ function renderQuestionUnsafe(i) {
     let holdEl = el('p', 'wz-hold', position.hold || '');
     let area = null;
     card.appendChild(holdEl);
+    if (position.orthodoxy === 'outside' && position.orthodoxy_note) card.appendChild(el('p', 'wz-outside-note', position.orthodoxy_note));
     const pick = () => {
       if (chosen && chosen.position === position) return;
       if (!area) {

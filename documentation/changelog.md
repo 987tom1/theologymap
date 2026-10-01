@@ -473,3 +473,12 @@ web-verified or omitted. The old "open by default" note in CLAUDE.md §6 was sta
 
 Follow-up: the 86 `tier_note` strings (shown as "Suggested importance — why") were also scrubbed of
 builder-facing wording ("Thomas's own map places…", "T1", "tier"); each now states only the reason.
+
+2026-10-01, review round: accessibility fixes on /learn (44px tap targets, `minmax(0, 1fr)` grids so
+320px at 200% text no longer overflows, search result count announced, chip `aria-label`, focus moves to
+jumped-to card; axe reports 0 violations); wizard outside-position card reordered so the flag and note sit
+with their position; card labels now "Why people hold it" / "What it argues against"; index legend says
+what each importance level means for fellowship. Corpus: 7 dead or misdirected source URLs repointed (22
+occurrences), Nostra Aetate claim corrected, 11 `tier_note`s no longer attribute a rank to Ortlund
+(unverified against his book), baptism/tongues notes dated, defined and attributed more carefully, and
+8 dense notes split into shorter sentences.

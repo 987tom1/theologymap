@@ -277,7 +277,7 @@
 ## Baptism · T2 · certain
   hold  Baptism is the instrument by which God gives new birth, forgiveness and union with Christ, and is therefore administered to infants and converts alike.
   why   The New Testament attaches the gift itself to the washing — new birth of water and Spirit, baptism that now saves — rather than to a sign of it.
-  vs    Treating baptism as a sign of a grace given elsewhere, which detaches the promise from the act the New Testament attaches it to.
+  vs    Treating baptism as a sign of a grace given elsewhere; supporters of baptismal regeneration say this detaches the promise from the act the New Testament attaches it to.
   refs  John 3:5; Titus 3:5; 1 Pet 3:21; Acts 22:16
   link  the-lords-supper
   link  membership-and-discipline

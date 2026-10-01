@@ -299,7 +299,7 @@
           "refs": "Matt 19:9; 1 Cor 7:15",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Disputed: Whether Jesus's words on sexual immorality and Paul's on a deserting unbelieving spouse allow a divorced person to remarry while the former spouse is alive.\nWho: Held by Reformed (Westminster Confession), Baptist, Pentecostal, non-denominational, Methodist and Anglican churches, for the wronged spouse at least. Some Protestants read those texts as allowing separation only.\nAt stake: Whether divorced Christians may marry again in church, and how churches advise people in broken marriages.",
+          "orthodoxy_note": "Disputed: Whether a divorced person may remarry while the former spouse is alive, based on Jesus's words on sexual immorality and Paul's on a deserting unbelieving spouse.\nWho: Reformed (Westminster Confession), Baptist, Pentecostal, non-denominational, Methodist and Anglican churches allow it, for the wronged spouse at least. Some Protestants read those texts as allowing separation only.\nAt stake: Whether divorced Christians may marry again in church, and how churches advise people in broken marriages.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -659,7 +659,7 @@
           "refs": "Ps 127:3",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Disputed: Whether IVF is acceptable for a married couple when no embryo is deliberately destroyed or left frozen indefinitely, or is wrong however carefully it is done.\nWho: Held by Baptist (Southern Baptist Convention, 2010), Reformed, Lutheran, Anglican and non-denominational voices. The Catholic Church rejects IVF itself because it separates conception from the marital act.\nAt stake: Whether couples facing infertility may use IVF, and how embryos must be treated.",
+          "orthodoxy_note": "Disputed: Whether a married couple may use IVF if no embryo is destroyed or left frozen indefinitely, or whether IVF is wrong however carefully it is done.\nWho: Held by Baptist (Southern Baptist Convention, 2010), Reformed, Lutheran, Anglican and non-denominational voices. The Catholic Church rejects IVF itself because it separates conception from the marital act.\nAt stake: Whether couples facing infertility may use IVF, and how embryos must be treated.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -1386,7 +1386,7 @@
             {
               "label": "Thirty-Nine Articles of Religion",
               "citation": "1571, Article 37",
-              "url": "https://anglicansonline.org/basics/thirty-nine_articles.html"
+              "url": "https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/articles-religion"
             },
             {
               "label": "Augsburg Confession",

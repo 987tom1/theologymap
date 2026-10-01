@@ -128,6 +128,9 @@ function tierChip(tier) {
   const chip = el('span', 'lp-tier', tier);
   chip.style.background = TIER_VAR[tier] || 'var(--muted)';
   chip.title = 'Suggested importance: ' + tier + '. A starting point, not a verdict.';
+  // title is not announced reliably; a bare "T2" means nothing to a screen reader.
+  chip.setAttribute('role', 'img');
+  chip.setAttribute('aria-label', 'Suggested importance ' + tier);
   return chip;
 }
 
@@ -208,16 +211,22 @@ function renderIndex(corpus) {
 
   $('lp-filter').addEventListener('input', () => {
     const q = $('lp-filter').value.trim().toLowerCase();
+    let shown = 0;
     for (const box of host.querySelectorAll('.lp-domain')) {
       let any = false;
       for (const row of box.querySelectorAll('.lp-row')) {
         const hit = !q || row.dataset.searchText.includes(q);
         row.hidden = !hit;
-        if (hit) any = true;
+        if (hit) { any = true; shown++; }
       }
       box.hidden = !any;
       box.open = !!q && any;
     }
+    // A role="status" line, so a screen-reader user hears the result and a
+    // sighted one is not left looking at an empty list.
+    $('lp-count').textContent = !q ? ''
+      : shown ? shown + (shown === 1 ? ' doctrine matches.' : ' doctrines match.')
+      : 'No doctrines match.';
   });
 
   showScreen('index');
@@ -237,11 +246,11 @@ function positionCard(doctrine, position) {
   card.appendChild(el('h3', null, position.label));
   if (position.hold) card.appendChild(el('p', 'lp-prose', position.hold));
   if (position.why) {
-    card.appendChild(el('p', 'tm-lab', 'Why'));
+    card.appendChild(el('p', 'tm-lab', 'Why people hold it'));
     card.appendChild(el('p', 'lp-prose', position.why));
   }
   if (position.vs) {
-    card.appendChild(el('p', 'tm-lab', 'What it rejects'));
+    card.appendChild(el('p', 'tm-lab', 'What it argues against'));
     card.appendChild(el('p', 'lp-prose', position.vs));
   }
   if (position.learn_detail) {
@@ -347,8 +356,8 @@ async function myOwnAnswer(doctrine) {
     box.appendChild(el('p', 'lp-prose', 'Not yet in the map.'));
   } else {
     box.appendChild(el('p', 'lp-prose', node.hold || '(no hold recorded)'));
-    if (node.why) { box.appendChild(el('p', 'tm-lab', 'Why')); box.appendChild(el('p', 'lp-prose', node.why)); }
-    if (node.vs) { box.appendChild(el('p', 'tm-lab', "What it rejects")); box.appendChild(el('p', 'lp-prose', node.vs)); }
+    if (node.why) { box.appendChild(el('p', 'tm-lab', 'Why people hold it')); box.appendChild(el('p', 'lp-prose', node.why)); }
+    if (node.vs) { box.appendChild(el('p', 'tm-lab', "What it argues against")); box.appendChild(el('p', 'lp-prose', node.vs)); }
     if (node.todo) { box.appendChild(el('p', 'tm-lab', 'Still working out')); box.appendChild(el('p', 'lp-prose', node.todo)); }
     const meta = el('p', 'tm-hint');
     meta.textContent = [node.tier, node.confidence].filter(Boolean).join(' · ');
@@ -457,7 +466,12 @@ async function renderDoctrine(corpus, doctrine) {
       a.href = '#pos-' + p.id;
       a.addEventListener('click', e => {
         e.preventDefault();
-        document.getElementById('pos-' + p.id).scrollIntoView({ block: 'start' });
+        const card = document.getElementById('pos-' + p.id);
+        card.scrollIntoView({ block: 'start' });
+        // preventDefault above also cancels the browser's own focus move, so a
+        // keyboard user's next Tab would resume at the next jump link, not the card.
+        card.tabIndex = -1;
+        card.focus({ preventScroll: true });
       });
       jump.appendChild(a);
     }

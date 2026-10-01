@@ -330,7 +330,7 @@
 ## Baptism · T3 · certain
   hold  Baptism is administered to the infant children of believers as the sign and seal of the covenant of grace, and to those who come to faith as adults.
   why   The covenant sign was given to believers and their children under Abraham, and the New Testament nowhere withdraws that inclusion.
-  vs    Restricting baptism to those who have professed faith, which narrows a covenant sign the New Testament never narrows.
+  vs    Restricting baptism to those who have professed faith; supporters of infant baptism say this narrows a covenant sign the New Testament never narrows.
   refs  Gen 17:7; Acts 2:38-39; Col 2:11-12
   link  the-lords-supper
   link  membership-and-discipline
