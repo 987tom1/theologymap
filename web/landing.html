@@ -21,8 +21,10 @@
   button { padding: var(--s3) var(--s4); margin-top: var(--s4); font: 600 var(--fs-00) var(--sans);
            background: var(--ink); color: var(--bg);
            border: 1px solid var(--ink); border-radius: var(--r2); cursor: pointer; }
-  #signed-out { display: grid; gap: var(--s4); max-width: 780px;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  #signed-out { display: grid; max-width: 420px; }
+  .tm-lede { margin: 0; max-width: var(--measure); font: var(--fs-2)/var(--lh-snug) var(--serif); }
+  .switch { margin: var(--s3) 0 0; font: var(--fs-00) var(--sans); color: var(--muted); }
+  .switch a { color: var(--ink); }
   /* The display:grid rule above outranks the browser's own [hidden] rule
      (attribute selector, lower specificity), so toggling .hidden alone would
      do nothing visible — see debug.md §Q, which is exactly this bug. This
@@ -56,27 +58,7 @@
 
 <main class="tm-main">
 
-  <details class="optional" id="what-it-is" open>
-    <summary>What a theology map is</summary>
-    <div class="tm-prose">
-    <p>A theology map is what you actually believe, written down and sorted
-      by how much weight each belief carries.</p>
-    <p>Each belief carries a confidence — certain, confident, leaning, open, or
-      rejected — an ordinal band, not a percentage, and separate from whether it
-      is still being studied. Weight is judged separately, by tier, using Gavin
-      Ortlund's theological triage:</p>
-    <ul>
-      <li><strong>T1</strong> — essential to the gospel</li>
-      <li><strong>T2</strong> — church-defining</li>
-      <li><strong>T3</strong> — important, not divisive</li>
-      <li><strong>T4</strong> — a matter of liberty</li>
-    </ul>
-    <p>Half-steps (T1.5, T2.5) exist for beliefs that genuinely sit between two ranks.
-      It is not a quiz and there is no score — nothing appears in your map that you
-      did not put there.</p>
-    </div>
-  </details>
-
+  <p class="tm-lede">Write down what you believe — and how much each belief matters.</p>
   <div class="tm-grid tm-firstrun" id="firstrun-grid">
     <a class="tm-card tm-card-primary" id="make-own-tile" href="#signup-form">
       <h3>Make your own map</h3>
@@ -85,18 +67,30 @@
     </a>
     <a class="tm-card" href="/gallery">
       <h3>Browse everyone's maps</h3>
-      <p>See how other people have laid out what they believe, tier by tier and
-        belief by belief.</p>
+      <p>See what other people believe, laid out the same way.</p>
       <span class="tm-go">Open the gallery &rarr;</span>
     </a>
     <a class="tm-card" href="/learn">
       <h3>Learn by doctrine</h3>
-      <p>One question at a time, with the positions side by side and the
-        traditions that hold each one. No account needed.</p>
+      <p>Every question, the main positions, and who holds them. No account needed.</p>
       <span class="tm-go">Start reading &rarr;</span>
     </a>
   </div>
 
+  <details class="optional" id="what-it-is">
+    <summary>How it works</summary>
+    <div class="tm-prose">
+    <p>Answer one question at a time, in your own words or by picking a position.
+      Then mark two things on each belief:</p>
+    <ul>
+      <li><strong>Importance</strong> — T1 essential to the gospel, T2 church-defining,
+        T3 important but not divisive, T4 a matter of liberty (from Gavin Ortlund's
+        "theological triage").</li>
+      <li><strong>Certainty</strong> — how sure you are, from certain to rejected.</li>
+    </ul>
+    <p>No quiz, no score. Nothing appears in your map that you didn't put there.</p>
+    </div>
+  </details>
   <div id="signin">
     <p id="signin-note" role="status" hidden></p>
     <div id="signed-out" hidden>
@@ -109,9 +103,10 @@
           <input type="password" name="pin" required autocomplete="current-password">
         </label>
         <button type="submit">Sign in</button>
+        <p class="switch">New here? <a href="#signup">Create an account</a></p>
       </form>
 
-      <form id="signup-form">
+      <form id="signup-form" hidden>
         <h2>Create an account</h2>
         <p class="quiet">A name and a short PIN. Nothing else, no email.</p>
         <label>Name
@@ -121,6 +116,7 @@
           <input type="password" name="pin" required autocomplete="new-password" minlength="4" maxlength="12">
         </label>
         <button type="submit">Create account</button>
+        <p class="switch">Have an account? <a href="#signin">Sign in</a></p>
       </form>
     </div>
   </div>
@@ -136,6 +132,8 @@ mount('Theology Map');
 const $ = (id) => document.getElementById(id);
 const user = getUser();
 $('signed-out').hidden = !!user;
+// The pitch is for visitors; a member has seen it.
+if (user) document.querySelectorAll('.tm-lede, #what-it-is').forEach(e => e.remove());
 $('make-own-tile').href = user ? '/wizard' : '/#signup';
 // Two arrival fragments, one handler. /#signin is requireUser's redirect
 // target: a stashed notice means "you were bounced here" (show it, land on
@@ -143,6 +141,11 @@ $('make-own-tile').href = user ? '/wizard' : '/#signup';
 // in" link (hide the note, land on Sign in instead — a returning member
 // should not type their existing name into Create account). /#signup is the
 // "Get started" tiles' own destination and always shows the pitch.
+// One form at a time; the .switch links flip them through the hash.
+function showForm(which) {
+  $('login-form').hidden = which !== 'login';
+  $('signup-form').hidden = which === 'login';
+}
 function arriveAtSignin() {
   if (user) return;
   const hash = location.hash;
@@ -153,26 +156,25 @@ function arriveAtSignin() {
     if (notice) {
       note.textContent = notice;
       note.hidden = false;
+      showForm('signup');
       $('signin').scrollIntoView({ block: 'start' });
       $('signup-form').elements.name.focus({ preventScroll: true });
     } else {
       note.hidden = true;
+      showForm('login');
       $('signin').scrollIntoView({ block: 'start' });
       $('login-form').elements.name.focus({ preventScroll: true });
     }
     return;
   }
   // #signup
-  note.textContent = 'Create an account to build your map — a name and a PIN.';
-  note.hidden = false;
+  note.hidden = true; // the form's own line already says "a name and a short PIN"
+  showForm('signup');
   $('signin').scrollIntoView({ block: 'start' });
   $('signup-form').elements.name.focus({ preventScroll: true });
 }
 arriveAtSignin();
 window.addEventListener('hashchange', arriveAtSignin);
-// Signed out, this is the pitch and it stays open. Signed in, it is 350 words
-// above your own tiles on visit forty; one line collapses it.
-if (user) $('what-it-is').open = false;
 
 // "My map", "History" and Unlist/Relist used to live in the nav; they moved
 // here as tiles (task 3) and only exist for a signed-in visitor, so they are
@@ -225,10 +227,10 @@ if (user) {
   function renderVis() {
     visH3.textContent = isPublic ? 'Unlist' : 'Relist';
     visP.textContent = isPublic
-      ? 'Listed in the gallery. Unlisting takes it out of the gallery and stops the '
-        + 'name-keyed render. That is not privacy.'
-      : 'Unlisted: out of the gallery, and the name-keyed render is off. That is not '
-        + 'privacy — anyone already holding a link can still read it.';
+      ? 'Your map is in the gallery. Unlisting removes it — but it isn’t private: anyone '
+        + 'who already has a link may still open it.'
+      : 'Your map is out of the gallery. That isn’t private — anyone who already has '
+        + 'a link may still open it.';
     visBtn.classList.remove('tm-skel');
     visBtn.disabled = false;
   }
