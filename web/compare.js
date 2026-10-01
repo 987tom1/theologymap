@@ -55,7 +55,7 @@ function groupRows(corpus, rows) {
   const groups = [];
   let cur = null;
   for (const row of rows) {
-    const tier = row.doctrine.suggested_tier || 'Untiered';
+    const tier = row.doctrine.suggested_tier || 'Unrated';
     const domain = WG.domainName(corpus, row.doctrine);
     if (!cur || cur.tier !== tier || cur.domain !== domain) {
       cur = { tier, domain, rows: [] };
@@ -213,12 +213,10 @@ function renderTiers(host, rows, theirsLabel) {
   if (!rows.length) { host.hidden = true; return; }
   host.hidden = false;
 
-  host.appendChild(el('h3', 'cmp-section-h', 'Where your tiering differs from the suggestion'));
+  host.appendChild(el('h3', 'cmp-section-h', 'Where your importance differs from the suggestion'));
   host.appendChild(el('p', 'cmp-tier-lead',
     rows.length + ' doctrine' + (rows.length === 1 ? ' sits' : 's sit')
-    + ' at a different tier in your map than the question set suggests. That is not a '
-    + 'disagreement with anyone — the suggested tier is a starting point, and moving '
-    + 'it is what building a map is for.'));
+    + ' at a different importance in your map than suggested — a starting point, not a verdict.'));
 
   const list = el('ul', 'cmp-tier-list');
   for (const r of rows) {
@@ -227,14 +225,14 @@ function renderTiers(host, rows, theirsLabel) {
 
     const suggested = el('span', 'cmp-tier-pill', r.suggestedTier);
     suggested.style.background = TIER_VAR[r.suggestedTier] || 'var(--muted)';
-    suggested.title = 'Suggested tier';
+    suggested.title = 'Suggested importance';
     li.appendChild(suggested);
 
     li.appendChild(el('span', 'cmp-tier-arrow', '→'));
 
     const mineP = el('span', 'cmp-tier-pill', r.mineTier);
     mineP.style.background = TIER_VAR[r.mineTier] || 'var(--muted)';
-    mineP.title = 'My tier';
+    mineP.title = 'My importance';
     li.appendChild(mineP);
 
     li.appendChild(el('span', 'cmp-tier-move', r.direction === 'more-central'
@@ -248,7 +246,7 @@ function renderTiers(host, rows, theirsLabel) {
         '· ' + theirsLabel + ': ' + r.theirsTier));
     }
 
-    const link = el('a', null, 'Why this tier');
+    const link = el('a', null, 'Why?');
     link.href = '/learn?doctrine=' + encodeURIComponent(r.doctrine.id);
     li.appendChild(link);
     list.appendChild(li);
@@ -289,7 +287,7 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
   const tbody = el('tbody');
   let curTier = null, curDomain = null;
   for (const row of sc.rows) {
-    const tier = row.doctrine.suggested_tier || 'Untiered';
+    const tier = row.doctrine.suggested_tier || 'Unrated';
     const domain = WG.domainName(corpus, row.doctrine);
     if (tier !== curTier || domain !== curDomain) {
       curTier = tier; curDomain = domain;
@@ -338,7 +336,7 @@ function renderScorecard(tableHost, accHost, corpus, sc) {
       col.displayName + (total ? ' — ' + totalText(total) : '')));
     let ct = null, cd = null;
     for (const row of sc.rows) {
-      const tier = row.doctrine.suggested_tier || 'Untiered';
+      const tier = row.doctrine.suggested_tier || 'Unrated';
       const domain = WG.domainName(corpus, row.doctrine);
       if (tier !== ct || domain !== cd) {
         ct = tier; cd = domain;

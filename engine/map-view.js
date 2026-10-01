@@ -241,7 +241,7 @@
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     return (tier ? `<span class="chip tier" style="background:${tier[1]}">${esc(n.tier)}</span>` : '') +
       (n.confidence && this.confMeta[n.confidence] ? `<span class="chip">${esc(n.confidence)}</span>` : '') +
-      (n.flags.includes('study') ? '<span class="chip">study</span>' : '');
+      (n.flags.includes('study') ? '<span class="chip">exploring</span>' : '');
   };
 
   // Every leaf is a closed tile -- title and chips -- in both consumers. Its
@@ -346,13 +346,13 @@
     // The gloss each chip shows on hover is already in the meta the consumer
     // passed in: tierMeta is [gloss, colour], confMeta is [percent, gloss].
     // They used to be hand-copied from render.py's TIER_META / CONF_META here.
-    controls.appendChild(radios('Tier', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
+    controls.appendChild(radios('Importance', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
       v => { n.tier = v; self.onFieldChange(n); self.redraw(); }));
-    controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
+    controls.appendChild(radios('Certainty', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
       v => { n.confidence = v; self.onFieldChange(n); self.redraw(); }));
     wrap.appendChild(controls);
 
-    [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
+    [['study', 'Still exploring — I haven’t settled this yet']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       lab.className = 'mcheck';
       const cb = document.createElement('input');

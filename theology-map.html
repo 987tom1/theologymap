@@ -524,15 +524,15 @@
       <div class="views" id="views">
         <button data-view="map" aria-pressed="true">Map</button>
         <button data-view="domain" aria-pressed="false">Domain</button>
-        <button data-view="tier" aria-pressed="false">Tier</button>
-        <button data-view="confidence" aria-pressed="false">Confidence</button>
+        <button data-view="tier" aria-pressed="false">Importance</button>
+        <button data-view="confidence" aria-pressed="false">Certainty</button>
       </div>
     </div>
     <div class="secondary" id="secondaryControls">
       <div class="seg" id="studyFilter">
         <button data-val="all" aria-pressed="true">All</button>
-        <button data-val="only" aria-pressed="false">Only study</button>
-        <button data-val="hide" aria-pressed="false">Hide study</button>
+        <button data-val="only" aria-pressed="false">Only exploring</button>
+        <button data-val="hide" aria-pressed="false">Hide exploring</button>
       </div>
       <label class="tog"><input type="checkbox" id="hideAssumed"> hide inferred</label>
       <div class="btnrow">
@@ -793,7 +793,7 @@
     const tier = n.tier ? this.tierMeta[n.tier] : null;
     return (tier ? `<span class="chip tier" style="background:${tier[1]}">${esc(n.tier)}</span>` : '') +
       (n.confidence && this.confMeta[n.confidence] ? `<span class="chip">${esc(n.confidence)}</span>` : '') +
-      (n.flags.includes('study') ? '<span class="chip">study</span>' : '');
+      (n.flags.includes('study') ? '<span class="chip">exploring</span>' : '');
   };
 
   // Every leaf is a closed tile -- title and chips -- in both consumers. Its
@@ -898,13 +898,13 @@
     // The gloss each chip shows on hover is already in the meta the consumer
     // passed in: tierMeta is [gloss, colour], confMeta is [percent, gloss].
     // They used to be hand-copied from render.py's TIER_META / CONF_META here.
-    controls.appendChild(radios('Tier', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
+    controls.appendChild(radios('Importance', core.TIERS, n.tier, v => (self.tierMeta[v] || [])[0], true,
       v => { n.tier = v; self.onFieldChange(n); self.redraw(); }));
-    controls.appendChild(radios('Confidence', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
+    controls.appendChild(radios('Certainty', core.CONFIDENCES, n.confidence, v => (self.confMeta[v] || [])[1], false,
       v => { n.confidence = v; self.onFieldChange(n); self.redraw(); }));
     wrap.appendChild(controls);
 
-    [['study', '#study — I still need to work this out']].forEach(([flag, label]) => {
+    [['study', 'Still exploring — I haven’t settled this yet']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       lab.className = 'mcheck';
       const cb = document.createElement('input');
@@ -1632,7 +1632,7 @@ function card(n, open) {
       <span class="ntitle">${esc(n.title)}</span>
       <span class="nmeta">
         ${conf?`<span class="conf" title="${esc(conf[1])}">${n.confidence}</span>`:''}
-        ${n.flags.includes('study')?'<span class="chip">study</span>':''}
+        ${n.flags.includes('study')?'<span class="chip">exploring</span>':''}
         ${view!=='domain'&&n.domain?`<span class="dom">${esc(n.domain)}</span>`:''}
       </span>
     </button>
@@ -1873,7 +1873,7 @@ function mapLeafHTML(n, id) {
     <div class="mmeta">
       ${tier?`<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>`:''}
       ${conf?`<span class="chip">${n.confidence}</span>`:''}
-      ${n.flags.includes('study')?'<span class="chip">study</span>':''}
+      ${n.flags.includes('study')?'<span class="chip">exploring</span>':''}
     </div>
   </div>`;
 }

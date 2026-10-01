@@ -85,7 +85,6 @@ export function mount(pageTitle, actions = [], opts = {}) {
   const head = el('header', 'tm-chrome');
   const titleRow = el('div', 'tm-chrome-titlerow');
   const titleCol = el('div');
-  titleCol.appendChild(el('p', 'kicker', 'Theology Map'));
   titleCol.appendChild(el('h1', null, pageTitle));
   titleRow.appendChild(titleCol);
   if (opts.compact) {

@@ -839,15 +839,15 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
       <div class="views" id="views">
         <button data-view="map" aria-pressed="true">Map</button>
         <button data-view="domain" aria-pressed="false">Domain</button>
-        <button data-view="tier" aria-pressed="false">Tier</button>
-        <button data-view="confidence" aria-pressed="false">Confidence</button>
+        <button data-view="tier" aria-pressed="false">Importance</button>
+        <button data-view="confidence" aria-pressed="false">Certainty</button>
       </div>
     </div>
     <div class="secondary" id="secondaryControls">
       <div class="seg" id="studyFilter">
         <button data-val="all" aria-pressed="true">All</button>
-        <button data-val="only" aria-pressed="false">Only study</button>
-        <button data-val="hide" aria-pressed="false">Hide study</button>
+        <button data-val="only" aria-pressed="false">Only exploring</button>
+        <button data-val="hide" aria-pressed="false">Hide exploring</button>
       </div>
       <label class="tog"><input type="checkbox" id="hideAssumed"> hide inferred</label>
       <div class="btnrow">
@@ -1008,7 +1008,7 @@ function card(n, open) {
       <span class="ntitle">${esc(n.title)}</span>
       <span class="nmeta">
         ${conf?`<span class="conf" title="${esc(conf[1])}">${n.confidence}</span>`:''}
-        ${n.flags.includes('study')?'<span class="chip">study</span>':''}
+        ${n.flags.includes('study')?'<span class="chip">exploring</span>':''}
         ${view!=='domain'&&n.domain?`<span class="dom">${esc(n.domain)}</span>`:''}
       </span>
     </button>
@@ -1249,7 +1249,7 @@ function mapLeafHTML(n, id) {
     <div class="mmeta">
       ${tier?`<span class="chip tier" style="background:${tier[1]}">${n.tier}</span>`:''}
       ${conf?`<span class="chip">${n.confidence}</span>`:''}
-      ${n.flags.includes('study')?'<span class="chip">study</span>':''}
+      ${n.flags.includes('study')?'<span class="chip">exploring</span>':''}
     </div>
   </div>`;
 }

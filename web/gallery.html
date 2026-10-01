@@ -61,15 +61,6 @@ function buildTierBar(counts, total) {
   return bar;
 }
 
-function buildStatLine(counts) {
-  const p = document.createElement('p');
-  p.className = 'tm-stat';
-  const parts = TIER_ORDER.filter(t => counts[t] > 0).map(t => counts[t] + ' ' + t);
-  if (counts.untiered) parts.push(counts.untiered + ' untiered');
-  p.textContent = parts.join(' · ');
-  return p;
-}
-
 function buildCard(m) {
   const a = document.createElement('a');
   a.className = 'tm-card';
@@ -90,11 +81,10 @@ function buildCard(m) {
     a.appendChild(p);
   } else {
     a.appendChild(buildTierBar(counts, total));
-    a.appendChild(buildStatLine(counts));
     const summary = document.createElement('p');
     summary.className = 'tm-stat';
     summary.textContent = `${total} belief${total === 1 ? '' : 's'} · `
-      + `${m.open_count} unsettled`;
+      + `${m.open_count} still exploring`;
     a.appendChild(summary);
   }
 

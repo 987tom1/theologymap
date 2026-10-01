@@ -131,6 +131,9 @@ input[type=text], input[type=search], select, textarea,
 .tm-card, .mfield textarea, .mfield input[type=text] {
   border-color: var(--field-line);
 }
+/* A bare <select> otherwise renders as the OS widget beside styled buttons. */
+select { font:500 var(--fs-00)/var(--lh-ui) var(--sans); color:var(--ink); background:var(--panel);
+  border:1px solid var(--field-line); border-radius:var(--r2); padding:var(--s1) var(--s2); }
 
 /* Native auto-grow where supported, alongside map-view.js's autosize() JS
    fallback (kept, not removed, until field-sizing support is everywhere) --
@@ -272,8 +275,6 @@ details.optional > summary:hover { color: var(--ink); }
    not its own. */
 .tm-chrome { padding:var(--s4) var(--s5) var(--s3); border-bottom:1px solid var(--line);
              padding-inline:max(var(--s5), calc((100% - 1200px) / 2)); }
-.tm-chrome .kicker { margin:0 0 var(--s1); font:600 var(--fs-000)/var(--lh-ui) var(--sans); letter-spacing:.16em;
-                      text-transform:uppercase; color:var(--muted); }
 .tm-chrome h1 { margin:0 0 var(--s1); font-family:var(--serif); font-size:var(--fs-3); line-height:var(--lh-tight); letter-spacing:-.012em; }
 /* align-items:center, not the flex default `stretch`: .tm-morebtn is a <button>
    with its own font (600 18px/1) and so its own line box (18px) against the
@@ -435,6 +436,16 @@ details.optional > summary:hover { color: var(--ink); }
                  border-radius:var(--r2); background:var(--panel); color:var(--ink); cursor:pointer;
                  text-decoration:none; white-space:nowrap; }
 .tm-action-btn:hover { border-color:var(--muted); }
+/* Desktop: title, nav and actions share one row. display:contents lifts the
+   title column and actions out of .tm-chrome-titlerow so the nav can sit
+   between them without moving any DOM. */
+@media (min-width: 860px) {
+  .tm-chrome { display:flex; align-items:center; gap:var(--s5); flex-wrap:wrap; }
+  .tm-chrome-titlerow { display:contents; }
+  .tm-chrome h1 { margin:0; }
+  .tm-chrome .toplinks { margin:0 auto 0 0; order:1; }
+  .tm-chrome-actions { order:2; }
+}
 
 @media (max-width: 640px) {
   .tm-chrome .toplinks { flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 calc(100% - 24px), transparent); }
@@ -448,7 +459,6 @@ details.optional > summary:hover { color: var(--ink); }
 .tm-menubtn { display:none; }
 @media (max-width: 640px) {
   .tm-chrome--compact { padding:var(--s2) var(--s4); }
-  .tm-chrome--compact .kicker { display:none; }
   .tm-chrome--compact .tm-chrome-titlerow { align-items:center; gap:var(--s2); }
   .tm-chrome--compact .tm-chrome-titlerow > div:first-child { flex:1 1 0; min-width:0; }
   .tm-chrome--compact h1 { margin:0; font-size:var(--fs-1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }

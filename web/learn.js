@@ -127,7 +127,7 @@ function refPills(refsStr) {
 function tierChip(tier) {
   const chip = el('span', 'lp-tier', tier);
   chip.style.background = TIER_VAR[tier] || 'var(--muted)';
-  chip.title = 'Suggested tier: ' + tier + '. A starting point, not a verdict.';
+  chip.title = 'Suggested importance: ' + tier + '. A starting point, not a verdict.';
   return chip;
 }
 
@@ -136,7 +136,7 @@ function tierChip(tier) {
 function tierNote(doctrine) {
   if (!doctrine.tier_note) return null;
   const box = el('div', 'lp-tiernote');
-  box.appendChild(el('span', 'tm-lab', 'Suggested tier ' + (doctrine.suggested_tier || '') + ' — why'));
+  box.appendChild(el('span', 'tm-lab', 'Suggested importance ' + (doctrine.suggested_tier || '') + ' — why'));
   box.appendChild(el('p', null, doctrine.tier_note));
   return box;
 }

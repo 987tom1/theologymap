@@ -370,7 +370,6 @@
 
 <header>
   <div class="htitle">
-    <p class="kicker">Theology Map</p>
     <h1 id="editorTitle">Edit theology-map.md</h1>
     <p class="sub" id="editorSub">A form over the plain-text file — nothing here is saved until you say so.</p>
     <p class="statusline">
@@ -395,8 +394,8 @@
 <div class="tabs" id="tabs" style="display:none">
   <button type="button" class="tabbtn" data-tab="map">Map</button>
   <button type="button" class="tabbtn active" data-tab="list">Domain</button>
-  <button type="button" class="tabbtn" data-tab="tier">Tier</button>
-  <button type="button" class="tabbtn" data-tab="confidence">Confidence</button>
+  <button type="button" class="tabbtn" data-tab="tier">Importance</button>
+  <button type="button" class="tabbtn" data-tab="confidence">Certainty</button>
 </div>
 
 <div class="layout" id="mapLayout" style="display:none">
@@ -1116,13 +1115,13 @@
 
     const tcNote = document.createElement('p');
     tcNote.className = 'tm-note';
-    tcNote.textContent = 'Tier and confidence are two different questions.';
+    tcNote.textContent = 'Importance and certainty are two different questions.';
     formEl.appendChild(tcNote);
 
-    formEl.appendChild(selectField('Tier', node.tier, ['', ...core.TIERS],
-      v => { node.tier = v || null; touch(node); }, TIER_GLOSS, 'Tier \u2014 not set yet'));
-    formEl.appendChild(selectField('Confidence', node.confidence, ['', ...core.CONFIDENCES],
-      v => { node.confidence = v || null; touch(node); }, CONF_GLOSS, 'Confidence \u2014 not set yet'));
+    formEl.appendChild(selectField('Importance', node.tier, ['', ...core.TIERS],
+      v => { node.tier = v || null; touch(node); }, TIER_GLOSS, 'Importance \u2014 not set yet'));
+    formEl.appendChild(selectField('Certainty', node.confidence, ['', ...core.CONFIDENCES],
+      v => { node.confidence = v || null; touch(node); }, CONF_GLOSS, 'Certainty \u2014 not set yet'));
 
     const flagRow = document.createElement('div');
     flagRow.className = 'row';
@@ -1131,7 +1130,7 @@
     flagRow.appendChild(flagLabel);
     const fr = document.createElement('div');
     fr.className = 'flagrow';
-    [['study', '#study \u2014 I still need to work this out']].forEach(([flag, label]) => {
+    [['study', 'Still exploring \u2014 I haven\'t settled this yet']].forEach(([flag, label]) => {
       const lab = document.createElement('label');
       const cb = document.createElement('input');
       cb.type = 'checkbox'; cb.checked = node.flags.includes(flag);

@@ -303,8 +303,8 @@ function studyCheck() {
   cb.type = 'checkbox';
   check.appendChild(cb);
   const text = el('span');
-  text.appendChild(el('strong', null, '#study'));
-  text.appendChild(document.createTextNode(' — you still need to work this out'));
+  text.appendChild(el('strong', null, 'Still exploring'));
+  text.appendChild(document.createTextNode(' — you haven’t settled this yet'));
   check.appendChild(text);
   return { check, cb };
 }
@@ -478,17 +478,17 @@ function answerControls(doctrine, position, kind) {
   const grid = el('div', 'wz-controls');
 
   const tierCell = el('div');
-  tierCell.appendChild(labelled('Tier'));
+  tierCell.appendChild(labelled('Importance'));
   const startTier = kind === 'open'
     ? ((doctrine.open || {}).tier || doctrine.suggested_tier)
     : ((position && position.tier) || doctrine.suggested_tier);
-  const tier = radioGroup(Core.TIERS, startTier, true, 'Tier');
+  const tier = radioGroup(Core.TIERS, startTier, true, 'Importance');
   tierCell.appendChild(tier.wrap);
   grid.appendChild(tierCell);
   state.tier = tier;
 
   const confCell = el('div');
-  confCell.appendChild(labelled('Confidence'));
+  confCell.appendChild(labelled('Certainty'));
   if (kind === 'open') {
     // "I don't know" is a first-class answer and its confidence is the whole
     // point of it, so it is stated rather than offered (decisions.md).
@@ -496,7 +496,7 @@ function answerControls(doctrine, position, kind) {
     state.todo = $('open-todo');
   } else {
     const conf = radioGroup(Core.CONFIDENCES,
-      (position && position.confidence_default) || 'confident', false, 'Confidence');
+      (position && position.confidence_default) || 'confident', false, 'Certainty');
     confCell.appendChild(conf.wrap);
     state.confidence = conf;
   }
@@ -720,15 +720,15 @@ function buildCustomFields(doctrine) {
 
   const grid = el('div', 'wz-controls');
   const tierCell = el('div');
-  tierCell.appendChild(labelled('Tier'));
-  const tier = radioGroup(Core.TIERS, doctrine.suggested_tier, true, 'Tier');
+  tierCell.appendChild(labelled('Importance'));
+  const tier = radioGroup(Core.TIERS, doctrine.suggested_tier, true, 'Importance');
   tierCell.appendChild(tier.wrap);
   grid.appendChild(tierCell);
   state.tier = tier;
 
   const confCell = el('div');
-  confCell.appendChild(labelled('Confidence'));
-  const conf = radioGroup(Core.CONFIDENCES, 'leaning', false, 'Confidence');
+  confCell.appendChild(labelled('Certainty'));
+  const conf = radioGroup(Core.CONFIDENCES, 'leaning', false, 'Certainty');
   confCell.appendChild(conf.wrap);
   grid.appendChild(confCell);
   state.confidence = conf;
@@ -998,13 +998,13 @@ function buildAddBelief(areaId) {
 
   const grid = el('div', 'wz-controls');
   const tierCell = el('div');
-  tierCell.appendChild(labelled('Tier'));
-  const tier = radioGroup(Core.TIERS, 'T3', true, 'Tier');
+  tierCell.appendChild(labelled('Importance'));
+  const tier = radioGroup(Core.TIERS, 'T3', true, 'Importance');
   tierCell.appendChild(tier.wrap);
   grid.appendChild(tierCell);
   const confCell = el('div');
-  confCell.appendChild(labelled('Confidence'));
-  const conf = radioGroup(Core.CONFIDENCES, 'leaning', false, 'Confidence');
+  confCell.appendChild(labelled('Certainty'));
+  const conf = radioGroup(Core.CONFIDENCES, 'leaning', false, 'Certainty');
   confCell.appendChild(conf.wrap);
   grid.appendChild(confCell);
   panel.appendChild(grid);

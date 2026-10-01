@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `0cc77b37ce3c759404ea30bed98dec3ae210771c6af2df15972c13e0734202d2` as written by
+- `57fdac9dfd63b2840fa58352b3d8a831d0eadd5c2023b78d54f1ff4c1ceec170` as written by
   `Path.write_text` on Windows (CRLF)
-- `3551e980f33fd07f0064270b42fe607649168df78dfcdfc0b78284714c63d1ef` LF-normalised (what a
+- `a9b4e50ba643b15a9e198cd363dfd28a0e5906b7049748e1642091d1b6dfb6a4` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
