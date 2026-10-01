@@ -12,7 +12,7 @@
       "question": "Did God create the universe out of nothing by a free act, or does the created order emerge from pre-existing matter?",
       "framing": "Every historic confession that addresses origins agrees that God made the universe out of nothing, by a free act of his will, not by shaping matter that already existed or by any necessity in his own nature. This is affirmed alike by the Fourth Lateran Council, the Nicene Creed's confession of God as maker of heaven and earth, and Westminster's opening chapter on creation; no branch of the historic church has ever taught that matter is eternal or that the universe flows of necessity from the divine essence. The genuinely open question in this domain is not whether God made the world but how the order and apparent design within it are best discerned, a question the doctrines below take up.",
       "suggested_tier": "T1.5",
-      "tier_note": "Thomas's own map places creation ex nihilo at T1.5, just below the first tier: it is confessed everywhere but does not itself divide on the gospel the way T1 doctrines do.",
+      "tier_note": "It is confessed everywhere but does not itself divide on the gospel the way the doctrines ranked above it do.",
       "refs": "Gen 1:1; John 1:3; Col 1:16; Heb 11:3",
       "links": [
         "classical-theism",
@@ -139,7 +139,7 @@
       "question": "What kind of literature is Genesis 1, and what follows from reading it that way?",
       "framing": "Genesis 1 can be read as straightforward historical narrative describing six ordinary days, as a literary framework organizing creation topically rather than chronologically, as an analogy in which each day pictures a longer period, as an account of God assigning functions within a cosmic temple, or as a text that uses and subverts the creation language of surrounding ancient Near Eastern cultures. These are judgments about the kind of text Genesis 1 is, not conclusions about modern science, and the reading taken here does not by itself settle the age of the earth or the mechanism behind the diversity of life, which are treated as separate questions below.",
       "suggested_tier": "T3",
-      "tier_note": "Thomas's own map places the genre question at the third tier: it governs how the rest of this domain is read without itself dividing on the gospel.",
+      "tier_note": "It governs how the rest of this topic is read without itself dividing on the gospel.",
       "refs": "Gen 1:1-2:3; Gen 2:4-25",
       "links": [
         "age-of-the-earth",
@@ -364,7 +364,7 @@
       "question": "How old are the earth and the universe?",
       "framing": "Geology, cosmology and the biblical genealogies have each been read to yield very different ages for the earth and the universe, from thousands of years to roughly fourteen billion. No historic confession specifies an age for the earth, so the dispute among traditions holding a high view of biblical authority is exegetical and scientific rather than creedal, though it is argued with real intensity on every side. This doctrine is closely linked to how Genesis 1's genre is read and to how the flood is understood, since a young earth and a global, geology-shaping flood are usually argued together.",
       "suggested_tier": "T3",
-      "tier_note": "Thomas's own map places the age of the earth at the third tier: it is argued intensely but does not itself divide on the gospel.",
+      "tier_note": "It is argued intensely but does not itself divide on the gospel.",
       "refs": "Gen 1:1-31; Gen 5; Gen 11:10-32; Ps 90:4",
       "links": [
         "genre-of-genesis-1",
@@ -552,7 +552,7 @@
       "question": "Did the diversity of life, including the human body, come about through a process of evolutionary common descent, or through direct acts of special creation?",
       "framing": "Genesis describes God making each kind of living thing and forming the first man from the dust of the ground, while biology describes converging genetic and fossil evidence for common descent across living things, including humans. The disagreement is over whether that biological evidence describes the actual means God used, including for the human body, or whether it should be set aside in favor of a straightforward reading of Genesis's kinds and the forming of Adam. This mechanism question is distinct from, though closely tied to, the age-of-the-earth question above.",
       "suggested_tier": "T3",
-      "tier_note": "Thomas's own map places evolution at the third tier: it is argued with real intensity but does not itself divide on the gospel.",
+      "tier_note": "It is argued with real intensity but does not itself divide on the gospel.",
       "refs": "Gen 1:24-25; Gen 2:7; Gen 2:21-23",
       "links": [
         "age-of-the-earth",
@@ -695,7 +695,7 @@
       "question": "Was the flood of Noah's day a literal global catastrophe, a real but regional catastrophe, or an account whose purpose is primarily theological?",
       "framing": "Genesis 6-9 narrates a flood sent as judgment on human sin, from which Noah's family and the animals aboard the ark were preserved. The disagreement is over the catastrophe's geographic scale, whether it covered the entire globe or was a real but regional event described in the universal idiom of its ancient audience, and over how much weight the narrative's theological purpose, judgment and covenant, should carry relative to a claim about the catastrophe's physical scale. This doctrine is usually argued together with the age of the earth, since a global flood is the primary mechanism young-earth creationism uses to account for the geological column.",
       "suggested_tier": "T3",
-      "tier_note": "Thomas's own map places the flood at the third tier, alongside the age of the earth it is usually argued with.",
+      "tier_note": "It is usually argued together with the age of the earth.",
       "refs": "Gen 6:9-22; Gen 7:17-24; Gen 8:1-19; 2 Pet 3:5-6",
       "links": [
         "age-of-the-earth",
@@ -844,7 +844,7 @@
       "question": "How should the miracles reported in Scripture be understood in relation to scientific inquiry into nature?",
       "framing": "Scripture reports miracles, particular divine acts within nature, from the plagues of Egypt to the resurrection of Christ. Nearly every tradition affirms these as real events; the live questions are how such an account relates to a scientific method built to describe nature's ordinary regularities, and whether every miracle account in Scripture should be read as reporting an event that happened as narrated. The bodily resurrection of Christ is treated as settled elsewhere in this map; the question here concerns miracle claims and scientific method more generally.",
       "suggested_tier": "T2",
-      "tier_note": "Thomas's own map places miracles and science at the second tier: it shapes how Scripture and science are held together without itself dividing on the gospel.",
+      "tier_note": "It shapes how Scripture and science are held together without itself dividing on the gospel.",
       "refs": "John 2:11; Acts 2:22; 1 Cor 15:3-8",
       "links": [
         "inerrancy",

@@ -470,3 +470,6 @@ scrubbed. Format is `\n`-joined lines in the existing single strings, rendered w
 `white-space: pre-line` — no schema, validator or renderer change, so the byte-identity pair did
 not move. Drafted by Sonnet agents from the corpus, with any added date or attribution
 web-verified or omitted. The old "open by default" note in CLAUDE.md §6 was stale and is fixed.
+
+Follow-up: the 86 `tier_note` strings (shown as "Suggested importance — why") were also scrubbed of
+builder-facing wording ("Thomas's own map places…", "T1", "tier"); each now states only the reason.

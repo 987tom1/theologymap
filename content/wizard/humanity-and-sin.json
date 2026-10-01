@@ -12,7 +12,7 @@
       "question": "What does it mean that humanity is made in the image of God?",
       "framing": "Genesis 1:26-27 states that God made humanity, male and female, in his own image and likeness, and every tradition treats this as the ground of human dignity, moral status and the wrongness of murder in Genesis 9:6. Historic Christian teaching also holds, near-universally, that the fall defaced this image through sin without erasing it, so the disagreement below is not over whether the image survives the fall but over what the image most fundamentally consists in.",
       "suggested_tier": "T1.5",
-      "tier_note": "Foundational to human dignity and ethics, but the specific construal of the image is not itself gospel-dividing, so it sits just below Thomas's first tier.",
+      "tier_note": "Foundational to human dignity and ethics, but the specific construal of the image is not itself gospel-dividing.",
       "refs": "Gen 1:26-27; Gen 9:6; Col 3:10",
       "links": [
         "historical-adam"
@@ -228,7 +228,7 @@
       "question": "Was Adam a specific historical individual, and if so, was he the sole biological ancestor of the entire human race?",
       "framing": "Genesis 2-3 narrates the forming of a man named Adam and a woman named Eve and their fall in the garden, and Paul builds an argument in Romans 5 and 1 Corinthians 15 that treats Adam as a real counterpart to Christ, whose one act brought sin and death to the many. Traditions differ over how tightly that argument requires Adam to be the sole biological progenitor of every human being, as opposed to a real historical head whose headship did not depend on that, or a literary representative of humanity as such.",
       "suggested_tier": "T2.5",
-      "tier_note": "Bears on how Romans 5's Adam-Christ typology and original sin are read, without itself settling the gospel, so it sits at the boundary between the second and third tiers.",
+      "tier_note": "Bears on how Romans 5's Adam-Christ typology and original sin are read, without itself settling the gospel, so it sits at the boundary between the second and third levels.",
       "refs": "Gen 2:7; Gen 3:20; Rom 5:12-19; 1 Cor 15:21-22",
       "links": [
         "original-sin",
@@ -415,7 +415,7 @@
       "question": "What does humanity inherit from Adam's fall, and does that include guilt?",
       "framing": "Every tradition in this corpus agrees that sin, death and a corrupted moral condition are universal and are tied to Adam's fall in Genesis 3 and Paul's argument in Romans 5. The traditions genuinely divide over whether what is inherited includes guilt, a liability to condemnation prior to any personal act, or whether what is inherited is corruption and mortality without inherited guilt.",
       "suggested_tier": "T3",
-      "tier_note": "Shapes the doctrine of salvation and the theology of infant baptism without itself dividing the gospel of Christ crucified and risen, so Thomas places it at the third tier.",
+      "tier_note": "Shapes the doctrine of salvation and the theology of infant baptism without itself dividing the gospel of Christ crucified and risen.",
       "refs": "Rom 5:12-19; Gen 3; Ps 51:5; 1 Cor 15:21-22",
       "links": [
         "historical-adam",
@@ -565,7 +565,7 @@
       "question": "Can a fallen person respond to God's call to faith without a prior, distinct work of grace enabling that response?",
       "framing": "Traditions across this corpus agree that sin has so affected the human will that no one seeks God on their own initiative and that grace is necessary for anyone to believe. The disagreement is over the shape of that necessity: whether saving grace itself effectually produces the response in those God has chosen, whether a universally given prevenient grace first restores the capacity to respond, or whether grace and human freedom cooperate together from the start of the process of coming to faith.",
       "suggested_tier": "T2.5",
-      "tier_note": "Shapes the ordo salutis and how conversion is preached without dividing on the gospel's content, so Thomas places it at the boundary of the second and third tiers.",
+      "tier_note": "Shapes the order of salvation and how conversion is preached without dividing on the gospel's content.",
       "refs": "Eph 2:1-5; John 6:44; Titus 2:11; Phil 2:12-13",
       "links": [
         "original-sin"
@@ -750,7 +750,7 @@
       "question": "Does human nature consist of two constitutive parts, body and soul, or three, body, soul and spirit?",
       "framing": "Scripture uses both twofold language, body and soul or body and spirit, and occasional threefold language, as in Paul's prayer that spirit, soul and body be kept blameless. Traditions differ over whether soul and spirit name two distinct constitutive parts of a person or are two words for the same immaterial aspect of a human being viewed from different angles.",
       "suggested_tier": "T3",
-      "tier_note": "A question of theological anthropology with implications for pastoral and spiritual-formation teaching, but it does not touch the gospel or a creedal article, so Thomas places it at the third tier.",
+      "tier_note": "A question of theological anthropology with implications for pastoral and spiritual-formation teaching, but it does not touch the gospel or a creedal article.",
       "refs": "1 Thess 5:23; Heb 4:12; Gen 2:7",
       "links": [],
       "open": {
@@ -873,7 +873,7 @@
       "question": "What becomes of those who die before they are capable of understanding and responding to the gospel?",
       "framing": "Infants, young children and those who never develop the capacity for moral and spiritual understanding raise the same pastoral question in every tradition, and no tradition here teaches that such a person is judged for a conscious rejection of Christ they were never capable of making. Traditions answer through genuinely different frameworks rather than different points on one shared scale, and this entry keeps those frameworks distinct rather than forcing them onto a single axis.",
       "suggested_tier": "T2.5",
-      "tier_note": "A pastorally weighty question that shapes how the death of a child or a cognitively unreached person is addressed, without dividing the gospel itself, so Thomas places it at the boundary of the second and third tiers.",
+      "tier_note": "A pastorally weighty question that shapes how the death of a child or a cognitively unreached person is addressed, without dividing the gospel itself.",
       "refs": "2 Sam 12:22-23; Deut 1:39; Rom 9:11",
       "links": [
         "baptism",
