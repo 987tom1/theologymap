@@ -109,8 +109,6 @@
   header { padding:16px 20px 12px; border-bottom:1px solid var(--line);
            display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px 16px; }
   .htitle { flex:1 1 260px; min-width:0; }
-  .kicker { margin:0 0 3px; font:600 10px/1 var(--sans); letter-spacing:.16em;
-            text-transform:uppercase; color:var(--muted); }
   h1 { margin:0 0 3px; font-family:var(--serif); font-size:22px; letter-spacing:-0.01em; }
   .sub { color:var(--muted); font:12.5px/1.4 var(--sans); }
   /* This header keeps its own visual language (CLAUDE.md §8) — but the font
@@ -348,7 +346,7 @@
   .previewbox textarea { width:100%; height:320px; font:12px/1.5 ui-monospace, Consolas, monospace; }
 
   @media (max-width:640px) {
-    header .kicker, header .sub { display:none; }
+    header .sub { display:none; }
     header { padding:8px 12px; gap:8px 10px; align-items:center; }
     .htitle { flex:1 1 0; }
     h1 { font-size:17px; margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -631,7 +629,8 @@
 
   function markLoaded(name, writable) {
     currentLabel = name;
-    setStatus((writable ? 'Connected: ' : 'Loaded (read-only): ') + name, 'ok');
+    // Hosted: it is your own map and it autosaves; "Connected: <you>" said nothing.
+    setStatus(adapter.mode === 'hosted' ? '' : (writable ? 'Connected: ' : 'Loaded (read-only): ') + name, 'ok');
     btnSave.disabled = !writable;
     btnRender.disabled = !writable;
   }
@@ -652,7 +651,8 @@
     // applyOpenParam() below only knows how to drive the Map view (its whole
     // point is to stay outside map-view.js). So that one case opens on Map;
     // every other load opens on List.
-    setTab(pendingOpenSlug ? 'map' : 'list');
+    // Hosted opens on the map, like /view; the file tool keeps its List.
+    setTab(pendingOpenSlug || adapter.mode === 'hosted' ? 'map' : 'list');
     applyOpenParam();
   }
 
@@ -738,8 +738,8 @@
       // never runs this branch, keeps its own wording untouched.
       const me = getUser();
       $('editorTitle').textContent = 'My map';
-      $('editorSub').textContent =
-        'Every belief here is mine to edit. Changes save automatically.';
+      $('editorSub').hidden = true;   // the change status beside it already says Saved
+      btnPreview.textContent = 'Copy as text';
       $('emptyIntro').textContent =
         'This map is empty. Answer the questions in the wizard to fill it in, '
         + 'or start here with "+ New area".';

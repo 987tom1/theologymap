@@ -104,6 +104,6 @@ export function createHostedAdapter() {
       navigator.sendBeacon('/api/map', new Blob([payload], { type: 'application/json' }));
     },
 
-    buttons: { connect: false, upload: false, save: false, render: true },
+    buttons: { connect: false, upload: false, save: false, render: false },
   };
 }

@@ -449,3 +449,13 @@ what is asked, never what was answered.
 **2026-10-01:** the two-sided map's home view zooms to fit the tree's height (0.6–1×), so `/view`'s
 desktop frame no longer opens with the top and bottom areas clipped. The P10 three-consumer walk
 that had been skipped was run (Playwright, all green), and four dead `theme.css` classes were deleted.
+
+**2026-10-01, cognitive-load round** (for 17–21-year-olds; reviewed at 390px and 1440px). User-facing
+words are now **Importance / Certainty / Still exploring** — the file format keeps `T1`…`T4`,
+`confident` and `#study`. The kicker is gone and the desktop header is one row. Landing leads with
+one sentence and the three cards, "How it works" closed, one auth form at a time. The map's
+filters sit behind one toggle at every width; Reset view and the hint appear only when useful; a
+phone's root box is 96px. Learn collapses to 14 area headings. The wizard starts on question 1
+(tradition picker stays on the launchpad), the launchpad leads with Carry on and the areas, and a
+card's importance is one line with "change". `/edit` opens on its Map, drops "Save & render" and
+the connected/sub lines. Compare puts the importance-vs-suggestion list after the comparison.

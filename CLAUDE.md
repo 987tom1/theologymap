@@ -766,7 +766,9 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   appearing to work in `/edit`. Matters most when snapping page-local values to tokens. §10
   has the full case.
 - **One uppercase register, and it is `.kicker`.** D4 (P7) reduced six label registers to
-  one. `.kicker` keeps `text-transform: uppercase` and `letter-spacing: .16em`; every other
+  one. **Since 2026-10-01 only `render.py`'s offline file carries a kicker** — the hosted
+  chrome and `/edit` dropped theirs to save a header row, and their CSS went with them.
+  `.kicker` keeps `text-transform: uppercase` and `letter-spacing: .16em`; every other
   label is sentence case at `600 var(--fs-000)/var(--lh-ui) var(--sans)` in `var(--muted)`.
   Three declarations exist — `theme.css`, `render.py`, `editor.html` — because of the
   permanent three-way fork, not because there are three registers. **Adding a seventh
