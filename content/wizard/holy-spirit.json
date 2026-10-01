@@ -35,7 +35,7 @@
           "refs": "Acts 2:1-4; Acts 8:14-17; Acts 19:1-6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether Spirit baptism is a second, post-conversion experience evidenced by tongues is a live dispute among evangelicals; cessationist and Reformed critics regard it as resting on a descriptive-as-normative reading of Acts, not as a case of denying anything the creeds define.",
+          "orthodoxy_note": "Disputed: Whether a Christian receives the Spirit fully at conversion, or later has a separate experience called baptism in the Holy Spirit, first shown by speaking in tongues.\nWho: Pentecostal churches such as the Assemblies of God teach the separate experience; Reformed, Baptist, Lutheran and many non-denominational churches say every believer receives the Spirit at conversion.\nAt stake: Whether Christians should seek a further experience of the Spirit.",
           "held_by": [
             {
               "tradition": "pentecostal",
@@ -64,7 +64,7 @@
           "refs": "1 Thess 5:23; Acts 15:8-9",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Entire sanctification as an instantaneous, this-life attainable second work is disputed even within the wider Wesleyan family, and rejected by traditions holding sanctification as a lifelong, never-complete process.",
+          "orthodoxy_note": "Disputed: Whether a believer can have one definite experience after conversion, called baptism in the Holy Spirit by some, that makes them entirely loving and free from sin in this life.\nWho: Holiness churches in the Methodist tradition teach it; Reformed and other Protestant churches say holiness grows gradually and is never complete in this life. Pentecostals use the phrase differently.\nAt stake: Whether to seek a moment of complete holiness or expect slow growth.",
           "held_by": [
             {
               "tradition": "methodist",
@@ -168,7 +168,7 @@
           ]
         }
       ],
-      "learn_note": "Both Pentecostal and holiness readings use the same phrase, baptism in the Holy Spirit, for two historically related but distinct experiences: power for witness in the one case, entire sanctification in the other. The vocabulary's shared root in the nineteenth-century holiness movement explains the overlap.",
+      "learn_note": "Key terms: baptism in the Holy Spirit — a New Testament phrase for receiving the Spirit, used differently by churches; second blessing — a definite experience after conversion; entire sanctification — being made fully loving and free from deliberate sin in this life.\nHow it developed: In the 1700s John Wesley taught a second work of grace. By the 1800s holiness preachers such as Phoebe Palmer called it baptism in the Holy Spirit. Pentecostals, from the Azusa Street revival (Los Angeles, 1906), kept the phrase but tied it to power for witness and speaking in tongues.",
       "sources": [
         {
           "label": "Perspectives on Spirit Baptism: Five Views",
@@ -285,7 +285,7 @@
           ]
         }
       ],
-      "learn_note": "The two positions largely mirror the wider disagreement over baptism in the Holy Spirit: whether the Spirit's decisive gift is unmediated and complete at the moment of faith, or completed through a further sacramental act of the church.",
+      "learn_note": "Key terms: seal — in Ephesians, a guarantee of God's promise; chrismation — in Orthodox churches, anointing a newly baptized person with oil, said to give the Spirit's seal; confirmation — the Catholic rite where a baptized person is anointed with oil and receives the Spirit in fullness.\nHow it developed: Ephesians 1:13 says believers are sealed with the Spirit. From the early centuries the church linked this to anointing and laying on of hands after baptism. Many Protestants read the seal as the Spirit himself, given when a person first believes.",
       "sources": [
         {
           "label": "The Holy Spirit",
@@ -405,7 +405,7 @@
           ]
         }
       ],
-      "learn_note": "The debate is often framed as for-or-against the miraculous as such; both positions affirm that God still heals and answers prayer. The actual dispute is narrower: whether the New Testament sign and revelatory gifts specifically continue.",
+      "learn_note": "Key terms: spiritual gifts — abilities the Spirit gives believers, such as tongues, prophecy and healing; cessationist — holds that the miraculous gifts ended with the apostles; continuationist — holds that they still operate today.\nHow it developed: The question grew sharp after Pentecostalism began in the early 1900s. B. B. Warfield's Counterfeit Miracles (1918) is a classic argument that the gifts ended. From the 1960s charismatic renewal brought the gifts into older churches too.\nCommon mix-up: Both sides believe God still heals and answers prayer.",
       "sources": [
         {
           "label": "Are Miraculous Gifts for Today? Four Views",
@@ -482,7 +482,7 @@
           "refs": "1 Cor 14:29; 1 Thess 5:20-21",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether prophecy can be a genuine but fallible, weighable gift, distinct from the canon-forming prophetic office, is disputed among continuationists and cessationists alike; some continuationists themselves reject the fallibility distinction as a novel category.",
+          "orthodoxy_note": "Disputed: Whether Christians today can give prophecy that is a real gift from the Spirit but may contain mistakes and must be tested against Scripture.\nWho: Many non-denominational churches and charismatic Anglicans say yes; Reformed and Baptist cessationists say prophecy ended with the New Testament, and some charismatics reject fallible prophecy.\nAt stake: Whether churches should expect messages from God, and how much weight they carry.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -527,7 +527,7 @@
           ]
         }
       ],
-      "learn_note": "The cessationist and canonical-authority positions reach the same conclusion, that prophecy has ceased, by different arguments: the first appeals broadly to the closing of the canon, the second specifically denies that a fallible, lesser kind of prophecy is a coherent category at all.",
+      "learn_note": "Key terms: prophecy — in the New Testament, a message a believer says the Spirit prompted; canon — the list of books accepted as Scripture; fallible — able to contain mistakes; cessationist — holds that prophecy ended with the New Testament.\nHow it developed: The New Testament shows prophets in the early churches, and Paul tells the Corinthians to weigh what is said (1 Corinthians 14:29). The question grew sharper as Pentecostal and charismatic churches spread in the 1900s. Wayne Grudem's 1988 book argued for fallible congregational prophecy.",
       "sources": [
         {
           "label": "Are Miraculous Gifts for Today? Four Views",
@@ -569,7 +569,7 @@
           "refs": "Acts 2:4; Acts 10:44-46; Acts 19:6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether tongues is the necessary evidence of Spirit baptism, rather than one gift among several, is disputed even among continuationists, including within Pentecostal and charismatic streams themselves.",
+          "orthodoxy_note": "Disputed: Whether tongues is the sign every Spirit-baptized believer will show, or only one gift the Spirit gives to some.\nWho: Pentecostal churches such as the Assemblies of God teach it is the first sign; Catholic, Anglican and many non-denominational charismatics call it one gift among several, and cessationists say it ended with the apostles.\nAt stake: Whether someone who has never spoken in tongues is missing what the Spirit offers every Christian.",
           "held_by": [
             {
               "tradition": "pentecostal",
@@ -673,7 +673,7 @@
           ]
         }
       ],
-      "learn_note": "Tongues is where the Pentecostal movement's own internal diversity is sharpest: classical Pentecostal denominations confessionally require tongues as initial evidence, while charismatic streams the movement gave rise to hold tongues as one gift among several.",
+      "learn_note": "Key terms: tongues — speaking in words the speaker has not learned, taken as Spirit-prompted; initial evidence — the view that tongues is the first sign of being baptized in the Spirit; cessationist — holds that tongues ended with the apostles.\nHow it developed: Acts 2 describes tongues at Pentecost, and Paul discusses them in 1 Corinthians 12–14. Modern Pentecostalism began in the early 1900s, with the Azusa Street revival (Los Angeles, 1906), and made tongues central. From the 1960s charismatic renewal spread tongues into Catholic and Anglican churches as one gift among several.",
       "sources": [
         {
           "label": "Are Miraculous Gifts for Today? Four Views",
@@ -730,7 +730,7 @@
           "refs": "Isa 53:4-5; Matt 8:16-17",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "What is at issue is not whether Christ's atonement has any relation to bodily healing, which is broadly granted, but whether that provision guarantees healing in this life to sufficient faith. Critics, including within Pentecostal ranks, warn that the strong guarantee form shades into Word of Faith teaching that blames the unhealed for insufficient faith, which the classical Pentecostal statement itself does not teach.",
+          "orthodoxy_note": "Disputed: Whether Christ's death guarantees bodily healing in this life to every believer who asks in faith, as it does forgiveness.\nWho: Pentecostal churches such as the Assemblies of God teach this; Catholic, Orthodox and Anglican churches pray for the sick but see healing as God's gift at his discretion; Reformed and Baptist cessationists say miraculous healing ended with the apostles.\nAt stake: Whether people who stay ill are made to feel their faith failed.",
           "held_by": [
             {
               "tradition": "pentecostal",
@@ -823,7 +823,7 @@
           ]
         }
       ],
-      "learn_note": "The sharpest question is not whether God heals, which nearly every position affirms in some form, but whether healing is a guaranteed provision of the atonement to be claimed by faith.",
+      "learn_note": "Key terms: atonement — Christ's death for sin; healing in the atonement — the belief that it also won bodily healing for every believer; anointing of the sick — praying over someone with oil,; cessationist — holds that miraculous healing ended with the apostles.\nHow it developed: James 5 tells church elders to pray over the sick, and Catholic and Orthodox churches keep anointing as a sacrament. In the late 1800s holiness leaders such as A. B. Simpson taught healing in the atonement; Pentecostal churches later wrote it into their statements of faith.",
       "sources": [
         {
           "label": "Are Miraculous Gifts for Today? Four Views",

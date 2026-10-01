@@ -37,7 +37,7 @@
           "refs": "Acts 4:27-28; Eph 1:11; Prov 16:9",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether the will is compatibilist or libertarian is the central Calvinist-Arminian dispute; each side regards the other's reading as compromising either grace or human responsibility.",
+          "orthodoxy_note": "Disputed: Whether a choice is still free when God has made it certain, or only if you could have chosen otherwise.\nWho: This view (Reformed/Presbyterian, most Lutheran, Reformed Baptist churches) says a choice is free if it follows your own desires, even when God has fixed it; Methodist/Wesleyan and Restorationist churches say it must be open.\nAt stake: Whether God's plan covers every choice, and who is responsible when people accept or reject the gospel.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -82,7 +82,7 @@
           "refs": "Deut 30:19; Josh 24:15; Rev 3:20",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics hold that grounding certainty in an undetermined creaturely choice makes God's purposes contingent and his knowledge of the future unaccounted for.",
+          "orthodoxy_note": "Disputed: Whether a person who receives God's grace could still truly say no.\nWho: This view (Methodist/Wesleyan and Restorationist churches) says grace enables a response but does not force it, so a person can resist; Reformed/Presbyterian churches say God's plan makes the response certain, though still freely chosen.\nAt stake: How real a person's own responsibility is, and whether the gospel's invitations and warnings could go unanswered.",
           "held_by": [
             {
               "tradition": "methodist",
@@ -171,7 +171,7 @@
           ]
         }
       ],
-      "learn_note": "The first two positions map the historic Calvinist-Arminian axis using Dordt and Westminster against the Remonstrance and Wesley. Rome's own Thomist-Molinist debate runs orthogonal to that axis, and Orthodoxy's synergism does not map onto it at all.",
+      "learn_note": "Key terms: sovereignty — God's rule over all that happens; compatibilist — a choice is free if it matches your own desires, even when God made it certain; libertarian free will — you could truly have chosen otherwise; synergy — God and people working together.\nHow it developed: In the early 400s Augustine argued, against the monk Pelagius, that people need God's grace even to begin turning to him; bishops meeting at Orange in 529 backed him. In 1618–19 a church assembly at Dordt (Netherlands) rejected Jacobus Arminius's view that people can resist grace.",
       "sources": [
         {
           "label": "Canons of Dordt",
@@ -217,7 +217,7 @@
           "refs": "Rom 9:10-13; Eph 1:4-5",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether election rests on God's will alone or on foreseen faith is the central Calvinist-Arminian dispute; each side regards the other's reading as compromising either grace's freedom or God's justice.",
+          "orthodoxy_note": "Disputed: Whether God chooses who will be saved by his own decision alone, or because he foresees who will believe.\nWho: This view (Reformed/Presbyterian churches) says God's will alone decides, not anything foreseen in the person; Methodist/Wesleyan churches say God chooses those he foresees will believe.\nAt stake: Whether salvation depends wholly on God's grace or partly on the person's response, and how God is just toward those not chosen.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -245,7 +245,7 @@
           "refs": "Rom 8:29; 1 Pet 1:1-2",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics regard grounding election in foreseen faith as making grace dependent on a work distinguishable from grace itself.",
+          "orthodoxy_note": "Disputed: Whether God's choice of who is saved is based on knowing in advance who will believe.\nWho: This view (Methodist/Wesleyan churches, following Jacobus Arminius and John Wesley) says God chooses those he foresees will believe and persevere; Reformed/Presbyterian churches say God's will alone decides, and that foreseen faith would make grace depend on the person.\nAt stake: Whether a person's own response plays any part in why they are chosen.",
           "held_by": [
             {
               "tradition": "methodist",
@@ -273,7 +273,7 @@
           "refs": "Eph 1:4; John 15:1-6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Both classical Calvinists and classical Arminians regard corporate election as failing to answer why some individuals come to be in Christ and others do not, though its proponents consider that question a category error.",
+          "orthodoxy_note": "Disputed: Whether the Bible's \"election\" is mainly God choosing a people in Christ rather than particular individuals.\nWho: This view (Restorationist/Churches of Christ and some non-denominational writers) says people are chosen by being joined to Christ; many Reformed/Presbyterian and Methodist/Wesleyan thinkers reply it does not explain why some come to be in Christ and others do not.\nAt stake: Whether being chosen is first about belonging to Christ's people or God's decision for each person.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -367,7 +367,7 @@
           "citation": "Catechism of the Catholic Church 600, 1037; Council of Trent, Session 6, canon 17; Congregatio de Auxiliis (1597-1607), closed by Paul V without a definition"
         }
       },
-      "learn_note": "This doctrine asks the basis on which God elects, not the mechanism by which he foreknows a free creature's response; that separate question is addressed at divine-foreknowledge, and the Molinist answer to each question is held by overlapping people for related but distinguishable reasons.",
+      "learn_note": "Key terms: election — God choosing people for salvation; unconditional — chosen by God's will alone; conditional — chosen because God foresees they will believe; middle knowledge — God knows what each possible person would freely do in any situation.\nHow it developed: In the early 400s Augustine taught that God's grace, not merit, saves. In 1610 Jacobus Arminius's followers issued the Remonstrance, saying election rests on foreseen faith; a church assembly at Dordt (1618–19) rejected it. In 1588 Luis de Molina proposed middle knowledge; in 1607 the pope let both sides keep their views.",
       "sources": [
         {
           "label": "Canons of Dordt",
@@ -413,7 +413,7 @@
           "refs": "John 10:28-29; Rom 8:38-39; Phil 1:6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether a truly regenerate believer can finally fall away is a sharp dispute between the Calvinist and Arminian streams of the Reformation, each regarding the other's reading of the warning passages as unable to be sustained.",
+          "orthodoxy_note": "Disputed: Whether someone truly born again by the Spirit can still finally lose their salvation.\nWho: This view (Reformed/Presbyterian and Baptist churches) says no: God keeps them, and anyone who walks away was never truly reborn; Methodist/Wesleyan and Anabaptist/Mennonite churches say a true believer can fall away for good.\nAt stake: Whether believers can rest in God's promise to keep them, and how to read the Bible's warnings against falling away.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -453,7 +453,7 @@
           "refs": "Heb 6:4-6; Heb 10:26-29; Ezek 18:24",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Arminian side of the same dispute; Reformed critics hold that it makes final salvation depend on the believer's own continuance rather than on Christ's finished work and promise.",
+          "orthodoxy_note": "Disputed: Whether a believer who is truly reborn can still lose salvation by turning away from God.\nWho: This view (Methodist/Wesleyan and Anabaptist/Mennonite churches) says yes, and takes the Bible's warnings as real; Reformed/Presbyterian and Baptist churches say God keeps true believers, and that such warnings address those who only seemed to believe.\nAt stake: Whether final salvation rests on God's keeping alone or also on the believer continuing in faith.",
           "held_by": [
             {
               "tradition": "methodist",
@@ -492,7 +492,7 @@
           "refs": "1 John 5:16-17; James 5:19-20; Gal 5:4",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "That sanctifying grace can be lost through mortal sin and restored through confession, rather than salvation being either permanently secure or finally forfeited, is rejected by Reformation traditions as resting on a sacramental system they do not accept, while Rome and the East regard the Reformation's alternatives as unable to account for serious, sustained sin in the justified.",
+          "orthodoxy_note": "Disputed: Whether a grave sin can destroy a person's saving grace, and how it is restored.\nWho: This view (Roman Catholic and Eastern Orthodox churches) says yes, and that confession to a priest restores it; most Protestant churches do not use this system, holding either that true believers cannot lose salvation or can lose it through unbelief.\nAt stake: What serious sin does to a Christian's standing with God, and what confession is for.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -521,7 +521,7 @@
           ]
         }
       ],
-      "learn_note": "The dispute is sharpest between the first two positions, which share the Reformation's forensic categories and disagree only about whether the regenerate can lose what was truly given; the third position works within a different, sacramental account of how grace is held and lost, shared in broad shape by Rome and the East despite their other disagreements.",
+      "learn_note": "Key terms: perseverance — staying in faith to the end; apostasy — finally abandoning the faith; regenerate — spiritually reborn; mortal sin — in Catholic teaching, a grave sin that cuts a person off from God's saving grace until forgiven.\nHow it developed: In the 1500s John Calvin taught that God keeps true believers to the end. Followers of Jacobus Arminius left open that believers might fall away; a church assembly at Dordt (1618–19) answered that true believers persevere. Catholic bishops at Trent (1547) taught that grace lost through grave sin is restored through confession.",
       "sources": [
         {
           "label": "Canons of Dordt",
@@ -566,7 +566,7 @@
           "refs": "Rom 8:16; 1 John 5:13; Eph 1:13-14",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether assurance is ordinarily attainable as settled certainty or remains properly conditional is disputed between the Reformed and Wesleyan-Arminian streams, each regarding the other's pastoral counsel as either presumptuous or needlessly anxious.",
+          "orthodoxy_note": "Disputed: Whether a believer can ordinarily be certain now of being saved in the end.\nWho: This view (Reformed/Presbyterian and most Baptist churches) says yes, resting on Christ's promise; Methodist/Wesleyan churches say final certainty depends on continuing in faith, and Catholic and Orthodox churches say it is not given in advance.\nAt stake: Whether Christians are meant to live with settled confidence, and whether doubt is a warning sign.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -600,7 +600,7 @@
           "refs": "Rom 8:16; 2 Pet 1:10; Heb 6:11",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Wesleyan-Arminian side of the same dispute; Reformed critics hold that conditioning assurance on continuance directs faith's confidence toward the self's perseverance rather than toward Christ.",
+          "orthodoxy_note": "Disputed: Whether believers can be sure of present forgiveness but not yet of finally being saved.\nWho: This view (Methodist/Wesleyan churches, following John Wesley) says present assurance is real but final salvation depends on continuing in faith; Reformed/Presbyterian and Baptist churches say final salvation can also be known now, resting on Christ's promise.\nAt stake: Where a Christian's confidence should rest, and whether staying faithful is part of it.",
           "held_by": [
             {
               "tradition": "methodist",
@@ -628,7 +628,7 @@
           "refs": "Phil 2:12; 1 Cor 9:27; 2 Cor 5:10",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Rome and the East regard an infallible advance certainty of final salvation as presumptuous absent special revelation; Reformation traditions regard withholding such certainty as undermining the assurance the gospel promise itself grounds.",
+          "orthodoxy_note": "Disputed: Whether anyone can be certain before death that they will finally be saved.\nWho: This view (Roman Catholic and Eastern Orthodox churches) says a person may know present grace and hope in God's mercy, but not final salvation without special revelation; Reformed/Presbyterian and Baptist churches say believers can be sure of it.\nAt stake: Guarding against overconfidence versus giving believers settled peace.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -657,7 +657,7 @@
           ]
         }
       ],
-      "learn_note": "The three positions track the same fault line as perseverance and apostasy: whether preservation is unconditional and therefore knowable in advance, conditional and therefore held alongside genuine warning, or bound up with a sacramental account of grace that withholds advance certainty on principle.",
+      "learn_note": "Key terms: assurance — confidence that you are saved; presumption — claiming a certainty that is not yours to claim; the Spirit's witness — an inner confirmation, believers say, that God's Spirit gives that they are his children.\nHow it developed: In the 1500s Luther and Calvin taught that believers can be sure of salvation. The Catholic meeting of bishops at Trent (1547) rejected certainty of final salvation without special revelation. In the 1700s John Wesley taught that believers can know present forgiveness through the Spirit's witness while still needing to continue in faith.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
@@ -703,7 +703,7 @@
           "refs": "James 2:14-19; Matt 7:21-23; Luke 9:23-24",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is chiefly an intra-evangelical dispute, sharpened by the 1980s controversy between John MacArthur and the Free Grace movement, over whether repentance and submission belong to the definition of saving faith itself.",
+          "orthodoxy_note": "Disputed: Whether real saving faith always includes repentance and submission to Jesus as Lord, or can be trust in his promise alone.\nWho: This view (Reformed/Presbyterian, most Baptist, non-denominational, Restorationist and Anabaptist churches) says real faith always includes turning from sin; the Free Grace movement says faith is trust alone.\nAt stake: Whether someone who professes faith but shows no change can be counted a Christian.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -765,7 +765,7 @@
           "refs": "Rom 10:9-10; John 3:16; Eph 2:8-9",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "The Free Grace movement associated with Zane Hodges and the Grace Evangelical Society holds this distinct from Lordship salvation; critics, including many within the same Baptist and non-denominational stream, regard it as risking a faith that need not produce any observable fruit.",
+          "orthodoxy_note": "Disputed: Whether saving faith is trust in Christ's promise alone, with repentance and obedience following.\nWho: This view (the Free Grace movement of Zane Hodges and Charles Ryrie, found among some Baptist and non-denominational evangelicals) says faith is trust alone; most Reformed/Presbyterian and Baptist churches say faith includes repentance and submission.\nAt stake: Whether requiring a changed life adds a condition to a free gift, or leaving it out allows faith with no fruit.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -819,7 +819,7 @@
           "citation": "Baptist Faith and Message (2000), Article 4, contrasted with Charles Ryrie, So Great Salvation (1989)"
         }
       },
-      "learn_note": "The controversy is named for John MacArthur's 1988 book and the Free Grace response it provoked from writers such as Zane Hodges and Charles Ryrie; both sides affirm justification by faith alone and dispute only what faith itself necessarily is.",
+      "learn_note": "Key terms: lordship salvation — saving faith includes repentance (turning from sin) and submission to Jesus as Lord; Free Grace — the view that saving faith is trust in Christ's promise, obedience following; justification by faith alone — right with God by trust, not deeds.\nHow it developed: The argument flared in the late 1980s. John MacArthur's 1988 book The Gospel According to Jesus said real faith always includes repentance and submission; Zane Hodges and Charles Ryrie answered in 1989 that faith is trust alone. Both sides affirm justification by faith alone.",
       "sources": [
         {
           "label": "The Gospel According to Jesus",
@@ -866,7 +866,7 @@
           "refs": "Rom 4:1-8; Gal 2:16; 2 Cor 5:21",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Reformation side of the central dispute with Rome over justification, treated by both sides as touching the gospel's own content rather than as a peripheral difference.",
+          "orthodoxy_note": "Disputed: Whether \"justified\" means God declares a sinner righteous because of Christ's righteousness, or actually makes them inwardly righteous.\nWho: This view (Reformed/Presbyterian, Lutheran, Baptist, Methodist/Wesleyan and Anglican churches) says it is a legal declaration, with inner renewal following; the Roman Catholic Church says it also renews the person within.\nAt stake: Whether peace with God rests on Christ's righteousness counted as yours; both sides treat this as touching the heart of the gospel.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -946,7 +946,7 @@
           "refs": "Rom 5:19; Titus 3:5-7; 1 Cor 6:11",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Trent's canons on justification directly anathematise the Reformation's forensic-alone account, and Reformation confessions in turn regard infused righteousness as undermining assurance grounded in Christ's finished work alone; neither side treats this as a peripheral disagreement.",
+          "orthodoxy_note": "Disputed: Whether justification is only God declaring a sinner righteous, or also renewing them inwardly.\nWho: This view (Roman Catholic Church, at the Council of Trent in 1547) says it is one act of forgiveness and inward renewal; Reformed/Presbyterian, Lutheran and other Protestant churches say it is a declaration, with renewal after.\nAt stake: Whether a believer's standing before God rests on Christ's righteousness counted as theirs or on grace working within.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -992,7 +992,7 @@
           ]
         }
       ],
-      "learn_note": "In 1999 the Lutheran World Federation and the Catholic Church signed the Joint Declaration on the Doctrine of Justification, stating a consensus on basic truths while acknowledging that differences in explanation and emphasis remain; the declaration did not settle the question for Reformed and evangelical traditions outside it, nor for every Catholic and Lutheran theologian within them.",
+      "learn_note": "Key terms: justification — how a sinner is made right with God; forensic imputation — a court-style verdict: God counts Christ's righteousness as yours; infused righteousness — grace poured into you so you are actually made righteous; theosis — in Eastern Orthodoxy, sharing God's life.\nHow it developed: From about 1517 Luther taught that sinners are declared righteous by faith alone. Catholic bishops at Trent (1547) answered that it also renews a person inwardly. In 1999 the Lutheran World Federation and the Catholic Church signed a Joint Declaration, stating shared basic truths despite remaining differences.",
       "sources": [
         {
           "label": "Council of Trent",
@@ -1038,7 +1038,7 @@
           "refs": "Titus 3:5; John 3:5; 1 Pet 3:21",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether water baptism is itself the ordinary instrument of the new birth is a central dispute between sacramental and Reformation-symbolic traditions, each regarding the other's reading of John 3 and Titus 3 as seriously mistaken.",
+          "orthodoxy_note": "Disputed: Whether the new birth is given through baptism itself, or comes earlier, through faith, with baptism following.\nWho: This view (Roman Catholic, Eastern Orthodox and Lutheran churches) says baptism is the ordinary means of the new birth, for Lutherans together with faith; Baptist, Pentecostal and Anabaptist churches say it testifies to a birth already given.\nAt stake: What baptism does, whether infants should be baptised, and what is said about those who are unbaptised.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -1088,7 +1088,7 @@
           "refs": "Acts 2:38; Acts 22:16",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This account reaches baptismal regeneration through obedient faith rather than a sacrament working independently of it, a distinct route from the sacramental traditions, and other credobaptist traditions regard tying the new birth to the act of baptism at all as confusing sign and thing signified.",
+          "orthodoxy_note": "Disputed: Whether faith, repentance and baptism together are the point where God forgives and gives the new birth.\nWho: This view (Restorationist/Churches of Christ, following Alexander Campbell) says baptism completes believing obedience; Catholic, Orthodox and Lutheran churches also link new birth to baptism, but as God's act; Baptist and Pentecostal churches say faith comes first.\nAt stake: What a person must do to be forgiven, and whether baptism is required or only a testimony.",
           "held_by": [
             {
               "tradition": "restorationist",
@@ -1117,7 +1117,7 @@
           "refs": "John 3:8; Rom 2:28-29",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the classic Reformed covenantal reading; traditions holding baptism regenerative regard separating the sign this sharply from the Spirit's ordinary work as unsupported by Titus 3 and John 3, and credobaptist traditions in turn read the same texts as unconnected to infant baptism.",
+          "orthodoxy_note": "Disputed: Whether baptism is a sign and seal of a new birth the Spirit gives in his own time, or the means of it.\nWho: This view (Reformed/Presbyterian and evangelical Anglican/Episcopal churches) says baptism signs and seals what the Spirit does; Catholic, Orthodox and Lutheran churches say baptism gives it; Baptist churches say it testifies to a birth already given.\nAt stake: What baptism does, and whether children of believers should be baptised.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -1157,7 +1157,7 @@
           "refs": "John 1:12-13; Eph 2:8-9; Rom 10:9-10",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the Baptist and broader evangelical symbolic reading opposed to every form of baptismal regeneration; sacramental traditions regard separating the sign this sharply from the thing signified as unsupported by the New Testament's own language of washing and new birth.",
+          "orthodoxy_note": "Disputed: Whether baptism only testifies to a new birth already given through faith, or is the means of it.\nWho: This view (Baptist, Pentecostal and Anabaptist/Mennonite churches) says baptism follows faith as public testimony; Catholic, Orthodox and Lutheran churches say it is the means of new birth; Reformed churches say it is a sign and seal.\nAt stake: What baptism does, and whether only those who profess faith should be baptised.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -1192,7 +1192,7 @@
           ]
         }
       ],
-      "learn_note": "This asks what regeneration is and when it occurs, a different question from who is a proper subject of the rite; the obedient-faith position reaches baptismal regeneration by a route distinct from the sacramental traditions, through obedient faith rather than a sacrament held to work independently of it.",
+      "learn_note": "Key terms: regeneration — the \"new birth\" (John 3), when the Spirit makes a person spiritually alive; baptismal regeneration — the belief that this happens through baptism itself; sign and seal — baptism pictures and confirms a gift God gives, rather than causing it.\nHow it developed: From early Christianity the main churches linked the new birth to baptism. In 1525 the Anabaptists (\"re-baptisers\") began baptising only believers, and Reformed churches taught that baptism is a sign and seal. In 1839 Alexander Campbell wrote that faith, repentance and baptism together bring pardon.",
       "sources": [
         {
           "label": "Catechism of the Catholic Church",

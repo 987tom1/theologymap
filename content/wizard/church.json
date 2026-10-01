@@ -35,7 +35,7 @@
           "refs": "1 Tim 2:11-14; 1 Tim 3:1-7; Titus 1:5-9",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Both complementarian and egalitarian readings are held within historic, creedally orthodox churches; the dispute is over the application of apostolic instruction, not over any conciliar definition.",
+          "orthodoxy_note": "Disputed: Whether Paul's words on women teaching in 1 Timothy 2 and 1 Corinthians 14 bind every church for all time, so that only men may be elders (teaching and governing leaders).\nWho: Reformed, Baptist, Anabaptist and many non-denominational churches hold this position; Methodist, Pentecostal and Quaker churches ordain women as elders, and Anglican provinces differ.\nAt stake: Whether a woman called to pastor can lead and teach a congregation.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -92,7 +92,7 @@
           "refs": "Gal 3:28; Rom 16:1-7; Acts 2:17-18",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Both egalitarian and complementarian readings are held within historic, creedally orthodox churches; the dispute is over the application of apostolic instruction, not over any conciliar definition.",
+          "orthodoxy_note": "Disputed: Whether Paul's words on women teaching in 1 Timothy 2 answered a local problem in Ephesus, so that women may be elders (teaching and governing leaders) like men.\nWho: Methodist, Pentecostal and Quaker churches and some Anglican provinces hold this position; Reformed, Baptist, Anabaptist and many non-denominational churches reserve the eldership for men.\nAt stake: Whether a woman called to pastor can lead and teach a congregation.",
           "held_by": [
             {
               "tradition": "anglican",
@@ -163,7 +163,7 @@
           "citation": "The Book of Discipline of the United Methodist Church, para. 304"
         }
       },
-      "learn_note": "The debate is often mislabelled as a debate about whether women can minister at all; every tradition represented here affirms that they do. The actual line is the teaching and governing eldership specifically.",
+      "learn_note": "Key terms: elder — the leader who teaches and helps govern a local church; ordain — formally set apart for church leadership; complementarian — men and women are equal in worth, but the elder's office is reserved for men; egalitarian — every role is open to both\nHow it developed: Methodists ordained women from the 1800s. The two labels came from the late-1980s evangelical debate, when the Council on Biblical Manhood and Womanhood (1987) and Christians for Biblical Equality took opposing sides. In 1998 the Anglican Communion left the decision to each province.\nCommon mix-up: the debate is not whether women may minister at all.",
       "sources": [
         {
           "label": "Danvers Statement",
@@ -373,7 +373,7 @@
           ]
         }
       ],
-      "learn_note": "The three classical categories, episcopal, presbyterian and congregational, describe where final decision-making authority sits; several traditions combine elements of more than one.",
+      "learn_note": "Key terms: episcopal — government by bishops; presbyterian — government by assemblies of elders; congregational — each local church governs itself; connexion — the Methodist name for a linked network of churches under bishops\nHow it developed: The New Testament shows local elders and a council at Jerusalem (Acts 15). Early churches came to be led by a bishop in each city. In the 1500s Calvin and other Reformers replaced bishops with assemblies of elders, Baptists from the early 1600s held that each congregation governs itself, and Methodists formed a connexion in the 1700s.",
       "sources": [
         {
           "label": "The Book of Church Order",
@@ -601,7 +601,7 @@
           "refs": "Eph 4:5; 1 Cor 12:13",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Held by the Quaker tradition and by hyper-dispensationalist groups. It contradicts no creedal article directly, but it sets aside a practice every historic communion has treated as commanded, and the Nicene Creed's confession of 'one baptism for the remission of sins' is read by most traditions as the water rite.",
+          "orthodoxy_note": "Disputed: Whether Christians must still baptise with water, or whether only the inward baptism of the Holy Spirit counts now.\nWho: Quakers and some hyper-dispensationalists (who say water baptism belonged to an earlier era) hold this position; nearly every other church, from Catholic to Pentecostal, baptises with water.\nAt stake: Most churches read the Nicene Creed's \"one baptism for the forgiveness of sins\" as water baptism, so this sets aside a near-universal practice.",
           "held_by": [
             {
               "tradition": "quaker",
@@ -664,7 +664,7 @@
           "citation": "Augsburg Confession, IX; Small Catechism, IV; Large Catechism, Baptism"
         }
       },
-      "learn_note": "The cleanest way to hold this doctrine in mind is as two questions: who is baptised, and what does baptism do. Most traditions answer both together, and the Restorationist stream is the standing proof that the answers are separable.",
+      "learn_note": "Key terms: baptism — the water ritual that marks someone as a Christian; believer's baptism — baptising only people who profess faith; infant baptism — baptising babies of believing families; regeneration — new birth\nHow it developed: The Nicene Creed (381) confesses \"one baptism for the forgiveness of sins\", and infant baptism became normal across Western and Eastern Christianity. In 1525 in Zurich, Swiss Reformers began baptising adults who professed faith; they were called Anabaptists (\"re-baptisers\"). Baptists took up believer's baptism in the early 1600s.",
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
@@ -889,7 +889,7 @@
           ]
         }
       ],
-      "learn_note": "The four positions differ along two questions at once: whether the elements themselves change, and whether Christ's presence is bodily, spiritual, or a matter of remembrance alone.",
+      "learn_note": "Key terms: Lord's Supper (also Communion or Eucharist) — the church meal of bread and wine; substance — what a thing really is, not how it looks; transubstantiation — the bread and wine become Christ's body and blood in substance while looking the same\nHow it developed: Jesus commanded it at the Last Supper. The Fourth Lateran Council (1215), a Western church council, used the word transubstantiation. In the 1500s Luther, Zwingli and Calvin all rejected it but disagreed with each other; Luther and Zwingli met at Marburg in 1529 and failed to agree.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
@@ -1027,7 +1027,7 @@
           ]
         }
       ],
-      "learn_note": "The line between the two positions is not whether discipline happens but who administers it and what act it presupposes: a local covenant among the congregation, or standing before the sacraments administered by the clergy.",
+      "learn_note": "Key terms: covenant — a promise members make to one another and to God; parish — the local area and congregation served by a priest; diocese — a group of parishes under a bishop; discipline — correcting members, and in the end removing them from fellowship\nHow it developed: In medieval Europe nearly everyone baptised in a parish counted as belonging to its church. From the 1500s Anabaptists, then English Separatists and Baptists, formed \"gathered\" churches of professing believers joined by covenant, with discipline run by the congregation.\nCommon mix-up: the difference is not whether churches discipline, but who does it.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",

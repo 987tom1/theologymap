@@ -116,7 +116,7 @@
           ]
         }
       ],
-      "learn_note": "The design question sometimes attached to this doctrine, whether the order of creation is scientifically detectable, is a separate and much newer dispute; it does not bear on whether God made the world out of nothing, which the whole historic church confesses.",
+      "learn_note": "Key terms: ex nihilo — Latin for \"out of nothing\"; creed — a short, agreed statement of Christian belief; council — a gathering of church leaders that settles a disputed question; Fourth Lateran Council — a Catholic council held in 1215.\nHow it developed: From about the 2nd century, Christian writers insisted that God made everything from nothing, against the idea that matter is eternal. The Nicene Creed (381) calls God maker of \"all things visible and invisible\", and the Fourth Lateran Council (1215) said it again.\nCommon mix-up: whether design in nature can be detected by science is a separate, much newer question.",
       "sources": [
         {
           "label": "Nicene-Constantinopolitan Creed",
@@ -312,7 +312,7 @@
           ]
         }
       ],
-      "learn_note": "These five readings are not always mutually exclusive in practice; the cosmic-temple and ancient-polemic readings in particular are frequently combined with each other or with the framework view.",
+      "learn_note": "Key terms: genre — the kind of writing a text is, such as history or poetry; literal — read as plain description of events; framework view — the six days are a tidy literary pattern, not a timetable; ancient Near East — Israel's neighbours, such as Babylon and Egypt.\nHow it developed: Christians have long disagreed on the days. Basil of Caesarea (died 379) read them as ordinary days, while Origen (3rd century) read them non-literally, and Augustine (early 400s) thought God made everything at once. John Walton popularised the cosmic-temple reading in 2009.",
       "sources": [
         {
           "label": "The Lost World of Genesis One",
@@ -389,7 +389,7 @@
           "refs": "Gen 1:1-31; Gen 5; Gen 11:10-32",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether the earth is young is a live and sharp dispute among traditions holding a high view of biblical authority; no ecumenical creed specifies an age for the earth, so the dispute is exegetical and scientific rather than creedal.",
+          "orthodoxy_note": "Disputed: Whether the earth is only thousands of years old, as reading Genesis's six days and family lists straightforwardly suggests, or billions of years old, as geology and astronomy indicate.\nWho: Held by some Baptists, some non-denominational evangelicals and the Lutheran Church–Missouri Synod. Reformed and Roman Catholic churches allow long-age readings.\nAt stake: No creed gives an age, but the answer shapes how literally Christians read Genesis and how far they trust scientific findings.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -435,7 +435,7 @@
           "refs": "Gen 1:1-31; Ps 90:4; 2 Pet 3:8",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Old-earth creationism sits between young-earth creationism and evolutionary creationism and is regarded by critics on each side as either compromising the text or resisting the evidence; no ecumenical creed specifies an age for the earth.",
+          "orthodoxy_note": "Disputed: Whether the earth can be billions of years old while God still made living things, and Adam, by direct acts rather than through evolution.\nWho: Permitted by Reformed churches and the Roman Catholic Church, and held by some non-denominational evangelicals. Young-earth creationists say it bends Genesis; evolutionary creationists say it resists the evidence for common descent.\nAt stake: It tests whether Christians can accept the scientific age of the earth without also accepting evolution.",
           "held_by": [
             {
               "tradition": "reformed",
@@ -475,7 +475,7 @@
           "refs": "Gen 1:1-31; Ps 139:13-16; Job 10:8-12",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Evolutionary creationism is disputed sharply within evangelicalism over how far common descent, including for the human body, can be affirmed without compromising the historicity of Adam and the fall Scripture presupposes; the position itself intends no denial of a historical Adam or the fall, though critics dispute whether the two are compatible in practice.",
+          "orthodoxy_note": "Disputed: Whether God made life, humans included, through evolution over billions of years, and whether that fits a real Adam and fall.\nWho: Held by BioLogos and other non-denominational evangelicals, and permitted by the Roman Catholic Church if God creates each soul directly. Young-earth and old-earth creationists doubt it fits Genesis.\nAt stake: Teaching on sin and rescue through Christ builds on Adam and the fall, so critics ask whether they stay real history.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -500,7 +500,7 @@
           ]
         }
       ],
-      "learn_note": "No historic confession specifies an age for the earth, a fact both young-earth and old-earth holders can accept even as they continue to dispute which exegesis is correct.",
+      "learn_note": "Key terms: young-earth — the earth is thousands of years old; old-earth — it is billions of years old; genealogy — a Bible list of ancestors, such as Adam to Abraham; radiometric dating — measuring rock age from the steady decay of radioactive atoms.\nHow it developed: Many Christian scholars, such as Archbishop James Ussher (1650), added up the genealogies to date creation a few thousand years ago. From the 1800s geology pointed to far greater ages, and many Christians accepted them. Young-earth views were revived and organised by The Genesis Flood (1961).",
       "sources": [
         {
           "label": "Three Views on Creation and Evolution",
@@ -576,7 +576,7 @@
           "refs": "Gen 1:24-25; Gen 2:7",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether the human body specifically must be specially created, rather than descended by an evolutionary process God directed, is a live and sharp dispute among traditions holding a high view of biblical authority; no ecumenical creed addresses the biological mechanism of creation.",
+          "orthodoxy_note": "Disputed: Whether God made each kind of living thing, the human body included, by direct acts, or through evolution from earlier life.\nWho: Held by some Baptists, some non-denominational evangelicals and the Lutheran Church–Missouri Synod. Roman Catholic and Anglican churches permit evolution, and evolutionary creationists hold it.\nAt stake: No creed addresses how God made life, but supporters say Genesis 2, where Adam is formed from dust, and the fall depend on a direct act.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -617,7 +617,7 @@
           "refs": "Gen 2:7; Ps 139:13-16",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This position is disputed by traditions and individuals who hold that special creation of the human body is required by Genesis 2 and by the theological weight the fall places on a historical Adam; it is held here as compatible with, not a denial of, a historical Adam and a real fall.",
+          "orthodoxy_note": "Disputed: Whether evolution is how God made living things, the human body included, while he directly creates each human soul.\nWho: Held by BioLogos and other non-denominational evangelicals; permitted by Roman Catholic (if each soul is created directly by God) and Anglican churches. Special creationists, including some Baptists and the Lutheran Church–Missouri Synod, disagree.\nAt stake: Critics say a real Adam and fall require a specially made body; supporters say both can be kept.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -648,7 +648,7 @@
           ]
         }
       ],
-      "learn_note": "The Roman Catholic position is often mischaracterized as either endorsing or rejecting evolution outright; Humani Generis does neither, permitting the study of the body's evolutionary origin while requiring the immediate creation of each soul.",
+      "learn_note": "Key terms: evolution — the scientific theory that living things change over time; common descent — all life, humans included, shares ancestors; special creation — God made each kind of life directly; encyclical — a formal letter from a pope.\nHow it developed: Charles Darwin published On the Origin of Species in 1859, and Christians have answered it in different ways ever since. Pius XII's encyclical Humani Generis (1950) let Catholics study the body's evolutionary origin, while insisting that God creates each soul directly.",
       "sources": [
         {
           "label": "Four Views on Creation, Evolution, and Intelligent Design",
@@ -719,7 +719,7 @@
           "refs": "Gen 6:17; Gen 7:19-20; 2 Pet 3:5-6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether the flood covered the entire globe is a live and sharp dispute closely tied to the age-of-the-earth dispute above; no ecumenical creed specifies the flood's geographic extent.",
+          "orthodoxy_note": "Disputed: Whether Noah's flood covered the entire earth, as Genesis's \"under the whole heaven\" suggests, or only part of the world.\nWho: Held by some Baptists, some non-denominational evangelicals and the Lutheran Church–Missouri Synod. The Roman Catholic Church does not require it.\nAt stake: No creed settles it, but it ties to the age of the earth and to how literally Genesis's sweeping language is read.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -765,7 +765,7 @@
           "refs": "Gen 6:17; Gen 7:19-20",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Whether the flood was regional rather than global is disputed by traditions holding that the text's universal language requires a worldwide event; no ecumenical creed specifies the flood's geographic extent.",
+          "orthodoxy_note": "Disputed: Whether Noah's flood covered the whole globe or was a real catastrophe across the region Noah knew.\nWho: Held by non-denominational evangelical scholars such as John Walton and Tremper Longman, and permitted by the Roman Catholic Church. Those who say the text's wording requires a worldwide event disagree.\nAt stake: No creed settles it, but it affects how Christians read Genesis and how they relate it to the geological record.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -799,7 +799,7 @@
           "refs": "Gen 9:8-17",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Read in a form that treats the narrative's historical referent as secondary or absent, this position is disputed by traditions holding that the flood, like the rest of Genesis, describes an event that actually happened; held here in a form that affirms a real historical event while locating the text's main purpose in its theology.",
+          "orthodoxy_note": "Disputed: Whether the flood story's main point is its message of judgment and covenant, shaped like other ancient flood stories, rather than the scale of the event.\nWho: Held by some scholars across traditions, not confessed by any church. Those who hold that Genesis reports real events dispute versions treating the history as secondary; this version keeps a real flood.\nAt stake: It asks whether Genesis's message can be separated from its history.",
           "held_by": [],
           "learn_detail": "Held by scholars across several traditions rather than as a confessional position of any registered tradition; usually combined with either the global or regional reading rather than replacing a judgment about historicity altogether.",
           "sources": [
@@ -810,7 +810,7 @@
           ]
         }
       ],
-      "learn_note": "This doctrine is nearly always argued alongside the age of the earth: a global, geology-shaping flood is the primary mechanism young-earth creationism appeals to for reconciling the geological record with a young chronology.",
+      "learn_note": "Key terms: global flood — water covered the whole earth; regional flood — a huge flood across the world as Noah knew it; Epic of Gilgamesh — an ancient Babylonian poem that includes a flood story; covenant — a binding promise from God.\nHow it developed: Ancient Mesopotamian flood stories were recovered in the 1870s, when George Smith announced the Gilgamesh flood tablet (1872), prompting comparison with Genesis 6–9. Young-earth writers revived the global flood as an explanation for geology in The Genesis Flood (1961).\nCommon mix-up: the flood and the age of the earth are often argued together, but they are separate questions.",
       "sources": [
         {
           "label": "The Lost World of the Flood",
@@ -971,7 +971,7 @@
           "refs": "John 2:11; Acts 2:22",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Applied to miracles generally this is a live methodological dispute; applied to the bodily resurrection of Christ specifically it moves outside what the Nicene Creed confesses, since the creed confesses a bodily, historical resurrection, a question treated as settled elsewhere in this map rather than reopened here.",
+          "orthodoxy_note": "Disputed: Whether Bible miracle accounts report events that happened as told, or mainly teach truths about God through symbolic storytelling.\nWho: Held by some scholars, not confessed by any church; Roman Catholic, Eastern Orthodox, Reformed, Baptist, Lutheran and Methodist churches confess miracles as real events. Applied to Christ's bodily resurrection, it conflicts with the Nicene Creed as these churches read it.\nAt stake: Christian faith has always rested on the claim that Jesus really rose.",
           "held_by": [],
           "learn_detail": "Some who hold this position intend it only for miracle accounts other than the resurrection, which they treat as a special, historically anchored case; others apply it consistently, including to the resurrection, which is where the position becomes contested rather than merely a matter of genre.",
           "sources": [
@@ -982,7 +982,7 @@
           ]
         }
       ],
-      "learn_note": "The affirmation that miracles are real divine acts and the recognition that scientific method cannot adjudicate them are compatible and usually held together; they are presented as separate positions here because they answer separate halves of the question this doctrine asks.",
+      "learn_note": "Key terms: miracle — a particular act of God beyond the usual course of nature; methodological naturalism — the scientific rule of looking only for natural causes, without claiming nothing else exists; resurrection — Jesus rising bodily from the dead.\nHow it developed: In 1748 the philosopher David Hume argued that testimony could never be strong enough to establish a miracle. Churches have kept affirming miracles: the First Vatican Council (1870) called them signs of God's revelation, and C. S. Lewis defended them in Miracles (1947).",
       "sources": [
         {
           "label": "Miracles",

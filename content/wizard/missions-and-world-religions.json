@@ -145,7 +145,7 @@
           "refs": "Acts 4:12; John 14:6",
           "equivalence_group": null,
           "orthodoxy": "outside",
-          "orthodoxy_note": "Pluralism as John Hick argued it does not merely widen the scope of salvation; it denies that Jesus Christ is God incarnate, which is what places it outside rather than inside the dispute. That denial contradicts the Nicene-Constantinopolitan Creed of 381 and the Chalcedonian definition of 451, both of which confess one Christ, truly God and truly man. It is included because it is genuinely argued and genuinely held, and a person who holds it should get a map that says so.",
+          "orthodoxy_note": "Disputed: Whether Christ is the only way to God or one of several. Hick's version treats \"God made human\" as metaphor; the Nicene Creed (381) confesses Jesus as true God.\nWho: Pluralists such as John Hick and some liberal Protestant writers vs. Catholic, Orthodox and Protestant churches, which confess Christ as the only mediator.\nAt stake: Pluralists say a loving God is not limited to one path; the churches point to John 14:6.",
           "held_by": [],
           "learn_detail": "Pluralism is most associated with the philosopher John Hick and finds an institutional home in some liberal Protestant currents outside this registry's twelve traditions; it is not the confessional position of any tradition listed here, so held_by is left empty rather than assigned to a body that has not adopted it.",
           "sources": [
@@ -156,7 +156,7 @@
           ]
         }
       ],
-      "learn_note": "The doctrine is stated as settled because the disagreement that actually divides Christians in this domain is not over whether Christ alone saves, which every tradition confesses, but over what that claim implies for those who die never having heard of him.",
+      "learn_note": "Key terms: Exclusivism — salvation comes through Christ alone; pluralism — the major religions are all valid paths to God; mediator — someone who stands between two sides, here God and people; creed — a short statement of core belief that churches share.\nHow it developed: From the first century Christians called Christ the only mediator (Acts 4:12; 1 Timothy 2:5). The creeds of the 4th and 5th centuries fixed who Christ is. In the 1970s the philosopher John Hick argued for pluralism.",
       "sources": [
         {
           "label": "Lausanne Covenant",
@@ -245,7 +245,7 @@
           "refs": "Rom 2:14-16; John 1:9",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Restrictivist critics regard inclusivism as underselling the necessity of hearing that Romans 10 insists on; its Catholic and Orthodox holders regard it as the church's own settled reading of God's mercy toward the invincibly ignorant, not as a concession to religious pluralism.",
+          "orthodoxy_note": "Disputed: Whether someone who never hears of Jesus can be saved by Christ if they sincerely seek God through conscience and creation.\nWho: Catholic teaching (Lumen Gentium 16), most Orthodox, Anglican teaching and some Methodists say yes; Reformed and non-denominational evangelicals holding restrictivism say hearing and believing is necessary (Romans 10). Both say Christ alone saves.\nAt stake: Whether people who never hear are lost, which shapes how urgent mission seems.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -301,7 +301,7 @@
           "refs": "1 Pet 3:18-20; 1 Pet 4:6",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "A minority position defended by some evangelical theologians; most traditions in this registry hold that a person's response to God is fixed at death, and regard this reading of 1 Peter as resting on a disputed exegesis of an unusually obscure text.",
+          "orthodoxy_note": "Disputed: Whether people who died without a real chance to hear the gospel are given one after death.\nWho: Some evangelical theologians, such as Gabriel Fackre, say yes, citing 1 Peter 3:18–20; most churches teach that a person's response to God is settled at death and read that passage differently, for example as Christ's message through Noah.\nAt stake: Whether death is the last chance to respond to God, which shapes views of God's fairness.",
           "held_by": [],
           "learn_detail": "Associated with theologians such as Gabriel Fackre and, in a more cautious form, with the wider question of what 1 Peter 3-4's proclamation to the spirits in prison actually describes; no tradition registered here confesses it, so held_by is left empty.",
           "sources": [
@@ -322,7 +322,7 @@
           "refs": "Rom 10:13-15; Acts 17:26-27",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Molinism's account of divine middle knowledge is itself disputed among evangelicals, particularly by Reformed critics who reject libertarian free will as its precondition; this is a distinct proposal from inclusivism, since it keeps explicit faith necessary and instead answers the question of who gets to hear.",
+          "orthodoxy_note": "Disputed: Whether God's knowledge of what each person would freely choose explains why no one who would have believed the gospel fails to hear it.\nWho: Supporters such as William Lane Craig, across several traditions, say yes; some Reformed critics reject it because it assumes people can choose either way whatever their circumstances.\nAt stake: Whether God can be fair to those who never hear while explicit faith in Christ stays necessary.",
           "held_by": [],
           "learn_detail": "Associated chiefly with William Lane Craig's argument from transworld damnation: rather than asking what happens to someone who never hears, it asks why God would ever leave someone in circumstances where they would have believed had they heard, and answers that in fact he does not. No tradition registered here confesses Molinism as such; it is held by individual theologians working within several of the traditions above.",
           "sources": [
@@ -333,7 +333,7 @@
           ]
         }
       ],
-      "learn_note": "This is the heart of the domain. Inclusivism should be stated in Vatican II's own terms, from Lumen Gentium 16 and Nostra Aetate, and not folded into a generic liberal middle ground. The Molinist position is a distinct answer from inclusivism: it keeps explicit faith in Christ necessary and instead proposes that God's providence ensures no one who would believe is left without the chance to hear, an argument developed by William Lane Craig as the resolution of transworld damnation.",
+      "learn_note": "Key terms: Unevangelised — people who have never heard the gospel; restrictivism — only those who hear and believe in Christ are saved; inclusivism — Christ alone saves, but his work can reach some who never heard of him; Molinism — God knows what each free person would choose in any situation.\nHow it developed: Romans 1–2 and 10 are the main texts. Vatican II, a worldwide meeting of Catholic bishops (1962–65), taught that some who never hear the gospel can be saved. The Spanish theologian Luis de Molina (1535–1600) developed Molinism.",
       "sources": [
         {
           "label": "What About Those Who Have Never Heard? Three Views on the Destiny of the Unevangelized",
@@ -440,7 +440,7 @@
           "refs": "Acts 17:22-28; Matt 5:17",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Fulfilment theology, associated historically with some late-nineteenth and twentieth-century missiologists, is criticised by holders of the general-revelation position as risking an overly positive reading of other religions as stages on a single path to Christ, rather than as simply false or as scattered fragments of general revelation.",
+          "orthodoxy_note": "Disputed: Whether other religions' search for God is a real but incomplete stage that Christ completes, or holds only scattered truth or none.\nWho: Missiologists such as J. N. Farquhar (1913) say Christ completes it; those holding the rays-of-truth view, found in Catholic, Anglican and Reformed teaching, worry this treats religions as steps on one path to Christ.\nAt stake: Whether missionaries build on what people believe or call them to turn from it.",
           "held_by": [],
           "learn_detail": "Associated with missiologists such as J. N. Farquhar's account of Christ as the fulfilment of Hinduism; no tradition registered here confesses this as a formal position, so held_by is left empty.",
           "sources": [
@@ -451,7 +451,7 @@
           ]
         }
       ],
-      "learn_note": "Judaism is treated separately from the other world religions throughout this domain and the corpus, given its unique place as the people to whom the covenants and the promises belong; see the doctrine on Israel and Judaism.",
+      "learn_note": "Key terms: General revelation — what God shows everyone through creation and conscience; common grace — God's kindness to all people, not only believers; fulfilment — other religions' search for God is completed in Christ; Nostra Aetate — Vatican II's 1965 statement on other religions.\nHow it developed: Christians read Paul's Athens sermon (Acts 17) and his warning about sacrifices to demons (1 Corinthians 10) differently. Missionary J. N. Farquhar argued in 1913 that Christ fulfils Hinduism; Nostra Aetate spoke of rays of truth in other religions.",
       "sources": [
         {
           "label": "Nostra Aetate",
@@ -570,7 +570,7 @@
           "refs": "1 Cor 7:17-20; Acts 21:20-24",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is a genuinely contested position within evangelical missiology itself, not simply a mainline departure from an evangelical consensus. Critics, citing the same C1-C6 spectrum, argue that remaining within the C5 category of formal insider identity confuses conversion with syncretism and obscures the confession that Jesus is Lord before the watching community; practitioners hold that it is a Spirit-led application of Paul's own principle that each should remain in the state in which they were called.",
+          "orthodoxy_note": "Disputed: Whether someone from a Muslim or Hindu background can follow Jesus while staying inside their birth community and identity, or should join a separate Christian community.\nWho: Practitioners, including some non-denominational evangelicals, say yes, citing 1 Corinthians 7:17–20; other evangelical missiologists say it blurs confessing Jesus as Lord and risks syncretism, mixing faiths.\nAt stake: Whether staying removes needless barriers to faith or hides what conversion means.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -592,7 +592,7 @@
           ]
         }
       ],
-      "learn_note": "The C1-C6 spectrum, developed by John Travis, is the standard vocabulary in missiology for describing how far a contextualised expression of Christian faith retains or sheds the forms of its surrounding culture and religion, running from C1 forms wholly foreign to the culture through to C6 secret believers with no corporate identity; the insider-movement position corresponds to C5 on that scale.",
+      "learn_note": "Key terms: Contextualisation — adapting how the gospel is presented to fit a culture; C1–C6 spectrum — a six-step scale from C1 (forms wholly foreign to the local culture) to C6 (secret believers with no public community); insider movement — believers who keep a Muslim or Hindu identity while following Jesus (C5).\nHow it developed: The word first appeared in a 1972 report of the Theological Education Fund, which supported training church leaders. Missionary John Travis published the C1–C6 scale in 1998, for Muslim settings; it became the standard way to compare adaptation.",
       "sources": [
         {
           "label": "The C1 to C6 Spectrum",
@@ -682,7 +682,7 @@
           "refs": "Rom 11:28-29",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "No ecumenical creed or conciliar definition addresses whether the church should evangelise Jewish people, and those who hold this position confess the creeds without qualification, so it is a dispute inside historic orthodoxy rather than a departure from it. It is a sharp one: the traditions that reject it regard it as denying the universal necessity of Christ, and those who hold it regard the alternative as denying that God has not revoked his covenant with Israel.",
+          "orthodoxy_note": "Disputed: Whether Jewish people stay in right relationship with God through his covenant with Israel, without faith in Jesus.\nWho: Some mainline Protestant statements say yes, citing Romans 11:29; churches holding that the Great Commission includes Jewish people, such as many Reformed, say all need faith in Christ. No creed settles it.\nAt stake: One side fears denying that Christ is necessary for everyone; the other fears denying that God keeps his promises to Israel.",
           "held_by": [],
           "learn_detail": "Argued chiefly from Romans 11:29 and adopted as an official or semi-official position by some mainline Protestant denominational statements on relations with Judaism; no tradition registered in this corpus holds it, so held_by is left empty rather than assigned by inference.",
           "sources": [
@@ -703,7 +703,7 @@
           "refs": "Rom 11:28-29",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This position affirms that salvation is from Christ while declining institutional mission aimed at Jews specifically, a combination some evangelical critics regard as practically inconsistent with the universal call to proclaim the gospel; its Catholic holders regard it as a considered theological judgment about this one people's unique standing, not a denial of Christ's necessity for salvation.",
+          "orthodoxy_note": "Disputed: Whether the church should run organised missions aimed at Jewish people, as it does for other peoples.\nWho: The Catholic Church, in a 2015 Vatican document, neither conducts nor supports such a mission, while teaching salvation is from Christ; many evangelical churches say Jewish people should be evangelised like everyone else.\nAt stake: Whether this honours God's lasting bond with Israel, or weakens the call to share the gospel with all.",
           "held_by": [
             {
               "tradition": "roman-catholic",
@@ -722,7 +722,7 @@
           ]
         }
       ],
-      "learn_note": "This is the doctrine in the whole corpus where a careless sentence does the most harm: its history includes real persecution of Jewish people carried out in the church's name, and centuries of forced conversion and violence stand behind every position stated here. The doctrine describes what traditions hold rather than adjudicating between them. It asks a distinct, missiological question from last-things' doctrine on Israel and the church, which addresses the eschatological and covenantal relationship between Israel and the church rather than the question of targeted evangelism.",
+      "learn_note": "Key terms: Great Commission — Jesus' command to take the gospel to all nations (Matthew 28:19–20); covenant — a binding promise God made to a people; dual covenant — Jewish people stay right with God through his covenant with Israel, without faith in Jesus.\nHow it developed: Christianity began as a Jewish movement, and Paul wrestled with Israel's place in Romans 9–11. Jewish people long suffered persecution, including forced conversion, by Christians. Vatican II (1965) condemned hatred of Jews; a 2015 Vatican document said the Catholic Church conducts no mission aimed at Jews.",
       "sources": [
         {
           "label": "The Gifts and the Calling of God are Irrevocable",

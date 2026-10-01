@@ -205,7 +205,7 @@
           "citation": "Westminster Larger Catechism, Q&A 17"
         }
       },
-      "learn_note": "Most traditions hold two or more of these readings together, and the three-way split functions here as a teaching typology rather than a live schism. The near-universal agreement that the fall defaced but did not erase the image belongs to the framing shared by every position, not to any one of them.",
+      "learn_note": "Key terms: image of God — humans made to reflect God (Genesis 1:26-27); structural — the image is a built-in capacity like reason; functional — it is a calling to rule creation on God's behalf; relational — it is being made for relationship.\nHow it developed: Early Christian writers mostly explained the image through reason and the soul. In the 1900s, scholars noted that ancient kings set up statues, called images, to show their rule, which fed the functional view, and Karl Barth argued for the relational one.\nCommon mix-up: Most traditions hold two or more of these together.",
       "sources": [
         {
           "label": "Catechism of the Catholic Church",
@@ -336,7 +336,7 @@
           "refs": "Rom 5:12-19; Gen 2:7",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Inside the historic creeds, which say nothing about Adam's biological exclusivity, but a live dispute among evangelicals who read Romans 5 and Genesis as requiring strict descent from one couple alone.",
+          "orthodoxy_note": "Disputed: Whether Paul's teaching that sin entered through Adam requires every human to descend only from Adam and Eve, or whether other people could have lived alongside them.\nWho: Reformed, Lutheran, Catholic, Baptist, Anglican, Orthodox, Methodist and Anabaptist churches have taught sole descent; this view is held by a minority of non-denominational evangelicals and no denomination.\nAt stake: It decides how Christians can keep Adam as a real person while taking modern genetics seriously.",
           "held_by": [
             {
               "tradition": "non-denominational",
@@ -364,7 +364,7 @@
           "refs": "Gen 2:7; Rom 5:12-19",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Does not contradict any ecumenical creed, which is silent on Adam's historicity, but sits against the reading nearly every tradition in this corpus has historically given Romans 5 and Genesis.",
+          "orthodoxy_note": "Disputed: Whether Adam in Genesis 2-3 was a specific historical person, or a figure standing for all humanity in a story about sin.\nWho: Reformed, Lutheran, Catholic, Baptist, Anglican, Orthodox, Methodist and Anabaptist churches have taught Adam was a real person; this view appears in some Bible scholarship, not in any denomination's teaching.\nAt stake: Paul sets Adam beside Christ in Romans 5, so it shapes how Christians explain where sin and death came from.",
           "held_by": [],
           "learn_detail": "No tradition registered in this corpus confessionally or as a majority position holds this reading; it appears in wider biblical scholarship and is included here because it is a live option in the broader evangelical and academic conversation this domain sits within.",
           "sources": [
@@ -393,7 +393,7 @@
           "citation": "National Association of Evangelicals, Statement of Faith, 1943, silent on the mechanics of Adam's descent"
         }
       },
-      "learn_note": "The dispute is often reported as being about evolution as such, but the sharper edge among interpreters who already accept an old earth and common descent is whether Adam's headship requires exclusive biological descent. Humani Generis (1950) remains formally in force for Catholics and requires a single origin for the race, which is why the genealogical reading is a live question inside Catholic scholarship rather than a settled alternative.",
+      "learn_note": "Key terms: sole progenitor — Adam and Eve were the only ancestors of every human; genealogical — they were real, and everyone descends from them, but others may have lived alongside them; literary — Adam stands for humanity in a story.\nHow it developed: Christians long read Adam and Eve as the first couple. After Darwin (1859) and later DNA research, some asked how that fits evolution. In 1950 Pope Pius XII's letter Humani Generis told Catholics they could not hold that other true humans existed who did not descend from Adam.",
       "sources": [
         {
           "label": "Humani Generis",
@@ -543,7 +543,7 @@
         }
       ],
       "tradition_overrides": {},
-      "learn_note": "The three positions agree far more than popular summaries suggest: all affirm universal sinfulness, all affirm the need for God's grace in Christ, and none teaches that human beings are born neutral. The genuine divide is the narrower question of whether guilt itself, and not only a corrupted and mortal condition, is transmitted prior to a person's own will and action.",
+      "learn_note": "Key terms: original sin — the sinful, mortal condition every human is born into because of Adam's fall; guilt — being liable to condemnation; ancestral sin — the Eastern Orthodox name for it, stressing inherited death and corruption.\nHow it developed: Around 400, Augustine of Hippo argued against the monk Pelagius that everyone inherits Adam's guilt as well as a damaged nature. Catholic, Lutheran and Reformed (Presbyterian) churches built on this; Eastern Orthodox churches, shaped by the Greek-speaking East, stress inherited death, not guilt.",
       "sources": [
         {
           "label": "Confession of Dositheus",
@@ -716,7 +716,7 @@
           "refs": "Rom 3:10-12",
           "equivalence_group": null,
           "orthodoxy": "outside",
-          "orthodoxy_note": "Condemned by name at the Council of Carthage (418) and again by the Third Ecumenical Council at Ephesus (431), which anathematized the teaching that grace is not necessary for the will's ability to do good.",
+          "orthodoxy_note": "Disputed: Whether a fallen person can turn to God by their own will, without grace first; early councils saw this as clashing with the creeds' teaching of salvation through Christ.\nWho: Pelagius, a monk around 400, said yes. Councils at Carthage (418) and Ephesus (431) rejected this; Catholic, Orthodox and Protestant churches say grace comes first.\nAt stake: If people can save themselves unaided, Christ's work is not needed for the first step.",
           "held_by": [],
           "learn_detail": null,
           "sources": [
@@ -728,7 +728,7 @@
         }
       ],
       "tradition_overrides": {},
-      "learn_note": "No tradition registered in this corpus holds the Pelagian position; it is included because every other position defines itself against it. Semi-Pelagianism, the claim that an unaided first step toward God is possible before grace responds to it, is sometimes wrongly equated with the Catholic and Orthodox synergistic position above. Trent and the Orthodox doctrine of synergeia both insist grace comes first; what they add to the monergistic and prevenient-grace positions is that the will's own cooperation is part of what faith is, not a separate later stage.",
+      "learn_note": "Key terms: Pelagian — the view of the monk Pelagius that people can choose God by their own will, before any grace; prevenient grace — grace that comes first and makes a person able to respond; monergism — God alone produces faith; synergism — grace and the person's will work together.\nHow it developed: Around 400, Pelagius taught that people can obey God unaided; Augustine said the fall damaged the will. Church councils at Carthage (418) and Ephesus (431) rejected Pelagius. Later, Lutheran and Reformed (Presbyterian) churches taught monergism; Catholic and Orthodox, synergism; Methodists, prevenient grace.",
       "sources": [
         {
           "label": "Canons of the Council of Carthage",
@@ -851,7 +851,7 @@
         }
       ],
       "tradition_overrides": {},
-      "learn_note": "Both readings appeal to the same handful of texts, chiefly 1 Thessalonians 5:23 and Hebrews 4:12, and the dispute is more about how much theological weight those texts can bear than about separate bodies of exegetical evidence. Trichotomy became especially associated with Pentecostal and holiness teaching on the workings of the human spirit in worship, without becoming a matter any tradition here treats as confessionally binding the way it treats justification or the Trinity.",
+      "learn_note": "Key terms: dichotomy — a person has two parts, body and soul, with spirit another word for soul; trichotomy — three parts, body, soul and spirit, the last two being different; soul — a person's inner, non-physical life.\nHow it developed: Both views lean on 1 Thessalonians 5:23 and Hebrews 4:12. A church assembly at Vienne in 1312 taught that one rational soul gives the body its life, the Catholic basis for a two-part view. Trichotomy later became popular in some Pentecostal and holiness teaching; no major tradition makes either a test of faith.",
       "sources": [
         {
           "label": "Foundations of Pentecostal Theology",
@@ -1005,7 +1005,7 @@
         }
       ],
       "tradition_overrides": {},
-      "learn_note": "Because these three frameworks are not different answers to the same question but different questions each tradition treats as the pastorally decisive one, this entry deliberately does not rank them or treat one as a more developed version of another.",
+      "learn_note": "Key terms: age of accountability — when a child can tell right from wrong and answers to God personally; covenant — God's binding promise to his people, which Reformed (Presbyterian) churches say includes believers' children; infant baptism — baptising babies.\nHow it developed: The question sharpened as churches argued over infant baptism and inherited sin, especially after Augustine around 400. In the mid-1600s the Westminster Confession said chosen infants who die are saved. Baptists, Methodists and others say a child is not condemned until old enough to choose. No church names a fixed age.",
       "sources": [
         {
           "label": "Baptist Faith and Message",

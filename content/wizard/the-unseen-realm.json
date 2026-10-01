@@ -128,7 +128,7 @@
           "refs": "Col 1:16; Eph 6:12",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This reading is widely regarded by the historic traditions as abandoning what the creeds and Scripture affirm about a real spiritual realm, treating language they hold to name actual beings as ancient myth.",
+          "orthodoxy_note": "Disputed: Whether the Bible's angels, Satan and demons are real personal beings, or ancient ways of describing impersonal forces such as evil and unbelief.\nWho: Catholic, Orthodox, Reformed and Lutheran statements affirm real spiritual beings; this position comes mainly from modern critical Bible scholarship; no named tradition holds it.\nAt stake: Whether Christians treat evil as having personal agents behind it, and how literally the Bible's picture of the world is taken.",
           "held_by": [],
           "learn_detail": "This reading belongs mainly to modern critical biblical scholarship rather than to any tradition's confession; no registered tradition holds it as a confessional or majority position.",
           "sources": [
@@ -139,7 +139,7 @@
           ]
         }
       ],
-      "learn_note": "The existence of a spiritual realm inhabited by angels and fallen angels is not itself the contested question; the disagreement runs between how much devotional or pastoral attention it warrants and, at the margins, whether the biblical language names real beings at all.",
+      "learn_note": "Key terms: angels — created spiritual beings who serve God; demons — angels who rebelled against God, led by Satan; council — a church-wide meeting of bishops; demythologizing — reading the Bible's spirit language as ancient symbol rather than literal beings\nHow it developed: The Nicene Creed (381), an early statement of faith, calls God maker of all things \"visible and invisible\", and the Fourth Lateran Council (1215) named spiritual and bodily creatures as the two orders God made. In 1941 the German scholar Rudolf Bultmann argued the New Testament's spirit-world should be demythologized.",
       "sources": [
         {
           "label": "Fourth Lateran Council, Canon 1",
@@ -231,7 +231,7 @@
           ]
         }
       ],
-      "learn_note": "This is a live question in Old Testament scholarship, not a confessional dividing line; most traditions have simply never addressed it, and an empty held_by list here reflects that rather than an oversight.",
+      "learn_note": "Key terms: divine council — a heavenly assembly of created spiritual beings under God; \"sons of God\" — a Hebrew phrase some read as heavenly beings and others as people; Psalm 82 — a poem where God judges \"gods\"\nHow it developed: Standard Hebrew copies of Deuteronomy 32:8 say \"sons of Israel\", but a Dead Sea Scrolls copy says \"sons of God\", which fuelled modern debate. John Calvin (1557) read Psalm 82's \"gods\" as human judges. Michael Heiser's The Unseen Realm (2015) brought the council reading to many readers.",
       "sources": [
         {
           "label": "The Unseen Realm",
@@ -308,7 +308,7 @@
           "refs": "Gen 6:1-4; Jude 1:6; 2 Pet 2:4",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This is the oldest attested reading, held by most ante-Nicene Fathers and cited by two New Testament epistles, but it is disputed by later and modern interpreters who regard an angel-human union as theologically or exegetically untenable; no ecumenical council has settled the question.",
+          "orthodoxy_note": "Disputed: Whether the \"sons of God\" who take human wives in Genesis 6 were angels or humans.\nWho: This position says angels, and was common among early Christian writers such as Justin Martyr, Irenaeus and Tertullian; Augustine, Calvin and many Reformed and Baptist writers read them as Seth's descendants. No named church formally adopts it.\nAt stake: How the Bible's strange passages about angels and the flood are read; no church-wide council has settled it.",
           "held_by": [],
           "learn_detail": "This reading is not a modern novelty: it stands behind 1 Enoch, is treated as history in 2 Peter 2:4 and Jude 1:6, and was held by Justin Martyr, Irenaeus, and Tertullian among others, before Augustine's preference for the Sethite reading became dominant in the West.",
           "sources": [
@@ -347,7 +347,7 @@
           ]
         }
       ],
-      "learn_note": "The angelic reading is the oldest attested, not a modern novelty invented by recent scholarship; the Sethite reading became dominant later, chiefly through Augustine's influence, and the divine-king reading is a modern minority proposal within the wider conversation.",
+      "learn_note": "Key terms: sons of God — the Hebrew phrase in Genesis 6:2 whose meaning is disputed; Nephilim — a group in Genesis 6:4, often translated \"giants\"; Watchers — angels in 1 Enoch who leave heaven; Sethite — descended from Seth, Adam's son\nHow it developed: 1 Enoch, an ancient Jewish writing from before Jesus, tells the story with angelic Watchers. Early Christian writers such as Justin Martyr, Irenaeus and Tertullian read it that way. Augustine preferred the Sethite reading, which became dominant in the West.\nCommon mix-up: The angelic reading is not a modern invention.",
       "sources": [
         {
           "label": "1 Enoch, chapters 6-16",
@@ -445,7 +445,7 @@
           "refs": "Mark 5:1-13; Luke 13:11-16",
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "Critics regard any degree of demonisation within a believer as incompatible with the Spirit's indwelling; practitioners who hold this position distinguish it sharply from ownership or possession and regard it as compatible with assurance of salvation.",
+          "orthodoxy_note": "Disputed: Whether a Christian who has the Holy Spirit can be demonised in part of their life, or can only be attacked from outside.\nWho: Pentecostal and non-denominational deliverance circles say yes, in areas not yet yielded to Christ, without losing salvation; Reformed and Baptist writers such as Wayne Grudem say the Spirit's presence rules it out.\nAt stake: Whether struggling believers are helped through deliverance sessions or through prayer, repentance and pastoral care.",
           "held_by": [
             {
               "tradition": "pentecostal",
@@ -497,7 +497,7 @@
           ]
         }
       ],
-      "learn_note": "Some of this disagreement is verbal: the English word 'possessed' suggests ownership, but the underlying Greek daimonizomai need only mean affliction. A practitioner of demonisation-in-part and a critic who insists a believer 'cannot be possessed' may agree on more than the vocabulary suggests.",
+      "learn_note": "Key terms: daimonizomai — the Greek verb in the Gospels for being afflicted by a demon; demon-possessed — the usual English translation, which suggests ownership; demonised — under some degree of demonic influence, without being owned; oppression — attack from outside a person\nHow it developed: The question grew in the 20th century as deliverance ministry spread in Pentecostal and charismatic circles. Frank and Ida Mae Hammond's Pigs in the Parlor (1973) said believers can be demonised; Wayne Grudem (1994) answered that believers can be oppressed but not possessed.\nCommon mix-up: Some of the disagreement is about the word \"possessed\", not the facts.",
       "sources": [
         {
           "label": "Systematic Theology",
@@ -648,7 +648,7 @@
           ]
         }
       ],
-      "learn_note": "Thomas's own map also carries a Territorial spirits node at the fourth tier; this file omits it, leaving open for the main thread whether that finer-grained question belongs in a first map meant for a stranger's first pass rather than a specialist's.",
+      "learn_note": "Key terms: exorcism — a formal church rite commanding a demon to leave; deliverance — Pentecostal and charismatic prayer ministry that frees people from demonic influence; bishop — a senior leader over many congregations; means of grace — ordinary practices like prayer and Scripture through which God works\nHow it developed: The Gospels show Jesus and his apostles casting out demons. Catholic teaching today (Catechism 1673) lets a priest perform a major exorcism only with the bishop's permission. Deliverance as an everyday ministry grew with Pentecostal churches from the early 1900s.",
       "sources": [
         {
           "label": "Catechism of the Catholic Church",

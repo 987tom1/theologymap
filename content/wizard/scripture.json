@@ -145,7 +145,7 @@
           "refs": null,
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This position remains within the creeds' affirmation of Scripture as the word of God, but it rejects the Chicago Statement's framing as the necessary test of fidelity to Scripture, which full-inerrancy holders regard as a serious concession.",
+          "orthodoxy_note": "Disputed: Whether Scripture must be called free of error even in history and science, or is wholly trustworthy without that claim.\nWho: Full-inerrancy holders, such as the Chicago Statement's authors, make it a test of faithfulness; this view, held mainly by individual theologians, says that is a modern standard the Bible never sets.\nAt stake: Whether churches can require inerrancy of teachers, and how to read passages where Scripture and other evidence seem to differ.",
           "held_by": [],
           "learn_detail": "Associated with parts of the neo-orthodox and post-conservative evangelical streams; no tradition registered in this corpus confesses it as a formulary position, so it is included without a held_by entry rather than attached to a tradition it cannot be sourced to.",
           "sources": [
@@ -157,7 +157,7 @@
           ]
         }
       ],
-      "learn_note": "The Chicago Statement (1978) is the reference point for the full-inerrancy position in the English-speaking world; the Lausanne Covenant's phrase 'without error in all that it affirms' is the most widely shared wording across evangelicalism.",
+      "learn_note": "Key terms: inerrancy — Scripture has no errors in anything it affirms; infallibility — Scripture will not fail or mislead (some writers mean something narrower than inerrancy); evangelical — Protestants who stress the Bible's authority and personal faith in Christ.\nHow it developed: In 1978 over 300 evangelical leaders met in Chicago and adopted the Chicago Statement to defend full inerrancy. A worldwide evangelical gathering's Lausanne Covenant (1974) had earlier used the widely shared wording \"without error in all that it affirms\".",
       "sources": [
         {
           "label": "Chicago Statement on Biblical Inerrancy",
@@ -292,7 +292,7 @@
           ]
         }
       ],
-      "learn_note": "Framed as `settled` because the creedal core of the canon — the New Testament and the undisputed Hebrew scriptures — has never been a live dispute within the church; the open question is narrower and concerns the deuterocanonical books specifically.",
+      "learn_note": "Key terms: canon — the official list of books accepted as Scripture; deuterocanonical — seven Old Testament books (plus extra passages in Esther and Daniel) in the ancient Greek Old Testament but not the Hebrew Bible; Septuagint — an ancient Greek translation of the Hebrew Scriptures.\nHow it developed: Many early Christians read the Septuagint, which included these books. In the 1500s Protestant reformers returned to the shorter Hebrew list; in 1546 the Catholic church's meeting at Trent declared the longer list canonical. Eastern Orthodox churches also receive them.",
       "sources": [
         {
           "label": "Council of Trent",
@@ -479,7 +479,7 @@
           ]
         }
       ],
-      "learn_note": "Sufficiency and clarity are closely related but distinct: sufficiency asks whether Scripture needs another authoritative source alongside it; clarity asks whether Scripture, once granted sufficient, can be understood by the ordinary reader without a specially authorised interpreter.",
+      "learn_note": "Key terms: sola scriptura — Latin for \"Scripture alone\": the Bible is the final authority; sacred tradition — the church's handed-down teaching and practice, which Catholics and Orthodox say guides how Scripture is read; continuationist — believing gifts like prophecy continue today.\nHow it developed: In the 1500s Protestant reformers such as Martin Luther made \"Scripture alone\" their rallying cry. In 1546 the Catholic church's meeting at Trent replied that the Gospel is found in written books and unwritten traditions. Eastern Orthodox churches likewise hold that tradition is needed to read Scripture rightly.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
@@ -597,7 +597,7 @@
           ]
         }
       ],
-      "learn_note": null,
+      "learn_note": "Key terms: clarity (or perspicuity) — the belief that Scripture's central message is plain enough for ordinary readers; magisterium — the Catholic church's official teaching authority, the pope and bishops; private judgment — believers interpreting Scripture for themselves.\nHow it developed: In 1525, debating free will, Martin Luther and the scholar Erasmus also clashed over clarity: Erasmus stressed that Scripture is obscure in places, Luther that its message is clear. The Westminster Confession (1646), a Protestant statement of belief, taught clarity; Catholic and Orthodox churches keep church guidance central.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
@@ -737,7 +737,7 @@
           ]
         }
       ],
-      "learn_note": "The wording 'rhema' is used by some charismatic teachers for a word from Scripture applied with immediate personal force; where that usage shades into treating the application itself as a fresh revelation additional to the text, it moves from this doctrine into the sufficiency-of-Scripture question above.",
+      "learn_note": "Key terms: hermeneutics — the methods for interpreting a text; grammatical-historical — reading by a passage's words, grammar, type of writing and original setting; allegorical — reading as pointing to a deeper spiritual meaning; typology — seeing Old Testament events as foreshadowing Christ.\nHow it developed: Early teachers split between Alexandria, where Origen (died about 254) favoured allegory, and Antioch, which stressed the literal and historical sense. In the 1500s Luther and Calvin argued for the plain sense; the Catholic Catechism still teaches four senses, with the literal as foundation.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
@@ -819,7 +819,7 @@
           "refs": null,
           "equivalence_group": null,
           "orthodoxy": "contested",
-          "orthodoxy_note": "This position remains within the creeds and disputes no article of the historic faith directly, but its claim that one seventeenth-century English translation is uniquely authoritative is a minority position within Baptist and Anglican churches, held by some of their number and rejected by most.",
+          "orthodoxy_note": "Disputed: Whether the King James Version is the only fully trustworthy English Bible, or whether faithful translations from the original languages are all legitimate.\nWho: A minority within independent and fundamentalist Baptist churches holds King James Version only; most Baptist, Reformed and Presbyterian, Methodist and Catholic churches accept many translations.\nAt stake: Which Bible a church reads in worship and teaching, and whether modern translations can be trusted as Scripture.",
           "held_by": [
             {
               "tradition": "baptist",
@@ -854,7 +854,7 @@
           "citation": "Baptist Faith and Message (2000), Article I; Peter Ruckman, The Christian's Handbook of Manuscript Evidence (1970)"
         }
       },
-      "learn_note": null,
+      "learn_note": "Key terms: formal translation — stays close to the original wording; dynamic translation — renders the sense in natural modern English; Textus Receptus — \"received text\", the printed Greek New Testament behind the King James Version; critical text — Greek rebuilt by comparing the oldest manuscripts.\nHow it developed: The King James Version (1611) used a Greek text in the line of Erasmus's 1516 edition. In 1881 the Revised Version used a critical text built from older manuscripts, and most modern translations followed it. Some Christians argue the King James Version alone should be trusted.",
       "sources": [
         {
           "label": "Westminster Confession of Faith",
