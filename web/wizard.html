@@ -117,8 +117,10 @@
   /* A real control, not a plain summary link — it is now the only way to the
      framing text, so it has to look pressable. The .wz-ghost look. */
   #q-readmore { align-self: flex-start; }
+  /* inline-flex + centre: under a coarse pointer the 44px floor made an
+     inline-block box with its label stuck to the top. */
   #q-readmore > summary {
-    display: inline-block; align-self: flex-start;
+    display: inline-flex; align-items: center; align-self: flex-start; box-sizing: border-box;
     border: 1px solid var(--field-line); border-radius: var(--r2);
     padding: var(--s2) var(--s3); font: 600 var(--fs-00)/var(--lh-snug) var(--sans);
   }
@@ -295,6 +297,14 @@
 
   .wz-controls { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); }
   .wz-controls > div { display: flex; flex-direction: column; gap: var(--s1); }
+  .wz-tierpick { flex: 1 1 100%; }
+  .wz-tierpick > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline;
+    flex-wrap: wrap; gap: var(--s1) var(--s2); font: var(--fs-00)/var(--lh-ui) var(--sans); }
+  .wz-tierpick > summary::-webkit-details-marker { display: none; }
+  .wz-tierpick > summary strong { font-weight: 700; }
+  .wz-tierpick .wz-change { color: var(--muted); text-decoration: underline; }
+  .wz-tierpick[open] .wz-change { display: none; }
+  .wz-tierpick[open] > summary { margin-bottom: var(--s2); }
 
   .wz-check { display: flex; gap: var(--s2); align-items: flex-start; font: var(--fs-0)/var(--lh-body) var(--serif);
               color: inherit; cursor: pointer; }
@@ -376,6 +386,12 @@
   .wz-area .pg { font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); flex: none; text-align: right; font-variant-numeric: tabular-nums; }
   .wz-area .done { color: var(--ink); }
   .wz-area .btns { display: flex; gap: var(--s2); flex-wrap: wrap; }
+  .wz-area .btns:empty { display: none; }
+  /* The name row is the button that lists the area's questions. */
+  button.top { all: unset; display: flex; align-items: baseline; gap: var(--s2); cursor: pointer; min-height: 32px; }
+  button.top:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  #home-progress[open] > summary { margin-bottom: var(--s3); }
+  #home-progress .wz-stat { margin-bottom: var(--s4); }
 
   /* One rhythm between launchpad blocks, in the stylesheet rather than as
      inline margin-bottoms on three of them. A label stays close to the thing
@@ -385,7 +401,7 @@
   .wz-block { display: flex; flex-direction: column; gap: var(--s2); }
 
   #home-lensrow { display: flex; align-items: center; gap: var(--s2); flex-wrap: wrap; }
-  #home-lensrow .tm-quiet { flex: 1 1 200px; }
+  #home-lensrow { gap: var(--s3); }
 
   .wz-qlist { display: flex; flex-direction: column; gap: var(--s1); }
   /* A row is a <button> now: it opens the question in place rather than
@@ -429,7 +445,7 @@
     <p id="wz-crumb"></p>
   </div>
   <div id="wz-headright">
-    <button id="wz-finish" class="wz-ghost" type="button">Finish here</button>
+    <button id="wz-finish" class="wz-ghost" type="button">Save &amp; stop</button>
   </div>
 </header>
 
@@ -504,12 +520,6 @@
       <div id="who-body"></div>
     </details>
 
-    <label class="tm-quiet">Questions: <select class="wz-level" aria-label="Question set">
-      <option value="light">Light</option>
-      <option value="medium">Medium</option>
-      <option value="heavy">Heavy</option>
-    </select></label>
-
     <div class="wz-nav">
       <button id="q-back" type="button" class="wz-link">Back</button>
       <button id="q-next" type="button" class="wz-primary">Next</button>
@@ -519,49 +529,43 @@
 
 <section id="screen-home" hidden>
   <div class="wz-screen-body">
-    <div class="wz-stat">
-      <div><span id="home-beliefs" class="num"></span><span class="tm-lab">beliefs written</span></div>
-      <div><span id="home-areas" class="num"></span><span class="tm-lab">areas covered</span></div>
-      <div><span id="home-open" class="num"></span><span class="tm-lab">still exploring</span></div>
-      <div><span id="home-remaining" class="num"></span><span class="tm-lab">questions not yet asked</span></div>
-    </div>
-
-    <div class="wz-tier">
-      <p class="tm-lab">Importance spread</p>
-      <div id="home-tierbar"></div>
-      <p id="home-tiercounts" class="tm-quiet"></p>
-      <p class="tm-quiet">Importance: T1 essential to the gospel → T4 a matter of liberty.</p>
-    </div>
-
-    <div id="home-lensrow">
-      <button id="home-lens-btn" class="wz-ghost" type="button">Shown first: —</button>
-      <span class="tm-quiet">Ordering only.</span>
-      <label class="tm-quiet">Questions: <select class="wz-level" aria-label="Question set">
-        <option value="light">Light</option>
-        <option value="medium">Medium</option>
-        <option value="heavy">Heavy</option>
-      </select></label>
-    </div>
-
     <div id="home-full" hidden>
-      <div class="tm-grid wz-cards2">
-        <button id="home-carry" type="button" class="tm-card tm-card-primary tm-cardlink" style="text-align:left">
-          <h3>Carry on</h3>
-          <p id="home-carry-note"></p>
-          <span class="tm-go">Continue →</span>
-        </button>
-        <a id="home-edit" href="/edit" class="tm-card tm-cardlink">
-          <h3>Open the editor</h3>
-          <p>Rewrite anything in your own words, add texts, add beliefs the questions did not cover.</p>
-          <span class="tm-go">Edit →</span>
-        </a>
-      </div>
+      <button id="home-carry" type="button" class="tm-card tm-card-primary tm-cardlink" style="text-align:left">
+        <h3>Carry on</h3>
+        <p id="home-carry-note"></p>
+        <span class="tm-go">Next question →</span>
+      </button>
       <div class="wz-block">
         <p class="tm-lab">Areas</p>
         <div id="home-areas-list"></div>
       </div>
     </div>
 
+    <details class="optional" id="home-progress">
+      <summary>Your progress</summary>
+      <div class="wz-stat">
+        <div><span id="home-beliefs" class="num"></span><span class="tm-lab">beliefs written</span></div>
+        <div><span id="home-areas" class="num"></span><span class="tm-lab">areas covered</span></div>
+        <div><span id="home-open" class="num"></span><span class="tm-lab">still exploring</span></div>
+        <div><span id="home-remaining" class="num"></span><span class="tm-lab">questions not yet asked</span></div>
+      </div>
+      <div class="wz-tier">
+        <p class="tm-lab">Importance spread</p>
+        <div id="home-tierbar"></div>
+        <p id="home-tiercounts" class="tm-quiet"></p>
+        <p class="tm-quiet">Importance: T1 essential to the gospel → T4 a matter of liberty.</p>
+      </div>
+    </details>
+
+    <div id="home-lensrow">
+      <button id="home-lens-btn" class="wz-ghost" type="button" title="Changes the order positions are shown in. Never fills anything in.">Shown first: —</button>
+      <label class="tm-quiet">Questions: <select class="wz-level" aria-label="Question set">
+        <option value="light">Light</option>
+        <option value="medium">Medium</option>
+        <option value="heavy">Heavy</option>
+      </select></label>
+      <a id="home-edit" href="/edit" class="wz-link">Write a belief by hand</a>
+    </div>
   </div>
 </section>
 

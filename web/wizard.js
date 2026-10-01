@@ -220,13 +220,14 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePop()
 
 /* Read more, anchored top-right of its card. Hover is unusable on touch, so
    this is click to open, click outside or Escape to dismiss. */
-function readMoreButton(host, note, sources) {
+function readMoreButton(host, note, sources, lead) {
   const btn = button('wz-more', 'Read more', (ev) => {
     ev.stopPropagation();
     const mine = openPop && openPop.btn === btn;
     closePop();
     if (mine) return;
     const pop = el('div', 'wz-pop');
+    if (lead) pop.appendChild(lead());
     pop.appendChild(explainer(note, sources));
     pop.addEventListener('click', (e) => e.stopPropagation());
     host.appendChild(pop);
@@ -280,6 +281,25 @@ function radioGroup(values, value, ramp, label) {
   if (!items.some(i => i.input.checked) && items.length) items[0].input.checked = true;
   paint();
   return { wrap, get: () => (items.find(i => i.input.checked) || items[0]).v };
+}
+
+/* Importance, folded to one line: the suggested tier is already picked, so
+   most answers never need the six buttons. `change` opens them. Same
+   { wrap, get } shape as radioGroup, so callers swap one for the other. */
+function tierPicker(start) {
+  const g = radioGroup(Core.TIERS, start, true, 'Importance');
+  const det = el('details', 'wz-tierpick');
+  const sum = el('summary');
+  const paint = () => {
+    const v = g.get();
+    sum.textContent = '';
+    sum.append(el('span', 'tm-lab', 'Importance'), el('strong', null, v),
+      el('span', null, TIER_GLOSS[v] || ''), el('span', 'wz-change', 'change'));
+  };
+  g.wrap.addEventListener('change', paint);
+  paint();
+  det.append(sum, g.wrap);
+  return { wrap: det, get: g.get };
 }
 
 function textField(label, value, rows) {
@@ -477,14 +497,11 @@ function answerControls(doctrine, position, kind) {
   const state = {};
   const grid = el('div', 'wz-controls');
 
-  const tierCell = el('div');
-  tierCell.appendChild(labelled('Importance'));
   const startTier = kind === 'open'
     ? ((doctrine.open || {}).tier || doctrine.suggested_tier)
     : ((position && position.tier) || doctrine.suggested_tier);
-  const tier = radioGroup(Core.TIERS, startTier, true, 'Importance');
-  tierCell.appendChild(tier.wrap);
-  grid.appendChild(tierCell);
+  const tier = tierPicker(startTier);
+  grid.appendChild(tier.wrap);
   state.tier = tier;
 
   const confCell = el('div');
@@ -613,7 +630,13 @@ function renderQuestionUnsafe(i) {
     const head = el('div', 'wz-card-h');
     head.appendChild(el('strong', null, position.label));
     card.appendChild(head);
-    card.appendChild(chipRow(position));
+    // Who holds it lives in Read more; only the chosen tradition's own chip
+    // stays on the card, since picking one is asking to see exactly that.
+    if (lens && (position.held_by || []).some(h => h.tradition === lens)) {
+      const r = el('div', 'wz-chips');
+      r.appendChild(chip(lens));
+      card.appendChild(r);
+    }
 
     // The card's own description IS the editable field — there is no second
     // "What I hold" box repeating the same sentence underneath. Unselected,
@@ -653,7 +676,8 @@ function renderQuestionUnsafe(i) {
     // The popover's host is the CARD, not the tools box: .wz-tools is a narrow
     // absolutely-positioned box, so anchoring to it put the popover off the
     // left edge of a phone. .wz-card is position:relative already.
-    toolbox.appendChild(readMoreButton(card, position.learn_detail, position.sources));
+    toolbox.appendChild(readMoreButton(card, position.learn_detail, position.sources,
+      () => chipRow(position)));
 
     host.appendChild(card);
 
@@ -719,11 +743,8 @@ function buildCustomFields(doctrine) {
   wrap.appendChild(hold.wrap);
 
   const grid = el('div', 'wz-controls');
-  const tierCell = el('div');
-  tierCell.appendChild(labelled('Importance'));
-  const tier = radioGroup(Core.TIERS, doctrine.suggested_tier, true, 'Importance');
-  tierCell.appendChild(tier.wrap);
-  grid.appendChild(tierCell);
+  const tier = tierPicker(doctrine.suggested_tier);
+  grid.appendChild(tier.wrap);
   state.tier = tier;
 
   const confCell = el('div');
@@ -921,7 +942,9 @@ function renderAreas() {
     if (!area.total) continue;   // a manifest area with no questions published
     const row = el('div', 'wz-area');
 
-    const top = el('div', 'top');
+    const top = el('button', 'top');
+    top.type = 'button';
+    top.addEventListener('click', () => renderArea(area.id));
     top.appendChild(el('span', 'nm', area.name));
     // "all N answered" only when nothing at all is left — an ignored doctrine
     // is still outstanding, it has just been put aside.
@@ -940,7 +963,6 @@ function renderAreas() {
         if (i >= 0) { returnTo = null; renderQuestion(i); }
       }));
     }
-    btns.appendChild(button('wz-ghost', 'List questions', () => renderArea(area.id)));
     row.appendChild(btns);
     host.appendChild(row);
   }
@@ -1412,7 +1434,7 @@ async function main() {
   paintLensLabels();
 
   $('intro-start').addEventListener('click', () => {
-    if (lens !== null) startQuestions(); else openLens('intro');
+    startQuestions();   // the tradition picker stays one tap away on the launchpad
   });
   $('home-lens-btn').addEventListener('click', () => openLens('home'));
   // Back and Finish here return to wherever the question screen was entered
