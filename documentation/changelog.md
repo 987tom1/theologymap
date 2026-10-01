@@ -459,3 +459,14 @@ phone's root box is 96px. Learn collapses to 14 area headings. The wizard starts
 (tradition picker stays on the launchpad), the launchpad leads with Carry on and the areas, and a
 card's importance is one line with "change". `/edit` opens on its Map, drops "Save & render" and
 the connected/sub lines. Compare puts the importance-vs-suggestion list after the comparison.
+
+**2026-10-01, /learn clarity round.** "Who holds what" is collapsed and sits below The positions,
+its summary carrying the tradition count; the index search also matches tradition names. The
+corpus's `learn_note` (History and terms) and contested/outside `orthodoxy_note` were rewritten for
+newcomers: two-line `Key terms:` / `How it developed:` notes (13 doctrines had none), and
+`Disputed:` / `Who:` / `At stake:` contested notes, each stating the actual disagreement and which
+side the position is on. Builder-facing wording ("Thomas's map", "held_by", "main thread", etc.) was
+scrubbed. Format is `\n`-joined lines in the existing single strings, rendered with
+`white-space: pre-line` — no schema, validator or renderer change, so the byte-identity pair did
+not move. Drafted by Sonnet agents from the corpus, with any added date or attribution
+web-verified or omitted. The old "open by default" note in CLAUDE.md §6 was stale and is fixed.

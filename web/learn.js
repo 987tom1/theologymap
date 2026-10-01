@@ -192,7 +192,8 @@ function renderIndex(corpus) {
       row.dataset.searchText = [
         doctrine.node_title, doctrine.question,
         ...(doctrine.positions || []).map(p => p.label),
-      ].join(' \n ').toLowerCase();
+        ...(doctrine.positions || []).flatMap(p => (p.held_by || []).map(h => (traditionById(corpus, h.tradition) || {}).display_name)),
+      ].filter(Boolean).join(' \n ').toLowerCase();
       row.appendChild(el('span', 'nm', doctrine.node_title));
       const meta = el('span', 'meta');
       meta.appendChild(tierChip(doctrine.suggested_tier));
@@ -366,9 +367,9 @@ async function myOwnAnswer(doctrine) {
   return box;
 }
 
-/* A .lp-section as a <details>, open by default unless `open` is false.
-   "History and terms" and "Sources" stay collapsed:
-   background and bibliography, not what someone opened the page for.
+/* A .lp-section as a <details>, collapsed unless `open` is true.
+   "History and terms", "Who holds what" and "Sources" stay collapsed:
+   background, a long list and bibliography, not what someone opened the page for.
    "Where this is contested" and "The positions" pass open:true — still
    what people came for, just foldable now. The <h2> stays inside the
    <summary> so the page's heading outline is unchanged either way, and
@@ -402,8 +403,8 @@ function contestedSection(positions) {
     dl.appendChild(el('dt', null, p.label));
     const dd = el('dd');
     dd.appendChild(el('span', 'lp-outside',
-      p.orthodoxy === 'outside' ? 'Outside the historic creeds.' : 'Contested.'));
-    if (p.orthodoxy_note) dd.appendChild(document.createTextNode(' ' + p.orthodoxy_note));
+      p.orthodoxy === 'outside' ? 'Outside the historic creeds.' : 'Churches disagree.'));
+    if (p.orthodoxy_note) dd.appendChild(document.createTextNode(p.orthodoxy_note));
     dl.appendChild(dd);
   }
   sec.appendChild(dl);
@@ -434,24 +435,18 @@ async function renderDoctrine(corpus, doctrine) {
   // 3. learn_note, if present — collapsed by default.
   if (doctrine.learn_note) {
     const sec = foldSection('History and terms');
-    sec.appendChild(el('p', 'lp-prose', doctrine.learn_note));
+    sec.appendChild(el('p', 'lp-prose lp-note', doctrine.learn_note));
     host.appendChild(sec);
   }
 
   const positions = orderedPositions(doctrine);
 
-  // 4. who holds what — open by default: for a newcomer, which churches hold
-  // a view is the quickest way into it.
-  const whoSec = foldSection('Who holds what', true);
-  whoSec.appendChild(whoHoldsWhat(corpus, doctrine, positions));
-  host.appendChild(whoSec);
-
-  // 5. where the doctrine is contested, gathered from the positions, ahead of
+  // 4. where the doctrine is contested, gathered from the positions, ahead of
   // the cards themselves. Collapsible now, expanded by default.
   const contested = contestedSection(positions);
   if (contested) host.appendChild(contested);
 
-  // 6. the positions, side by side. Collapsible now, expanded by default.
+  // 5. the positions, side by side. Collapsible now, expanded by default.
   const posSec = foldSection('The positions', true);
   // Long doctrines stack their cards on a phone; a row of jumps saves the scroll.
   if (positions.length >= 3) {
@@ -472,6 +467,15 @@ async function renderDoctrine(corpus, doctrine) {
   for (const position of positions) grid.appendChild(positionCard(doctrine, position));
   posSec.appendChild(grid);
   host.appendChild(posSec);
+
+  // 6. who holds what: after the positions, because its rows name them, and
+  // collapsed because it is the longest block on the page (up to 14 rows).
+  // The count in the summary keeps it findable.
+  const who = whoHoldsWhat(corpus, doctrine, positions);
+  const n = who.querySelectorAll('dt').length;
+  const whoSec = foldSection('Who holds what · ' + n + (n === 1 ? ' tradition' : ' traditions'));
+  whoSec.appendChild(who);
+  host.appendChild(whoSec);
 
   // 7. my own answer, if signed in.
   const mine = await myOwnAnswer(doctrine);
