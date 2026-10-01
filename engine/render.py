@@ -612,6 +612,9 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   }
   .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
     font-weight:700; font-size:var(--fs-0); text-align:center; cursor:default; border-color:var(--ink); }
+  /* A phone's single-sided map runs every area right of the root; 150px of root
+     pushed them past a 360px screen's edge. */
+  @media (max-width:640px) { .mbox-root { width:96px; } }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); border-left:3px solid var(--muted); }
   /* A leaf is always a closed tile now -- title and chips, clamped (150-320px)
@@ -678,8 +681,14 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
 
   /* ---------- header restructure: secondary filters behind a disclosure ---------- */
   .viewrow { display:flex; gap:var(--s4); align-items:center; flex:1 1 auto; min-width:0; }
-  .filtersToggle { display:none; }
-  .secondary { display:contents; }
+  /* Every width: the study filter, hide-unconfirmed and expand/collapse sit
+     behind Filters, so the map's header is one row on a desktop too. */
+  .filtersToggle { display:inline-flex; align-items:center; gap:var(--s1); font:600 var(--fs-00)/var(--lh-tight) var(--sans);
+    border:1px solid var(--field-line); background:var(--panel); color:var(--muted);
+    padding:var(--s2) var(--s3); border-radius:var(--r2); cursor:pointer; }
+  .filtersToggle[aria-expanded="true"] { color:var(--ink); border-color:var(--muted); }
+  .secondary { display:none; width:100%; flex-wrap:wrap; align-items:center; gap:var(--s3); }
+  .secondary.open { display:flex; }
 
   /* ---------- touch tap targets (any coarse pointer, any width) ---------- */
   @media (pointer:coarse) {
@@ -709,6 +718,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
   html.framed h1 { position:absolute; width:1px; height:1px; overflow:hidden;
     clip-path:inset(50%); white-space:nowrap; }
   html.framed header { padding:var(--s3) var(--s4) var(--s2); }
+  html.framed .pagefoot { padding-bottom:var(--s2); }
 
   /* ---------- phone layout ---------- */
   @media (max-width:640px) {
@@ -832,8 +842,8 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
         aria-controls="secondaryControls">Filters &#9662;</button>
     </div>
   </div>
-  <div class="sub">Positions by Ortlund triage tier &middot; tier is how much weight it carries,
-    confidence is how settled it is &middot; a dashed border marks a position inferred and not yet confirmed</div>
+  <div class="sub">Importance is how much a belief matters &middot; certainty is how sure I am
+    &middot; a dashed border marks a belief not yet confirmed</div>
   <div class="bar">
     <div class="viewrow">
       <div class="views" id="views">
@@ -849,7 +859,7 @@ def render_html(nodes: list[dict], verses: "OrderedDict[str, str]") -> str:
         <button data-val="only" aria-pressed="false">Only exploring</button>
         <button data-val="hide" aria-pressed="false">Hide exploring</button>
       </div>
-      <label class="tog"><input type="checkbox" id="hideAssumed"> hide inferred</label>
+      <label class="tog"><input type="checkbox" id="hideAssumed"> hide unconfirmed</label>
       <div class="btnrow">
         <button id="expandAll" type="button">Expand all</button>
         <button id="collapseAll" type="button">Collapse all</button>
@@ -1049,7 +1059,8 @@ function sizeMap() {
   const wide = !matchMedia('(max-width:640px)').matches;
   const foot = wide ? document.querySelector('.pagefoot') : null;
   const footH = foot ? foot.offsetHeight + parseFloat(getComputedStyle(foot).marginTop || 0) : 0;
-  const allowance = wide ? 24 + footH : 0;
+  const framed = document.documentElement.classList.contains('framed');
+  const allowance = wide ? (framed ? 0 : 24) + footH : 0;
   wrap.style.height = Math.max(240, window.innerHeight - head.offsetHeight - allowance) + 'px';
 }
 

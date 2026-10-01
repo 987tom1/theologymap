@@ -174,6 +174,9 @@
   }
   .mbox-root { width:150px; background:var(--ink); color:var(--bg); font-family:var(--serif);
     font-weight:700; font-size:14.5px; text-align:center; cursor:default; border-color:var(--ink); }
+  /* A phone's single-sided map runs every area right of the root; 150px of root
+     pushed them past a 360px screen's edge. */
+  @media (max-width:640px) { .mbox-root { width:96px; } }
   .mbox-domain { min-width:140px; max-width:min(240px, 80vw); font:600 var(--fs-000)/var(--lh-ui) var(--sans);
     color:var(--muted); border-left:3px solid var(--muted); }
   .mbox-leaf { min-width:150px; max-width:min(320px, 86vw); border-left:3px solid var(--tier, var(--line)); }

@@ -126,6 +126,8 @@
     this.panel = container.querySelector('.map-panel');
     this.panelTitle = container.querySelector('.mp-title');
     this.panelBody = container.querySelector('.mp-body');
+    this.resetBtn = container.querySelector('.map-reset');
+    this.hint = container.querySelector('.maphint');
     container.querySelector('.map-reset').addEventListener('click', () => { this._touched = false; this.needsCenter = true; this.redraw(); });
 
     this._bindClicks();
@@ -688,6 +690,10 @@
     const t = `translate(${this.panX}px, ${this.panY}px) scale(${this.zoom})`;
     this.panzoomEl.style.transform = t;
     this.panzoomEl.style.setProperty('--zoom', this.zoom);
+    // At home there is nothing to reset, and once the map has been moved the
+    // hint has done its job -- either way one of them sits over a tile.
+    this.resetBtn.hidden = !this._touched;
+    this.hint.hidden = this._touched;
     // The grid used to be painted on this.wrap, which never transforms, while
     // .map-panzoom scaled and translated inside it -- so panning slid tiles
     // across a stationary grid and zooming grew them over a fixed one.
