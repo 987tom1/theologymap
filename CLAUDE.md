@@ -325,7 +325,10 @@ file**; `manifest.json` records `corpus_sha256` for that reason.
   (opening its area); only a live search hiding the target falls back to the Domain view.
   **Expand all on the Map view opens every area**, not every belief. The first paint and
   Reset view put the root centred when two-sided and 16px from the left when single-sided
-  (`MapView.homePan`); until the person pans, zooms, taps or a caller calls `select()`, a
+  (`MapView.homePan`); two-sided also zooms to fit the tree's height, clamped 0.6–1×
+  (2026-10-01). **Reset view is hidden until the map has been moved, and the hint hides once
+  it has** — both follow `_touched` in `_applyPanZoom`. On a phone the root box is 96px, not
+  150px, so the single-sided column fits a 360px screen. Until the person pans, zooms, taps or a caller calls `select()`, a
   size change re-homes it. Opening an area by tap pans its first three beliefs into view
   (`_revealArea`). Spec and plan:
   `docs/superpowers/specs/2026-09-23-phone-map-panel-and-outline-design.md`.
@@ -348,10 +351,13 @@ and belief open (a `printing` flag render() reads — the stored sets are never 
 restores. The print stylesheet is A3 (`@page { size: A3; margin: 12mm }`) and
 tier chips carry `print-color-adjust:exact`.
 
+**Every width (2026-10-01):** the study filter, hide-unconfirmed and expand/collapse sit behind
+the "Filters" toggle, so the desktop map header is one row too; search stays beside it there.
+
 **Phone (below 640px) — map-first, phase 1.5:** the header is **one row**, the view switcher
 and a "Filters" toggle (a CSS grid over the existing markup via `display:contents` — no node
 moves). The `h1` is visually hidden; **search lives inside the Filters disclosure** with study
-filter, hide-inferred and expand/collapse, and the toggle shows a dot while a search is live.
+filter, hide-unconfirmed and expand/collapse, and the toggle shows a dot while a search is live.
 Kicker, subtitle and tier legend hidden. `#mapwrap` loses its border and `sizeMap()` its 24px
 allowance, and **a `ResizeObserver` on the header calls `sizeMap()`** — without it the canvas
 kept the height it was given while Filters was open, and every phone search left the map a
@@ -420,7 +426,10 @@ first thing a person does is write what they hold; classifying it comes second.
 
 **Every visible string in `editor.html`'s markup is the `file://` tool's wording.** Anything
 hosted-specific belongs in the `if (HOSTED)` branch, not in the HTML — the hosted branch
-rewrites the title, subtitle, "open the map" link and the empty-state sentence.
+rewrites the title, "open the map" link and the empty-state sentence, hides the subtitle,
+labels Preview "Copy as text", leaves the file-status line empty and opens on the Map tab.
+Hosted has no Render button (`storage-hosted.js` `buttons.render: false`) — it only opened a
+preview tab, which `/view` already is.
 
 **Autosave is hosted-only.** 1200 ms idle debounce, 15 s forced-flush ceiling, flush on
 `visibilitychange → hidden`, best-effort `sendBeacon` on `beforeunload`. **The local
@@ -502,16 +511,16 @@ against the page URL from an inline classic script. Nothing else may lean on it.
 
 | URL | Serves |
 |---|---|
-| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in; success lands on `/wizard`. A `requireUser` redirect (`/wizard`, `/compare`, `/history` while signed out) lands on `/#signin` with the reason shown beside the form, focused on Create account. The nav's plain "Sign in" link is also `/#signin` but carries no stashed reason, so it hides the note and focuses Sign in instead — a returning member should not type into Create account. The "Get started" tiles and buttons land on `/#signup`, which always shows the pitch and focuses Create account. |
+| `/` | `web/landing.html` — the front door, **and the only sign-in / create-account screen**. Forms under `#signin`, hidden when signed in, **one at a time** (`showForm`; each links to the other via `#signin`/`#signup`); success lands on `/wizard`. Signed out it leads with one sentence and the three cards, "How it works" closed; signed in, both are removed. A `requireUser` redirect (`/wizard`, `/compare`, `/history` while signed out) lands on `/#signin` with the reason shown beside the form, focused on Create account. The nav's plain "Sign in" link is also `/#signin` but carries no stashed reason, so it hides the note and focuses Sign in instead — a returning member should not type into Create account. The "Get started" tiles and buttons land on `/#signup`, which shows Create account and focuses it. |
 | `/thomas` | redirects (307, temporary) to `/view?name=Thomas` — one hosted way to view a map; `theology-map.html` stays the offline file |
 | `/edit` | `engine/editor.html` in hosted mode |
 | `/gallery` | `web/gallery.html` — public maps |
-| `/view?name=` | `web/view.html` — read-only render + Export HTML. Keyed by **name**, not row id; names are unique on `lower(name)`. |
+| `/view?name=` | `web/view.html` — read-only render + Download (the HTML export). Keyed by **name**, not row id; names are unique on `lower(name)`. |
 | `/view?tradition=` | the same page rendering a **generated tradition map**, with a standing line saying it is a generated summary, not a person's map |
 | `/admin` | `web/admin.html` |
 | `/history` | `web/history.html` — the caller's own earlier versions, and Restore. Nothing else. |
-| `/wizard` | `web/wizard.html` — the launchpad and the questions. Signed-out visitors go to `/`. |
-| `/learn` | `web/learn.html` — the by-doctrine reference surface. `?doctrine=<id>` is the page that matters; `?tradition=<id>` its transpose. Works signed out. |
+| `/wizard` | `web/wizard.html` — the launchpad and the questions. Signed-out visitors go to `/`. "Start with the first question" goes straight to question 1; the tradition picker is reached from the launchpad's "Shown first" only. The launchpad leads with Carry on and the Areas (each row is the button that lists its questions); stats and the tier bar fold into "Your progress". On a card, Importance is one line (`tierPicker`, a `<details>` over the six radios) and tradition chips live in Read more, except the chosen tradition's own. |
+| `/learn` | `web/learn.html` — the by-doctrine reference surface. `?doctrine=<id>` is the page that matters; `?tradition=<id>` its transpose. Works signed out. The index is 14 collapsed area `<details>`; search opens the areas it hits. "Who holds what" is open by default. |
 | `/compare` | `web/compare.html` — my map against a tradition or another member. `?tradition=`, `?name=`, `?doctrine=` skip the picker. Signed in only. |
 
 **`/app` no longer exists.** Anything still redirecting to it is stale; the signed-out
@@ -572,12 +581,14 @@ marks the page current** — it points at a region, not a destination — which 
 
 `mount(pageTitle, actions = [], opts = {})` takes an optional array of built elements for a
 right-aligned header actions row. `/view` is the one caller that passes any, and the one that
-passes `{ compact: true }`: below 640px the kicker goes, the title truncates beside a `⋯`
+passes `{ compact: true }`: below 640px the title truncates beside a `⋯`
 **disclosure** (`.tm-menubtn`, `aria-expanded`, toggling `.menu-open`), and the actions and nav
 rows stay hidden until it opens. A disclosure, not a popover — nothing moves between DOM
 parents, so the signed-in `⋯` popover keeps working inside it. **The nav folds away on map
 screens only** (Thomas, 2026-09-23); no other page passes `compact`. `engine/editor.html` has
-the same shape by hand (`#editorMenuBtn`, `header.menu-open`).
+the same shape by hand (`#editorMenuBtn`, `header.menu-open`). **From 860px the title, nav and
+actions share one row** — CSS only, `.tm-chrome-titlerow { display:contents }` plus `order`; no
+DOM moves. `/edit`'s own header is not part of this (the header fork, §8).
 
 **The header shares the page's column** (2026-09-23). `.tm-chrome`'s inline padding is
 `max(var(--s5), calc((100% - 1200px) / 2))` — the left edge of `body.tm-page main`'s 1200px
@@ -701,7 +712,7 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
 - **The `is_public` asymmetry in `api/render.py` is deliberate.** The `name` branch checks it;
   the **`user_id` branch must not.** The id is a save-authorising secret, and guarding it locks
   an owner out of their own unlisted map — which happened, silently, to every unlisted map and
-  its Export HTML. `api/map.py` documents the same rule from the other side. **Making the two
+  its Download (HTML export). `api/map.py` documents the same rule from the other side. **Making the two
   branches "consistent" reopens the bug.**
 - **`/view` must not redirect an owner on a 404.** The "My map" test is gated on `res.ok` on
   purpose: `/api/render` 404s an **unlisted** map as well as a missing one, so redirecting on
@@ -765,6 +776,9 @@ Each one has been undone or nearly undone at least once. Grouped by what breaks.
   which is how the 44px coarse-pointer floor sat inert on `/wizard` for a whole phase while
   appearing to work in `/edit`. Matters most when snapping page-local values to tokens. §10
   has the full case.
+- **User-facing words are Importance / Certainty / Still exploring (2026-10-01).** The file
+  format, code and data keep `T1`…`T4`, `confidence` and `#study` — only visible labels changed.
+  Renaming the format to match would break every saved map and the parser; don't.
 - **One uppercase register, and it is `.kicker`.** D4 (P7) reduced six label registers to
   one. **Since 2026-10-01 only `render.py`'s offline file carries a kicker** — the hosted
   chrome and `/edit` dropped theirs to save a header row, and their CSS went with them.
