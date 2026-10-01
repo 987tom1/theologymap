@@ -128,7 +128,7 @@
 /* Interactive control boundaries take --field-line. Decorative dividers keep
    --line. Do not merge these two. */
 input[type=text], input[type=search], select, textarea,
-.tm-card, .chip-select, .mfield textarea, .mfield input[type=text] {
+.tm-card, .mfield textarea, .mfield input[type=text] {
   border-color: var(--field-line);
 }
 
@@ -481,7 +481,6 @@ body.tm-page main, body.tm-page .tm-main { padding:var(--s5); max-width:1200px; 
    so the grid fell back to its max-content width -- two 300px tracks, 685px
    wide on a 390px phone. Same trap as /view's iframe (CLAUDE.md section 7). */
 .tm-firstrun { grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); margin-inline:0; }
-.tm-grid .tm-span { grid-column:1 / -1; }
 
 /* A whole card that is itself the control — an <a> in the gallery, a
    role="button" div in first run. Same look either way. */
@@ -492,12 +491,6 @@ a.tm-card-primary:focus-visible { outline-color:var(--bg); }
 
 .tm-prose { max-width:var(--measure); }
 .tm-prose p { margin:0 0 var(--s3); }
-.tm-lead { font:600 var(--fs-0)/var(--lh-body) var(--sans); color:var(--muted); }
-
-/* Set while a launchpad first-run card is mid-request. The real double-click
-   guard is a flag in web/wizard.js (the offers moved there when web/first-run.js
-   and /app were deleted); this is only the visible half of it. */
-.tm-working { opacity:.6; pointer-events:none; cursor: progress; }
 
 /* .wz-pop (web/wizard.html's Read-more popover) is a vertically-scrolling
    container win 4's mask-fade treatment doesn't reach -- a tinted scrollbar
