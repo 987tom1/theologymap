@@ -146,10 +146,27 @@ const { homePan } = MapView;
 
 test('two-sided home centres the root on both axes', () => {
   const root = { x: -60, y: 100, w: 120, h: 40 };
-  assert.deepStrictEqual(homePan(root, { width: 1000, height: 600 }, true, 16), { panX: 500, panY: 180 });
+  assert.deepStrictEqual(homePan(root, { width: 1000, height: 600 }, true, 16), { panX: 500, panY: 180, zoom: 1 });
 });
 
 test('single-sided home pins the root to the left margin, centred vertically', () => {
   const root = { x: 0, y: 100, w: 120, h: 40 };
-  assert.deepStrictEqual(homePan(root, { width: 390, height: 700 }, false, 16), { panX: 16, panY: 230 });
+  assert.deepStrictEqual(homePan(root, { width: 390, height: 700 }, false, 16), { panX: 16, panY: 230, zoom: 1 });
+});
+
+test('two-sided home zooms out to fit a tree taller than the view, centred on it', () => {
+  const root = { x: -60, y: 280, w: 120, h: 40 };
+  // 632px of usable height over an 800px tree -> 0.79
+  const h = homePan(root, { width: 1000, height: 664 }, true, 16, { minY: 0, maxY: 800 });
+  assert.strictEqual(h.zoom, 0.79);
+  assert.strictEqual(h.panX, 500);
+  assert.strictEqual(h.panY, 332 - 400 * 0.79);
+});
+
+test('home never zooms in past 1x, nor out past 0.6x', () => {
+  const root = { x: -60, y: 0, w: 120, h: 40 };
+  assert.strictEqual(homePan(root, { width: 1000, height: 600 }, true, 16, { minY: 0, maxY: 200 }).zoom, 1);
+  assert.strictEqual(homePan(root, { width: 1000, height: 600 }, true, 16, { minY: 0, maxY: 5000 }).zoom, 0.6);
+  // single-sided ignores the extent: a phone column stays readable at 1x
+  assert.strictEqual(homePan(root, { width: 390, height: 600 }, false, 16, { minY: 0, maxY: 5000 }).zoom, 1);
 });

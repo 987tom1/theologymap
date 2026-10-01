@@ -63,9 +63,9 @@ py engine/fetch_verses.py   # fill blank verse text (needs network)
 A change that does **not** intend to alter output must leave `render_markdown` on
 `theology-map.md` hashing to:
 
-- `0f135b8b2a2e50ea15138feff87c9152c2ccef22f07f2a7998c3ae5d84492550` as written by
+- `0cc77b37ce3c759404ea30bed98dec3ae210771c6af2df15972c13e0734202d2` as written by
   `Path.write_text` on Windows (CRLF)
-- `23d7634d4362053b7fb937e91b436c1c9acbfe8e2557485264c82a8501b47f85` LF-normalised (what a
+- `3551e980f33fd07f0064270b42fe607649168df78dfcdfc0b78284714c63d1ef` LF-normalised (what a
   Linux-side or hosted check compares against)
 
 Run the full hashes yourself; the abbreviations above are for recognition only.
@@ -1184,10 +1184,9 @@ Left over from P7, not part of P11's brief: `render.py`'s `dd.rel a` went from a
 `var(--r2)`, the one place in the phase a pill became a rounded rectangle; and `.tm-lead`,
 `.tm-span` and `.chip-select` in `theme.css` still have no call site anywhere (all three were
 already dead before P7, and P7 spent a substitution re-tokenising `.tm-lead`). **P11 gave
-`.tm-working` a `cursor: progress` (small win 14) without resolving its own dead-code status**
-— it stays on this list too, ready for whenever a call site exists. None of these four were
-ever in P11's scope; they are recorded here so the next phase to touch this file doesn't read
-their absence from P11 as an oversight.
+`.tm-working` a `cursor: progress` (small win 14) without resolving its own dead-code status.**
+**All four were deleted 2026-10-01** — still no call site, and a class with none is not
+waiting for one. `dd.rel a` stays a rounded rectangle; that was P7's call, not an oversight.
 
 **P12 shipped 2026-09-18**, six sequential phases from a single bug/improvement list, each
 gated on the full test suite and pushed to `main` on its own. None touched `render_markdown`'s
@@ -1263,11 +1262,14 @@ in `documentation/changelog.md`. **Still open from that round:**
 
 - **Thomas to unlist Test1 and test2 in `/admin`** — they sit in the public gallery beside
   his real map (Test1 is a clone of it). Needs the admin PIN, so no session can do it.
-- **Dragging and zooming inside `/view`'s frame was not verified live** — the walk ran with
-  the Chrome window hidden (`debug.md` rule 30). Unframed, both work. Check with Chrome in
-  front before assuming.
-- **At 100% the two-sided desktop tree is taller than the framed canvas**, so the top and
-  bottom areas open slightly clipped. A fit-to-height home zoom would fix it; not decided.
+
+**Closed 2026-10-01.** Dragging and zooming inside `/view`'s frame verified by a Playwright
+walk (drag pans 1:1 with the grid, wheel zoom stays under the cursor, area and belief taps,
+Reset view) at 360/820/1440, both themes, reduced motion — also on `theology-map.html` from
+`file://` and `/edit`'s Map tab. And the two-sided home view now **fits the tree's height**:
+`homePan` takes the boxes' extent and zooms to fit, clamped to 0.6–1× so the `--zoom` detail
+fade never fires on first paint. Single-sided (phone) stays 1× — one tall column fitted would
+be unreadable.
 
 ---
 

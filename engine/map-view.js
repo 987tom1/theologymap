@@ -528,8 +528,8 @@
 
     if (this.needsCenter) {
       const rect = this.wrap.getBoundingClientRect();
-      const home = homePan(tree, rect, tree.twoSided, 16);
-      this.zoom = 1;
+      const home = homePan(tree, rect, tree.twoSided, 16, { minY, maxY });
+      this.zoom = home.zoom;
       this.panX = home.panX;
       this.panY = home.panY;
       this.needsCenter = false;
@@ -786,14 +786,25 @@
   }
 
   // Where the first paint and Reset view put the map. Two-sided: the root
-  // centred, areas either side. Single-sided (below MAP_TWO_SIDE_BREAK) every
-  // area runs to the right of the root, so centring the root pushed all of
-  // them past the right edge of a phone -- pin the root `margin` px from the
-  // left instead. Vertical centring is the same in both.
-  function homePan(root, rect, twoSided, margin) {
+  // centred, areas either side, zoomed out just enough that the whole tree's
+  // height (`extent`, the boxes' minY/maxY) fits -- at 1x the desktop tree is
+  // taller than /view's frame and opened clipped top and bottom. Never below
+  // 0.6, so the --zoom detail fade (~0.55) never kicks in on first paint.
+  // Single-sided (below MAP_TWO_SIDE_BREAK) every area runs to the right of
+  // the root, so centring the root pushed all of them past the right edge of a
+  // phone -- pin the root `margin` px from the left instead, at 1x: a phone's
+  // one tall column would need a zoom too small to read.
+  function homePan(root, rect, twoSided, margin, extent) {
+    let zoom = 1;
+    let midY = root.y + root.h / 2;
+    if (twoSided && extent) {
+      zoom = Math.min(1, Math.max(0.6, (rect.height - 2 * margin) / (extent.maxY - extent.minY)));
+      midY = (extent.minY + extent.maxY) / 2;
+    }
     return {
-      panX: twoSided ? rect.width / 2 - (root.x + root.w / 2) : margin - root.x,
-      panY: rect.height / 2 - (root.y + root.h / 2),
+      panX: twoSided ? rect.width / 2 - (root.x + root.w / 2) * zoom : margin - root.x,
+      panY: rect.height / 2 - midY * zoom,
+      zoom,
     };
   }
 
