@@ -178,8 +178,13 @@ function renderIndex(corpus) {
   host.textContent = '';
 
   for (const group of groups) {
-    const box = el('div', 'lp-domain');
-    box.appendChild(el('h2', null, group.name));
+    // Collapsed: 14 headings fit a screen, 99 rows did not. Search opens
+    // whichever areas it hits.
+    const box = el('details', 'lp-domain lp-fold');
+    const summary = el('summary');
+    summary.appendChild(el('h2', null, group.name));
+    summary.appendChild(el('span', 'count', ' ' + group.doctrines.length));
+    box.appendChild(summary);
     const rows = el('div', 'lp-rows');
     for (const doctrine of group.doctrines) {
       const row = el('a', 'lp-row');
@@ -210,6 +215,7 @@ function renderIndex(corpus) {
         if (hit) any = true;
       }
       box.hidden = !any;
+      box.open = !!q && any;
     }
   });
 
@@ -361,7 +367,7 @@ async function myOwnAnswer(doctrine) {
 }
 
 /* A .lp-section as a <details>, open by default unless `open` is false.
-   "History and terms", "Sources" and "Who holds what" stay collapsed:
+   "History and terms" and "Sources" stay collapsed:
    background and bibliography, not what someone opened the page for.
    "Where this is contested" and "The positions" pass open:true — still
    what people came for, just foldable now. The <h2> stays inside the
@@ -434,10 +440,9 @@ async function renderDoctrine(corpus, doctrine) {
 
   const positions = orderedPositions(doctrine);
 
-  // 4. who holds what — right below History and terms, collapsed by
-  // default: background on who already holds each stance, not what someone
-  // opened the page for.
-  const whoSec = foldSection('Who holds what');
+  // 4. who holds what — open by default: for a newcomer, which churches hold
+  // a view is the quickest way into it.
+  const whoSec = foldSection('Who holds what', true);
   whoSec.appendChild(whoHoldsWhat(corpus, doctrine, positions));
   host.appendChild(whoSec);
 

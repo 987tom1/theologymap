@@ -22,7 +22,9 @@
   #lp-filter:focus-visible { outline: 2px solid var(--muted); outline-offset: 2px; }
 
   /* ---- doctrine index ---- */
-  .lp-domain { margin-bottom: var(--s5); }
+  .lp-domain { margin-bottom: var(--s1); border-bottom: 1px solid var(--line); }
+  .lp-domain[open] { padding-bottom: var(--s4); }
+  .lp-domain > summary .count { font: var(--fs-00)/var(--lh-ui) var(--sans); color: var(--muted); }
   .lp-domain h2 { font: 400 var(--fs-3)/var(--lh-snug) var(--serif); letter-spacing: -.012em; margin: 0 0 var(--s2); }
   .lp-rows { display: flex; flex-direction: column; gap: var(--s2); }
   .lp-row {
@@ -39,7 +41,6 @@
     font: 600 11px/1 var(--sans); color: #fff;
     padding: 5px 9px 5px 8px; border-radius: var(--r-pill); white-space: nowrap;
   }
-  .lp-tierlegend { font-size: var(--fs-00); margin-top: calc(var(--s2) * -1); }
   .lp-tiernote {
     border-left: 3px solid var(--field-line); background: var(--note);
     padding: var(--s2) var(--s3); margin: 0 0 var(--s3); max-width: var(--measure-wide); border-radius: 0 var(--r2) var(--r2) 0;
@@ -168,11 +169,8 @@
 <main>
 
 <section id="view-index" hidden>
-  <p class="lp-lead">Every doctrine the corpus covers, grouped by domain. Open one to read the positions side by side.</p>
-  <p class="lp-lead lp-tierlegend">The coloured chip on each row is a <strong>suggested</strong> tier — how central that
-    doctrine is usually taken to be, from T1 (the gospel itself) to T4 (a matter of opinion). It is a
-    starting point, not a verdict: traditions reasonably tier the same doctrine differently, and anyone
-    building a map sets their own. Each doctrine page says why it sits where it does.</p>
+  <p class="lp-lead">Every question, the main positions, and who holds them. The coloured chip is a
+    suggested importance, from T1 (the gospel itself) to T4 (a matter of liberty) — a starting point, not a verdict.</p>
   <div class="lp-filter-row">
     <label for="lp-filter">Filter doctrines</label>
     <input id="lp-filter" type="text" placeholder="Search by title, question or position">
