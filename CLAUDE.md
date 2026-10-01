@@ -1015,6 +1015,7 @@ py tests/test_validate_content.py
 py api/_test_lib.py                  # _lib.py's pure helpers
 py tests/check_tradition_maps.py
 py tests/check_generated_map.py
+py tests/check_install.py             # nine hosted pages carry manifest + apple-touch-icon; manifest icons exist
 ```
 
 - **Pass the glob, not the directory.** `node --test tests/` fails on this machine with
